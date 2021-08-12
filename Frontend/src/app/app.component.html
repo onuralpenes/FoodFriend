@@ -1,10 +1,10 @@
 
 	 
-		  <div class="container " style="margin: 0 auto;" id="container" [ngClass]=" flag ? 'right-panel-active' : ''">
-	<div class="form-container sign-up-container ">
+<div class="container " style="margin: 0 auto;" id="container" [ngClass]=" flag ? 'right-panel-active' : ''">
+	<div class="form-container sign-up-container" [ngClass] = "flag ? 'sign-up-container-enable' :'sign-up-container-disable'  ">
 		<form action="#" class="" >
 			<h1>Create Account</h1>
-			<div class="alternate-logins">
+			<div class="alternate-logins col-5">
 				<a href="#" class="social-links"><i class="fa fa-facebook" style="font-size:12px;"></i></a>
 				<a href="#" class="social-links"><i class="fa fa-google" style="font-size:12px;"></i></a>
 			</div>
@@ -21,19 +21,20 @@
 			<button class = "signUpButton" >Sign Up</button>
 		</form>
 	</div>
-	<div class="form-container sign-in-container">
-		<form action="#">
+	<div class="form-container sign-in-container" [ngClass] = "flag ? 'sign-in-container-disable' : 'sign-in-container-enable' ">
+		<form >
 			<h1>Sign in</h1>
 			<div class="alternate-logins">
-				<a href="#" class="social-links"><i class="fa fa-facebook" style="font-size:12px;"></i></a>
-				<a href="#" class="social-links"><i class="fa fa-google" style="font-size:12px;"></i></a>
+				<a href="" class="social-links"><i class="fa fa-facebook" style="font-size:12px;"></i></a>
+				<a href="" class="social-links"><i class="fa fa-google" style="font-size:12px;"></i></a>
 			</div>
 			<span>or use your account</span>
 			<input type="email" placeholder="Email" />
 			<input type="password" placeholder="Password" />
-			<a href="#">Forgot your password?</a>
+			<a href="">Forgot your password?</a>
 			<button class = "signInButton">Sign In</button>
 		</form>
+			<button  (click) = "flag = !flag" class="signUpButtonMobile">Sign Up</button>
 	</div>
 	<div class="overlay-container">
 		<div class="overlay">
