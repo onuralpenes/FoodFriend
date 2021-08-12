@@ -1,15 +1,15 @@
 
 	 
-		  <div class="container " style="margin: 0 auto;" id="container" [ngClass]=" flag ? 'right-panel-active' : ''">
-	<div class="form-container sign-up-container ">
-		<form action="#" class="" >
+<div class="container " style="margin: 0 auto;" id="container" [ngClass]=" flag ? 'right-panel-active' : 'right-panel-inactive'">
+	<div class="form-container sign-up-container" [ngClass] = "flag ? 'sign-up-container-enable' :'sign-up-container-disable'  ">
+		<div>
+			<form action="#" class="" >
 			<h1>Create Account</h1>
-			<div class="alternate-logins">
+			<div class="alternate-logins col-5">
 				<a href="#" class="social-links"><i class="fa fa-facebook" style="font-size:12px;"></i></a>
 				<a href="#" class="social-links"><i class="fa fa-google" style="font-size:12px;"></i></a>
 			</div>
 			<span>or use your email for registration</span>
-
 			<div class="input-group">
 				<input type="text" id="name" required>
 				<span class="bar"></span>
@@ -86,16 +86,24 @@
 			<input type="checkbox"> priv
 
 			<button class = "signUpButton" >Sign Up</button>
+
 		</form>
+		<div class="buttonDiv">
+			<button  (click) = "flag = !flag" class="buttonMobile">Sign In</button>
+		</div>
+		</div>
+		
 	</div>
-	<div class="form-container sign-in-container">
+	<div class="form-container sign-in-container" [ngClass] = "flag ? 'sign-in-container-disable' : 'sign-in-container-enable' ">
+		<div>
 		<form action="#">
 			<h1>Sign in</h1>
 			<div class="alternate-logins">
-				<a href="#" class="social-links"><i class="fa fa-facebook" style="font-size:12px;"></i></a>
-				<a href="#" class="social-links"><i class="fa fa-google" style="font-size:12px;"></i></a>
+				<a href="" class="social-links"><i class="fa fa-facebook" style="font-size:12px;"></i></a>
+				<a href="" class="social-links"><i class="fa fa-google" style="font-size:12px;"></i></a>
 			</div>
 			<span>or use your account</span>
+			
 			<div class="input-group">
 				<input type="email" required>
 				<label>E-mail</label>
@@ -109,11 +117,14 @@
 				<input  type="checkbox" value="remember-me" /> 
 				<label>Remember me</label>
 			</div>
-
-		<a href="#">Forgot your password?</a>
-
-		<button class = "signInButton">Sign In</button>
+			<a href="">Forgot your password?</a>
+			<button class = "signInButton">Sign In</button>
 		</form>
+		<div class="buttonDiv">
+			<button  (click) = "flag = !flag" class="buttonMobile">Sign Up</button>
+		</div>
+		</div>
+		
 	</div>
 	<div class="overlay-container">
 		<div class="overlay">
@@ -130,14 +141,6 @@
 		</div>
 	</div>
 </div>
-
-<footer id="footer">
-        
-	<div class="footer-bottom row">
-			<div class="footer">
-				FOODFRIEND Copyright &copy; All Right Reserved. 
-			</div>
-	</div>
-</footer>
+	  
 
 <router-outlet></router-outlet>
