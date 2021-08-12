@@ -95,7 +95,17 @@ input {
 	margin-right: 20%;
 	margin-top: 2%;
 }
-.signUpButtonMobile{
+.container.right-panel-active {
+	height: 1150px;
+	-webkit-transition: height 1s;
+  	transition: height 1s;
+}
+.container.right-panel-inactive{
+	height: 590px;
+	-webkit-transition: height 1s;
+  	transition: height 1s;
+}
+.buttonMobile{
 	display: none;
 }
 .container {
@@ -108,7 +118,7 @@ input {
 	overflow: hidden;
 	width: 768px;
 	max-width: 100%;
-	height: 650px;
+	height: 580px;
 	
     /*margin-left: 20%;*/
     margin-top: 2%;
@@ -244,30 +254,7 @@ input {
 	width: 40px;
 }
 
-footer {
-    background-color: #222;
-    color: #fff;
-    font-size: 14px;
-    bottom: 0;
-    position: fixed;
-    left: 0;
-    right: 0;
-    text-align: center;
-    z-index: 999;
-}
 
-footer p {
-    margin: 10px 0;
-}
-
-footer i {
-    color: red;
-}
-
-footer a {
-    color: #3c97bf;
-    text-decoration: none;
-}
 body {
 	background: #333;
   }
@@ -317,7 +304,124 @@ body {
   .fa-google {
 	color: rgb(66 133 244);
   }
+  footer {
+	background-color: #222;
+	color: #fff;
+	font-size: 14px;
+	bottom: 0;
+	position: fixed;
+	left: 0;
+	right: 0;
+	text-align: center;
+	z-index: 999;
+  }
+  
+  .check {
+	width: 200px;
+	padding-right: 80px;
+	padding-bottom: 70px;
+  }
+  .check label {
+	padding-left: 10px;
+  }
+  .check input {
+	padding-bottom: 70px;
+  }
+  
+  .Area {
+	width: 370px;
+	height: 120px;
+  }
+  .Box {
+	height: auto;
+	float: left;
+	margin-bottom: 6px;
+	margin-left: 16px;
+	margin-right: -138px;
+	margin-top: 3px;
+  }
+  
+  
+  .input-group {
+	  position: relative;
+	  margin: 40px 0 20px;
+	  margin-bottom: 20px;
+	}
+	.input-group label{
+		margin-left: 30px;
+	}
+	
+	input {
+	  font-size: 15x;
+	  padding: 8px 8px 8x 3px;
+	  display: block;
+	  width: 300px;
+	  border: none;
+	  border-bottom: 1px solid #11914b;
+	  margin-bottom: -70px;
+	  margin-left: 31px;
+	  margin-right: 70px;
+	}
+	
+	input:focus {
+	  outline: none;
+	}
+	
+	label {
+	  color: #999;
+	  font-size: 15px;
+	  font-weight: normal;
+	  position: absolute;
+	  pointer-events: none;
+	  left: 5px;
+	  top: 8px;
+	  margin-top: 15px;
+	  transition: 0.5s ease all;
+	}
+	
+	input:focus ~ label,
+	input:valid ~ label {
+	  top: -25px;
+	  font-size: 12px;
+	  color: #11914b;
+	}
+  
+	body {
+	  margin: 0;
+	  padding: 0;
+	  background-color: #999;
+	}
+	
+	.selectList {
+	  position: absolute;
+	  top: 50%;
+	  left: 50%;
+	  transform: translate(-50%, -50%);
+	}
+	
+	.selectList select {
+	  background-color: #eee;
+	  color: #999;
+	  padding: 12px;
+	  width: 250px;
+	  border: none;
+	  font-size: 15px;
+	  box-shadow: 0 5px 25px, #999;
+	  -webkit-appearance: button;
+	  appearance: button;
+	  outline: none;
+	  margin-top: 55px;
+	  width: 300px;
+	  border: none;
+	  border-bottom: 1px solid #11914b;
+	  margin-bottom: -60px;
+	  margin-right: 37px;
+  }
+
   @media only screen and (min-width: 600px) {
+	form{
+		margin-top: 25%;
+	}
 	.container.right-panel-active .sign-up-container {
 		transform: translateX(100%);
 		opacity: 1;
@@ -327,10 +431,17 @@ body {
   }
 
   @media only screen and (max-width: 600px) {
-	
-	.signUpButtonMobile{
+
+	form{
+		margin-top: 15%;
+	}
+	.buttonDiv{
+		margin-top: 15px;
+	}
+	.buttonMobile{
 		display: block;
 		margin-top: 3px;
+		margin: 0 auto;
 	}
 	.overlay-container{
 		display: none;
