@@ -10,9 +10,6 @@ export class AppComponent {
   title = 'Frontend';
 
   flag: boolean = false;
-  signUpButton = document.getElementById('signUp');
-  signInButton = document.getElementById('signIn');
-  container = document.getElementById('cont');
   
 }
 
