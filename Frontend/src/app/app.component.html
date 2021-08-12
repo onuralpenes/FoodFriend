@@ -9,15 +9,82 @@
 				<a href="#" class="social-links"><i class="fa fa-google" style="font-size:12px;"></i></a>
 			</div>
 			<span>or use your email for registration</span>
-			<input type="text" placeholder="Name" />
-			<input type="email" placeholder="Email" />
-			<input type="password" placeholder="Password" />
+
+			<div class="input-group">
+				<input type="text" id="name" required>
+				<span class="bar"></span>
+				<label>Name</label>
+			</div>
+
+			<div class="input-group">
+				<input type="text" id="surname" required>
+				<span class="bar"></span>
+				<label>Surname</label>
+			</div>
+			<div class="input-group">
+				<input type="email" id="e-mail" required>
+				<span class="bar"></span>
+				<label>E-mail</label>
+			</div>
+			<div class="input-group">
+				<input type="date" id="birthDate" required>
+				<span class="bar"></span>
+				<label>Birthdate</label>
+			</div>
 			
-			<input type="password" placeholder="Password" />
+			<div class="input-group">
+				<div class="selectList">
+					<select name="Gender" id="gender">
+						<option style="display: none;">Gender</option>
+						<option value ="Male">Male</option>
+						<option value ="Female">Female</option>
+						<option value ="Unspecified">Unspecified</option>
+					</select>
+				</div>
+			</div>
 			
-			<input type="password" placeholder="Password" />
-			
-			<input type="password" placeholder="Password" />
+			<div class="input-group">
+				<input type="password" id="password" required>
+				<span class="bar"></span>
+				<label>Password</label>
+			</div>
+			<div class="input-group">
+				<input type="password" id="rePassword" required>
+				<span class="bar"></span>
+				<label>Password Again</label>
+			</div>
+			<div class="input-group">
+				<input type="text" id="phoneNumber" required>
+				<span class="bar"></span>
+				<label>Phone Number</label>
+			</div>
+
+			<div class="Area">
+				<div class="input-group">
+					<input class="Box" type="number" id="height" required>
+					<span class="bar"></span>
+					<label>Height</label>
+					<select name="Type" id="type">
+						<option value ="cm">cm</option>
+						<option value ="ft">ft</option>
+					</select>	
+				</div>
+			</div>
+			<div class="Area">
+				<div class="input-group">
+					<input class="Box" type="number" id="weight" required>
+					<span class="bar"></span>
+					<label>Weight</label>
+				
+				<select name="Type" id="type">
+					<option value ="kg">kg</option>
+					<option value ="lb">lb</option>
+				</select>
+			</div>
+			</div> 
+			<input type="checkbox"> tos
+			<input type="checkbox"> priv
+
 			<button class = "signUpButton" >Sign Up</button>
 		</form>
 	</div>
@@ -29,10 +96,23 @@
 				<a href="#" class="social-links"><i class="fa fa-google" style="font-size:12px;"></i></a>
 			</div>
 			<span>or use your account</span>
-			<input type="email" placeholder="Email" />
-			<input type="password" placeholder="Password" />
-			<a href="#">Forgot your password?</a>
-			<button class = "signInButton">Sign In</button>
+			<div class="input-group">
+				<input type="email" required>
+				<label>E-mail</label>
+			  </div>
+			  <div class="input-group">
+				<input type="password" required>
+				<label>Password</label>
+			</div>
+
+			<div  class="input-group">
+				<input  type="checkbox" value="remember-me" /> 
+				<label>Remember me</label>
+			</div>
+
+		<a href="#">Forgot your password?</a>
+
+		<button class = "signInButton">Sign In</button>
 		</form>
 	</div>
 	<div class="overlay-container">
@@ -50,6 +130,14 @@
 		</div>
 	</div>
 </div>
-	  
+
+<footer id="footer">
+        
+	<div class="footer-bottom row">
+			<div class="footer">
+				FOODFRIEND Copyright &copy; All Right Reserved. 
+			</div>
+	</div>
+</footer>
 
 <router-outlet></router-outlet>
