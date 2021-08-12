@@ -1,8 +1,9 @@
 
 	 
-<div class="container " style="margin: 0 auto;" id="container" [ngClass]=" flag ? 'right-panel-active' : ''">
+<div class="container " style="margin: 0 auto;" id="container" [ngClass]=" flag ? 'right-panel-active' : 'right-panel-inactive'">
 	<div class="form-container sign-up-container" [ngClass] = "flag ? 'sign-up-container-enable' :'sign-up-container-disable'  ">
-		<form action="#" class="" >
+		<div>
+			<form action="#" class="" >
 			<h1>Create Account</h1>
 			<div class="alternate-logins col-5">
 				<a href="#" class="social-links"><i class="fa fa-facebook" style="font-size:12px;"></i></a>
@@ -18,11 +19,19 @@
 			<input type="password" placeholder="Password" />
 			
 			<input type="password" placeholder="Password" />
+			
 			<button class = "signUpButton" >Sign Up</button>
+
 		</form>
+		<div class="buttonDiv">
+			<button  (click) = "flag = !flag" class="buttonMobile">Sign In</button>
+		</div>
+		</div>
+		
 	</div>
 	<div class="form-container sign-in-container" [ngClass] = "flag ? 'sign-in-container-disable' : 'sign-in-container-enable' ">
-		<form >
+		<div>
+		<form action="#">
 			<h1>Sign in</h1>
 			<div class="alternate-logins">
 				<a href="" class="social-links"><i class="fa fa-facebook" style="font-size:12px;"></i></a>
@@ -34,7 +43,11 @@
 			<a href="">Forgot your password?</a>
 			<button class = "signInButton">Sign In</button>
 		</form>
-			<button  (click) = "flag = !flag" class="signUpButtonMobile">Sign Up</button>
+		<div class="buttonDiv">
+			<button  (click) = "flag = !flag" class="buttonMobile">Sign Up</button>
+		</div>
+		</div>
+		
 	</div>
 	<div class="overlay-container">
 		<div class="overlay">
