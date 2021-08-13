@@ -1,0 +1,10 @@
+.space {
+    flex:100%;
+  }
+  button {
+    background-color: whitesmoke;
+    font: 100% Arial;
+    border-width: 0px;
+    border-color: whitesmoke;
+}
+
