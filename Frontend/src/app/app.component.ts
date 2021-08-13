@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, NgModule } from '@angular/core';
+import { AppModule } from './app.module';
 
 import { MatFormFieldModule} from '@angular/material/form-field';
 @Component({
@@ -9,8 +10,5 @@ import { MatFormFieldModule} from '@angular/material/form-field';
 
 export class AppComponent {
   title = 'Frontend';
-
-  
 }
-
 export class FormFieldOverviewExample {}
