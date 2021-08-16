@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-
+import { Component, Input, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-main',
   templateUrl: './main.component.html',
@@ -10,9 +10,18 @@ export class MainComponent implements OnInit {
   toggle(){
     this.sideBar = !this.sideBar;
   }
-  constructor() { }
-
   ngOnInit(): void {
+  }
+  
+
+  @Input() opened = true;
+  name = "Onuralp Enes ÖZ"
+  email = "oz.onuralp@gmail.com";
+  constructor(private router: Router) { 
+    
+  }
+  navigateProfile(){
+    this.router.navigate(['/profile']);
   }
 
 }
