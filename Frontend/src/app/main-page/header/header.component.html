@@ -1,1 +1,46 @@
-<p>header works!</p>
+<mat-toolbar>
+
+    <button mat-icon-button class="example-icon">
+        <mat-icon>menu</mat-icon>
+    </button>
+    <span>FoodFriend</span>
+
+    <span class="space"></span>
+
+    <button mat-icon-button [matMenuTriggerFor]="notifications">
+        <mat-icon>notifications</mat-icon>
+    </button>
+
+    <mat-menu #notifications="matMenu">
+        <p> Uzman mesaj atmış. </p>
+        <p> Admin mesaj atmış. </p>
+    </mat-menu>
+
+    <button mat-button color="primary" [matMenuTriggerFor]="user">
+        <mat-icon>account_circle</mat-icon>
+        <a>Username</a>
+    </button>
+
+    <mat-menu #user="matMenu">
+        <p>
+            <button mat-button>
+                <mat-icon>account_circle</mat-icon>
+                Profile
+            </button>
+        </p>
+        <p>
+            <button mat-button>
+                <mat-icon>settings</mat-icon>
+                Settings
+            </button>
+        </p>
+        <p>
+            <button mat-button>
+                <mat-icon>power_settings_new</mat-icon>
+                Logout
+            </button>
+        </p>
+
+
+    </mat-menu>
+</mat-toolbar>
