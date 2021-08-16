@@ -22,6 +22,7 @@ import { MatMenuModule } from '@angular/material/menu';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { RegisterFormComponent } from './register-form/register-form.component';
 import { MatNativeDateModule } from '@angular/material/core';
+import { ProfileComponent } from './main-page/layout/profile/profile.component';
 
 @NgModule({
   declarations: [
@@ -34,6 +35,7 @@ import { MatNativeDateModule } from '@angular/material/core';
     LayoutComponent,
     MainComponent,
     RegisterFormComponent,
+    ProfileComponent,
 
   ],
   imports: [
