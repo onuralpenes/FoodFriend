@@ -20,6 +20,8 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatIconModule } from '@angular/material/icon';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatSidenavModule } from '@angular/material/sidenav';
+import { RegisterFormComponent } from './register-form/register-form.component';
+import {MatNativeDateModule} from '@angular/material/core';
 @NgModule({
   declarations: [
     AppComponent,
@@ -29,7 +31,9 @@ import { MatSidenavModule } from '@angular/material/sidenav';
     FooterComponent,
     SidebarComponent,
     LayoutComponent,
-    MainComponent
+    MainComponent,
+    RegisterFormComponent,
+    
   ],
   imports: [
     BrowserModule,
@@ -42,9 +46,10 @@ import { MatSidenavModule } from '@angular/material/sidenav';
     MatToolbarModule,
     MatIconModule,
     MatMenuModule,
-    MatSidenavModule
+    MatSidenavModule,
+    MatNativeDateModule
   ],
-  providers: [],
+  providers: [MatDatepickerModule],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
