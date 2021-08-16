@@ -1,11 +1,8 @@
-<mat-sidenav-container class="container">
-    <mat-sidenav #sidenav mode="side" opened class="sidenav" [fixedInViewport]="true" [fixedTopGap]="20"
-        [fixedBottomGap]="30">
+<mat-sidenav-container class = "bodyContainer" >
+    <mat-sidenav class = "sidebar" [ngClass]="opened ? 'sideBarOpen' : 'sideBarClose'" #sidenav mode="side" [(opened)]="opened" opened>
     </mat-sidenav>
 
     <mat-sidenav-content>
-        <p><button mat-button (click)="sidenav.toggle()">Toggle</button></p>
+        <app-layout></app-layout>
     </mat-sidenav-content>
 </mat-sidenav-container>
-
-<div *ngIf="!shouldRun">Please open on StackBlitz to see result</div>

@@ -1,5 +1,6 @@
 
-<app-header></app-header>
-<app-sidebar></app-sidebar><app-layout></app-layout>
+<app-header (toggle)="toggle()"></app-header>
+<app-sidebar [opened] = "sideBar"></app-sidebar>
+<!-- <app-layout></app-layout> -->
 
 <app-footer></app-footer>

@@ -1,4 +1,4 @@
-import { Component, HostBinding, OnInit } from '@angular/core';
+import { Component, OnInit , Output, EventEmitter} from '@angular/core';
 
 @Component({
   selector: 'app-header',
@@ -6,13 +6,16 @@ import { Component, HostBinding, OnInit } from '@angular/core';
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent implements OnInit {
-  
-  constructor() { 
 
-  }
-  @HostBinding('class.toggle') toggle: boolean = true;
+  @Output() toggle: EventEmitter<any> = new EventEmitter();
+
+  constructor() { }
 
   ngOnInit(): void {
+  }
+
+  emit(){
+    this.toggle.emit(null);
   }
 
 }

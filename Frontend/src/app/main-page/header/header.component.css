@@ -2,13 +2,12 @@
     flex:100%;
   }
   button {
-    background-color: transparent;
+    background-color: whitesmoke;
     font: 100% Arial;
     border-width: 0px;
     border-color: whitesmoke;
 }
 
 .header{
-  
-	background: linear-gradient(to right, #38818a, #76b451);
+  height: 6%;
 }
