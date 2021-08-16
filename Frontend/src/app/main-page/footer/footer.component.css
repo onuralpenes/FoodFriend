@@ -1,7 +1,4 @@
 
-section {
-    height: 82vh;
-  }
   
   .footer-distributed {
     background-color: #292c2f;
@@ -46,11 +43,7 @@ section {
     display: inline-block;
     padding-right: 5px;
   }
-  
-  /* .footer-distributed .footer-links .link-1:before {
-    content: none;
-  } */
-  
+
   .footer-distributed .footer-right {
     float: right;
     margin-top: 6px;

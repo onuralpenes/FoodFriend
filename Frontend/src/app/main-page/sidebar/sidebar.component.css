@@ -1,16 +1,12 @@
-.container {
-    position: absolute;
-    top: 60px;
-    bottom: 60px;
-    left: 0;
-    right: 0;
-  }
-  
   .sidenav {
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 200px;
+    width: 100%;
     background: whitesmoke;
-    opacity: 0.4;
+    height: 950px;
+    /* opacity: 0.4; */
+  }
+  .sideBarOpen{
+    width: 20%;
   }
