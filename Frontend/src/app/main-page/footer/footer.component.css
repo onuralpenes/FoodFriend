@@ -5,25 +5,26 @@
   width: 100%;
   text-align: left;
   font: normal 16px sans-serif;
-  padding: 3% 180px;
+  padding: 2% 5%;
+  margin: 0;
   height: 11%;
 }
 
 .footer-distributed .footer-left p {
   color: #33383b;
   font-size: 14px;
-  margin: 0;
+  margin: 2;
   font-weight: bold;
 
 }
 
 .footer-distributed p.footer-links a {
   display: inline-block;
-  line-height: 1.8;
+  line-height: 1;
   text-decoration: none;
   color: inherit;
   transition: ease 0.25s;
-  padding-right: 90px;
+  padding-right: 10px;
 }
 
 .footer-distributed .footer-right {
@@ -37,7 +38,7 @@
   width: 35px;
   height: 35px;
   background-color: #33383b;
-  border-radius: 2px;
+  border-radius: 0.3%;
   font-size: 20px;
   color: #ffffff;
   text-align: center;
