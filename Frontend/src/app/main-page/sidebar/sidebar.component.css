@@ -13,3 +13,6 @@
   .bodyContainer{
     height: 83%;
   }
+  .sidebar{
+    background: linear-gradient(to bottom, #38818a, #76b451);
+  }
