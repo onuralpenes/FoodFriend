@@ -1,4 +1,5 @@
-<div class="container " style="margin: 0 auto;" id="container" [ngClass]=" flag ? 'right-panel-active' : 'right-panel-inactive'">
+
+<div class="container" style="margin: 0 auto; margin-top: 2%;" id="container" [ngClass]=" flag ? 'right-panel-active' : 'right-panel-inactive'">
 	<div class="form-container sign-up-container" [ngClass] = "flag ? 'sign-up-container-enable' :'sign-up-container-disable'  ">
 		<div>
 			<form action="#" class="" >
@@ -8,7 +9,7 @@
 				<a href="#" class="social-links"><i class="fa fa-google" style="font-size:12px;"></i></a>
 			</div>
 			<span>or use your email for registration</span>
-
+			<app-register-form></app-register-form>
 			<!-- name, surname, email, birthdate, psd, repsd, phn, gender, tos, prv -->			
 
 			<button class = "signUpButton" >Sign Up</button>
@@ -31,7 +32,7 @@
 			<span>or use your account</span>
 
 			<app-login-form></app-login-form>
-			
+
 			<!-- Email psd remember forgot psd -->
 			<button class="input-group">Sign In</button>
 		</form>
@@ -41,7 +42,7 @@
 		</div>
 		
 	</div>
-	<div class="overlay-container">
+	<div class="overlay-container" [ngClass] = "flag ? 'overlay-on-left':'overlay-on-right'">
 		<div class="overlay">
 			<div class="overlay-panel overlay-left">
 				<h1>Welcome Back!</h1>

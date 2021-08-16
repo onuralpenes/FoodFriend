@@ -16,7 +16,8 @@ import { FooterComponent } from './main-page/footer/footer.component';
 import { SidebarComponent } from './main-page/sidebar/sidebar.component';
 import { LayoutComponent } from './main-page/layout/layout.component';
 import { MainComponent } from './main-page/main/main.component';
-
+import { RegisterFormComponent } from './register-form/register-form.component';
+import {MatNativeDateModule} from '@angular/material/core';
 @NgModule({
   declarations: [
     AppComponent,
@@ -26,7 +27,9 @@ import { MainComponent } from './main-page/main/main.component';
     FooterComponent,
     SidebarComponent,
     LayoutComponent,
-    MainComponent
+    MainComponent,
+    RegisterFormComponent,
+    
   ],
   imports: [
     BrowserModule,
@@ -35,9 +38,10 @@ import { MainComponent } from './main-page/main/main.component';
     MatFormFieldModule,
     MatCheckboxModule,
     MatDatepickerModule,
-    MatInputModule
+    MatInputModule,
+    MatNativeDateModule
   ],
-  providers: [],
+  providers: [MatDatepickerModule],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
