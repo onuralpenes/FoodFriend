@@ -2,13 +2,13 @@
     flex:100%;
   }
   button {
-    background-color: #5a9f6f;
+    background-color: transparent;
     font: 100% Arial;
     border-width: 0px;
-    border-color: #5a9f6f;
+    border-color: whitesmoke;
 }
 
 .header{
+  background-color: #38818a;
   height: 6%;
-  background-color: #5a9f6f;
 }
