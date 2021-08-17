@@ -17,6 +17,7 @@ import { PrivateRoutingModule } from './private-routing.module';
     ],
     imports: [PrivateRoutingModule, CustomMaterialModule],
     schemas: [CUSTOM_ELEMENTS_SCHEMA],
+    
 })
 
 export class PrivateModule { }
