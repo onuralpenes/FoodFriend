@@ -1,4 +1,11 @@
-<div class="row"><app-consumed-calorie></app-consumed-calorie></div>
+<div class="row">
+    <div class="col-md-6">
+        <app-consumed-calorie></app-consumed-calorie>
+    </div>
+    <div class="col-md-6">
+        
+    </div>
+</div>
 
 <div class="row">
     <mat-accordion>
@@ -23,15 +30,15 @@
                 <app-eating-habit-chart></app-eating-habit-chart>
             </div>
         </mat-expansion-panel>
-    
+
         <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false">
             <mat-expansion-panel-header>
                 <mat-panel-title>
                     Title
                 </mat-panel-title>
-                    <mat-panel-description>
-                        Desc
-                    </mat-panel-description>
+                <mat-panel-description>
+                    Desc
+                </mat-panel-description>
             </mat-expansion-panel-header>
             Content
         </mat-expansion-panel>

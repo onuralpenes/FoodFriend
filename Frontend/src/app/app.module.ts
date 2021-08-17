@@ -16,6 +16,10 @@ import { EatingHabitChartComponent } from './main-page/layout/dashboard/eating-h
 import { FoodIngredientDistributionChartComponent } from './main-page/layout/dashboard/food-ingredient-distribution-chart/food-ingredient-distribution-chart.component';
 import { EnergyConsumptionChartComponent } from './main-page/layout/dashboard/energy-consumption-chart/energy-consumption-chart.component';
 import { ConsumedCalorieComponent } from './main-page/layout/dashboard/consumed-calorie/consumed-calorie.component';
+import { FoodComponent } from './main-page/layout/food/food.component';
+import { FoodTableComponent } from './main-page/layout/food/food-table/food-table.component';
+import { ActivityComponent } from './main-page/layout/activity/activity.component';
+import { ActivityTableComponent } from './main-page/layout/activity/activity-table/activity-table.component';
 
 @NgModule({
   declarations: [
@@ -29,6 +33,10 @@ import { ConsumedCalorieComponent } from './main-page/layout/dashboard/consumed-
     FoodIngredientDistributionChartComponent,
     EnergyConsumptionChartComponent,
     ConsumedCalorieComponent,
+    FoodComponent,
+    FoodTableComponent,
+    ActivityComponent,
+    ActivityTableComponent,
   ],
   imports: [
     BrowserModule,
