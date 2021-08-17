@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -11,7 +10,7 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
 import { RegisterFormComponent } from './register-form/register-form.component';
 import { ProfileComponent } from './main-page/layout/profile/profile.component';
 import { PrivateModule } from './modules/private/private.module';
-import { CustomMAterialModule } from './modules/material/material.module';
+import { CustomMaterialModule } from './modules/material/material.module';
 
 @NgModule({
   declarations: [
@@ -26,8 +25,8 @@ import { CustomMAterialModule } from './modules/material/material.module';
     AppRoutingModule,
     HttpClientModule,
     BrowserAnimationsModule,
-    CustomMAterialModule,
-    PrivateModule
+    PrivateModule,
+    CustomMaterialModule
   ],
   providers: [MatDatepickerModule],
   bootstrap: [AppComponent]

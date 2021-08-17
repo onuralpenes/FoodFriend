@@ -21,6 +21,7 @@ import { MatToolbarModule } from '@angular/material/toolbar';
     MatSidenavModule,
     MatNativeDateModule,
   ],
+
   exports: [
     MatFormFieldModule,
     MatCheckboxModule,
@@ -32,5 +33,7 @@ import { MatToolbarModule } from '@angular/material/toolbar';
     MatSidenavModule,
     MatNativeDateModule,
   ],
+
 })
-export class CustomMAterialModule {}
+
+export class CustomMaterialModule {}

@@ -1,14 +1,3 @@
-<!-- <app-header (toggle)="toggle()"></app-header>
-<app-sidebar [opened]="sideBar"></app-sidebar> -->
-<div style="display: block; background-color: #f0f">
-  <app-header (toggle)="toggle()"></app-header>
-</div>
-
-<div style="float: left; height: 100%">
-  <app-sidebar [opened]="sideBar"></app-sidebar>
-</div>
-
-<div style="display: grid; background-color: darkcyan">
-  <router-outlet></router-outlet>
-</div>
+<app-header (toggle)="toggle()"></app-header>
+<app-body [opened]="sideBar"></app-body>
 <app-footer></app-footer>
