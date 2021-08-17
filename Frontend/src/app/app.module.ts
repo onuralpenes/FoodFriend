@@ -12,6 +12,9 @@ import { ProfileComponent } from './main-page/layout/profile/profile.component';
 import { PrivateModule } from './modules/private/private.module';
 import { CustomMaterialModule } from './modules/material/material.module';
 import { DashboardComponent } from './main-page/layout/dashboard/dashboard.component';
+import { EatingHabitChartComponent } from './main-page/layout/dashboard/eating-habit-chart/eating-habit-chart.component';
+import { FoodIngredientDistributionChartComponent } from './main-page/layout/dashboard/food-ingredient-distribution-chart/food-ingredient-distribution-chart.component';
+import { EnergyConsumptionChartComponent } from './main-page/layout/dashboard/energy-consumption-chart/energy-consumption-chart.component';
 
 @NgModule({
   declarations: [
@@ -21,6 +24,9 @@ import { DashboardComponent } from './main-page/layout/dashboard/dashboard.compo
     RegisterFormComponent,
     ProfileComponent,
     DashboardComponent,
+    EatingHabitChartComponent,
+    FoodIngredientDistributionChartComponent,
+    EnergyConsumptionChartComponent,
   ],
   imports: [
     BrowserModule,
