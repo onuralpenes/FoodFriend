@@ -8,50 +8,26 @@ import { LoginComponent } from './login/login.component';
 import { LoginFormComponent } from './login-form/login-form.component';
 import { HttpClientModule } from '@angular/common/http';
 import { MatDatepickerModule } from '@angular/material/datepicker';
-import { MatCheckboxModule } from '@angular/material/checkbox';
-import { MatFormFieldModule } from '@angular/material/form-field';
-import { MatInputModule } from '@angular/material/input';
-import { HeaderComponent } from './main-page/header/header.component';
-import { FooterComponent } from './main-page/footer/footer.component';
-import { SidebarComponent } from './main-page/sidebar/sidebar.component';
-import { LayoutComponent } from './main-page/layout/layout.component';
-import { MainComponent } from './main-page/main/main.component';
-import { MatToolbarModule } from '@angular/material/toolbar';
-import { MatIconModule } from '@angular/material/icon';
-import { MatMenuModule } from '@angular/material/menu';
-import { MatSidenavModule } from '@angular/material/sidenav';
 import { RegisterFormComponent } from './register-form/register-form.component';
-import { MatNativeDateModule } from '@angular/material/core';
 import { ProfileComponent } from './main-page/layout/profile/profile.component';
+import { PrivateModule } from './modules/private/private.module';
+import { CustomMAterialModule } from './modules/material/material.module';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     LoginFormComponent,
-    HeaderComponent,
-    FooterComponent,
-    SidebarComponent,
-    LayoutComponent,
-    MainComponent,
     RegisterFormComponent,
     ProfileComponent,
-
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
     BrowserAnimationsModule,
-    MatFormFieldModule,
-    MatCheckboxModule,
-    MatDatepickerModule,
-    MatInputModule,
-    MatToolbarModule,
-    MatIconModule,
-    MatMenuModule,
-    MatSidenavModule,
-    MatNativeDateModule
+    CustomMAterialModule,
+    PrivateModule
   ],
   providers: [MatDatepickerModule],
   bootstrap: [AppComponent]

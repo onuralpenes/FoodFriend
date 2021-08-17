@@ -7,7 +7,7 @@ import { Router } from '@angular/router';
 })
 export class SidebarComponent implements OnInit {
 
-  @Input() opened = true;
+  @Input() opened: boolean = true;
   name = "Onuralp Enes ÖZ"
   email = "oz.onuralp@gmail.com";
   constructor(private router: Router) { 

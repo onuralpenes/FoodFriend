@@ -4,7 +4,10 @@ import { LoginComponent } from './login/login.component';
 import { MainComponent } from './main-page/main/main.component';
 
 const routes: Routes = [
-  {path: 'home', component: MainComponent},
+  {
+    path: '',
+    loadChildren: () => import('./modules/private/private.module').then(m => m.PrivateModule)
+  },
   {path: 'login' , component: LoginComponent},
   {path: '', redirectTo : "login", pathMatch: 'full'}
 ];
