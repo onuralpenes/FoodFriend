@@ -8,7 +8,7 @@ import { multi } from './data';
 })
 export class EnergyConsumptionChartComponent implements OnInit {
 
-  multi: any[] | undefined;
+  multi!: any[];
   
   showXAxis: boolean = true;
   showYAxis: boolean = true;

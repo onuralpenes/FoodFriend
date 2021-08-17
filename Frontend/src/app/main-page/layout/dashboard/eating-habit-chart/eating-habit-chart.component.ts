@@ -8,7 +8,7 @@ import { multi } from './data';
 })
 export class EatingHabitChartComponent implements OnInit {
 
-  multi: any[] | undefined;
+  multi!: any[];
 
   legend: boolean = true;
   showLabels: boolean = true;

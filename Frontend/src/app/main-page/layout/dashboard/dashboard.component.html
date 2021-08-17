@@ -1,11 +1,39 @@
-<div class="container">
-    <div class="row">
-        <div class="col-md-6">
-            <app-food-ingredient-distribution-chart></app-food-ingredient-distribution-chart>
-        </div>
-        <div class="col-md-6">
-            <app-energy-consumption-chart></app-energy-consumption-chart>
-        </div>
-    </div>
-    <app-eating-habit-chart></app-eating-habit-chart>
+<div class="row"><app-consumed-calorie></app-consumed-calorie></div>
+
+<div class="row">
+    <mat-accordion>
+        <mat-expansion-panel hideToggle>
+            <mat-expansion-panel-header>
+                <mat-panel-title>
+                    Charts
+                </mat-panel-title>
+                <mat-panel-description>
+                    From this section, you can see your data in a visualized way.
+                </mat-panel-description>
+            </mat-expansion-panel-header>
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-6">
+                        <app-food-ingredient-distribution-chart></app-food-ingredient-distribution-chart>
+                    </div>
+                    <div class="col-md-6">
+                        <app-energy-consumption-chart></app-energy-consumption-chart>
+                    </div>
+                </div>
+                <app-eating-habit-chart></app-eating-habit-chart>
+            </div>
+        </mat-expansion-panel>
+    
+        <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false">
+            <mat-expansion-panel-header>
+                <mat-panel-title>
+                    Title
+                </mat-panel-title>
+                    <mat-panel-description>
+                        Desc
+                    </mat-panel-description>
+            </mat-expansion-panel-header>
+            Content
+        </mat-expansion-panel>
+    </mat-accordion>
 </div>

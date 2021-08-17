@@ -15,6 +15,7 @@ import { DashboardComponent } from './main-page/layout/dashboard/dashboard.compo
 import { EatingHabitChartComponent } from './main-page/layout/dashboard/eating-habit-chart/eating-habit-chart.component';
 import { FoodIngredientDistributionChartComponent } from './main-page/layout/dashboard/food-ingredient-distribution-chart/food-ingredient-distribution-chart.component';
 import { EnergyConsumptionChartComponent } from './main-page/layout/dashboard/energy-consumption-chart/energy-consumption-chart.component';
+import { ConsumedCalorieComponent } from './main-page/layout/dashboard/consumed-calorie/consumed-calorie.component';
 
 @NgModule({
   declarations: [
@@ -27,6 +28,7 @@ import { EnergyConsumptionChartComponent } from './main-page/layout/dashboard/en
     EatingHabitChartComponent,
     FoodIngredientDistributionChartComponent,
     EnergyConsumptionChartComponent,
+    ConsumedCalorieComponent,
   ],
   imports: [
     BrowserModule,

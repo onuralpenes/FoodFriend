@@ -2,21 +2,18 @@ import { Component, OnInit } from '@angular/core';
 import { single } from './data';
 
 @Component({
-  selector: 'app-food-ingredient-distribution-chart',
-  templateUrl: './food-ingredient-distribution-chart.component.html',
-  styleUrls: ['./food-ingredient-distribution-chart.component.css']
+  selector: 'app-consumed-calorie',
+  templateUrl: './consumed-calorie.component.html',
+  styleUrls: ['./consumed-calorie.component.css']
 })
-export class FoodIngredientDistributionChartComponent implements OnInit {
+export class ConsumedCalorieComponent implements OnInit {
 
   single!: any[];
+  legend: boolean = true;
 
-  gradient: boolean = true;
-  showLegend: boolean = true;
-  showLabels: boolean = true;
-  isDoughnut: boolean = false;
 
   colorScheme = {
-    domain: ['#5AA454', '#A10A28', '#C7B42C', '#AAAAAA']
+    domain: ['#ff0000', '#ffffff', '#CFC0BB', '#7aa3e5', '#a8385d', '#aae3f5']
   };
 
   constructor() {

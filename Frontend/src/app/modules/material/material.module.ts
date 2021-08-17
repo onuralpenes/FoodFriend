@@ -8,6 +8,7 @@ import { MatInputModule } from '@angular/material/input';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatToolbarModule } from '@angular/material/toolbar';
+import {MatExpansionModule} from '@angular/material/expansion'
 
 import { NgxChartsModule } from '@swimlane/ngx-charts';
 
@@ -22,6 +23,8 @@ import { NgxChartsModule } from '@swimlane/ngx-charts';
     MatMenuModule,
     MatSidenavModule,
     MatNativeDateModule,
+    MatExpansionModule,
+
     NgxChartsModule,
   ],
 
@@ -35,6 +38,8 @@ import { NgxChartsModule } from '@swimlane/ngx-charts';
     MatMenuModule,
     MatSidenavModule,
     MatNativeDateModule,
+    MatExpansionModule,
+
     NgxChartsModule,
   ],
 
