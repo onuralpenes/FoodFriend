@@ -17,6 +17,9 @@ export class BodyComponent implements OnInit {
   navigateProfile(){
     this.router.navigate(['/profile']);
   }
+  navigateFood(){
+    this.router.navigate(['/food']);
+  }
   ngOnInit(): void {
   }
 }

@@ -8,6 +8,7 @@ import { MatInputModule } from '@angular/material/input';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatToolbarModule } from '@angular/material/toolbar';
+import {MatSortModule} from '@angular/material/sort';
 
 @NgModule({
   imports: [
@@ -20,6 +21,7 @@ import { MatToolbarModule } from '@angular/material/toolbar';
     MatMenuModule,
     MatSidenavModule,
     MatNativeDateModule,
+    MatSortModule
   ],
 
   exports: [
@@ -32,6 +34,7 @@ import { MatToolbarModule } from '@angular/material/toolbar';
     MatMenuModule,
     MatSidenavModule,
     MatNativeDateModule,
+    MatSortModule
   ],
 
 })

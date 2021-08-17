@@ -1,0 +1,31 @@
+<div class="h1">
+  <h1>The food you eat</h1>
+</div>
+
+<div class="table" >
+ <table matSort (matSortChange)="sortData($event)">
+  <thead>
+    <tr>
+      <th mat-sort-header="foodName">Food Name</th>
+      <th mat-sort-header="calorie">Calorie</th>
+      <th mat-sort-header="protein">Protein</th>
+      <th mat-sort-header="oil">Oil</th>
+      <th mat-sort-header="carbohydrate">Carbohydrate</th>
+      <th mat-sort-header="foodCategory">Food Type (g)</th>
+      <th mat-sort-header="meal">Meal</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let food of sortedData">
+      <td>{{ food.foodName }}</td>
+      <td>{{ food.calorie }}</td>
+      <td>{{ food.protein }}</td>
+      <td>{{ food.oil }}</td>
+      <td>{{ food.carbohydrate }}</td>
+      <td>{{ food.foodCategory }}</td>
+      <td>{{ food.meal }}</td>
+    </tr>
+
+  </tbody>
+</table>
+</div>

@@ -11,6 +11,7 @@ import { RegisterFormComponent } from './register-form/register-form.component';
 import { ProfileComponent } from './main-page/layout/profile/profile.component';
 import { PrivateModule } from './modules/private/private.module';
 import { CustomMaterialModule } from './modules/material/material.module';
+import { FoodTableComponent } from './main-page/layout/food/food-table/food-table.component';
 
 @NgModule({
   declarations: [
@@ -19,9 +20,11 @@ import { CustomMaterialModule } from './modules/material/material.module';
     LoginFormComponent,
     RegisterFormComponent,
     ProfileComponent,
+    FoodTableComponent,
   ],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
     AppRoutingModule,
     HttpClientModule,
     BrowserAnimationsModule,
