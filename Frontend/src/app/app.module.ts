@@ -11,6 +11,7 @@ import { RegisterFormComponent } from './register-form/register-form.component';
 import { ProfileComponent } from './main-page/layout/profile/profile.component';
 import { PrivateModule } from './modules/private/private.module';
 import { CustomMaterialModule } from './modules/material/material.module';
+import { DashboardComponent } from './main-page/layout/dashboard/dashboard.component';
 
 @NgModule({
   declarations: [
@@ -19,6 +20,7 @@ import { CustomMaterialModule } from './modules/material/material.module';
     LoginFormComponent,
     RegisterFormComponent,
     ProfileComponent,
+    DashboardComponent,
   ],
   imports: [
     BrowserModule,

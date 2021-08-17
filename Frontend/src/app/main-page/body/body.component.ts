@@ -17,6 +17,9 @@ export class BodyComponent implements OnInit {
   navigateProfile(){
     this.router.navigate(['/profile']);
   }
+  navigateDashboard(){
+    this.router.navigate(['/dashboard']);
+  }
   ngOnInit(): void {
   }
 }

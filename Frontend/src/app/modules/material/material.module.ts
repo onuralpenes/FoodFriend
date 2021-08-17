@@ -9,6 +9,8 @@ import { MatMenuModule } from '@angular/material/menu';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatToolbarModule } from '@angular/material/toolbar';
 
+import { NgxChartsModule } from '@swimlane/ngx-charts';
+
 @NgModule({
   imports: [
     MatFormFieldModule,
@@ -20,6 +22,7 @@ import { MatToolbarModule } from '@angular/material/toolbar';
     MatMenuModule,
     MatSidenavModule,
     MatNativeDateModule,
+    NgxChartsModule,
   ],
 
   exports: [
@@ -32,6 +35,7 @@ import { MatToolbarModule } from '@angular/material/toolbar';
     MatMenuModule,
     MatSidenavModule,
     MatNativeDateModule,
+    NgxChartsModule,
   ],
 
 })
