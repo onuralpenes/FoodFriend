@@ -8,17 +8,23 @@ import { Router } from '@angular/router';
 })
 export class BodyComponent implements OnInit {
 
-  @Input() opened: boolean = true;
+  @Input() opened = true;
   name = "Onuralp Enes ÖZ"
   email = "oz.onuralp@gmail.com";
   constructor(private router: Router) { 
     
+  }
+  navigateDashboard(){
+    this.router.navigate(['/dashboard']);
   }
   navigateProfile(){
     this.router.navigate(['/profile']);
   }
   navigateFood(){
     this.router.navigate(['/food']);
+  }
+  navigateActivity(){
+    this.router.navigate(['/activity']);
   }
   ngOnInit(): void {
   }

@@ -30,13 +30,13 @@ export class FoodTableComponent implements OnInit {
       foodCategory: 'bread',
       meal: 'dinner',
     },
-    { foodName: 'Eclair', calorie: 262, oil: 16, carbohydrate: 24, protein: 6, foodCategory: 'meal', meal: 'lunch'  },
+    { foodName: 'Eclair', calorie: 262, oil: 16, carbohydrate: 24, protein: 6, foodCategory: 'meal', meal: 'lunch' },
     { foodName: 'Cupcake', calorie: 305, oil: 4, carbohydrate: 67, protein: 4, foodCategory: 'cake', meal: 'snack1' },
-    { foodName: 'Gingerbread', calorie: 356, oil: 16, carbohydrate: 49, protein: 4, foodCategory: 'vegetable', meal:'snack2' },
+    { foodName: 'Gingerbread', calorie: 356, oil: 16, carbohydrate: 49, protein: 4, foodCategory: 'vegetable', meal: 'snack2' },
   ];
   sortedData = this.foods;
 
-  constructor() {}
+  constructor() { }
 
   ngOnInit(): void {
     this.sortedData = this.foods.slice();
