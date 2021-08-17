@@ -1,37 +1,38 @@
 <p>
-    <mat-form-field appearance="outline">
-      <mat-label>Name</mat-label>
-      <input matInput placeholder="Name">
-    </mat-form-field>
-    <mat-form-field appearance="outline">
-      <mat-label>Surname</mat-label>
-      <input matInput placeholder="Surname">
-    </mat-form-field>
-</p>
-<p>
-    <mat-form-field appearance="outline">
-      <mat-label>E-mail</mat-label>
-      <input matInput placeholder="E-mail">
-    </mat-form-field>
-    
-    <mat-form-field appearance="outline">
-      <mat-label>Phone Number</mat-label>
-      <input type="tel" id="phone" name="phone"
-      pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"
-      matInput placeholder="Format = 507-222-1133"> 
-    </mat-form-field>
+  <mat-form-field appearance="outline">
+    <mat-label>Name</mat-label>
+    <input matInput placeholder="Name">
+  </mat-form-field>
+  <mat-form-field appearance="outline">
+    <mat-label>Surname</mat-label>
+    <input matInput placeholder="Surname">
+  </mat-form-field>
 </p>
 
 <p>
-    <mat-form-field appearance="outline">
-      <mat-label>Password</mat-label>
-      <input matInput [type]="'password'"  placeholder="Password">
-    </mat-form-field>
-    <mat-form-field appearance="outline">
-      <mat-label>Confirm Password</mat-label>
-      <input matInput [type]="'password'" placeholder="Confirm Password">
-    </mat-form-field>
+  <mat-form-field appearance="outline">
+    <mat-label>E-mail</mat-label>
+    <input matInput placeholder="E-mail">
+  </mat-form-field>
+
+  <mat-form-field appearance="outline">
+    <mat-label>Phone Number</mat-label>
+    <input type="tel" id="phone" name="phone" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" matInput
+      placeholder="Format = 507-222-1133">
+  </mat-form-field>
 </p>
+
+<p>
+  <mat-form-field appearance="outline">
+    <mat-label>Password</mat-label>
+    <input matInput [type]="'password'" placeholder="Password">
+  </mat-form-field>
+  <mat-form-field appearance="outline">
+    <mat-label>Confirm Password</mat-label>
+    <input matInput [type]="'password'" placeholder="Confirm Password">
+  </mat-form-field>
+</p>
+
 <p>
   <mat-form-field appearance="fill">
     <mat-label>Birthdate</mat-label>
@@ -40,9 +41,11 @@
     <mat-datepicker #picker></mat-datepicker>
   </mat-form-field>
 </p>
-<p class = "cb">
-    <mat-checkbox class="" [color] = "color">Text</mat-checkbox> 
+
+<p class="cb">
+  <mat-checkbox class="" [color]="color">Text</mat-checkbox>
 </p>
-<p class = "cb">
-    <mat-checkbox class="" [color] = "color">Privacy ......</mat-checkbox> 
+
+<p class="cb">
+  <mat-checkbox class="" [color]="color">Privacy ......</mat-checkbox>
 </p>
