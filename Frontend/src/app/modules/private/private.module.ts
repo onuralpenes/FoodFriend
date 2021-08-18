@@ -3,7 +3,6 @@ import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
 import { BodyComponent } from 'src/app/main-page/body/body.component';
 import { FooterComponent } from 'src/app/main-page/footer/footer.component';
 import { HeaderComponent } from 'src/app/main-page/header/header.component';
-import { MainComponent } from 'src/app/main-page/main/main.component';
 import { CustomMaterialModule } from '../material/material.module';
 import { PrivateLayoutComponent } from './private-layout.component';
 import { PrivateRoutingModule } from './private-routing.module';
@@ -13,7 +12,6 @@ import { PrivateRoutingModule } from './private-routing.module';
         PrivateLayoutComponent,
         HeaderComponent,
         FooterComponent,
-        MainComponent,
         BodyComponent,
     ],
     imports: [CommonModule,PrivateRoutingModule, CustomMaterialModule],
