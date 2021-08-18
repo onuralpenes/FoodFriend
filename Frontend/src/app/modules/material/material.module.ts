@@ -8,7 +8,7 @@ import { MatInputModule } from '@angular/material/input';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatToolbarModule } from '@angular/material/toolbar';
-
+import {MatStepperModule} from '@angular/material/stepper';
 @NgModule({
   imports: [
     MatFormFieldModule,
@@ -20,6 +20,7 @@ import { MatToolbarModule } from '@angular/material/toolbar';
     MatMenuModule,
     MatSidenavModule,
     MatNativeDateModule,
+    MatStepperModule
   ],
 
   exports: [
@@ -32,6 +33,7 @@ import { MatToolbarModule } from '@angular/material/toolbar';
     MatMenuModule,
     MatSidenavModule,
     MatNativeDateModule,
+    MatStepperModule
   ],
 
 })

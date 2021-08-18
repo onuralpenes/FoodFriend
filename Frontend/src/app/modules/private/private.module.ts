@@ -6,7 +6,6 @@ import { MainComponent } from 'src/app/main-page/main/main.component';
 import { CustomMaterialModule } from '../material/material.module';
 import { PrivateLayoutComponent } from './private-layout.component';
 import { PrivateRoutingModule } from './private-routing.module';
-
 @NgModule({
     declarations: [
         PrivateLayoutComponent,
@@ -16,7 +15,7 @@ import { PrivateRoutingModule } from './private-routing.module';
         BodyComponent
     ],
     imports: [PrivateRoutingModule, CustomMaterialModule],
-    schemas: [CUSTOM_ELEMENTS_SCHEMA],
+    schemas: [CUSTOM_ELEMENTS_SCHEMA , ],
     
 })
 

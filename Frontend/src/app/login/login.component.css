@@ -33,6 +33,7 @@ a {
 }
 
 button {
+	width: auto;
 	border-radius: 20px;
 	border: 1px solid #11914b;
 	background-color: #1d6b3b;
