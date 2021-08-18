@@ -14,7 +14,7 @@ const routes: Routes = [
             { path: 'profile', component: ProfileComponent },
             { path: 'dashboard', component: DashboardComponent },
             { path: 'food', component: FoodComponent },
-            { path: 'activity', component: ActivityComponent },
+            { path: 'activity', component: ActivityComponent }, 
         ],
     },
     { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
