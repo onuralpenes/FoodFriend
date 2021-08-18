@@ -11,7 +11,16 @@ import { RegisterFormComponent } from './register-form/register-form.component';
 import { ProfileComponent } from './main-page/layout/profile/profile.component';
 import { PrivateModule } from './modules/private/private.module';
 import { CustomMaterialModule } from './modules/material/material.module';
-import { HealthCardComponent } from './health-card/health-card.component';
+import { DashboardComponent } from './main-page/layout/dashboard/dashboard.component';
+import { EatingHabitChartComponent } from './main-page/layout/dashboard/eating-habit-chart/eating-habit-chart.component';
+import { FoodIngredientDistributionChartComponent } from './main-page/layout/dashboard/food-ingredient-distribution-chart/food-ingredient-distribution-chart.component';
+import { EnergyConsumptionChartComponent } from './main-page/layout/dashboard/energy-consumption-chart/energy-consumption-chart.component';
+import { ConsumedCalorieComponent } from './main-page/layout/dashboard/consumed-calorie/consumed-calorie.component';
+import { FoodComponent } from './main-page/layout/food/food.component';
+import { FoodTableComponent } from './main-page/layout/food/food-table/food-table.component';
+import { ActivityComponent } from './main-page/layout/activity/activity.component';
+import { ActivityTableComponent } from './main-page/layout/activity/activity-table/activity-table.component';
+import { HealthCardComponent } from './main-page/layout/dashboard/health-card/health-card.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +29,16 @@ import { HealthCardComponent } from './health-card/health-card.component';
     LoginFormComponent,
     RegisterFormComponent,
     ProfileComponent,
-    HealthCardComponent
+    DashboardComponent,
+    EatingHabitChartComponent,
+    FoodIngredientDistributionChartComponent,
+    EnergyConsumptionChartComponent,
+    ConsumedCalorieComponent,
+    FoodComponent,
+    FoodTableComponent,
+    ActivityComponent,
+    ActivityTableComponent,
+    HealthCardComponent,
   ],
   imports: [
     BrowserModule,

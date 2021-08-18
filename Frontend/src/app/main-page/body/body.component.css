@@ -4,7 +4,7 @@
     justify-content: center;
     width: 100%;
     background: whitesmoke;
-    height: 950px;
+    height: 90%;
     /* opacity: 0.4; */
   }
   .sideBarOpen{
@@ -23,7 +23,7 @@
     border-radius: 50%;
   }
   .bodyContainer{
-    height: 83%;
+    height: 100%;
   }
   .sidebar{
     background: linear-gradient(to bottom, #38818a, #76b451);

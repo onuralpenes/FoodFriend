@@ -8,7 +8,12 @@ import { MatInputModule } from '@angular/material/input';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatToolbarModule } from '@angular/material/toolbar';
-import {MatStepperModule} from '@angular/material/stepper';
+import { MatExpansionModule } from '@angular/material/expansion';
+import { MatSortModule } from '@angular/material/sort';
+import { MatTableModule } from '@angular/material/table';
+
+import { NgxChartsModule } from '@swimlane/ngx-charts';
+
 @NgModule({
   imports: [
     MatFormFieldModule,
@@ -20,7 +25,11 @@ import {MatStepperModule} from '@angular/material/stepper';
     MatMenuModule,
     MatSidenavModule,
     MatNativeDateModule,
-    MatStepperModule
+    MatExpansionModule,
+    MatSortModule,
+    MatTableModule,
+
+    NgxChartsModule,
   ],
 
   exports: [
@@ -33,9 +42,13 @@ import {MatStepperModule} from '@angular/material/stepper';
     MatMenuModule,
     MatSidenavModule,
     MatNativeDateModule,
-    MatStepperModule
+    MatExpansionModule,
+    MatSortModule,
+    MatTableModule,
+
+    NgxChartsModule,
   ],
 
 })
 
-export class CustomMaterialModule {}
+export class CustomMaterialModule { }

@@ -14,8 +14,17 @@ export class BodyComponent implements OnInit {
   constructor(private router: Router) { 
     
   }
+  navigateDashboard(){
+    this.router.navigate(['/dashboard']);
+  }
   navigateProfile(){
     this.router.navigate(['/profile']);
+  }
+  navigateFood(){
+    this.router.navigate(['/food']);
+  }
+  navigateActivity(){
+    this.router.navigate(['/activity']);
   }
   ngOnInit(): void {
   }
