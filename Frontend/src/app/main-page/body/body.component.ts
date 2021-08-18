@@ -28,6 +28,4 @@ export class BodyComponent implements OnInit {
   }
   ngOnInit(): void {
   }
-
-  private _mobile!: () => void;
 }

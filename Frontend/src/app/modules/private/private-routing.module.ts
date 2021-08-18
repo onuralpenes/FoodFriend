@@ -11,8 +11,8 @@ const routes: Routes = [
         path: '',
         component: PrivateLayoutComponent,
         children: [
-            { path: 'profile', component: ProfileComponent },
             { path: 'dashboard', component: DashboardComponent },
+            { path: 'profile', component: ProfileComponent },
             { path: 'food', component: FoodComponent },
             { path: 'activity', component: ActivityComponent }, 
         ],

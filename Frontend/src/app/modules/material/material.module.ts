@@ -48,6 +48,7 @@ import { NgxChartsModule } from '@swimlane/ngx-charts';
 
     NgxChartsModule,
   ],
+  providers: [MatDatepickerModule],
 
 })
 
