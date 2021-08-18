@@ -9,7 +9,7 @@ import { single } from './data';
 export class ConsumedCalorieComponent implements OnInit {
 
   single!: any[];
-  legend: boolean = true;
+  legend: boolean = true; 
 
 
   colorScheme = {
