@@ -5,6 +5,10 @@
 	box-sizing: border-box;
 }
 
+.ng-star-inserted{
+	width: 100%;
+	height: 100%;
+}
 
 h1 {
 	font-weight: bold;

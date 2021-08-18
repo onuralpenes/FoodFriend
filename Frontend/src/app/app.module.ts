@@ -11,7 +11,7 @@ import { RegisterFormComponent } from './register-form/register-form.component';
 import { ProfileComponent } from './main-page/layout/profile/profile.component';
 import { PrivateModule } from './modules/private/private.module';
 import { CustomMaterialModule } from './modules/material/material.module';
-import { ShortInfoComponent } from './main-page/layout/profile/short-info/short-info.component';
+import { HealthCardComponent } from './health-card/health-card.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +20,7 @@ import { ShortInfoComponent } from './main-page/layout/profile/short-info/short-
     LoginFormComponent,
     RegisterFormComponent,
     ProfileComponent,
-    ShortInfoComponent,
+    HealthCardComponent
   ],
   imports: [
     BrowserModule,

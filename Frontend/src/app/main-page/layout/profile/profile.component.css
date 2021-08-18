@@ -15,6 +15,10 @@
 .card-front__heading {
   font-size: 1.5rem;
   margin-top: .25rem;
+  text-align: center;
+}
+.shortInfo{
+  text-align: center;
 }
 
 /* Main heading for inside page */
@@ -35,6 +39,7 @@
 
 .inside-page__heading--ski,
 .card-front__text-view--ski { color: #00b97c;  }
+
 
 /* Front cover */
 
@@ -180,31 +185,10 @@
   padding: .75rem;
 }
 
-.card-front__tp--city {
-  background: linear-gradient(
-    to bottom,
-    #ff73b9,
-    #ff40a1
-  );
-}
+
+
 
 .card-front__tp--ski {
-  background: linear-gradient(
-    to bottom,
-    #47c2d7,
-    #279eb2
-  );
-}
-
-.card-front__tp--beach {
-  background: linear-gradient(
-    to bottom,
-    #fb9b88,
-    #f86647
-  );
-}
-
-.card-front__tp--camping {
   background: linear-gradient(
     to bottom,
     #00db93,
