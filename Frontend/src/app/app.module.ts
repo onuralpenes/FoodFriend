@@ -20,6 +20,7 @@ import { FoodComponent } from './main-page/layout/food/food.component';
 import { FoodTableComponent } from './main-page/layout/food/food-table/food-table.component';
 import { ActivityComponent } from './main-page/layout/activity/activity.component';
 import { ActivityTableComponent } from './main-page/layout/activity/activity-table/activity-table.component';
+import { HealthCardComponent } from './main-page/layout/dashboard/health-card/health-card.component';
 
 @NgModule({
   declarations: [
@@ -37,6 +38,7 @@ import { ActivityTableComponent } from './main-page/layout/activity/activity-tab
     FoodTableComponent,
     ActivityComponent,
     ActivityTableComponent,
+    HealthCardComponent,
   ],
   imports: [
     BrowserModule,
