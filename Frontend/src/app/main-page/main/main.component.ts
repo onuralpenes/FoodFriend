@@ -23,5 +23,4 @@ export class MainComponent implements OnInit {
   navigateProfile(){
     this.router.navigate(['/profile']);
   }
-
 }
