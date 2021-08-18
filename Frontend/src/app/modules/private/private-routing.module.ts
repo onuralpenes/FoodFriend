@@ -17,7 +17,7 @@ const routes: Routes = [
             { path: 'activity', component: ActivityComponent },
         ],
     },
-    { path: '', redirectTo: 'home', pathMatch: 'full' },
+    { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
 ];
 
 @NgModule({
