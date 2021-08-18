@@ -1,10 +1,13 @@
-
 @import url('https://fonts.googleapis.com/css?family=Montserrat:400,800');
 
 * {
 	box-sizing: border-box;
 }
 
+.ng-star-inserted{
+	width: 100%;
+	height: 100%;
+}
 
 h1 {
 	font-weight: bold;
@@ -33,6 +36,7 @@ a {
 }
 
 button {
+	width: auto;
 	border-radius: 20px;
 	border: 1px solid #11914b;
 	background-color: #1d6b3b;
