@@ -16,7 +16,7 @@ describe('FoodIngredientDistributionChartComponent', () => {
   beforeEach(() => {
     fixture = TestBed.createComponent(FoodIngredientDistributionChartComponent);
     component = fixture.componentInstance;
-    fixture.detectChanges();
+    fixture.detectChanges(); 
   });
 
   it('should create', () => {

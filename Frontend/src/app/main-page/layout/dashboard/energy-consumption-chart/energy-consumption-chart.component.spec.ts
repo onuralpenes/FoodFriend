@@ -17,7 +17,7 @@ describe('EnergyConsumptionChartComponent', () => {
     fixture = TestBed.createComponent(EnergyConsumptionChartComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
-  });
+  }); 
 
   it('should create', () => {
     expect(component).toBeTruthy();

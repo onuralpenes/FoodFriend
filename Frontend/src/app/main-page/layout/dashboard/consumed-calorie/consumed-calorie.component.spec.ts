@@ -8,9 +8,9 @@ describe('ConsumedCalorieComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ ConsumedCalorieComponent ]
+      declarations: [ConsumedCalorieComponent]
     })
-    .compileComponents();
+      .compileComponents();
   });
 
   beforeEach(() => {

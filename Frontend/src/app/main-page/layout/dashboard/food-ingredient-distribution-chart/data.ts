@@ -15,4 +15,4 @@ export var single = [
       "name": "UK",
       "value": 6200000
     }
-  ];
+  ]; 

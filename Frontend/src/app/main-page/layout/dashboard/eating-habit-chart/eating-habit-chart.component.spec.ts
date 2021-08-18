@@ -12,7 +12,7 @@ describe('EatingHabitChartComponent', () => {
     })
     .compileComponents();
   });
-
+ 
   beforeEach(() => {
     fixture = TestBed.createComponent(EatingHabitChartComponent);
     component = fixture.componentInstance;

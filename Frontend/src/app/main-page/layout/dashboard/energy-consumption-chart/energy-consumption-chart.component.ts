@@ -17,7 +17,7 @@ export class EnergyConsumptionChartComponent implements OnInit {
   showXAxisLabel: boolean = true;
   xAxisLabel: string = 'Country';
   showYAxisLabel: boolean = true;
-  yAxisLabel: string = 'Population';
+  yAxisLabel: string = 'Population'; 
   legendTitle: string = 'Years';
 
   colorScheme = {

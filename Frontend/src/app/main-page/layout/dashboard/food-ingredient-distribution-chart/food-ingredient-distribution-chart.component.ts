@@ -19,7 +19,7 @@ export class FoodIngredientDistributionChartComponent implements OnInit {
     domain: ['#5AA454', '#A10A28', '#C7B42C', '#AAAAAA']
   };
 
-  constructor() {
+  constructor() { 
     Object.assign(this, { single });
   }
 
