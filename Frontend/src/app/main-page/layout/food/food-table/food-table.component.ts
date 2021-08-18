@@ -1,7 +1,7 @@
 import { AfterViewInit,Component, ViewChild } from '@angular/core';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
-import { ELEMENT_DATA, Food } from './data';
+import { FOOD_DATA, Food } from './data';
 
 @Component({
   selector: 'app-food-table',
@@ -10,13 +10,13 @@ import { ELEMENT_DATA, Food } from './data';
 })
 export class FoodTableComponent implements AfterViewInit {
 
-  foods: Food[] = ELEMENT_DATA;
+  foods: Food[] = FOOD_DATA;
   sortedData = this.foods;
 
   constructor() { }
 
   displayedColumns: string[] = ['meal', 'foodCategory', 'foodName', 'calorie', 'protein', 'oil', 'carbohydrate'];
-  dataSource = new MatTableDataSource(ELEMENT_DATA);
+  dataSource = new MatTableDataSource(FOOD_DATA);
 
   @ViewChild(MatSort) sort!: MatSort;
 

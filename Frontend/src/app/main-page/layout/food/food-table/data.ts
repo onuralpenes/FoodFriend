@@ -8,7 +8,7 @@ export interface Food {
     meal: string;
 }
 
-export const ELEMENT_DATA: Food[] = [
+export const FOOD_DATA: Food[] = [
     { meal: 'morning', foodCategory: 'yoghurt', foodName: 'Frozen yogurt', calorie: 159, oil: 6, carbohydrate: 24, protein: 4 },
     { meal: 'dinner', foodCategory: 'bread', foodName: 'Ice cream sandwich', calorie: 237, oil: 9, carbohydrate: 37, protein: 4 },
     { meal: 'lunch', foodCategory: 'meal', foodName: 'Eclair', calorie: 262, oil: 16, carbohydrate: 24, protein: 6 },
