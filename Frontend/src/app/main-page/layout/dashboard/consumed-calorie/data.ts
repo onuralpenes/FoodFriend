@@ -2,12 +2,16 @@
 
 export var single = [
     {
-      "name": "Total Calorie",
-      "value": 6000000
+      "name": "Alınan Kalori",
+      "value": 600
     },
     {
       "name": " ", 
-      "value": 10000000
+      "value": 1000
+    },
+    {
+      "name": " ", 
+      "value": -1000
     },
   ];
   

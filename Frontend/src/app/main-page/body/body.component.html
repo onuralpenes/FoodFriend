@@ -6,17 +6,30 @@
             <div class="name">
                 <h1>{{name}}</h1>
             </div>
-            <div class="e-mail">
-                <p>{{email}}</p>
+            
+            <!-- RESPONSIVE NAME HTML ITEM -->
+            <div class="responsiveName">
+                <h1>SA</h1>
             </div>
         </div>
         <div class="wrapper">
             <div class="divider div-transparent"></div>
         </div>
-        <button class="button" (click)="navigateDashboard()"><span>DASHBOARD</span></button>
-        <button class="button" (click)="navigateProfile()"><span>PROFILE</span></button>
-        <button class="button" (click)="navigateFood()"><span>FOOD</span></button>
-        <button class="button" (click)="navigateActivity()"><span>ACTIVITY</span></button>
+        <button class="button" (click)="navigateDashboard()" ><mat-icon class = "responsiveIcons">home</mat-icon> <p class="dashboardText">DASHBOARD</p>  </button>
+        <div class="wrapper">
+            <div class="divider div-transparent"></div>
+        </div>
+        <button class="button" (click)="navigateProfile()"><mat-icon class = "responsiveIcons"> person_pin</mat-icon><p>PROFILE</p></button>
+        
+        <div class="wrapper">
+            <div class="divider div-transparent"></div>
+        </div>
+        <button class="button" (click)="navigateFood()"><mat-icon class = "responsiveIcons"> local_dining</mat-icon><p>FOOD</p></button>
+        
+        <div class="wrapper">
+            <div class="divider div-transparent"></div>
+        </div>
+        <button class="button" (click)="navigateActivity()"><mat-icon class = "responsiveIcons">fitness_center</mat-icon><p>ACTIVITY</p></button>
 
         <!--<img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu"> -->
     </mat-sidenav>
