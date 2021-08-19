@@ -20,6 +20,11 @@ export class ActivityTableComponent implements AfterViewInit {
 
   @ViewChild(MatSort) sort!: MatSort;
 
+  applyFilter(event: Event) {
+    const filterValue = (event.target as HTMLInputElement).value;
+    this.dataSource.filter = filterValue.trim().toLowerCase();
+  }
+  
   ngAfterViewInit() {
     this.dataSource.sort = this.sort;
   }
