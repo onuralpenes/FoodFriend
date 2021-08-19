@@ -1,3 +1,5 @@
+//Where to get the nutritional data from the nutrient table.
+
 export interface Food {
     foodName: string;
     calorie: number;

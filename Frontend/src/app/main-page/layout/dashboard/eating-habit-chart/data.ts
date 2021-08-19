@@ -1,3 +1,5 @@
+//Where to get eating habits data.
+
 export var multi = [
     {
       "name": "Germany",

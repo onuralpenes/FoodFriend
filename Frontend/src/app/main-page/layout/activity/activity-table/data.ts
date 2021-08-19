@@ -1,3 +1,5 @@
+//Where to get the activity data found in the activity table.
+
 export interface Activity {
   activityType: string;
   activityPeriod: number;
