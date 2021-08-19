@@ -57,3 +57,10 @@
 .footer-distributed p.footer-links a:hover {
   text-decoration: underline;
 }
+
+.ft{
+  text-align: center;
+  width: 100%;
+  height:6%;
+  background-color: black;
+}
