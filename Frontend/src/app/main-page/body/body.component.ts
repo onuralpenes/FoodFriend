@@ -8,7 +8,7 @@ import { Router } from '@angular/router';
 })
 export class BodyComponent implements OnInit {
 
-  @Input() opened = true;
+  @Input() opened = true; //Required for connection with the header.
   name = "Onuralp Enes ÖZ"
   email = "oz.onuralp@gmail.com";
   constructor(private router: Router) { 

@@ -1,3 +1,5 @@
+//Where to get consumed calorie data.
+
 export var single = [
     {
       "name": "Total Calorie",

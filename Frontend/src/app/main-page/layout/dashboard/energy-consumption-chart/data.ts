@@ -1,3 +1,5 @@
+//Where to get consumed energy data.
+
 export var multi = [
     {
       "name": "Germany",

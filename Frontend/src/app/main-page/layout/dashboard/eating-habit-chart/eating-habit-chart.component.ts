@@ -8,7 +8,7 @@ import { multi } from './data';
 })
 export class EatingHabitChartComponent implements OnInit {
 
-  multi!: any[];
+  multi!: any[];  //It is getting data from data.ts.
 
   legend: boolean = true;
   showLabels: boolean = true;

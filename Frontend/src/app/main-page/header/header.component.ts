@@ -7,7 +7,7 @@ import { Component, OnInit , Output, EventEmitter} from '@angular/core';
 })
 export class HeaderComponent implements OnInit {
 
-  @Output() toggle: EventEmitter<any> = new EventEmitter();
+  @Output() toggle: EventEmitter<any> = new EventEmitter(); //Required for connection with sidebar.
 
   constructor() { }
 
@@ -15,7 +15,7 @@ export class HeaderComponent implements OnInit {
   }
 
   emit(){
-    this.toggle.emit(null);
+    this.toggle.emit(null); //Required for connection with sidebar.
   }
 
 }

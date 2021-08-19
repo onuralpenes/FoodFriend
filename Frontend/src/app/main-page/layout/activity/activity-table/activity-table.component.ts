@@ -1,4 +1,4 @@
-import { AfterViewInit,Component, ViewChild } from '@angular/core';
+import { AfterViewInit, Component, ViewChild } from '@angular/core';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import { ACTIVITY_DATA, Activity } from './data';
@@ -10,8 +10,8 @@ import { ACTIVITY_DATA, Activity } from './data';
 })
 export class ActivityTableComponent implements AfterViewInit {
 
-  activities: Activity[] = ACTIVITY_DATA;
-  sortedData = this.activities;
+  activities: Activity[] = ACTIVITY_DATA; //It is getting data from data.ts.
+  sortedData = this.activities; //It is getting data from data.ts.
 
   constructor() { }
 
@@ -20,7 +20,7 @@ export class ActivityTableComponent implements AfterViewInit {
 
   @ViewChild(MatSort) sort!: MatSort;
 
-  ngAfterViewInit(){
+  ngAfterViewInit() {
     this.dataSource.sort = this.sort;
   }
 }

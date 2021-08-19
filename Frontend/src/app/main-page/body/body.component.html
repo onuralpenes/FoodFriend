@@ -1,4 +1,5 @@
 <mat-sidenav-container class="bodyContainer">
+    <!-- Inside of the sidebar -->
     <mat-sidenav class="sidebar" [ngClass]="opened ? 'sideBarOpen' : 'sideBarClose'" #sidenav mode="side"
         [(opened)]="opened" opened>
         <div class="profileCard">
@@ -12,14 +13,14 @@
         <div class="wrapper">
             <div class="divider div-transparent"></div>
         </div>
-        <button class="button" (click)="navigateDashboard()" ><span>DASHBOARD</span></button>
+        <button class="button" (click)="navigateDashboard()"><span>DASHBOARD</span></button>
         <button class="button" (click)="navigateProfile()"><span>PROFILE</span></button>
         <button class="button" (click)="navigateFood()"><span>FOOD</span></button>
         <button class="button" (click)="navigateActivity()"><span>ACTIVITY</span></button>
 
         <!--<img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu"> -->
     </mat-sidenav>
-
+     <!-- Outside of the sidebar -->
     <mat-sidenav-content>
         <router-outlet></router-outlet>
     </mat-sidenav-content>

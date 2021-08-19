@@ -1,4 +1,4 @@
-import { AfterViewInit,Component, ViewChild } from '@angular/core';
+import { AfterViewInit, Component, ViewChild } from '@angular/core';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import { FOOD_DATA, Food } from './data';
@@ -10,8 +10,8 @@ import { FOOD_DATA, Food } from './data';
 })
 export class FoodTableComponent implements AfterViewInit {
 
-  foods: Food[] = FOOD_DATA;
-  sortedData = this.foods;
+  foods: Food[] = FOOD_DATA; //It is getting data from data.ts.
+  sortedData = this.foods; //It is getting data from data.ts.
 
   constructor() { }
 
