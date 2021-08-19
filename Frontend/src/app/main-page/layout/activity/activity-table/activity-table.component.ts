@@ -15,16 +15,20 @@ export class ActivityTableComponent implements AfterViewInit {
 
   constructor() { }
 
-  displayedColumns: string[] = ['activityType', 'activityPeriod', 'activityEffortSpent', 'activityEfforUnit', 'activityStartDate', 'activityEndDate'];
+  displayedColumns: string[] = ['activityType', 'activityPeriod', 'activityEffortSpent', 'activityEfforUnit', 'activityStartDate', 'activityEndDate', 'edit', 'delete'];
   dataSource = new MatTableDataSource(ACTIVITY_DATA);
 
   @ViewChild(MatSort) sort!: MatSort;
+
+  delete(){ }
+
+  edit(){ }
 
   applyFilter(event: Event) {
     const filterValue = (event.target as HTMLInputElement).value;
     this.dataSource.filter = filterValue.trim().toLowerCase();
   }
-  
+
   ngAfterViewInit() {
     this.dataSource.sort = this.sort;
   }
