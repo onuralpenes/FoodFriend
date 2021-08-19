@@ -15,9 +15,9 @@ const routes: Routes = [
             { path: 'dashboard', component: DashboardComponent },
             { path: 'food', component: FoodComponent },
             { path: 'activity', component: ActivityComponent }, 
-        ],
+            { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
+        ], 
     },
-    { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
 ];
 
 @NgModule({

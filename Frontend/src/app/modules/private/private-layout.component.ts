@@ -6,7 +6,7 @@ import { Component } from "@angular/core";
 })
 
 export class PrivateLayoutComponent {
-    sideBar = true;
+    sideBar = false;
 
     toggle() {
         this.sideBar = !this.sideBar;

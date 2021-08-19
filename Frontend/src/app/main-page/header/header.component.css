@@ -7,15 +7,22 @@
     border-width: 0px;
     border-color: whitesmoke;
 }
-
+.userNameText, .foodFriendText{
+  color:antiquewhite;
+}
 .header{
-  background-color: #38818a;
+  background: #00c081;
   height: 5%;
 }
-
-@media only screen and (max-width: 500px){
+.mat-icon{
+  color: aliceblue;
+}
+@media only screen and (max-width: 400px){
   
 .foodFriendText{
+  display: none;
+}
+.userNameText{
   display: none;
 }
 }
