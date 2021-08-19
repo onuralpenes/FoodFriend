@@ -13,7 +13,7 @@ export class ConsumedCalorieComponent implements OnInit {
 
 
   colorScheme = {
-    domain: ['#ff0000', '#ffffff', '#CFC0BB', '#7aa3e5', '#a8385d', '#aae3f5']
+    domain: ['#ff0000', '#ffaaaa', '#ffffff']
   };
 
   constructor() {

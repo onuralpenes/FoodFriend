@@ -15,3 +15,7 @@
   th.mat-sort-header-sorted {
     color: black;
   }
+  .row{
+    height: 400px;
+    overflow: auto;
+  }
