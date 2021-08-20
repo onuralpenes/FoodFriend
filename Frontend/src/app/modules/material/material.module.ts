@@ -14,6 +14,8 @@ import { MatTableModule } from '@angular/material/table';
 
 import { NgxChartsModule } from '@swimlane/ngx-charts';
 
+import { NgCircleProgressModule } from 'ng-circle-progress';
+
 @NgModule({
   imports: [
     MatFormFieldModule,
@@ -30,6 +32,8 @@ import { NgxChartsModule } from '@swimlane/ngx-charts';
     MatTableModule,
 
     NgxChartsModule,
+
+    NgCircleProgressModule.forRoot({}),
   ],
 
   exports: [
@@ -47,6 +51,9 @@ import { NgxChartsModule } from '@swimlane/ngx-charts';
     MatTableModule,
 
     NgxChartsModule,
+
+    NgCircleProgressModule,
+
   ],
   providers: [MatDatepickerModule],
 
