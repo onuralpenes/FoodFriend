@@ -20,7 +20,9 @@ export class FoodTableComponent implements AfterViewInit {
 
   @ViewChild(MatSort) sort!: MatSort;
 
-  delete(){ }
+  delete(){
+
+  }
 
   edit(){ }
 
