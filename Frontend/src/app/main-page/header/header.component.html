@@ -1,31 +1,27 @@
 <mat-toolbar class="header">
-<!-- Button that opens the sidebar -->
+
     <button mat-icon-button (click)="emit()">
         <mat-icon>menu</mat-icon>
     </button>
-
-    <span class = "foodFriendText">FoodFriend</span>
-
+    <img class="img"src="../../../assets/beyaz.png">
+    <img class="responsiveImg" src="../../../assets/beyaz2.png">
     <span class="space"></span>
 
-    <!-- Notification button-->
     <button mat-icon-button [matMenuTriggerFor]="notifications">
         <mat-icon>notifications_none</mat-icon>
     </button>
 
-    <!-- Notification menu-->
     <mat-menu #notifications="matMenu">
         <p> Uzman mesaj atmış. </p>
         <p> Admin mesaj atmış. </p>
     </mat-menu>
 
-    <!-- User button -->
-    <button mat-button [matMenuTriggerFor]="user">
+    <button mat-button color="primary" [matMenuTriggerFor]="user">
+        
         <mat-icon>person</mat-icon>
         <span class="userNameText" >Username</span>
     </button>
 
-    <!-- User menu -->
     <mat-menu #user="matMenu">
         <p>
             <button mat-button>
@@ -45,6 +41,7 @@
                 Logout
             </button>
         </p>
+
+
     </mat-menu>
-    
 </mat-toolbar>

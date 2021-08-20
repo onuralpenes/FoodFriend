@@ -17,10 +17,11 @@
     margin: auto;
   }
   .bodyContainer{
-    height: 89%;
+    height: 94%;
+    background-color: rgb(234, 247, 250);
   }
   .sidebar{
-    background: rgb(214, 238, 215);
+    background: rgb(64 180 145);
     width: 13%;
   }
   
@@ -86,6 +87,30 @@
 
 
 
+.button1 {
+  display: block;
+
+  background: linear-gradient(to left, rgb(64 180 145) 50%, #36997b 50%);
+  background-size: 200% 100%;
+  background-position: right bottom;
+  transition: all .25s ease-out;
+}
+
+.button1:hover {
+  background-position: left bottom;
+}
+
+.text {
+  font-size: 16px;
+  line-height: 30px; 
+  color: black;
+  transition: all .6s ease-out;
+  display: block;
+}
+
+.text:hover {
+  color: white;  
+}
 
 /*  RESPONSIVE  */ 
 
