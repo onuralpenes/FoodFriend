@@ -1,21 +1,27 @@
 .mat-sort-header-container {
-    align-items: center;
-    text-align: center;
-  }
-  .table {
-    text-align: center;
-  }
-  .h1 {
+  align-items: center;
   text-align: center;
-  }
-  table {
-    width: 100%;
-  }
-  
-  th.mat-sort-header-sorted {
-    color: black;
-  }
-  .row{
-    height: 400px;
-    overflow: auto;
-  }
+}
+.table {
+  text-align: center;
+}
+.h1 {
+  text-align: center;
+}
+table {
+  width: 100%;
+}
+
+th.mat-sort-header-sorted {
+  color: black;
+}
+.row {
+  height: 400px;
+  overflow: auto;
+}
+
+.mat-header-cell {
+  height: 100% !important;
+  background-color: rgb(219, 219, 219) !important;
+  color: #00695c !important;
+}
