@@ -1,0 +1,22 @@
+mat-form-field{
+  margin-left: 5px;
+  /* background-color: #0000ff; */
+}
+.container{
+  margin: 0 auto;
+  /* background-color: #ff0000; */
+}
+
+button {
+	width: auto;
+	border-radius: 20px;
+	border: 1px solid #11914b;
+	background-color: #1d6b3b;
+	color: #fff;
+	font-size: 12px;
+	font-weight: bold;
+	padding: 12px 45px;
+	letter-spacing: 1px;
+	text-transform: uppercase;
+	transition: transform 80ms ease-in;
+}

@@ -1,5 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
+import { ReactiveFormsModule } from '@angular/forms';
 import { BodyComponent } from 'src/app/main-page/body/body.component';
 import { FooterComponent } from 'src/app/main-page/footer/footer.component';
 import { HeaderComponent } from 'src/app/main-page/header/header.component';
@@ -14,6 +15,7 @@ import { HealthCardComponent } from 'src/app/main-page/layout/dashboard/health-c
 import { FoodTableComponent } from 'src/app/main-page/layout/food/food-table/food-table.component';
 import { FoodComponent } from 'src/app/main-page/layout/food/food.component';
 import { ProfileComponent } from 'src/app/main-page/layout/profile/profile.component';
+import { SurveyComponent } from 'src/app/main-page/layout/profile/survey/survey.component';
 import { CustomMaterialModule } from '../material/material.module';
 import { PrivateLayoutComponent } from './private-layout.component';
 import { PrivateRoutingModule } from './private-routing.module';
@@ -35,8 +37,9 @@ import { PrivateRoutingModule } from './private-routing.module';
         ActivityComponent,
         ActivityTableComponent,
         HealthCardComponent,
+        SurveyComponent,
     ],
-    imports: [CommonModule, PrivateRoutingModule, CustomMaterialModule],
+    imports: [CommonModule, PrivateRoutingModule, CustomMaterialModule, ReactiveFormsModule,],
     schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 

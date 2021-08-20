@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { calorie, total } from './data';
+import { ThemePalette } from '@angular/material/core';
+import {ProgressBarMode} from '@angular/material/progress-bar';
+import { calorie, total , value } from './data';
 
 @Component({
   selector: 'app-consumed-calorie',
@@ -10,14 +12,22 @@ export class ConsumedCalorieComponent implements OnInit {
 
   tot = total;
   cal = calorie;
+  val = value;
+
   per = (100 * this.cal) / this.tot;
   left = this.tot - this.cal;
   tit = "You eat " + this.cal.toString() + " calorie"
   unit = "";
   sub = "You can eat " + this.left.toString() + " calorie";
+
+  color: ThemePalette = 'warn';
+  mode: ProgressBarMode = 'determinate';
+
   constructor() {
 
   }
+
+  blank = "-"; 
   ngOnInit() {
 
   }
