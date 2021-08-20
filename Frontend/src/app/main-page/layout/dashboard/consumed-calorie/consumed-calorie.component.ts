@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { single } from './data';
+import { cal } from './data';
 
 @Component({
   selector: 'app-consumed-calorie',
@@ -8,31 +8,14 @@ import { single } from './data';
 })
 export class ConsumedCalorieComponent implements OnInit {
 
-  single!: any[]; //It is getting data from data.ts.
-  legend: boolean = true; 
-
-
-  colorScheme = {
-    domain: ['#ff0000', '#ffaaaa', '#ffffff']
-  };
-
+  unit = "%";
+  sub = "percent";
+  calorie = cal
   constructor() {
-    Object.assign(this, { single });
-  }
 
-  onSelect(data: any): void {
-    console.log('Item clicked', JSON.parse(JSON.stringify(data)));
   }
+  ngOnInit() {
 
-  onActivate(data: any): void {
-    console.log('Activate', JSON.parse(JSON.stringify(data)));
-  }
-
-  onDeactivate(data: any): void {
-    console.log('Deactivate', JSON.parse(JSON.stringify(data)));
-  }
-
-  ngOnInit(): void {
   }
 
 }

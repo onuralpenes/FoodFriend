@@ -1,8 +1,12 @@
-<ngx-charts-gauge
-  [scheme]="colorScheme" 
-  [results]="single"
-  (select)="onSelect($event)"
-  (activate)="onActivate($event)"
-  (deactivate)="onDeactivate($event)"
-  >
-</ngx-charts-gauge>
+<circle-progress
+  [percent]="calorie"
+  [radius]="100"
+  [outerStrokeWidth]="8"
+  [innerStrokeWidth]="0"
+  [outerStrokeColor]="'#ff0000'"
+  [animation]="true"
+  [animationDuration]="1000"
+  [responsive] = "true"
+  [units] = 'unit'
+  [subtitle] = 'sub'
+></circle-progress>
