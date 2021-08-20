@@ -11,6 +11,7 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { MatSortModule } from '@angular/material/sort';
 import { MatTableModule } from '@angular/material/table';
+import {MatProgressBarModule} from '@angular/material/progress-bar'
 
 import { NgxChartsModule } from '@swimlane/ngx-charts';
 
@@ -30,6 +31,7 @@ import { NgCircleProgressModule } from 'ng-circle-progress';
     MatExpansionModule,
     MatSortModule,
     MatTableModule,
+    MatProgressBarModule,
 
     NgxChartsModule,
 
@@ -49,6 +51,7 @@ import { NgCircleProgressModule } from 'ng-circle-progress';
     MatExpansionModule,
     MatSortModule,
     MatTableModule,
+    MatProgressBarModule,
 
     NgxChartsModule,
 
