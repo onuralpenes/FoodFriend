@@ -1,3 +1,11 @@
+
+img{
+  width: 150px;
+}
+.responsiveImg{
+  display: none;
+}
+
 .space {
     flex:100%;
   }
@@ -5,20 +13,26 @@
     background-color: transparent;
     font: 100% Arial;
     border-width: 0px;
-    border-color: whitesmoke;
+    border-color: white;
 }
 .userNameText, .foodFriendText{
-  color:antiquewhite;
+  color:white;
 }
 .header{
-  background: #00c081;
-  height: 5%;
+  background: linear-gradient(to left, #2c8066, #40b491);;
+  height: 6%;
 }
 .mat-icon{
-  color: aliceblue;
+  color: white;
 }
 @media only screen and (max-width: 400px){
-  
+.responsiveImg{
+  width: 25px;
+  display: inline-block;
+}
+.img{
+  display: none;
+}
 .foodFriendText{
   display: none;
 }

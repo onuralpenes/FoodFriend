@@ -14,7 +14,6 @@ h1 {
 	margin: 0;
 	padding-bottom: 2pc;
 }
-
 p {
 	font-size: 14px;
 	font-weight: 100;
@@ -37,9 +36,9 @@ a {
 
 button {
 	width: auto;
-	border-radius: 20px;
-	border: 1px solid #11914b;
-	background-color: #1d6b3b;
+	border-radius: 25px;
+	border: 1px solid #53ecbe;
+	background-color: #3ad6a7;
 	color: #fff;
 	font-size: 12px;
 	font-weight: bold;
@@ -63,7 +62,7 @@ button.ghost {
 }
 
 form {
-	background-color: #fff;
+	background-color: #e4f4f4;
 	display: flex;
 	align-items: center;
 	justify-content: center;
@@ -86,7 +85,7 @@ input {
 	margin-top: 5%;
 }
 .container.right-panel-active {
-	height: 750px;
+	height: 710px;
 	width: 1050px;
 	-webkit-transition: height 1s, width 1s;
   	transition: height 1s, width 1s;
@@ -103,7 +102,7 @@ input {
 }
 .container {
 
-	background-color: #fff;
+	background-color: #e4f4f4;
 	border-radius: 10px;
   	box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 
 			0 10px 10px rgba(0, 0, 0, 0.22);
@@ -192,8 +191,8 @@ input {
 
 .overlay {
 	background: #00ffff;
-	background: -webkit-linear-gradient(to right, #069c9c, #03f383);
-	background: linear-gradient(to right, #38818a, #76b451);
+	background: -webkit-linear-gradient(to right, #2c8066, #40b491);
+	background: linear-gradient(to right, #2c8066, #40b491);
 	background-repeat: no-repeat;
 	background-size: cover;
 	background-position: 0 0;
@@ -320,7 +319,11 @@ input {
   
 
   @media only screen and (max-width: 825px) {
-
+	@media only screen and (max-height: 611px){
+		.container{
+			height: 100%;
+		}
+	}
 	form{
 		margin-top: 15%;
 	}
@@ -331,6 +334,7 @@ input {
 		display: block;
 		margin-top: 3px;
 		margin: 0 auto;
+		background-color: #3ad6a7;
 	}
 	.overlay-container{
 		display: none;
