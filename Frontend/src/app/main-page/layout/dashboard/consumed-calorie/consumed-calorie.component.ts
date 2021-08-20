@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { cal } from './data';
+import { calorie, total } from './data';
 
 @Component({
   selector: 'app-consumed-calorie',
@@ -8,9 +8,13 @@ import { cal } from './data';
 })
 export class ConsumedCalorieComponent implements OnInit {
 
-  unit = "%";
-  sub = "percent";
-  calorie = cal
+  tot = total;
+  cal = calorie;
+  per = (100 * this.cal) / this.tot;
+  left = this.tot - this.cal;
+  tit = "You eat " + this.cal.toString() + " calorie"
+  unit = "";
+  sub = "You can eat " + this.left.toString() + " calorie";
   constructor() {
 
   }
