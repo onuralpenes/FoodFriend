@@ -20,7 +20,7 @@ export class BodyComponent implements OnInit {
   name = "Onuralp Enes ÖZ"
   pageName ="Dashboard";
   email = "oz.onuralp@gmail.com";
-  constructor(private router: Router) { 
+  constructor(private router: Router) {
     console.log(this.router.url)
     if(this.router.url == "/profile"){
       this.onProfile = true;
@@ -69,7 +69,7 @@ export class BodyComponent implements OnInit {
     this.pageName = "Dashboard";
   }
   navigateProfile(){
-    
+
     this.onActivity = false;
     this.onFood = false;
     this.onProfile = true;
@@ -79,7 +79,7 @@ export class BodyComponent implements OnInit {
     if(!this.pinButton){
       this.toggle.emit(null);
     }
-    
+
     this.pageName = "Profile";
   }
   navigateFood(){
@@ -92,7 +92,7 @@ export class BodyComponent implements OnInit {
     if(!this.pinButton){
       this.toggle.emit(null);
     }
-    
+
     this.pageName = "Food";
   }
   navigateActivity(){
@@ -105,7 +105,7 @@ export class BodyComponent implements OnInit {
     if(!this.pinButton){
       this.toggle.emit(null);
     }
-    
+
     this.pageName = "Activity";
 
   }
@@ -119,10 +119,10 @@ export class BodyComponent implements OnInit {
     if(!this.pinButton){
       this.toggle.emit(null);
     }
-    
+
     this.pageName = "Patients";
 
-  
+
   }
   ngOnInit(): void {
 
