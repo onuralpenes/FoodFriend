@@ -7,8 +7,15 @@ import { Component } from "@angular/core";
 
 export class PrivateLayoutComponent {
     sideBar = true;
-
+    pinned = true;
     toggle() {
-        this.sideBar = !this.sideBar;
+        if(this.pinned){
+            this.sideBar = this.sideBar;
+        }else{
+            this.sideBar = !this.sideBar;
+        }
+    }
+    pin(){
+        this.pinned = !this.pinned;
     }
 }

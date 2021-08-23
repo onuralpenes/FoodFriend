@@ -9,20 +9,38 @@ import { PieChartModule } from '@swimlane/ngx-charts';
 })
 export class BodyComponent implements OnInit {
   @Output() toggle: EventEmitter<any> = new EventEmitter();
+  @Output() pin: EventEmitter<any> = new EventEmitter();
   @Input() opened = true;
-  @Input() pinButton = false;
+  @Input() pinButton = true;
   @Input() onDashboard = true; //ilk hangi sayfaya yönlenicek isek true olacak
   @Input() onProfile= false;
   @Input() onFood = false;
   @Input() onActivity = false;
   name = "Onuralp Enes ÖZ"
+  pageName ="Dashboard";
   email = "oz.onuralp@gmail.com";
   constructor(private router: Router) { 
-    
+    console.log(this.router.url)
+    if(this.router.url == "/profile"){
+      this.onProfile = true;
+      this.onDashboard = false;
+      this.onFood = false;
+      this.onActivity = false;
+    }else if(this.router.url == "/food"){
+      this.onProfile = false;
+      this.onDashboard = false;
+      this.onFood = true;
+      this.onActivity = false;
+    }else if(this.router.url == "/activity"){
+      this.onProfile = false;
+      this.onDashboard = false;
+      this.onFood = false;
+      this.onActivity = true;
+    }
   }
   pinSidebar(){
       this.pinButton = !this.pinButton;
-    
+      this.pin.emit("this.pinButton");
   }
   navigateDashboard(){
     this.onActivity = false;
@@ -33,6 +51,7 @@ export class BodyComponent implements OnInit {
     if(!this.pinButton){
       this.toggle.emit(null);
     }
+    this.pageName = "Dashboard";
   }
   navigateProfile(){
     
@@ -44,6 +63,8 @@ export class BodyComponent implements OnInit {
     if(!this.pinButton){
       this.toggle.emit(null);
     }
+    
+    this.pageName = "Profile";
   }
   navigateFood(){
     this.onActivity = false;
@@ -54,6 +75,8 @@ export class BodyComponent implements OnInit {
     if(!this.pinButton){
       this.toggle.emit(null);
     }
+    
+    this.pageName = "Food";
   }
   navigateActivity(){
     this.onActivity = true;
@@ -64,6 +87,9 @@ export class BodyComponent implements OnInit {
     if(!this.pinButton){
       this.toggle.emit(null);
     }
+    
+    this.pageName = "Activity";
+
   }
   ngOnInit(): void {
 
