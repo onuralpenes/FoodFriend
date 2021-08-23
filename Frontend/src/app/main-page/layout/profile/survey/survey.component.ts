@@ -1,6 +1,8 @@
-import { Component, Directive, ElementRef, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { MatDialog } from '@angular/material/dialog';
 import { Blood, BLOOD_DATA, Select, SELECT_DATA } from './data';
+
 
 @Component({
   selector: 'app-survey',
@@ -9,14 +11,14 @@ import { Blood, BLOOD_DATA, Select, SELECT_DATA } from './data';
 })
 export class SurveyComponent implements OnInit {
 
-  
+
   formGroup!: FormGroup;
   post: any = '';
-  
+
   bloods: Blood[] = BLOOD_DATA;
   selects: Select[] = SELECT_DATA;
 
-  constructor(private formBuilder: FormBuilder) { } 
+  constructor(private formBuilder: FormBuilder) { }
   ngOnInit() {
     this.createForm();
   }
@@ -35,18 +37,20 @@ export class SurveyComponent implements OnInit {
   onSubmit(post) {
     this.post = post;
   }
-
 }
 
-@Directive({
-  selector: 'input[type=number]'
+
+
+
+@Component({
+  selector: 'app-survey-modal',
+  templateUrl: './survey-modal.html',
+  styleUrls: ['./survey.component.css']
 })
+export class SurveyModal {
+  constructor(public modal: MatDialog) { }
 
-export class TestDirective {
-  constructor(private elementRef: ElementRef) {
-
-  }
-  ngOnInit() {
-    console.log('type=number', this.elementRef.nativeElement);
+  openModal() {
+    this.modal.open(SurveyComponent);
   }
 }

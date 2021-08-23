@@ -1,4 +1,4 @@
-<mat-form-field appearance="standard">
+<mat-form-field class="searching-filter" appearance="standard">
   <mat-label>Filter</mat-label>
   <input
     matInput
@@ -51,16 +51,16 @@
     </ng-container>
 
     <ng-container matColumnDef="activityStartDate">
-      <th mat-header-cell *matHeaderCellDef mat-sort-header>Start Date</th>
+      <th mat-header-cell *matHeaderCellDef mat-sort-header >Start Date</th>
       <td mat-cell *matCellDef="let activities">
-        {{ activities.activityStartDate }}
+        {{ activities.activityStartDate | date: 'dd/MM/yyyy' }}
       </td>
     </ng-container>
 
     <ng-container matColumnDef="activityEndDate">
       <th mat-header-cell *matHeaderCellDef mat-sort-header>End Date</th>
       <td mat-cell *matCellDef="let activities">
-        {{ activities.activityEndDate }}
+        {{ activities.activityEndDate | date: 'dd/MM/yyyy' }}
       </td>
     </ng-container>
 

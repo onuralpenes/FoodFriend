@@ -14,8 +14,10 @@ import { FoodIngredientDistributionChartComponent } from 'src/app/main-page/layo
 import { HealthCardComponent } from 'src/app/main-page/layout/dashboard/health-card/health-card.component';
 import { FoodTableComponent } from 'src/app/main-page/layout/food/food-table/food-table.component';
 import { FoodComponent } from 'src/app/main-page/layout/food/food.component';
+import { ActivityTable, NutritionTable, PatientTraceTableComponent } from 'src/app/main-page/layout/patient-trace/patient-trace-table/patient-trace-table.component';
+import { PatientTraceComponent } from 'src/app/main-page/layout/patient-trace/patient-trace.component';
 import { ProfileComponent } from 'src/app/main-page/layout/profile/profile.component';
-import { SurveyComponent } from 'src/app/main-page/layout/profile/survey/survey.component';
+import { SurveyComponent, SurveyModal } from 'src/app/main-page/layout/profile/survey/survey.component';
 import { CustomMaterialModule } from '../material/material.module';
 import { PrivateLayoutComponent } from './private-layout.component';
 import { PrivateRoutingModule } from './private-routing.module';
@@ -38,6 +40,11 @@ import { PrivateRoutingModule } from './private-routing.module';
         ActivityTableComponent,
         HealthCardComponent,
         SurveyComponent,
+        SurveyModal,
+        PatientTraceComponent,
+        PatientTraceTableComponent,
+        NutritionTable,
+        ActivityTable,
     ],
     imports: [CommonModule, PrivateRoutingModule, CustomMaterialModule, ReactiveFormsModule,],
     schemas: [CUSTOM_ELEMENTS_SCHEMA],
