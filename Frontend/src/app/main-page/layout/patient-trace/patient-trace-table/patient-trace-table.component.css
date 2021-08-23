@@ -30,3 +30,44 @@ button.ghost {
 	width: 1000px;
 	height: 500px;
 }
+
+.mat-sort-header-container {
+	align-items: center;
+	text-align: center;
+  }
+  .table {
+	text-align: center;
+  }
+  table {
+	width: 90%;
+  }
+  
+  th.mat-sort-header-sorted {
+	color: black;
+  }
+  .row {
+	height: 400px;
+	overflow: scroll;
+	margin-left: 10%;
+	margin-right: 0%;
+  }
+  
+  .mat-header-cell {
+	height: 100% !important;
+	background-color: rgb(219, 219, 219) !important;
+	color: #00695c !important;
+  }
+  
+  .search{
+	transition: all .2s ease-in-out;
+	color: #00695c;
+	margin-left: 10%;
+  }
+  .search:hover {
+	transform: scale(1.025);
+  }
+  
+  .searching-filter{
+	margin-left: 10%;
+  }
+  
