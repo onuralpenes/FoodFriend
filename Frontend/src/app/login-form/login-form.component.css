@@ -12,3 +12,31 @@
     font-size: 9px;
     margin-top: -1em;
 }
+
+button {
+	width: auto;
+    margin: 0 auto;
+	border-radius: 25px;
+	border: 1px solid #53ecbe;
+	background-color: #3ad6a7;
+	color: #fff;
+	font-size: 12px;
+	font-weight: bold;
+	padding: 12px 45px;
+	letter-spacing: 1px;
+	text-transform: uppercase;
+	transition: transform 80ms ease-in;
+}
+
+button:active {
+	transform: scale(0.95);
+}
+
+button:focus {
+	outline: none;
+}
+
+button.ghost {
+	background-color: transparent;
+	border-color: #fff;
+}
