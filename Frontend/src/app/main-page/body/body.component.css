@@ -54,6 +54,18 @@
   background-color: transparent;
   border: none;
 }
+.button_pin{
+  border: 0px;
+  background-color: transparent;
+  float: right;
+  color:black;
+}
+.pin_icon_unpinned{
+  color: white;
+}
+.pin_icon_pinned{
+  color: black;
+}
 .button p {
   cursor: pointer;
   display: inline-block;
@@ -85,7 +97,9 @@
   display: none;
 }
 
-
+.onThisPart{
+  background-color: #36997b;
+}
 
 .button1 {
   display: block;
