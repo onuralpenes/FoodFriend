@@ -16,6 +16,7 @@ export class BodyComponent implements OnInit {
   @Input() onProfile= false;
   @Input() onFood = false;
   @Input() onActivity = false;
+  @Input() onPatients = false;
   name = "Onuralp Enes ÖZ"
   pageName ="Dashboard";
   email = "oz.onuralp@gmail.com";
@@ -26,19 +27,29 @@ export class BodyComponent implements OnInit {
       this.onDashboard = false;
       this.onFood = false;
       this.onActivity = false;
+      this.onPatients = false;
       this.pageName = "Profile"
     }else if(this.router.url == "/food"){
       this.onProfile = false;
       this.onDashboard = false;
       this.onFood = true;
       this.onActivity = false;
+      this.onPatients = false;
       this.pageName = "Food";
     }else if(this.router.url == "/activity"){
       this.onProfile = false;
       this.onDashboard = false;
       this.onFood = false;
       this.onActivity = true;
+      this.onPatients = false;
       this.pageName = "Activity";
+    }else if(this.router.url == "/patients"){
+      this.onProfile = false;
+      this.onDashboard = false;
+      this.onFood = false;
+      this.onActivity = false;
+      this.onPatients = true;
+      this.pageName = "Patients";
     }
   }
   pinSidebar(){
@@ -93,6 +104,21 @@ export class BodyComponent implements OnInit {
     
     this.pageName = "Activity";
 
+  }
+  navigatePatients(){
+    this.onActivity = false;
+    this.onFood = false;
+    this.onProfile = false;
+    this.onDashboard = false;
+    this.onPatients = true;
+    this.router.navigate(['/patients']);
+    if(!this.pinButton){
+      this.toggle.emit(null);
+    }
+    
+    this.pageName = "Patients";
+
+  
   }
   ngOnInit(): void {
 

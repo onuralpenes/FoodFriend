@@ -31,7 +31,7 @@
                 <div class="text">
                     <button class="button" (click)="navigateDashboard()">
                         <mat-icon class="responsiveIcons">home</mat-icon>
-                        <p class="dashboardText">DASHBOARD</p>
+                        <p class="dashboardText">Dashboard</p>
                     </button>
                 </div>
             </div>
@@ -42,7 +42,7 @@
                 <div class="text">
                     <button class="button" (click)="navigateProfile()">
                         <mat-icon class="responsiveIcons"> person_pin</mat-icon>
-                        <p>PROFILE</p>
+                        <p>Profile</p>
                     </button>
                 </div>
             </div>
@@ -52,7 +52,7 @@
                 <div class="text">
                     <button class="button" (click)="navigateFood()">
                         <mat-icon class="responsiveIcons"> local_dining</mat-icon>
-                        <p>FOOD</p>
+                        <p>Food</p>
                     </button>
                 </div>
             </div>
@@ -64,7 +64,18 @@
                 <div class="text">
                     <button class="button" (click)="navigateActivity()">
                         <mat-icon class="responsiveIcons">fitness_center</mat-icon>
-                        <p>ACTIVITY</p>
+                        <p>Activity</p>
+                    </button>
+                </div>
+            </div>
+        </div>
+        
+        <div class="outer">
+            <div [ngClass]="onPatients ? 'onThisPart' : 'button1'">
+                <div class="text">
+                    <button class="button" (click)="navigatePatients()">
+                        <mat-icon class="responsiveIcons">fitness_center</mat-icon>
+                        <p>Patients</p>
                     </button>
                 </div>
             </div>
