@@ -61,6 +61,7 @@ export class BodyComponent implements OnInit {
     this.onFood = false;
     this.onProfile = false;
     this.onDashboard = true;
+    this.onPatients = false;
     this.router.navigate(['/dashboard']);
     if(!this.pinButton){
       this.toggle.emit(null);
@@ -73,6 +74,7 @@ export class BodyComponent implements OnInit {
     this.onFood = false;
     this.onProfile = true;
     this.onDashboard = false;
+    this.onPatients = false;
     this.router.navigate(['/profile']);
     if(!this.pinButton){
       this.toggle.emit(null);
@@ -85,6 +87,7 @@ export class BodyComponent implements OnInit {
     this.onFood = true;
     this.onProfile = false;
     this.onDashboard = false;
+    this.onPatients = false;
     this.router.navigate(['/food']);
     if(!this.pinButton){
       this.toggle.emit(null);
@@ -97,6 +100,7 @@ export class BodyComponent implements OnInit {
     this.onFood = false;
     this.onProfile = false;
     this.onDashboard = false;
+    this.onPatients = false;
     this.router.navigate(['/activity']);
     if(!this.pinButton){
       this.toggle.emit(null);
