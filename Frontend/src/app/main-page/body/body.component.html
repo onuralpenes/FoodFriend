@@ -1,19 +1,20 @@
 <mat-sidenav-container class="bodyContainer">
     <!-- Inside of the sidebar -->
-    
-    <mat-sidenav class="sidebar" [ngClass]="opened ? 'sideBarOpen' : 'sideBarClose'"   #sidenav mode="side"
+
+    <mat-sidenav class="sidebar" [ngClass]="opened ? 'sideBarOpen' : 'sideBarClose'" #sidenav mode="side"
         [(opened)]="opened" opened>
         <div style="height: 20px;">
             <button class="button_pin" (click)="pinSidebar()">
-                <span class="material-icons" [ngClass]="pinButton ? 'pin_icon_pinned' : 'pin_icon_unpinned'" >push_pin</span>
+                <span class="material-icons"
+                    [ngClass]="pinButton ? 'pin_icon_pinned' : 'pin_icon_unpinned'">push_pin</span>
             </button>
         </div>
-        
+
         <div class="profileCard">
             <div class="name">
                 <h1>{{name}}</h1>
             </div>
-            
+
             <!-- RESPONSIVE NAME HTML ITEM -->
             <div class="responsiveName">
                 <h1>SA</h1>
@@ -22,43 +23,64 @@
         <div class="wrapper">
             <div class="divider div-transparent"></div>
         </div>
-        
+        <div class="wrapper">
+            <div class="divider div-transparent"></div>
+        </div>
         <div class="outer">
-            <div  [ngClass] = "onDashboard ? 'onThisPart' : 'button1'">
-              <div class="text">
-        <button class="button" (click)="navigateDashboard()"><mat-icon class = "responsiveIcons">home</mat-icon> <p class="dashboardText">DASHBOARD</p>  </button>
-    </div>
-</div>
-</div>
-        
-        <div class="outer">
-            <div [ngClass] = "onProfile ? 'onThisPart' : 'button1'">
-              <div class="text">
-        <button class="button" (click)="navigateProfile()"><mat-icon class = "responsiveIcons"> person_pin</mat-icon><p>PROFILE</p></button>
-    </div>
-</div>
-</div>
-        <div class="outer">
-            <div [ngClass] = "onFood ? 'onThisPart' : 'button1'">
-              <div class="text">
-                    <button class="button" (click)="navigateFood()"><mat-icon class = "responsiveIcons"> local_dining</mat-icon><p>FOOD</p></button>
+            <div [ngClass]="onDashboard ? 'onThisPart' : 'button1'">
+                <div class="text">
+                    <button class="button" (click)="navigateDashboard()">
+                        <mat-icon class="responsiveIcons">home</mat-icon>
+                        <p class="dashboardText">DASHBOARD</p>
+                    </button>
                 </div>
             </div>
         </div>
-        
-        
+
         <div class="outer">
-            <div [ngClass] = "onActivity ? 'onThisPart' : 'button1'">
-              <div class="text">
-            <button class="button" (click)="navigateActivity()"><mat-icon class = "responsiveIcons">fitness_center</mat-icon><p>ACTIVITY</p></button>
+            <div [ngClass]="onProfile ? 'onThisPart' : 'button1'">
+                <div class="text">
+                    <button class="button" (click)="navigateProfile()">
+                        <mat-icon class="responsiveIcons"> person_pin</mat-icon>
+                        <p>PROFILE</p>
+                    </button>
+                </div>
+            </div>
         </div>
-    </div>
-</div>
+        <div class="outer">
+            <div [ngClass]="onFood ? 'onThisPart' : 'button1'">
+                <div class="text">
+                    <button class="button" (click)="navigateFood()">
+                        <mat-icon class="responsiveIcons"> local_dining</mat-icon>
+                        <p>FOOD</p>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="outer">
+            <div [ngClass]="onActivity ? 'onThisPart' : 'button1'">
+                <div class="text">
+                    <button class="button" (click)="navigateActivity()">
+                        <mat-icon class="responsiveIcons">fitness_center</mat-icon>
+                        <p>ACTIVITY</p>
+                    </button>
+                </div>
+            </div>
+        </div>
         <!--<img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu"> -->
     </mat-sidenav>
-     <!-- Outside of the sidebar -->
+    <!-- Outside of the sidebar -->
     <mat-sidenav-content>
-        <div>{{pageName}}</div>
+        <div>
+            <p class="page-title">
+                {{pageName}}
+            </p>
+        </div>
+        <div class="wrapper">
+            <div class="divider div-transparent"></div>
+        </div>
         <router-outlet></router-outlet>
     </mat-sidenav-content>
 

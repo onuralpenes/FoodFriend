@@ -266,7 +266,11 @@
   .card:hover .inside-page {
     box-shadow: inset 1rem 0px 5rem -2.5rem rgba(0,0,0,0.1);
   }
-  
+  .logo{
+    
+    width: 100%;
+    margin-top: 25%;
+  }
   @media screen and (max-width: 600px) {
     .card:hover {
       box-shadow:

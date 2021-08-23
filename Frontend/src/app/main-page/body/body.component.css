@@ -21,7 +21,7 @@
     background-color: rgb(234, 247, 250);
   }
   .sidebar{
-    background: rgb(64 180 145);
+    background: #335145 ;
     width: 13%;
   }
   
@@ -30,7 +30,9 @@
 	position: relative;
 	height: 1px;
 }
-
+.page-title{
+  border-bottom: black;
+}
 .div-transparent:before
 {
 	content: "";
@@ -104,7 +106,8 @@
 .button1 {
   display: block;
 
-  background: linear-gradient(to left, rgb(64 180 145) 50%, #36997b 50%);
+  /*background: linear-gradient(to left, rgb(64 180 145) 50%, #36997b 50%);*/
+  background: linear-gradient(to left, #335145 50%, #36997b 50%);
   background-size: 200% 100%;
   background-position: right bottom;
   transition: all .25s ease-out;

@@ -26,16 +26,19 @@ export class BodyComponent implements OnInit {
       this.onDashboard = false;
       this.onFood = false;
       this.onActivity = false;
+      this.pageName = "Profile"
     }else if(this.router.url == "/food"){
       this.onProfile = false;
       this.onDashboard = false;
       this.onFood = true;
       this.onActivity = false;
+      this.pageName = "Food";
     }else if(this.router.url == "/activity"){
       this.onProfile = false;
       this.onDashboard = false;
       this.onFood = false;
       this.onActivity = true;
+      this.pageName = "Activity";
     }
   }
   pinSidebar(){
