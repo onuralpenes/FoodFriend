@@ -32,8 +32,26 @@
 	position: relative;
 	height: 1px;
 }
+.title-div{
+  width: 100%;
+  height: 56px;
+}
 .page-title{
-  border-bottom: black;
+  margin-left: 3%;
+  font-family: -webkit-pictograph;
+    font-size: 40px;
+    margin-top: 12px;
+    float: left;
+}
+.div-transparent-title:before{
+  content: "";
+    position: absolute;
+    top: 0;
+    left: 3%;
+    right: 5%;
+    width: 33%;
+    height: 2px;
+    background-image: linear-gradient(to right, rgb(48,49,51), transparent);
 }
 .div-transparent:before
 {
