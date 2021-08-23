@@ -11,14 +11,14 @@ import { Blood, BLOOD_DATA, Select, SELECT_DATA } from './data';
 })
 export class SurveyComponent implements OnInit {
 
-  
+
   formGroup!: FormGroup;
   post: any = '';
-  
+
   bloods: Blood[] = BLOOD_DATA;
   selects: Select[] = SELECT_DATA;
 
-  constructor(private formBuilder: FormBuilder) { } 
+  constructor(private formBuilder: FormBuilder) { }
   ngOnInit() {
     this.createForm();
   }
@@ -51,10 +51,6 @@ export class SurveyModal {
   constructor(public modal: MatDialog) { }
 
   openModal() {
-    const modalRef = this.modal.open(SurveyComponent);
-
-    modalRef.afterClosed().subscribe(result => {
-      console.log(`Modal result: ${result}`);
-    });
+    this.modal.open(SurveyComponent);
   }
 }
