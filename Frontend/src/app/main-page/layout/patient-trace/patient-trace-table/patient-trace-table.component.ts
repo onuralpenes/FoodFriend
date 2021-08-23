@@ -94,7 +94,7 @@ export class ActivityTable implements AfterViewInit {
   constructor(@Inject(MAT_DIALOG_DATA) public data: Transfer) { }
 
   displayedColumns: string[] = ['activityType', 'activityPeriod', 'activityEffortSpent', 'activityEfforUnit', 'activityStartDate', 'activityEndDate'];
-  dataSource = new MatTableDataSource(ACTIVITY_DATA);
+  dataSource = new MatTableDataSource(this.activities.filter(activity => activity.id === this.data.id));
 
   @ViewChild(MatSort) sort!: MatSort;
 

@@ -25,3 +25,8 @@ button.ghost {
 	background-color: transparent;
 	border-color: #fff;
 }
+
+.modal-table{
+	width: 1000px;
+	height: 500px;
+}
