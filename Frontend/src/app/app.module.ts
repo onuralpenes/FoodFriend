@@ -9,6 +9,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { RegisterFormComponent } from './register-form/register-form.component';
 import { PrivateModule } from './modules/private/private.module';
 import { CustomMaterialModule } from './modules/material/material.module';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { CustomMaterialModule } from './modules/material/material.module';
     HttpClientModule,
     BrowserAnimationsModule,
     PrivateModule,
-    CustomMaterialModule
+    CustomMaterialModule,
+    ReactiveFormsModule 
   ],
   bootstrap: [AppComponent]
 })
