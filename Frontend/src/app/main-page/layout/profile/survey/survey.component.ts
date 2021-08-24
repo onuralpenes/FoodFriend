@@ -25,32 +25,22 @@ export class SurveyComponent implements OnInit {
 
   createForm() {
     this.formGroup = this.formBuilder.group({
+      'name': [null, Validators.required],
+      'surname': [null, Validators.required],
+      'email': [null, Validators.required],
+      'phoneNumber': [null, Validators.required],
       'height': [null, Validators.required],
       'weight': [null, Validators.required],
+      'birthDate': [null, Validators.required],
       'bloodGroup': [null, Validators.required],
       'smoking': [null, Validators.required],
       'alcohol': [null, Validators.required],
       'exercise': [null, Validators.required],
+
     });
   }
 
   onSubmit(post) {
     this.post = post;
-  }
-}
-
-
-
-
-@Component({
-  selector: 'app-survey-modal',
-  templateUrl: './survey-modal.html',
-  styleUrls: ['./survey.component.css']
-})
-export class SurveyModal {
-  constructor(public modal: MatDialog) { }
-
-  openModal() {
-    this.modal.open(SurveyComponent);
   }
 }

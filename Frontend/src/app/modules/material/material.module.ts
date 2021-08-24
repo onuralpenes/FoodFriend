@@ -19,6 +19,7 @@ import { NgxChartsModule } from '@swimlane/ngx-charts';
 import { NgCircleProgressModule } from 'ng-circle-progress';
 import { MatPaginatorModule } from '@angular/material/paginator';
 
+
 @NgModule({
   imports: [
     MatFormFieldModule,
@@ -40,7 +41,7 @@ import { MatPaginatorModule } from '@angular/material/paginator';
     NgxChartsModule,
 
     NgCircleProgressModule.forRoot({}),
-
+    MatFormFieldModule,
   ],
 
   exports: [
@@ -63,6 +64,7 @@ import { MatPaginatorModule } from '@angular/material/paginator';
     NgxChartsModule,
 
     NgCircleProgressModule,
+    MatFormFieldModule,
   ],
   providers: [MatDatepickerModule],
 })

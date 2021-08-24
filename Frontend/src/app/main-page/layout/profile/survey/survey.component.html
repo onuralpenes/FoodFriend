@@ -1,69 +1,156 @@
-<h2 mat-dialog-title>Something</h2>
+<h2 class="h2">Welcome to your profile.</h2>
 
-<mat-dialog-content>
+<div class="row">
+  <mat-dialog-content>
     <div class="container" *ngIf="!post; else forminfo" novalidate>
-        <form [formGroup]="formGroup" (ngSubmit)="onSubmit(formGroup.value)" class="form">
-            <mat-form-field appearance="outline">
-                <mat-label>Height</mat-label>
-                <input matInput type="number" placeholder="Height" formControlName="height">
-            </mat-form-field>
-    
-            <mat-form-field appearance="outline">
-                <mat-label>Weight</mat-label>
-                <input matInput type="number" placeholder="Weight" formControlName="weight">
-            </mat-form-field>
-    
-            <mat-form-field appearance="outline">
-                <mat-label>Blood Group</mat-label>
-                <select matNativeControl name="bloodGroup" formControlName="bloodGroup">
-                    <option value="" selected></option>
-                    <option *ngFor="let blood of bloods" [value]="blood.value">
-                        {{blood.viewValue}}
-                    </option>
-                </select>
-            </mat-form-field>
-    
-            <mat-form-field appearance="outline">
-                <mat-label>Smoking</mat-label>
-                <select matNativeControl name="smoking" formControlName="smoking">
-                    <option value="" selected></option>
-                    <option *ngFor="let select of selects" [value]="select.value">
-                        {{select.viewValue}}
-                    </option>
-                </select>
-            </mat-form-field>
-    
-            <mat-form-field appearance="outline">
-                <mat-label>Alcohol</mat-label>
-                <select matNativeControl name="alcohol" formControlName="alcohol">
-                    <option value="" selected></option>
-                    <option *ngFor="let select of selects" [value]="select.value">
-                        {{select.viewValue}}
-                    </option>
-                </select>
-            </mat-form-field>
-    
-            <mat-form-field appearance="outline">
-                <mat-label>Exercise Habit</mat-label>
-                <select matNativeControl name="exercise" formControlName="exercise">
-                    <option value="" selected></option>
-                    <option *ngFor="let select of selects" [value]="select.value">
-                        {{select.viewValue}}
-                    </option>
-                </select>
-            </mat-form-field>
-    
-            <div class="form-element">
-                <button mat-button type="submit" class="button" [disabled]="!formGroup.valid">Submit
-                    Form</button>
-            </div>
-    
-        </form>
-    </div>
-    
-    <ng-template #forminfo>
-        <div class="container">
-            {{ post | json }}
+      <form
+        [formGroup]="formGroup"
+        (ngSubmit)="onSubmit(formGroup.value)"
+        class="form"
+      >
+        <div class="col align-self-start">
+          <mat-form-field appearance="outline">
+            <mat-label>Name</mat-label>
+            <input
+              matInput
+              type="string"
+              placeholder="Name"
+              formControlName="name"
+            />
+          </mat-form-field>
+
+          <mat-form-field appearance="outline">
+            <mat-label>Surname</mat-label>
+            <input
+              matInput
+              type="string"
+              placeholder="Surname"
+              formControlName="surname"
+            />
+          </mat-form-field>
         </div>
+        <div class="col align-self-start">
+          <mat-form-field appearance="outline">
+            <mat-label>E-mail</mat-label>
+            <input
+              matInput
+              type="string"
+              placeholder="E-mail"
+              formControlName="email"
+            />
+          </mat-form-field>
+
+          <mat-form-field appearance="outline">
+            <mat-label>Phone Number</mat-label>
+            <input
+              matInput
+              type="number"
+              placeholder="Phone Number"
+              formControlName="phoneNumber"
+            />
+          </mat-form-field>
+        </div>
+        <div class="col align-self-start">
+          <mat-form-field appearance="outline">
+            <mat-label>Weight</mat-label>
+            <input
+              matInput
+              type="number"
+              placeholder="Weight"
+              formControlName="weight"
+            />
+          </mat-form-field>
+
+          <mat-form-field appearance="outline">
+            <mat-label>Height</mat-label>
+            <input
+              matInput
+              type="number"
+              placeholder="Height"
+              formControlName="height"
+            />
+          </mat-form-field>
+        </div>
+        <div class="col align-self-start">
+          <mat-form-field appearance="outline">
+            <mat-label>Exercise Habit</mat-label>
+            <select matNativeControl name="exercise" formControlName="exercise">
+              <option [ngValue]="undefined" disabled>Select Any</option>
+              <!-- <option value="" selected></option> -->
+              <option *ngFor="let select of selects" [value]="select.value">
+                {{ select.viewValue }}
+              </option>
+            </select>
+          </mat-form-field>
+
+          <mat-form-field appearance="outline">
+            <mat-label>Blood Group</mat-label>
+            <select
+              matNativeControl
+              name="bloodGroup"
+              formControlName="bloodGroup"
+            >
+              <option [ngValue]="undefined" disabled>Select Any</option>
+              <!-- <option value="" selected></option> -->
+              <option
+                class="abc"
+                *ngFor="let blood of bloods"
+                [value]="blood.value"
+              >
+                {{ blood.viewValue }}
+              </option>
+            </select>
+          </mat-form-field>
+        </div>
+        <div class="col align-self-start">
+          <mat-form-field appearance="outline">
+            <mat-label>Smoking</mat-label>
+            <select matNativeControl name="smoking" formControlName="smoking">
+              <option [ngValue]="undefined" disabled>Select Any</option>
+              <!-- <option value="" selected></option> -->
+              <option *ngFor="let select of selects" [value]="select.value">
+                {{ select.viewValue }}
+              </option>
+            </select>
+          </mat-form-field>
+          <mat-form-field appearance="outline">
+            <mat-label>Alcohol</mat-label>
+            <select matNativeControl name="alcohol" formControlName="alcohol">
+              <option [ngValue]="undefined" disabled>Select Any</option>
+              <!-- <option value="" selected></option> -->
+              <option *ngFor="let select of selects" [value]="select.value">
+                {{ select.viewValue }}
+              </option>
+            </select>
+          </mat-form-field>
+        </div>
+        <div class="col align-self-start">
+          <mat-form-field appearance="outline">
+            <mat-label>Birth Date</mat-label>
+            <input
+              matInput
+              type="date"
+              placeholder="Birth Date"
+              formControlName="birthDate"
+            />
+          </mat-form-field>
+        </div>
+        <div class="form-element">
+          <button
+            mat-button
+            type="submit"
+            class="button"
+            [disabled]="!formGroup.valid"
+          >
+            Submit Form
+          </button>
+        </div>
+      </form>
+    </div>
+    <ng-template #forminfo>
+      <div class="container">
+        {{ post | json }}
+      </div>
     </ng-template>
-</mat-dialog-content>
+  </mat-dialog-content>
+</div>
