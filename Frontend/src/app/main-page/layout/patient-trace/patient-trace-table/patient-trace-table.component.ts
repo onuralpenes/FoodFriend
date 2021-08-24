@@ -1,6 +1,8 @@
 import { AfterViewInit, Component, Inject, ViewChild } from '@angular/core';
+import { ThemePalette } from '@angular/material/core';
 import { MatDialog, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { MatPaginator } from '@angular/material/paginator';
+import { ProgressBarMode } from '@angular/material/progress-bar';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import {
@@ -11,6 +13,7 @@ import {
   User,
   USER_DATA,
 } from './data';
+import { TARGET_DATA } from './targetdata';
 
 export interface Transfer {
   name: string;
@@ -26,7 +29,7 @@ export class PatientTraceTableComponent implements AfterViewInit {
   users: User[] = USER_DATA;
   sortedData = this.users;
 
-  constructor(public modal: MatDialog) {}
+  constructor(public modal: MatDialog) { }
 
   displayedColumns: string[] = [
     'name',
@@ -38,6 +41,7 @@ export class PatientTraceTableComponent implements AfterViewInit {
     'smoking',
     'alcohol',
     'exercise',
+    'target',
     'foodData',
     'activityData',
   ];
@@ -72,6 +76,15 @@ export class PatientTraceTableComponent implements AfterViewInit {
       },
     });
   }
+
+  openTarget(name: string, surname: string, id: number) {
+    this.modal.open(PatientTarget, {
+      data: {
+        name: name + ' ' + surname,
+        id: id,
+      },
+    });
+  }
 }
 @Component({
   selector: 'app-nut-table',
@@ -82,7 +95,7 @@ export class NutritionTable implements AfterViewInit {
   foods: Food[] = FOOD_DATA;
   sortedData = this.foods;
 
-  constructor(@Inject(MAT_DIALOG_DATA) public data: Transfer) {}
+  constructor(@Inject(MAT_DIALOG_DATA) public data: Transfer) { }
 
   displayedColumns: string[] = [
     'meal',
@@ -120,7 +133,7 @@ export class ActivityTable implements AfterViewInit {
   activities: Activity[] = ACTIVITY_DATA;
   sortedData = this.activities;
 
-  constructor(@Inject(MAT_DIALOG_DATA) public data: Transfer) {}
+  constructor(@Inject(MAT_DIALOG_DATA) public data: Transfer) { }
 
   displayedColumns: string[] = [
     'activityType',
@@ -146,4 +159,27 @@ export class ActivityTable implements AfterViewInit {
     this.dataSource.sort = this.sort;
     this.dataSource.paginator = this.paginator;
   }
+}
+
+@Component({
+  selector: 'app-target',
+  templateUrl: './target.html',
+  styleUrls: ['./target.css'],
+})
+export class PatientTarget {
+
+  target = TARGET_DATA.target;
+  startingDate = TARGET_DATA.startingDate;
+  startingWeight = TARGET_DATA.startingWeight;
+  endDate = TARGET_DATA.endDate;
+  targetWeight = TARGET_DATA.targetWeight;
+  currentWeight = TARGET_DATA.currentWeight;
+
+  weight_percent = 100 * (this.startingWeight - this.currentWeight) / (this.startingWeight - this.targetWeight)
+
+  color: ThemePalette = 'warn';
+  mode: ProgressBarMode = 'determinate';
+
+  constructor(@Inject(MAT_DIALOG_DATA) public data: Transfer) { }
+
 }

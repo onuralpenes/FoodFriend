@@ -14,6 +14,7 @@ import { MatTableModule } from '@angular/material/table';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatCardModule } from '@angular/material/card';
 
 import { NgxChartsModule } from '@swimlane/ngx-charts';
 
@@ -39,6 +40,7 @@ import { CalendarModule, DateAdapter } from 'angular-calendar';
     MatProgressBarModule,
     MatDialogModule,
     MatPaginatorModule,
+    MatCardModule,
 
     NgxChartsModule,
 
@@ -74,4 +76,4 @@ import { CalendarModule, DateAdapter } from 'angular-calendar';
   ],
   providers: [MatDatepickerModule],
 })
-export class CustomMaterialModule {}
+export class CustomMaterialModule { }
