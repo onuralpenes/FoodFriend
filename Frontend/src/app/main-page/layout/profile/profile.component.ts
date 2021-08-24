@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output,EventEmitter } from '@angular/core';
 
 //declare var require: any;
 
@@ -8,6 +8,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./profile.component.css']
 })
 export class ProfileComponent implements OnInit {
+  @Output() setPageName: EventEmitter<any> = new EventEmitter()
   weight = 85
   height = 181
   age = 21
@@ -15,7 +16,7 @@ export class ProfileComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
-
+    this.setPageName.emit("Profile");
   }
 
 }

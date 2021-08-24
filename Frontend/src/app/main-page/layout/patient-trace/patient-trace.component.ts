@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output,EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-patient-trace',
@@ -6,10 +6,11 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./patient-trace.component.css']
 })
 export class PatientTraceComponent implements OnInit {
-
+  @Output() setPageName: EventEmitter<any> = new EventEmitter()
   constructor() { }
 
   ngOnInit(): void {
+    this.setPageName.emit("Patients");
   }
 
 }

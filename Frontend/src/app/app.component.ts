@@ -9,6 +9,7 @@ import { MatFormFieldModule} from '@angular/material/form-field';
 })
 
 export class AppComponent {
+  public pageTitle = "";
   title = 'FoodFriend';
 }
 export class FormFieldOverviewExample {}

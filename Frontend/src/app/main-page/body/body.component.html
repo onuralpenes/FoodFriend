@@ -85,14 +85,14 @@
     <!-- Outside of the sidebar -->
     <mat-sidenav-content>
         <div class="title-div">
-            <h1 class="page-title">
+            <h1 class="page-title" >
                 {{pageName}}
             </h1>
         </div>
         <div class="wrapper">
             <div class="divider div-transparent-title"></div>
         </div>
-        <router-outlet></router-outlet>
+        <router-outlet (setPageName)="setPageName($event)"></router-outlet>
     </mat-sidenav-content>
 
 </mat-sidenav-container>
