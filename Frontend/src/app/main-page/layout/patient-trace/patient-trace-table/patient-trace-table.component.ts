@@ -1,8 +1,16 @@
 import { AfterViewInit, Component, Inject, ViewChild } from '@angular/core';
 import { MatDialog, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
-import { Activity, ACTIVITY_DATA, Food, FOOD_DATA, User, USER_DATA } from './data';
+import {
+  Activity,
+  ACTIVITY_DATA,
+  Food,
+  FOOD_DATA,
+  User,
+  USER_DATA,
+} from './data';
 
 export interface Transfer {
   name: string;
@@ -12,19 +20,31 @@ export interface Transfer {
 @Component({
   selector: 'app-patient-trace-table',
   templateUrl: './patient-trace-table.component.html',
-  styleUrls: ['./patient-trace-table.component.css']
+  styleUrls: ['./patient-trace-table.component.css'],
 })
 export class PatientTraceTableComponent implements AfterViewInit {
-
   users: User[] = USER_DATA;
   sortedData = this.users;
 
-  constructor(public modal: MatDialog) { }
+  constructor(public modal: MatDialog) {}
 
-  displayedColumns: string[] = ['name', 'surname', 'birthdate', 'height', 'weight', 'bloodType', 'smoking', 'alcohol', 'exercise', 'foodData', 'activityData'];
+  displayedColumns: string[] = [
+    'name',
+    'surname',
+    'birthdate',
+    'height',
+    'weight',
+    'bloodType',
+    'smoking',
+    'alcohol',
+    'exercise',
+    'foodData',
+    'activityData',
+  ];
   dataSource = new MatTableDataSource(USER_DATA);
 
   @ViewChild(MatSort) sort!: MatSort;
+  @ViewChild(MatPaginator) paginator!: MatPaginator;
 
   applyFilter(event: Event) {
     const filterValue = (event.target as HTMLInputElement).value;
@@ -33,13 +53,14 @@ export class PatientTraceTableComponent implements AfterViewInit {
 
   ngAfterViewInit() {
     this.dataSource.sort = this.sort;
+    this.dataSource.paginator = this.paginator;
   }
   openActivity(name: string, surname: string, id: number) {
     this.modal.open(ActivityTable, {
       data: {
         name: name + ' ' + surname,
-        id: id
-      }
+        id: id,
+      },
     });
   }
 
@@ -47,28 +68,37 @@ export class PatientTraceTableComponent implements AfterViewInit {
     this.modal.open(NutritionTable, {
       data: {
         name: name + ' ' + surname,
-        id: id
-      }
+        id: id,
+      },
     });
   }
-
 }
 @Component({
   selector: 'app-nut-table',
   templateUrl: './nutrition-table.html',
-  styleUrls: ['./patient-trace-table.component.css']
+  styleUrls: ['./patient-trace-table.component.css'],
 })
 export class NutritionTable implements AfterViewInit {
-
   foods: Food[] = FOOD_DATA;
   sortedData = this.foods;
 
-  constructor(@Inject(MAT_DIALOG_DATA) public data: Transfer) {  }
+  constructor(@Inject(MAT_DIALOG_DATA) public data: Transfer) {}
 
-  displayedColumns: string[] = ['meal', 'foodCategory', 'foodName', 'calorie', 'protein', 'oil', 'carbohydrate'];
-  dataSource = new MatTableDataSource(this.foods.filter(food => food.id === this.data.id));
+  displayedColumns: string[] = [
+    'meal',
+    'foodCategory',
+    'foodName',
+    'calorie',
+    'protein',
+    'oil',
+    'carbohydrate',
+  ];
+  dataSource = new MatTableDataSource(
+    this.foods.filter((food) => food.id === this.data.id)
+  );
 
   @ViewChild(MatSort) sort!: MatSort;
+  @ViewChild(MatPaginator) paginator!: MatPaginator;
 
   applyFilter(event: Event) {
     const filterValue = (event.target as HTMLInputElement).value;
@@ -77,26 +107,35 @@ export class NutritionTable implements AfterViewInit {
 
   ngAfterViewInit() {
     this.dataSource.sort = this.sort;
+    this.dataSource.paginator = this.paginator;
   }
-
 }
 
 @Component({
   selector: 'app-act-table',
   templateUrl: './activity-table.html',
-  styleUrls: ['./patient-trace-table.component.css']
+  styleUrls: ['./patient-trace-table.component.css'],
 })
 export class ActivityTable implements AfterViewInit {
-
-  activities: Activity[] = ACTIVITY_DATA; 
+  activities: Activity[] = ACTIVITY_DATA;
   sortedData = this.activities;
 
-  constructor(@Inject(MAT_DIALOG_DATA) public data: Transfer) { }
+  constructor(@Inject(MAT_DIALOG_DATA) public data: Transfer) {}
 
-  displayedColumns: string[] = ['activityType', 'activityPeriod', 'activityEffortSpent', 'activityEfforUnit', 'activityStartDate', 'activityEndDate'];
-  dataSource = new MatTableDataSource(this.activities.filter(activity => activity.id === this.data.id));
+  displayedColumns: string[] = [
+    'activityType',
+    'activityPeriod',
+    'activityEffortSpent',
+    'activityEfforUnit',
+    'activityStartDate',
+    'activityEndDate',
+  ];
+  dataSource = new MatTableDataSource(
+    this.activities.filter((activity) => activity.id === this.data.id)
+  );
 
   @ViewChild(MatSort) sort!: MatSort;
+  @ViewChild(MatPaginator) paginator!: MatPaginator;
 
   applyFilter(event: Event) {
     const filterValue = (event.target as HTMLInputElement).value;
@@ -105,6 +144,6 @@ export class ActivityTable implements AfterViewInit {
 
   ngAfterViewInit() {
     this.dataSource.sort = this.sort;
+    this.dataSource.paginator = this.paginator;
   }
 }
-
