@@ -10,6 +10,7 @@ import { RegisterFormComponent } from './register-form/register-form.component';
 import { PrivateModule } from './modules/private/private.module';
 import { CustomMaterialModule } from './modules/material/material.module';
 import { ReactiveFormsModule } from '@angular/forms';
+import { CounseleeProfileComponent } from './main-page/layout/counselee-profile/counselee-profile.component';
 
 @NgModule({
   declarations: [
@@ -17,6 +18,7 @@ import { ReactiveFormsModule } from '@angular/forms';
     LoginComponent,
     LoginFormComponent,
     RegisterFormComponent,
+    CounseleeProfileComponent,
     
   ],
   imports: [
