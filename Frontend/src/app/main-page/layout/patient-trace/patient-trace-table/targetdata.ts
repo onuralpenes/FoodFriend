@@ -1,0 +1,1 @@
+export const TARGET_DATA = { target: "Lose Weight", startingDate: "24/07/2021", startingWeight: 120, endDate: "24/09/2021", targetWeight: 100, currentWeight: 115 }

@@ -41,13 +41,13 @@
         <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false">
             <mat-expansion-panel-header>
                 <mat-panel-title>
-                    Title
+                    Calendar
                 </mat-panel-title>
                 <mat-panel-description>
-                    Desc
+                    From this section, you can see monthly, weekly or daily events.
                 </mat-panel-description>
             </mat-expansion-panel-header>
-            Content
+            <app-calendar></app-calendar>
         </mat-expansion-panel>
     </mat-accordion>
 </div>

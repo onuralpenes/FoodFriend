@@ -6,6 +6,7 @@ import { FooterComponent } from 'src/app/main-page/footer/footer.component';
 import { HeaderComponent } from 'src/app/main-page/header/header.component';
 import { ActivityTableComponent } from 'src/app/main-page/layout/activity/activity-table/activity-table.component';
 import { ActivityComponent } from 'src/app/main-page/layout/activity/activity.component';
+import { CalendarComponent } from 'src/app/main-page/layout/dashboard/calendar/calendar.component';
 import { ConsumedCalorieComponent } from 'src/app/main-page/layout/dashboard/consumed-calorie/consumed-calorie.component';
 import { DashboardComponent } from 'src/app/main-page/layout/dashboard/dashboard.component';
 import { EatingHabitChartComponent } from 'src/app/main-page/layout/dashboard/eating-habit-chart/eating-habit-chart.component';
@@ -15,7 +16,7 @@ import { HealthCardComponent } from 'src/app/main-page/layout/dashboard/health-c
 import { ProgressesComponent } from 'src/app/main-page/layout/dashboard/progresses/progresses.component';
 import { FoodTableComponent } from 'src/app/main-page/layout/food/food-table/food-table.component';
 import { FoodComponent } from 'src/app/main-page/layout/food/food.component';
-import { ActivityTable, NutritionTable, PatientTraceTableComponent } from 'src/app/main-page/layout/patient-trace/patient-trace-table/patient-trace-table.component';
+import { ActivityTable, NutritionTable, PatientTarget, PatientTraceTableComponent } from 'src/app/main-page/layout/patient-trace/patient-trace-table/patient-trace-table.component';
 import { PatientTraceComponent } from 'src/app/main-page/layout/patient-trace/patient-trace.component';
 import { ProfileComponent } from 'src/app/main-page/layout/profile/profile.component';
 import { SurveyComponent } from 'src/app/main-page/layout/profile/survey/survey.component';
@@ -45,7 +46,9 @@ import { PrivateRoutingModule } from './private-routing.module';
         PatientTraceTableComponent,
         NutritionTable,
         ActivityTable,
+        PatientTarget,
         ProgressesComponent,
+        CalendarComponent,
     ],
     imports: [CommonModule, PrivateRoutingModule, CustomMaterialModule, ReactiveFormsModule,],
     schemas: [CUSTOM_ELEMENTS_SCHEMA],
