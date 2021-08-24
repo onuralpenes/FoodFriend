@@ -6,6 +6,7 @@ import { FooterComponent } from 'src/app/main-page/footer/footer.component';
 import { HeaderComponent } from 'src/app/main-page/header/header.component';
 import { ActivityTableComponent } from 'src/app/main-page/layout/activity/activity-table/activity-table.component';
 import { ActivityComponent } from 'src/app/main-page/layout/activity/activity.component';
+import { CalendarComponent } from 'src/app/main-page/layout/dashboard/calendar/calendar.component';
 import { ConsumedCalorieComponent } from 'src/app/main-page/layout/dashboard/consumed-calorie/consumed-calorie.component';
 import { DashboardComponent } from 'src/app/main-page/layout/dashboard/dashboard.component';
 import { EatingHabitChartComponent } from 'src/app/main-page/layout/dashboard/eating-habit-chart/eating-habit-chart.component';
@@ -47,6 +48,7 @@ import { PrivateRoutingModule } from './private-routing.module';
         NutritionTable,
         ActivityTable,
         ProgressesComponent,
+        CalendarComponent,
     ],
     imports: [CommonModule, PrivateRoutingModule, CustomMaterialModule, ReactiveFormsModule,],
     schemas: [CUSTOM_ELEMENTS_SCHEMA],

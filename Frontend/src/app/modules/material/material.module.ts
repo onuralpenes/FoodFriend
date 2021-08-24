@@ -13,11 +13,14 @@ import { MatSortModule } from '@angular/material/sort';
 import { MatTableModule } from '@angular/material/table';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { MatDialogModule } from '@angular/material/dialog';
+import { MatPaginatorModule } from '@angular/material/paginator';
 
 import { NgxChartsModule } from '@swimlane/ngx-charts';
 
 import { NgCircleProgressModule } from 'ng-circle-progress';
-import { MatPaginatorModule } from '@angular/material/paginator';
+
+import { adapterFactory } from 'angular-calendar/date-adapters/date-fns';
+import { CalendarModule, DateAdapter } from 'angular-calendar';
 
 @NgModule({
   imports: [
@@ -40,6 +43,11 @@ import { MatPaginatorModule } from '@angular/material/paginator';
     NgxChartsModule,
 
     NgCircleProgressModule.forRoot({}),
+
+    CalendarModule.forRoot({
+      provide: DateAdapter,
+      useFactory: adapterFactory,
+    }),
 
   ],
 
