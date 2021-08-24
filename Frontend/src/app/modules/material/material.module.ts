@@ -17,6 +17,7 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { NgxChartsModule } from '@swimlane/ngx-charts';
 
 import { NgCircleProgressModule } from 'ng-circle-progress';
+import { MatPaginatorModule } from '@angular/material/paginator';
 
 @NgModule({
   imports: [
@@ -34,10 +35,12 @@ import { NgCircleProgressModule } from 'ng-circle-progress';
     MatTableModule,
     MatProgressBarModule,
     MatDialogModule,
+    MatPaginatorModule,
 
     NgxChartsModule,
 
     NgCircleProgressModule.forRoot({}),
+
   ],
 
   exports: [
@@ -55,14 +58,12 @@ import { NgCircleProgressModule } from 'ng-circle-progress';
     MatTableModule,
     MatProgressBarModule,
     MatDialogModule,
+    MatPaginatorModule,
 
     NgxChartsModule,
 
     NgCircleProgressModule,
-
   ],
   providers: [MatDatepickerModule],
-
 })
-
-export class CustomMaterialModule { }
+export class CustomMaterialModule {}
