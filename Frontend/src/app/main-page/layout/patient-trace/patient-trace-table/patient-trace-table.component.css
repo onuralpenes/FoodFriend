@@ -41,7 +41,7 @@ button.ghost {
   table {
 	width: 90%;
   }
-  
+
   th.mat-sort-header-sorted {
 	color: black;
   }
@@ -51,13 +51,13 @@ button.ghost {
 	margin-left: 10%;
 	margin-right: 0%;
   }
-  
+
   .mat-header-cell {
 	height: 100% !important;
 	background-color: rgb(219, 219, 219) !important;
 	color: #00695c !important;
   }
-  
+
   .search{
 	transition: all .2s ease-in-out;
 	color: #00695c;
@@ -66,8 +66,11 @@ button.ghost {
   .search:hover {
 	transform: scale(1.025);
   }
-  
+
   .searching-filter{
 	margin-left: 10%;
   }
-  
+  .mat-form-field{
+    width: 80%;
+    margin-right: 0%;
+  }

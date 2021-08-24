@@ -28,7 +28,7 @@ th.mat-sort-header-sorted {
 .search{
   transition: all .2s ease-in-out;
   color: #00695c;
-  margin-left: 10%;
+  margin-left: 35%;
 }
 .search:hover {
   transform: scale(1.025);
@@ -39,5 +39,6 @@ th.mat-sort-header-sorted {
 }
 
 .mat-form-field{
-  width: 70%;
+  width: 80.8%;
+  margin-right: 0%;
 }
