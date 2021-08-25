@@ -1,1 +1,0 @@
-export const TARGET_DATA = { startingWeight: 100, currentWeight: 110 }

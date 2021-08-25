@@ -14,7 +14,6 @@ import {
   User,
   USER_DATA,
 } from './data';
-import { TARGET_DATA } from './targetdata';
 
 export interface Transfer {
   name: string;
@@ -28,6 +27,7 @@ export interface Transfer2 {
   endDate: Date,
   startingWeight: number,
   targetWeight: number,
+  currentWeight: number
 }
 
 @Component({
@@ -71,7 +71,6 @@ export class PatientTraceTableComponent implements AfterViewInit {
   }
 
   open(id: number){
-    console.log("tıklandı: " + id);
   }
 
   openActivity(name: string, surname: string, id: number) {
@@ -97,6 +96,7 @@ export class PatientTraceTableComponent implements AfterViewInit {
       data: {
         name: name + ' ' + surname,
         id: id,
+        currentWeight: this.users[id-1].weight,
       },
     });
   }
@@ -184,13 +184,12 @@ export class ActivityTable implements AfterViewInit {
 export class PatientTarget {
 
   public targetForm: FormGroup;
-
   startingWeight !: number;
   targetWeight !: number;
   startingDate !: Date;
   endDate!: Date;
 
-  constructor(@Inject(MAT_DIALOG_DATA) public data: Transfer, public modal: MatDialog, private formBuilder: FormBuilder) {
+  constructor(@Inject(MAT_DIALOG_DATA) public data: Transfer2, public modal: MatDialog, private formBuilder: FormBuilder) {
     this.targetForm = this.formBuilder.group({
       'startingDate': [null],
       'endDate': [null],
@@ -214,6 +213,7 @@ export class PatientTarget {
         endDate: this.endDate,
         startingWeight: this.startingWeight,
         targetWeight: this.targetWeight,
+        currentWeight: this.data.currentWeight
       }
     });
   }
@@ -232,6 +232,7 @@ export class PatientTarget {
         endDate: this.endDate,
         startingWeight: this.startingWeight,
         targetWeight: this.targetWeight,
+        currentWeight: this.data.currentWeight
       }
 
     });
@@ -269,12 +270,32 @@ export class PatientTargetCard {
       this.endDate = day + "/" + month + "/" + year;
     }
     if (data.startingWeight == null) {
-      this.startingWeight = TARGET_DATA.startingWeight;
+      this.startingWeight = 100;
     }
     else {
       this.startingWeight = data.startingWeight;
     }
     this.targetWeight = this.data.targetWeight;
+    this.currentWeight = this.data.currentWeight;
+    this.weight_percent = 100 * (this.startingWeight - this.currentWeight) / (this.startingWeight - this.targetWeight);
+    if(data.endDate == null){
+      this.dateProg = 0;
+    }
+    else{
+      var monthEnd = data.endDate.getUTCMonth() + 1;
+      var dayEnd = data.endDate.getUTCDate();
+      var yearEnd = data.endDate.getUTCFullYear();
+
+      var monthSt = this.startingDate.getUTCMonth() + 1;
+      var daySt = this.startingDate.getUTCDate();
+      var yearSt = this.startingDate.getUTCFullYear();
+      
+      var monthCr = this.currentDate.getUTCMonth() + 1;
+      var dayCr = this.currentDate.getUTCDate();
+      var yearCr = this.currentDate.getUTCFullYear();
+
+      this.dateProg = 100 * ((yearEnd - yearCr)*365 + (monthEnd - monthCr)*30 + (dayEnd - dayCr)) / ((yearEnd - yearSt)*365 + (monthEnd - monthSt)*30 + (dayEnd - daySt));
+    }
   }
 
   target!: string;
@@ -282,9 +303,10 @@ export class PatientTargetCard {
   startingWeight !: number;
   endDate: any;
   targetWeight !: number;
-  currentWeight = TARGET_DATA.currentWeight;
-
-  weight_percent = 100 * (this.startingWeight - this.currentWeight) / (this.startingWeight - this.targetWeight);
+  currentDate: Date = new Date();
+  currentWeight !: number;
+  weight_percent !: number;
+  dateProg !: number;
 
   color: ThemePalette = 'warn';
   mode: ProgressBarMode = 'determinate';

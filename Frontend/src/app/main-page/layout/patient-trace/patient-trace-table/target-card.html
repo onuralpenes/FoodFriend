@@ -21,7 +21,7 @@
                 <div class="space"></div>
                 <div class="bars">
                     <div class="coords"><span>Time left: </span></div>
-                    <mat-progress-bar class="example-margin" [color]="color" [mode]="mode" [value]="50">
+                    <mat-progress-bar class="example-margin" [color]="color" [mode]="mode" [value]="dateProg">
                     </mat-progress-bar>
                     <div style="height: 10px;"></div>
                     <div class="coords"><span>Progress: </span></div>
@@ -35,7 +35,7 @@
             <h1>{{target}}</h1>
             <div class="space"></div>
             <p>{{data.name}} started {{target}} target with {{startingWeight}} kilos on "{{startingDate | date:
-                "dd/MM/yyyy"}}"". Goal is to reach {{targetWeight}} kilos by "{{endDate}}".</p>
+                "dd/MM/yyyy"}}"". Goal is to reach {{targetWeight}} kilos by "{{endDate}}". Now {{currentWeight}} kilos.</p>
         </div>
     </div>
 
