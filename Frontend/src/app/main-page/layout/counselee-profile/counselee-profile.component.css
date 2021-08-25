@@ -15,9 +15,23 @@ img{
     margin-left: 5%;
 }
 .counselee-short-info{
+    width: 100%;
+    margin-left: 0;
     position: inherit;
-    height: 250px;
+    height: 275px;
     background: linear-gradient(0deg, #36997b 0%, #eaf7fa 87%);
+}
+.ilnesses{
+    margin: 0px;
+    padding: 20px;
+}
+.allergies{
+    margin: 0px;
+    padding: 20px;
+}
+.aim{
+    margin: 0px;
+    padding: 20px;
 }
 .counselee-name{
     text-align:center;
@@ -25,13 +39,23 @@ img{
     margin-top: 20px;
     font-size: 21px;
 }
-
+.info-div{
+    height: 100%;
+}
+.info{
+    margin-left: 100px;
+}
 .line{
     border:none;
     border-top:1px dotted #f00;
     transform:rotate(90)
 }
-
+.pragnentEnable{
+    display: inline-block;
+}
+.pragnentDisable{
+    display: none;
+}
 img:hover{
     /* hover eklenebilir*/
 }
