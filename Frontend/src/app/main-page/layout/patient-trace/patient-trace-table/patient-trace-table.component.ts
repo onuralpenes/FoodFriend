@@ -263,10 +263,10 @@ export class PatientTargetCard {
       var year = data.endDate.getUTCFullYear();
       this.endDate = day + "/" + month + "/" + year;
     }
-    if(data.startingWeight == null){
+    if (data.startingWeight == null) {
       this.startingWeight = TARGET_DATA.startingWeight;
     }
-    else{
+    else {
       this.startingWeight = data.startingWeight;
     }
     this.targetWeight = this.data.targetWeight;

@@ -195,17 +195,20 @@ button{
       height: 20px;
   }
 
- mat-form-field{
-   width: 100%;
- }
- .space2{
-   width: 1%;
- }
- .modal {
-  height: 400px;
-  position: relative;
-  margin: 0;
-}
- .buttons {
- margin-left: 10%;
-}
+  mat-form-field{
+      width: 100%;
+  }
+
+  .space2{
+      width: 1%;
+  }
+
+  .modal {
+      height: 400px;
+      position: relative;
+      margin: 0;
+  }  
+
+  .buttons {
+    margin-left: 10%;
+  }
