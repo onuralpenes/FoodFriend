@@ -69,6 +69,11 @@ export class PatientTraceTableComponent implements AfterViewInit {
     this.dataSource.sort = this.sort;
     this.dataSource.paginator = this.paginator;
   }
+
+  open(id: number){
+    console.log("tıklandı: " + id);
+  }
+
   openActivity(name: string, surname: string, id: number) {
     this.modal.open(ActivityTable, {
       data: {
