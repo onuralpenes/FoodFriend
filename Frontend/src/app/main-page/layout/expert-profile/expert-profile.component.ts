@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
+import { CounseleeProfileComponent } from '../counselee-profile/counselee-profile.component';
 
 @Component({
   selector: 'app-expert-profile',
@@ -10,8 +11,8 @@ export class ExpertProfileComponent implements OnInit {
 
   constructor(public dialog: MatDialog) { }
 
-  openDialog() {
-    const dialogRef = this.dialog.open(DialogContentExampleDialog);
+  openProfile() {
+    const dialogRef = this.dialog.open(CounseleeProfileComponent);
 
     dialogRef.afterClosed().subscribe(result => {
       console.log(`Dialog result: ${result}`);
@@ -21,9 +22,3 @@ export class ExpertProfileComponent implements OnInit {
   ngOnInit(): void {
   }
 }
-
-@Component({
-  selector: 'cv',
-  templateUrl: 'cv.html',
-})
-export class DialogContentExampleDialog {}
