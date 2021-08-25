@@ -16,13 +16,14 @@ import { HealthCardComponent } from 'src/app/main-page/layout/dashboard/health-c
 import { ProgressesComponent } from 'src/app/main-page/layout/dashboard/progresses/progresses.component';
 import { FoodTableComponent } from 'src/app/main-page/layout/food/food-table/food-table.component';
 import { FoodComponent } from 'src/app/main-page/layout/food/food.component';
-import { ActivityTable, NutritionTable, PatientTarget, PatientTraceTableComponent } from 'src/app/main-page/layout/patient-trace/patient-trace-table/patient-trace-table.component';
+import { ActivityTable, NutritionTable, PatientTarget, PatientTargetCard, PatientTraceTableComponent } from 'src/app/main-page/layout/patient-trace/patient-trace-table/patient-trace-table.component';
 import { PatientTraceComponent } from 'src/app/main-page/layout/patient-trace/patient-trace.component';
 import { ProfileComponent } from 'src/app/main-page/layout/profile/profile.component';
 import { SurveyComponent, SurveyModal } from 'src/app/main-page/layout/profile/survey/survey.component';
 import { CustomMaterialModule } from '../material/material.module';
 import { PrivateLayoutComponent } from './private-layout.component';
 import { PrivateRoutingModule } from './private-routing.module';
+
 
 @NgModule({
     declarations: [
@@ -48,10 +49,11 @@ import { PrivateRoutingModule } from './private-routing.module';
         NutritionTable,
         ActivityTable,
         PatientTarget,
+        PatientTargetCard,
         ProgressesComponent,
         CalendarComponent,
     ],
-    imports: [CommonModule, PrivateRoutingModule, CustomMaterialModule, ReactiveFormsModule,],
+    imports: [CommonModule, PrivateRoutingModule, CustomMaterialModule, ReactiveFormsModule],
     schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 

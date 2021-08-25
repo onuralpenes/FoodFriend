@@ -1,4 +1,5 @@
-import { AfterViewInit, Component, Inject, ViewChild } from '@angular/core';
+import { AfterViewInit, Component, Inject, OnInit, ViewChild } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ThemePalette } from '@angular/material/core';
 import { MatDialog, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { MatPaginator } from '@angular/material/paginator';
@@ -18,6 +19,13 @@ import { TARGET_DATA } from './targetdata';
 export interface Transfer {
   name: string;
   id: number;
+}
+
+export interface Transfer2 {
+  name: string,
+  target: boolean,
+  endDate: Date,
+  targetWeight: number,
 }
 
 @Component({
@@ -167,19 +175,85 @@ export class ActivityTable implements AfterViewInit {
   styleUrls: ['./target.css'],
 })
 export class PatientTarget {
+  endDate!: Date;
+  public targetForm: FormGroup;
+  targetWeight!: number;
 
-  target = TARGET_DATA.target;
+  constructor(@Inject(MAT_DIALOG_DATA) public data: Transfer, public modal: MatDialog, private formBuilder: FormBuilder) {
+    this.targetForm = this.formBuilder.group({
+      'endDate': [null, Validators.required],
+      'targetWeight': [null]
+    });
+  }
+
+
+  openLose(name: string, target: boolean, targetWeight: number) {
+    this.targetWeight = this.targetForm.get('targetWeight')?.value;
+    this.endDate = this.targetForm.get('endDate')?.value;
+
+    this.modal.open(PatientTargetCard, {
+      data: {
+        name: name,
+        target: target,
+        endDate: this.endDate,
+        targetWeight: targetWeight,
+      }
+    });
+  }
+
+  openGain(name: string, target: boolean, targetWeight: number) {
+    this.targetWeight = this.targetForm.get('targetWeight')?.value;
+    this.endDate = this.targetForm.get('endDate')?.value;
+
+    this.modal.open(PatientTargetCard, {
+      data: {
+        name: name,
+        target: target,
+        endDate: this.endDate,
+        targetWeight: this.targetWeight,
+      }
+
+    });
+  }
+
+}
+
+@Component({
+  selector: 'app-target-card',
+  templateUrl: './target-card.html',
+  styleUrls: ['./target.css'],
+})
+export class PatientTargetCard {
+
+  constructor(@Inject(MAT_DIALOG_DATA) public data: Transfer2) {
+    if (!data.target) {
+      this.target = "Lose Weight";
+    }
+    else {
+      this.target = "Gain Weight";
+    }
+    if (data.endDate == null) {
+      this.endDate = "unspecified";
+    }
+    else {
+      var month = data.endDate.getUTCMonth() + 1;
+      var day = data.endDate.getUTCDate();
+      var year = data.endDate.getUTCFullYear();
+
+      this.endDate = day + "/" + month + "/" + year;
+    }
+  }
+
+  target!: string;
   startingDate = TARGET_DATA.startingDate;
   startingWeight = TARGET_DATA.startingWeight;
-  endDate = TARGET_DATA.endDate;
-  targetWeight = TARGET_DATA.targetWeight;
+  endDate: any;
+  targetWeight = this.data.targetWeight;
   currentWeight = TARGET_DATA.currentWeight;
 
-  weight_percent = 100 * (this.startingWeight - this.currentWeight) / (this.startingWeight - this.targetWeight)
+  weight_percent = 100 * (this.startingWeight - this.currentWeight) / (this.startingWeight - this.targetWeight);
 
   color: ThemePalette = 'warn';
   mode: ProgressBarMode = 'determinate';
-
-  constructor(@Inject(MAT_DIALOG_DATA) public data: Transfer) { }
 
 }

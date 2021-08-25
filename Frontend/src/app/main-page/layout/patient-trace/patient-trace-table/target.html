@@ -1,46 +1,29 @@
 <h2 mat-dialog-title>{{data.name}}</h2>
 
 <mat-dialog-content>
-    <button mat-icon-button>
+
+    <form [formGroup]="targetForm">
+    <mat-form-field appearance="outline">
+        <mat-label>Target Height</mat-label>
+        <input matInput type="number" placeholder="Target Weight" id="targetWeight" name="targetWeight" formControlName="targetWeight">
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+        <mat-label>End Date</mat-label>
+        <input matInput [matDatepicker]="picker" name="endDate" id="endDate" formControlName="endDate">
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+    </mat-form-field>
+</form>
+
+    <button mat-icon-button type="button" (click)="openLose(data.name,false,targetWeight)">
         <mat-icon>create_new_folder</mat-icon>
+        <p>Lose Weight</p>
     </button>
 
-    <div class="card">
-        <div class="additional">
+    <button mat-icon-button  type="button" (click)="openGain(data.name,true,targetWeight)">
+        <mat-icon>create_new_folder</mat-icon>
+        <p>Gain Weight</p>
+    </button>
 
-            <div class="more-info">
-                <div class="space"></div>
-                <h1>{{target}}</h1>
-                <div class="coords">
-                    <span>{{data.name}}</span>
-                    <span>Wants to {{target}}</span>
-                </div>
-                <div class="coords">
-                    <span>Started: {{startingDate}}</span>
-                    <span>Ends: {{endDate}}</span>
-                </div>
-                <div class="coords">
-                    <span>Current Weight {{currentWeight}}</span>
-                </div>
-                <div class="space"></div>
-                <div class="bars">
-                    <div class="coords"><span>Time left: </span></div>
-                    <mat-progress-bar class="example-margin" [color]="color" [mode]="mode" [value]="50">
-                    </mat-progress-bar>
-                    <div style="height: 10px;"></div>
-                    <div class="coords"><span>Progress: </span></div>
-                    <mat-progress-bar class="example-margin" [color]="color" [mode]="mode" [value]="weight_percent">
-                    </mat-progress-bar>
-                </div>
-            </div>
-        </div>
-        <div class="general">
-            <div class="space"></div>
-            <h1>{{target}}</h1>
-            <div class="space"></div>
-            <p>{{data.name}} started {{target}} target with {{startingWeight}} kilos on "{{startingDate}}"". Goal is
-                to reach {{targetWeight}} kilos by "{{endDate}}".</p>
-        </div>
-
-    </div>
 </mat-dialog-content>
