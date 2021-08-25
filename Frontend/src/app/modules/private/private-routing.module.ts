@@ -7,7 +7,7 @@ import { FoodComponent } from 'src/app/main-page/layout/food/food.component';
 import { PatientTraceComponent } from 'src/app/main-page/layout/patient-trace/patient-trace.component';
 import { ProfileComponent } from 'src/app/main-page/layout/profile/profile.component';
 import { PrivateLayoutComponent } from './private-layout.component';
-
+import { CounseleeProfileComponent } from 'src/app/main-page/layout/counselee-profile/counselee-profile.component';
 const routes: Routes = [
     {
         path: '',
@@ -19,6 +19,7 @@ const routes: Routes = [
             { path: 'activity', component: ActivityComponent },
             { path: 'patients', component: PatientTraceComponent},
             {path: 'expert-profil', component: ExpertProfileComponent},
+            { path: 'counselee-profile', component: CounseleeProfileComponent},
             { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
         ],
     },

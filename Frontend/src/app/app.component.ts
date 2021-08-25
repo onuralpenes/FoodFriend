@@ -10,6 +10,7 @@ import { TranslateService } from '@ngx-translate/core';
 })
 
 export class AppComponent {
+  public pageTitle = "";
   title = 'FoodFriend';
   constructor(public translate: TranslateService) {
     translate.addLangs(['en', 'tr']);

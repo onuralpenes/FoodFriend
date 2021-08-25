@@ -13,6 +13,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { ExpertProfileComponent } from './main-page/layout/expert-profile/expert-profile.component';
+import { CounseleeProfileComponent } from './main-page/layout/counselee-profile/counselee-profile.component';
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http);
@@ -25,6 +26,8 @@ export function HttpLoaderFactory(http: HttpClient) {
     RegisterFormComponent,
     ExpertProfileComponent,
 
+
+    CounseleeProfileComponent,
 
   ],
   imports: [
