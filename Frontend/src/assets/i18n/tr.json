@@ -24,7 +24,7 @@
     "email": "E-posta",
     "phoneNumber": "Telefon Numarası",
     "password":"Şifre",
-    "comfirmPassword": "Şifre Tekrarı",
+    "confirmPassword": "Şifre Tekrarı",
     "birthdate": "Doğum Tarihi",
     "tos": "Hizmet şartları",
     "pp": "Gizlilik Politikası"

@@ -1,74 +1,40 @@
-<h2 class="h2">Welcome to your profile.</h2>
+<h2>Welcome to your profile.</h2>
 
 <div class="row">
   <mat-dialog-content>
     <div class="container" *ngIf="!post; else forminfo" novalidate>
-      <form
-        [formGroup]="formGroup"
-        (ngSubmit)="onSubmit(formGroup.value)"
-        class="form"
-      >
+      <form [formGroup]="formGroup" (ngSubmit)="onSubmit(formGroup.value)" class="form">
         <div class="col align-self-start">
           <mat-form-field appearance="outline">
             <mat-label>Name</mat-label>
-            <input
-              matInput
-              type="string"
-              placeholder="Name"
-              formControlName="name"
-            />
+            <input matInput type="string" formControlName="name" />
           </mat-form-field>
 
           <mat-form-field appearance="outline">
             <mat-label>Surname</mat-label>
-            <input
-              matInput
-              type="string"
-              placeholder="Surname"
-              formControlName="surname"
-            />
+            <input matInput type="string" formControlName="surname" />
           </mat-form-field>
         </div>
         <div class="col align-self-start">
           <mat-form-field appearance="outline">
             <mat-label>E-mail</mat-label>
-            <input
-              matInput
-              type="string"
-              placeholder="E-mail"
-              formControlName="email"
-            />
+            <input matInput type="string" formControlName="email" />
           </mat-form-field>
 
           <mat-form-field appearance="outline">
             <mat-label>Phone Number</mat-label>
-            <input
-              matInput
-              type="number"
-              placeholder="Phone Number"
-              formControlName="phoneNumber"
-            />
+            <input matInput type="number" formControlName="phoneNumber" />
           </mat-form-field>
         </div>
         <div class="col align-self-start">
           <mat-form-field appearance="outline">
             <mat-label>Weight</mat-label>
-            <input
-              matInput
-              type="number"
-              placeholder="Weight"
-              formControlName="weight"
-            />
+            <input matInput type="number" formControlName="weight" />
           </mat-form-field>
 
           <mat-form-field appearance="outline">
             <mat-label>Height</mat-label>
-            <input
-              matInput
-              type="number"
-              placeholder="Height"
-              formControlName="height"
-            />
+            <input matInput type="number" formControlName="height" />
           </mat-form-field>
         </div>
         <div class="col align-self-start">
@@ -76,7 +42,6 @@
             <mat-label>Exercise Habit</mat-label>
             <select matNativeControl name="exercise" formControlName="exercise">
               <option [ngValue]="undefined" disabled>Select Any</option>
-              <!-- <option value="" selected></option> -->
               <option *ngFor="let select of selects" [value]="select.value">
                 {{ select.viewValue }}
               </option>
@@ -85,18 +50,9 @@
 
           <mat-form-field appearance="outline">
             <mat-label>Blood Group</mat-label>
-            <select
-              matNativeControl
-              name="bloodGroup"
-              formControlName="bloodGroup"
-            >
+            <select matNativeControl name="bloodGroup" formControlName="bloodGroup">
               <option [ngValue]="undefined" disabled>Select Any</option>
-              <!-- <option value="" selected></option> -->
-              <option
-                class="abc"
-                *ngFor="let blood of bloods"
-                [value]="blood.value"
-              >
+              <option class="abc" *ngFor="let blood of bloods" [value]="blood.value">
                 {{ blood.viewValue }}
               </option>
             </select>
@@ -107,7 +63,6 @@
             <mat-label>Smoking</mat-label>
             <select matNativeControl name="smoking" formControlName="smoking">
               <option [ngValue]="undefined" disabled>Select Any</option>
-              <!-- <option value="" selected></option> -->
               <option *ngFor="let select of selects" [value]="select.value">
                 {{ select.viewValue }}
               </option>
@@ -117,7 +72,6 @@
             <mat-label>Alcohol</mat-label>
             <select matNativeControl name="alcohol" formControlName="alcohol">
               <option [ngValue]="undefined" disabled>Select Any</option>
-              <!-- <option value="" selected></option> -->
               <option *ngFor="let select of selects" [value]="select.value">
                 {{ select.viewValue }}
               </option>
@@ -127,21 +81,11 @@
         <div class="col align-self-start">
           <mat-form-field appearance="outline">
             <mat-label>Birth Date</mat-label>
-            <input
-              matInput
-              type="date"
-              placeholder="Birth Date"
-              formControlName="birthDate"
-            />
+            <input matInput type="date" formControlName="birthDate" />
           </mat-form-field>
         </div>
         <div class="form-element">
-          <button
-            mat-button
-            type="submit"
-            class="button"
-            [disabled]="!formGroup.valid"
-          >
+          <button mat-button type="submit" class="button" [disabled]="!formGroup.valid">
             Submit Form
           </button>
         </div>

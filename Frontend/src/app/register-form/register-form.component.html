@@ -3,18 +3,18 @@
     <p>
       <mat-form-field appearance="outline">
         <mat-label>{{'label.name' | translate}}</mat-label>
-        <input matInput placeholder="Name" formControlName="name">
+        <input matInput formControlName="name">
       </mat-form-field>
       <mat-form-field appearance="outline">
         <mat-label>{{'label.surname' | translate}}</mat-label>
-        <input matInput placeholder="Surname" formControlName="surname">
+        <input matInput formControlName="surname">
       </mat-form-field>
     </p>
 
     <p>
       <mat-form-field appearance="outline">
         <mat-label>{{'label.email' | translate}}</mat-label>
-        <input matInput placeholder="E-mail" formControlName="email">
+        <input matInput formControlName="email">
       </mat-form-field>
 
       <mat-form-field appearance="outline">
@@ -27,16 +27,16 @@
     <p>
       <mat-form-field appearance="outline">
         <mat-label>{{'label.password' | translate}}</mat-label>
-        <input matInput [type]="'password'" placeholder="Password"  formControlName="password">
+        <input matInput [type]="'password'" formControlName="password">
       </mat-form-field>
       <mat-form-field appearance="outline">
         <mat-label>{{'label.confirmPassword' | translate}}</mat-label>
-        <input matInput [type]="'password'" placeholder="Confirm Password"  formControlName="passwordConf">
+        <input matInput [type]="'password'"  formControlName="passwordConf">
       </mat-form-field>
     </p>
 
     <p>
-      <mat-form-field appearance="fill">
+      <mat-form-field appearance="outline">
         <mat-label>{{'label.birthdate' | translate}}</mat-label>
         <input matInput [matDatepicker]="picker"  formControlName="birthdate">
         <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>

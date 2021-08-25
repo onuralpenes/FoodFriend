@@ -25,7 +25,7 @@
     "email": "E-mail",
     "phoneNumber": "Phone Number",
     "password":"Password",
-    "comfirmPassword": "Confirm Password",
+    "confirmPassword": "Confirm Password",
     "birthdate": "Birthdate",
     "tos": "Terms of Services",
     "pp": "Privacy Policy"
