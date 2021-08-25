@@ -291,12 +291,20 @@ export class PatientTargetCard {
       var monthSt = this.startingDate.getUTCMonth() + 1;
       var daySt = this.startingDate.getUTCDate();
       var yearSt = this.startingDate.getUTCFullYear();
-      
+
       var monthCr = this.currentDate.getUTCMonth() + 1;
       var dayCr = this.currentDate.getUTCDate();
       var yearCr = this.currentDate.getUTCFullYear();
 
-      this.dateProg = 100 * ((yearEnd - yearCr)*365 + (monthEnd - monthCr)*30 + (dayEnd - dayCr)) / ((yearEnd - yearSt)*365 + (monthEnd - monthSt)*30 + (dayEnd - daySt));
+      var currentProgress = this.currentDate.getTime() - this.startingDate.getTime();
+      var endProgress = data.endDate.getTime() - this.startingDate.getTime();
+      console.log(currentProgress)
+      console.log(data.endDate.getTime() - this.startingDate.getTime())
+
+      new Date(currentProgress);
+
+      // this.dateProg = 100 * ((yearEnd - yearCr)*365 + (monthEnd - monthCr)*30 + (dayEnd - dayCr)) / ((yearEnd - yearSt)*365 + (monthEnd - monthSt)*30 + (dayEnd - daySt));
+      this.dateProg = 100 * currentProgress / endProgress;
     }
   }
 
