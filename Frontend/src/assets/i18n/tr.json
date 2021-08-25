@@ -1,0 +1,38 @@
+{
+  "useAccount": {
+    "title": "ya da kayıt için formu doldurun.",
+    "choose":"ya da hesabınla giriş yap.",
+    "select": "Change language"
+  },
+  "account": {
+    "creat": "Hesap Oluştur",
+    "signIn": "Giriş Yap",
+    "signUp": "Kayıt Ol",
+    "select": "Change language"
+  },
+
+  "welcome": {
+    "title": "Tekrar Hoşgeldin!",
+    "paragraph": "Bizimle bağlantıda kalmak için lütfen kişisel bilgilerinizle giriş yapın",
+    "title2": "Merhaba, Arkadaşım!",
+    "paragraph2":"Kişisel bilgilerinizi girin ve bizimle yolculuğa başlayın"
+  },
+
+  "label": {
+    "name": "İsim",
+    "surname": "Soyisim",
+    "email": "E-posta",
+    "phoneNumber": "Telefon Numarası",
+    "password":"Şifre",
+    "comfirmPassword": "Şifre Tekrarı",
+    "birthdate": "Doğum Tarihi",
+    "tos": "Hizmet şartları",
+    "pp": "Gizlilik Politikası"
+  },
+
+  "forget": {
+    "title": "Şifreni mi unuttun?",
+    "title2": "Beni hatırla"
+  }
+
+}

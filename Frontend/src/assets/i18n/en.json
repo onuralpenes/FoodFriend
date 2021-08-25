@@ -1,0 +1,40 @@
+{
+  "useAccount": {
+    "title": "or use your email for registration",
+    "choose":"or use your account",
+    "select": "Change language"
+  },
+
+  "account": {
+    "creat": "Create Account",
+    "signIn": "Sign In",
+    "signUp": "Sign Up",
+    "select": "Change language"
+  },
+
+  "welcome": {
+    "title": "Welcome Back!",
+    "paragraph": "To keep connected with us please login with your personal info",
+    "title2": "Hello, Friend!",
+    "paragraph2":"Enter your personal details and start journey with us"
+  },
+
+  "label": {
+    "name": "Name",
+    "surname": "Surname",
+    "email": "E-mail",
+    "phoneNumber": "Phone Number",
+    "password":"Password",
+    "comfirmPassword": "Confirm Password",
+    "birthdate": "Birthdate",
+    "tos": "Terms of Services",
+    "pp": "Privacy Policy"
+  },
+
+  "forget": {
+    "title": "Forget your Password?",
+    "title2": "Remember me"
+  }
+
+
+}

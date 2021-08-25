@@ -21,7 +21,9 @@ import { NgxChartsModule } from '@swimlane/ngx-charts';
 import { NgCircleProgressModule } from 'ng-circle-progress';
 
 import { adapterFactory } from 'angular-calendar/date-adapters/date-fns';
+
 import { CalendarModule, DateAdapter } from 'angular-calendar';
+
 
 @NgModule({
   imports: [
@@ -69,6 +71,7 @@ import { CalendarModule, DateAdapter } from 'angular-calendar';
     MatProgressBarModule,
     MatDialogModule,
     MatPaginatorModule,
+    MatCardModule,
 
     NgxChartsModule,
 

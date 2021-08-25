@@ -1,35 +1,39 @@
-
+<button class="language" mat-button [matMenuTriggerFor]="menu">Dil</button>
+<mat-menu #menu="matMenu">
+  <button class="language2" mat-menu-item (click)="changeLang('tr')">Tr</button>
+  <button class="language2" mat-menu-item (click)="changeLang('en')">En</button>
+</mat-menu>
 <div class="container" style="margin: 0 auto; margin-top: 2%;" id="container" [ngClass]=" flag ? 'right-panel-active' : 'right-panel-inactive'">
 	<div class="form-container sign-up-container" [ngClass] = "flag ? 'sign-up-container-enable' :'sign-up-container-disable'  ">
 		<div>
 			<form action="#" class="" >
-			<h1>Create Account</h1>
+			<h1>{{'account.creat' | translate}}</h1>
 			<div class="alternate-logins col-5">
 				<a href="#" class="social-links"><i class="fa fa-facebook" style="font-size:12px;"></i></a>
 				<a href="#" class="social-links"><i class="fa fa-google" style="font-size:12px;"></i></a>
 			</div>
-			<span>or use your email for registration</span>
+			<span>{{'useAccount.title' | translate}}</span>
 			<app-register-form></app-register-form>
-			<!-- name, surname, email, birthdate, psd, repsd, phn, gender, tos, prv -->			
+			<!-- name, surname, email, birthdate, psd, repsd, phn, gender, tos, prv -->
 
 			<!-- <button class = "signUpButton" >Sign Up</button> -->
 
 		</form>
 		<div class="buttonDiv">
-			<button  (click) = "flag = !flag" class="buttonMobile">Sign In</button>
+			<button  (click) = "flag = !flag" class="buttonMobile">{{'account.signIn' | translate}}</button>
 		</div>
 		</div>
-		
+
 	</div>
 	<div class="form-container sign-in-container" [ngClass] = "flag ? 'sign-in-container-disable' : 'sign-in-container-enable' ">
 		<div>
 		<form action="#">
-			<h1>Sign in</h1>
+			<h1>{{'account.signIn' | translate}}</h1>
 			<div class="alternate-logins">
 				<a href="" class="social-links"><i class="fa fa-facebook" style="font-size:12px;"></i></a>
 				<a href="" class="social-links"><i class="fa fa-google" style="font-size:12px;"></i></a>
 			</div>
-			<span>or use your account</span>
+			<span>{{'useAccount.choose' | translate}}</span>
 
 			<app-login-form></app-login-form>
 
@@ -37,22 +41,22 @@
 			<!-- <button class="input-group">Sign In</button> -->
 		</form>
 		<div class="buttonDiv">
-			<button  (click) = "flag = !flag" class="buttonMobile">Sign Up</button>
+			<button  (click) = "flag = !flag" class="buttonMobile">{{'account.signUp' | translate}}</button>
 		</div>
 		</div>
-		
+
 	</div>
 	<div class="overlay-container" [ngClass] = "flag ? 'overlay-on-left':'overlay-on-right'">
 		<div class="overlay">
 			<div class="overlay-panel overlay-left">
-				<h1>Welcome Back!</h1>
-				<p>To keep connected with us please login with your personal info</p>
-				<button (click) = "flag = !flag" class="ghost" id="signIn">Sign In</button>
+				<h1>{{'welcome.title' | translate}}</h1>
+				<p>{{'welcome.paragraph' | translate}}</p>
+				<button (click) = "flag = !flag" class="ghost" id="signIn">{{'account.signIn' | translate}}</button>
 			</div>
 			<div class="overlay-panel overlay-right">
-				<h1>Hello, Friend!</h1>
-				<p>Enter your personal details and start journey with us</p>
-				<button (click) = "flag = !flag" class="ghost" id="signUp">Sign Up</button>
+				<h1>{{'welcome.title2' | translate}}</h1>
+				<p>{{'welcome.paragraph2' | translate}}</p>
+				<button (click) = "flag = !flag" class="ghost" id="signUp">{{'account.signUp' | translate}}</button>
 			</div>
 		</div>
 	</div>

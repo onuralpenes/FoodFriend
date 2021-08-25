@@ -69,7 +69,7 @@
                 </div>
             </div>
         </div>
-        
+
         <div class="outer">
             <div [ngClass]="onPatients ? 'onThisPart' : 'button1'">
                 <div class="text">
@@ -80,6 +80,19 @@
                 </div>
             </div>
         </div>
+
+        <div class="outer">
+          <div [ngClass]="onPatients ? 'onThisPart' : 'button1'">
+              <div class="text">
+                  <button class="button" (click)="navigateExpertProfil()">
+                      <!-- <mat-icon class="responsiveIcons">Expert</mat-icon> -->
+                      <p>Expert</p>
+                  </button>
+              </div>
+          </div>
+      </div>
+
+
         <!--<img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu"> -->
     </mat-sidenav>
     <!-- Outside of the sidebar -->
