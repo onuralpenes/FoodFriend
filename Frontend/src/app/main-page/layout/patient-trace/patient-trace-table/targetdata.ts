@@ -1,1 +1,1 @@
-export const TARGET_DATA = {startingDate: new Date(), startingWeight: 100, currentWeight: 110 }
+export const TARGET_DATA = { startingWeight: 100, currentWeight: 110 }

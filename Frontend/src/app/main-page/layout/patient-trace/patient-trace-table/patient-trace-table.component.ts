@@ -24,7 +24,9 @@ export interface Transfer {
 export interface Transfer2 {
   name: string,
   target: boolean,
+  startingDate: Date,
   endDate: Date,
+  startingWeight: number,
   targetWeight: number,
 }
 
@@ -175,41 +177,55 @@ export class ActivityTable implements AfterViewInit {
   styleUrls: ['./target.css'],
 })
 export class PatientTarget {
-  endDate!: Date;
+
   public targetForm: FormGroup;
-  targetWeight!: number;
+
+  startingWeight !: number;
+  targetWeight !: number;
+  startingDate !: Date;
+  endDate!: Date;
 
   constructor(@Inject(MAT_DIALOG_DATA) public data: Transfer, public modal: MatDialog, private formBuilder: FormBuilder) {
     this.targetForm = this.formBuilder.group({
-      'endDate': [null, Validators.required],
-      'targetWeight': [null]
+      'startingDate': [null],
+      'endDate': [null],
+      'startingWeight': [null],
+      'targetWeight': [null, Validators.required]
     });
   }
 
 
-  openLose(name: string, target: boolean, targetWeight: number) {
+  openLose(name: string, target: boolean) {
+    this.startingWeight = this.targetForm.get('startingWeight')?.value;
     this.targetWeight = this.targetForm.get('targetWeight')?.value;
+    this.startingDate = this.targetForm.get('startingDate')?.value;
     this.endDate = this.targetForm.get('endDate')?.value;
 
     this.modal.open(PatientTargetCard, {
       data: {
         name: name,
         target: target,
+        startingDate: this.startingDate,
         endDate: this.endDate,
-        targetWeight: targetWeight,
+        startingWeight: this.startingWeight,
+        targetWeight: this.targetWeight,
       }
     });
   }
 
-  openGain(name: string, target: boolean, targetWeight: number) {
+  openGain(name: string, target: boolean) {
+    this.startingWeight = this.targetForm.get('startingWeight')?.value;
     this.targetWeight = this.targetForm.get('targetWeight')?.value;
+    this.startingDate = this.targetForm.get('startingDate')?.value;
     this.endDate = this.targetForm.get('endDate')?.value;
 
     this.modal.open(PatientTargetCard, {
       data: {
         name: name,
         target: target,
+        startingDate: this.startingDate,
         endDate: this.endDate,
+        startingWeight: this.startingWeight,
         targetWeight: this.targetWeight,
       }
 
@@ -232,6 +248,12 @@ export class PatientTargetCard {
     else {
       this.target = "Gain Weight";
     }
+    if (data.startingDate == null) {
+      this.startingDate = new Date();
+    }
+    else {
+      this.startingDate = data.startingDate;
+    }
     if (data.endDate == null) {
       this.endDate = "unspecified";
     }
@@ -239,16 +261,22 @@ export class PatientTargetCard {
       var month = data.endDate.getUTCMonth() + 1;
       var day = data.endDate.getUTCDate();
       var year = data.endDate.getUTCFullYear();
-
       this.endDate = day + "/" + month + "/" + year;
     }
+    if(data.startingWeight == null){
+      this.startingWeight = TARGET_DATA.startingWeight;
+    }
+    else{
+      this.startingWeight = data.startingWeight;
+    }
+    this.targetWeight = this.data.targetWeight;
   }
 
   target!: string;
-  startingDate = TARGET_DATA.startingDate;
-  startingWeight = TARGET_DATA.startingWeight;
+  startingDate !: Date;
+  startingWeight !: number;
   endDate: any;
-  targetWeight = this.data.targetWeight;
+  targetWeight !: number;
   currentWeight = TARGET_DATA.currentWeight;
 
   weight_percent = 100 * (this.startingWeight - this.currentWeight) / (this.startingWeight - this.targetWeight);

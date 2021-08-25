@@ -1,29 +1,55 @@
 <h2 mat-dialog-title>{{data.name}}</h2>
 
-<mat-dialog-content>
+<mat-dialog-content class="modal">
 
     <form [formGroup]="targetForm">
-    <mat-form-field appearance="outline">
-        <mat-label>Target Height</mat-label>
-        <input matInput type="number" placeholder="Target Weight" id="targetWeight" name="targetWeight" formControlName="targetWeight">
-    </mat-form-field>
 
-    <mat-form-field appearance="fill">
-        <mat-label>End Date</mat-label>
-        <input matInput [matDatepicker]="picker" name="endDate" id="endDate" formControlName="endDate">
-        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-        <mat-datepicker #picker></mat-datepicker>
-    </mat-form-field>
-</form>
+        <div>
+            <mat-form-field appearance="outline">
+                <mat-label>Starting Height</mat-label>
+                <input matInput type="number" placeholder="Starting Weight" id="startingWeight" name="startingWeight"
+                    formControlName="startingWeight">
+            </mat-form-field>
 
-    <button mat-icon-button type="button" (click)="openLose(data.name,false,targetWeight)">
-        <mat-icon>create_new_folder</mat-icon>
-        <p>Lose Weight</p>
-    </button>
+            <div class="space2"></div>
+            
+            <mat-form-field appearance="outline">
+                <mat-label>Target Height</mat-label>
+                <input matInput type="number" placeholder="Target Weight" id="targetWeight" name="targetWeight"
+                    formControlName="targetWeight">
+            </mat-form-field>
+        </div>
 
-    <button mat-icon-button  type="button" (click)="openGain(data.name,true,targetWeight)">
-        <mat-icon>create_new_folder</mat-icon>
-        <p>Gain Weight</p>
-    </button>
+        <div>
+            <mat-form-field appearance="outline">
+                <mat-label>Starting Date</mat-label>
+                <input matInput [matDatepicker]="picker" name="startingDate" id="startingDate"
+                    formControlName="startingDate">
+                <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                <mat-datepicker #picker></mat-datepicker>
+            </mat-form-field>
+
+            <div class="space2"></div>
+
+            <mat-form-field appearance="outline">
+                <mat-label>End Date</mat-label>
+                <input matInput [matDatepicker]="picker" name="endDate" id="endDate" formControlName="endDate">
+                <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                <mat-datepicker #picker></mat-datepicker>
+            </mat-form-field>
+        </div>
+    </form>
+
+    <div class="buttons">
+        <button mat-icon-button type="button" (click)="openLose(data.name,false)" [disabled]="!targetForm.valid">
+            <mat-icon>create_new_folder</mat-icon>
+            <p>Lose Weight</p>
+        </button>
+
+        <button mat-icon-button type="button" (click)="openGain(data.name,true)" [disabled]="!targetForm.valid">
+            <mat-icon>create_new_folder</mat-icon>
+            <p>Gain Weight</p>
+        </button>
+    </div>
 
 </mat-dialog-content>
