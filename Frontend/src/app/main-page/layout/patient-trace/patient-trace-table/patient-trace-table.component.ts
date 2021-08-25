@@ -1,10 +1,12 @@
-import { AfterViewInit, Component, Inject, ViewChild } from '@angular/core';
+import { AfterViewInit, Component, Inject, OnInit, ViewChild } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ThemePalette } from '@angular/material/core';
 import { MatDialog, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { MatPaginator } from '@angular/material/paginator';
 import { ProgressBarMode } from '@angular/material/progress-bar';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
+import { Router } from '@angular/router';
 import {
   Activity,
   ACTIVITY_DATA,
@@ -13,11 +15,20 @@ import {
   User,
   USER_DATA,
 } from './data';
-import { TARGET_DATA } from './targetdata';
 
 export interface Transfer {
   name: string;
   id: number;
+}
+
+export interface Transfer2 {
+  name: string,
+  target: boolean,
+  startingDate: Date,
+  endDate: Date,
+  startingWeight: number,
+  targetWeight: number,
+  currentWeight: number
 }
 
 @Component({
@@ -29,7 +40,7 @@ export class PatientTraceTableComponent implements AfterViewInit {
   users: User[] = USER_DATA;
   sortedData = this.users;
 
-  constructor(public modal: MatDialog) { }
+  constructor(public modal: MatDialog, private router: Router  ) { }
 
   displayedColumns: string[] = [
     'name',
@@ -59,6 +70,11 @@ export class PatientTraceTableComponent implements AfterViewInit {
     this.dataSource.sort = this.sort;
     this.dataSource.paginator = this.paginator;
   }
+
+  open(id: number){
+    this.router.navigate(['/counselee-profile']);
+  }
+
   openActivity(name: string, surname: string, id: number) {
     this.modal.open(ActivityTable, {
       data: {
@@ -82,6 +98,7 @@ export class PatientTraceTableComponent implements AfterViewInit {
       data: {
         name: name + ' ' + surname,
         id: id,
+        currentWeight: this.users[id-1].weight,
       },
     });
   }
@@ -168,18 +185,132 @@ export class ActivityTable implements AfterViewInit {
 })
 export class PatientTarget {
 
-  target = TARGET_DATA.target;
-  startingDate = TARGET_DATA.startingDate;
-  startingWeight = TARGET_DATA.startingWeight;
-  endDate = TARGET_DATA.endDate;
-  targetWeight = TARGET_DATA.targetWeight;
-  currentWeight = TARGET_DATA.currentWeight;
+  public targetForm: FormGroup;
+  startingWeight !: number;
+  targetWeight !: number;
+  startingDate !: Date;
+  endDate!: Date;
 
-  weight_percent = 100 * (this.startingWeight - this.currentWeight) / (this.startingWeight - this.targetWeight)
+  constructor(@Inject(MAT_DIALOG_DATA) public data: Transfer2, public modal: MatDialog, private formBuilder: FormBuilder) {
+    this.targetForm = this.formBuilder.group({
+      'startingDate': [null],
+      'endDate': [null],
+      'startingWeight': [null],
+      'targetWeight': [null, Validators.required]
+    });
+  }
+
+
+  openLose(name: string, target: boolean) {
+    this.startingWeight = this.targetForm.get('startingWeight')?.value;
+    this.targetWeight = this.targetForm.get('targetWeight')?.value;
+    this.startingDate = this.targetForm.get('startingDate')?.value;
+    this.endDate = this.targetForm.get('endDate')?.value;
+
+    this.modal.open(PatientTargetCard, {
+      data: {
+        name: name,
+        target: target,
+        startingDate: this.startingDate,
+        endDate: this.endDate,
+        startingWeight: this.startingWeight,
+        targetWeight: this.targetWeight,
+        currentWeight: this.data.currentWeight
+      }
+    });
+  }
+
+  openGain(name: string, target: boolean) {
+    this.startingWeight = this.targetForm.get('startingWeight')?.value;
+    this.targetWeight = this.targetForm.get('targetWeight')?.value;
+    this.startingDate = this.targetForm.get('startingDate')?.value;
+    this.endDate = this.targetForm.get('endDate')?.value;
+
+    this.modal.open(PatientTargetCard, {
+      data: {
+        name: name,
+        target: target,
+        startingDate: this.startingDate,
+        endDate: this.endDate,
+        startingWeight: this.startingWeight,
+        targetWeight: this.targetWeight,
+        currentWeight: this.data.currentWeight
+      }
+
+    });
+  }
+
+}
+
+@Component({
+  selector: 'app-target-card',
+  templateUrl: './target-card.html',
+  styleUrls: ['./target.css'],
+})
+export class PatientTargetCard {
+
+  constructor(@Inject(MAT_DIALOG_DATA) public data: Transfer2) {
+    if (!data.target) {
+      this.target = "Lose Weight";
+    }
+    else {
+      this.target = "Gain Weight";
+    }
+    if (data.startingDate == null) {
+      this.startingDate = new Date();
+    }
+    else {
+      this.startingDate = data.startingDate;
+    }
+    if (data.endDate == null) {
+      this.endDate = "unspecified";
+    }
+    else {
+      var month = data.endDate.getUTCMonth() + 1;
+      var day = data.endDate.getUTCDate();
+      var year = data.endDate.getUTCFullYear();
+      this.endDate = day + "/" + month + "/" + year;
+    }
+    if (data.startingWeight == null) {
+      this.startingWeight = 100;
+    }
+    else {
+      this.startingWeight = data.startingWeight;
+    }
+    this.targetWeight = this.data.targetWeight;
+    this.currentWeight = this.data.currentWeight;
+    this.weight_percent = 100 * (this.startingWeight - this.currentWeight) / (this.startingWeight - this.targetWeight);
+    if(data.endDate == null){
+      this.dateProg = 0;
+    }
+    else{
+      var monthEnd = data.endDate.getUTCMonth() + 1;
+      var dayEnd = data.endDate.getUTCDate();
+      var yearEnd = data.endDate.getUTCFullYear();
+
+      var monthSt = this.startingDate.getUTCMonth() + 1;
+      var daySt = this.startingDate.getUTCDate();
+      var yearSt = this.startingDate.getUTCFullYear();
+      
+      var monthCr = this.currentDate.getUTCMonth() + 1;
+      var dayCr = this.currentDate.getUTCDate();
+      var yearCr = this.currentDate.getUTCFullYear();
+
+      this.dateProg = 100 * ((yearEnd - yearCr)*365 + (monthEnd - monthCr)*30 + (dayEnd - dayCr)) / ((yearEnd - yearSt)*365 + (monthEnd - monthSt)*30 + (dayEnd - daySt));
+    }
+  }
+
+  target!: string;
+  startingDate !: Date;
+  startingWeight !: number;
+  endDate: any;
+  targetWeight !: number;
+  currentDate: Date = new Date();
+  currentWeight !: number;
+  weight_percent !: number;
+  dateProg !: number;
 
   color: ThemePalette = 'warn';
   mode: ProgressBarMode = 'determinate';
-
-  constructor(@Inject(MAT_DIALOG_DATA) public data: Transfer) { }
 
 }
