@@ -6,6 +6,7 @@ import { MatPaginator } from '@angular/material/paginator';
 import { ProgressBarMode } from '@angular/material/progress-bar';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
+import { Router } from '@angular/router';
 import {
   Activity,
   ACTIVITY_DATA,
@@ -39,7 +40,7 @@ export class PatientTraceTableComponent implements AfterViewInit {
   users: User[] = USER_DATA;
   sortedData = this.users;
 
-  constructor(public modal: MatDialog) { }
+  constructor(public modal: MatDialog, private router: Router  ) { }
 
   displayedColumns: string[] = [
     'name',
@@ -71,6 +72,7 @@ export class PatientTraceTableComponent implements AfterViewInit {
   }
 
   open(id: number){
+    this.router.navigate(['/counselee-profile']);
   }
 
   openActivity(name: string, surname: string, id: number) {
