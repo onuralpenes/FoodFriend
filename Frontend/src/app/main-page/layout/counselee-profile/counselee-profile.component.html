@@ -1,0 +1,51 @@
+<p></p>
+<div class="row counselee-short-info">
+    <div class="col-3">
+        <div class="counselee-img-div">
+
+            <img class="counselee-profile-img" src="../../../../assets/default-avatar.jpg">
+        </div>
+        <div class="counselee-name">
+            <p>
+                {{userName}}
+            </p>
+
+            <i class="fa fa-genderless" [hidden]="!genderless"></i>
+            <i class="fa fa-mars" [hidden]="!male" aria-hidden="true"></i>
+            <i class="fa fa-venus" [hidden]="!female" aria-hidden="true"></i>
+        </div>
+    </div>
+    <div class="col-9">
+
+        <div class="row info-div">
+            <div class="col-6 ">
+                <p class="info" style="margin-top: 20%;">Weight: {{dummy}}</p>
+                <p class="info">Height: {{dummy}}</p>
+                <p class="info">Age: {{dummy}}</p>
+            </div>
+            <div class="col-6">
+                <p class="info" style="margin-top: 20%;">Birthdate: {{dummy}}</p>
+                <p class="info">Email: {{dummy}}</p>
+                <p class="info">Phone: {{dummy}}</p>
+            </div>
+        </div>
+    </div>
+</div>
+<div>
+</div>
+<p [hidden]="!female">Pragnent: {{dummy}}</p>
+<div class="row ilnesses">
+    <p>Illness: {{dummy}}</p>
+    <div class=" col " *ngFor="let illness of illnesses; let i = index">
+        {{illness.name}} : {{illness.exp}}
+    </div>
+</div>
+<div class="row allergies">
+    <p>Allergy: {{dummy}}</p>
+    <div class=" col " *ngFor="let allergy of allergies; let i = index">
+        {{allergy.name}} : {{allergy.exp}}
+    </div>
+</div>
+<div class="row aim">
+    <p>Aim: {{dummy}}</p>
+</div>

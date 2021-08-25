@@ -1,6 +1,7 @@
 import { Component, Input, OnInit, EventEmitter , Output} from '@angular/core';
 import { Router } from '@angular/router';
 import { PieChartModule } from '@swimlane/ngx-charts';
+import { AppComponent } from '../../app.component';
 
 @Component({
   selector: 'app-body',
@@ -20,7 +21,7 @@ export class BodyComponent implements OnInit {
   name = "Onuralp Enes ÖZ"
   pageName ="Dashboard";
   email = "oz.onuralp@gmail.com";
-  constructor(private router: Router) {
+  constructor(private router: Router    ) { 
     console.log(this.router.url)
     if(this.router.url == "/profile"){
       this.onProfile = true;
@@ -54,7 +55,7 @@ export class BodyComponent implements OnInit {
   }
   pinSidebar(){
       this.pinButton = !this.pinButton;
-      this.pin.emit("this.pinButton");
+      this.pin.emit(this.pinButton);
   }
   navigateDashboard(){
     this.onActivity = false;
@@ -69,7 +70,6 @@ export class BodyComponent implements OnInit {
     this.pageName = "Dashboard";
   }
   navigateProfile(){
-
     this.onActivity = false;
     this.onFood = false;
     this.onProfile = true;
@@ -79,7 +79,6 @@ export class BodyComponent implements OnInit {
     if(!this.pinButton){
       this.toggle.emit(null);
     }
-
     this.pageName = "Profile";
   }
   navigateFood(){
@@ -92,7 +91,6 @@ export class BodyComponent implements OnInit {
     if(!this.pinButton){
       this.toggle.emit(null);
     }
-
     this.pageName = "Food";
   }
   navigateActivity(){
@@ -105,9 +103,7 @@ export class BodyComponent implements OnInit {
     if(!this.pinButton){
       this.toggle.emit(null);
     }
-
     this.pageName = "Activity";
-
   }
   navigatePatients(){
     this.onActivity = false;
@@ -119,12 +115,12 @@ export class BodyComponent implements OnInit {
     if(!this.pinButton){
       this.toggle.emit(null);
     }
-
     this.pageName = "Patients";
-
-
+  }
+  setPageName(event: any){
+    console.log("Page name almacaaa" + event)
+    this.pageName = event;
   }
   ngOnInit(): void {
-
   }
 }
