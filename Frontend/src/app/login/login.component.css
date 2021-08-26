@@ -372,12 +372,42 @@ input {
   }
 
   .language{
-    margin-left: 85%;
-    background-color: cadetblue;
+    margin-left: 98%;
+	margin-top: 11%;
+    background-color: transparent;
+	color: black;
+	padding: 0 0;
+	border: 0px;
   }
-  .language2{
-    background-color: cadetblue;
+  .lang-menu-button{
+	background-color: red;
+	color: black;
+	padding: 0 0 !important;
+	margin: 0 !important;
+	border: 0px;
+	align-items: center;
   }
-  .language2:hover{
-    background-color: red;
+
+  .lang-menu{
+	  background-color: red !important;
+	  padding: 0 0 !important;
+	  margin: 0 !important;
+	  overflow: hidden;
+	  width: 0px !important;
+	  height: 0px !important;
   }
+  button.mat-menu-item{
+	  width: 50% !important;
+  }
+
+  mat-icon{
+	  padding: 0 0;
+	  background-color: transparent;
+  }
+
+  .cdk-overlay-container .cdk-global-overlay-wrapper .cdk-overlay-pane .mat-menu-panel{
+	min-width: 5% !important;
+	max-width: 5% !important;
+	width: 2px !important;
+	height: 2px !important;
+}

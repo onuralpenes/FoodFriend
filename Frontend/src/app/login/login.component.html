@@ -1,8 +1,3 @@
-<button class="language" mat-button [matMenuTriggerFor]="menu">Dil</button>
-<mat-menu #menu="matMenu">
-  <button class="language2" mat-menu-item (click)="changeLang('tr')">Tr</button>
-  <button class="language2" mat-menu-item (click)="changeLang('en')">En</button>
-</mat-menu>
 <div class="container" style="margin: 0 auto; margin-top: 2%;" id="container" [ngClass]=" flag ? 'right-panel-active' : 'right-panel-inactive'">
 	<div class="form-container sign-up-container" [ngClass] = "flag ? 'sign-up-container-enable' :'sign-up-container-disable'  ">
 		<div>
@@ -61,3 +56,9 @@
 		</div>
 	</div>
 </div>
+
+<button mat-icon-button class="language" mat-button [matMenuTriggerFor]="lang"><mat-icon>language</mat-icon></button>
+<mat-menu #lang="matMenu" class="lang-menu">
+  <button mat-icon-button class="lang-menu-button" mat-menu-item (click)="changeLang('tr')"><mat-icon>TR</mat-icon></button>
+  <button mat-icon-button class="lang-menu-button" mat-menu-item (click)="changeLang('en')"><mat-icon>EN</mat-icon></button>
+</mat-menu>
