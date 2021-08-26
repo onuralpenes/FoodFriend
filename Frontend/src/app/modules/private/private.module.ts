@@ -23,6 +23,7 @@ import { SurveyComponent } from 'src/app/main-page/layout/profile/survey/survey.
 import { CustomMaterialModule } from '../material/material.module';
 import { PrivateLayoutComponent } from './private-layout.component';
 import { PrivateRoutingModule } from './private-routing.module';
+import { SidenavComponent } from 'src/app/main-page/sidenav/sidenav.component';
 
 
 @NgModule({
@@ -33,6 +34,7 @@ import { PrivateRoutingModule } from './private-routing.module';
         BodyComponent,
         ProfileComponent,
         DashboardComponent,
+        SidenavComponent,
         EatingHabitChartComponent,
         FoodIngredientDistributionChartComponent,
         EnergyConsumptionChartComponent,

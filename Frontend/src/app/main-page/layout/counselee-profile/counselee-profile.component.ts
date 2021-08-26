@@ -12,41 +12,50 @@ export class CounseleeProfileComponent implements OnInit {
   genderless = false;
   male = false;
   female = false;
-  illnesses = [
+  illnessInfo =
     {
-      "name": "Hastalık1",
-      "exp":"bos"
-    },
-    {
-      "name": "Hastalık2",
-      "exp":"bos"
+      "hasIllness": true,
+
+      "illnesses": [
+        {
+          "name": "Hastalık1",
+          "exp": "bos"
+        },
+        {
+          "name": "Hastalık2",
+          "exp": "bos"
+        }
+      ]
     }
-  ] 
-  allergies = [
-    {
-      "name": "Alerji1",
-      "exp":"bos"
-    },{
-      "name": "Alerji2",
-      "exp":"bos"
-    },{
-      "name": "Alerji3",
-      "exp":"bos"
-    },{
-      "name": "Alerji4",
-      "exp":"bos"
-    },
-  ]
+
+  allergy = {
+    "hasAllergy":true,
+    "allergies": [
+      {
+        "name": "Alerji1",
+        "exp": "bos"
+      }, {
+        "name": "Alerji2",
+        "exp": "bos"
+      }, {
+        "name": "Alerji3",
+        "exp": "bos"
+      }, {
+        "name": "Alerji4",
+        "exp": "bos"
+      },
+    ]
+  }
   constructor() {
-    
-   }
+
+  }
 
   ngOnInit(): void {
-    if(this.gender == "male"){
+    if (this.gender == "male") {
       this.male = true;
       this.female = false;
       this.genderless = false;
-    }else{
+    } else {
       this.male = false;
       this.female = true;
       this.genderless = false;

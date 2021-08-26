@@ -10,6 +10,12 @@ img{
     margin-right: auto;
     display: block;
 }
+p,h1{
+    font-family: 'Nunito', sans-serif;
+}
+p{
+    font-size: larger;
+}
 .counselee-img-div{
     align-items: center;
     margin-left: 5%;

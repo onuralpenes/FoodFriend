@@ -34,18 +34,38 @@
 <div>
 </div>
 <p [hidden]="!female">Pragnent: {{dummy}}</p>
-<div class="row ilnesses">
-    <p>Illness: {{dummy}}</p>
-    <div class=" col " *ngFor="let illness of illnesses; let i = index">
-        {{illness.name}} : {{illness.exp}}
+
+<div>
+    <h1>Illnesses</h1>
+
+    <div [hidden]="illnessInfo.hasIllness" class="ilnesses">
+        <p>This counselee has no any important illnesses that you need to be aware of.</p>
+    </div>
+
+    <div [hidden]="!illnessInfo.hasIllness" class="row ilnesses">
+        <p>Illness: {{dummy}}</p>
+        <div class=" col " *ngFor="let illness of illnessInfo.illnesses; let i = index">
+            <p>{{illness.name}} : {{illness.exp}}</p>
+        </div>
     </div>
 </div>
-<div class="row allergies">
-    <p>Allergy: {{dummy}}</p>
-    <div class=" col " *ngFor="let allergy of allergies; let i = index">
-        {{allergy.name}} : {{allergy.exp}}
+
+<div>
+    <h1>Allergy</h1>
+
+    <div [hidden]="allergy.hasAllergy" class="allergies">
+        <p>This counselee has no allergy that you need to be aware of.</p>
+    </div>
+    <div [hidden]="!allergy.hasAllergy" class="row allergies">
+        <p>Allergy: {{dummy}}</p>
+        <div class=" col " *ngFor="let allergy of allergy.allergies; let i = index">
+            {{allergy.name}} : {{allergy.exp}}
+        </div>
     </div>
 </div>
+
+
+
 <div class="row aim">
     <p>Aim: {{dummy}}</p>
 </div>

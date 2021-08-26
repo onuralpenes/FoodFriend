@@ -28,7 +28,6 @@ export function HttpLoaderFactory(http: HttpClient) {
 
 
     CounseleeProfileComponent,
-
   ],
   imports: [
     BrowserModule,
