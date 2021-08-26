@@ -1,4 +1,4 @@
-<h2>Welcome to your profile.</h2>
+<h2>{{'profilHeader.title' | translate}}</h2>
 
 <div class="row">
   <mat-dialog-content>
@@ -6,42 +6,42 @@
       <form [formGroup]="formGroup" (ngSubmit)="onSubmit(formGroup.value)" class="form">
         <div class="col align-self-start">
           <mat-form-field appearance="outline">
-            <mat-label>Name</mat-label>
+            <mat-label>{{'label.name' | translate}}</mat-label>
             <input matInput type="string" formControlName="name" />
           </mat-form-field>
 
           <mat-form-field appearance="outline">
-            <mat-label>Surname</mat-label>
+            <mat-label>{{'label.surname' | translate}}</mat-label>
             <input matInput type="string" formControlName="surname" />
           </mat-form-field>
         </div>
         <div class="col align-self-start">
           <mat-form-field appearance="outline">
-            <mat-label>E-mail</mat-label>
+            <mat-label>{{'label.email' | translate}}</mat-label>
             <input matInput type="string" formControlName="email" />
           </mat-form-field>
 
           <mat-form-field appearance="outline">
-            <mat-label>Phone Number</mat-label>
+            <mat-label>{{'label.phoneNumber' | translate}}</mat-label>
             <input matInput type="number" formControlName="phoneNumber" />
           </mat-form-field>
         </div>
         <div class="col align-self-start">
           <mat-form-field appearance="outline">
-            <mat-label>Weight</mat-label>
+            <mat-label>{{'label.weight' | translate}}</mat-label>
             <input matInput type="number" formControlName="weight" />
           </mat-form-field>
 
           <mat-form-field appearance="outline">
-            <mat-label>Height</mat-label>
+            <mat-label>{{'label.height' | translate}}</mat-label>
             <input matInput type="number" formControlName="height" />
           </mat-form-field>
         </div>
         <div class="col align-self-start">
           <mat-form-field appearance="outline">
-            <mat-label>Exercise Habit</mat-label>
+            <mat-label>{{'label.exercise' | translate}}</mat-label>
             <select matNativeControl name="exercise" formControlName="exercise">
-              <option [ngValue]="undefined" disabled>Select Any</option>
+              <option [ngValue]="undefined" disabled>{{'label.select' | translate}}</option>
               <option *ngFor="let select of selects" [value]="select.value">
                 {{ select.viewValue }}
               </option>
@@ -49,10 +49,10 @@
           </mat-form-field>
 
           <mat-form-field appearance="outline">
-            <mat-label>Blood Group</mat-label>
+            <mat-label>{{'label.blood' | translate}}</mat-label>
             <select matNativeControl name="bloodGroup" formControlName="bloodGroup">
-              <option [ngValue]="undefined" disabled>Select Any</option>
-              <option class="abc" *ngFor="let blood of bloods" [value]="blood.value">
+              <option [ngValue]="undefined" disabled>{{'label.select' | translate}}</option>
+              <option class="bloodGroup" *ngFor="let blood of bloods" [value]="blood.value">
                 {{ blood.viewValue }}
               </option>
             </select>
@@ -60,18 +60,18 @@
         </div>
         <div class="col align-self-start">
           <mat-form-field appearance="outline">
-            <mat-label>Smoking</mat-label>
+            <mat-label>{{'label.smoking' | translate}}</mat-label>
             <select matNativeControl name="smoking" formControlName="smoking">
-              <option [ngValue]="undefined" disabled>Select Any</option>
+              <option [ngValue]="undefined" disabled>{{'label.select' | translate}}</option>
               <option *ngFor="let select of selects" [value]="select.value">
                 {{ select.viewValue }}
               </option>
             </select>
           </mat-form-field>
           <mat-form-field appearance="outline">
-            <mat-label>Alcohol</mat-label>
+            <mat-label>{{'label.alcohol' | translate}}</mat-label>
             <select matNativeControl name="alcohol" formControlName="alcohol">
-              <option [ngValue]="undefined" disabled>Select Any</option>
+              <option [ngValue]="undefined" disabled>{{'label.select' | translate}}</option>
               <option *ngFor="let select of selects" [value]="select.value">
                 {{ select.viewValue }}
               </option>
@@ -80,13 +80,13 @@
         </div>
         <div class="col align-self-start">
           <mat-form-field appearance="outline">
-            <mat-label>Birth Date</mat-label>
+            <mat-label>{{'label.birthdate' | translate}}</mat-label>
             <input matInput type="date" formControlName="birthDate" />
           </mat-form-field>
         </div>
         <div class="form-element">
           <button mat-button type="submit" class="button" [disabled]="!formGroup.valid">
-            Submit Form
+            {{'label.submit' | translate}}
           </button>
         </div>
       </form>

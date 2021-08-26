@@ -1,4 +1,5 @@
 import { Component } from "@angular/core";
+import { TranslateService } from "@ngx-translate/core";
 
 @Component({
     selector: 'app-private-layout',
@@ -6,7 +7,10 @@ import { Component } from "@angular/core";
 })
 
 export class PrivateLayoutComponent {
-    
+
+  constructor(private translate: TranslateService) {
+    this.translate.use('tr');
+  }
     sideBar = true;
     pinned = true;
     toggle() {

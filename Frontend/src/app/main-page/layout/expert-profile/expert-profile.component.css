@@ -22,3 +22,10 @@ button {
 	transition: transform 80ms ease-in;
   margin-left: 9%;
 }
+
+.writings{
+  color: white;
+}
+mat-card{
+  border-radius: 25px;
+}
