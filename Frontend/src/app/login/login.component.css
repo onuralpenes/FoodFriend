@@ -191,8 +191,8 @@ input {
 
 .overlay {
 	background: #00ffff;
-	background: -webkit-linear-gradient(to right, #c1ef08, #c7e86c);
-	background: linear-gradient(to right, #c1ef08, #c7e86c);
+	background: -webkit-linear-gradient(to right, #2c8066, #40b491);
+	background: linear-gradient(to right, #2c8066, #40b491);
 	background-repeat: no-repeat;
 	background-size: cover;
 	background-position: 0 0;
@@ -372,31 +372,17 @@ input {
   }
 
   .language{
-    margin-left: 98%;
-	margin-top: 11%;
-    background-color: transparent;
-	color: black;
-	padding: 0 0;
-	border: 0px;
+	position: fixed;
+	bottom: 0;
+	right: 0;
   }
-
-  .lang-menu-button{
-	  padding: 0 !important;
-	  border: 0;
+  .lang-button{
 	  background-color: transparent;
-	  color: #000;
-	  border-radius: 0px;
-  }
-
-.mat-menu-item{
-	  background-color: transparent !important;
-	  display: table-row !important;
-	  padding: 0;
-	  font-size: 30px;
-  }
-  .menu-content{
-	  margin: 30%;
-	  height: 5%;
-	  padding: 0 auto;
-	  background: transparent;
+	  border: 0;
+	  color: black;
+	  padding-top: 0;
+	  padding-bottom: 0;
+	  padding-left: 2px;
+	  padding-right: 0;
+	  display: table-row;
   }

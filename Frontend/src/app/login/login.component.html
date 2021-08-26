@@ -60,14 +60,7 @@
 	</div>
 </div>
 
-<button mat-icon-button class="language" mat-button [matMenuTriggerFor]="lang">
-	<mat-icon>language</mat-icon>
-</button>
-<mat-menu #lang="matMenu">
-	<div class="menu-content">
-		<button mat-button class="lang-menu-button" mat-menu-item (click)="changeLang('tr')">TR</button>
-	</div>
-	<div class="menu-content">
-		<button mat-icon-button class="lang-menu-button" mat-menu-item (click)="changeLang('en')">EN</button>
-	</div>
-</mat-menu>
+<div class="language">
+	<button mat-button class="lang-button" mat-menu-item (click)="changeLang('tr')">TR</button>
+	<button mat-button class="lang-button" mat-menu-item (click)="changeLang('en')">EN</button>
+</div>
