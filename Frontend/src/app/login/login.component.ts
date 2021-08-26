@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
-import { MatFormFieldModule } from '@angular/material/form-field';
-import { MatCheckboxModule } from '@angular/material/checkbox';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatCheckboxModule} from '@angular/material/checkbox';
 import { TranslateService } from '@ngx-translate/core';
 
 @Component({
@@ -20,8 +20,8 @@ export class LoginComponent implements OnInit {
   }
 
 
-  changeLang(langCode: string) {
-    this.translate.use(langCode);
+  changeLang(langCode: string){
+  this.translate.use(langCode);
   }
 
 }

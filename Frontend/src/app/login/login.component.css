@@ -372,42 +372,17 @@ input {
   }
 
   .language{
-    margin-left: 98%;
-	margin-top: 11%;
-    background-color: transparent;
-	color: black;
-	padding: 0 0;
-	border: 0px;
+	position: fixed;
+	bottom: 0;
+	right: 0;
   }
-  .lang-menu-button{
-	background-color: red;
-	color: black;
-	padding: 0 0 !important;
-	margin: 0 !important;
-	border: 0px;
-	align-items: center;
-  }
-
-  .lang-menu{
-	  background-color: red !important;
-	  padding: 0 0 !important;
-	  margin: 0 !important;
-	  overflow: hidden;
-	  width: 0px !important;
-	  height: 0px !important;
-  }
-  button.mat-menu-item{
-	  width: 50% !important;
-  }
-
-  mat-icon{
-	  padding: 0 0;
+  .lang-button{
 	  background-color: transparent;
+	  border: 0;
+	  color: black;
+	  padding-top: 0;
+	  padding-bottom: 0;
+	  padding-left: 2px;
+	  padding-right: 0;
+	  display: table-row;
   }
-
-  .cdk-overlay-container .cdk-global-overlay-wrapper .cdk-overlay-pane .mat-menu-panel{
-	min-width: 5% !important;
-	max-width: 5% !important;
-	width: 2px !important;
-	height: 2px !important;
-}
