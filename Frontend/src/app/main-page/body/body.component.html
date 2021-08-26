@@ -9,88 +9,29 @@
                     [ngClass]="pinButton ? 'pin_icon_pinned' : 'pin_icon_unpinned'">push_pin</span>
             </button>
         </div>
-
-        <div class="profileCard">
-            <div class="name">
-                <h1>{{name}}</h1>
-            </div>
-
-            <!-- RESPONSIVE NAME HTML ITEM -->
-            <div class="responsiveName">
-                <h1>SA</h1>
-            </div>
-        </div>
+        
+        
         <div class="wrapper">
             <div class="divider div-transparent"></div>
         </div>
-        <div class="wrapper">
-            <div class="divider div-transparent"></div>
-        </div>
-        <div class="outer">
-            <div [ngClass]="onDashboard ? 'onThisPart' : 'button1'">
-                <div class="text">
-                    <button class="button" (click)="navigateDashboard()">
-                        <mat-icon class="responsiveIcons">home</mat-icon>
-                        <p class="dashboardText">Dashboard</p>
-                    </button>
+
+        <div class="logo">
+            <a routerLink="/" class="simple-text logo-mini">
+                <div class="logo-img">
+                    <img src ="../../../assets/beyaz2.png">
                 </div>
-            </div>
+            </a>
+            <a>
+    
+            </a>
         </div>
 
-        <div class="outer">
-            <div [ngClass]="onProfile ? 'onThisPart' : 'button1'">
-                <div class="text">
-                    <button class="button" (click)="navigateProfile()">
-                        <mat-icon class="responsiveIcons"> person_pin</mat-icon>
-                        <p>Profile</p>
-                    </button>
-                </div>
-            </div>
-        </div>
-        <div class="outer">
-            <div [ngClass]="onFood ? 'onThisPart' : 'button1'">
-                <div class="text">
-                    <button class="button" (click)="navigateFood()">
-                        <mat-icon class="responsiveIcons"> local_dining</mat-icon>
-                        <p>Food</p>
-                    </button>
-                </div>
-            </div>
-        </div>
+        <ul class="nav">
+            <li><a routerLink="/"><i class="fas fa-chart-line"></i> Dashboard</a></li>
+            <li><a routerLink="/profile"><i class="fas fa-random"></i> Profile</a></li>
+            <li><a routerLink="/food"><i class="fas fa-random"></i> Food</a></li> 
+        </ul>
 
-
-        <div class="outer">
-            <div [ngClass]="onActivity ? 'onThisPart' : 'button1'">
-                <div class="text">
-                    <button class="button" (click)="navigateActivity()">
-                        <mat-icon class="responsiveIcons">fitness_center</mat-icon>
-                        <p>Activity</p>
-                    </button>
-                </div>
-            </div>
-        </div>
-
-        <div class="outer">
-            <div [ngClass]="onPatients ? 'onThisPart' : 'button1'">
-                <div class="text">
-                    <button class="button" (click)="navigatePatients()">
-                        <mat-icon class="responsiveIcons">fitness_center</mat-icon>
-                        <p>Patients</p>
-                    </button>
-                </div>
-            </div>
-        </div>
-
-        <div class="outer">
-          <div [ngClass]="onPatients ? 'onThisPart' : 'button1'">
-              <div class="text">
-                  <button class="button" (click)="navigateExpertProfile()">
-                      <mat-icon class="responsiveIcons">Expert</mat-icon>
-                      <p>Expert</p>
-                  </button>
-              </div>
-          </div>
-      </div>
 
 
         <!--<img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu"> -->

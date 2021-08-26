@@ -1,15 +1,2 @@
-
-<mat-sidenav-container style="height: 100%; width: 100%;">
-
-
-    <mat-sidenav>
-        <app-sidenav></app-sidenav>
-    </mat-sidenav>
-
-
-    <mat-sidenav-content>
-        <router-outlet></router-outlet>
-    </mat-sidenav-content>
-
-
-</mat-sidenav-container>
+<app-header (toggle)="toggle()"></app-header>
+<app-body (toggle)="toggle()" (pin) = "pin()" [opened]="sideBar" ></app-body> 

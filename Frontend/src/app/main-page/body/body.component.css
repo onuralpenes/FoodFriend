@@ -1,81 +1,24 @@
-.sidenav {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
-    background: whitesmoke;
-    height: 90%;
-  }
   .sideBarOpen{
     width: 21%;
-  }
-  h1{
-    text-align: center;
-  }
-  p{
-    
-    color: #fafcfe;
-    float: left;
-    margin: auto;
   }
   .bodyContainer{
     height: 94%;
     background-color: rgb(234, 247, 250);
   }
   .sidebar{
-    background: #335145 ;
-    width: 13%;
+    background: green;
+    background: linear-gradient(0deg,#00da92 0,#00be80 100%);
+    margin-top: 2%;
+    margin-bottom: 2%;
+    margin-left: 15px;
+    height: 90%;
+    width: 230px;
+    display:block;
+    box-shadow: 0 0 45px 0 rgba(0, 0, 0, .6);
+    margin-right: 15px;
+    border-radius: 5px;
+    border-radius: 10px;
   }
-  
-.divider
-{
-	position: relative;
-	height: 1px;
-}
-.title-div{
-  width: 100%;
-  height: 56px;
-}
-.page-title{
-  margin-left: 3%;
-  font-family: -webkit-pictograph;
-    font-size: 40px;
-    margin-top: 12px;
-    float: left;
-}
-.div-transparent-title:before{
-  content: "";
-    position: absolute;
-    top: 0;
-    left: 3%;
-    right: 5%;
-    width: 33%;
-    height: 2px;
-    background-image: linear-gradient(to right, rgb(48,49,51), transparent);
-}
-.div-transparent:before
-{
-	content: "";
-	position: absolute;
-	top: 0;
-	left: 5%;
-	right: 5%;
-	width: 90%;
-	height: 1px;
-	background-image: linear-gradient(to right, transparent, rgb(48,49,51), transparent);
-}
-.button{
-  transition: all 0.3s ease 0s;
-  border: none;
-  text-align: center;
-  transition: all 0.5s;
-  cursor: pointer;
-  margin: 5px;
-  width:92%;
-  height: 45px;
-  background-color: transparent;
-  border: none;
-}
 .button_pin{
   border: 0px;
   background-color: transparent;
@@ -88,104 +31,138 @@
 .pin_icon_pinned{
   color: black;
 }
-.button p {
-  cursor: pointer;
-  display: inline-block;
+
+.logo{
+  width: 100%;
+  height: 60px;
   position: relative;
-  transition: 0.5s;
+  padding: 0.5rem 0.7rem;
+  z-index: 4;
 }
-
-.button p:after {
-  content: '\00bb';
-  position: absolute;
-  opacity: 0;
-  top: 0;
-  right: -20px;
-  transition: 0.5s;
-}
-
-.button:hover p , .button:hover.mat-icon{
-  padding-right: 25px;
-}
-
-.button:hover p:after {
+.logo a.logo-mini{
   opacity: 1;
-  right: 0;
-}
-.responsiveName{
-  display: none;
-}
-.responsiveIcons{
-  display: none;
+  float: left;
+  width: 34px;
+  text-align: center;
+  margin-left: 10px;
+  margin-right: 12px;
 }
 
-.onThisPart{
-  background-color: #36997b;
-}
-
-.button1 {
+.logo a.logo-normal{
   display: block;
-
-  /*background: linear-gradient(to left, rgb(64 180 145) 50%, #36997b 50%);*/
-  background: linear-gradient(to left, #335145 50%, #36997b 50%);
-  background-size: 200% 100%;
-  background-position: right bottom;
-  transition: all .25s ease-out;
+  opacity: 1;
+  -webkit-transform: translate3d(0px, 0,0);
+  -moz-transform: translate3d(0px,0,0);
+  -o-transform: translate3d(0px,0,0);
+  -ms-transform: translate3d(0px,0,0);
+  transform: translate3d(0px,0,0);
+}
+.logo:after{
+  content:'';
+  position: absolute;
+  bottom: 0;
+  right:15px;
+  height: 1px;
+  width: calc(100% - 30px);
+  background: rgba(255, 255, 255, 0.5);
 }
 
-.button1:hover {
-  background-position: left bottom;
-}
-
-.text {
-  font-size: 16px;
-  line-height: 30px; 
-  color: black;
-  transition: all .6s ease-out;
+.logo .simple-text{
+  text-transform: uppercase;
+  padding: 0.5rem 0;
   display: block;
+  white-space: nowrap;
+  color: #ffffff;
+  text-decoration: none ;
+  font-weight: 400;
+  line-height: 30px;
+  overflow: hidden;
 }
 
-.text:hover {
-  color: white;  
+.logo-img img{
+  width: 35px;
 }
 
-/*  RESPONSIVE  */ 
-
-@media only screen and (max-width: 1200px){
-  .name{
-    display: none;
-  }
-.responsiveName{
-  display: contents;
+.nav  li>a{
+  margin: 10px 15px 0;
+  border-radius: 30px;
+  color: rgba(255, 255, 255, .8);
+  width: 200px;
+  display: block;
+  text-decoration: none;
+  position: relative;
+  text-transform: uppercase;
+  cursor: pointer;
+  font-size: 0.75rem;
+  font-weight: 300;
+  padding: 10px 15px;
+  line-height: 1.5 rem;
+  transition: all .3s ease 0s;
 }
-  @media only screen and (max-width: 1050px){
-    .e-mail{
-      display: none;
-    }
-    .responsiveIcons{
-      display: contents;
-    }
-    .button p{
-      display: none;
-    }
 
-      @media only screen and (max-width: 500px){
-        .responsiveIcons{
-          display: none;
-        }
-        .button p {
-          display: inline-block;
-          margin: auto;
-        }
-        
-        .sideBarOpen{
-          width: 40%;
-        }
-        @media only screen and (max-width: 350px){
-          .sideBarOpen{
-            width: 100%;
-          }
-        }
-      }
-  }
+.nav li>a i{
+  width: 2opx;
+  margin-right: 10px;
+  font-size: 1.125 rem;
+}
+
+.nav li>a:hover, .nav li>a:hover i{
+  color:rgba(255, 255, 255, 1);
+  transition: all .3s ease 0s;
+}
+.nav {
+   display: block;
+  padding-left: 0;
+  list-style: none;
+}
+.nav li.active>a::before{
+  content: "";
+  position: absolute;
+  height: 6px;
+  width: 6px;
+  top: 17px;
+  left: -2px;
+  background: #fff;
+}
+
+.title-div{
+  width: 100%;
+  height: 56px;
+}
+
+.page-title{
+  margin-left: 3%;
+  font-family: -webkit-pictograph;
+  font-size: 40px;
+  margin-top: 12px;
+  float: left;
+}
+
+.divider
+{
+  position: relative;
+  height: 1px;
+}
+
+.div-transparent-title:before{
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 3%;
+  right: 5%;
+  width: 33%;
+  height: 2px;
+  background-image: linear-gradient(to right, rgb(48,49,51), transparent);
+}
+
+.div-transparent:before
+{
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 5%;
+  right: 5%;
+  width: 90%;
+  height: 1px;
+  background-image: linear-gradient(to right, transparent, rgb(48,49,51), transparent);
 }
