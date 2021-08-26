@@ -28,13 +28,50 @@
     "confirmPassword": "Confirm Password",
     "birthdate": "Birthdate",
     "tos": "Terms of Services",
-    "pp": "Privacy Policy"
+    "pp": "Privacy Policy",
+    "weight" : "Weight",
+    "height" : "Height",
+    "exercise":"Exercise Habit",
+    "blood" : "Blood Group",
+    "select" : "Select Any",
+    "smoking" : "Smoking",
+    "alcohol" : "Alcohol",
+    "submit" : "Submit Form"
+
   },
 
   "forget": {
     "title": "Forget your Password?",
     "title2": "Remember me"
-  }
+  },
 
+  "profilHeader" : {
+    "title" : "Welcome to your profile."
+  },
+
+  "table" : {
+    "search" : "Searching",
+    "meal" : "Meal",
+    "category" : "Category",
+    "name" : "Name",
+    "calorie" : "Calorie",
+    "protein" : "Protein",
+    "oil" : "Oil",
+    "carbonhydrate" : "Carbonhydrate",
+    "edit" : "Edit",
+    "delete" : "Delete",
+    "type" : "Type",
+    "period" : "Period",
+    "effor" : "Effor (cal)",
+    "unit" : "Unit",
+    "start" : "Start Date",
+    "end" : "End Date"
+  },
+
+  "target" : {
+    "purpose" : "Patient's Purposes's ",
+    "nutriInfo" : "Nutrition Information",
+    "actiInfo" : "Activity Information"
+  }
 
 }

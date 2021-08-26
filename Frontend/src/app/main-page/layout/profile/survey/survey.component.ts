@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { MatDialog } from '@angular/material/dialog';
 import { Blood, BLOOD_DATA, Select, SELECT_DATA } from './data';
 
 
@@ -18,7 +17,8 @@ export class SurveyComponent implements OnInit {
   bloods: Blood[] = BLOOD_DATA;
   selects: Select[] = SELECT_DATA;
 
-  constructor(private formBuilder: FormBuilder) { }
+  constructor(private formBuilder: FormBuilder) {
+  }
   ngOnInit() {
     this.createForm();
   }
