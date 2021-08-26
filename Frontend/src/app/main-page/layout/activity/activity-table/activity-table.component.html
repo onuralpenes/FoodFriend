@@ -1,5 +1,5 @@
 <mat-form-field class="searching-filter" appearance="standard">
-  <mat-label class="search">Searching</mat-label>
+  <mat-label class="search">{{'table.search' | translate}}</mat-label>
   <input
     matInput
     (keyup)="applyFilter($event)"
@@ -11,7 +11,7 @@
 <div class="row">
   <table mat-table [dataSource]="dataSource" matSort class="mat-elevation-z8">
     <ng-container matColumnDef="activityType">
-      <th mat-header-cell *matHeaderCellDef mat-sort-header>Type</th>
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>{{'table.type' | translate}}</th>
       <td mat-cell *matCellDef="let activities">
         {{ activities.activityType }}
       </td>
@@ -30,42 +30,42 @@
     </ng-container>
 
     <ng-container matColumnDef="activityPeriod">
-      <th mat-header-cell *matHeaderCellDef mat-sort-header>Period</th>
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>{{'table.period' | translate}}</th>
       <td mat-cell *matCellDef="let activities">
         {{ activities.activityPeriod }}
       </td>
     </ng-container>
 
     <ng-container matColumnDef="activityEffortSpent">
-      <th mat-header-cell *matHeaderCellDef mat-sort-header>Effor (cal)</th>
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>{{'table.effor' | translate}}</th>
       <td mat-cell *matCellDef="let activities">
         {{ activities.activityEffortSpent }}
       </td>
     </ng-container>
 
     <ng-container matColumnDef="activityEfforUnit">
-      <th mat-header-cell *matHeaderCellDef mat-sort-header>Unit</th>
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>{{'table.unit' | translate}}</th>
       <td mat-cell *matCellDef="let activities">
         {{ activities.activityEfforUnit }}
       </td>
     </ng-container>
 
     <ng-container matColumnDef="activityStartDate">
-      <th mat-header-cell *matHeaderCellDef mat-sort-header>Start Date</th>
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>{{'table.start' | translate}}</th>
       <td mat-cell *matCellDef="let activities">
         {{ activities.activityStartDate | date: "dd/MM/yyyy" }}
       </td>
     </ng-container>
 
     <ng-container matColumnDef="activityEndDate">
-      <th mat-header-cell *matHeaderCellDef mat-sort-header>End Date</th>
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>{{'table.end' | translate}}</th>
       <td mat-cell *matCellDef="let activities">
         {{ activities.activityEndDate | date: "dd/MM/yyyy" }}
       </td>
     </ng-container>
 
     <ng-container matColumnDef="edit">
-      <th mat-header-cell *matHeaderCellDef mat-sort-header>Edit</th>
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>{{'table.edit' | translate}}</th>
       <td mat-cell *matCellDef="let activities">
         <button
           style="border: none; background-color: white"
@@ -78,7 +78,7 @@
     </ng-container>
 
     <ng-container matColumnDef="delete">
-      <th mat-header-cell *matHeaderCellDef mat-sort-header>Delete</th>
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>{{'table.delete' | translate}}</th>
       <td mat-cell *matCellDef="let activities">
         <button
           style="border: none; background-color: white"

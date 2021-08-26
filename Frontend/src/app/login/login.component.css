@@ -372,12 +372,17 @@ input {
   }
 
   .language{
-    margin-left: 85%;
-    background-color: cadetblue;
+	position: fixed;
+	bottom: 0;
+	right: 0;
   }
-  .language2{
-    background-color: cadetblue;
-  }
-  .language2:hover{
-    background-color: red;
+  .lang-button{
+	  background-color: transparent;
+	  border: 0;
+	  color: black;
+	  padding-top: 0;
+	  padding-bottom: 0;
+	  padding-left: 2px;
+	  padding-right: 0;
+	  display: table-row;
   }

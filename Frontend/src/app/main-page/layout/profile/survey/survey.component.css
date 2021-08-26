@@ -24,10 +24,14 @@ button {
   margin-left: 9%;
 }
 
-.abc{
+.bloodGroup{
  background-color: #a16372;
 }
 
 h2{
 margin-left: 18% !important;
+}
+
+.row{
+  margin-right: 1%;
 }

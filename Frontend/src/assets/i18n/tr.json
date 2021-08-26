@@ -20,19 +20,55 @@
 
   "label": {
     "name": "İsim",
-    "surname": "Soyisim",
+    "surname": "Soy İsim",
     "email": "E-posta",
     "phoneNumber": "Telefon Numarası",
     "password":"Şifre",
     "confirmPassword": "Şifre Tekrarı",
     "birthdate": "Doğum Tarihi",
     "tos": "Hizmet şartları",
-    "pp": "Gizlilik Politikası"
+    "pp": "Gizlilik Politikası",
+    "weight" : "Kilo",
+    "height" : "Boy",
+    "exercise":"Egzersiz",
+    "blood" : "Kan Grubu",
+    "select" : "Seçiniz",
+    "smoking" : "Sigara",
+    "alcohol" : "Alkol",
+    "submit" : "Onayla"
   },
 
   "forget": {
     "title": "Şifreni mi unuttun?",
     "title2": "Beni hatırla"
-  }
+  },
 
+  "profilHeader" : {
+    "title" : "Profil sayfasına hoş geldiniz."
+  },
+
+  "table" : {
+    "search" : "Aramak istediğiniz..",
+    "meal" : "Öğün",
+    "category" : "Kategori",
+    "name" : "İsim",
+    "calorie" : "Kalori",
+    "protein" : "Protein",
+    "oil" : "Yağ",
+    "carbonhydrate" : "Karbonhidrat",
+    "edit" : "Düzenle",
+    "delete" : "Sil",
+    "type" : "Tipi",
+    "period" : "Set",
+    "effor" : "Yakılan Kalori",
+    "unit" : "Tekrar",
+    "start" : "Başlama Tarihi",
+    "end" : "Bitiş Tarihi"
+  },
+
+  "target" : {
+    "purpose" : "Danışanın Hedefi",
+    "nutriInfo" : "Beslenme Bilgisi",
+    "actiInfo" : "Aktiviti Bilgisi"
+  }
 }

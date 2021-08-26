@@ -1,7 +1,4 @@
-import { Component, NgModule } from '@angular/core';
-import { AppModule } from './app.module';
-
-import { MatFormFieldModule} from '@angular/material/form-field';
+import { Component } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
 @Component({
   selector: 'app-root',
