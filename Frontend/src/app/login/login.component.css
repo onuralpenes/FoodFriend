@@ -379,35 +379,24 @@ input {
 	padding: 0 0;
 	border: 0px;
   }
+
   .lang-menu-button{
-	background-color: red;
-	color: black;
-	padding: 0 0 !important;
-	margin: 0 !important;
-	border: 0px;
-	align-items: center;
-  }
-
-  .lang-menu{
-	  background-color: red !important;
-	  padding: 0 0 !important;
-	  margin: 0 !important;
-	  overflow: hidden;
-	  width: 0px !important;
-	  height: 0px !important;
-  }
-  button.mat-menu-item{
-	  width: 50% !important;
-  }
-
-  mat-icon{
-	  padding: 0 0;
+	  padding: 0 !important;
+	  border: 0;
 	  background-color: transparent;
+	  color: #000;
+	  border-radius: 0px;
   }
 
-  .cdk-overlay-container .cdk-global-overlay-wrapper .cdk-overlay-pane .mat-menu-panel{
-	min-width: 5% !important;
-	max-width: 5% !important;
-	width: 2px !important;
-	height: 2px !important;
-}
+.mat-menu-item{
+	  background-color: transparent !important;
+	  display: table-row !important;
+	  padding: 0;
+	  font-size: 30px;
+  }
+  .menu-content{
+	  margin: 30%;
+	  height: 5%;
+	  padding: 0 auto;
+	  background: transparent;
+  }
