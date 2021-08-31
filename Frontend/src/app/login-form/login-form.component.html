@@ -1,30 +1,33 @@
-
-<div class="container" *ngIf="!post; else forminfo" novalidate>
-  <form [formGroup]="formGroup" (ngSubmit)="onSubmit(formGroup.value)" class="form">
+<div class="container" novalidate>
+  <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" class="form">
     <p>
       <mat-form-field appearance="outline">
         <mat-label>{{'label.email' | translate}}</mat-label>
-        <input matInput formControlName="email">
+        <input matInput formControlName="email" [ngClass]="{ 'is-invalid': submitted && f.email.errors }" />
+        <div *ngIf="submitted && f.email?.errors" class="invalid-feedback">
+          <div *ngIf="f.email.errors?.required">Email cannot be null</div>
+          <div *ngIf="f.email.errors?.email">Email must be valid</div>
+        </div>
       </mat-form-field>
     </p>
 
     <p>
       <mat-form-field appearance="outline">
         <mat-label>{{'label.password' | translate}}</mat-label>
-        <input matInput [type]="'password'" formControlName="password">
+        <input matInput [type]="'password'" formControlName="password"
+          [ngClass]="{ 'is-invalid': submitted && f.password.errors }" />
+        <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
+          <div *ngIf="f.password.errors.required">Password cannot be null</div>
+          <div *ngIf="">Password is incorrect (it is actually placeholder. It can be deleted.)</div>
+        </div>
       </mat-form-field>
     </p>
     <p class="forgetPsw"><a href="" class="forgetPsw">{{'forget.title' | translate}}</a></p>
     <p class="cb">
-      <mat-checkbox class="margin" [color]="color" formControlName="remember">{{'forget.title2' | translate}}</mat-checkbox>
+      <mat-checkbox class="margin" [color]="color" formControlName="remember">{{'forget.title2' | translate}}
+      </mat-checkbox>
     </p>
 
     <button class="input-group" type="submit">{{'account.signIn' | translate}}</button>
   </form>
 </div>
-
-<ng-template #forminfo>
-  <div class="container">
-      {{ post | json }}
-  </div>
-</ng-template>

@@ -1,0 +1,77 @@
+<div class="modal-container">
+    <h2>Edit Food</h2>
+
+    <mat-dialog-content>
+        <div class="container" *ngIf="!post; else forminfo" novalidate>
+            <form [formGroup]="editForm" (ngSubmit)="onSubmit(editForm.value)" class="form">
+                <p>
+                    {{data.meal}}: 
+                    <mat-form-field appearance="outline" class="modal-input">
+                        <mat-label>{{'table.meal' | translate}}</mat-label>
+                        <input matInput type="string" formControlName="meal" />
+                    </mat-form-field>
+                </p>
+
+                <p>
+                    {{data.foodCategory}}: 
+                    <mat-form-field appearance="outline" class="modal-input">
+                        <mat-label>{{'table.category' | translate}}</mat-label>
+                        <input matInput type="string" formControlName="foodCategory" />
+                    </mat-form-field>
+                </p>
+
+                <p>
+                    {{data.foodName}}: 
+                    <mat-form-field appearance="outline" class="modal-input">
+                        <mat-label>{{'table.name' | translate}}</mat-label>
+                        <input matInput type="string" formControlName="foodName" />
+                    </mat-form-field>
+                </p>
+
+                <p>
+                    {{data.calorie}}: 
+                    <mat-form-field appearance="outline" class="modal-input">
+                        <mat-label>{{'table.calorie' | translate}}</mat-label>
+                        <input matInput type="number" formControlName="calorie" />
+                    </mat-form-field>
+                </p>
+
+                <p>
+                    {{data.protein}}: 
+                    <mat-form-field appearance="outline" class="modal-input">
+                        <mat-label>{{'table.protein' | translate}}</mat-label>
+                        <input matInput type="number" formControlName="protein" />
+                    </mat-form-field>
+                </p>
+
+                <p>
+                    {{data.oil}}: 
+                    <mat-form-field appearance="outline" class="modal-input">
+                        <mat-label>{{'table.oil' | translate}}</mat-label>
+                        <input matInput type="number" formControlName="oil" />
+                    </mat-form-field>
+                </p>
+
+                <p>
+                    {{data.carbohydrate}}: 
+                    <mat-form-field appearance="outline" class="modal-input">
+                        <mat-label>{{'table.carbonhydrate' | translate}}</mat-label>
+                        <input matInput type="number" formControlName="carbohydrate">
+                    </mat-form-field>
+                </p>
+
+                <div class="space-bottom"></div>
+                
+                <button mat-button type="submit" class="modal-button" [disabled]="!editForm.valid">
+                    {{'label.submit' | translate}}
+                </button>
+            </form>
+        </div>
+
+        <ng-template #forminfo>
+            <div class="container">
+              {{ post | json }}
+            </div>
+          </ng-template>
+    </mat-dialog-content>
+</div>
