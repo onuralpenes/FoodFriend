@@ -9,6 +9,7 @@ import { Router } from '@angular/router';
 export class BodyComponent implements OnInit {
   @Output() toggle: EventEmitter<any> = new EventEmitter();
   @Output() pin: EventEmitter<any> = new EventEmitter();
+  @Output() pName: EventEmitter<any> = new EventEmitter();
   @Input() opened = true;
   @Input() pinButton = false;
   pageName = "Dashboard";
@@ -38,5 +39,7 @@ export class BodyComponent implements OnInit {
     this.pageName = event;
   }
 
-  ngOnInit(): void { }
+  ngOnInit(): void {
+    console.log("selams")
+   }
 }

@@ -7,7 +7,6 @@ img{
 }
 
 .space {
-    flex:100%;
   }
   button {
     background-color: transparent;
@@ -18,7 +17,16 @@ img{
 .userNameText, .foodFriendText{
   color:white;
 }
+.page-name{
+  width: 100%;
+    color: white;
+    text-align: center;
+    font-size: 1.5rem;
+    font-weight: 400;
+    margin-top: 10px;
+}
 .header{
+  padding-top: 10px;
   background: #03ac75;
   height: 4%;
 }
