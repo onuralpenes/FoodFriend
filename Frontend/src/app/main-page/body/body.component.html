@@ -11,9 +11,6 @@
         </div>
         
         
-        <div class="wrapper">
-            <div class="divider div-transparent"></div>
-        </div>
 
         <div class="logo">
             <a routerLink="/" class="simple-text logo-mini">
@@ -27,26 +24,27 @@
         </div>
 
         <ul class="nav">
-            <li><a routerLink="/"><i class="fas fa-chart-line"></i> Dashboard</a></li>
-            <li><a routerLink="/profile"><i class="fas fa-random"></i> Profile</a></li>
-            <li><a routerLink="/food"><i class="fas fa-random"></i> Food</a></li> 
+            <li><a class="side-item" routerLink="/"><i class="fa fa-home" aria-hidden="true"></i> Dashboard</a></li>
+            <li><a class="side-item" routerLink="/profile"><i class="fa fa-user" aria-hidden="true"></i> Profile</a></li>
+            <li><a class="side-item" routerLink="/food"><i class="fa fa-cutlery" aria-hidden="true"></i>Food</a></li> 
         </ul>
-
 
 
         <!--<img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu"> -->
     </mat-sidenav>
     <!-- Outside of the sidebar -->
     <mat-sidenav-content>
-        <div class="title-div"> 
+        <!--<div class="title-div"> 
             <h1 class="page-title" >
                 {{pageName}}
             </h1>
-        </div>
         <div class="wrapper">
             <div class="divider div-transparent-title"></div>
         </div>
-        <router-outlet (setPageName)="setPageName($event)"></router-outlet>
+        </div>-->
+        <div class="layout">
+            <router-outlet (setPageName)="setPageName($event)"></router-outlet>
+        </div>
     </mat-sidenav-content>
 
 </mat-sidenav-container>

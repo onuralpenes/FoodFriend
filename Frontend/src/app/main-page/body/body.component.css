@@ -2,23 +2,50 @@
     width: 21%;
   }
   .bodyContainer{
-    height: 94%;
-    background-color: rgb(234, 247, 250);
+    height: 96%;
+    background: linear-gradient(0deg,#007e54 0,#03ac75 100%);
   }
-  .sidebar{
-    background: green;
-    background: linear-gradient(0deg,#00da92 0,#00be80 100%);
-    margin-top: 2%;
-    margin-bottom: 2%;
+  .sidebar{    
+    background: linear-gradient( to bottom, #15dd9c , #00db93);
+    margin-top: 1%;
     margin-left: 15px;
-    height: 90%;
-    width: 230px;
-    display:block;
-    box-shadow: 0 0 45px 0 rgba(0, 0, 0, .6);
+    height: 93%;
+    width: 188px;
+    display: block;
+    box-shadow: 0 0 45px 0 rgb(0 0 0 / 6%);
     margin-right: 15px;
     border-radius: 5px;
     border-radius: 10px;
   }
+
+  mat-sidenav-content{
+    margin-top: 1%;
+
+  }
+.layout{
+    background: linear-gradient(0deg,#f3f3f3 0,#eaeaea 100%);
+    margin-bottom: 2%;
+    margin-left: 35px;
+    height: 93%;
+    display: block;
+    box-shadow: 0 0 45px 0 rgb(0 0 0 / 6%);
+    margin-right: 15px;
+    border-radius: 10px;
+}
+
+.side-item{
+  width: 169px;
+}
+li{
+  border-radius: 11px;
+}
+ul{
+  padding-left: 3px !important;
+  padding-right: 3px;
+}
+li:hover{
+  background-color: #03ac75;
+}
 .button_pin{
   border: 0px;
   background-color: transparent;
@@ -87,7 +114,7 @@
   margin: 10px 15px 0;
   border-radius: 30px;
   color: rgba(255, 255, 255, .8);
-  width: 200px;
+  width: 169px;
   display: block;
   text-decoration: none;
   position: relative;
