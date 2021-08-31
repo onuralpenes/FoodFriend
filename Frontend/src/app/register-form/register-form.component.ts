@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { Match } from '../match.validator';
 
 @Component({
   selector: 'app-register-form',
@@ -8,36 +9,39 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 })
 export class RegisterFormComponent implements OnInit {
   color = 'primary';
-  formGroup!: FormGroup;
-  post: any = '';
+  registerForm!: FormGroup;
+  submitted = false;
 
 
-  myFilter = (d: Date | null): boolean => {
-    const day = (d || new Date()).getDay();
-    // Prevent Saturday and Sunday from being selected.
-    return day !== 0 && day !== 6;
-  }
+  // myFilter = (d: Date | null): boolean => {
+  //   const day = (d || new Date()).getDay();
+  //   // Prevent Saturday and Sunday from being selected.
+  //   return day !== 0 && day !== 6;
+  // }
+
   constructor(private formBuilder: FormBuilder) { }
   ngOnInit() {
-    this.createForm();
+    this.registerForm = this.formBuilder.group({
+      name: new FormControl('', [Validators.required]),
+      surname: new FormControl('', [Validators.required]),
+      email: new FormControl('', [Validators.required, Validators.email]),
+      phoneNo: new FormControl('', [Validators.required]),
+      password: new FormControl('', [Validators.required, Validators.minLength(8)]),
+      passwordConf: new FormControl('', [Validators.required, Validators.minLength(8)]),
+      birthdate: new FormControl('', [Validators.required]),
+      tos: new FormControl('', [Validators.required]),
+      priv: new FormControl('', [Validators.required]),
+    }, { validator: Match('password', 'passwordConf') });
   }
 
-  createForm() {
-    this.formGroup = this.formBuilder.group({
-      'name': [null, Validators.required],
-      'surname': [null, Validators.required],
-      'email': [null, Validators.required],
-      'phoneNo': [null, Validators.required],
-      'password': [null, Validators.required],
-      'passwordConf': [null, Validators.required],
-      'birthdate': [null, Validators.required],
-      'tos': [null, Validators.required],
-      'priv': [null, Validators.required],
-    });
-  }
+  get f() { return this.registerForm.controls; }
 
-  onSubmit(post) {
-    this.post = post;
+  onSubmit() {
+    this.submitted = true;
+    if (this.registerForm.invalid) {
+      return;
+    }
+    alert(JSON.stringify(this.registerForm.value));
   }
 }
 

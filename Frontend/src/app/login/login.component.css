@@ -303,10 +303,10 @@ input {
 
   @media only screen and (min-width: 825px) {
 	form{
-		margin-top: 25%;
+		margin-top: 20%;
 	}
 	.sign-up-container-enable{
-		margin-left: -50px;
+		margin-left: -75px;
 	}
 	.container.right-panel-active .sign-up-container {
 		transform: translateX(100%);

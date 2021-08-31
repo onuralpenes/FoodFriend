@@ -7,7 +7,7 @@ import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { BodyComponent } from 'src/app/main-page/body/body.component';
 import { FooterComponent } from 'src/app/main-page/footer/footer.component';
 import { HeaderComponent } from 'src/app/main-page/header/header.component';
-import { ActivityTableComponent } from 'src/app/main-page/layout/activity/activity-table/activity-table.component';
+import { ActivityTableComponent, EditActivity } from 'src/app/main-page/layout/activity/activity-table/activity-table.component';
 import { ActivityComponent } from 'src/app/main-page/layout/activity/activity.component';
 import { CounseleeProfileComponent } from 'src/app/main-page/layout/counselee-profile/counselee-profile.component';
 import { CalendarComponent } from 'src/app/main-page/layout/dashboard/calendar/calendar.component';
@@ -66,6 +66,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     CalendarComponent,
     ExpertProfileComponent,
     CounseleeProfileComponent,
+    EditActivity,
   ],
   imports: [
     CommonModule,

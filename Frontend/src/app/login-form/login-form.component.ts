@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-login-form',
@@ -8,30 +8,26 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 })
 export class LoginFormComponent implements OnInit {
   color = 'primary';
-  formGroup!: FormGroup;
-  post: any = '';
+  loginForm!: FormGroup;
+  submitted = false;
 
-
-  myFilter = (d: Date | null): boolean => {
-    const day = (d || new Date()).getDay();
-    // Prevent Saturday and Sunday from being selected.
-    return day !== 0 && day !== 6;
-  }
   constructor(private formBuilder: FormBuilder) { }
   ngOnInit() {
-    this.createForm();
-  }
-
-  createForm() {
-    this.formGroup = this.formBuilder.group({
-      'email': [null, Validators.required],
-      'password': [null, Validators.required],
-      'remember': [null],
+    this.loginForm= this.formBuilder.group({
+      email: new FormControl('', [Validators.required, Validators.email]),
+      password: new FormControl('', [Validators.required]),
+      remember: new FormControl(''),
     });
   }
 
-  onSubmit(post) {
-    this.post = post;
+  get f() { return this.loginForm.controls; }
+
+  onSubmit() {
+    this.submitted = true;
+    if (this.loginForm.invalid) {
+      return;
+    }
+    alert(JSON.stringify(this.loginForm.value));
   }
 
 }
