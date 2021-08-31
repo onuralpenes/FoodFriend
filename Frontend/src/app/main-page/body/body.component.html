@@ -3,6 +3,8 @@
 
     <mat-sidenav class="sidebar" [ngClass]="opened ? 'sideBarOpen' : 'sideBarClose'" #sidenav mode="side"
         [(opened)]="opened" opened>
+
+        
         <div style="height: 20px;">
             <button class="button_pin" (click)="pinSidebar()">
                 <span class="material-icons"
@@ -13,20 +15,28 @@
         
 
         <div class="logo">
-            <a routerLink="/" class="simple-text logo-mini">
+            <!--<a routerLink="/" class="simple-text logo-mini">
                 <div class="logo-img">
                     <img src ="../../../assets/beyaz2.png">
                 </div>
-            </a>
+            </a>-->
+                <div>
+                    <p class="username">
+                        namenamename
+                    </p>
+                    <p class="username">
+                        surname
+                    </p>
+                </div>
             <a>
     
             </a>
         </div>
 
         <ul class="nav">
-            <li><a class="side-item" routerLink="/"><i class="fa fa-home" aria-hidden="true"></i> Dashboard</a></li>
-            <li><a class="side-item" routerLink="/profile"><i class="fa fa-user" aria-hidden="true"></i> Profile</a></li>
-            <li><a class="side-item" routerLink="/food"><i class="fa fa-cutlery" aria-hidden="true"></i>Food</a></li> 
+            <li><a class="side-item" routerLink="/"><i class="fa fa-home fa-lg" aria-hidden="true"></i> Dashboard</a></li>
+            <li><a class="side-item" routerLink="/profile"><i class="fa fa-user fa-lg" aria-hidden="true"></i> Profile</a></li>
+            <li><a class="side-item" routerLink="/food"><i class="fa fa-cutlery fa-lg" aria-hidden="true"></i>Food</a></li> 
         </ul>
 
 
@@ -43,7 +53,10 @@
         </div>
         </div>-->
         <div class="layout">
-            <router-outlet (setPageName)="setPageName($event)"></router-outlet>
+            <div class="notscroll" style="height: 100%; width: 100%;">
+                
+                <router-outlet (setPageName)="setPageName($event)"></router-outlet>
+            </div>
         </div>
     </mat-sidenav-content>
 
