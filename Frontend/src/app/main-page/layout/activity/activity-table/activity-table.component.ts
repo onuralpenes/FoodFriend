@@ -1,8 +1,19 @@
-import { AfterViewInit, Component, ViewChild } from '@angular/core';
+import { AfterViewInit, Component, Inject, ViewChild } from '@angular/core';
+import { FormBuilder, FormGroup } from '@angular/forms';
+import { MatDialog, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import { ACTIVITY_DATA, Activity } from './data';
+
+export interface Transfer {
+  activityType: string;
+  activityPeriod: number;
+  activityEffortSpent: number;
+  activityEfforUnit: number;
+  activityStartDate: Date;
+  activityEndDate: Date;
+}
 
 @Component({
   selector: 'app-activity-table',
@@ -13,7 +24,7 @@ export class ActivityTableComponent implements AfterViewInit {
   activities: Activity[] = ACTIVITY_DATA; //It is getting data from data.ts.
   sortedData = this.activities; //It is getting data from data.ts.
 
-  constructor() {}
+  constructor(public modal: MatDialog) { }
 
   displayedColumns: string[] = [
     'activityType',
@@ -30,9 +41,21 @@ export class ActivityTableComponent implements AfterViewInit {
   @ViewChild(MatSort) sort!: MatSort;
   @ViewChild(MatPaginator) paginator!: MatPaginator;
 
-  delete() {}
 
-  edit() {}
+  delete() { }
+
+  openEdit(activityType: string, activityPeriod: number, activityEffortSpent: number, activityEfforUnit: number, activityStartDate: Date, activityEndDate: Date) {
+    this.modal.open(EditActivity, {
+      data: {
+        activityType: activityType,
+        activityPeriod: activityPeriod,
+        activityEffortSpent: activityEffortSpent,
+        activityEfforUnit: activityEfforUnit,
+        activityStartDate: activityStartDate,
+        activityEndDate: activityEndDate,
+      }
+    });
+  }
 
   applyFilter(event: Event) {
     const filterValue = (event.target as HTMLInputElement).value;
@@ -42,5 +65,33 @@ export class ActivityTableComponent implements AfterViewInit {
   ngAfterViewInit() {
     this.dataSource.sort = this.sort;
     this.dataSource.paginator = this.paginator;
+  }
+}
+
+@Component({
+  selector: 'app-edit-activity',
+  templateUrl: './edit-activity.html',
+  styleUrls: ['./activity-table.component.css'],
+})
+export class EditActivity {
+
+  editForm!: FormGroup;
+  post: any = '';
+
+  constructor(@Inject(MAT_DIALOG_DATA) public data: Transfer, private formBuilder: FormBuilder) { }
+
+  ngOnInit() {
+    this.editForm = this.formBuilder.group({
+      'activityType': [null],
+      'activityPeriod': [null],
+      'activityEffortSpent': [null],
+      'activityEfforUnit': [null],
+      'activityStartDate': [null],
+      'activityEndDate': [null],
+    });
+  }
+
+  onSubmit(post) {
+    this.post = post;
   }
 }
