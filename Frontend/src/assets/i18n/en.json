@@ -72,6 +72,19 @@
     "purpose" : "Patient's Purposes's ",
     "nutriInfo" : "Nutrition Information",
     "actiInfo" : "Activity Information"
-  }
+  },
 
+  "validator" : {
+    "nameNull" : "Name is required",
+    "surnameNull" : "Surname is required",
+    "emailNull" : "Email is required",
+    "emailValid" : "Email must be valid",
+    "phoneNull" : "Phone number is required",
+    "phoneValid" : "Phone number must be valid",
+    "psdNull" : "Password is required",
+    "psdMin" : "Password must be at least 8 characters",
+    "confNull" : "Confirm Password is required",
+    "confMatch" : "Passwords must match",
+    "bdayNull" : "Birthdate is required"
+  }
 }
