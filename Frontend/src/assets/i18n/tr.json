@@ -55,12 +55,12 @@
     "calorie" : "Kalori",
     "protein" : "Protein",
     "oil" : "Yağ",
-    "carbonhydrate" : "Karbonhidrat",
+    "carbohydrate" : "Karbonhidrat",
     "edit" : "Düzenle",
     "delete" : "Sil",
     "type" : "Tipi",
     "period" : "Set",
-    "effor" : "Yakılan Kalori",
+    "effort" : "Yakılan Kalori",
     "unit" : "Tekrar",
     "start" : "Başlama Tarihi",
     "end" : "Bitiş Tarihi"
@@ -70,5 +70,20 @@
     "purpose" : "Danışanın Hedefi",
     "nutriInfo" : "Beslenme Bilgisi",
     "actiInfo" : "Aktiviti Bilgisi"
+  },
+
+  "validator" : {
+    "nameNull" : "İsim girilmesi zorunludur",
+    "surnameNull" : "Soyisim girilmesi zorunludur",
+    "emailNull" : "E-posta girilmesi zorunludur",
+    "emailValid" : "Geçerli bir e-posta giriniz",
+    "phoneNull" : "Telefon numarası girilmesi zorunludur",
+    "phoneValid" : "Geçerli bir telefon numarası giriniz",
+    "psdNull" : "Şifre girilmesi zorunludur",
+    "psdMin" : "Şifre en az 8 karakterden oluşmalıdır",
+    "confNull" : "Şifre tekrarı girilmesi zorunludur",
+    "confMatch" : "Şifreler eşleşmiyor",
+    "bdayNull" : "Doğum günü girilmesi zorunludur"
   }
+
 }

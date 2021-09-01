@@ -156,7 +156,7 @@ export class ActivityTable implements AfterViewInit {
     'activityType',
     'activityPeriod',
     'activityEffortSpent',
-    'activityEfforUnit',
+    'activityeffortUnit',
     'activityStartDate',
     'activityEndDate',
   ];
