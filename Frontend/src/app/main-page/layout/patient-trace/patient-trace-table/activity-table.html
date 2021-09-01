@@ -10,7 +10,7 @@
     <table mat-table [dataSource]="dataSource" matSort class="my-table">
       <ng-container matColumnDef="activityType">
         <th mat-header-cell *matHeaderCellDef mat-sort-header class="lHead">{{'tabel.type' | translate}}</th>
-        <td mat-cell *matCellDef="let activities">
+        <td mat-cell *matCellDef="let activities" class="lCol">
           {{ activities.activityType }}
         </td> 
         <th class="fa fa-clock-o" aria-hidden="true" mat-header-cell *matHeaderCellDef mat-sort-header>
@@ -51,7 +51,7 @@
 
       <ng-container matColumnDef="activityEndDate">
         <th mat-header-cell *matHeaderCellDef mat-sort-header class="rHead">{{'table.end' | translate}}</th>
-        <td mat-cell *matCellDef="let activities">
+        <td mat-cell *matCellDef="let activities" class="rCol">
           {{ activities.activityEndDate | date: 'dd/MM/yyyy'}}
         </td>
       </ng-container>

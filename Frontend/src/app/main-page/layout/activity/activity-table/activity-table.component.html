@@ -7,7 +7,7 @@
   <table mat-table [dataSource]="dataSource" matSort class="my-table">
     <ng-container matColumnDef="activityType">
       <th mat-header-cell *matHeaderCellDef mat-sort-header class="lHead">{{'table.type' | translate}}</th>
-      <td mat-cell *matCellDef="let activities">
+      <td mat-cell *matCellDef="let activities" class="lCol">
         {{ activities.activityType }}
       </td> 
       <th aria-hidden="true" mat-header-cell *matHeaderCellDef mat-sort-header>
@@ -65,7 +65,7 @@
 
     <ng-container matColumnDef="delete">
       <th mat-header-cell *matHeaderCellDef mat-sort-header class="rHead">{{'table.delete' | translate}}</th>
-      <td mat-cell *matCellDef="let activities">
+      <td mat-cell *matCellDef="let activities" class="rCol">
         <button class="tab-button" mat-icon-button (click)="delete()">
           <mat-icon>delete</mat-icon>
         </button>
