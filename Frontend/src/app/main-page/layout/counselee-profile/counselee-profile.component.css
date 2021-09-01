@@ -62,6 +62,7 @@ p{
 .pragnentDisable{
     display: none;
 }
-img:hover{
-    /* hover eklenebilir*/
+.info-allergy, .info-illness{
+    margin-left: 10px;
+    margin-right: 10px;
 }
