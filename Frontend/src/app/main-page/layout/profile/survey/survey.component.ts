@@ -19,7 +19,7 @@ export class SurveyComponent implements OnInit {
 
   constructor(private formBuilder: FormBuilder) {
   }
-  ngOnInit() {
+  ngOnInit() { 
     this.surveyForm = this.formBuilder.group({
       'name': new FormControl('', [Validators.required]),
       'surname': new FormControl('', [Validators.required]),

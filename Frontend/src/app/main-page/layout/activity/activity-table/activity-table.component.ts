@@ -13,7 +13,7 @@ export interface Transfer {
   activityeffortUnit: number;
   activityStartDate: Date;
   activityEndDate: Date;
-}
+}  
 
 @Component({
   selector: 'app-activity-table',

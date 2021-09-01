@@ -13,12 +13,12 @@ export interface Transfer {
   oil: number;
   carbohydrate: number;
   foodCategory: string;
-  meal: string;
+  meal: string; 
 }
 
 @Component({
   selector: 'app-food-table',
-  templateUrl: './food-table.component.html',
+  templateUrl: './food-table.component.html', 
   styleUrls: ['./food-table.component.css'],
 })
 export class FoodTableComponent implements AfterViewInit {

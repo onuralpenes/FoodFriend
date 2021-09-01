@@ -13,7 +13,7 @@ import {
   Food,
   FOOD_DATA,
   User,
-  USER_DATA,
+  USER_DATA, 
 } from './data';
 
 export interface Transfer {

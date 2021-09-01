@@ -7,7 +7,7 @@
 html, body { height: 100%; }
 body { 
     margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; 
-    background-color: rgba(64, 180, 145, 1);    
+    background-color: rgba(64, 180, 145, 1);     
 }
 mat-dialog-container {
     background-color: #ececec !important;

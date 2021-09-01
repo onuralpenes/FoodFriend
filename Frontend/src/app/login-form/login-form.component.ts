@@ -9,7 +9,7 @@ import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms'
 export class LoginFormComponent implements OnInit {
   color = 'primary';
   loginForm!: FormGroup;
-  submitted = false;
+  submitted = false; 
 
   constructor(private formBuilder: FormBuilder) { }
   ngOnInit() {
