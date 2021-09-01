@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Blood, BLOOD_DATA, Select, SELECT_DATA } from './data';
 
 
@@ -20,22 +20,18 @@ export class SurveyComponent implements OnInit {
   constructor(private formBuilder: FormBuilder) {
   }
   ngOnInit() {
-    this.createForm();
-  }
-
-  createForm() {
     this.formGroup = this.formBuilder.group({
-      'name': [null, Validators.required],
-      'surname': [null, Validators.required],
-      'email': [null, Validators.required],
-      'phoneNumber': [null, Validators.required],
-      'height': [null, Validators.required],
-      'weight': [null, Validators.required],
-      'birthDate': [null, Validators.required],
-      'bloodGroup': [null, Validators.required],
-      'smoking': [null, Validators.required],
-      'alcohol': [null, Validators.required],
-      'exercise': [null, Validators.required],
+      'name': new FormControl('', [Validators.required]),
+      'surname': new FormControl('', [Validators.required]),
+      'email': new FormControl('', [Validators.required]),
+      'phoneNumber': new FormControl('', [Validators.required]),
+      'height': new FormControl('', [Validators.required]),
+      'weight': new FormControl('', [Validators.required]),
+      'birthdate': new FormControl('', [Validators.required]),
+      'bloodGroup': new FormControl('', [Validators.required]),
+      'smoking': new FormControl('', [Validators.required]),
+      'alcohol': new FormControl('', [Validators.required]),
+      'exercise': new FormControl('', [Validators.required]),
 
     });
   }

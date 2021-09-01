@@ -1,5 +1,5 @@
 import { AfterViewInit, Component, Inject, ViewChild } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
 import { MatDialog, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
@@ -82,12 +82,12 @@ export class EditActivity {
 
   ngOnInit() {
     this.editForm = this.formBuilder.group({
-      'activityType': [null],
-      'activityPeriod': [null],
-      'activityEffortSpent': [null],
-      'activityeffortUnit': [null],
-      'activityStartDate': [null],
-      'activityEndDate': [null],
+      'activityType': new FormControl(''),
+      'activityPeriod': new FormControl(''),
+      'activityEffortSpent': new FormControl(''),
+      'activityeffortUnit': new FormControl(''),
+      'activityStartDate': new FormControl(''),
+      'activityEndDate': new FormControl(''),
     });
   }
 
