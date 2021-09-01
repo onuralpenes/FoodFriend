@@ -24,6 +24,10 @@ mat-dialog-container {
 .mat-focused .mat-form-field-label {
     color: #009879 !important;
 }
+
+.mat-form-field-label {
+    color: #009879 !important;
+}
   
 .mat-form-field-underline {
     background-color: #009879 !important;
