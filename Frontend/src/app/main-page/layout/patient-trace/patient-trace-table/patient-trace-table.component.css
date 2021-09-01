@@ -9,21 +9,19 @@ button {
 	transition: transform 80ms ease-in;
 }
 
-.modal-table{
+.mat-header-cell {
+	height: 100% !important;
+	background-color: #009879;
+	color: #ffffff;
+	font-size: 1em;
+	font-family: sans-serif;
+  }
+  
+
+.modal-table {
 	width: 1000px;
 	height: 500px;
 }
-
-.mat-sort-header-container {
-	align-items: center;
-	text-align: center;
-  }
-  .table {
-	text-align: center;
-  }
-  table {
-	width: 90%;
-  }
 
   th.mat-sort-header-sorted {
 	color: black;
@@ -32,13 +30,7 @@ button {
 	height: 400px;
 	overflow: hidden;
 	margin-left: 10%;
-	margin-right: 0%;
-  }
-
-  .mat-header-cell {
-	height: 100% !important;
-	background-color: rgb(219, 219, 219) !important;
-	color: #00695c !important;
+	margin-right: 10%;
   }
 
   .search{
@@ -53,7 +45,46 @@ button {
   .searching-filter{
 	margin-left: 10%;
   }
-  .mat-form-field{
-    width: 80%;
-    margin-right: 0%;
+  
+mat-paginator{
+	height: 60px;
+	margin-right: 10%;
+	border-bottom-left-radius: 25px;
+	border-bottom-right-radius: 25px;
+  }
+  
+  mat-form-field{
+	margin-left: 5px;
+  }
+  
+  .modal-input{
+	width: 200px;
+  }
+  
+  .my-table{
+	  border-collapse: collapse;
+	  margin: 25px 0;
+	  font-size: 0.9em;
+	  font-family: sans-serif;
+	  min-width: 400px;
+	  margin-bottom: 0;
+	  background-color: #ececec;
+  }
+  
+  
+  .my-table tr:nth-of-type(even) {
+	background-color: #fff;
+  }
+  
+  .tab-button{
+	border: none;
+	background-color: transparent;
+  }
+  
+  .lHead{
+	border-top-left-radius: 25px;
+  }
+  
+  .rHead{
+	border-top-right-radius: 25px;
   }

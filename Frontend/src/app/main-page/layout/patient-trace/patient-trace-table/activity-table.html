@@ -3,27 +3,17 @@
 <mat-dialog-content class="modal-table">
   <mat-form-field class="searching-filter" appearance="standard">
     <mat-label>{{'table.search' | translate}}</mat-label>
-    <input
-      matInput
-      (keyup)="applyFilter($event)"
-      #input
-    />
+    <input matInput (keyup)="applyFilter($event)" #input />
   </mat-form-field>
 
   <div class="row">
-    <table mat-table [dataSource]="dataSource" matSort class="mat-elevation-z8">
+    <table mat-table [dataSource]="dataSource" matSort class="my-table">
       <ng-container matColumnDef="activityType">
-        <th mat-header-cell *matHeaderCellDef mat-sort-header>{{'tabel.type' | translate}}</th>
+        <th mat-header-cell *matHeaderCellDef mat-sort-header class="lHead">{{'tabel.type' | translate}}</th>
         <td mat-cell *matCellDef="let activities">
           {{ activities.activityType }}
         </td>
-        <th
-          class="fa fa-clock-o"
-          aria-hidden="true"
-          mat-header-cell
-          *matHeaderCellDef
-          mat-sort-header
-        >
+        <th class="fa fa-clock-o" aria-hidden="true" mat-header-cell *matHeaderCellDef mat-sort-header>
           Type
         </th>
         <td mat-cell *matCellDef="let activities">
@@ -60,7 +50,7 @@
       </ng-container>
 
       <ng-container matColumnDef="activityEndDate">
-        <th mat-header-cell *matHeaderCellDef mat-sort-header>{{'table.end' | translate}}</th>
+        <th mat-header-cell *matHeaderCellDef mat-sort-header class="rHead">{{'table.end' | translate}}</th>
         <td mat-cell *matCellDef="let activities">
           {{ activities.activityEndDate | date: 'dd/MM/yyyy'}}
         </td>
@@ -70,12 +60,7 @@
       <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
     </table>
 
-    <mat-paginator
-      style="width: 90%; height: 15%"
-      [pageSizeOptions]="[3, 5]"
-      [pageSize]="3"
-      showFirstLastButtons
-    >
+    <mat-paginator [pageSizeOptions]="[3, 5]" [pageSize]="3" showFirstLastButtons>
     </mat-paginator>
 
   </div>

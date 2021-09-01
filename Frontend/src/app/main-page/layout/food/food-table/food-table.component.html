@@ -1,17 +1,12 @@
 <mat-form-field class="searching-filter" appearance="standard">
   <mat-label class="search">{{'table.search' | translate}}</mat-label>
-  <input
-    matInput
-    (keyup)="applyFilter($event)"
-    placeholder="Search your foods"
-    #input
-  />
+  <input matInput (keyup)="applyFilter($event)" placeholder="Search your foods" #input />
 </mat-form-field>
 
 <div class="row">
-  <table mat-table [dataSource]="dataSource" matSort class="mat-elevation-z8">
+  <table mat-table [dataSource]="dataSource" matSort class="my-table">
     <ng-container matColumnDef="meal">
-      <th mat-header-cell *matHeaderCellDef mat-sort-header>{{'table.meal' | translate}}</th>
+      <th mat-header-cell *matHeaderCellDef mat-sort-header class="lHead">{{'table.meal' | translate}}</th>
       <td mat-cell *matCellDef="let foods">{{ foods.meal }}</td>
     </ng-container>
 
@@ -48,24 +43,17 @@
     <ng-container matColumnDef="edit">
       <th mat-header-cell *matHeaderCellDef mat-sort-header>{{'table.edit' | translate}}</th>
       <td mat-cell *matCellDef="let foods">
-        <button
-          style="border: none; background-color: white"
-          mat-icon-button
-          (click)="openEdit(foods.foodName, foods.calorie, foods.protein, foods.oil, foods.carbohydrate, foods.foodCategory, foods.meal)"
-        >
+        <button class="tab-button" mat-icon-button
+          (click)="openEdit(foods.foodName, foods.calorie, foods.protein, foods.oil, foods.carbohydrate, foods.foodCategory, foods.meal)">
           <mat-icon>edit</mat-icon>
         </button>
       </td>
     </ng-container>
 
     <ng-container matColumnDef="delete">
-      <th mat-header-cell *matHeaderCellDef mat-sort-header>{{'table.delete' | translate}}</th>
+      <th mat-header-cell *matHeaderCellDef mat-sort-header class="rHead">{{'table.delete' | translate}}</th>
       <td mat-cell *matCellDef="let foods">
-        <button
-          style="border: none; background-color: white"
-          mat-icon-button
-          (click)="delete()"
-        >
+        <button class="tab-button" mat-icon-button (click)="delete()">
           <mat-icon>delete</mat-icon>
         </button>
       </td>
@@ -75,11 +63,6 @@
     <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
   </table>
 
-  <mat-paginator
-    style="width: 90%; height: 15%; background: #eaf7fa;"
-    [pageSizeOptions]="[3, 5]"
-    [pageSize]="3"
-    showFirstLastButtons
-  >
+  <mat-paginator [pageSizeOptions]="[3, 5]" [pageSize]="3" showFirstLastButtons>
   </mat-paginator>
 </div>
