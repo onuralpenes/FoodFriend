@@ -64,7 +64,8 @@ mat-paginator{
   }
   
   .my-table{
-	  border-collapse: collapse;
+	  border-collapse: unset;
+	  padding: 0;
 	  margin: 25px 0;
 	  font-size: 0.9em;
 	  font-family: sans-serif;
@@ -91,10 +92,10 @@ mat-paginator{
 	border-top-right-radius: 25px;
   }
   
-.lCol{
-	border-left: 4px solid  #009879;
+  .lCol{
+	border-left: 2px solid  #009879;
   }
   
   .rCol{
-	border-right: 4px solid  #009879;
+	border-right: 2px solid  #009879;
   }
