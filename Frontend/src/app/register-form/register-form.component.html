@@ -4,16 +4,13 @@
       <mat-form-field appearance="outline">
         <mat-label>{{'label.name' | translate}}</mat-label>
         <input matInput formControlName="name" [ngClass]="{ 'is-invalid': submitted && f.name.errors }">
-        <div *ngIf="submitted  && f.name?.errors" class="invalid-feedback">
-          <div *ngIf="f.name.errors?.required">{{'validator.nameNull' | translate}}</div>
-        </div>
+          <mat-error *ngIf="f.name.errors?.required">{{'validator.nameNull' | translate}}</mat-error>
       </mat-form-field>
       <mat-form-field appearance="outline">
         <mat-label>{{'label.surname' | translate}}</mat-label>
         <input matInput formControlName="surname" [ngClass]="{ 'is-invalid': submitted && f.surname.errors }">
-        <div *ngIf="submitted && f.surname?.errors" class="invalid-feedback">
-          <div *ngIf="f.surname.errors?.required">{{'validator.surnameNull' | translate}}</div>
-        </div>
+          <mat-error *ngIf="f.surname.errors?.required">{{'validator.surnameNull' | translate}}</mat-error>
+
       </mat-form-field>
     </p>
 
@@ -21,10 +18,8 @@
       <mat-form-field appearance="outline">
         <mat-label>{{'label.email' | translate}}</mat-label>
         <input matInput formControlName="email" [ngClass]="{ 'is-invalid': submitted && f.email.errors }" />
-        <div *ngIf="submitted && f.email?.errors" class="invalid-feedback">
-          <div *ngIf="f.email.errors?.required">{{'validator.emailNull' | translate}}</div>
-          <div *ngIf="f.email.errors?.email">{{'validator.emailValid' | translate}}</div>
-        </div>
+          <mat-error *ngIf="f.email.errors?.required">{{'validator.emailNull' | translate}}</mat-error>
+          <mat-error *ngIf="f.email.errors?.email">{{'validator.emailValid' | translate}}</mat-error>
       </mat-form-field>
 
       <mat-form-field appearance="outline">
@@ -32,10 +27,8 @@
         <input type="tel" id="phone" name="phone" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" matInput
           placeholder="Format = 507-222-1133" formControlName="phoneNo"
           [ngClass]="{ 'is-invalid': submitted && f.phoneNo.errors }">
-        <div *ngIf="submitted && f.phoneNo?.errors" class="invalid-feedback">
-          <div *ngIf="f.phoneNo.errors?.required">{{'validator.phoneNull' | translate}}</div>
-          <div *ngIf="f.phoneNo.errors?.pattern">{{'validator.phoneValid' | translate}}</div>
-        </div>
+          <mat-error *ngIf="f.phoneNo.errors?.required">{{'validator.phoneNull' | translate}}</mat-error>
+          <mat-error *ngIf="f.phoneNo.errors?.pattern">{{'validator.phoneValid' | translate}}</mat-error>
       </mat-form-field>
     </p>
 
@@ -44,19 +37,15 @@
         <mat-label>{{'label.password' | translate}}</mat-label>
         <input matInput [type]="'password'" formControlName="password"
           [ngClass]="{ 'is-invalid': submitted && f.password.errors }" />
-        <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
-          <div *ngIf="f.password.errors.required">{{'validator.psdNull' | translate}}</div>
-          <div *ngIf="f.password.errors.minlength">{{'validator.psdMin' | translate}}</div>
-        </div>
+          <mat-error *ngIf="f.password.errors?.required">{{'validator.psdNull' | translate}}</mat-error>
+          <mat-error *ngIf="f.password.errors?.minlength">{{'validator.psdMin' | translate}}</mat-error>
       </mat-form-field>
       <mat-form-field appearance="outline">
         <mat-label>{{'label.confirmPassword' | translate}}</mat-label>
         <input matInput [type]="'password'" formControlName="passwordConf"
           [ngClass]="{ 'is-invalid': submitted && f.passwordConf.errors }" />
-        <div *ngIf="submitted && f.passwordConf?.errors" class="invalid-feedback">
-          <div *ngIf="f.passwordConf.errors?.required">{{'validator.confNull' | translate}}</div>
-          <div *ngIf="f.passwordConf.errors?.match">{{'validator.confMatch' | translate}}</div>
-        </div>
+          <mat-error *ngIf="f.passwordConf.errors?.required">{{'validator.confNull' | translate}}</mat-error>
+          <mat-error *ngIf="f.passwordConf.errors?.match">{{'validator.confMatch' | translate}}</mat-error>
       </mat-form-field>
     </p>
 
@@ -65,9 +54,7 @@
         <mat-label>{{'label.birthdate' | translate}}</mat-label>
         <input matInput [matDatepicker]="picker" formControlName="birthdate"
           [ngClass]="{ 'is-invalid': submitted && f.birthdate.errors }" />
-        <div *ngIf="submitted && f.birthdate.errors" class="invalid-feedback">
-          <div *ngIf="f.birthdate.errors.required">{{'validator.bdayNull' | translate}}</div>
-        </div>
+          <mat-error *ngIf="f.birthdate.errors?.required">{{'validator.bdayNull' | translate}}</mat-error>
         <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
         <mat-datepicker #picker></mat-datepicker>
       </mat-form-field>
