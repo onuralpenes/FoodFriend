@@ -10,7 +10,7 @@
     <table mat-table [dataSource]="dataSource" matSort class="my-table">
       <ng-container matColumnDef="meal">
         <th mat-header-cell *matHeaderCellDef mat-sort-header class="lHead">{{'table.meal' | translate}}</th>
-        <td mat-cell *matCellDef="let foods">{{ foods.meal }}</td>
+        <td mat-cell *matCellDef="let foods" class="lCol">{{ foods.meal }}</td>
       </ng-container>
 
       <ng-container matColumnDef="foodCategory">
@@ -40,7 +40,7 @@
 
       <ng-container matColumnDef="carbohydrate">
         <th mat-header-cell *matHeaderCellDef mat-sort-header class="rHead">{{'table.carbohydrate' | translate}}</th>
-        <td mat-cell *matCellDef="let foods">{{ foods.carbohydrate }}</td>
+        <td mat-cell *matCellDef="let foods" class="rCol">{{ foods.carbohydrate }}</td>
       </ng-container>
 
       <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>

@@ -7,7 +7,7 @@
   <table mat-table [dataSource]="dataSource" matSort class="my-table">
     <ng-container matColumnDef="name">
       <th mat-header-cell *matHeaderCellDef mat-sort-header class="lHead">{{'label.name' | translate}}</th>
-      <td mat-cell *matCellDef="let users" (click) = "open(users.id)">{{ users.name }}</td>
+      <td mat-cell *matCellDef="let users" (click) = "open(users.id)" class="lCol">{{ users.name }}</td>
     </ng-container>
 
     <ng-container matColumnDef="surname">
@@ -74,7 +74,7 @@
       <th mat-header-cell *matHeaderCellDef mat-sort-header class="rHead">
         {{'target.actiInfo' | translate}}
       </th>
-      <td mat-cell *matCellDef="let users">
+      <td mat-cell *matCellDef="let users" class="rCol">
         <button class="tab-button" mat-icon-button (click)="openActivity(users.name, users.surname, users.id)">
           <i class="fa fa-bicycle fa-lg" aria-hidden="true"></i>
         </button>

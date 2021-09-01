@@ -16,11 +16,11 @@ button {
 	font-size: 1em;
 	font-family: sans-serif;
   }
-
+  
 
 .modal-table {
 	width: 1000px;
-	height: 500px;
+	height: 500px; 
 }
 
   th.mat-sort-header-sorted {
@@ -40,26 +40,29 @@ button {
   .search:hover {
 	transform: scale(1.025);
   }
-
+  
   .searching-filter{
 	margin-left: 10%;
   }
-
+  
 mat-paginator{
 	height: 60px;
 	margin-right: 10%;
 	border-bottom-left-radius: 25px;
 	border-bottom-right-radius: 25px;
+	border-left: 2px solid #009879;
+	border-right: 2px solid #009879;
+	border-bottom: 2px solid #009879;
   }
-
+  
   mat-form-field{
 	margin-left: 5px;
   }
-
+  
   .modal-input{
 	width: 200px;
   }
-
+  
   .my-table{
 	  border-collapse: collapse;
 	  margin: 25px 0;
@@ -69,25 +72,29 @@ mat-paginator{
 	  margin-bottom: 0;
 	  background-color: #ececec;
   }
-
-
+  
+  
   .my-table tr:nth-of-type(even) {
 	background-color: #fff;
   }
-
+  
   .tab-button{
 	border: none;
 	background-color: transparent;
   }
-
+  
   .lHead{
 	border-top-left-radius: 25px;
   }
-
+  
   .rHead{
 	border-top-right-radius: 25px;
   }
-
-  .tab-button:hover{
-    color: #009879;
+  
+.lCol{
+	border-left: 4px solid  #009879;
+  }
+  
+  .rCol{
+	border-right: 4px solid  #009879;
   }

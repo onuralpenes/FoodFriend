@@ -8,7 +8,7 @@ th.mat-sort-header-sorted {
   margin-right: 10%;
 }
 
-.mat-header-cell {
+.mat-header-cell { 
   height: 100% !important;
   background-color: #009879;
   color: #ffffff;
@@ -20,6 +20,7 @@ th.mat-sort-header-sorted {
   transition: all .2s ease-in-out;
   margin-left: 5%;
 }
+
 .search:hover {
   transform: scale(1.025);
 }
@@ -70,6 +71,9 @@ mat-paginator{
   margin-right: 10%;
   border-bottom-left-radius: 25px;
   border-bottom-right-radius: 25px;
+  border-left: 2px solid #009879;
+  border-right: 2px solid #009879;
+  border-bottom: 2px solid #009879;
 }
 
 mat-form-field{
@@ -90,7 +94,6 @@ mat-form-field{
     background-color: #ececec;
 }
 
-
 .my-table tr:nth-of-type(even) {
   background-color: #fff;
 }
@@ -108,6 +111,10 @@ mat-form-field{
   border-top-right-radius: 25px;
 }
 
-.tab-button:hover{
-  color: #009879;
+.lCol{
+  border-left: 4px solid  #009879;
+}
+
+.rCol{
+  border-right: 4px solid  #009879;
 }
