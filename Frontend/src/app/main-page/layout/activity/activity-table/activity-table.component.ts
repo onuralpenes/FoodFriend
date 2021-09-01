@@ -10,7 +10,7 @@ export interface Transfer {
   activityType: string;
   activityPeriod: number;
   activityEffortSpent: number;
-  activityEfforUnit: number;
+  activityeffortUnit: number;
   activityStartDate: Date;
   activityEndDate: Date;
 }
@@ -30,7 +30,7 @@ export class ActivityTableComponent implements AfterViewInit {
     'activityType',
     'activityPeriod',
     'activityEffortSpent',
-    'activityEfforUnit',
+    'activityeffortUnit',
     'activityStartDate',
     'activityEndDate',
     'edit',
@@ -44,13 +44,13 @@ export class ActivityTableComponent implements AfterViewInit {
 
   delete() { }
 
-  openEdit(activityType: string, activityPeriod: number, activityEffortSpent: number, activityEfforUnit: number, activityStartDate: Date, activityEndDate: Date) {
+  openEdit(activityType: string, activityPeriod: number, activityEffortSpent: number, activityeffortUnit: number, activityStartDate: Date, activityEndDate: Date) {
     this.modal.open(EditActivity, {
       data: {
         activityType: activityType,
         activityPeriod: activityPeriod,
         activityEffortSpent: activityEffortSpent,
-        activityEfforUnit: activityEfforUnit,
+        activityeffortUnit: activityeffortUnit,
         activityStartDate: activityStartDate,
         activityEndDate: activityEndDate,
       }
@@ -85,7 +85,7 @@ export class EditActivity {
       'activityType': [null],
       'activityPeriod': [null],
       'activityEffortSpent': [null],
-      'activityEfforUnit': [null],
+      'activityeffortUnit': [null],
       'activityStartDate': [null],
       'activityEndDate': [null],
     });

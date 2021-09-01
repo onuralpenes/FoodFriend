@@ -215,3 +215,19 @@ li:hover{
   width: 0;  /* Remove scrollbar space */
   background: transparent;  /* Optional: just make scrollbar invisible */
 }
+
+.language{
+	position: fixed;
+	bottom: 6%;
+	left: 2%;
+  }
+  .lang-button{
+	  background-color: transparent;
+	  border: 0;
+	  color: black;
+	  padding-top: 0;
+	  padding-bottom: 0;
+	  padding-left: 2px;
+	  padding-right: 0;
+	  display: table-row;
+  }

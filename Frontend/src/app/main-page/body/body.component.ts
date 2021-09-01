@@ -1,5 +1,6 @@
 import { Component, Input, OnInit, EventEmitter, Output } from '@angular/core';
 import { Router } from '@angular/router';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-body',
@@ -13,7 +14,7 @@ export class BodyComponent implements OnInit {
   @Input() opened = true;
   @Input() pinButton = false;
   pageName = "Dashboard";
-  constructor(private router: Router) {
+  constructor(private router: Router, private translate: TranslateService) {
     console.log(this.router.url)
     if (this.router.url == "/profile") {
       this.pageName = "Profile"
@@ -42,4 +43,8 @@ export class BodyComponent implements OnInit {
   ngOnInit(): void {
     console.log("selams")
    }
+
+   changeLang(langCode: string){
+    this.translate.use(langCode);
+    }
 }
