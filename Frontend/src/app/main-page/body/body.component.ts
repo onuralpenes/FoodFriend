@@ -11,7 +11,7 @@ export class BodyComponent implements OnInit {
   @Output() toggle: EventEmitter<any> = new EventEmitter();
   @Output() pin: EventEmitter<any> = new EventEmitter();
   @Output() pName: EventEmitter<any> = new EventEmitter();
-  @Input() opened = true;
+  @Input() opened;
   @Input() pinButton = false;
   pageName = "Dashboard";
   constructor(private router: Router, private translate: TranslateService) {

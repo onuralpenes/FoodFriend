@@ -31,7 +31,7 @@ export class SurveyComponent implements OnInit {
       'phoneNumber': [null, Validators.required],
       'height': [null, Validators.required],
       'weight': [null, Validators.required],
-      'birthDate': [null, Validators.required],
+      'birthdate': [null, Validators.required],
       'bloodGroup': [null, Validators.required],
       'smoking': [null, Validators.required],
       'alcohol': [null, Validators.required],
