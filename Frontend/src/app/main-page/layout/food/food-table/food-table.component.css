@@ -107,3 +107,7 @@ mat-form-field{
 .rHead{
   border-top-right-radius: 25px;
 }
+
+.tab-button:hover{
+  color: #009879;
+}
