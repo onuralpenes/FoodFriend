@@ -11,7 +11,7 @@ import { Blood, BLOOD_DATA, Select, SELECT_DATA } from './data';
 export class SurveyComponent implements OnInit {
 
 
-  formGroup!: FormGroup;
+  surveyForm!: FormGroup;
   post: any = '';
 
   bloods: Blood[] = BLOOD_DATA;
@@ -20,7 +20,7 @@ export class SurveyComponent implements OnInit {
   constructor(private formBuilder: FormBuilder) {
   }
   ngOnInit() {
-    this.formGroup = this.formBuilder.group({
+    this.surveyForm = this.formBuilder.group({
       'name': new FormControl('', [Validators.required]),
       'surname': new FormControl('', [Validators.required]),
       'email': new FormControl('', [Validators.required]),
