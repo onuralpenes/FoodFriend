@@ -1,5 +1,5 @@
 import { AfterViewInit, Component, Inject, OnInit, ViewChild } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { ThemePalette } from '@angular/material/core';
 import { MatDialog, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { MatPaginator } from '@angular/material/paginator';
@@ -193,10 +193,10 @@ export class PatientTarget {
 
   constructor(@Inject(MAT_DIALOG_DATA) public data: Transfer2, public modal: MatDialog, private formBuilder: FormBuilder) {
     this.targetForm = this.formBuilder.group({
-      'startingDate': [null],
-      'endDate': [null],
-      'startingWeight': [null],
-      'targetWeight': [null, Validators.required]
+      'startingDate': new FormControl(''),
+      'endDate': new FormControl(''),
+      'startingWeight': new FormControl(''),
+      'targetWeight': new FormControl('', [Validators.required])
     });
   }
 
