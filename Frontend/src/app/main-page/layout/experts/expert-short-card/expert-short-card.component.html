@@ -1,0 +1,27 @@
+<mat-card class="card" [style.backgroundColor]="'#3e6257'" style="margin-bottom: 20px;">
+    <mat-card-header >
+      <div mat-card-avatar class="header-image" style="margin-top: -35px;
+      border: 3px solid;
+      border-color: #3e6257;
+	height: 90px !important;
+	width: 90px !important;"></div>
+      <mat-card-title class="writings">{{expert.name}}</mat-card-title>
+      <mat-card-subtitle class="writings">{{expert.job}}</mat-card-subtitle>
+    </mat-card-header>
+    <img
+      mat-card-image
+      src="../../../assets/diyetisyen.jpg"
+      alt="Photo of a Shiba Inu"
+      style="display: none;"
+    />
+    <mat-card-content style="display: none;">,
+        <div style="word-wrap: break-word;">
+            <p class="writings" style="height: 50px;">
+                {{expert.information}}
+            </p>
+        </div>
+    </mat-card-content>
+    <button mat-card-actions type="submit" class="button"  style="display: none;">
+      Devamı..
+    </button>
+  </mat-card>
