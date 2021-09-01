@@ -4,10 +4,8 @@
       <mat-form-field appearance="outline">
         <mat-label>{{'label.email' | translate}}</mat-label>
         <input matInput formControlName="email" [ngClass]="{ 'is-invalid': submitted && f.email.errors }" />
-        <div *ngIf="submitted && f.email?.errors" class="invalid-feedback">
-          <div *ngIf="f.email.errors?.required">{{'validator.emailNull' | translate}}</div>
-          <div *ngIf="f.email.errors?.email">{{'validator.emailValid' | translate}}</div>
-        </div>
+        <mat-error *ngIf="f.email.errors?.required">{{'validator.emailNull' | translate}}</mat-error>
+        <mat-error *ngIf="f.email.errors?.email">{{'validator.emailValid' | translate}}</mat-error>
       </mat-form-field>
     </p>
 
@@ -16,10 +14,8 @@
         <mat-label>{{'label.password' | translate}}</mat-label>
         <input matInput [type]="'password'" formControlName="password"
           [ngClass]="{ 'is-invalid': submitted && f.password.errors }" />
-        <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
-          <div *ngIf="f.password.errors.required">{{'validator.psdNull' | translate}}</div>
-          <div *ngIf="">Password is incorrect (it is actually placeholder. It can be deleted.)</div>
-        </div>
+        <mat-error *ngIf="f.password.errors?.required">{{'validator.psdNull' | translate}}</mat-error>
+        <mat-error *ngIf="">Password is incorrect (it is actually placeholder. It can be deleted.)</mat-error>
       </mat-form-field>
     </p>
     <p class="forgetPsw"><a href="" class="forgetPsw">{{'forget.title' | translate}}</a></p>
