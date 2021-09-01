@@ -12,3 +12,27 @@ body {
 mat-dialog-container {
     background-color: #ececec !important;
  }
+
+.mat-form-field-appearance-outline .mat-form-field-outline {
+    color: #009879;
+}
+
+.mat-focused .mat-form-field-outline {
+    color: #009879 !important;
+}
+
+.mat-focused .mat-form-field-label {
+    color: #009879 !important;
+}
+
+.mat-form-field {
+    color: #009879 !important;
+}
+  
+.mat-form-field-underline {
+    background-color: #009879 !important;
+} 
+  
+.mat-form-field-ripple {
+   background-color: #009879 !important;;
+}

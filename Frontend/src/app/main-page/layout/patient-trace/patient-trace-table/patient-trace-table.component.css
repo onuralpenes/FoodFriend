@@ -35,7 +35,6 @@ button {
 
   .search{
 	transition: all .2s ease-in-out;
-	color: #009879;
 	margin-left: 5%;
   }
   .search:hover {
@@ -51,6 +50,9 @@ mat-paginator{
 	margin-right: 10%;
 	border-bottom-left-radius: 25px;
 	border-bottom-right-radius: 25px;
+	border-left: 2px solid #009879;
+	border-right: 2px solid #009879;
+	border-bottom: 2px solid #009879;
   }
   
   mat-form-field{
@@ -87,4 +89,12 @@ mat-paginator{
   
   .rHead{
 	border-top-right-radius: 25px;
+  }
+  
+.lCol{
+	border-left: 4px solid  #009879;
+  }
+  
+  .rCol{
+	border-right: 4px solid  #009879;
   }
