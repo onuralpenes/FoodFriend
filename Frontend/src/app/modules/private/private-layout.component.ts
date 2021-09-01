@@ -12,7 +12,7 @@ export class PrivateLayoutComponent {
     this.translate.use('tr');
   }
     sideBar = true;
-    pinned = true;
+    pinned = false;
     toggle() {
         if(this.pinned){
             this.sideBar = this.sideBar;

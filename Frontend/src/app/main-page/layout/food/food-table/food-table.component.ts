@@ -1,5 +1,5 @@
 import { AfterViewInit, Component, Inject, ViewChild } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
 import { MatDialog, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
@@ -13,12 +13,12 @@ export interface Transfer {
   oil: number;
   carbohydrate: number;
   foodCategory: string;
-  meal: string;
+  meal: string; 
 }
 
 @Component({
   selector: 'app-food-table',
-  templateUrl: './food-table.component.html',
+  templateUrl: './food-table.component.html', 
   styleUrls: ['./food-table.component.css'],
 })
 export class FoodTableComponent implements AfterViewInit {
@@ -83,13 +83,13 @@ export class EditFood{
 
   ngOnInit() {
     this.editForm = this.formBuilder.group({
-      'meal': [null],
-      'foodCategory': [null],
-      'foodName': [null],
-      'calorie': [null],
-      'protein': [null],
-      'oil': [null],
-      'carbohydrate': [null],
+      'meal': new FormControl(''),
+      'foodCategory': new FormControl(''),
+      'foodName': new FormControl(''),
+      'calorie': new FormControl(''),
+      'protein': new FormControl(''),
+      'oil': new FormControl(''),
+      'carbohydrate': new FormControl(''),
     });
   }
 

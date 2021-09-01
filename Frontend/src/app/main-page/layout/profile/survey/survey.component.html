@@ -3,7 +3,7 @@
 <div class="row">
   <mat-dialog-content>
     <div class="container" *ngIf="!post; else forminfo" novalidate>
-      <form [formGroup]="formGroup" (ngSubmit)="onSubmit(formGroup.value)" class="form">
+      <form [formGroup]="surveyForm" (ngSubmit)="onSubmit(surveyForm.value)" class="form">
         <div class="col align-self-start">
           <mat-form-field appearance="outline">
             <mat-label>{{'label.name' | translate}}</mat-label>
@@ -87,7 +87,7 @@
           </mat-form-field>
         </div>
         <div class="form-element">
-          <button mat-button type="submit" class="button" [disabled]="!formGroup.valid">
+          <button mat-button type="submit" class="button" [disabled]="!surveyForm.valid">
             {{'label.submit' | translate}}
           </button>
         </div>

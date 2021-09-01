@@ -3,24 +3,20 @@
 <mat-dialog-content class="modal-table">
   <mat-form-field class="searching-filter" appearance="standard">
     <mat-label class="search">{{'table.search' | translate}}</mat-label>
-    <input
-      matInput
-      (keyup)="applyFilter($event)"
-      #input
-    />
+    <input matInput (keyup)="applyFilter($event)" #input />
   </mat-form-field>
 
   <div class="row">
-    <table mat-table [dataSource]="dataSource" matSort class="mat-elevation-z8">
+    <table mat-table [dataSource]="dataSource" matSort class="my-table">
       <ng-container matColumnDef="meal">
-        <th mat-header-cell *matHeaderCellDef mat-sort-header>{{'table.meal' | translate}}</th>
+        <th mat-header-cell *matHeaderCellDef mat-sort-header class="lHead">{{'table.meal' | translate}}</th>
         <td mat-cell *matCellDef="let foods">{{ foods.meal }}</td>
       </ng-container>
 
       <ng-container matColumnDef="foodCategory">
         <th mat-header-cell *matHeaderCellDef mat-sort-header>{{'table.category' | translate}}</th>
         <td mat-cell *matCellDef="let foods">{{ foods.foodCategory }}</td>
-      </ng-container>
+      </ng-container> 
 
       <ng-container matColumnDef="foodName">
         <th mat-header-cell *matHeaderCellDef mat-sort-header>{{'table.name' | translate}}</th>
@@ -43,7 +39,7 @@
       </ng-container>
 
       <ng-container matColumnDef="carbohydrate">
-        <th mat-header-cell *matHeaderCellDef mat-sort-header>{{'table.carbohydrate' | translate}}</th>
+        <th mat-header-cell *matHeaderCellDef mat-sort-header class="rHead">{{'table.carbohydrate' | translate}}</th>
         <td mat-cell *matCellDef="let foods">{{ foods.carbohydrate }}</td>
       </ng-container>
 
@@ -51,12 +47,7 @@
       <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
     </table>
 
-    <mat-paginator
-      style="width: 90%; height: 15%"
-      [pageSizeOptions]="[3, 5]"
-      [pageSize]="3"
-      showFirstLastButtons
-    >
+    <mat-paginator [pageSizeOptions]="[3, 5]" [pageSize]="3" showFirstLastButtons>
     </mat-paginator>
   </div>
 </mat-dialog-content>
