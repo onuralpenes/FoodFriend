@@ -18,7 +18,6 @@ th.mat-sort-header-sorted {
 
 .search{
   transition: all .2s ease-in-out;
-  color: #009879;
   margin-left: 5%;
 }
 .search:hover {
