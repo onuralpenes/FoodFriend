@@ -60,7 +60,7 @@
     "delete" : "Sil",
     "type" : "Tipi",
     "period" : "Set",
-    "effor" : "Yakılan Kalori",
+    "effort" : "Yakılan Kalori",
     "unit" : "Tekrar",
     "start" : "Başlama Tarihi",
     "end" : "Bitiş Tarihi"
