@@ -1,6 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
-import { CounseleeProfileComponent } from '../counselee-profile/counselee-profile.component';
+import { CounseleeProfileComponent } from '../../counselee-profile/counselee-profile.component';
 
 @Component({
   selector: 'app-expert-profile',
@@ -8,8 +8,10 @@ import { CounseleeProfileComponent } from '../counselee-profile/counselee-profil
   styleUrls: ['./expert-profile.component.css']
 })
 export class ExpertProfileComponent implements OnInit {
-
-  constructor(public dialog: MatDialog) { }
+  @Input() expert;
+  constructor(public dialog: MatDialog) {
+    console.log(this.expert)
+   }
 
   openProfile() {
     const dialogRef = this.dialog.open(CounseleeProfileComponent);

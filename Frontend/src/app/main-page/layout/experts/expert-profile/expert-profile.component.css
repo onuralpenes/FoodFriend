@@ -5,7 +5,7 @@
 }
 
 .header-image {
-  background-image: url('../../../../assets/diyetisyen_pp.jpg');
+  background-image: url('../../../../../assets/diyetisyen_pp.jpg');
   background-size: cover;
 }
 button {
