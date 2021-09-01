@@ -57,7 +57,7 @@
     "calorie" : "Calorie",
     "protein" : "Protein",
     "oil" : "Oil",
-    "carbonhydrate" : "Carbohydrate",
+    "carbohydrate" : "Carbohydrate",
     "edit" : "Edit",
     "delete" : "Delete",
     "type" : "Type",
