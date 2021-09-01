@@ -26,8 +26,8 @@ export class LoginFormComponent implements OnInit {
     this.submitted = true;
     if (this.loginForm.invalid) {
       return;
+
     }
     alert(JSON.stringify(this.loginForm.value));
   }
-
 }
