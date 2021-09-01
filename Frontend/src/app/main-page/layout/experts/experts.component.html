@@ -1,10 +1,6 @@
 
-<div style="display: flex;">
-    <div *ngFor = "let expert of experts; index as i;" style="width: 50%;">
+<div class="row">
+    <div *ngFor = "let expert of experts; index as i;" class="col-md-4">
         <app-expert-profile [expert]="expert"></app-expert-profile>
     </div>
-</div>
-
-<div *ngFor = "let expert of experts; index as i; count as count">
-    <div *ngIf ="count>2">SELAAAAAAAM</div>
 </div>
