@@ -57,7 +57,7 @@
         {{'target.purpose' | translate}}
       </th>
       <td mat-cell *matCellDef="let users">
-        <button mat-icon-button (click)="openTarget(users.name, users.surname, users.id)">
+        <button class="ikonHover" mat-icon-button (click)="openTarget(users.name, users.surname, users.id)">
           <i class="fa fa-line-chart fa-lg" aria-hidden="true"></i>
         </button>
       </td>
@@ -68,7 +68,7 @@
         {{'target.nutriInfo' | translate}}
       </th>
       <td mat-cell *matCellDef="let users">
-        <button mat-icon-button (click)="openFood(users.name, users.surname, users.id)">
+        <button class="ikonHover" mat-icon-button (click)="openFood(users.name, users.surname, users.id)">
           <i class="fa fa-cutlery fa-lg" aria-hidden="true"></i>
         </button>
       </td>
@@ -79,7 +79,7 @@
         {{'target.actiInfo' | translate}}
       </th>
       <td mat-cell *matCellDef="let users">
-        <button mat-icon-button (click)="openActivity(users.name, users.surname, users.id)">
+        <button class="ikonHover" mat-icon-button (click)="openActivity(users.name, users.surname, users.id)">
           <i class="fa fa-bicycle fa-lg" aria-hidden="true"></i>
         </button>
       </td>

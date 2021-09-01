@@ -12,13 +12,13 @@ export class EatingHabitChartComponent implements OnInit {
 
   legend: boolean = true;
   showLabels: boolean = true;
-  animations: boolean = true; 
+  animations: boolean = true;
   xAxis: boolean = true;
   yAxis: boolean = true;
   showYAxisLabel: boolean = true;
   showXAxisLabel: boolean = true;
-  xAxisLabel: string = 'Year';
-  yAxisLabel: string = 'Population';
+  xAxisLabel: string = 'Day';
+  yAxisLabel: string = 'Calorie';
   timeline: boolean = true;
 
   colorScheme = {

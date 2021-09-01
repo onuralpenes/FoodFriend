@@ -9,16 +9,16 @@ import { multi } from './data';
 export class EnergyConsumptionChartComponent implements OnInit {
 
   multi!: any[];  //It is getting data from data.ts.
-  
+
   showXAxis: boolean = true;
   showYAxis: boolean = true;
   gradient: boolean = true;
   showLegend: boolean = true;
   showXAxisLabel: boolean = true;
-  xAxisLabel: string = 'Country';
+  xAxisLabel: string = 'Nutrient Content';
   showYAxisLabel: boolean = true;
-  yAxisLabel: string = 'Population'; 
-  legendTitle: string = 'Years';
+  yAxisLabel: string = 'Calorie';
+  legendTitle: string = 'Days';
 
   colorScheme = {
     domain: ['#5AA454', '#C7B42C', '#AAAAAA']

@@ -2,70 +2,56 @@
 
 export var multi = [
     {
-      "name": "Germany",
+      "name": "Carbohydrate",
       "series": [
         {
-          "name": "1990",
-          "value": 62000000
+          "name": "25/10/2020",
+          "value": 15
         },
         {
-          "name": "2010", 
-          "value": 73000000
+          "name": "26/10/2020",
+          "value": 26
         },
         {
-          "name": "2011",
-          "value": 89400000
+          "name": "27/10/2020",
+          "value": 24
         }
       ]
     },
-  
+
     {
-      "name": "USA",
+      "name": "Protein",
       "series": [
         {
-          "name": "1990",
-          "value": 250000000
+          "name": "25/10/2020",
+          "value": 28
         },
         {
-          "name": "2010",
-          "value": 309000000
+          "name": "26/10/2020",
+          "value": 19
         },
         {
-          "name": "2011",
-          "value": 311000000
+          "name": "27/10/2020",
+          "value": 23
         }
       ]
     },
-  
+
     {
-      "name": "France",
+      "name": "Oil",
       "series": [
         {
-          "name": "1990",
-          "value": 58000000
+          "name": "25/10/2020",
+          "value": 15
         },
         {
-          "name": "2010",
-          "value": 50000020
+          "name": "26/10/2020",
+          "value": 18
         },
         {
-          "name": "2011",
-          "value": 58000000
-        }
-      ]
-    },
-    {
-      "name": "UK",
-      "series": [
-        {
-          "name": "1990",
-          "value": 57000000
-        },
-        {
-          "name": "2010",
-          "value": 62000000
+          "name": "27/10/2020",
+          "value": 20
         }
       ]
     }
   ];
-  

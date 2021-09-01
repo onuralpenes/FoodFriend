@@ -5,7 +5,11 @@
 @import url('https://fonts.googleapis.com/css2?family=Nunito:wght@200;300&display=swap');
 
 html, body { height: 100%; }
-body { 
-    margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; 
-    background-color: rgba(64, 180, 145, 1);    
+body {
+    margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif;
+    background-color: rgba(64, 180, 145, 1);
+}
+
+mat-dialog-container{
+  background-color: orchid !important;
 }

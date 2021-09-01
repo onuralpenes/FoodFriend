@@ -4,10 +4,6 @@
   margin-top: 5%;
 }
 
-.header-image {
-  background-image: url('../../../../assets/diyetisyen_pp.jpg');
-  background-size: cover;
-}
 button {
 	width: auto;
 	border-radius: 20px;
