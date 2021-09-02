@@ -19,8 +19,8 @@
   },
 
   "label": {
-    "name": "İsim",
-    "surname": "Soy İsim",
+    "name": "Ad",
+    "surname": "Soyadı",
     "email": "E-posta",
     "phoneNumber": "Telefon Numarası",
     "password":"Şifre",
@@ -73,8 +73,8 @@
   },
 
   "validator" : {
-    "nameNull" : "İsim girilmesi zorunludur",
-    "surnameNull" : "Soyisim girilmesi zorunludur",
+    "nameNull" : "Adın girilmesi zorunludur",
+    "surnameNull" : "Soyadın girilmesi zorunludur",
     "emailNull" : "E-posta girilmesi zorunludur",
     "emailValid" : "Geçerli bir e-posta giriniz",
     "phoneNull" : "Telefon numarası girilmesi zorunludur",

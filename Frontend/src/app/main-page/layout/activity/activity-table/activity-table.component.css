@@ -8,7 +8,7 @@ th.mat-sort-header-sorted {
   margin-right: 10%;
 }
 
-.mat-header-cell { 
+.mat-header-cell {
   height: 100% !important;
   background-color: #009879;
   color: #ffffff;
@@ -119,4 +119,8 @@ mat-form-field{
 
 .rCol{
   border-right: 2px solid  #009879;
+}
+
+.tab-button:hover{
+  color: #009879;
 }

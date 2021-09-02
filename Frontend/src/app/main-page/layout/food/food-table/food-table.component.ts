@@ -13,12 +13,12 @@ export interface Transfer {
   oil: number;
   carbohydrate: number;
   foodCategory: string;
-  meal: string; 
+  meal: string;
 }
 
 @Component({
   selector: 'app-food-table',
-  templateUrl: './food-table.component.html', 
+  templateUrl: './food-table.component.html',
   styleUrls: ['./food-table.component.css'],
 })
 export class FoodTableComponent implements AfterViewInit {
@@ -83,13 +83,13 @@ export class EditFood{
 
   ngOnInit() {
     this.editForm = this.formBuilder.group({
-      'meal': new FormControl(''),
-      'foodCategory': new FormControl(''),
-      'foodName': new FormControl(''),
-      'calorie': new FormControl(''),
-      'protein': new FormControl(''),
-      'oil': new FormControl(''),
-      'carbohydrate': new FormControl(''),
+      'meal': new FormControl(this.data.meal),
+      'foodCategory': new FormControl(this.data.foodCategory),
+      'foodName': new FormControl(this.data.foodName),
+      'calorie': new FormControl(this.data.calorie),
+      'protein': new FormControl(this.data.protein),
+      'oil': new FormControl(this.data.oil),
+      'carbohydrate': new FormControl(this.data.carbohydrate),
     });
   }
 

@@ -15,8 +15,9 @@ mat-form-field{
 button {
 	width: auto;
 	border-radius: 20px;
-	border: 1px solid #11914b;
-	background-color: #1d6b3b;
+  border: 1px solid #03ac75;
+
+	background-color: #0cdc98;
 	color: #fff;
 	font-size: 12px;
 	font-weight: bold;
@@ -37,4 +38,4 @@ margin-left: 18% !important;
 
 .row{
   margin-right: 1%;
-} 
+}

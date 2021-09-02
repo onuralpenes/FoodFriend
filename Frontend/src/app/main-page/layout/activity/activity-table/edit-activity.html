@@ -5,59 +5,59 @@
         <div class="container" *ngIf="!post; else forminfo" novalidate>
             <form [formGroup]="editForm" (ngSubmit)="onSubmit(editForm.value)" class="form">
                 <p>
-                    {{data.activityType}}: 
+                  {{'table.type' | translate}}
                     <mat-form-field appearance="outline" class="modal-input">
-                        <mat-label>{{'table.type' | translate}}</mat-label>
-                        <input matInput type="string" formControlName="activityType" />
+                        <!-- <mat-label>{{data.activityType}}:</mat-label> -->
+                        <input data.activityType matInput type="string" formControlName="activityType" />
                     </mat-form-field>
                 </p>
 
                 <p>
-                    {{data.activityPeriod}}: 
+                  {{'table.period' | translate}}
                     <mat-form-field appearance="outline" class="modal-input">
-                        <mat-label>{{'table.period' | translate}}</mat-label>
-                        <input matInput type="number" formControlName="activityPeriod" />
+                        <!-- <mat-label> {{data.activityPeriod}}:</mat-label> -->
+                        <input data.activityPeriod matInput type="number" formControlName="activityPeriod" />
                     </mat-form-field>
                 </p>
 
                 <p>
-                    {{data.activityEffortSpent}}: 
+                  {{'table.effort' | translate}}
                     <mat-form-field appearance="outline" class="modal-input">
-                        <mat-label>{{'table.effort' | translate}}</mat-label>
-                        <input matInput type="number" formControlName="activityEffortSpent" />
+                        <!-- <mat-label>{{data.activityEffortSpent}}:</mat-label> -->
+                        <input data.activityEffortSpent matInput type="number" formControlName="activityEffortSpent" />
                     </mat-form-field>
                 </p>
 
                 <p>
-                    {{data.activityeffortUnit}}: 
+                  {{'table.unit' | translate}}
                     <mat-form-field appearance="outline" class="modal-input">
-                        <mat-label>{{'table.unit' | translate}}</mat-label>
-                        <input matInput type="number" formControlName="activityeffortUnit" />
+                        <!-- <mat-label>{{data.activityeffortUnit}}:</mat-label> -->
+                        <input data.activityeffortUnit matInput type="number" formControlName="activityeffortUnit" />
                     </mat-form-field>
                 </p>
 
                 <p>
-                    {{data.activityStartDate | date: "dd/MM/yyyy"}}: 
+                  {{'table.start' | translate}}
                     <mat-form-field appearance="outline" class="modal-input">
-                        <mat-label>{{'table.start' | translate}}</mat-label>
-                        <input matInput [matDatepicker]="picker" formControlName="activityStartDate" />
+                        <!-- <mat-label>{{data.activityStartDate | date: "dd/MM/yyyy"}}:</mat-label> -->
+                        <input data.activityStartDate matInput [matDatepicker]="picker" formControlName="activityStartDate" />
                         <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
                         <mat-datepicker #picker></mat-datepicker>
                     </mat-form-field>
                 </p>
 
                 <p>
-                    {{data.activityEndDate  | date: "dd/MM/yyyy"}}: 
+                  {{'table.end' | translate}}
                     <mat-form-field appearance="outline" class="modal-input">
-                        <mat-label>{{'table.end' | translate}}</mat-label>
-                        <input matInput [matDatepicker]="picker2" formControlName="activityEndDate">
+                        <!-- <mat-label>{{data.activityEndDate  | date: "dd/MM/yyyy"}}: </mat-label> -->
+                        <input data.activityEndDate matInput [matDatepicker]="picker2" formControlName="activityEndDate">
                         <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
                         <mat-datepicker #picker2></mat-datepicker>
                     </mat-form-field>
                 </p>
 
                 <div class="space-bottom"></div>
-                
+
                 <button mat-button type="submit" class="modal-button" [disabled]="!editForm.valid">
                     {{'label.submit' | translate}}
                 </button>

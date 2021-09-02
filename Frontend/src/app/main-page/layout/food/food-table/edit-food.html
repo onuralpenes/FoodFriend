@@ -5,63 +5,63 @@
         <div class="container" *ngIf="!post; else forminfo" novalidate>
             <form [formGroup]="editForm" (ngSubmit)="onSubmit(editForm.value)" class="form">
                 <p>
-                    {{data.meal}}: 
+                   {{'table.meal' | translate}}
                     <mat-form-field appearance="outline" class="modal-input">
-                        <mat-label>{{'table.meal' | translate}}</mat-label>
-                        <input matInput type="string" formControlName="meal" />
+                        <!-- <mat-label> {{data.meal}}:</mat-label> -->
+                        <input data.meal matInput type="string" formControlName="meal" />
                     </mat-form-field>
                 </p>
 
                 <p>
-                    {{data.foodCategory}}: 
+                    {{'table.category' | translate}}
                     <mat-form-field appearance="outline" class="modal-input">
-                        <mat-label>{{'table.category' | translate}}</mat-label>
-                        <input matInput type="string" formControlName="foodCategory" />
+                        <!-- <mat-label>{{data.foodCategory}}:</mat-label> -->
+                        <input data.foodCategory matInput type="string" formControlName="foodCategory" />
                     </mat-form-field>
                 </p>
 
                 <p>
-                    {{data.foodName}}: 
+                  {{'table.name' | translate}}
                     <mat-form-field appearance="outline" class="modal-input">
-                        <mat-label>{{'table.name' | translate}}</mat-label>
-                        <input matInput type="string" formControlName="foodName" />
+                        <!-- <mat-label>{{data.foodName}}:</mat-label> -->
+                        <input data.foodName matInput type="string" formControlName="foodName" />
                     </mat-form-field>
                 </p>
 
                 <p>
-                    {{data.calorie}}: 
+                  {{'table.calorie' | translate}}
                     <mat-form-field appearance="outline" class="modal-input">
-                        <mat-label>{{'table.calorie' | translate}}</mat-label>
-                        <input matInput type="number" formControlName="calorie" />
+                        <!-- <mat-label>{{data.calorie}}:</mat-label> -->
+                        <input data.calorie matInput type="number" formControlName="calorie" />
                     </mat-form-field>
                 </p>
 
                 <p>
-                    {{data.protein}}: 
+                  {{'table.protein' | translate}}
                     <mat-form-field appearance="outline" class="modal-input">
-                        <mat-label>{{'table.protein' | translate}}</mat-label>
+                        <!-- <mat-label>{{data.protein}}:</mat-label> -->
                         <input matInput type="number" formControlName="protein" />
                     </mat-form-field>
                 </p>
 
                 <p>
-                    {{data.oil}}: 
+                  {{'table.oil' | translate}}
                     <mat-form-field appearance="outline" class="modal-input">
-                        <mat-label>{{'table.oil' | translate}}</mat-label>
-                        <input matInput type="number" formControlName="oil" />
+                        <!-- <mat-label> {{data.oil}}:</mat-label> -->
+                        <input data.oil matInput type="number" formControlName="oil" />
                     </mat-form-field>
                 </p>
 
                 <p>
-                    {{data.carbohydrate}}: 
+                  {{'table.carbohydrate' | translate}}
                     <mat-form-field appearance="outline" class="modal-input">
-                        <mat-label>{{'table.carbohydrate' | translate}}</mat-label>
+                        <!-- <mat-label>{{data.carbohydrate}}:</mat-label> -->
                         <input matInput type="number" formControlName="carbohydrate">
                     </mat-form-field>
                 </p>
 
                 <div class="space-bottom"></div>
-                
+
                 <button mat-button type="submit" class="modal-button" [disabled]="!editForm.valid">
                     {{'label.submit' | translate}}
                 </button>

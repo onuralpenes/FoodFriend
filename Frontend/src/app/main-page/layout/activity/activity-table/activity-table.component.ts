@@ -4,6 +4,7 @@ import { MatDialog, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
+import { th } from 'date-fns/locale';
 import { ACTIVITY_DATA, Activity } from './data';
 
 export interface Transfer {
@@ -13,7 +14,7 @@ export interface Transfer {
   activityeffortUnit: number;
   activityStartDate: Date;
   activityEndDate: Date;
-}  
+}
 
 @Component({
   selector: 'app-activity-table',
@@ -82,12 +83,12 @@ export class EditActivity {
 
   ngOnInit() {
     this.editForm = this.formBuilder.group({
-      'activityType': new FormControl(''),
-      'activityPeriod': new FormControl(''),
-      'activityEffortSpent': new FormControl(''),
-      'activityeffortUnit': new FormControl(''),
-      'activityStartDate': new FormControl(''),
-      'activityEndDate': new FormControl(''),
+      'activityType': new FormControl(this.data.activityType),
+      'activityPeriod': new FormControl(this.data.activityPeriod),
+      'activityEffortSpent': new FormControl(this.data.activityEffortSpent),
+      'activityeffortUnit': new FormControl(this.data.activityeffortUnit),
+      'activityStartDate': new FormControl(this.data.activityStartDate),
+      'activityEndDate': new FormControl(this.data.activityEndDate),
     });
   }
 
