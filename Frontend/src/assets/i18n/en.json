@@ -86,5 +86,14 @@
     "confNull" : "Confirm Password is required",
     "confMatch" : "Passwords must match",
     "bdayNull" : "Birthdate is required"
-  }
+  },
+
+  "sidebar" : {
+    "dashboard" : "Dashboard",
+    "profile" : "Profile",
+    "food" : "Food",
+    "activity" : "Activity",
+    "patients" : "Patients",
+    "expert" : "Expert"
+  } 
 }
