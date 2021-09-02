@@ -1,10 +1,9 @@
+<form #search="ngForm">
+    <input matInput type="text" ngModel name="searchText" autocomplete="off" (keyup)="keyup(search.value.searchText)">
+</form>
 
 <div class="row">
-    <div *ngFor = "let expert of experts; index as i;" class="col-md-4">
-        <app-expert-profile [expert]="expert"></app-expert-profile>
+    <div *ngFor="let expert of experts | expertfilter : searchText" (click)="selectPost(expert);" class="col-md-4">
+        <app-expert-short-card [expert]="expert"></app-expert-short-card>
     </div>
-</div>
-
-<div>
-    <app-expert-short-card [expert]="experts[0]"></app-expert-short-card>
 </div>

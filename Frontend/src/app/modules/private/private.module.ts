@@ -2,6 +2,7 @@ import { CommonModule } from '@angular/common';
 import { HttpClient } from '@angular/common/http';
 import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
 import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule } from '@angular/forms';
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { BodyComponent } from 'src/app/main-page/body/body.component';
@@ -33,10 +34,10 @@ import {
 import { PatientTraceComponent } from 'src/app/main-page/layout/patient-trace/patient-trace.component';
 import { ProfileComponent } from 'src/app/main-page/layout/profile/profile.component';
 import { SurveyComponent } from 'src/app/main-page/layout/profile/survey/survey.component';
+import { ExpertFilterPipe } from '../expert-filter.pipe';
 import { CustomMaterialModule } from '../material/material.module';
 import { PrivateLayoutComponent } from './private-layout.component';
 import { PrivateRoutingModule } from './private-routing.module';
-
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http);
 }
@@ -71,13 +72,16 @@ export function HttpLoaderFactory(http: HttpClient) {
     CounseleeProfileComponent,
     EditActivity,
     EditFood,
-    ExpertShortCardComponent
+    ExpertShortCardComponent,
+
+    ExpertFilterPipe,
   ],
   imports: [
     CommonModule,
     PrivateRoutingModule,
     CustomMaterialModule,
     ReactiveFormsModule,
+    FormsModule,
     TranslateModule.forRoot({
       loader: {
         provide: TranslateLoader,

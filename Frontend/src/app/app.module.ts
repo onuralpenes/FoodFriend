@@ -9,7 +9,7 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { RegisterFormComponent } from './register-form/register-form.component';
 import { PrivateModule } from './modules/private/private.module';
 import { CustomMaterialModule } from './modules/material/material.module';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 
@@ -31,6 +31,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     PrivateModule,
     CustomMaterialModule,
     ReactiveFormsModule,
+    FormsModule,
     TranslateModule.forRoot({
       loader: {
           provide: TranslateLoader,

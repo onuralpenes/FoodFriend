@@ -8,9 +8,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ExpertShortCardComponent implements OnInit {
   @Input() expert;
+
+  details = false;
   constructor() { }
 
   ngOnInit(): void {
   }
-
+  detailExpert() {
+    this.details = !this.details;
+  }
 }
