@@ -1,10 +1,12 @@
+<!-- 
+    <input [(ngModel)] = 'text' /> -->
+<form #userlogin="ngForm" (ngSubmit)="onSubmit(userlogin.value.annen)">
+    <input type="text" name="annen" ngModel (keyup) = "onSubmit(userlogin.value.annen)">
+</form>
+{{text}}
 
 <div class="row">
-    <div *ngFor = "let expert of experts; index as i;" class="col-md-4">
-        <app-expert-profile [expert]="expert"></app-expert-profile>
+    <div *ngFor="let expert of filterExperts; index as i;" class="col-md-4">
+        <app-expert-short-card [expert]="expert"></app-expert-short-card>
     </div>
-</div>
-
-<div>
-    <app-expert-short-card [expert]="experts[0]"></app-expert-short-card>
 </div>
