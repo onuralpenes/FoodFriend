@@ -34,6 +34,7 @@ import {
 import { PatientTraceComponent } from 'src/app/main-page/layout/patient-trace/patient-trace.component';
 import { ProfileComponent } from 'src/app/main-page/layout/profile/profile.component';
 import { SurveyComponent } from 'src/app/main-page/layout/profile/survey/survey.component';
+import { ExpertFilterPipe } from '../expert-filter.pipe';
 import { CustomMaterialModule } from '../material/material.module';
 import { PrivateLayoutComponent } from './private-layout.component';
 import { PrivateRoutingModule } from './private-routing.module';
@@ -71,7 +72,9 @@ export function HttpLoaderFactory(http: HttpClient) {
     CounseleeProfileComponent,
     EditActivity,
     EditFood,
-    ExpertShortCardComponent
+    ExpertShortCardComponent,
+
+    ExpertFilterPipe,
   ],
   imports: [
     CommonModule,

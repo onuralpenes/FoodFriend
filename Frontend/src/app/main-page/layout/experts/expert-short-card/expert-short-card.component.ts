@@ -1,6 +1,5 @@
 import { Input } from '@angular/core';
 import { Component, OnInit } from '@angular/core';
-import roundToNearestMinutesWithOptions from 'date-fns/esm/fp/roundToNearestMinutesWithOptions/index.js';
 
 @Component({
   selector: 'app-expert-short-card',
@@ -15,7 +14,7 @@ export class ExpertShortCardComponent implements OnInit {
 
   ngOnInit(): void {
   }
-  detailExpert(){
+  detailExpert() {
     this.details = !this.details;
   }
 }
