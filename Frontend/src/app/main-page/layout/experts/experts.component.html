@@ -1,5 +1,9 @@
 <form #search="ngForm">
-    <input matInput type="text" ngModel name="searchText" autocomplete="off" (keyup)="keyup(search.value.searchText)">
+    <mat-form-field class="searching-filter" appearance="standard">
+        <mat-label class="search">{{'table.search' | translate}}</mat-label>
+        <input matInput type="text" ngModel name="searchText" autocomplete="off"
+            (keyup)="keyup(search.value.searchText)" />
+    </mat-form-field>
 </form>
 
 <div class="row">

@@ -14,8 +14,8 @@ export class ExpertsComponent {
   experts: Expert[] = experts;
   searchText: string = "";
 
-  keyup(st) {
-    this.searchText = st;
+  keyup(searchText) {
+    this.searchText = searchText;
   }
   selectPost(post) {
     console.log(`The selected post is::  ${post.title}`);
