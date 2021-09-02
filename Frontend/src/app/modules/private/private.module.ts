@@ -19,6 +19,7 @@ import { FoodIngredientDistributionChartComponent } from 'src/app/main-page/layo
 import { HealthCardComponent } from 'src/app/main-page/layout/dashboard/health-card/health-card.component';
 import { ProgressesComponent } from 'src/app/main-page/layout/dashboard/progresses/progresses.component';
 import { ExpertProfileComponent } from 'src/app/main-page/layout/experts/expert-profile/expert-profile.component';
+import { ExpertShortCardComponent } from 'src/app/main-page/layout/experts/expert-short-card/expert-short-card.component';
 import { ExpertsComponent } from 'src/app/main-page/layout/experts/experts.component';
 import { EditFood, FoodTableComponent } from 'src/app/main-page/layout/food/food-table/food-table.component';
 import { FoodComponent } from 'src/app/main-page/layout/food/food.component';
@@ -70,6 +71,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     CounseleeProfileComponent,
     EditActivity,
     EditFood,
+    ExpertShortCardComponent
   ],
   imports: [
     CommonModule,
