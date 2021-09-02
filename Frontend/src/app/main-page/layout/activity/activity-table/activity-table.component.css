@@ -13,8 +13,7 @@ th.mat-sort-header-sorted {
   background-color: #009879;
   color: #ffffff;
   font-size: 1em;
-  /* font-family: sans-serif; */
-  font-family: 'Rock Salt', cursive;
+  font-family: sans-serif;
 }
 
 .search{
