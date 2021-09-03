@@ -1,20 +1,21 @@
-<mat-card class="card" [style.backgroundColor]="'#3e6257'">
-  <mat-card-header >
-    <div mat-card-avatar class="header-image"></div>
-    <mat-card-title class="writings">{{expert.name}}</mat-card-title>
-    <mat-card-subtitle class="writings">{{expert.job}}</mat-card-subtitle>
-  </mat-card-header>
-  <img
-    mat-card-image
-    src="../../../assets/diyetisyen.jpg"
-    alt="Photo of a Shiba Inu"
-  />
-  <mat-card-content>
-    <p class="writings">
-      {{expert.information}}
-    </p>
-  </mat-card-content>
-  <button mat-card-actions type="submit" class="button" (click)="openProfile()">
-    Devamı..
-  </button>
-</mat-card>
+  <mat-card class="card" [style.backgroundColor]="'#3e6257'">
+    <mat-card-header >
+      <div mat-card-avatar class="header-image"></div>
+      <mat-card-title class="writings">{{expert.name}}</mat-card-title>
+      <mat-card-subtitle class="writings">{{expert.job}}</mat-card-subtitle>
+    </mat-card-header>
+    <img
+      mat-card-image
+      src="../../../assets/diyetisyen.jpg"
+      alt="Photo of a Shiba Inu"
+    />
+    <mat-card-content>
+      <p class="writings">
+        {{expert.information}}
+      </p>
+    </mat-card-content>
+    <button mat-card-actions type="submit" class="button" (click)="openProfile()">
+      Devamı..
+    </button>
+  </mat-card>
+
