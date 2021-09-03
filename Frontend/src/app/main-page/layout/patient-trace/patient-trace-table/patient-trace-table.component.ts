@@ -13,7 +13,7 @@ import {
   Food,
   FOOD_DATA,
   User,
-  USER_DATA, 
+  USER_DATA,
 } from './data';
 
 export interface Transfer {
@@ -39,8 +39,9 @@ export interface Transfer2 {
 export class PatientTraceTableComponent implements AfterViewInit {
   users: User[] = USER_DATA;
   sortedData = this.users;
+  isNull: boolean = true;
 
-  constructor(public modal: MatDialog, private router: Router  ) { }
+  constructor(public modal: MatDialog, private router: Router) { }
 
   displayedColumns: string[] = [
     'name',
@@ -64,6 +65,13 @@ export class PatientTraceTableComponent implements AfterViewInit {
   applyFilter(event: Event) {
     const filterValue = (event.target as HTMLInputElement).value;
     this.dataSource.filter = filterValue.trim().toLowerCase();
+    if (this.dataSource.filteredData.length == 0) {
+      this.isNull = false;
+      console.log(this.dataSource)
+    }
+    else {
+      this.isNull = true;
+    }
   }
 
   ngAfterViewInit() {
@@ -71,7 +79,7 @@ export class PatientTraceTableComponent implements AfterViewInit {
     this.dataSource.paginator = this.paginator;
   }
 
-  open(id: number){
+  open(id: number) {
     this.router.navigate(['/counselee-profile']);
   }
 
@@ -98,7 +106,7 @@ export class PatientTraceTableComponent implements AfterViewInit {
       data: {
         name: name + ' ' + surname,
         id: id,
-        currentWeight: this.users[id-1].weight,
+        currentWeight: this.users[id - 1].weight,
       },
     });
   }
@@ -111,6 +119,7 @@ export class PatientTraceTableComponent implements AfterViewInit {
 export class NutritionTable implements AfterViewInit {
   foods: Food[] = FOOD_DATA;
   sortedData = this.foods;
+  isNull: boolean = true;
 
   constructor(@Inject(MAT_DIALOG_DATA) public data: Transfer) { }
 
@@ -133,6 +142,13 @@ export class NutritionTable implements AfterViewInit {
   applyFilter(event: Event) {
     const filterValue = (event.target as HTMLInputElement).value;
     this.dataSource.filter = filterValue.trim().toLowerCase();
+    if (this.dataSource.filteredData.length == 0) {
+      this.isNull = false;
+      console.log(this.dataSource)
+    }
+    else {
+      this.isNull = true;
+    }
   }
 
   ngAfterViewInit() {
@@ -149,6 +165,7 @@ export class NutritionTable implements AfterViewInit {
 export class ActivityTable implements AfterViewInit {
   activities: Activity[] = ACTIVITY_DATA;
   sortedData = this.activities;
+  isNull: boolean = true;
 
   constructor(@Inject(MAT_DIALOG_DATA) public data: Transfer) { }
 
@@ -170,6 +187,13 @@ export class ActivityTable implements AfterViewInit {
   applyFilter(event: Event) {
     const filterValue = (event.target as HTMLInputElement).value;
     this.dataSource.filter = filterValue.trim().toLowerCase();
+    if (this.dataSource.filteredData.length == 0) {
+      this.isNull = false;
+      console.log(this.dataSource)
+    }
+    else {
+      this.isNull = true;
+    }
   }
 
   ngAfterViewInit() {
@@ -280,10 +304,10 @@ export class PatientTargetCard {
     this.targetWeight = this.data.targetWeight;
     this.currentWeight = this.data.currentWeight;
     this.weight_percent = 100 * (this.startingWeight - this.currentWeight) / (this.startingWeight - this.targetWeight);
-    if(data.endDate == null){
+    if (data.endDate == null) {
       this.dateProg = 0;
     }
-    else{
+    else {
       var currentProgress = this.currentDate.getTime() - this.startingDate.getTime();
       var endProgress = data.endDate.getTime() - this.startingDate.getTime();
       this.dateProg = 100 * currentProgress / endProgress;

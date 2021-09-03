@@ -13,17 +13,18 @@ export interface Transfer {
   oil: number;
   carbohydrate: number;
   foodCategory: string;
-  meal: string; 
+  meal: string;
 }
 
 @Component({
   selector: 'app-food-table',
-  templateUrl: './food-table.component.html', 
+  templateUrl: './food-table.component.html',
   styleUrls: ['./food-table.component.css'],
 })
 export class FoodTableComponent implements AfterViewInit {
   foods: Food[] = FOOD_DATA; //It is getting data from data.ts.
   sortedData = this.foods; //It is getting data from data.ts.
+  isNull: boolean = true;
 
   constructor(public modal: MatDialog) { }
 
@@ -62,6 +63,13 @@ export class FoodTableComponent implements AfterViewInit {
   applyFilter(event: Event) {
     const filterValue = (event.target as HTMLInputElement).value;
     this.dataSource.filter = filterValue.trim().toLowerCase();
+    if (this.dataSource.filteredData.length == 0) {
+      this.isNull = false;
+      console.log(this.dataSource)
+    }
+    else {
+      this.isNull = true;
+    }
   }
 
   ngAfterViewInit() {
@@ -75,7 +83,7 @@ export class FoodTableComponent implements AfterViewInit {
   templateUrl: './edit-food.html',
   styleUrls: ['./food-table.component.css'],
 })
-export class EditFood{
+export class EditFood {
   editForm!: FormGroup;
   post: any = '';
 
