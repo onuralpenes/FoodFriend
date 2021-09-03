@@ -24,6 +24,7 @@ export interface Transfer {
 export class ActivityTableComponent implements AfterViewInit {
   activities: Activity[] = ACTIVITY_DATA; //It is getting data from data.ts.
   sortedData = this.activities; //It is getting data from data.ts.
+  isNull: boolean = true;
 
   constructor(public modal: MatDialog) { }
 
@@ -61,6 +62,14 @@ export class ActivityTableComponent implements AfterViewInit {
   applyFilter(event: Event) {
     const filterValue = (event.target as HTMLInputElement).value;
     this.dataSource.filter = filterValue.trim().toLowerCase();
+
+    if (this.dataSource.filteredData.length == 0) {
+      this.isNull = false;
+      console.log(this.dataSource)
+    }
+    else {
+      this.isNull = true;
+    }
   }
 
   ngAfterViewInit() {
