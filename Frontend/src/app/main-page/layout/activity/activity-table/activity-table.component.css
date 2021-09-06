@@ -1,6 +1,11 @@
 th.mat-sort-header-sorted {
   color: black;
 }
+
+::ng-deep .mat-sort-header-arrow {
+  color: #fff;
+}
+
 .row {
   height: 400px;
   overflow: hidden;
@@ -14,10 +19,6 @@ th.mat-sort-header-sorted {
   color: #ffffff;
   font-size: 1em;
   font-family: sans-serif;
-}
-
-::ng-deep .mat-sort-header-arrow {
-  color: #fff;
 }
 
 .search{
