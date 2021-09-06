@@ -62,17 +62,14 @@ export class AuthService {
 
                 this.route.navigateByUrl('/dashboard');
 
-                // if (login.doRemember) {
-                //   localStorage.setItem('Username', login.Username);
-                //   localStorage.setItem('Password', login.Password);
-                // }
-                // else {
-                //   localStorage.setItem('Username', "");
-                //   localStorage.setItem('Password', "");
-                // }
-
-                localStorage.setItem('Username', "");
-                localStorage.setItem('Password', "");
+                if (login.remember) {
+                    localStorage.setItem('Username', login.emailAddress);
+                    localStorage.setItem('Password', login.password);
+                }
+                else {
+                    localStorage.setItem('Username', "");
+                    localStorage.setItem('Password', "");
+                }
             });
     }
     userTransition(login: LoginModel) {
@@ -121,10 +118,10 @@ export class AuthService {
         this.route.navigateByUrl('/login');
     }
 
-      get isLoggedIn(): boolean {
+    get isLoggedIn(): boolean {
         let authToken = localStorage.getItem(environment.TOKEN_KEY);
         return (authToken !== null) ? true : false;
-      }
+    }
 
     //   public get CurrentUser(): UserDto {
     //     return this.jwtHelper.decodeToken(

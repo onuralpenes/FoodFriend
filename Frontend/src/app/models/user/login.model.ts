@@ -1,4 +1,5 @@
 export interface LoginModel{
     emailAddress: string,
-    password: string
+    password: string,
+    remember: boolean
 }
