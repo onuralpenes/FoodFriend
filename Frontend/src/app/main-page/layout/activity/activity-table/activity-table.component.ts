@@ -4,7 +4,8 @@ import { MatDialog, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
-import { ACTIVITY_DATA, Activity } from './data';
+import { Activity } from 'src/app/models/table/activity.model';
+import { ACTIVITY_DATA } from './data';
 
 export interface Transfer {
   activityType: string;

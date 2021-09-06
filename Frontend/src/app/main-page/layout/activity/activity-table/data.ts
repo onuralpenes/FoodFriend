@@ -1,13 +1,6 @@
 //Where to get the activity data found in the activity table.
 
-export interface Activity {
-  activityType: string;
-  activityPeriod: number;
-  activityEffortSpent: number;
-  activityeffortUnit: number;
-  activityStartDate: Date;
-  activityEndDate: Date;
-}
+import { Activity } from "src/app/models/table/activity.model";
 
 export const ACTIVITY_DATA: Activity[] = [
   { activityType: 'Push-up', activityPeriod: 3, activityEffortSpent: 55, activityeffortUnit: 15, activityStartDate:new Date(2021,9,1), activityEndDate: new Date(2021,9,1) },

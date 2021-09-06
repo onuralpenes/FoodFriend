@@ -1,57 +1,30 @@
-export interface User {
-    name: string;
-    surname: string;
-    birthdate: Date;
-    weight: number;
-    height: number;
-    bloodType: string;
-    smoking: string;
-    alcohol: string;
-    exercise: string;
-    id: number;
-}
-export interface Food {
-    foodName: string;
-    calorie: number;
-    protein: number;
-    oil: number;
-    carbohydrate: number;
-    foodCategory: string;
-    meal: string;
-    id: number;
-}
-export interface Activity {
-    activityType: string;
-    activityPeriod: number;
-    activityEffortSpent: number;
-    activityeffortUnit: number;
-    activityStartDate: Date;
-    activityEndDate: Date;
-    id: number;
-}
+import { Activity } from "src/app/models/table/patient-activity.model"
+import { Food } from "src/app/models/table/patient-food.model"
+import { User } from "src/app/models/user/user.model"
+
 
 export const USER_DATA: User[] = [
-    { name: 'Ali', surname: 'Akman', birthdate: new Date(1995, 10, 8), weight: 75, height: 175, bloodType: 'A+', smoking: 'Yes', alcohol: 'No', exercise: 'Yes', id: 1 },
-    { name: 'Malaika', surname: 'Connor', birthdate: new Date(2000, 5, 14), weight: 100, height: 195, bloodType: 'A-', smoking: 'No', alcohol: 'Yes', exercise: 'No', id: 2 },
-    { name: 'Anaya', surname: 'Cleveland', birthdate: new Date(1999, 2, 25), weight: 82, height: 163, bloodType: '0+', smoking: 'No', alcohol: 'No', exercise: 'No', id: 3 },
-    { name: 'Jad', surname: 'Myers', birthdate: new Date(1985, 11, 7), weight: 65, height: 182, bloodType: 'AB-', smoking: 'Yes', alcohol: 'Yes', exercise: 'No', id: 4 },
-    { name: 'Heath', surname: 'Rankin', birthdate: new Date(1989, 2, 16), weight: 79, height: 165, bloodType: 'B+', smoking: 'Yes', alcohol: 'No', exercise: 'Yes', id: 5 },
-    { name: 'Jovan', surname: 'Fuentes', birthdate: new Date(1999, 12, 2), weight: 66, height: 185, bloodType: 'A+', smoking: 'Yes', alcohol: 'Yes', exercise: 'No', id: 6 },
-    { name: 'Ammar', surname: 'Caldwell', birthdate: new Date(1986, 7, 7), weight: 89, height: 165, bloodType: '0+', smoking: 'Yes', alcohol: 'No', exercise: 'No', id: 7 },
-    { name: 'Vera', surname: 'Gardner', birthdate: new Date(1972, 4, 20), weight: 96, height: 171, bloodType: 'A-', smoking: 'Yes', alcohol: 'Yes', exercise: 'No', id: 8 },
-    { name: 'Camden', surname: 'Rosales', birthdate: new Date(1964, 9, 27), weight: 62, height: 158, bloodType: 'AB+', smoking: 'No', alcohol: 'Yes', exercise: 'No', id: 9 },
-    { name: 'Carly', surname: 'Mckinney', birthdate: new Date(1974, 9, 6), weight: 78, height: 159, bloodType: '0-', smoking: 'Yes', alcohol: 'No', exercise: 'No', id: 10 },
-    { name: 'Esther', surname: 'John', birthdate: new Date(1981, 9, 15), weight: 63, height: 182, bloodType: 'A+', smoking: 'No', alcohol: 'Yes', exercise: 'No', id: 11 },
-    { name: 'Alexandria', surname: 'Alvarez', birthdate: new Date(1982, 5, 31), weight: 96, height: 161, bloodType: 'B-', smoking: 'Yes', alcohol: 'Yes', exercise: 'No', id: 12 },
-    { name: 'Ruairi', surname: 'Sheppard', birthdate: new Date(1983, 5, 20), weight: 65, height: 181, bloodType: 'AB+', smoking: 'No', alcohol: 'No', exercise: 'evet', id: 12 },
-    { name: 'Artur', surname: 'Cassidy', birthdate: new Date(2002, 1, 30), weight: 74, height: 174, bloodType: '0-', smoking: 'Yes', alcohol: 'No', exercise: 'Yes', id: 13 },
-    { name: 'Felicia', surname: 'Harvey', birthdate: new Date(1998, 7, 9), weight: 89, height: 172, bloodType: 'AB+', smoking: 'No', alcohol: 'No', exercise: 'No', id: 14 },
-    { name: 'Shaunie', surname: 'Bonilla', birthdate: new Date(1983, 7, 21), weight: 52, height: 176, bloodType: 'B+', smoking: 'Yes', alcohol: 'No', exercise: 'No', id: 15 },
-    { name: 'Bradlee', surname: 'Ramsey', birthdate: new Date(1989, 2, 4), weight: 65, height: 165, bloodType: '0-', smoking: 'Yes', alcohol: 'No', exercise: 'Yes', id: 16 },
-    { name: 'Nel', surname: 'Nunez', birthdate: new Date(1996, 5, 13), weight: 102, height: 164, bloodType: 'AB-', smoking: 'Yes', alcohol: 'Yes', exercise: 'No', id: 17 },
-    { name: 'Conrad', surname: 'Justice', birthdate: new Date(1963, 1, 7), weight: 96, height: 177, bloodType: 'A+', smoking: 'Yes', alcohol: 'Yes', exercise: 'No', id: 18 },
-    { name: 'Danyl', surname: 'Mays', birthdate: new Date(1986, 7, 19), weight: 69, height: 169, bloodType: 'A-', smoking: 'Yes', alcohol: 'No', exercise: 'Yes', id: 19 },
-    { name: 'Ester', surname: 'Expósito', birthdate: new Date(2000, 1, 26), weight: 55, height: 166, bloodType: '0+', smoking: 'Yes', alcohol: 'Yes', exercise: 'Yes', id: 20 },
+    { firstName: 'Ali', lastName: 'Akman', birthDate: new Date(1995, 10, 8), weight: 75, height: 175, bloodType: 'A+', smoking: 'Yes', alcohol: 'No', exercise: 'Yes', id: 1 },
+    { firstName: 'Malaika', lastName: 'Connor', birthDate: new Date(2000, 5, 14), weight: 100, height: 195, bloodType: 'A-', smoking: 'No', alcohol: 'Yes', exercise: 'No', id: 2 },
+    { firstName: 'Anaya', lastName: 'Cleveland', birthDate: new Date(1999, 2, 25), weight: 82, height: 163, bloodType: '0+', smoking: 'No', alcohol: 'No', exercise: 'No', id: 3 },
+    { firstName: 'Jad', lastName: 'Myers', birthDate: new Date(1985, 11, 7), weight: 65, height: 182, bloodType: 'AB-', smoking: 'Yes', alcohol: 'Yes', exercise: 'No', id: 4 },
+    { firstName: 'Heath', lastName: 'Rankin', birthDate: new Date(1989, 2, 16), weight: 79, height: 165, bloodType: 'B+', smoking: 'Yes', alcohol: 'No', exercise: 'Yes', id: 5 },
+    { firstName: 'Jovan', lastName: 'Fuentes', birthDate: new Date(1999, 12, 2), weight: 66, height: 185, bloodType: 'A+', smoking: 'Yes', alcohol: 'Yes', exercise: 'No', id: 6 },
+    { firstName: 'Ammar', lastName: 'Caldwell', birthDate: new Date(1986, 7, 7), weight: 89, height: 165, bloodType: '0+', smoking: 'Yes', alcohol: 'No', exercise: 'No', id: 7 },
+    { firstName: 'Vera', lastName: 'Gardner', birthDate: new Date(1972, 4, 20), weight: 96, height: 171, bloodType: 'A-', smoking: 'Yes', alcohol: 'Yes', exercise: 'No', id: 8 },
+    { firstName: 'Camden', lastName: 'Rosales', birthDate: new Date(1964, 9, 27), weight: 62, height: 158, bloodType: 'AB+', smoking: 'No', alcohol: 'Yes', exercise: 'No', id: 9 },
+    { firstName: 'Carly', lastName: 'Mckinney', birthDate: new Date(1974, 9, 6), weight: 78, height: 159, bloodType: '0-', smoking: 'Yes', alcohol: 'No', exercise: 'No', id: 10 },
+    { firstName: 'Esther', lastName: 'John', birthDate: new Date(1981, 9, 15), weight: 63, height: 182, bloodType: 'A+', smoking: 'No', alcohol: 'Yes', exercise: 'No', id: 11 },
+    { firstName: 'Alexandria', lastName: 'Alvarez', birthDate: new Date(1982, 5, 31), weight: 96, height: 161, bloodType: 'B-', smoking: 'Yes', alcohol: 'Yes', exercise: 'No', id: 12 },
+    { firstName: 'Ruairi', lastName: 'Sheppard', birthDate: new Date(1983, 5, 20), weight: 65, height: 181, bloodType: 'AB+', smoking: 'No', alcohol: 'No', exercise: 'evet', id: 12 },
+    { firstName: 'Artur', lastName: 'Cassidy', birthDate: new Date(2002, 1, 30), weight: 74, height: 174, bloodType: '0-', smoking: 'Yes', alcohol: 'No', exercise: 'Yes', id: 13 },
+    { firstName: 'Felicia', lastName: 'Harvey', birthDate: new Date(1998, 7, 9), weight: 89, height: 172, bloodType: 'AB+', smoking: 'No', alcohol: 'No', exercise: 'No', id: 14 },
+    { firstName: 'Shaunie', lastName: 'Bonilla', birthDate: new Date(1983, 7, 21), weight: 52, height: 176, bloodType: 'B+', smoking: 'Yes', alcohol: 'No', exercise: 'No', id: 15 },
+    { firstName: 'Bradlee', lastName: 'Ramsey', birthDate: new Date(1989, 2, 4), weight: 65, height: 165, bloodType: '0-', smoking: 'Yes', alcohol: 'No', exercise: 'Yes', id: 16 },
+    { firstName: 'Nel', lastName: 'Nunez', birthDate: new Date(1996, 5, 13), weight: 102, height: 164, bloodType: 'AB-', smoking: 'Yes', alcohol: 'Yes', exercise: 'No', id: 17 },
+    { firstName: 'Conrad', lastName: 'Justice', birthDate: new Date(1963, 1, 7), weight: 96, height: 177, bloodType: 'A+', smoking: 'Yes', alcohol: 'Yes', exercise: 'No', id: 18 },
+    { firstName: 'Danyl', lastName: 'Mays', birthDate: new Date(1986, 7, 19), weight: 69, height: 169, bloodType: 'A-', smoking: 'Yes', alcohol: 'No', exercise: 'Yes', id: 19 },
+    { firstName: 'Ester', lastName: 'Expósito', birthDate: new Date(2000, 1, 26), weight: 55, height: 166, bloodType: '0+', smoking: 'Yes', alcohol: 'Yes', exercise: 'Yes', id: 20 },
 ]
 
 export const FOOD_DATA: Food[] = [
