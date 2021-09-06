@@ -1,5 +1,6 @@
 import { Input } from '@angular/core';
 import { Component, OnInit } from '@angular/core';
+import { experts } from '../data';
 
 @Component({
   selector: 'app-expert-short-card',
@@ -8,9 +9,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ExpertShortCardComponent implements OnInit {
   @Input() expert;
-
   details = false;
-  constructor() { }
+  constructor() {
+    
+   }
 
   ngOnInit(): void {
   }
