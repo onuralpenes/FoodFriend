@@ -86,6 +86,10 @@
     "bdayNull" : "Doğum günü girilmesi zorunludur"
   },
 
+  "expert" : {
+    "nutritionist" : "Diyetisyen"
+  },
+
   "sidebar" : {
     "dashboard" : "Ana Sayfa",
     "profile" : "Profil",

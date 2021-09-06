@@ -4,7 +4,8 @@ import { MatDialog, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
-import { FOOD_DATA, Food } from './data';
+import { Food } from 'src/app/models/table/food.model';
+import { FOOD_DATA } from './data';
 
 export interface Transfer {
   foodName: string;

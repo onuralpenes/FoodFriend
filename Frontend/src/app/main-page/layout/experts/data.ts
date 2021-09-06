@@ -1,8 +1,5 @@
-export interface Expert {
-    name: string;
-    job: string;
-    information: string;
-}
+import { Expert } from "src/app/models/user/expert.model";
+
 
 export const experts: Expert[] = [
     {
