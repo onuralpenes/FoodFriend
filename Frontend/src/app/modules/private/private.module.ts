@@ -12,6 +12,7 @@ import { ActivityTableComponent, EditActivity } from 'src/app/main-page/layout/a
 import { ActivityComponent } from 'src/app/main-page/layout/activity/activity.component';
 import { CounseleeProfileComponent } from 'src/app/main-page/layout/counselee-profile/counselee-profile.component';
 import { CalendarComponent } from 'src/app/main-page/layout/dashboard/calendar/calendar.component';
+import { CalendarDataService } from 'src/app/main-page/layout/dashboard/calendar/data.service';
 import { ConsumedCalorieComponent } from 'src/app/main-page/layout/dashboard/consumed-calorie/consumed-calorie.component';
 import { DashboardComponent } from 'src/app/main-page/layout/dashboard/dashboard.component';
 import { EatingHabitChartComponent } from 'src/app/main-page/layout/dashboard/eating-habit-chart/eating-habit-chart.component';
@@ -91,5 +92,6 @@ export function HttpLoaderFactory(http: HttpClient) {
     }),
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
+  providers: [CalendarDataService]
 })
-export class PrivateModule {}
+export class PrivateModule { }
