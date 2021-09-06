@@ -1,0 +1,6 @@
+::ng-deep .scheduler_default_event_bar, ::ng-deep .scheduler_default_event_bar_inner{
+    height: 8px;
+  }
+  ::ng-deep .scheduler_default_event_inner {
+    top: 8px;
+  }
