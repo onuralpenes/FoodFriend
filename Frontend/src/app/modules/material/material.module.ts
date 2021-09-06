@@ -20,6 +20,8 @@ import { NgxChartsModule } from '@swimlane/ngx-charts';
 
 import { NgCircleProgressModule } from 'ng-circle-progress';
 
+import { DayPilotModule } from 'daypilot-pro-angular';
+
 
 @NgModule({
   imports: [
@@ -66,6 +68,8 @@ import { NgCircleProgressModule } from 'ng-circle-progress';
     NgxChartsModule,
 
     NgCircleProgressModule,
+
+    DayPilotModule,
   ],
   providers: [MatDatepickerModule],
 })
