@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { experts } from '../main-page/layout/experts/data';
 import { AuthService } from '../modules/auth.service';
 
 @Component({
@@ -12,13 +13,12 @@ export class LoginFormComponent implements OnInit {
   loginForm!: FormGroup;
   submitted = false; 
 
-
   constructor(private formBuilder: FormBuilder, private authService: AuthService) { }
   ngOnInit() {
     this.loginForm= this.formBuilder.group({
       emailAddress: new FormControl('', [Validators.required, Validators.email]),
       password: new FormControl('', [Validators.required]),
-      // remember: new FormControl(''),
+      remember: new FormControl(''),
     });
   }
 
