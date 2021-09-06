@@ -16,7 +16,7 @@ export class ExpertShortCardComponent implements OnInit {
 
   ngOnInit(): void {
   }
-  detailExpert() {
+  detailExpert() { 
     this.details = !this.details;
   }
 }

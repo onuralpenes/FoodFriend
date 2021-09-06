@@ -6,7 +6,7 @@
     </mat-form-field>
 </form>
 
-<div class="row">
+<div class="row"> 
     <div *ngFor="let expert of experts | expertfilter : searchText" (click)="selectPost(expert);" class="col-md-4">
         <app-expert-short-card [expert]="expert"></app-expert-short-card>
     </div>
