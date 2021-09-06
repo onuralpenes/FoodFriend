@@ -88,6 +88,10 @@
     "bdayNull" : "Birthdate is required"
   },
 
+  "expert" : {
+    "nutritionist" : "Nutritionist"
+  },
+
   "sidebar" : {
     "dashboard" : "Dashboard",
     "profile" : "Profile",

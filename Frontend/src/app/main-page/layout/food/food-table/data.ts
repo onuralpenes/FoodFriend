@@ -1,14 +1,6 @@
 //Where to get the nutritional data from the nutrient table.
 
-export interface Food {
-    foodName: string;
-    calorie: number;
-    protein: number;
-    oil: number;
-    carbohydrate: number;
-    foodCategory: string;
-    meal: string;
-}
+import { Food } from "src/app/models/table/food.model";
 
 export const FOOD_DATA: Food[] = [
     { meal: 'morning', foodCategory: 'yoghurt', foodName: 'Frozen yogurt', calorie: 159, oil: 6, carbohydrate: 24, protein: 4 },

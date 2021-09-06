@@ -26,6 +26,11 @@ button {
   th.mat-sort-header-sorted {
 	color: black;
   }
+
+  ::ng-deep .mat-sort-header-arrow {
+	color: #fff;
+  }
+  
   .row {
 	height: 400px;
 	overflow: hidden;

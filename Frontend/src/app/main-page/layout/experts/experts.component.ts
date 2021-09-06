@@ -1,5 +1,6 @@
 import { Component, } from '@angular/core';
-import { Expert, experts } from './data';
+import { Expert } from 'src/app/models/user/expert.model';
+import { experts } from './data';
 
 @Component({
   selector: 'app-experts',

@@ -7,14 +7,10 @@ import { ProgressBarMode } from '@angular/material/progress-bar';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import { Router } from '@angular/router';
-import {
-  Activity,
-  ACTIVITY_DATA,
-  Food,
-  FOOD_DATA,
-  User,
-  USER_DATA,
-} from './data';
+import { Activity } from 'src/app/models/table/patient-activity.model';
+import { Food } from 'src/app/models/table/patient-food.model';
+import { User } from 'src/app/models/user/user.model';
+import {ACTIVITY_DATA,FOOD_DATA,USER_DATA} from './data';
 
 export interface Transfer {
   name: string;
@@ -44,9 +40,9 @@ export class PatientTraceTableComponent implements AfterViewInit {
   constructor(public modal: MatDialog, private router: Router) { }
 
   displayedColumns: string[] = [
-    'name',
-    'surname',
-    'birthdate',
+    'firstName',
+    'lastName',
+    'birthDate',
     'height',
     'weight',
     'bloodType',
@@ -83,28 +79,28 @@ export class PatientTraceTableComponent implements AfterViewInit {
     this.router.navigate(['/counselee-profile']);
   }
 
-  openActivity(name: string, surname: string, id: number) {
+  openActivity(firstName: string, lastName: string, id: number) {
     this.modal.open(ActivityTable, {
       data: {
-        name: name + ' ' + surname,
+        name: firstName + ' ' + lastName,
         id: id,
       },
     });
   }
 
-  openFood(name: string, surname: string, id: number) {
+  openFood(firstName: string, lastName: string, id: number) {
     this.modal.open(NutritionTable, {
       data: {
-        name: name + ' ' + surname,
+        name: firstName + ' ' + lastName,
         id: id,
       },
     });
   }
 
-  openTarget(name: string, surname: string, id: number) {
+  openTarget(firstName: string, lastName: string, id: number) {
     this.modal.open(PatientTarget, {
       data: {
-        name: name + ' ' + surname,
+        name: firstName + ' ' + lastName,
         id: id,
         currentWeight: this.users[id - 1].weight,
       },

@@ -22,13 +22,13 @@ export class RegisterFormComponent implements OnInit {
   constructor(private formBuilder: FormBuilder) { }
   ngOnInit() {
     this.registerForm = this.formBuilder.group({
-      name: new FormControl('', [Validators.required]),
-      surname: new FormControl('', [Validators.required]),
-      email: new FormControl('', [Validators.required, Validators.email]),
-      phoneNo: new FormControl('', [Validators.required]),
+      firstName: new FormControl('', [Validators.required]),
+      lastName: new FormControl('', [Validators.required]),
+      emailAddress: new FormControl('', [Validators.required, Validators.email]),
+      phoneNumber: new FormControl('', [Validators.required]),
       password: new FormControl('', [Validators.required, Validators.minLength(8)]),
       passwordConf: new FormControl('', [Validators.required, Validators.minLength(8)]),
-      birthdate: new FormControl('', [Validators.required]),
+      birthDate: new FormControl('', [Validators.required]),
       tos: new FormControl('', [Validators.required]),
       priv: new FormControl('', [Validators.required]),
     }, { validator: Match('password', 'passwordConf') });
