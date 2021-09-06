@@ -13,7 +13,7 @@ export class ExpertProfileComponent implements OnInit {
     console.log(this.expert)
    }
 
-  openProfile() {
+  openProfile() { 
     const dialogRef = this.dialog.open(CounseleeProfileComponent);
 
     dialogRef.afterClosed().subscribe(result => {
