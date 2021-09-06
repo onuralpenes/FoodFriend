@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 
+import { HttpHeaders, HttpClient } from '@angular/common/http';
+
 @Component({
   selector: 'app-login-form',
   templateUrl: './login-form.component.html',
@@ -11,19 +13,31 @@ export class LoginFormComponent implements OnInit {
   loginForm!: FormGroup;
   submitted = false; 
 
-  constructor(private formBuilder: FormBuilder) { }
+  constructor(private formBuilder: FormBuilder, private http: HttpClient) { }
   ngOnInit() {
     this.loginForm= this.formBuilder.group({
-      email: new FormControl('', [Validators.required, Validators.email]),
+      emailAddress: new FormControl('', [Validators.required, Validators.email]),
       password: new FormControl('', [Validators.required]),
-      remember: new FormControl(''),
     });
   }
 
   get f() { return this.loginForm.controls; }
 
   onSubmit() {
+
     this.submitted = true;
+    let httpOptions = {
+      headers: new HttpHeaders({
+          "Content-Type": "application/json",
+          "Access-Control-Allow-Origin": "*"
+      })
+  };
+  console.log(JSON.stringify(this.loginForm.value))
+
+    this.http.post("http://foodfriend.ardsistem.com.tr/Auth/Login", JSON.stringify(this.loginForm.value), httpOptions)
+    .subscribe( (data)=>{
+      console.log(data);
+    })
     if (this.loginForm.invalid) {
       return;
 
