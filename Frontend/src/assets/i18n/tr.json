@@ -87,7 +87,8 @@
   },
 
   "expert" : {
-    "nutritionist" : "Diyetisyen"
+    "nutritionist" : "Diyetisyen",
+    "more" : "Devamı.."
   },
 
   "sidebar" : {

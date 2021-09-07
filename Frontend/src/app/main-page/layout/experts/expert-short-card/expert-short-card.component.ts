@@ -1,6 +1,5 @@
 import { Input } from '@angular/core';
 import { Component, OnInit } from '@angular/core';
-import { experts } from '../data';
 
 @Component({
   selector: 'app-expert-short-card',

@@ -22,7 +22,6 @@ import { EnergyConsumptionChartComponent } from 'src/app/main-page/layout/dashbo
 import { FoodIngredientDistributionChartComponent } from 'src/app/main-page/layout/dashboard/food-ingredient-distribution-chart/food-ingredient-distribution-chart.component';
 import { HealthCardComponent } from 'src/app/main-page/layout/dashboard/health-card/health-card.component';
 import { ProgressesComponent } from 'src/app/main-page/layout/dashboard/progresses/progresses.component';
-import { ExpertProfileComponent } from 'src/app/main-page/layout/experts/expert-profile/expert-profile.component';
 import { ExpertShortCardComponent } from 'src/app/main-page/layout/experts/expert-short-card/expert-short-card.component';
 import { ExpertsComponent } from 'src/app/main-page/layout/experts/experts.component';
 import { EditFood } from 'src/app/main-page/layout/food/food-table/edit-table.component';
@@ -69,7 +68,6 @@ export function HttpLoaderFactory(http: HttpClient) {
     PatientTargetCard,
     ProgressesComponent,
     CalendarComponent,
-    ExpertProfileComponent,
     ExpertsComponent,
     CounseleeProfileComponent,
     EditActivity,

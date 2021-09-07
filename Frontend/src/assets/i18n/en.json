@@ -89,7 +89,8 @@
   },
 
   "expert" : {
-    "nutritionist" : "Nutritionist"
+    "nutritionist" : "Nutritionist",
+    "more" : "More.."
   },
 
   "sidebar" : {
