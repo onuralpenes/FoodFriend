@@ -69,7 +69,7 @@
   "target" : {
     "purpose" : "Danışanın Hedefi",
     "nutriInfo" : "Beslenme Bilgisi",
-    "actiInfo" : "Aktiviti Bilgisi"
+    "actiInfo" : "Aktivite Bilgisi"
   },
 
   "validator" : {

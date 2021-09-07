@@ -4,44 +4,44 @@
 </mat-form-field>
 
 <div class="row">
-  <table mat-table [dataSource]="dataSource" matSort class="my-table" *ngIf="isNull">
+  <table mat-table [dataSource]="dataSource" matSort class="my-table" *ngIf="isNull" >
     <ng-container matColumnDef="meal">
-      <th mat-header-cell *matHeaderCellDef mat-sort-header class="lHead">{{'table.meal' | translate}}</th>
+      <th mat-header-cell *matHeaderCellDef mat-sort-header [resizeColumn]="true" class="lHead">{{'table.meal' | translate}}</th>
       <td mat-cell *matCellDef="let foods" class="lCol">{{ foods.meal }}</td>
     </ng-container>
 
     <ng-container matColumnDef="foodCategory">
-      <th mat-header-cell *matHeaderCellDef mat-sort-header>{{'table.category' | translate}}</th>
+      <th mat-header-cell *matHeaderCellDef mat-sort-header [resizeColumn]="true">{{'table.category' | translate}}</th>
       <td mat-cell *matCellDef="let foods">{{ foods.foodCategory }}</td>
     </ng-container>
 
     <ng-container matColumnDef="foodName">
-      <th mat-header-cell *matHeaderCellDef mat-sort-header>{{'table.name' | translate}}</th>
+      <th mat-header-cell *matHeaderCellDef mat-sort-header [resizeColumn]="true">{{'table.name' | translate}}</th>
       <td mat-cell *matCellDef="let foods">{{ foods.foodName }}</td>
     </ng-container>
 
     <ng-container matColumnDef="calorie">
-      <th mat-header-cell *matHeaderCellDef mat-sort-header>{{'table.calorie' | translate}}</th>
+      <th mat-header-cell *matHeaderCellDef mat-sort-header [resizeColumn]="true">{{'table.calorie' | translate}}</th>
       <td mat-cell *matCellDef="let foods">{{ foods.calorie }}</td>
     </ng-container>
 
     <ng-container matColumnDef="protein">
-      <th mat-header-cell *matHeaderCellDef mat-sort-header>{{'table.protein' | translate}}</th>
+      <th mat-header-cell *matHeaderCellDef mat-sort-header [resizeColumn]="true">{{'table.protein' | translate}}</th>
       <td mat-cell *matCellDef="let foods">{{ foods.protein }}</td>
     </ng-container>
 
     <ng-container matColumnDef="oil">
-      <th mat-header-cell *matHeaderCellDef mat-sort-header>{{'table.oil' | translate}}</th>
+      <th mat-header-cell *matHeaderCellDef mat-sort-header [resizeColumn]="true">{{'table.oil' | translate}}</th>
       <td mat-cell *matCellDef="let foods">{{ foods.oil }}</td>
     </ng-container>
 
     <ng-container matColumnDef="carbohydrate">
-      <th mat-header-cell *matHeaderCellDef mat-sort-header>{{'table.carbohydrate' | translate}}</th>
+      <th mat-header-cell *matHeaderCellDef mat-sort-header [resizeColumn]="true">{{'table.carbohydrate' | translate}}</th>
       <td mat-cell *matCellDef="let foods">{{ foods.carbohydrate }}</td>
     </ng-container>
 
     <ng-container matColumnDef="edit">
-      <th mat-header-cell *matHeaderCellDef mat-sort-header>{{'table.edit' | translate}}</th>
+      <th mat-header-cell *matHeaderCellDef mat-sort-header [resizeColumn]="true">{{'table.edit' | translate}}</th>
       <td mat-cell *matCellDef="let foods">
         <button class="tab-button" mat-icon-button
           (click)="openEdit(foods.foodName, foods.calorie, foods.protein, foods.oil, foods.carbohydrate, foods.foodCategory, foods.meal)">
@@ -51,7 +51,7 @@
     </ng-container>
 
     <ng-container matColumnDef="delete">
-      <th mat-header-cell *matHeaderCellDef mat-sort-header class="rHead">{{'table.delete' | translate}}</th>
+      <th mat-header-cell *matHeaderCellDef mat-sort-header [resizeColumn]="true" class="rHead">{{'table.delete' | translate}}</th>
       <td mat-cell *matCellDef="let foods" class="rCol">
         <button class="tab-button" mat-icon-button (click)="delete()">
           <i class="fa fa-trash fa-lg" aria-hidden="true"></i>

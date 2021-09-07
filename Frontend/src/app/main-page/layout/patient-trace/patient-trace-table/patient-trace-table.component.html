@@ -6,54 +6,53 @@
 <div class="row">
   <table mat-table [dataSource]="dataSource" matSort class="my-table" *ngIf="isNull">
     <ng-container matColumnDef="firstName">
-      <th mat-header-cell *matHeaderCellDef mat-sort-header class="lHead">{{'label.name' | translate}}</th>
+      <th mat-header-cell *matHeaderCellDef mat-sort-header [resizeColumn]="true" class="lHead">{{'label.name' |
+        translate}}</th>
       <td mat-cell *matCellDef="let users" (click)="open(users.id)" class="lCol">{{ users.firstName }}</td>
     </ng-container>
 
     <ng-container matColumnDef="lastName">
-      <th mat-header-cell *matHeaderCellDef mat-sort-header>{{'label.surname' | translate}}</th>
+      <th mat-header-cell *matHeaderCellDef mat-sort-header [resizeColumn]="true">{{'label.surname' | translate}}</th>
       <td mat-cell *matCellDef="let users" (click)="open(users.id)">{{ users.lastName }}</td>
     </ng-container>
 
     <ng-container matColumnDef="birthDate">
-      <th mat-header-cell *matHeaderCellDef mat-sort-header>{{'label.birthdate' | translate}}</th>
-      <td mat-cell *matCellDef="let users" (click)="open(users.id)">
-        {{ users.birthDate | date: "dd/MM/yyyy" }}
-      </td>
+      <th mat-header-cell *matHeaderCellDef mat-sort-header [resizeColumn]="true">{{'label.birthdate' | translate}}</th>
+      <td mat-cell *matCellDef="let users" (click)="open(users.id)">{{ users.birthDate | date: "dd/MM/yyyy" }}</td>
     </ng-container>
 
     <ng-container matColumnDef="height">
-      <th mat-header-cell *matHeaderCellDef mat-sort-header>{{'label.height' | translate}}</th>
+      <th mat-header-cell *matHeaderCellDef mat-sort-header [resizeColumn]="true">{{'label.height' | translate}}</th>
       <td mat-cell *matCellDef="let users" (click)="open(users.id)">{{ users.height }}</td>
     </ng-container>
 
     <ng-container matColumnDef="weight">
-      <th mat-header-cell *matHeaderCellDef mat-sort-header>{{'label.weight' | translate}}</th>
+      <th mat-header-cell *matHeaderCellDef mat-sort-header [resizeColumn]="true">{{'label.weight' | translate}}</th>
       <td mat-cell *matCellDef="let users" (click)="open(users.id)">{{ users.weight }}</td>
     </ng-container>
 
     <ng-container matColumnDef="bloodType">
-      <th mat-header-cell *matHeaderCellDef mat-sort-header>{{'label.blood' | translate}}</th>
+      <th mat-header-cell *matHeaderCellDef mat-sort-header [resizeColumn]="true">{{'label.blood' | translate}}</th>
       <td mat-cell *matCellDef="let users" (click)="open(users.id)">{{ users.bloodType }}</td>
     </ng-container>
 
     <ng-container matColumnDef="smoking">
-      <th mat-header-cell *matHeaderCellDef mat-sort-header>{{'label.smoking' | translate}}</th>
+      <th mat-header-cell *matHeaderCellDef mat-sort-header [resizeColumn]="true">{{'label.smoking' | translate}}</th>
       <td mat-cell *matCellDef="let users" (click)="open(users.id)">{{ users.smoking }}</td>
     </ng-container>
 
     <ng-container matColumnDef="alcohol">
-      <th mat-header-cell *matHeaderCellDef mat-sort-header>{{'label.alcohol' | translate}}</th>
+      <th mat-header-cell *matHeaderCellDef mat-sort-header [resizeColumn]="true">{{'label.alcohol' | translate}}</th>
       <td mat-cell *matCellDef="let users" (click)="open(users.id)">{{ users.alcohol }}</td>
     </ng-container>
 
     <ng-container matColumnDef="exercise">
-      <th mat-header-cell *matHeaderCellDef mat-sort-header>{{'label.exercise' | translate}}</th>
+      <th mat-header-cell *matHeaderCellDef mat-sort-header [resizeColumn]="true">{{'label.exercise' | translate}}</th>
       <td mat-cell *matCellDef="let users" (click)="open(users.id)">{{ users.exercise }}</td>
     </ng-container>
 
     <ng-container matColumnDef="target">
-      <th mat-header-cell *matHeaderCellDef mat-sort-header>{{'target.purpose' | translate}}</th>
+      <th mat-header-cell *matHeaderCellDef mat-sort-header [resizeColumn]="true">{{'target.purpose' | translate}}</th>
       <td mat-cell *matCellDef="let users">
         <button class="tab-button" mat-icon-button (click)="openTarget(users.firstName, users.lastName, users.id)">
           <i class="fa fa-line-chart fa-lg" aria-hidden="true"></i>
@@ -62,7 +61,8 @@
     </ng-container>
 
     <ng-container matColumnDef="foodData">
-      <th mat-header-cell *matHeaderCellDef mat-sort-header>{{'target.nutriInfo' | translate}}</th>
+      <th mat-header-cell *matHeaderCellDef mat-sort-header [resizeColumn]="true">{{'target.nutriInfo' | translate}}
+      </th>
       <td mat-cell *matCellDef="let users">
         <button class="tab-button" mat-icon-button (click)="openFood(users.firstName, users.lastName, users.id)">
           <i class="fa fa-cutlery fa-lg" aria-hidden="true"></i>
@@ -71,9 +71,8 @@
     </ng-container>
 
     <ng-container matColumnDef="activityData">
-      <th mat-header-cell *matHeaderCellDef mat-sort-header class="rHead">
-        {{'target.actiInfo' | translate}}
-      </th>
+      <th mat-header-cell *matHeaderCellDef mat-sort-header [resizeColumn]="true" class="rHead"> {{'target.actiInfo' |
+        translate}}</th>
       <td mat-cell *matCellDef="let users" class="rCol">
         <button class="tab-button" mat-icon-button (click)="openActivity(users.firstName, users.lastName, users.id)">
           <i class="fa fa-bicycle fa-lg" aria-hidden="true"></i>

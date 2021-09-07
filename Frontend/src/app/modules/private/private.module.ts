@@ -5,6 +5,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { FormsModule } from '@angular/forms';
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+import { ResizeTableDirective } from 'src/app/helpers/table-resize.directive';
 import { BodyComponent } from 'src/app/main-page/body/body.component';
 import { FooterComponent } from 'src/app/main-page/footer/footer.component';
 import { HeaderComponent } from 'src/app/main-page/header/header.component';
@@ -70,6 +71,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     ExpertShortCardComponent,
 
     ExpertFilterPipe,
+    ResizeTableDirective,
   ],
   imports: [
     CommonModule,
