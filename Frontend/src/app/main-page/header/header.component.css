@@ -6,8 +6,6 @@ img{
   display: none;
 }
 
-.space {
-  }
   button {
     background-color: transparent;
     font: 100% Arial;
@@ -47,5 +45,9 @@ img{
 .userNameText{
   display: none;
 }
+}
+
+.fill-remaining-space {
+  flex: 1 1 auto;
 }
 
