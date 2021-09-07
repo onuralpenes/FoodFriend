@@ -1,11 +1,11 @@
-import { AfterViewInit, Component, Inject, ViewChild } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
-import { MatDialog, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { AfterViewInit, Component, ViewChild } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import { Food } from 'src/app/models/table/food.model';
 import { FOOD_DATA } from './data';
+import { EditFood } from './edit-table.component';
 
 export interface Transfer {
   foodName: string;
@@ -79,30 +79,3 @@ export class FoodTableComponent implements AfterViewInit {
   }
 }
 
-@Component({
-  selector: 'app-edit-food',
-  templateUrl: './edit-food.html',
-  styleUrls: ['./food-table.component.css'],
-})
-export class EditFood {
-  editForm!: FormGroup;
-  post: any = '';
-
-  constructor(@Inject(MAT_DIALOG_DATA) public data: Transfer, private formBuilder: FormBuilder) { }
-
-  ngOnInit() {
-    this.editForm = this.formBuilder.group({
-      'meal': new FormControl(''),
-      'foodCategory': new FormControl(''),
-      'foodName': new FormControl(''),
-      'calorie': new FormControl(''),
-      'protein': new FormControl(''),
-      'oil': new FormControl(''),
-      'carbohydrate': new FormControl(''),
-    });
-  }
-
-  onSubmit(post) {
-    this.post = post;
-  }
-}
