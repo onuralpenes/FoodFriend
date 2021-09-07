@@ -8,7 +8,7 @@ img{
     border-color: #c5c5c5;
     margin-left: auto;
     margin-right: auto;
-    display: block;
+    display: block; 
 }
 .profile-img:hover{
     width: 190px;
