@@ -125,3 +125,35 @@ mat-form-field{
 .rCol{
   border-right: 2px solid  #009879;
 }
+
+
+.mat-table.resizing {
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  cursor: col-resize;
+}
+
+.mat-table .mat-cell span {
+  display: block;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.mat-table .mat-header-cell {
+  position: relative;
+}
+
+.mat-table .mat-header-cell:not(:last-child) .resize-holder {
+  cursor: col-resize;
+  width: 20px;
+  height: 100%;
+  position: absolute;
+  right: -10px;
+  top: 0;
+  z-index: 1;
+}
+
+.mat-table .mat-cell:not(:nth-child(1)), .mat-table .mat-header-cell:not(:nth-child(1)) {
+  padding: 0 0;
+}
