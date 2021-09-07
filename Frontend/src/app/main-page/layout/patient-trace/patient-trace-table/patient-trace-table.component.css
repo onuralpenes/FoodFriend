@@ -36,6 +36,8 @@ button {
 	overflow: hidden;
 	margin-left: 10%;
 	margin-right: 10%;
+	min-height: 64px;
+  	padding: 8px 24px 0;
   }
 
   .search{
@@ -135,4 +137,15 @@ mat-paginator{
   
   .mat-table .mat-cell:not(:nth-child(1)), .mat-table .mat-header-cell:not(:nth-child(1)) {
 	padding: 0 0;
+  }
+
+  mat-cell{
+	display:flex !important;
+	justify-content:center!important;
+	
+  }
+  
+  mat-header-cell {
+	display:flex !important;
+	justify-content:center !important;
   }
