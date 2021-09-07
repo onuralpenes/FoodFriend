@@ -9,10 +9,9 @@ import { experts } from '../data';
 })
 export class ExpertShortCardComponent implements OnInit {
   @Input() expert;
+
   details = false;
-  constructor() {
-    
-   }
+  constructor() {}
 
   ngOnInit(): void {
   }
