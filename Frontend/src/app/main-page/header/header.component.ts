@@ -16,7 +16,7 @@ export class HeaderComponent implements OnInit {
   pageName;
 
   ngOnInit() {
-    this.pageName = this.router.url;
+    this.pageName = this.router.url.substring(1).toUpperCase();
 
     this.router.events.subscribe((val) => {
       this.pageName = this.router.url.substring(1).toUpperCase();
