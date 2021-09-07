@@ -25,13 +25,7 @@ import { ExpertShortCardComponent } from 'src/app/main-page/layout/experts/exper
 import { ExpertsComponent } from 'src/app/main-page/layout/experts/experts.component';
 import { EditFood, FoodTableComponent } from 'src/app/main-page/layout/food/food-table/food-table.component';
 import { FoodComponent } from 'src/app/main-page/layout/food/food.component';
-import {
-  ActivityTable,
-  NutritionTable,
-  PatientTarget,
-  PatientTargetCard,
-  PatientTraceTableComponent,
-} from 'src/app/main-page/layout/patient-trace/patient-trace-table/patient-trace-table.component';
+import { ActivityTable, NutritionTable, PatientTarget, PatientTargetCard, PatientTraceTableComponent } from 'src/app/main-page/layout/patient-trace/patient-trace-table/patient-trace-table.component';
 import { PatientTraceComponent } from 'src/app/main-page/layout/patient-trace/patient-trace.component';
 import { ProfileComponent } from 'src/app/main-page/layout/profile/profile.component';
 import { SurveyComponent } from 'src/app/main-page/layout/profile/survey/survey.component';
