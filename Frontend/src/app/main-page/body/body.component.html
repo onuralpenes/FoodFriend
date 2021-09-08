@@ -36,7 +36,7 @@
         <ul class="nav">
             <li><a class="side-item" routerLink="/"><i class="fa fa-home fa-lg" aria-hidden="true"></i>{{'sidebar.dashboard' | translate}}</a></li>
             <li><a class="side-item" routerLink="/profile"><i class="fa fa-user fa-lg" aria-hidden="true"></i>{{'sidebar.profile' | translate}}</a></li>
-            <li><a class="side-item" routerLink="/food"><i class="fa fa-cutlery fa-lg" aria-hidden="true"></i>{{'sidebar.food' | translate}}</a></li> 
+            <li><a class="side-item" routerLink="/nutrition"><i class="fa fa-cutlery fa-lg" aria-hidden="true"></i>{{'sidebar.food' | translate}}</a></li> 
             <li><a class="side-item" routerLink="/activity"><i class="fa fa-bicycle fa-lg" aria-hidden="true"></i>{{'sidebar.activity' | translate}}</a></li> 
             <li><a class="side-item" routerLink="/patients"><i class="fa fa-users fa-lg" aria-hidden="true"></i>{{'sidebar.patients' | translate}}</a></li>
             <li><a class="side-item" routerLink="/experts"><i class="fa fa-address-card fa-lg" aria-hidden="true"></i>{{'sidebar.expert' | translate}}</a></li>
@@ -55,7 +55,7 @@
         <div class="layout">
             <div class="notscroll" style="height: 100%; width: 100%;">
                 
-                <router-outlet (setPageName)="setPageName($event)"></router-outlet>
+                <router-outlet></router-outlet>
             </div>
         </div>
     </mat-sidenav-content>

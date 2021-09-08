@@ -13,36 +13,13 @@ export class BodyComponent implements OnInit {
   @Output() pName: EventEmitter<any> = new EventEmitter();
   @Input() opened;
   @Input() pinButton = false;
-  pageName = "Dashboard";
-  constructor(private router: Router, private translate: TranslateService) {
-    console.log(this.router.url)
-    if (this.router.url == "/profile") {
-      this.pageName = "Profile"
-    } else if (this.router.url == "/food") {
-      this.pageName = "Food";
-    } else if (this.router.url == "/activity") {
-      ;
-      this.pageName = "Activity";
-    } else if (this.router.url == "/patients") {
-      this.pageName = "Patients";
-    }
-    else if (this.router.url == "/expert-profile") {
-      this.pageName = "Expert";
-    }
-  }
-
+  constructor(private router: Router, private translate: TranslateService) {}
   pinSidebar() {
     this.pinButton = !this.pinButton;
     this.pin.emit(this.pinButton);
   }
 
-  setPageName(event: any) {
-    this.pageName = event;
-  }
-
-  ngOnInit(): void {
-    console.log("selams")
-   }
+  ngOnInit(): void { }
 
    changeLang(langCode: string){
     this.translate.use(langCode);
