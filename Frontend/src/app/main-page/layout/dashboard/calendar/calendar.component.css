@@ -4,3 +4,10 @@
   ::ng-deep .scheduler_default_event_inner {
     top: 8px;
   }
+  .calendar{
+    width: 1162px;
+    margin: 3% auto;
+  }
+  daypilot-scheduler{
+    border-radius: 10px !important;
+  }

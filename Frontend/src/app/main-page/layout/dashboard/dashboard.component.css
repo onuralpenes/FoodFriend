@@ -1,3 +1,52 @@
-.mat-form-field + .mat-form-field {
-    margin-left: 8px;
-  } 
+.cons-calorie{
+  height: 535px;
+  width: 535px;
+  background: #e5e5e5;
+  border-radius: 100%;
+  box-shadow: 5px 5px rgba(00,00,00,0.3)
+}
+
+.progress{
+  height: 220px;
+  width: 570px;
+  background: #e5e5e5;
+  border-radius: 10px;
+  box-shadow: 5px 5px rgba(00,00,00,0.3)
+}
+
+.health-card{
+  height: 280px;
+  width: 570px;
+  background: #e5e5e5;
+  border-radius: 10px;
+  box-shadow: 5px 5px rgba(00,00,00,0.3)
+}
+
+.food-ing, .eng-cons, .eating-hab{
+  height: 250px;
+  width: 380px;
+  background: #e5e5e5;
+  border-radius: 10px;
+  box-shadow: 5px 5px rgba(00,00,00,0.3)
+}
+
+.calendar{
+  margin-left: 20px;
+  width: 1190px;
+  height: 225px;
+  background: #e5e5e5;
+  border-radius: 10px;
+  box-shadow: 5px 5px rgba(00,00,00,0.3)
+}
+
+.space-top{
+  height: 15px;
+}
+
+.space-gap{
+  height: 20px;
+}
+
+.col-md-9{
+  padding-left: 2%;
+}

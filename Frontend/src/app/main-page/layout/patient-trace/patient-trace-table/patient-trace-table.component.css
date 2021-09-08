@@ -111,13 +111,16 @@ mat-paginator{
 	padding: 0 0;
   }
 
-  mat-cell{
-	display:flex !important;
-	justify-content:center!important;
-	
+  .mat-cell{
+	justify-content: center !important;
+	text-align: center !important;
   }
   
-  mat-header-cell {
-	display:flex !important;
-	justify-content:center !important;
+  .mat-header-cell{
+	justify-content: center !important;
+	align-items: center;
+  }
+  
+  ::ng-deep .mat-sort-header-container {
+	justify-content: center;
   }
