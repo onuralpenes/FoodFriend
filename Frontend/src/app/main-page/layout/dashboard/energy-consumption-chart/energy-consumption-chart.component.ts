@@ -10,13 +10,13 @@ export class EnergyConsumptionChartComponent implements OnInit {
 
   multi!: any[];  //It is getting data from data.ts.
   
-  showXAxis: boolean = true;
-  showYAxis: boolean = true;
-  gradient: boolean = true;
-  showLegend: boolean = true;
-  showXAxisLabel: boolean = true;
+  showXAxis: boolean = false;
+  showYAxis: boolean = false;
+  gradient: boolean = false;
+  showLegend: boolean = false;
+  showXAxisLabel: boolean = false;
   xAxisLabel: string = 'Country';
-  showYAxisLabel: boolean = true;
+  showYAxisLabel: boolean = false;
   yAxisLabel: string = 'Population'; 
   legendTitle: string = 'Years';
 

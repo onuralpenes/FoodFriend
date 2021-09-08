@@ -1,1 +1,1 @@
-export const PROGRESS_DATA = { calorie: 270, protein: 160, oil: 150 , carbohydrate: 214, weight: 63 }
+export const PROGRESS_DATA = { calorie: 270, protein: 160, oil: 150, carbohydrate: 214 }
