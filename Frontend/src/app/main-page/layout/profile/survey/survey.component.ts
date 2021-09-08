@@ -21,13 +21,13 @@ export class SurveyComponent implements OnInit {
   }
   ngOnInit() { 
     this.surveyForm = this.formBuilder.group({
-      'name': new FormControl('', [Validators.required]),
-      'surname': new FormControl('', [Validators.required]),
-      'email': new FormControl('', [Validators.required]),
+      'firstName': new FormControl('', [Validators.required]),
+      'lastName': new FormControl('', [Validators.required]),
+      'emailAddress': new FormControl('', [Validators.required]),
       'phoneNumber': new FormControl('', [Validators.required]),
       'height': new FormControl('', [Validators.required]),
       'weight': new FormControl('', [Validators.required]),
-      'birthdate': new FormControl('', [Validators.required]),
+      'birthDate': new FormControl('', [Validators.required]),
       'bloodGroup': new FormControl('', [Validators.required]),
       'smoking': new FormControl('', [Validators.required]),
       'alcohol': new FormControl('', [Validators.required]),
@@ -35,7 +35,7 @@ export class SurveyComponent implements OnInit {
 
     });
   }
-
+  
   onSubmit(post) {
     this.post = post;
   }

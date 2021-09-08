@@ -1,4 +1,6 @@
 import { Component, OnInit, Output,EventEmitter } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
+import { SurveyComponent } from './survey/survey.component';
 
 //declare var require: any;
 
@@ -53,10 +55,12 @@ export class ProfileComponent implements OnInit {
     ]
   }
   //public LOGO = require("../../../modules/images/yesil.jpg");
-  constructor() { }
-  gg(){
-    console.log("selam")
+  constructor(public modal: MatDialog) { }
+
+  editProfile(){
+    this.modal.open(SurveyComponent);
   }
+
   ngOnInit(): void {
     
     if (this.gender == "male") {
