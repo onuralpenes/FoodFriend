@@ -218,16 +218,28 @@ li:hover{
 
 .language{
 	position: fixed;
-	bottom: 6%;
-	left: 2%;
+	bottom: 7%;
+	left: 3%;
   }
+
   .lang-button{
-	  background-color: transparent;
-	  border: 0;
-	  color: black;
-	  padding-top: 0;
-	  padding-bottom: 0;
-	  padding-left: 2px;
-	  padding-right: 0;
-	  display: table-row;
-  }
+    width: 50px;
+    height: 30px;
+    padding: 0;
+    color: #fff;
+    border: none;
+    border-radius: 25px;
+    font-size: 12px;
+    font-weight: bold;
+    background: transparent;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    }
+  
+    .lang-button:hover {
+    box-shadow:
+    -7px -7px 20px 0px #fff9,
+    -4px -4px 5px 0px #fff9,
+    7px 7px 20px 0px #fff9,
+    4px 4px 5px 0px #fff9;
+    }

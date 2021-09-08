@@ -5,7 +5,7 @@
         [(opened)]="opened" opened>
 
         
-        <div style="height: 20px;">
+        <div style="height: 20px; display: none;">
             <button class="button_pin" (click)="pinSidebar()">
                 <span class="material-icons"
                     [ngClass]="pinButton ? 'pin_icon_pinned' : 'pin_icon_unpinned'">push_pin</span>
@@ -52,14 +52,6 @@
     </mat-sidenav>
     <!-- Outside of the sidebar -->
     <mat-sidenav-content>
-        <!--<div class="title-div"> 
-            <h1 class="page-title" >
-                {{pageName}}
-            </h1>
-        <div class="wrapper">
-            <div class="divider div-transparent-title"></div>
-        </div>
-        </div>-->
         <div class="layout">
             <div class="notscroll" style="height: 100%; width: 100%;">
                 
