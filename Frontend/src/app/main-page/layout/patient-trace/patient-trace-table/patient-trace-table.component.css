@@ -34,8 +34,8 @@ button {
   .row {
 	height: 400px;
 	overflow: hidden;
-	margin-left: 10%;
-	margin-right: 10%;
+	margin-left: 5%;
+ 	margin-right: 5%;
 	min-height: 64px;
   	padding: 8px 24px 0;
   }
@@ -49,7 +49,7 @@ button {
   }
   
   .searching-filter{
-	margin-left: 13%;
+	margin-left: 10%;
   }
   
 mat-paginator{

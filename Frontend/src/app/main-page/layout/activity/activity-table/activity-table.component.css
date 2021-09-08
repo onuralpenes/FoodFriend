@@ -9,8 +9,8 @@ th.mat-sort-header-sorted {
 .row {
   height: 400px;
   overflow: hidden;
-  margin-left: 10%;
-  margin-right: 10%;
+  margin-left: 5%;
+  margin-right: 5%;
   min-height: 64px;
   padding: 8px 24px 0;
 }
@@ -33,7 +33,7 @@ th.mat-sort-header-sorted {
 }
 
 .searching-filter{
-  margin-left: 13%;
+  margin-left: 10%;
 }
 
 .modal-container{
