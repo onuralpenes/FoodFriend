@@ -4,7 +4,7 @@
 </mat-form-field>
 
 <div class="row">
-  <table mat-table [dataSource]="dataSource" matSort class="my-table" *ngIf="isNull">
+  <table mat-table [dataSource]="dataSource" matSort class="my-table main" *ngIf="isNull">
     <ng-container matColumnDef="activityType">
       <th mat-header-cell *matHeaderCellDef mat-sort-header class="lHead">{{'table.type' |
         translate}}</th>
@@ -60,7 +60,7 @@
     <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
   </table>
 
-  <mat-paginator *ngIf="isNull" [pageSizeOptions]="[3, 5]" [pageSize]="3" showFirstLastButtons>
+  <mat-paginator *ngIf="isNull" [pageSizeOptions]="[15, 20, 25]" [pageSize]="15" showFirstLastButtons>
   </mat-paginator>
 
   <div *ngIf="!isNull">There is no data</div>
