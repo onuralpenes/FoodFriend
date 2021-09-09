@@ -60,7 +60,7 @@
     <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
   </table>
 
-  <mat-paginator *ngIf="isNull" [pageSizeOptions]="[15, 20, 25]" [pageSize]="15" showFirstLastButtons>
+  <mat-paginator *ngIf="isNull" [pageSizeOptions]="[7, 10]" [pageSize]="7" showFirstLastButtons>
   </mat-paginator>
 
   <div *ngIf="!isNull">There is no data</div>
