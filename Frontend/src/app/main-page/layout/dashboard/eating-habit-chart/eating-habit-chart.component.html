@@ -1,4 +1,5 @@
-<ngx-charts-line-chart
+<div class="chart">
+  <ngx-charts-line-chart
   [scheme]="colorScheme"
   [legend]="legend"
   [showXAxisLabel]="showXAxisLabel"
@@ -12,5 +13,6 @@
   (select)="onSelect($event)"
   (activate)="onActivate($event)"
   (deactivate)="onDeactivate($event)"
-  >
+  > 
 </ngx-charts-line-chart>
+</div>

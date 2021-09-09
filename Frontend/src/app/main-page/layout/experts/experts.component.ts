@@ -9,8 +9,7 @@ import { experts } from './data';
 })
 export class ExpertsComponent {
 
-  constructor() {
-  }
+  constructor() {}
 
   experts: Expert[] = experts;
   searchText: string = "";
@@ -18,8 +17,4 @@ export class ExpertsComponent {
   keyup(searchText) { 
     this.searchText = searchText;
   }
-  selectPost(post) {
-    console.log(`The selected post is::  ${post.title}`);
-  }
-
 }

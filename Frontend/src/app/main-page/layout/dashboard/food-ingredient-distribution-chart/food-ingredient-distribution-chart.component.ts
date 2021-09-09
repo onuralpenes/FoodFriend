@@ -10,9 +10,9 @@ export class FoodIngredientDistributionChartComponent implements OnInit {
 
   single!: any[];  //It is getting data from data.ts.
 
-  gradient: boolean = true;
-  showLegend: boolean = true;
-  showLabels: boolean = true;
+  gradient: boolean = false;
+  showLegend: boolean = false;
+  showLabels: boolean = false;
   isDoughnut: boolean = false;
 
   colorScheme = {

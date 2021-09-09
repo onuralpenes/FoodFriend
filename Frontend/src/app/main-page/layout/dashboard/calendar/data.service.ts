@@ -7,9 +7,10 @@ import { Observable } from "rxjs";
 export class CalendarDataService {
 
   resources: any[] = [
-    { name: 'Group 1', id: 'G1', expanded: true, children: [
+    { name: 'Group 1', id: 'G1'}
+    /*, expanded: true, children: [
         { name: 'Row1', id: 'R1' },
-      ]},
+      ]},*/
   ];
 
   events: any[] = [
@@ -55,9 +56,9 @@ export class CalendarDataService {
     },
     {
       id: '6',
-      resource: 'R1',
-      start: '2021-09-12',
-      end: '2021-09-14',
+      resource: 'G1',
+      start: '2021-09-16',
+      end: '2021-09-18',
       text: 'Tennis',
       barColor: '#1155cc'
     },

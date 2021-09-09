@@ -155,11 +155,7 @@
   }
   
   .card-front__tp--ski {
-    background: linear-gradient(
-      to bottom,
-      #00db93,
-      #00b97d
-    );
+    background: linear-gradient(to bottom,#00db93,#00b97d);
   }
   
   .card-front__bt {

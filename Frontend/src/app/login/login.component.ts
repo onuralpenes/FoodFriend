@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
+
+import { HttpHeaders, HttpClient } from '@angular/common/http';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatCheckboxModule} from '@angular/material/checkbox';
 import { TranslateService } from '@ngx-translate/core';
@@ -13,7 +15,7 @@ export class LoginComponent implements OnInit {
 
 
   flag: boolean = false;
-  constructor(private translate: TranslateService) { }
+  constructor(private translate: TranslateService, private http: HttpClient) { }
 
   ngOnInit(): void {
 

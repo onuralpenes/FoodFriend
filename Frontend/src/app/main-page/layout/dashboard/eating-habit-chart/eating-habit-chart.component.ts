@@ -10,16 +10,16 @@ export class EatingHabitChartComponent implements OnInit {
 
   multi!: any[];  //It is getting data from data.ts.
 
-  legend: boolean = true;
-  showLabels: boolean = true;
-  animations: boolean = true;
-  xAxis: boolean = true;
-  yAxis: boolean = true;
-  showYAxisLabel: boolean = true;
-  showXAxisLabel: boolean = true;
-  xAxisLabel: string = 'Day';
-  yAxisLabel: string = 'Calorie';
-  timeline: boolean = true;
+  legend: boolean = false;
+  showLabels: boolean = false;
+  animations: boolean = false; 
+  xAxis: boolean = false;
+  yAxis: boolean = false;
+  showYAxisLabel: boolean = false;
+  showXAxisLabel: boolean = false;
+  xAxisLabel: string = 'Year';
+  yAxisLabel: string = 'Population';
+  timeline: boolean = false;
 
   colorScheme = {
     domain: ['#5AA454', '#E44D25', '#CFC0BB', '#7aa3e5', '#a8385d', '#aae3f5']

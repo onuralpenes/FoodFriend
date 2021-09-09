@@ -1,68 +1,52 @@
-.mat-form-field + .mat-form-field {
-    margin-left: 8px;
-  }
+.cons-calorie{
+  height: 535px;
+  width: 535px;
+  background: #e5e5e5;
+  border-radius: 100%;
+  box-shadow: 5px 5px rgba(00,00,00,0.3)
+}
 
-  .container-fluid{
-    padding-top: 3.5rem;
-     /* for chrome and safari*/
-     -webkit-animation-duration: 1s;
-     -webkit-animation-name: slidein;
+.progress{
+  height: 220px;
+  width: 570px;
+  background: #e5e5e5;
+  border-radius: 10px;
+  box-shadow: 5px 5px rgba(00,00,00,0.3)
+}
 
+.health-card{
+  height: 280px;
+  width: 570px;
+  background: #e5e5e5;
+  border-radius: 10px;
+  box-shadow: 5px 5px rgba(00,00,00,0.3)
+}
 
-     -moz-animation-duration: 1s;
-     -moz-animation-name: slidein;
+.food-ing, .eng-cons, .eating-hab{
+  height: 250px;
+  width: 380px;
+  background: #e5e5e5;
+  border-radius: 10px;
+  box-shadow: 5px 5px rgba(00,00,00,0.3)
+}
 
-       /* for opera*/
-     -o-animation-duration: 1s;
-     -o-animation-name: slidein;
+.calendar{
+  margin-left: 20px;
+  width: 1190px;
+  height: 225px;
+  background: #e5e5e5;
+  border-radius: 10px;
+  box-shadow: 5px 5px rgba(00,00,00,0.3)
+}
 
-       /* Standard syntax*/
-     animation-duration: 1s;
-     animation-name: slidein;
-  }
+.space-top{
+  height: 15px;
+}
 
-  @-webkit-keyframes slidein {
-    from {
-        margin-left: 100%;
-        width: 300%;
-    }
+.space-gap{
+  height: 20px;
+}
 
-    to {
-        margin-left: 0%;
-        width: 100%;
-    }
-  }
-
-  @-moz-keyframes slidein {
-    from {
-        margin-left: 100%;
-        width: 300%;
-    }
-
-    to {
-        margin-left: 0%;
-        width: 100%;
-    }
-  }
-  @-o-keyframes slidein {
-    from {
-        margin-left: 100%;
-        width: 300%;
-    }
-
-    to {
-        margin-left: 0%;
-        width: 100%;
-    }
-  }
-  @keyframes slidein {
-    from {
-        margin-left: 100%;
-        width: 300%;
-    }
-
-    to {
-        margin-left: 0%;
-        width: 100%;
-    }
-  }
+.col-md-9{
+  padding-left: 2%;
+}

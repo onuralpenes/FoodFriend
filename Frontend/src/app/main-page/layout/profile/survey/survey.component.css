@@ -1,107 +1,33 @@
-mat-form-field{
-  margin-right: 5%;
-  margin-bottom: 3%;
-  /* background-color: #0000ff; */
-
-}
-.container{
-  margin: 0 auto;
-  /* background-color: #ff0000; */
-}
-.mat-dialog-content{
-	max-height: 100% !important;
+.labels {
+  font-size: 11px
 }
 
-button {
-	width: auto;
-	border-radius: 20px;
-  border: 1px solid #03ac75;
-
-	background-color: #0cdc98;
-	color: #fff;
-	font-size: 12px;
-	font-weight: bold;
-	padding: 12px 45px;
-	letter-spacing: 1px;
-	text-transform: uppercase;
-	transition: transform 80ms ease-in;
-  margin-left: 9%;
+.image{
+  max-height: 300px !important;
+  max-width: 450px !important;
 }
 
-.bloodGroup{
- background-color: #a16372;
+
+.tab-button{
+	border: none;
+	background-color: transparent;
+  }
+
+.tab-button:hover{
+  color: #009879;
 }
 
-h2{
-margin-left: 18% !important;
+.buttons{
+  font-size: 150%;
+  margin-top: 5%;
 }
 
 .row{
-  margin-right: 1%;
+  background-color: #f1f1f1;
 }
-
-
-.container-fluid{
-  padding-top: 3.5rem;
-   /* for chrome and safari*/
-   -webkit-animation-duration: 1s;
-   -webkit-animation-name: slidein;
-
-
-   -moz-animation-duration: 1s;
-   -moz-animation-name: slidein;
-
-     /* for opera*/
-   -o-animation-duration: 1s;
-   -o-animation-name: slidein;
-
-     /* Standard syntax*/
-   animation-duration: 1s;
-   animation-name: slidein;
+.container{
+	width: 100%;
 }
-
-@-webkit-keyframes slidein {
-  from {
-      margin-left: 100%;
-      width: 300%;
-  }
-
-  to {
-      margin-left: 0%;
-      width: 100%;
-  }
-}
-
-@-moz-keyframes slidein {
-  from {
-      margin-left: 100%;
-      width: 300%;
-  }
-
-  to {
-      margin-left: 0%;
-      width: 100%;
-  }
-}
-@-o-keyframes slidein {
-  from {
-      margin-left: 100%;
-      width: 300%;
-  }
-
-  to {
-      margin-left: 0%;
-      width: 100%;
-  }
-}
-@keyframes slidein {
-  from {
-      margin-left: 100%;
-      width: 300%;
-  }
-
-  to {
-      margin-left: 0%;
-      width: 100%;
-  }
+.birthdate{
+	width: 93.5%;
 }

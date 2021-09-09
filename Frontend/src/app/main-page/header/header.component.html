@@ -3,44 +3,49 @@
     <button mat-icon-button (click)="emit()">
         <i class="fa fa-bars" aria-hidden="true" style="color: white;"></i>
     </button>
-    <img class="img"src="../../../assets/beyaz.png">
+    <img class="img" src="../../../assets/beyaz.png">
     <img class="responsiveImg" src="../../../assets/beyaz2.png">
-    <p class="page-name">PAGE NAME</p>
-    <span class="space"></span>
-    <button mat-icon-button [matMenuTriggerFor]="notifications">
-        <i class="fa fa-bell" aria-hidden="true" style="color: white;"></i>
-    </button>
-
-    <mat-menu #notifications="matMenu">
-        <p> Uzman mesaj atmış. </p>
-        <p> Admin mesaj atmış. </p>
-    </mat-menu>
-
-    <button mat-button color="primary" [matMenuTriggerFor]="user">
-        
-        <i class="fa fa-angle-double-down fa-lg" style="color: white;" aria-hidden="true"></i>
-    </button>
-    
-    <mat-menu #user="matMenu">
-        <p>
-            <button mat-button>
-                <i class="fa fa-user" aria-hidden="true"></i>
-                Profile
-            </button>
-        </p>
-        <p>
-            <button mat-button>
-                <i class="fa fa-cog" aria-hidden="true"></i>
-                Settings
-            </button>
-        </p>
-        <p>
-            <button mat-button>
-        <i class="fa fa-sign-out" aria-hidden="true"></i>
-                Logout
-            </button>
-        </p>
+    <p class="page-name">
+        {{pageName}}
+    </p>
 
 
-    </mat-menu>
+    <span class="fill-remaining-space">
+        <button mat-icon-button [matMenuTriggerFor]="notifications" #menuTrigger="matMenuTrigger">
+            <i class="fa fa-bell" aria-hidden="true" style="color: white;"></i>
+        </button>
+        <mat-menu #notifications="matMenu" [overlapTrigger]="false">
+
+                <button mat-menu-item>
+                    <span> Admin mesaj atmış.</span>
+                </button>
+                <button mat-menu-item>
+                    <span> Uzman mesaj atmış.</span>
+                </button>
+
+        </mat-menu>
+    </span>
+
+    <span class="fill-remaining-space">
+        <button mat-icon-button [matMenuTriggerFor]="user" #menuTrigger="matMenuTrigger">
+            <i class="fa fa-angle-double-down fa-lg" style="color: white;" aria-hidden="true"></i>
+        </button>
+        <mat-menu #user="matMenu" [overlapTrigger]="false">
+  
+                <button mat-menu-item>
+                    <i class="fa fa-user" aria-hidden="true"></i>
+                    <span> Profile</span>
+                </button>
+                <button mat-menu-item>
+                    <i class="fa fa-cog" aria-hidden="true"></i>
+                    <span> Settings</span>
+                </button>
+                <button mat-menu-item (click)="logout()">
+                    <i class="fa fa-sign-out" aria-hidden="true"></i>
+                    <span> Logout</span>
+                </button>
+
+        </mat-menu>
+    </span>
+
 </mat-toolbar>

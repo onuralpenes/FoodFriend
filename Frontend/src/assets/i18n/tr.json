@@ -69,7 +69,7 @@
   "target" : {
     "purpose" : "Danışanın Hedefi",
     "nutriInfo" : "Beslenme Bilgisi",
-    "actiInfo" : "Aktiviti Bilgisi"
+    "actiInfo" : "Aktivite Bilgisi"
   },
 
   "validator" : {
@@ -87,13 +87,14 @@
   },
 
   "expert" : {
-    "nutritionist" : "Diyetisyen"
+    "nutritionist" : "Diyetisyen",
+    "more" : "Devamı.."
   },
 
   "sidebar" : {
     "dashboard" : "Ana Sayfa",
     "profile" : "Profil",
-    "food" : "Yemekler",
+    "food" : "Besin",
     "activity" : "Aktivite",
     "patients" : "Danışanlar",
     "expert" : "Uzman"

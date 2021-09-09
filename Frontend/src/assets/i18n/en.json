@@ -89,13 +89,14 @@
   },
 
   "expert" : {
-    "nutritionist" : "Nutritionist"
+    "nutritionist" : "Nutritionist",
+    "more" : "More.."
   },
 
   "sidebar" : {
     "dashboard" : "Dashboard",
     "profile" : "Profile",
-    "food" : "Food",
+    "food" : "Nutrition",
     "activity" : "Activity",
     "patients" : "Patients",
     "expert" : "Expert"
