@@ -9,6 +9,7 @@ import { BodyComponent } from 'src/app/main-page/body/body.component';
 import { FooterComponent } from 'src/app/main-page/footer/footer.component';
 import { HeaderComponent } from 'src/app/main-page/header/header.component';
 import { ActivityTableComponent } from 'src/app/main-page/layout/activity/activity-table/activity-table.component';
+import { AddActivity } from 'src/app/main-page/layout/activity/activity-table/add-activity/add-activity.component';
 import { EditActivity } from 'src/app/main-page/layout/activity/activity-table/edit-activity.component';
 import { ActivityComponent } from 'src/app/main-page/layout/activity/activity.component';
 import { CounseleeProfileComponent } from 'src/app/main-page/layout/counselee-profile/counselee-profile.component';
@@ -23,6 +24,7 @@ import { HealthCardComponent } from 'src/app/main-page/layout/dashboard/health-c
 import { ProgressesComponent } from 'src/app/main-page/layout/dashboard/progresses/progresses.component';
 import { ExpertShortCardComponent } from 'src/app/main-page/layout/experts/expert-short-card/expert-short-card.component';
 import { ExpertsComponent } from 'src/app/main-page/layout/experts/experts.component';
+import { AddFood } from 'src/app/main-page/layout/food/food-table/add-food/add-food.component';
 import { EditFood } from 'src/app/main-page/layout/food/food-table/edit-table.component';
 import { FoodTableComponent } from 'src/app/main-page/layout/food/food-table/food-table.component';
 import { FoodComponent } from 'src/app/main-page/layout/food/food.component';
@@ -73,6 +75,8 @@ export function HttpLoaderFactory(http: HttpClient) {
     EditFood,
     ExpertShortCardComponent,
     ExpertFilterPipe,
+    AddActivity,
+    AddFood,
   ],
   imports: [
     CommonModule,
