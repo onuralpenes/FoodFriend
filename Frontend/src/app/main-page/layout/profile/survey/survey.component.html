@@ -49,8 +49,8 @@
             </div>
             <div class="col-md-6">
               <mat-form-field appearance="outline">
-                <mat-label>{{'label.width' | translate}}</mat-label>
-                <input matInput formControlName="width" />
+                <mat-label>{{'label.weight' | translate}}</mat-label>
+                <input matInput formControlName="weight" />
               </mat-form-field>
             </div>
           </div>
@@ -100,7 +100,7 @@
           <div class="row mt-3">
             <mat-form-field appearance="outline" class="birthdate">
               <mat-label>{{'label.birthdate' | translate}}</mat-label>
-              <input matInput [matDatepicker]="picker" formControlName="birthdate">
+              <input matInput [matDatepicker]="picker" formControlName="birthDate">
               <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
               <mat-datepicker #picker></mat-datepicker>
             </mat-form-field>

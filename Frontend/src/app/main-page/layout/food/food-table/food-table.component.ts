@@ -4,6 +4,7 @@ import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import { Food } from 'src/app/models/table/food.model';
+import { AddFood } from './add-food/add-food.component';
 import { FOOD_DATA } from './data';
 import { EditFood } from './edit-table.component';
 
@@ -59,6 +60,10 @@ export class FoodTableComponent implements AfterViewInit {
         meal: meal
       }
     });
+  }
+
+  addFood(){
+    this.modal.open(AddFood);
   }
 
   applyFilter(event: Event) {
