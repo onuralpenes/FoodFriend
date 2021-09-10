@@ -26,12 +26,11 @@ export class LoginFormComponent implements OnInit {
   onSubmit() {
     this.submitted = true;
     if (this.loginForm.invalid) {
+      alert("Invalid login attempt");
       return;
 
     }
 
    this.authService.login(this.loginForm.value);
-
-    alert(JSON.stringify(this.loginForm.value));
   }
 }

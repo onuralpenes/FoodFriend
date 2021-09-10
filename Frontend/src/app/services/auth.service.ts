@@ -2,7 +2,6 @@ import { Injectable } from '@angular/core';
 import { HttpHeaders, HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { environment } from 'src/environments/environment';
-// import { JwtHelperService } from "@auth0/angular-jwt";
 // import { LoginDto } from '../models/auth/login-dto';
 // import { UserDto } from '../models/user/user-dto';
 // import { Mesajlar } from '../constants/mesajlar';
@@ -11,7 +10,9 @@ import { environment } from 'src/environments/environment';
 // import { Observable } from 'rxjs/internal/Observable';
 // import { IslemSonuc } from '../models/core/IslemSonuc';
 
-import { LoginModel } from '../models/user/login.model';
+import { JwtHelperService } from '@auth0/angular-jwt';
+import { LoginDto } from '../models/user/login.model';
+import { User } from '../models/user/user.model';
 
 @Injectable({
     providedIn: 'root'
@@ -26,7 +27,7 @@ export class AuthService {
             'Access-Control-Allow-Origin': "*",
         })
     };
-    //   jwtHelper: JwtHelperService = new JwtHelperService();
+    jwtHelper: JwtHelperService = new JwtHelperService();
 
     constructor(
         private http: HttpClient,
@@ -40,7 +41,7 @@ export class AuthService {
     //     return this.http.get<IslemSonuc>(environment.BASE_URL + '/api/auth/GetUserInfo', this.httpOptions);
     //   }
 
-    login(login: LoginModel) {
+    login(login: LoginDto) {
         this.http
             .post(environment.BASE_URL + "/auth/login", login, this.httpOptions)
             .subscribe(data => {
@@ -48,13 +49,13 @@ export class AuthService {
                 var tokenData: any = data;
                 if (!tokenData.success) {
                     //   this.message.error(tokenData.message, { nzDuration: 8000 });
-                    alert("Error");
+                    alert(tokenData.message);
                     return;
                 }
 
                 this.saveToken(tokenData.data.token);
-                alert("Success");
                 // this.message.success(Mesajlar.KULLANICI_GIRISI_BASARILI + this.CurrentUser.given_name, { nzDuration: 8000 });
+                alert(tokenData.message);
 
                 // this.menuService.getMenu();
 
@@ -72,7 +73,7 @@ export class AuthService {
                 }
             });
     }
-    userTransition(login: LoginModel) {
+    userTransition(login: LoginDto) {
         this.http
             .post(environment.BASE_URL + "/auth/login", login, this.httpOptions)
             .subscribe(data => {
@@ -80,26 +81,24 @@ export class AuthService {
                 var tokenData: any = data;
                 if (!tokenData.success) {
                     //   this.message.error(tokenData.message, { nzDuration: 8000 });
-                    alert("Error");
+                    alert(tokenData.message);
                     return;
                 }
 
-                // this.saveToken(tokenData.data.token);
+                this.saveToken(tokenData.data.token);
                 // this.message.success(Mesajlar.KULLANICI_GIRISI_BASARILI + this.CurrentUser.given_name, { nzDuration: 8000 });
-                alert("Success");
+                alert(tokenData.message);
 
                 this.route.navigateByUrl('/dashboard');
 
-                // if (login.doRemember) {
-                //   localStorage.setItem('Username', login.Username);
-                //   localStorage.setItem('Password', login.Password);
-                // }
-                // else {
-                //   localStorage.setItem('Username', "");
-                //   localStorage.setItem('Password', "");
-                // }
-                localStorage.setItem('Username', "");
-                localStorage.setItem('Password', "");
+                if (login.remember) {
+                    localStorage.setItem('Email Address', login.emailAddress);
+                    localStorage.setItem('Password', login.password);
+                }
+                else {
+                    localStorage.setItem('Email Address', "");
+                    localStorage.setItem('Password', "");
+                }
             });
     }
 
@@ -113,8 +112,8 @@ export class AuthService {
 
     logout() {
         localStorage.removeItem(environment.TOKEN_KEY);
-        //     localStorage.removeItem(environment.MENU_KEY);
-        //     localStorage.removeItem(environment.BRANCH_LIST_KEY);
+        localStorage.removeItem(environment.MENU_KEY);
+        localStorage.removeItem(environment.BRANCH_LIST_KEY);
         this.route.navigateByUrl('/login');
     }
 
@@ -123,17 +122,19 @@ export class AuthService {
         return (authToken !== null) ? true : false;
     }
 
-    //   public get CurrentUser(): UserDto {
-    //     return this.jwtHelper.decodeToken(
-    //       localStorage.getItem(environment.TOKEN_KEY)
-    //     ) as UserDto;
+    public get CurrentUser(): User {
+        const token= localStorage.getItem(environment.TOKEN_KEY) || '{}';
+        return this.jwtHelper.decodeToken(
+            token
+        ) as User;
 
-    //   }
-    //   public get CurrentRoles() {
-    //     return this.jwtHelper.decodeToken(
-    //       localStorage.getItem(environment.TOKEN_KEY)
-    //     )
-    //   }
+    }
+      public get CurrentRoles() {
+        const token= localStorage.getItem(environment.TOKEN_KEY) || '{}';
+        return this.jwtHelper.decodeToken(
+          token
+        )
+      }
 
 
 
