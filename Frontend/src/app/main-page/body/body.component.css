@@ -202,13 +202,12 @@ li:hover{
   background-image: linear-gradient(to right, transparent, rgb(48,49,51), transparent);
 }
 .notscroll{
-  
   border-radius: 10px;
   background: transparent;
   overflow: scroll;
   overflow-x: hidden;
+  width: 100%;
   height: 100%;
-  
 }
 
 ::-webkit-scrollbar {
