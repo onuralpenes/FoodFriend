@@ -49,9 +49,9 @@ export class AuthService {
                 this.saveToken(tokenData.data.token);
                 alert(tokenData.message);
 
-                this.menuService.getMenu();
+                // this.menuService.getMenu();
 
-                this.quickBranchService.setQuickBranch(this.CurrentUser);
+                // this.quickBranchService.setQuickBranch(this.CurrentUser);
 
                 this.route.navigateByUrl('/dashboard');
 
@@ -75,7 +75,6 @@ export class AuthService {
                     alert(tokenData.message);
                     return;
                 }
-
                 this.saveToken(tokenData.data.token);
                 alert(tokenData.message);
 
