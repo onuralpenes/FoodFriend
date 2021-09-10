@@ -10,11 +10,11 @@ import { AuthService } from '../services/auth.service';
 export class LoginFormComponent implements OnInit {
   color = 'primary';
   loginForm!: FormGroup;
-  submitted = false; 
+  submitted = false;
 
   constructor(private formBuilder: FormBuilder, private authService: AuthService) { }
   ngOnInit() {
-    this.loginForm= this.formBuilder.group({
+    this.loginForm = this.formBuilder.group({
       emailAddress: new FormControl('', [Validators.required, Validators.email]),
       password: new FormControl('', [Validators.required]),
       remember: new FormControl(''),
@@ -25,12 +25,12 @@ export class LoginFormComponent implements OnInit {
 
   onSubmit() {
     this.submitted = true;
+
     if (this.loginForm.invalid) {
       alert("Invalid login attempt");
       return;
-
     }
 
-   this.authService.login(this.loginForm.value);
+    this.authService.login(this.loginForm.value);
   }
 }
