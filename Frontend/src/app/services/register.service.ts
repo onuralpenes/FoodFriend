@@ -1,7 +1,7 @@
 import { HttpClient, HttpHeaders } from "@angular/common/http";
 import { Injectable } from "@angular/core";
-import { Router } from "@angular/router";
 import { environment } from "src/environments/environment";
+import { AlertService } from "../helpers/notification.service";
 import { RegisterDto } from "../models/user/register.model";
 
 @Injectable({
@@ -15,9 +15,7 @@ export class RegisterService {
         })
     };
 
-    constructor(
-        private http: HttpClient,
-    ) { }
+    constructor(private http: HttpClient, private alertService: AlertService) { }
 
     register(register: RegisterDto) {
         this.http
@@ -25,15 +23,15 @@ export class RegisterService {
 
                 var regData: any = data;
                 if (!regData.success) {
-                    alert(regData.message);
+                    this.alertService.openSnackBar(regData.message);
                     return;
                 }
 
-                alert(regData.message);
+                this.alertService.openSnackBar(regData.message);
 
             }, err=>{
                 if(err)
-                    alert(err.error)
+                this.alertService.openSnackBar(err.error);
             });
     }
 }
