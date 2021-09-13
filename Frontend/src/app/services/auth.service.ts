@@ -8,7 +8,7 @@ import { User } from '../models/user/user.model';
 import { MenuService } from './menu.service';
 import { QuickBranchService } from './quick-branch.service';
 import { Result } from '../models/core/result.model';
-import { AlertService } from '../helpers/notification.service';
+import { AlertService } from '../helpers/alert.service';
 
 @Injectable({
     providedIn: 'root'
