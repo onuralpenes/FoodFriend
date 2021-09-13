@@ -9,6 +9,8 @@ import { MenuService } from './menu.service';
 import { QuickBranchService } from './quick-branch.service';
 import { Result } from '../models/core/result.model';
 import { AlertService } from '../helpers/alert.service';
+import { DeviceDetectorService } from 'ngx-device-detector';
+import { DeviceInfo } from '../models/user/deviceInfo.model';
 
 @Injectable({
     providedIn: 'root'
@@ -23,17 +25,29 @@ export class AuthService {
     };
     jwtHelper: JwtHelperService = new JwtHelperService();
 
-    constructor(private http: HttpClient, private route: Router, private alertService: AlertService, private menuService: MenuService, private quickBranchService: QuickBranchService,) { }
+    constructor(private http: HttpClient, private route: Router, private alertService: AlertService, private menuService: MenuService, private quickBranchService: QuickBranchService, private deviceService: DeviceDetectorService) { }
 
     getUserInfoHttp() {
         return this.http.get<Result>(environment.BASE_URL + '/api/auth/GetUserInfo', this.httpOptions);
     }
 
     login(login: LoginDto) {
+
+        const device = this.deviceService.getDeviceInfo();
+
+        let devInfo = {
+            deviceKey: device.userAgent,
+            deviceName: device.device,
+            deviceModel: device.deviceType,
+            osVersion: device.os_version,
+            osType: device.os
+        }
+        login.deviceInfo = devInfo;
+        console.log(login);
         this.http
             .post(environment.BASE_URL + "/auth/login", login, this.httpOptions)
             .subscribe(data => {
-
+                console.log(login);
                 var tokenData: any = data;
                 if (!tokenData.success) {
                     this.alertService.openSnackBar(tokenData.message);
@@ -56,9 +70,10 @@ export class AuthService {
                     localStorage.setItem('Username', "");
                     localStorage.setItem('Password', "");
                 }
+               
             }, err => {
                 if (err)
-                this.alertService.openSnackBar(err.error);
+                    this.alertService.openSnackBar(err.error);
             });
     }
     userTransition(login: LoginDto) {
