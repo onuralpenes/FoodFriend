@@ -1,9 +1,20 @@
-<div class="container" novalidate>
-  <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" class="form">
+<div class="container" *ngIf="!forget; else login" novalidate>
+
+  <div class="alternate-logins">
+    <a href="" class="social-links"><i class="fa fa-facebook" style="font-size:12px;"></i></a>
+    <a href="" class="social-links"><i class="fa fa-google" style="font-size:12px;"></i></a>
+  </div>
+
+  <div class="row">
+    <span>{{'useAccount.choose' | translate}}</span>
+  </div>
+
+  <form [formGroup]="loginForm" (ngSubmit)="onSubmit('submit')" class="form">
     <p>
       <mat-form-field appearance="outline">
         <mat-label>{{'label.email' | translate}}</mat-label>
-        <input matInput formControlName="emailAddress" [ngClass]="{ 'is-invalid': submitted && f.emailAddress.errors }" />
+        <input matInput formControlName="emailAddress"
+          [ngClass]="{ 'is-invalid': submitted && f.emailAddress.errors }" />
         <mat-error *ngIf="f.emailAddress.errors?.required">{{'validator.emailNull' | translate}}</mat-error>
         <mat-error *ngIf="f.emailAddress.errors?.email">{{'validator.emailValid' | translate}}</mat-error>
       </mat-form-field>
@@ -18,7 +29,9 @@
         <mat-error *ngIf="">Password is incorrect (it is actually placeholder. It can be deleted.)</mat-error>
       </mat-form-field>
     </p>
-    <p class="forgetPsw"><a href="" class="forgetPsw">{{'forget.title' | translate}}</a></p>
+
+    <p class="forgetPsw"><a (click)="forgetPassword()" class="forgetPsw">{{'forget.title' | translate}}</a></p>
+
     <p class="cb">
       <mat-checkbox class="margin" [color]="color" formControlName="remember">{{'forget.title2' | translate}}
       </mat-checkbox>
@@ -27,3 +40,36 @@
     <button class="input-group" type="submit">{{'account.signIn' | translate}}</button>
   </form>
 </div>
+
+<ng-template #login>
+  <div class="container" *ngIf="!approved; else approve" novalidate>
+    {{'welcome.forget' | translate}}
+    <form [formGroup]="forgetMail" (ngSubmit)="onForget('forget')" class="form">
+      <p>
+        <mat-form-field appearance="outline">
+          <mat-label>{{'label.email' | translate}}</mat-label>
+          <input matInput formControlName="emailAddress"
+            [ngClass]="{ 'is-invalid': submitted && f.emailAddress.errors }" />
+          <mat-error *ngIf="f.emailAddress.errors?.required">{{'validator.emailNull' | translate}}</mat-error>
+          <mat-error *ngIf="f.emailAddress.errors?.email">{{'validator.emailValid' | translate}}</mat-error>
+        </mat-form-field>
+      </p>
+      <button class="input-group" type="submit">{{'welcome.approve' | translate}}</button>
+    </form>
+    <br><br><br>
+    {{'welcome.return' | translate}}
+    
+    <div class="row">
+      <button (click)="forgetPassword()">{{'welcome.returnBut' | translate}}</button>
+    </div>
+  </div>
+  <ng-template #approve>
+    <div class="container">
+      {{'welcome.approved' | translate}}
+
+      <div class="row">
+        <button (click)="forgetPassword()">{{'account.signIn' | translate}}</button>
+      </div>
+    </div>
+  </ng-template>
+</ng-template>

@@ -12,6 +12,7 @@ export class RegisterFormComponent implements OnInit {
   color = 'primary';
   registerForm!: FormGroup;
   submitted = false;
+  approved = false;
 
   constructor(private formBuilder: FormBuilder, private registerService: RegisterService) { }
 
@@ -36,9 +37,13 @@ export class RegisterFormComponent implements OnInit {
     if (this.registerForm.invalid) {
       return;
     }
-
+    
+    this.approved = true;
     this.registerService.register(this.registerForm.value);
-    alert(JSON.stringify(this.registerForm.value));
+  }
+
+  signIn(){
+    location.reload();
   }
 }
 

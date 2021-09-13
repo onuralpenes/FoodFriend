@@ -37,3 +37,66 @@ button.ghost {
 .invalid{
 	color: #f44336;
 }
+
+a {
+	color: #333;
+	font-size: 14px;
+	text-decoration: none;
+	margin: 15px 0;
+}
+
+.alternate-logins{
+	margin-top: 20px;
+  }
+
+  .alternate-logins, .sign-up{
+	display: inline-flex;
+	justify-content: center;
+	align-items: center;
+	margin: 0 5px;
+	height: 40px;
+	width: 40px;
+  }
+
+  .social-links{
+	display:flex;
+	flex-direction: row;
+	flex-wrap: no-wrap;
+	padding: 15px 0;
+	justify-content:center;
+  }
+
+  .social-links i{
+	width: 40px;
+	margin: 0 5px;
+	height: 40px;
+	border-radius: 50%;
+	line-height: 40px;
+	background: rgba(248, 248, 248, 0.3);
+	transition: all 0.3s ease;
+	cursor: pointer;
+  }
+
+  .social-links i:hover{
+	background: rgba(9, 220, 128, 0.3);
+	color: rgba(255,255,255,0.8);
+  }
+
+  .fa-facebook {
+	color: rgb(66 103 178);
+  }
+
+  .fa-google {
+	color: rgb(66 133 244);
+  }
+
+  span {
+	font-size: 12px;
+	padding: 15px;
+}
+
+.reg{
+	width: 800px;
+	height: 800px;
+	background: #e4f4f4;
+}

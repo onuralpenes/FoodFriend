@@ -13,7 +13,7 @@ import { Result } from '../models/core/result.model';
     providedIn: 'root'
 })
 export class AuthService {
-    
+
     httpOptions = {
         headers: new HttpHeaders({
             "Content-Type": "application/json",
@@ -47,9 +47,8 @@ export class AuthService {
                 this.saveToken(tokenData.data.token);
                 alert(tokenData.message);
 
-                // this.menuService.getMenu();
-
-                // this.quickBranchService.setQuickBranch(this.CurrentUser);
+                this.menuService.getMenu();
+                //this.quickBranchService.setQuickBranch(this.CurrentUser);
 
                 this.route.navigateByUrl('/dashboard');
 
@@ -61,6 +60,9 @@ export class AuthService {
                     localStorage.setItem('Username', "");
                     localStorage.setItem('Password', "");
                 }
+            }, err=>{
+                if(err)
+                    alert(err.error)
             });
     }
     userTransition(login: LoginDto) {

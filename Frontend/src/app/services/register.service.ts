@@ -17,12 +17,23 @@ export class RegisterService {
 
     constructor(
         private http: HttpClient,
-        private route: Router,
     ) { }
 
     register(register: RegisterDto) {
         this.http
-            .post(environment.BASE_URL + "/auth/register", register, this.httpOptions);
-        this.route.navigateByUrl('/dashboard');
+            .post(environment.BASE_URL + "/auth/register", register, this.httpOptions).subscribe(data => {
+
+                var regData: any = data;
+                if (!regData.success) {
+                    alert(regData.message);
+                    return;
+                }
+
+                alert(regData.message);
+
+            }, err=>{
+                if(err)
+                    alert(err.error)
+            });
     }
 }
