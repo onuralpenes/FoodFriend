@@ -4,12 +4,8 @@
 		[ngClass]="flag ? 'sign-up-container-enable' :'sign-up-container-disable'  ">
 		<div>
 			<form action="#" class="">
-				<h1>{{'account.creat' | translate}}</h1>
-				<div class="alternate-logins col-5">
-					<a href="#" class="social-links"><i class="fa fa-facebook" style="font-size:12px;"></i></a>
-					<a href="#" class="social-links"><i class="fa fa-google" style="font-size:12px;"></i></a>
-				</div>
-				<span>{{'useAccount.title' | translate}}</span>
+				<h1>{{'account.create' | translate}}</h1>
+				
 				<app-register-form></app-register-form>
 
 			</form>
@@ -23,12 +19,8 @@
 		[ngClass]="flag ? 'sign-in-container-disable' : 'sign-in-container-enable' ">
 		<div>
 			<form action="#">
+				
 				<h1>{{'account.signIn' | translate}}</h1>
-				<div class="alternate-logins">
-					<a href="" class="social-links"><i class="fa fa-facebook" style="font-size:12px;"></i></a>
-					<a href="" class="social-links"><i class="fa fa-google" style="font-size:12px;"></i></a>
-				</div>
-				<span>{{'useAccount.choose' | translate}}</span>
 
 				<app-login-form></app-login-form>
 				

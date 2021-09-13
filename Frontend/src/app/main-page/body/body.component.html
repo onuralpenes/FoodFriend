@@ -40,7 +40,7 @@
             <li><a class="side-item" routerLink="/activity"><i class="fa fa-bicycle fa-lg" aria-hidden="true"></i>{{'sidebar.activity' | translate}}</a></li> 
             <li><a class="side-item" routerLink="/patients"><i class="fa fa-users fa-lg" aria-hidden="true"></i>{{'sidebar.patients' | translate}}</a></li>
             <li><a class="side-item" routerLink="/experts"><i class="fa fa-address-card fa-lg" aria-hidden="true"></i>{{'sidebar.expert' | translate}}</a></li>
-        </ul>
+        </ul> <!-- for hover look this: https://stackblitz.com/edit/angular-active-on-hover?file=src%2Fstyles.css-->
 
         <div class="language">
             <button mat-button class="lang-button" (click)="changeLang('tr')">TR</button>
@@ -53,7 +53,7 @@
     <!-- Outside of the sidebar -->
     <mat-sidenav-content>
         <div class="layout">
-            <div class="notscroll" style="height: 100%; width: 100%;">
+            <div class="notscroll">
                 
                 <router-outlet></router-outlet>
             </div>

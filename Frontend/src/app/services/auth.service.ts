@@ -2,23 +2,17 @@ import { Injectable } from '@angular/core';
 import { HttpHeaders, HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { environment } from 'src/environments/environment';
-// import { JwtHelperService } from "@auth0/angular-jwt";
-// import { LoginDto } from '../models/auth/login-dto';
-// import { UserDto } from '../models/user/user-dto';
-// import { Mesajlar } from '../constants/mesajlar';
-// import { MenuService } from './menu.service';
-// import { QuickBranchService } from './quick-branch.service';
-// import { Observable } from 'rxjs/internal/Observable';
-// import { IslemSonuc } from '../models/core/IslemSonuc';
-
-import { LoginModel } from '../models/user/login.model';
+import { JwtHelperService } from '@auth0/angular-jwt';
+import { LoginDto } from '../models/user/login.model';
+import { User } from '../models/user/user.model';
+import { MenuService } from './menu.service';
+import { QuickBranchService } from './quick-branch.service';
+import { Result } from '../models/core/result.model';
 
 @Injectable({
     providedIn: 'root'
 })
 export class AuthService {
-
-
 
     httpOptions = {
         headers: new HttpHeaders({
@@ -26,39 +20,35 @@ export class AuthService {
             'Access-Control-Allow-Origin': "*",
         })
     };
-    //   jwtHelper: JwtHelperService = new JwtHelperService();
+    jwtHelper: JwtHelperService = new JwtHelperService();
 
     constructor(
         private http: HttpClient,
         private route: Router,
-        // private message: NzMessageService,
-        // private menuService: MenuService,
-        // private quickBranchService: QuickBranchService,
+        private menuService: MenuService,
+        private quickBranchService: QuickBranchService,
     ) { }
 
-    //   getUserInfoHttp() {
-    //     return this.http.get<IslemSonuc>(environment.BASE_URL + '/api/auth/GetUserInfo', this.httpOptions);
-    //   }
+      getUserInfoHttp() {
+        return this.http.get<Result>(environment.BASE_URL + '/api/auth/GetUserInfo', this.httpOptions);
+      }
 
-    login(login: LoginModel) {
+    login(login: LoginDto) {
         this.http
             .post(environment.BASE_URL + "/auth/login", login, this.httpOptions)
             .subscribe(data => {
 
                 var tokenData: any = data;
                 if (!tokenData.success) {
-                    //   this.message.error(tokenData.message, { nzDuration: 8000 });
-                    alert("Error");
+                    alert(tokenData.message);
                     return;
                 }
 
                 this.saveToken(tokenData.data.token);
-                alert("Success");
-                // this.message.success(Mesajlar.KULLANICI_GIRISI_BASARILI + this.CurrentUser.given_name, { nzDuration: 8000 });
+                alert(tokenData.message);
 
-                // this.menuService.getMenu();
-
-                // this.quickBranchService.setQuickBranch(this.CurrentUser);
+                this.menuService.getMenu();
+                //this.quickBranchService.setQuickBranch(this.CurrentUser);
 
                 this.route.navigateByUrl('/dashboard');
 
@@ -70,36 +60,34 @@ export class AuthService {
                     localStorage.setItem('Username', "");
                     localStorage.setItem('Password', "");
                 }
+            }, err=>{
+                if(err)
+                    alert(err.error)
             });
     }
-    userTransition(login: LoginModel) {
+    userTransition(login: LoginDto) {
         this.http
             .post(environment.BASE_URL + "/auth/login", login, this.httpOptions)
             .subscribe(data => {
 
                 var tokenData: any = data;
                 if (!tokenData.success) {
-                    //   this.message.error(tokenData.message, { nzDuration: 8000 });
-                    alert("Error");
+                    alert(tokenData.message);
                     return;
                 }
-
-                // this.saveToken(tokenData.data.token);
-                // this.message.success(Mesajlar.KULLANICI_GIRISI_BASARILI + this.CurrentUser.given_name, { nzDuration: 8000 });
-                alert("Success");
+                this.saveToken(tokenData.data.token);
+                alert(tokenData.message);
 
                 this.route.navigateByUrl('/dashboard');
 
-                // if (login.doRemember) {
-                //   localStorage.setItem('Username', login.Username);
-                //   localStorage.setItem('Password', login.Password);
-                // }
-                // else {
-                //   localStorage.setItem('Username', "");
-                //   localStorage.setItem('Password', "");
-                // }
-                localStorage.setItem('Username', "");
-                localStorage.setItem('Password', "");
+                if (login.remember) {
+                    localStorage.setItem('Email Address', login.emailAddress);
+                    localStorage.setItem('Password', login.password);
+                }
+                else {
+                    localStorage.setItem('Email Address', "");
+                    localStorage.setItem('Password', "");
+                }
             });
     }
 
@@ -113,8 +101,8 @@ export class AuthService {
 
     logout() {
         localStorage.removeItem(environment.TOKEN_KEY);
-        //     localStorage.removeItem(environment.MENU_KEY);
-        //     localStorage.removeItem(environment.BRANCH_LIST_KEY);
+        localStorage.removeItem(environment.MENU_KEY);
+        localStorage.removeItem(environment.BRANCH_LIST_KEY);
         this.route.navigateByUrl('/login');
     }
 
@@ -123,18 +111,13 @@ export class AuthService {
         return (authToken !== null) ? true : false;
     }
 
-    //   public get CurrentUser(): UserDto {
-    //     return this.jwtHelper.decodeToken(
-    //       localStorage.getItem(environment.TOKEN_KEY)
-    //     ) as UserDto;
+    public get CurrentUser(): User {
+        const token = localStorage.getItem(environment.TOKEN_KEY) || '{}';
+        return this.jwtHelper.decodeToken(token) as User;
+    }
 
-    //   }
-    //   public get CurrentRoles() {
-    //     return this.jwtHelper.decodeToken(
-    //       localStorage.getItem(environment.TOKEN_KEY)
-    //     )
-    //   }
-
-
-
+    public get CurrentRoles() {
+        const token = localStorage.getItem(environment.TOKEN_KEY) || '{}';
+        return this.jwtHelper.decodeToken(token)
+    }
 }
