@@ -218,23 +218,22 @@ li:hover{
 .language{
 	position: fixed;
 	bottom: 7%;
-	left: 3%;
+	left: 7%;
   }
 
   .lang-button{
-    width: 50px;
-    height: 30px;
+    width: 40px;
+    height: 40px;
     padding: 0;
     color: #fff;
     border: none;
-    border-radius: 25px;
+    border-radius: 100%;
     font-size: 12px;
     font-weight: bold;
     background: transparent;
     cursor: pointer;
     transition: all 0.3s ease;
     }
-  
     .lang-button:hover {
     box-shadow:
     -7px -7px 20px 0px #fff9,
