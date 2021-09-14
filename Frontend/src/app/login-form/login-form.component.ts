@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { AlertService } from '../helpers/alert.service';
 import { AuthService } from '../services/auth.service';
 
 @Component({
@@ -15,7 +16,7 @@ export class LoginFormComponent implements OnInit {
   forget = false;
   approved = false;
 
-  constructor(private formBuilder: FormBuilder, private authService: AuthService) { }
+  constructor(private formBuilder: FormBuilder, private authService: AuthService, private alertService: AlertService) { }
 
   ngOnInit() {
     this.loginForm = this.formBuilder.group({
@@ -53,7 +54,7 @@ export class LoginFormComponent implements OnInit {
       this.submitted = true;
 
       if (this.loginForm.invalid) {
-        alert("Invalid login attempt");
+        this.alertService.openSnackBar("Invalid login attempt");
         return;
       }
 

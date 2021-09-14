@@ -365,8 +365,9 @@ input {
 	right: 2%;
   }
   .lang-button{
-	width: 50px;
-	height: 30px;
+	width: 40px;
+	height: 40px;
+	border-radius: 100%;
 	padding: 0;
 	border: none;
 	font-size: 12px;
