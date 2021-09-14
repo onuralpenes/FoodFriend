@@ -218,7 +218,7 @@ li:hover{
 .language{
 	position: fixed;
 	bottom: 7%;
-	left: 7%;
+	left: 60px;
   }
 
   .lang-button{
