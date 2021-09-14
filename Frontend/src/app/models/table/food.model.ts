@@ -1,4 +1,4 @@
-export interface Food {
+export interface FoodDetailDto {
     foodName: string;
     calorie: number;
     protein: number;

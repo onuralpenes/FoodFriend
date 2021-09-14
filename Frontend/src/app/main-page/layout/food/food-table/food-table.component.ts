@@ -3,7 +3,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
-import { Food } from 'src/app/models/table/food.model';
+import { FoodDetailDto } from 'src/app/models/table/food.model';
 import { AddFood } from './add-food/add-food.component';
 import { FOOD_DATA } from './data';
 import { EditFood } from './edit-table.component';
@@ -24,7 +24,7 @@ export interface Transfer {
   styleUrls: ['./food-table.component.css'],
 })
 export class FoodTableComponent implements AfterViewInit {
-  foods: Food[] = FOOD_DATA; //It is getting data from data.ts.
+  foods: FoodDetailDto[] = FOOD_DATA; //It is getting data from data.ts.
   sortedData = this.foods; //It is getting data from data.ts.
   isNull: boolean = true;
 
