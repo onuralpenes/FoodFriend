@@ -4,6 +4,4 @@ export interface FoodDetailDto {
     protein: number;
     oil: number;
     carbohydrate: number;
-    foodCategory: string;
-    meal: string;
 }

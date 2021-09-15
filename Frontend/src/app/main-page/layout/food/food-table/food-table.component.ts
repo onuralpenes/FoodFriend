@@ -14,8 +14,6 @@ export interface Transfer {
   protein: number;
   oil: number;
   carbohydrate: number;
-  foodCategory: string;
-  meal: string;
 }
 
 @Component({
@@ -31,8 +29,6 @@ export class FoodTableComponent implements AfterViewInit {
   constructor(public modal: MatDialog) { }
 
   displayedColumns: string[] = [
-    'meal',
-    'foodCategory',
     'foodName',
     'calorie',
     'protein',
@@ -56,8 +52,6 @@ export class FoodTableComponent implements AfterViewInit {
         protein: protein,
         oil: oil,
         carbohydrate: carbohydrate,
-        foodCategory: foodCategory,
-        meal: meal
       }
     });
   }

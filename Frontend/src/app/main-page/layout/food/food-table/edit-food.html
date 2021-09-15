@@ -5,22 +5,6 @@
         <div class="container" *ngIf="!post; else forminfo" novalidate>
             <form [formGroup]="editForm" (ngSubmit)="onSubmit(editForm.value)" class="form">
                 <p>
-                    {{data.meal}}: 
-                    <mat-form-field appearance="outline" class="modal-input">
-                        <mat-label>{{'table.meal' | translate}}</mat-label>
-                        <input matInput type="string" formControlName="meal" />
-                    </mat-form-field>
-                </p>
-
-                <p>
-                    {{data.foodCategory}}: 
-                    <mat-form-field appearance="outline" class="modal-input">
-                        <mat-label>{{'table.category' | translate}}</mat-label>
-                        <input matInput type="string" formControlName="foodCategory" />
-                    </mat-form-field>
-                </p>
-
-                <p>
                     {{data.foodName}}: 
                     <mat-form-field appearance="outline" class="modal-input">
                         <mat-label>{{'table.name' | translate}}</mat-label>
