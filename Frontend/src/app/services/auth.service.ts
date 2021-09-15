@@ -59,8 +59,6 @@ export class AuthService {
                 this.menuService.getMenu();
                 this.quickBranchService.setQuickBranch(tokenData.data.user);
 
-                this.route.navigateByUrl('/dashboard');
-
                 if (login.remember) {
                     localStorage.setItem('Username', login.emailAddress);
                     localStorage.setItem('Password', login.password);
@@ -69,7 +67,9 @@ export class AuthService {
                     localStorage.setItem('Username', "");
                     localStorage.setItem('Password', "");
                 }
-               
+
+                this.route.navigateByUrl('/dashboard');
+
             }, err => {
                 if (err)
                     this.alertService.openSnackBar(err.error);

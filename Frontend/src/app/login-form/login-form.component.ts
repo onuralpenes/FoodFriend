@@ -22,7 +22,7 @@ export class LoginFormComponent implements OnInit {
     this.loginForm = this.formBuilder.group({
       emailAddress: new FormControl('', [Validators.required, Validators.email]),
       password: new FormControl('', [Validators.required]),
-      remember: new FormControl(''),
+      remember: new FormControl(false),
     });
 
     this.forgetMail = this.formBuilder.group({
