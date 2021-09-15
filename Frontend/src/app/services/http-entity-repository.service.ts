@@ -9,14 +9,13 @@ export class HttpEntityRepositoryService<T> {
     httpOptions = {
         headers: new HttpHeaders({
             "Content-Type": "application/json",
-            //Authorization: "Bearer " + localStorage.getItem(environment.TOKEN_KEY)
+            Authorization: "Bearer " + localStorage.getItem(environment.TOKEN_KEY)
         })
     };
 
     constructor(
         private http: HttpClient) { }
 
-    /// /api/[controller] - GET
     getAll(_url: string): Observable<T> {
         return this.http.get<T>(
             environment.BASE_URL + _url,
@@ -40,7 +39,6 @@ export class HttpEntityRepositoryService<T> {
         });
     }
 
-    /// /api/[controller]/:id - GET
     get(_url: string, id: number): Observable<T> {
         return this.http.get<T>(
             environment.BASE_URL + _url + "/" + id,
@@ -48,7 +46,6 @@ export class HttpEntityRepositoryService<T> {
         );
     }
 
-    /// /api/[controller] - POST
     insert(_url: string, _content: any): Observable<T> {
         return this.http.post<T>(
             environment.BASE_URL + _url,
@@ -57,7 +54,6 @@ export class HttpEntityRepositoryService<T> {
         );
     }
 
-    // /api/[controller] - PUT
     update(_url: string, _content: any): Observable<T> {
         return this.http.put<T>(
             environment.BASE_URL + _url + "/"+
@@ -66,7 +62,6 @@ export class HttpEntityRepositoryService<T> {
         );
     }
 
-    /// /api/[controller]/:id - DELETE
     delete(_url: string, id: number): Observable<T> {
         return this.http.delete<T>(
             environment.BASE_URL + _url + "/" + id,
