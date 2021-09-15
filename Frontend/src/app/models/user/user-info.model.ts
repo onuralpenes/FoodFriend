@@ -1,12 +1,12 @@
 export interface UserInfoDto {
+    id: number;
+
     firstName: string;
     lastName: string;
+    password: string;
     birthDate: Date;
-    weight: number;
-    height: number;
-    bloodType: string;
-    smoking: string;
-    alcohol: string;
-    exercise: string;
-    id: number;
+    emailAddress: string;
+    phone: string;
+    
+
 }

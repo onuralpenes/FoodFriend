@@ -41,12 +41,6 @@ export class PatientTraceTableComponent implements AfterViewInit {
     'firstName',
     'lastName',
     'birthDate',
-    'height',
-    'weight',
-    'bloodType',
-    'smoking',
-    'alcohol',
-    'exercise',
     'target',
     'foodData',
     'activityData',
@@ -100,7 +94,7 @@ export class PatientTraceTableComponent implements AfterViewInit {
       data: {
         name: firstName + ' ' + lastName,
         id: id,
-        currentWeight: this.users[id - 1].weight,
+        //currentWeight: this.users[id - 1].weight,
       },
     });
   }
