@@ -1,6 +1,7 @@
 import { DisabledList } from "./disabled-info.model";
 
-export interface PhysicalInfoDto {
+export interface PhysicalInfo {
+    physicalInfoId:	number;
     height:	number;
     weight:	number;
     disabledStatus:	boolean;

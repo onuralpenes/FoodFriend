@@ -1,4 +1,4 @@
-export interface IllnessList {
+export interface IllnessListDto {
     illnessList: IllnessDetailDto[];
 }
 

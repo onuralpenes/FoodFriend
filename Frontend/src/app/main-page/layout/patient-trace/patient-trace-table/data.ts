@@ -1,16 +1,16 @@
 import { Activity } from "src/app/models/table/patient-activity.model"
 import { Food } from "src/app/models/table/patient-food.model"
-import { AllergyList } from "src/app/models/user/user-dto/health-info/allergy-detail.model"
-import { IllnessList } from "src/app/models/user/user-dto/health-info/illnes-detail.model"
-import { PregnantList } from "src/app/models/user/user-dto/health-info/pregnant-detail.model"
-import { DisabledList } from "src/app/models/user/user-dto/physical-info/disabled-info.model"
+import { AllergyListDto } from "src/app/models/user/user-dto/health-info/allergy-detail-dto.model"
+import { IllnessListDto } from "src/app/models/user/user-dto/health-info/illness-detail-dto.model"
+import { PregnantListDto } from "src/app/models/user/user-dto/health-info/pregnant-detail-dto.model"
+import { DisabledListDto } from "src/app/models/user/user-dto/physical-info/disabled-info-dto.model"
 import { UserInfoDto } from "src/app/models/user/user-dto/user-info-dto.model"
 
 
-export const iList: IllnessList = { illnessList: [{ illnessType: 0, illnessName: "" }] }
-export const aList: AllergyList = { allergyList: [{ allergyType: 0, allergyName: " " }] }
-export const pList: PregnantList = { pregnantList: [{ pregnantStartDate: new Date(), pregnantEndDate: new Date() }] }
-export const dList: DisabledList = { disabledList: [{ disabledType: "", disabledRatio: 0 }] }
+export const iList: IllnessListDto = { illnessList: [{ illnessType: 0, illnessName: "" }] }
+export const aList: AllergyListDto = { allergyList: [{ allergyType: 0, allergyName: " " }] }
+export const pList: PregnantListDto = { pregnantList: [{ pregnantStartDate: new Date(), pregnantEndDate: new Date() }] }
+export const dList: DisabledListDto = { disabledList: [{ disabledType: "", disabledRatio: 0 }] }
 
 export const USER_DATA: UserInfoDto[] = [
     {

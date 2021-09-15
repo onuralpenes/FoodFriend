@@ -1,4 +1,4 @@
-export interface PregnantList {
+export interface PregnantListDto {
     pregnantList: PregnantDetailDto[];
 }
 
