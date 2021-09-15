@@ -1,4 +1,4 @@
-export interface DisabledList {
+export interface DisabledListDto {
     disabledList: DisabledDetailDto[];
 }
 

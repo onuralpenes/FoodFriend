@@ -1,4 +1,4 @@
-export interface AllergyList {
+export interface AllergyListDto {
     allergyList: AllergyDetailDto[];
 }
 

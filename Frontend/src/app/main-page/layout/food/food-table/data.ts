@@ -1,6 +1,7 @@
 //Where to get the nutritional data from the nutrient table.
 
-import { FoodDetailDto } from "src/app/models/table/food.model";
+import { FoodDetailDto } from "src/app/models/data/nutrition/food-detail-dto.model";
+
 
 export const FOOD_DATA: FoodDetailDto[] = [
     { foodName: 'Frozen yogurt', calorie: 159, oil: 6, carbohydrate: 24, protein: 4 },

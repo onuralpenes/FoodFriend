@@ -3,7 +3,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
-import { FoodDetailDto } from 'src/app/models/table/food.model';
+import { FoodDetailDto } from 'src/app/models/data/nutrition/food-detail-dto.model';
 import { AddFood } from './add-food/add-food.component';
 import { FOOD_DATA } from './data';
 import { EditFood } from './edit-table.component';
