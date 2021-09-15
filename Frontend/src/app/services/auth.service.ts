@@ -43,7 +43,7 @@ export class AuthService {
             osType: device.os
         }
         login.deviceInfo = devInfo;
-        console.log(login);
+
         this.http
             .post(environment.BASE_URL + "/auth/login", login, this.httpOptions)
             .subscribe(data => {
