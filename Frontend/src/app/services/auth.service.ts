@@ -9,7 +9,7 @@ import { QuickBranchService } from './quick-branch.service';
 import { Result } from '../models/core/result.model';
 import { AlertService } from '../helpers/alert.service';
 import { DeviceDetectorService } from 'ngx-device-detector';
-import { UserInfoDto } from '../models/user/user-dto/user-info-dto.model';
+import { UserInfo } from '../models/user/user-info/user-info.model';
 
 @Injectable({
     providedIn: 'root'
@@ -47,7 +47,6 @@ export class AuthService {
         this.http
             .post(environment.BASE_URL + "/auth/login", login, this.httpOptions)
             .subscribe(data => {
-                console.log(login);
                 var tokenData: any = data;
                 if (!tokenData.success) {
                     this.alertService.openSnackBar(tokenData.message);
@@ -58,9 +57,7 @@ export class AuthService {
                 this.alertService.openSnackBar(tokenData.message);
 
                 this.menuService.getMenu();
-                //this.quickBranchService.setQuickBranch(this.CurrentUser);
-
-                this.route.navigateByUrl('/dashboard');
+                this.quickBranchService.setQuickBranch(tokenData.data.user);
 
                 if (login.remember) {
                     localStorage.setItem('Username', login.emailAddress);
@@ -70,7 +67,9 @@ export class AuthService {
                     localStorage.setItem('Username', "");
                     localStorage.setItem('Password', "");
                 }
-               
+
+                this.route.navigateByUrl('/dashboard');
+
             }, err => {
                 if (err)
                     this.alertService.openSnackBar(err.error);
@@ -122,9 +121,9 @@ export class AuthService {
         return (authToken !== null) ? true : false;
     }
 
-    public get CurrentUser(): UserInfoDto {
+    public get CurrentUser(): UserInfo {
         const token = localStorage.getItem(environment.TOKEN_KEY) || '{}';
-        return this.jwtHelper.decodeToken(token) as UserInfoDto;
+        return this.jwtHelper.decodeToken(token) as UserInfo;
     }
 
     public get CurrentRoles() {

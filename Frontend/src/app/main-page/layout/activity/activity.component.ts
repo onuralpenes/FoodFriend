@@ -6,10 +6,8 @@ import { Component, OnInit, Output,EventEmitter } from '@angular/core';
   styleUrls: ['./activity.component.css']
 })
 export class ActivityComponent implements OnInit {
-  @Output() setPageName: EventEmitter<any> = new EventEmitter()
+
   constructor() { }
 
-  ngOnInit(): void {
-    this.setPageName.emit("Activity");
-  }
+  ngOnInit(): void { }
 }

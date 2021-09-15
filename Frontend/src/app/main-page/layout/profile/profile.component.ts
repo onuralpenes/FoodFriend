@@ -1,5 +1,8 @@
 import { Component, OnInit, Output,EventEmitter } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
+import { Observable } from 'rxjs';
+import { UserInfo } from 'src/app/models/user/user-info/user-info.model';
+import { HttpEntityRepositoryService } from 'src/app/services/http-entity-repository.service';
 import { SurveyComponent } from './survey/survey.component';
 
 //declare var require: any;
@@ -10,7 +13,9 @@ import { SurveyComponent } from './survey/survey.component';
   styleUrls: ['./profile.component.css']
 })
 export class ProfileComponent implements OnInit {
-  @Output() setPageName: EventEmitter<any> = new EventEmitter()
+
+  user: Observable<UserInfo>;
+
   weight = 85
   height = 181
   age = 21
@@ -55,7 +60,9 @@ export class ProfileComponent implements OnInit {
     ]
   }
   //public LOGO = require("../../../modules/images/yesil.jpg");
-  constructor(public modal: MatDialog) { }
+  constructor(public modal: MatDialog, private entityService: HttpEntityRepositoryService<UserInfo>){
+    this.user = entityService.getAll("/User/GetUserInfo"); //API id istiyor getAll yok bele
+  }
 
   editProfile(){
     this.modal.open(SurveyComponent);
@@ -72,7 +79,6 @@ export class ProfileComponent implements OnInit {
       this.female = true;
       this.genderless = false;
     }
-    this.setPageName.emit("Profile");
   }
 
 }
