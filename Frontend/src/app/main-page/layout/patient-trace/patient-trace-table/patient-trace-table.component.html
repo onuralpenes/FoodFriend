@@ -8,23 +8,23 @@
     <ng-container matColumnDef="firstName">
       <th mat-header-cell *matHeaderCellDef mat-sort-header class="lHead">{{'label.name' |
         translate}}</th>
-      <td mat-cell *matCellDef="let users" (click)="open(users.id)" class="lCol">{{ users.firstName }}</td>
+      <td mat-cell *matCellDef="let users" (click)="open(users.userId)" class="lCol">{{ users.firstName }}</td>
     </ng-container>
 
     <ng-container matColumnDef="lastName">
       <th mat-header-cell *matHeaderCellDef mat-sort-header>{{'label.surname' | translate}}</th>
-      <td mat-cell *matCellDef="let users" (click)="open(users.id)">{{ users.lastName }}</td>
+      <td mat-cell *matCellDef="let users" (click)="open(users.userId)">{{ users.lastName }}</td>
     </ng-container>
 
     <ng-container matColumnDef="birthDate">
       <th mat-header-cell *matHeaderCellDef mat-sort-header>{{'label.birthdate' | translate}}</th>
-      <td mat-cell *matCellDef="let users" (click)="open(users.id)">{{ users.birthDate | date: "dd/MM/yyyy" }}</td>
+      <td mat-cell *matCellDef="let users" (click)="open(users.userId)">{{ users.birthDate | date: "dd/MM/yyyy" }}</td>
     </ng-container>
 
     <ng-container matColumnDef="target">
       <th mat-header-cell *matHeaderCellDef>{{'target.purpose' | translate}}</th>
       <td mat-cell *matCellDef="let users">
-        <button class="tab-button" mat-icon-button (click)="openTarget(users.firstName, users.lastName, users.id)">
+        <button class="tab-button" mat-icon-button (click)="openTarget(users.firstName, users.lastName, users.userId)">
           <i class="fa fa-line-chart fa-lg" aria-hidden="true"></i>
         </button>
       </td>
@@ -34,7 +34,7 @@
       <th mat-header-cell *matHeaderCellDef>{{'target.nutriInfo' | translate}}
       </th>
       <td mat-cell *matCellDef="let users">
-        <button class="tab-button" mat-icon-button (click)="openFood(users.firstName, users.lastName, users.id)">
+        <button class="tab-button" mat-icon-button (click)="openFood(users.firstName, users.lastName, users.userId)">
           <i class="fa fa-cutlery fa-lg" aria-hidden="true"></i>
         </button>
       </td>
@@ -43,7 +43,7 @@
     <ng-container matColumnDef="activityData">
       <th mat-header-cell *matHeaderCellDef class="rHead"> {{'target.actiInfo' | translate}}</th>
       <td mat-cell *matCellDef="let users" class="rCol">
-        <button class="tab-button" mat-icon-button (click)="openActivity(users.firstName, users.lastName, users.id)">
+        <button class="tab-button" mat-icon-button (click)="openActivity(users.firstName, users.lastName, users.userId)">
           <i class="fa fa-bicycle fa-lg" aria-hidden="true"></i>
         </button>
       </td>

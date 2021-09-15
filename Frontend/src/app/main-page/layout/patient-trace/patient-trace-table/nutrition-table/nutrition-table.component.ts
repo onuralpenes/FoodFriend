@@ -20,8 +20,6 @@ export class NutritionTable implements AfterViewInit {
     constructor(@Inject(MAT_DIALOG_DATA) public data: Transfer) { }
 
     displayedColumns: string[] = [
-        'meal',
-        'foodCategory',
         'foodName',
         'calorie',
         'protein',
