@@ -12,6 +12,7 @@ import { CustomMaterialModule } from './modules/material/material.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+import { HttpEntityRepositoryService } from './services/http-entity-repository.service';
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http);
@@ -40,6 +41,7 @@ export function HttpLoaderFactory(http: HttpClient) {
       }
   })
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  providers: [HttpEntityRepositoryService]
 })
 export class AppModule { }
