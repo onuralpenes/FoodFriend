@@ -1,10 +1,11 @@
 import { Activity } from "src/app/models/table/patient-activity.model"
 import { Food } from "src/app/models/table/patient-food.model"
-import { AllergyList } from "src/app/models/user/health-info/allergy-detail.model"
-import { IllnessList } from "src/app/models/user/health-info/illnes-detail.model"
-import { PregnantList } from "src/app/models/user/health-info/pregnant-detail.model"
-import { DisabledList } from "src/app/models/user/physical-info/disabled-info.model"
-import { UserInfoDto } from "src/app/models/user/user-info.model"
+import { AllergyList } from "src/app/models/user/user-dto/health-info/allergy-detail.model"
+import { IllnessList } from "src/app/models/user/user-dto/health-info/illnes-detail.model"
+import { PregnantList } from "src/app/models/user/user-dto/health-info/pregnant-detail.model"
+import { DisabledList } from "src/app/models/user/user-dto/physical-info/disabled-info.model"
+import { UserInfoDto } from "src/app/models/user/user-dto/user-info.model"
+
 
 export const iList: IllnessList = { illnessList: [{ illnessType: 0, illnessName: "" }] }
 export const aList: AllergyList = { allergyList: [{ allergyType: 0, allergyName: " " }] }
