@@ -121,10 +121,10 @@ export class AuthService {
         return (authToken !== null) ? true : false;
     }
 
-    public get CurrentUser(): UserInfo {
-        const token = localStorage.getItem(environment.TOKEN_KEY) || '{}';
-        return this.jwtHelper.decodeToken(token) as UserInfo;
-    }
+    // public get CurrentUser(): UserInfo {
+    //     const token = localStorage.getItem(environment.TOKEN_KEY) || '{}';
+    //     return this.jwtHelper.decodeToken(token) as UserInfo;
+    // }
 
     public get CurrentRoles() {
         const token = localStorage.getItem(environment.TOKEN_KEY) || '{}';
