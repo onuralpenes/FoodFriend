@@ -9,7 +9,7 @@ import { QuickBranchService } from './quick-branch.service';
 import { Result } from '../models/core/result.model';
 import { AlertService } from '../helpers/alert.service';
 import { DeviceDetectorService } from 'ngx-device-detector';
-import { UserInfoDto } from '../models/user/user-dto/user-info.model';
+import { UserInfoDto } from '../models/user/user-dto/user-info-dto.model';
 
 @Injectable({
     providedIn: 'root'

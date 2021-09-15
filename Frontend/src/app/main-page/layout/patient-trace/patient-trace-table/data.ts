@@ -4,7 +4,7 @@ import { AllergyList } from "src/app/models/user/user-dto/health-info/allergy-de
 import { IllnessList } from "src/app/models/user/user-dto/health-info/illnes-detail.model"
 import { PregnantList } from "src/app/models/user/user-dto/health-info/pregnant-detail.model"
 import { DisabledList } from "src/app/models/user/user-dto/physical-info/disabled-info.model"
-import { UserInfoDto } from "src/app/models/user/user-dto/user-info.model"
+import { UserInfoDto } from "src/app/models/user/user-dto/user-info-dto.model"
 
 
 export const iList: IllnessList = { illnessList: [{ illnessType: 0, illnessName: "" }] }
