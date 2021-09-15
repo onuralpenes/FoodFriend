@@ -4,7 +4,7 @@ import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import { Router } from '@angular/router';
-import { User } from 'src/app/models/user/user.model';
+import { UserInfoDto } from 'src/app/models/user/user-info.model';
 import { ActivityTable } from './activity-table/activity-table.component';
 import { USER_DATA } from './data';
 import { NutritionTable } from './nutrition-table/nutrition-table.component';
@@ -31,7 +31,7 @@ export interface Transfer2 {
   styleUrls: ['./patient-trace-table.component.css'],
 })
 export class PatientTraceTableComponent implements AfterViewInit {
-  users: User[] = USER_DATA;
+  users: UserInfoDto[] = USER_DATA;
   sortedData = this.users;
   isNull: boolean = true;
 
@@ -41,12 +41,6 @@ export class PatientTraceTableComponent implements AfterViewInit {
     'firstName',
     'lastName',
     'birthDate',
-    'height',
-    'weight',
-    'bloodType',
-    'smoking',
-    'alcohol',
-    'exercise',
     'target',
     'foodData',
     'activityData',
@@ -100,7 +94,7 @@ export class PatientTraceTableComponent implements AfterViewInit {
       data: {
         name: firstName + ' ' + lastName,
         id: id,
-        currentWeight: this.users[id - 1].weight,
+        //currentWeight: this.users[id - 1].weight,
       },
     });
   }

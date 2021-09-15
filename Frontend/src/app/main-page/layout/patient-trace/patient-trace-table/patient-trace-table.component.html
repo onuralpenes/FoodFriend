@@ -21,36 +21,6 @@
       <td mat-cell *matCellDef="let users" (click)="open(users.id)">{{ users.birthDate | date: "dd/MM/yyyy" }}</td>
     </ng-container>
 
-    <ng-container matColumnDef="height">
-      <th mat-header-cell *matHeaderCellDef mat-sort-header>{{'label.height' | translate}}</th>
-      <td mat-cell *matCellDef="let users" (click)="open(users.id)">{{ users.height }}</td>
-    </ng-container>
-
-    <ng-container matColumnDef="weight">
-      <th mat-header-cell *matHeaderCellDef mat-sort-header>{{'label.weight' | translate}}</th>
-      <td mat-cell *matCellDef="let users" (click)="open(users.id)">{{ users.weight }}</td>
-    </ng-container>
-
-    <ng-container matColumnDef="bloodType">
-      <th mat-header-cell *matHeaderCellDef mat-sort-header>{{'label.blood' | translate}}</th>
-      <td mat-cell *matCellDef="let users" (click)="open(users.id)">{{ users.bloodType }}</td>
-    </ng-container>
-
-    <ng-container matColumnDef="smoking">
-      <th mat-header-cell *matHeaderCellDef mat-sort-header>{{'label.smoking' | translate}}</th>
-      <td mat-cell *matCellDef="let users" (click)="open(users.id)">{{ users.smoking }}</td>
-    </ng-container>
-
-    <ng-container matColumnDef="alcohol">
-      <th mat-header-cell *matHeaderCellDef mat-sort-header>{{'label.alcohol' | translate}}</th>
-      <td mat-cell *matCellDef="let users" (click)="open(users.id)">{{ users.alcohol }}</td>
-    </ng-container>
-
-    <ng-container matColumnDef="exercise">
-      <th mat-header-cell *matHeaderCellDef mat-sort-header>{{'label.exercise' | translate}}</th>
-      <td mat-cell *matCellDef="let users" (click)="open(users.id)">{{ users.exercise }}</td>
-    </ng-container>
-
     <ng-container matColumnDef="target">
       <th mat-header-cell *matHeaderCellDef>{{'target.purpose' | translate}}</th>
       <td mat-cell *matCellDef="let users">

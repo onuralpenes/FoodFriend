@@ -4,13 +4,12 @@ import { Router } from '@angular/router';
 import { environment } from 'src/environments/environment';
 import { JwtHelperService } from '@auth0/angular-jwt';
 import { LoginDto } from '../models/user/login.model';
-import { User } from '../models/user/user.model';
 import { MenuService } from './menu.service';
 import { QuickBranchService } from './quick-branch.service';
 import { Result } from '../models/core/result.model';
 import { AlertService } from '../helpers/alert.service';
 import { DeviceDetectorService } from 'ngx-device-detector';
-import { DeviceInfo } from '../models/user/deviceInfo.model';
+import { UserInfoDto } from '../models/user/user-info.model';
 
 @Injectable({
     providedIn: 'root'
@@ -43,7 +42,7 @@ export class AuthService {
             osType: device.os
         }
         login.deviceInfo = devInfo;
-        console.log(login);
+
         this.http
             .post(environment.BASE_URL + "/auth/login", login, this.httpOptions)
             .subscribe(data => {
@@ -122,9 +121,9 @@ export class AuthService {
         return (authToken !== null) ? true : false;
     }
 
-    public get CurrentUser(): User {
+    public get CurrentUser(): UserInfoDto {
         const token = localStorage.getItem(environment.TOKEN_KEY) || '{}';
-        return this.jwtHelper.decodeToken(token) as User;
+        return this.jwtHelper.decodeToken(token) as UserInfoDto;
     }
 
     public get CurrentRoles() {
