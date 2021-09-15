@@ -35,3 +35,13 @@ mat-dialog-container {
 .mat-form-field-ripple {
    background-color: #009879 !important;;
 }
+
+.alert{
+    background-color: #00b97d !important;
+    color:white !important;
+    border-radius: 10px;
+  }
+
+  .alert button{
+    color:white !important;
+  }
