@@ -1,30 +1,143 @@
 import { Activity } from "src/app/models/table/patient-activity.model"
 import { Food } from "src/app/models/table/patient-food.model"
+import { AllergyList } from "src/app/models/user/health-info/allergy-detail.model"
+import { IllnessList } from "src/app/models/user/health-info/illnes-detail.model"
+import { PregnantList } from "src/app/models/user/health-info/pregnant-detail.model"
+import { DisabledList } from "src/app/models/user/physical-info/disabled-info.model"
 import { UserInfoDto } from "src/app/models/user/user-info.model"
 
+export const iList: IllnessList = { illnessList: [{ illnessType: 0, illnessName: "" }] }
+export const aList: AllergyList = { allergyList: [{ allergyType: 0, allergyName: " " }] }
+export const pList: PregnantList = { pregnantList: [{ pregnantStartDate: new Date(), pregnantEndDate: new Date() }] }
+export const dList: DisabledList = { disabledList: [{ disabledType: "", disabledRatio: 0 }] }
 
 export const USER_DATA: UserInfoDto[] = [
-    { firstName: 'Ali', lastName: 'Akman', birthDate: new Date(1995, 10, 8), password: "", emailAddress: "", phone: "", id: 1 },
-    { firstName: 'Malaika', lastName: 'Connor', birthDate: new Date(2000, 5, 14), password: "", emailAddress: "", phone: "", id: 2 },
-    { firstName: 'Anaya', lastName: 'Cleveland', birthDate: new Date(1999, 2, 25), password: "", emailAddress: "", phone: "", id: 3 },
-    { firstName: 'Jad', lastName: 'Myers', birthDate: new Date(1985, 11, 7), password: "", emailAddress: "", phone: "", id: 4 },
-    { firstName: 'Heath', lastName: 'Rankin', birthDate: new Date(1989, 2, 16), password: "", emailAddress: "", phone: "", id: 5 },
-    { firstName: 'Jovan', lastName: 'Fuentes', birthDate: new Date(1999, 12, 2), password: "", emailAddress: "", phone: "", id: 6 },
-    { firstName: 'Ammar', lastName: 'Caldwell', birthDate: new Date(1986, 7, 7), password: "", emailAddress: "", phone: "", id: 7 },
-    { firstName: 'Vera', lastName: 'Gardner', birthDate: new Date(1972, 4, 20), password: "", emailAddress: "", phone: "", id: 8 },
-    { firstName: 'Camden', lastName: 'Rosales', birthDate: new Date(1964, 9, 27), password: "", emailAddress: "", phone: "", id: 9 },
-    { firstName: 'Carly', lastName: 'Mckinney', birthDate: new Date(1974, 9, 6), password: "", emailAddress: "", phone: "", id: 10 },
-    { firstName: 'Esther', lastName: 'John', birthDate: new Date(1981, 9, 15), password: "", emailAddress: "", phone: "", id: 11 },
-    { firstName: 'Alexandria', lastName: 'Alvarez', birthDate: new Date(1982, 5, 31), password: "", emailAddress: "", phone: "", id: 12 },
-    { firstName: 'Ruairi', lastName: 'Sheppard', birthDate: new Date(1983, 5, 20), password: "", emailAddress: "", phone: "", id: 12 },
-    { firstName: 'Artur', lastName: 'Cassidy', birthDate: new Date(2002, 1, 30), password: "", emailAddress: "", phone: "", id: 13 },
-    { firstName: 'Felicia', lastName: 'Harvey', birthDate: new Date(1998, 7, 9), password: "", emailAddress: "", phone: "", id: 14 },
-    { firstName: 'Shaunie', lastName: 'Bonilla', birthDate: new Date(1983, 7, 21), password: "", emailAddress: "", phone: "", id: 15 },
-    { firstName: 'Bradlee', lastName: 'Ramsey', birthDate: new Date(1989, 2, 4), password: "", emailAddress: "", phone: "", id: 16 },
-    { firstName: 'Nel', lastName: 'Nunez', birthDate: new Date(1996, 5, 13), password: "", emailAddress: "", phone: "", id: 17 },
-    { firstName: 'Conrad', lastName: 'Justice', birthDate: new Date(1963, 1, 7), password: "", emailAddress: "", phone: "", id: 18 },
-    { firstName: 'Danyl', lastName: 'Mays', birthDate: new Date(1986, 7, 19), password: "", emailAddress: "", phone: "", id: 19 },
-    { firstName: 'Ester', lastName: 'Expósito', birthDate: new Date(2000, 1, 26), password: "", emailAddress: "", phone: "", id: 20},
+    {
+        firstName: 'Ali', lastName: 'Akman', birthDate: new Date(1995, 10, 8), password: "", emailAddress: "", phone: "", id: 1, healthInfoInfoDto: {
+            hasHealthProblem: false, hasAllergy: false, isPregnant: false, illnessDetailList: iList, allergyDetailList: aList, pregnantDetailList: pList,
+        }, physicalInfo: { height: 0, weight: 0, disabledStatus: false, disabledInfo: dList, }
+    },
+
+    {
+        firstName: 'Malaika', lastName: 'Connor', birthDate: new Date(2000, 5, 14), password: "", emailAddress: "", phone: "", id: 2, healthInfoInfoDto: {
+            hasHealthProblem: false, hasAllergy: false, isPregnant: false, illnessDetailList: iList, allergyDetailList: aList, pregnantDetailList: pList,
+        }, physicalInfo: { height: 0, weight: 0, disabledStatus: false, disabledInfo: dList, }
+    },
+
+    {
+        firstName: 'Anaya', lastName: 'Cleveland', birthDate: new Date(1999, 2, 25), password: "", emailAddress: "", phone: "", id: 3, healthInfoInfoDto: {
+            hasHealthProblem: false, hasAllergy: false, isPregnant: false, illnessDetailList: iList, allergyDetailList: aList, pregnantDetailList: pList,
+        }, physicalInfo: { height: 0, weight: 0, disabledStatus: false, disabledInfo: dList, }
+    },
+
+    {
+        firstName: 'Jad', lastName: 'Myers', birthDate: new Date(1985, 11, 7), password: "", emailAddress: "", phone: "", id: 4, healthInfoInfoDto: {
+            hasHealthProblem: false, hasAllergy: false, isPregnant: false, illnessDetailList: iList, allergyDetailList: aList, pregnantDetailList: pList,
+        }, physicalInfo: { height: 0, weight: 0, disabledStatus: false, disabledInfo: dList, }
+    },
+
+    {
+        firstName: 'Heath', lastName: 'Rankin', birthDate: new Date(1989, 2, 16), password: "", emailAddress: "", phone: "", id: 5, healthInfoInfoDto: {
+            hasHealthProblem: false, hasAllergy: false, isPregnant: false, illnessDetailList: iList, allergyDetailList: aList, pregnantDetailList: pList,
+        }, physicalInfo: { height: 0, weight: 0, disabledStatus: false, disabledInfo: dList, }
+    },
+
+    {
+        firstName: 'Jovan', lastName: 'Fuentes', birthDate: new Date(1999, 12, 2), password: "", emailAddress: "", phone: "", id: 6, healthInfoInfoDto: {
+            hasHealthProblem: false, hasAllergy: false, isPregnant: false, illnessDetailList: iList, allergyDetailList: aList, pregnantDetailList: pList,
+        }, physicalInfo: { height: 0, weight: 0, disabledStatus: false, disabledInfo: dList, }
+    },
+
+    {
+        firstName: 'Ammar', lastName: 'Caldwell', birthDate: new Date(1986, 7, 7), password: "", emailAddress: "", phone: "", id: 7, healthInfoInfoDto: {
+            hasHealthProblem: false, hasAllergy: false, isPregnant: false, illnessDetailList: iList, allergyDetailList: aList, pregnantDetailList: pList,
+        }, physicalInfo: { height: 0, weight: 0, disabledStatus: false, disabledInfo: dList, }
+    },
+
+    {
+        firstName: 'Vera', lastName: 'Gardner', birthDate: new Date(1972, 4, 20), password: "", emailAddress: "", phone: "", id: 8, healthInfoInfoDto: {
+            hasHealthProblem: false, hasAllergy: false, isPregnant: false, illnessDetailList: iList, allergyDetailList: aList, pregnantDetailList: pList,
+        }, physicalInfo: { height: 0, weight: 0, disabledStatus: false, disabledInfo: dList, }
+    },
+
+    {
+        firstName: 'Camden', lastName: 'Rosales', birthDate: new Date(1964, 9, 27), password: "", emailAddress: "", phone: "", id: 9, healthInfoInfoDto: {
+            hasHealthProblem: false, hasAllergy: false, isPregnant: false, illnessDetailList: iList, allergyDetailList: aList, pregnantDetailList: pList,
+        }, physicalInfo: { height: 0, weight: 0, disabledStatus: false, disabledInfo: dList, }
+    },
+
+    {
+        firstName: 'Carly', lastName: 'Mckinney', birthDate: new Date(1974, 9, 6), password: "", emailAddress: "", phone: "", id: 10, healthInfoInfoDto: {
+            hasHealthProblem: false, hasAllergy: false, isPregnant: false, illnessDetailList: iList, allergyDetailList: aList, pregnantDetailList: pList,
+        }, physicalInfo: { height: 0, weight: 0, disabledStatus: false, disabledInfo: dList, }
+    },
+
+    {
+        firstName: 'Esther', lastName: 'John', birthDate: new Date(1981, 9, 15), password: "", emailAddress: "", phone: "", id: 11, healthInfoInfoDto: {
+            hasHealthProblem: false, hasAllergy: false, isPregnant: false, illnessDetailList: iList, allergyDetailList: aList, pregnantDetailList: pList,
+        }, physicalInfo: { height: 0, weight: 0, disabledStatus: false, disabledInfo: dList, }
+    },
+
+    {
+        firstName: 'Alexandria', lastName: 'Alvarez', birthDate: new Date(1982, 5, 31), password: "", emailAddress: "", phone: "", id: 12, healthInfoInfoDto: {
+            hasHealthProblem: false, hasAllergy: false, isPregnant: false, illnessDetailList: iList, allergyDetailList: aList, pregnantDetailList: pList,
+        }, physicalInfo: { height: 0, weight: 0, disabledStatus: false, disabledInfo: dList, }
+    },
+
+    {
+        firstName: 'Ruairi', lastName: 'Sheppard', birthDate: new Date(1983, 5, 20), password: "", emailAddress: "", phone: "", id: 13, healthInfoInfoDto: {
+            hasHealthProblem: false, hasAllergy: false, isPregnant: false, illnessDetailList: iList, allergyDetailList: aList, pregnantDetailList: pList,
+        }, physicalInfo: { height: 0, weight: 0, disabledStatus: false, disabledInfo: dList, }
+    },
+
+    {
+        firstName: 'Artur', lastName: 'Cassidy', birthDate: new Date(2002, 1, 30), password: "", emailAddress: "", phone: "", id: 14, healthInfoInfoDto: {
+            hasHealthProblem: false, hasAllergy: false, isPregnant: false, illnessDetailList: iList, allergyDetailList: aList, pregnantDetailList: pList,
+        }, physicalInfo: { height: 0, weight: 0, disabledStatus: false, disabledInfo: dList, }
+    },
+
+    {
+        firstName: 'Felicia', lastName: 'Harvey', birthDate: new Date(1998, 7, 9), password: "", emailAddress: "", phone: "", id: 15, healthInfoInfoDto: {
+            hasHealthProblem: false, hasAllergy: false, isPregnant: false, illnessDetailList: iList, allergyDetailList: aList, pregnantDetailList: pList,
+        }, physicalInfo: { height: 0, weight: 0, disabledStatus: false, disabledInfo: dList, }
+    },
+
+    {
+        firstName: 'Shaunie', lastName: 'Bonilla', birthDate: new Date(1983, 7, 21), password: "", emailAddress: "", phone: "", id: 16, healthInfoInfoDto: {
+            hasHealthProblem: false, hasAllergy: false, isPregnant: false, illnessDetailList: iList, allergyDetailList: aList, pregnantDetailList: pList,
+        }, physicalInfo: { height: 0, weight: 0, disabledStatus: false, disabledInfo: dList, }
+    },
+
+    {
+        firstName: 'Bradlee', lastName: 'Ramsey', birthDate: new Date(1989, 2, 4), password: "", emailAddress: "", phone: "", id: 17, healthInfoInfoDto: {
+            hasHealthProblem: false, hasAllergy: false, isPregnant: false, illnessDetailList: iList, allergyDetailList: aList, pregnantDetailList: pList,
+        }, physicalInfo: { height: 0, weight: 0, disabledStatus: false, disabledInfo: dList, }
+    },
+
+    {
+        firstName: 'Nel', lastName: 'Nunez', birthDate: new Date(1996, 5, 13), password: "", emailAddress: "", phone: "", id: 18, healthInfoInfoDto: {
+            hasHealthProblem: false, hasAllergy: false, isPregnant: false, illnessDetailList: iList, allergyDetailList: aList, pregnantDetailList: pList,
+        }, physicalInfo: { height: 0, weight: 0, disabledStatus: false, disabledInfo: dList, }
+    },
+
+    {
+        firstName: 'Conrad', lastName: 'Justice', birthDate: new Date(1963, 1, 7), password: "", emailAddress: "", phone: "", id: 19, healthInfoInfoDto: {
+            hasHealthProblem: false, hasAllergy: false, isPregnant: false, illnessDetailList: iList, allergyDetailList: aList, pregnantDetailList: pList,
+        }, physicalInfo: { height: 0, weight: 0, disabledStatus: false, disabledInfo: dList, }
+    },
+
+    {
+        firstName: 'Danyl', lastName: 'Mays', birthDate: new Date(1986, 7, 19), password: "", emailAddress: "", phone: "", id: 20, healthInfoInfoDto: {
+            hasHealthProblem: false, hasAllergy: false, isPregnant: false, illnessDetailList: iList, allergyDetailList: aList, pregnantDetailList: pList,
+        }, physicalInfo: { height: 0, weight: 0, disabledStatus: false, disabledInfo: dList, }
+    },
+
+    {
+        firstName: 'Ester', lastName: 'Expósito', birthDate: new Date(2000, 1, 26), password: "", emailAddress: "", phone: "", id: 21, healthInfoInfoDto: {
+            hasHealthProblem: false, hasAllergy: false, isPregnant: false, illnessDetailList: iList, allergyDetailList: aList, pregnantDetailList: pList,
+        }, physicalInfo: { height: 0, weight: 0, disabledStatus: false, disabledInfo: dList, }
+    },
+
 ]
 
 export const FOOD_DATA: Food[] = [
@@ -105,7 +218,7 @@ export const ACTIVITY_DATA: Activity[] = [
     { activityType: 'socker', activityPeriod: 1, activityEffortSpent: 352, activityeffortUnit: 1, activityStartDate: new Date(2021, 10, 3), activityEndDate: new Date(2021, 10, 3), id: 2 },
     { activityType: 'Lift weights', activityPeriod: 3, activityEffortSpent: 85, activityeffortUnit: 12, activityStartDate: new Date(2021, 10, 5), activityEndDate: new Date(2021, 10, 5), id: 2 },
     { activityType: 'Plank', activityPeriod: 2, activityEffortSpent: 98, activityeffortUnit: 1, activityStartDate: new Date(2021, 10, 5), activityEndDate: new Date(2021, 10, 5), id: 2 },
-    { activityType: 'basketball', activityPeriod: 1, activityEffortSpent: 293, activityeffortUnit:15, activityStartDate: new Date(2021, 1, 4), activityEndDate: new Date(2021, 1, 4), id: 3 },
+    { activityType: 'basketball', activityPeriod: 1, activityEffortSpent: 293, activityeffortUnit: 15, activityStartDate: new Date(2021, 1, 4), activityEndDate: new Date(2021, 1, 4), id: 3 },
     { activityType: ' Push-up', activityPeriod: 3, activityEffortSpent: 63, activityeffortUnit: 15, activityStartDate: new Date(2021, 3, 4), activityEndDate: new Date(2021, 3, 4), id: 3 },
     { activityType: ' Crunch ', activityPeriod: 3, activityEffortSpent: 78, activityeffortUnit: 15, activityStartDate: new Date(2021, 3, 4), activityEndDate: new Date(2021, 3, 4), id: 3 },
     { activityType: 'Squat', activityPeriod: 3, activityEffortSpent: 62, activityeffortUnit: 15, activityStartDate: new Date(2021, 3, 4), activityEndDate: new Date(2021, 3, 4), id: 3 },
@@ -119,7 +232,7 @@ export const ACTIVITY_DATA: Activity[] = [
     { activityType: 'Squat', activityPeriod: 6, activityEffortSpent: 127, activityeffortUnit: 21, activityStartDate: new Date(2021, 18, 4), activityEndDate: new Date(2021, 18, 4), id: 6 },
     { activityType: 'Running', activityPeriod: 1, activityEffortSpent: 359, activityeffortUnit: 1, activityStartDate: new Date(2021, 18, 4), activityEndDate: new Date(2021, 18, 4), id: 6 },
     { activityType: 'Lift weights', activityPeriod: 5, activityEffortSpent: 114, activityeffortUnit: 15, activityStartDate: new Date(2021, 20, 4), activityEndDate: new Date(2021, 20, 4), id: 6 },
-    { activityType: 'cycling', activityPeriod: 1, activityEffortSpent: 423, activityeffortUnit:1, activityStartDate: new Date(2021, 20, 4), activityEndDate: new Date(2021, 20, 4), id: 6 },
+    { activityType: 'cycling', activityPeriod: 1, activityEffortSpent: 423, activityeffortUnit: 1, activityStartDate: new Date(2021, 20, 4), activityEndDate: new Date(2021, 20, 4), id: 6 },
     { activityType: ' Squat Twist-Jumps', activityPeriod: 2, activityEffortSpent: 71, activityeffortUnit: 35, activityStartDate: new Date(2021, 2, 5), activityEndDate: new Date(2021, 2, 5), id: 7 },
     { activityType: ' Mountain Climbers', activityPeriod: 2, activityEffortSpent: 89, activityeffortUnit: 42, activityStartDate: new Date(2021, 2, 5), activityEndDate: new Date(2021, 2, 5), id: 7 },
     { activityType: 'Running', activityPeriod: 1, activityEffortSpent: 368, activityeffortUnit: 1, activityStartDate: new Date(2021, 2, 7), activityEndDate: new Date(2021, 2, 7), id: 7 },
@@ -148,7 +261,7 @@ export const ACTIVITY_DATA: Activity[] = [
     { activityType: 'Squat', activityPeriod: 6, activityEffortSpent: 126, activityeffortUnit: 17, activityStartDate: new Date(2021, 5, 6), activityEndDate: new Date(2021, 5, 6), id: 15 },
     { activityType: 'Running', activityPeriod: 1, activityEffortSpent: 348, activityeffortUnit: 1, activityStartDate: new Date(2021, 5, 6), activityEndDate: new Date(2021, 5, 6), id: 15 },
     { activityType: 'Lift weights', activityPeriod: 5, activityEffortSpent: 132, activityeffortUnit: 18, activityStartDate: new Date(2021, 5, 7), activityEndDate: new Date(2021, 5, 7), id: 15 },
-    { activityType: 'cycling', activityPeriod: 1, activityEffortSpent: 456, activityeffortUnit:1, activityStartDate: new Date(2021, 20, 4), activityEndDate: new Date(2021, 20, 4), id: 15 },
+    { activityType: 'cycling', activityPeriod: 1, activityEffortSpent: 456, activityeffortUnit: 1, activityStartDate: new Date(2021, 20, 4), activityEndDate: new Date(2021, 20, 4), id: 15 },
     { activityType: 'Swimming', activityPeriod: 1, activityEffortSpent: 219, activityeffortUnit: 1, activityStartDate: new Date(2021, 11, 1), activityEndDate: new Date(2021, 11, 1), id: 16 },
     { activityType: 'Dancing', activityPeriod: 1, activityEffortSpent: 235, activityeffortUnit: 1, activityStartDate: new Date(2021, 11, 2), activityEndDate: new Date(2021, 11, 2), id: 16 },
     { activityType: 'Socker', activityPeriod: 1, activityEffortSpent: 325, activityeffortUnit: 1, activityStartDate: new Date(2021, 11, 3), activityEndDate: new Date(2021, 11, 3), id: 16 },

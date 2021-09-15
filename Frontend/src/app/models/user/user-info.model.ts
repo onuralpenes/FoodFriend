@@ -1,3 +1,6 @@
+import { HealthInfoDto } from "./health-info/health-info.model";
+import { PhysicalInfoDto } from "./physical-info/physical-info.model";
+
 export interface UserInfoDto {
     id: number;
 
@@ -8,5 +11,7 @@ export interface UserInfoDto {
     emailAddress: string;
     phone: string;
     
+    healthInfoInfoDto: HealthInfoDto;
+    physicalInfo: PhysicalInfoDto;
 
 }
