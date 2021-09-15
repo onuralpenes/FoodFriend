@@ -2,10 +2,10 @@ import { Component, OnInit, Output,EventEmitter } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { Observable } from 'rxjs';
 import { UserInfo } from 'src/app/models/user/user-info/user-info.model';
+import { AuthService } from 'src/app/services/auth.service';
 import { HttpEntityRepositoryService } from 'src/app/services/http-entity-repository.service';
+import { QuickBranchService } from 'src/app/services/quick-branch.service';
 import { SurveyComponent } from './survey/survey.component';
-
-//declare var require: any;
 
 @Component({
   selector: 'app-profile',
@@ -19,7 +19,7 @@ export class ProfileComponent implements OnInit {
   weight = 85
   height = 181
   age = 21
-  userName = "Onuralp Enes Öz"; //tıklanılan kullanıcın adı olacak
+  userName = "Onuralp Enes Öz";
   dummy = "dummy";
   gender = "male";
   genderless = false;
@@ -60,8 +60,8 @@ export class ProfileComponent implements OnInit {
     ]
   }
   //public LOGO = require("../../../modules/images/yesil.jpg");
-  constructor(public modal: MatDialog, private entityService: HttpEntityRepositoryService<UserInfo>){
-    this.user = entityService.getAll("/User/GetUserInfo"); //API id istiyor getAll yok bele
+  constructor(public modal: MatDialog, private entityService: HttpEntityRepositoryService<UserInfo>, private authService: AuthService){
+    this.user = entityService.get("/User/GetUserInfo?userId=", authService.CurrentUser.userId);
   }
 
   editProfile(){

@@ -52,12 +52,12 @@ export class AuthService {
                     this.alertService.openSnackBar(tokenData.message);
                     return;
                 }
-
-                this.saveToken(tokenData.data.token);
+                
+                this.saveToken(tokenData.data.accessToken.token);
                 this.alertService.openSnackBar(tokenData.message);
 
                 this.menuService.getMenu();
-                this.quickBranchService.setQuickBranch(tokenData.data.user);
+                this.quickBranchService.setQuickBranch(this.CurrentUser);
 
                 if (login.remember) {
                     localStorage.setItem('Username', login.emailAddress);

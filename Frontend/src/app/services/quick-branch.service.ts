@@ -7,11 +7,11 @@ import { UserInfo } from "../models/user/user-info/user-info.model";
 export class QuickBranchService {
     id!: number;
 
-    setQuickBranch(user: UserInfo){
-        this.id = user.userId; 
+    setQuickBranch(user: UserInfo) {
+        this.id = user.userId;
     }
 
-    getID(){
+    getId() {
         return this.id;
     }
 }
