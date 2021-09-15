@@ -16,7 +16,7 @@ export class AppComponent {
     translate.setDefaultLang('en');
     const browserLang = translate.getBrowserLang();
     translate.use(browserLang.match(/en|tr/) ? browserLang : 'en');
-    if(loginService.isLoggedIn){
+    if(loginService.isLoggedIn && this.route.url == "/login"){
       this.route.navigateByUrl('/dashboard');
     }
   }
