@@ -1,9 +1,9 @@
 import { Activity } from "src/app/models/table/patient-activity.model"
 import { Food } from "src/app/models/table/patient-food.model"
-import { User } from "src/app/models/user/user.model"
+import { UserInfoDto } from "src/app/models/user/user-info.model"
 
 
-export const USER_DATA: User[] = [
+export const USER_DATA: UserInfoDto[] = [
     { firstName: 'Ali', lastName: 'Akman', birthDate: new Date(1995, 10, 8), weight: 75, height: 175, bloodType: 'A+', smoking: 'Yes', alcohol: 'No', exercise: 'Yes', id: 1 },
     { firstName: 'Malaika', lastName: 'Connor', birthDate: new Date(2000, 5, 14), weight: 100, height: 195, bloodType: 'A-', smoking: 'No', alcohol: 'Yes', exercise: 'No', id: 2 },
     { firstName: 'Anaya', lastName: 'Cleveland', birthDate: new Date(1999, 2, 25), weight: 82, height: 163, bloodType: '0+', smoking: 'No', alcohol: 'No', exercise: 'No', id: 3 },
