@@ -52,12 +52,12 @@ export class AuthService {
                     this.alertService.openSnackBar(tokenData.message);
                     return;
                 }
-
-                this.saveToken(tokenData.data.token);
+                
+                this.saveToken(tokenData.data.accessToken.token);
                 this.alertService.openSnackBar(tokenData.message);
 
                 this.menuService.getMenu();
-                this.quickBranchService.setQuickBranch(tokenData.data.user);
+                this.quickBranchService.setQuickBranch(this.CurrentUser);
 
                 if (login.remember) {
                     localStorage.setItem('Username', login.emailAddress);
@@ -121,10 +121,10 @@ export class AuthService {
         return (authToken !== null) ? true : false;
     }
 
-    // public get CurrentUser(): UserInfo {
-    //     const token = localStorage.getItem(environment.TOKEN_KEY) || '{}';
-    //     return this.jwtHelper.decodeToken(token) as UserInfo;
-    // }
+    public get CurrentUser(): UserInfo {
+        const token = localStorage.getItem(environment.TOKEN_KEY) || '{}';
+        return this.jwtHelper.decodeToken(token) as UserInfo;
+    }
 
     public get CurrentRoles() {
         const token = localStorage.getItem(environment.TOKEN_KEY) || '{}';
