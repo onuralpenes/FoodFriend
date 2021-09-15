@@ -1,4 +1,4 @@
-import { DeviceInfo } from "./deviceInfo.model";
+import { DeviceDetailDto } from "./device-detail-dto.model";
 
 export interface RegisterDto {
     firstName: string,
@@ -7,5 +7,5 @@ export interface RegisterDto {
     phoneNumber: number,
     password: string,
     birthDate: Date,
-    deviceInfo: DeviceInfo
+    deviceInfo: DeviceDetailDto
 }

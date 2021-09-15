@@ -2,8 +2,6 @@ import { HealthInfoDto } from "./health-info/health-info-dto.model";
 import { PhysicalInfoDto } from "./physical-info/physical-info-dto.model";
 
 export interface UserInfoDto {
-    id: number;
-
     firstName: string;
     lastName: string;
     password: string;

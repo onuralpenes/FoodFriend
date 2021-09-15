@@ -39,7 +39,8 @@ export class AuthService {
             deviceName: device.device,
             deviceModel: device.deviceType,
             osVersion: device.os_version,
-            osType: device.os
+            osType: device.os,
+            deviceId: 0
         }
         login.deviceInfo = devInfo;
 

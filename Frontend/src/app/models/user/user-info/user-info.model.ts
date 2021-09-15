@@ -1,3 +1,4 @@
+import { HealthInfo } from "./health/health-info.model";
 import { PhysicalInfo } from "./physical/physical-info.model";
 
 export interface UserInfo {
@@ -6,8 +7,8 @@ export interface UserInfo {
     firstName: string;
     lastName: string;
     password: string;
-    passwordHash: string,
-    passwordSalt: string,
+    passwordHash: string;
+    passwordSalt: string;
     birthDate: Date;
     emailAddress: string;
     phone: string;
@@ -15,7 +16,7 @@ export interface UserInfo {
     biometricId: string;
     healthInfoId: number
 
-    // healthInfo: HealthInfo;
+    healthInfo: HealthInfo;
     physicalInfo: PhysicalInfo;
 
 }

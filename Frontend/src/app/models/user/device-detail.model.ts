@@ -1,4 +1,5 @@
-export interface DeviceInfo {
+export interface DeviceDetail{
+    deviceId: number,
     deviceKey: string,
     deviceName: string,
     deviceModel: string,

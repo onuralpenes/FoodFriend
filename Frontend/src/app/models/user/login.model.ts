@@ -1,8 +1,8 @@
-import { DeviceInfo } from "./deviceInfo.model";
+import { DeviceDetail } from "./device-detail.model";
 
 export interface LoginDto {
     emailAddress: string,
     password: string,
-    deviceInfo: DeviceInfo,
+    deviceInfo: DeviceDetail,
     remember: boolean
 }

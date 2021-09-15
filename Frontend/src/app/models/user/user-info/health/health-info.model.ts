@@ -2,7 +2,7 @@ import { AllergyList } from "./allergy-detail.model";
 import { IllnessList } from "./illness-detail.model";
 import { PregnantList } from "./pregnant-detail.model";
 
-export interface HealthInfoDto {
+export interface HealthInfo {
     healthInfoId: number;
     hasHealthProblem: boolean;
     hasAllergy: boolean;
