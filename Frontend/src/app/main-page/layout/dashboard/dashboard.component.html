@@ -1,114 +1,59 @@
-<div style="height: 3%;"></div>
-
 <div class="row">
-    <div class="col-md-9">
+    <div><br></div>
+    <div class="row top-row">
         <div class="row">
-
-            <div class="col-md-6">
+    
+            <div class="col-md-4">
                 <div class="cons-calorie">
                     <app-consumed-calorie></app-consumed-calorie>
                 </div>
             </div>
-
-            <div class="col-md-5">
-
+    
+            <div class="col-md-4">
                 <div class="progress">
                     <app-progresses></app-progresses>
                 </div>
-
-                <div style="height: 5%;"></div>
-                
+            </div>
+    
+            <div class="col-md-4">
                 <div class="health-card">
                     <div style="height: 1%"></div>
                     <app-health-card></app-health-card>
                 </div>
-
             </div>
-
-            <div style="height: 22px;"></div>
-
-            <div class="calendar">
-                <app-calendar></app-calendar>
-            </div>
-
         </div>
-    </div>
-
-    <div class="col-md-3">
-
-        <div class="food-ing">
-            <app-food-ingredient-distribution-chart></app-food-ingredient-distribution-chart>
-        </div>
-
-        <div class="space-gap"></div>
-
-        <div class="eng-cons">
-            <app-energy-consumption-chart></app-energy-consumption-chart>
-        </div>
-
-        <div class="space-gap"></div>
-
-        <div class="eating-hab">
-            <app-eating-habit-chart></app-eating-habit-chart>
-        </div>
-    </div>
-</div>
-
-
-
-
-<!-- 
-
-<div class="row">
-    <div class="col-md-6">
+    
+        <div><br></div>
+    
         <div class="row">
-            <div class="col-md-6">
-                <app-consumed-calorie></app-consumed-calorie>
+            <div class="col-md-4">
+                <div class="food-ing">
+                    <app-food-ingredient-distribution-chart></app-food-ingredient-distribution-chart>
+                </div>
             </div>
-            <div class="col-md-6">
-                <app-progresses></app-progresses>
+    
+            <div class="col-md-4">
+                <div class="eng-cons">
+                    <app-energy-consumption-chart></app-energy-consumption-chart>
+                </div>
+            </div>
+    
+            <div class="col-md-4">
+                <div class="eating-hab">
+                    <app-eating-habit-chart></app-eating-habit-chart>
+                </div>
+            </div>
+        </div>
+    
+        <div><br></div>
+    
+        <div class="row">
+            <div class="col-md-12">
+                <div class="calendar">
+                    <br>
+                    <app-calendar></app-calendar>
+                </div>
             </div>
         </div>
     </div>
-    <div class="col-md-6">
-        <app-health-card></app-health-card>
-    </div>
 </div>
-
-<div class="row">
-    <mat-accordion>
-        <mat-expansion-panel hideToggle>
-            <mat-expansion-panel-header>
-                <mat-panel-title>
-                    Charts
-                </mat-panel-title>
-                <mat-panel-description>
-                    From this section, you can see your data in a visualized way.
-                </mat-panel-description>
-            </mat-expansion-panel-header>
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-6">
-                        <app-food-ingredient-distribution-chart></app-food-ingredient-distribution-chart>
-                    </div>
-                    <div class="col-md-6">
-                        <app-energy-consumption-chart></app-energy-consumption-chart>
-                    </div>
-                </div>
-                <app-eating-habit-chart></app-eating-habit-chart>
-            </div>
-        </mat-expansion-panel>
-
-        <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false">
-            <mat-expansion-panel-header>
-                <mat-panel-title>
-                    Calendar
-                </mat-panel-title>
-                <mat-panel-description>
-                    From this section, you can see monthly, weekly or daily events.
-                </mat-panel-description>
-            </mat-expansion-panel-header>
-            <app-calendar></app-calendar>
-        </mat-expansion-panel>
-    </mat-accordion>
-</div> -->
