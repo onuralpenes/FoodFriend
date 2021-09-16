@@ -8,14 +8,23 @@ export class AlertService {
 
   constructor(public myAlert: MatSnackBar) {}
 
-  openSnackBar(message: string) {
-    this.openSnackBarWithAction(message, 'OK');
+  openSnackBar(success: boolean,message: string) {
+    this.openSnackBarWithAction(success,message, 'OK');
   }
 
-  openSnackBarWithAction(message: string, action: string) {
+  openSnackBarWithAction(success: boolean,message: string, action: string) {
+    if(success){
+      
     this.myAlert.open(message, action, {
       duration: 1500,
-      panelClass: ["alert"]
+      panelClass: ["alertSuccess"]
     });
+    }else{
+      this.myAlert.open(message, action, {
+        duration: 1500,
+        panelClass: ["alertNotSuccess"]
+      });
+
+    }
   }
 }

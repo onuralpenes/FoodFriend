@@ -4,12 +4,9 @@ import { Router } from '@angular/router';
 import { environment } from 'src/environments/environment';
 import { JwtHelperService } from '@auth0/angular-jwt';
 import { LoginDto } from '../models/user/login.model';
-import { MenuService } from './menu.service';
-import { QuickBranchService } from './quick-branch.service';
 import { Result } from '../models/core/result.model';
 import { AlertService } from '../helpers/alert.service';
 import { DeviceDetectorService } from 'ngx-device-detector';
-import { UserInfo } from '../models/user/user-info/user-info.model';
 
 @Injectable({
     providedIn: 'root'
@@ -24,7 +21,7 @@ export class AuthService {
     };
     jwtHelper: JwtHelperService = new JwtHelperService();
 
-    constructor(private http: HttpClient, private route: Router, private alertService: AlertService, private menuService: MenuService, private quickBranchService: QuickBranchService, private deviceService: DeviceDetectorService) { }
+    constructor(private http: HttpClient, private route: Router, private alertService: AlertService, private deviceService: DeviceDetectorService) { }
 
     getUserInfoHttp() {
         return this.http.get<Result>(environment.BASE_URL + '/api/auth/GetUserInfo', this.httpOptions);
@@ -49,15 +46,12 @@ export class AuthService {
             .subscribe(data => {
                 var tokenData: any = data;
                 if (!tokenData.success) {
-                    this.alertService.openSnackBar(tokenData.message);
+                    this.alertService.openSnackBar(tokenData.success,tokenData.message);
                     return;
                 }
                 
                 this.saveToken(tokenData.data.accessToken.token);
-                this.alertService.openSnackBar(tokenData.message);
-
-                this.menuService.getMenu();
-                this.quickBranchService.setQuickBranch(this.CurrentUser);
+                this.alertService.openSnackBar(tokenData.success,tokenData.message);
 
                 if (login.remember) {
                     localStorage.setItem('Username', login.emailAddress);
@@ -72,7 +66,7 @@ export class AuthService {
 
             }, err => {
                 if (err)
-                    this.alertService.openSnackBar(err.error);
+                    this.alertService.openSnackBar(false,err.error);
             });
     }
     userTransition(login: LoginDto) {
@@ -82,11 +76,11 @@ export class AuthService {
 
                 var tokenData: any = data;
                 if (!tokenData.success) {
-                    this.alertService.openSnackBar(tokenData.message);
+                    this.alertService.openSnackBar(tokenData.success,tokenData.message);
                     return;
                 }
                 this.saveToken(tokenData.data.token);
-                this.alertService.openSnackBar(tokenData.message);
+                this.alertService.openSnackBar(tokenData.success,tokenData.message);
 
                 this.route.navigateByUrl('/dashboard');
 
@@ -111,8 +105,6 @@ export class AuthService {
 
     logout() {
         localStorage.removeItem(environment.TOKEN_KEY);
-        localStorage.removeItem(environment.MENU_KEY);
-        localStorage.removeItem(environment.BRANCH_LIST_KEY);
         this.route.navigateByUrl('/login');
     }
 
@@ -121,9 +113,9 @@ export class AuthService {
         return (authToken !== null) ? true : false;
     }
 
-    public get CurrentUser(): UserInfo {
+    public get CurrentUserId(): number {
         const token = localStorage.getItem(environment.TOKEN_KEY) || '{}';
-        return this.jwtHelper.decodeToken(token) as UserInfo;
+        return this.jwtHelper.decodeToken(token).nameid;
     }
 
     public get CurrentRoles() {

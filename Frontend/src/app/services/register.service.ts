@@ -36,15 +36,15 @@ export class RegisterService {
 
                 var regData: any = data;
                 if (!regData.success) {
-                    this.alertService.openSnackBar(regData.message);
+                    this.alertService.openSnackBar(regData.success,regData.message);
                     return;
                 }
 
-                this.alertService.openSnackBar(regData.message);
+                this.alertService.openSnackBar(regData.success,regData.message);
 
             }, err=>{
                 if(err)
-                this.alertService.openSnackBar(err.error);
+                this.alertService.openSnackBar(false,err.error);
             });
     }
 }

@@ -13,6 +13,7 @@ export class LoginFormComponent implements OnInit {
   loginForm!: FormGroup;
   forgetMail!: FormGroup;
   submitted = false;
+  hide = true;
   forget = false;
   approved = false;
 
@@ -54,7 +55,7 @@ export class LoginFormComponent implements OnInit {
       this.submitted = true;
 
       if (this.loginForm.invalid) {
-        this.alertService.openSnackBar("Invalid login attempt");
+        this.alertService.openSnackBar(false,"Invalid login attempt");
         return;
       }
 

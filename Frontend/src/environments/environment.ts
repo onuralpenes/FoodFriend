@@ -6,8 +6,6 @@ export const environment = {
   production: false,
   BASE_URL: "http://foodfriend.ardsistem.com.tr",
   TOKEN_KEY: "DefaultToken",
-  MENU_KEY: "DefaultMenu",
-  BRANCH_LIST_KEY: "DefaultBranchList"
 };
 
 /*
