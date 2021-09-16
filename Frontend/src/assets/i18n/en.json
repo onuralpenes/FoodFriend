@@ -57,8 +57,6 @@
 
   "table" : {
     "search" : "Searching",
-    "meal" : "Meal",
-    "category" : "Category",
     "name" : "Name",
     "calorie" : "Calorie",
     "protein" : "Protein",
@@ -71,11 +69,8 @@
     "effort" : "Effort (cal)",
     "unit" : "Unit",
     "start" : "Start Date",
-    "end" : "End Date"
-  },
-
-  "target" : {
-    "purpose" : "Patient's Purposes's ",
+    "end" : "End Date",
+    "target" : "Target",
     "nutriInfo" : "Nutrition Information",
     "actiInfo" : "Activity Information"
   },

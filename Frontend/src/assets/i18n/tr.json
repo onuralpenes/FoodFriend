@@ -55,8 +55,7 @@
 
   "table" : {
     "search" : "Aramak istediğiniz..",
-    "meal" : "Öğün",
-    "category" : "Kategori",
+
     "name" : "İsim",
     "calorie" : "Kalori",
     "protein" : "Protein",
@@ -69,11 +68,8 @@
     "effort" : "Yakılan Kalori",
     "unit" : "Tekrar",
     "start" : "Başlama Tarihi",
-    "end" : "Bitiş Tarihi"
-  },
-
-  "target" : {
-    "purpose" : "Danışanın Hedefi",
+    "end" : "Bitiş Tarihi",
+    "target" : "Hedefi",
     "nutriInfo" : "Beslenme Bilgisi",
     "actiInfo" : "Aktivite Bilgisi"
   },
