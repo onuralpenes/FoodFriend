@@ -13,6 +13,7 @@ export class LoginFormComponent implements OnInit {
   loginForm!: FormGroup;
   forgetMail!: FormGroup;
   submitted = false;
+  hide = true;
   forget = false;
   approved = false;
 

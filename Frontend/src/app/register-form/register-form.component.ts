@@ -12,6 +12,7 @@ export class RegisterFormComponent implements OnInit {
   color = 'primary';
   registerForm!: FormGroup;
   submitted = false;
+  hide = true;
   approved = false;
 
   constructor(private formBuilder: FormBuilder, private registerService: RegisterService) { }
