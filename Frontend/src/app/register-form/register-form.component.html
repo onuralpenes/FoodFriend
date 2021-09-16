@@ -44,7 +44,7 @@
     </p>
 
     <p>
-      <mat-form-field appearance="outline">
+      <mat-form-field appearance="outline" style="width: 44%;">
         <mat-label>{{'label.password' | translate}}</mat-label>
         <input matInput [type]="hide ? 'password' : 'text'" formControlName="password"
           [ngClass]="{ 'is-invalid': submitted && f.password.errors }" required />
@@ -52,11 +52,11 @@
         <mat-error *ngIf="f.password.errors?.required">{{'validator.psdNull' | translate}}</mat-error>
         <mat-error *ngIf="f.password.errors?.minlength">{{'validator.psdMin' | translate}}</mat-error>
       </mat-form-field>
-      <mat-form-field appearance="outline">
+      <mat-form-field appearance="outline" style="width: 44%;">
         <mat-label>{{'label.confirmPassword' | translate}}</mat-label>
-        <input matInput [type]="hide ? 'password' : 'text'" formControlName="passwordConf"
+        <input matInput [type]="hideConf ? 'password' : 'text'" formControlName="passwordConf"
           [ngClass]="{ 'is-invalid': submitted && f.passwordConf.errors }" required />
-          <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+          <mat-icon matSuffix (click)="hideConf = !hideConf">{{hideConf ? 'visibility_off' : 'visibility'}}</mat-icon>
         <mat-error *ngIf="f.passwordConf.errors?.required">{{'validator.confNull' | translate}}</mat-error>
         <mat-error *ngIf="f.passwordConf.errors?.match">{{'validator.confMatch' | translate}}</mat-error>
       </mat-form-field>
