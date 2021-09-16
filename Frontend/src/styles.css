@@ -36,12 +36,20 @@ mat-dialog-container {
    background-color: #009879 !important;;
 }
 
-.alert{
-    background-color: #00b97d !important;
+.alertSuccess{
+    background-color: #009879 !important;
+    color:white !important;
+    border-radius: 10px;
+  }
+  .alertNotSuccess{
+    background-color: #8b0505 !important;
     color:white !important;
     border-radius: 10px;
   }
 
-  .alert button{
+  .alertSuccess button{
+    color:white !important;
+  }
+  .alertNotSuccess button{
     color:white !important;
   }

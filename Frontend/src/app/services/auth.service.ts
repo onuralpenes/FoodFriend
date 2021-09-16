@@ -49,12 +49,12 @@ export class AuthService {
             .subscribe(data => {
                 var tokenData: any = data;
                 if (!tokenData.success) {
-                    this.alertService.openSnackBar(tokenData.message);
+                    this.alertService.openSnackBar(tokenData.success,tokenData.message);
                     return;
                 }
                 
                 this.saveToken(tokenData.data.accessToken.token);
-                this.alertService.openSnackBar(tokenData.message);
+                this.alertService.openSnackBar(tokenData.success,tokenData.message);
 
                 this.menuService.getMenu();
                 this.quickBranchService.setQuickBranch(this.CurrentUser);
@@ -72,7 +72,7 @@ export class AuthService {
 
             }, err => {
                 if (err)
-                    this.alertService.openSnackBar(err.error);
+                    this.alertService.openSnackBar(false,err.error);
             });
     }
     userTransition(login: LoginDto) {
@@ -82,11 +82,11 @@ export class AuthService {
 
                 var tokenData: any = data;
                 if (!tokenData.success) {
-                    this.alertService.openSnackBar(tokenData.message);
+                    this.alertService.openSnackBar(tokenData.success,tokenData.message);
                     return;
                 }
                 this.saveToken(tokenData.data.token);
-                this.alertService.openSnackBar(tokenData.message);
+                this.alertService.openSnackBar(tokenData.success,tokenData.message);
 
                 this.route.navigateByUrl('/dashboard');
 

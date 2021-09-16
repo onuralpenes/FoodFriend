@@ -54,7 +54,7 @@ export class LoginFormComponent implements OnInit {
       this.submitted = true;
 
       if (this.loginForm.invalid) {
-        this.alertService.openSnackBar("Invalid login attempt");
+        this.alertService.openSnackBar(false,"Invalid login attempt");
         return;
       }
 
