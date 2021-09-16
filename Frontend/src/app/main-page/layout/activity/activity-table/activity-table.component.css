@@ -146,18 +146,13 @@ mat-form-field{
 }
 
 
-.mat-table .mat-cell:not(:nth-child(1)), .mat-table .mat-header-cell:not(:nth-child(1)) {
+.mat-table .mat-cell:not(:nth-child(1)), .mat-table .mat-header-cell:not(:nth-child(1))  {
   padding: 0 0;
 }
 
 .mat-cell{
   justify-content: center !important;
   text-align: center !important;
-}
-
-.mat-header-cell{
-  justify-content: center !important;
-  align-items: center;
 }
 
 ::ng-deep .mat-sort-header-container {
