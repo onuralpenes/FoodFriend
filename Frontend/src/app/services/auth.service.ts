@@ -4,7 +4,6 @@ import { Router } from '@angular/router';
 import { environment } from 'src/environments/environment';
 import { JwtHelperService } from '@auth0/angular-jwt';
 import { LoginDto } from '../models/user/login.model';
-import { MenuService } from './menu.service';
 import { Result } from '../models/core/result.model';
 import { AlertService } from '../helpers/alert.service';
 import { DeviceDetectorService } from 'ngx-device-detector';
@@ -22,7 +21,7 @@ export class AuthService {
     };
     jwtHelper: JwtHelperService = new JwtHelperService();
 
-    constructor(private http: HttpClient, private route: Router, private alertService: AlertService, private menuService: MenuService, private deviceService: DeviceDetectorService) { }
+    constructor(private http: HttpClient, private route: Router, private alertService: AlertService, private deviceService: DeviceDetectorService) { }
 
     getUserInfoHttp() {
         return this.http.get<Result>(environment.BASE_URL + '/api/auth/GetUserInfo', this.httpOptions);
@@ -53,8 +52,6 @@ export class AuthService {
                 
                 this.saveToken(tokenData.data.accessToken.token);
                 this.alertService.openSnackBar(tokenData.success,tokenData.message);
-
-                this.menuService.getMenu();
 
                 if (login.remember) {
                     localStorage.setItem('Username', login.emailAddress);
@@ -108,7 +105,6 @@ export class AuthService {
 
     logout() {
         localStorage.removeItem(environment.TOKEN_KEY);
-        localStorage.removeItem(environment.MENU_KEY);
         this.route.navigateByUrl('/login');
     }
 
