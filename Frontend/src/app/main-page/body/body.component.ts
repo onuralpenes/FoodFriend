@@ -13,6 +13,7 @@ export class BodyComponent implements OnInit {
   @Output() pName: EventEmitter<any> = new EventEmitter();
   @Input() opened;
   @Input() pinButton = false;
+  patients: boolean = true;
   constructor(private router: Router, private translate: TranslateService) {}
   pinSidebar() {
     this.pinButton = !this.pinButton;
