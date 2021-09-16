@@ -5,8 +5,8 @@
     top: 8px;
   }
   .calendar{
-    width: 95.8%;
-    margin: 3% auto;
+    width: 95%;
+    margin-left: 3%;
   }
   daypilot-scheduler{
     border-radius: 10px !important;
