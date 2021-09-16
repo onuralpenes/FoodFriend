@@ -1,10 +1,21 @@
-<mat-form-field class="searching-filter" appearance="standard">
-  <mat-label class="search">{{'table.search' | translate}}</mat-label>
-  <input matInput (keyup)="applyFilter($event)" #input />
-</mat-form-field>
-
 <div class="row">
-  <table mat-table [dataSource]="dataSource" matSort class="my-table" *ngIf="isNull">
+  <div class="col-md-1"></div>
+  <div class="col-md-1">
+    <mat-form-field class="searching-filter" appearance="standard">
+      <mat-label class="search">{{'table.search' | translate}}</mat-label>
+      <input matInput (keyup)="applyFilter($event)" #input />
+    </mat-form-field>
+  </div>
+
+  <div class="col-md-8"></div>
+  
+  <div class="col-md-1">
+    <button class="add-button" (click)="addActivity()" type="button">Add</button>
+  </div>
+</div>
+
+<div class="row tab">
+  <table mat-table [dataSource]="dataSource" matSort class="my-table main" *ngIf="isNull">
     <ng-container matColumnDef="activityType">
       <th mat-header-cell *matHeaderCellDef mat-sort-header class="lHead">{{'table.type' |
         translate}}</th>
@@ -60,7 +71,7 @@
     <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
   </table>
 
-  <mat-paginator *ngIf="isNull" [pageSizeOptions]="[3, 5]" [pageSize]="3" showFirstLastButtons>
+  <mat-paginator *ngIf="isNull" [pageSizeOptions]="[7, 10]" [pageSize]="7" showFirstLastButtons>
   </mat-paginator>
 
   <div *ngIf="!isNull">There is no data</div>

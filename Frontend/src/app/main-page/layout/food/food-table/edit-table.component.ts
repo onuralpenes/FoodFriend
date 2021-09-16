@@ -16,8 +16,6 @@ import { Transfer } from "./food-table.component";
   
     ngOnInit() {
       this.editForm = this.formBuilder.group({
-        'meal': new FormControl(''),
-        'foodCategory': new FormControl(''),
         'foodName': new FormControl(''),
         'calorie': new FormControl(''),
         'protein': new FormControl(''),

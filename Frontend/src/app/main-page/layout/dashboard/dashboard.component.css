@@ -1,46 +1,42 @@
 .cons-calorie{
-  height: 535px;
-  width: 535px;
+  height: 100%;
+  width: 90%;
   background: #e5e5e5;
   border-radius: 100%;
   box-shadow: 5px 5px rgba(00,00,00,0.3)
 }
 
 .progress{
-  height: 220px;
-  width: 570px;
+  height: 40%;
+  width: 115%;
   background: #e5e5e5;
   border-radius: 10px;
   box-shadow: 5px 5px rgba(00,00,00,0.3)
 }
 
 .health-card{
-  height: 280px;
-  width: 570px;
+  height: 55%;
+  width: 115%;
   background: #e5e5e5;
   border-radius: 10px;
   box-shadow: 5px 5px rgba(00,00,00,0.3)
 }
 
 .food-ing, .eng-cons, .eating-hab{
-  height: 250px;
-  width: 380px;
+  height: 31.3%;
+  width: 95%;
   background: #e5e5e5;
   border-radius: 10px;
   box-shadow: 5px 5px rgba(00,00,00,0.3)
 }
 
 .calendar{
-  margin-left: 20px;
-  width: 1190px;
-  height: 225px;
+  margin-left: 2%;
+  width: 95%;
+  height: 100%;
   background: #e5e5e5;
   border-radius: 10px;
   box-shadow: 5px 5px rgba(00,00,00,0.3)
-}
-
-.space-top{
-  height: 15px;
 }
 
 .space-gap{

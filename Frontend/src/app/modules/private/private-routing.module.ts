@@ -15,7 +15,7 @@ const routes: Routes = [
         children: [
             { path: 'dashboard', component: DashboardComponent },
             { path: 'profile', component: ProfileComponent },
-            { path: 'food', component: FoodComponent },
+            { path: 'nutrition', component: FoodComponent },
             { path: 'activity', component: ActivityComponent },
             { path: 'patients', component: PatientTraceComponent },
             { path: 'experts', component: ExpertsComponent },

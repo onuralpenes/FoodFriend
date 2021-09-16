@@ -5,7 +5,7 @@
     "select": "Change language"
   },
   "account": {
-    "creat": "Hesap Oluştur",
+    "create": "Hesap Oluştur",
     "signIn": "Giriş Yap",
     "signUp": "Kayıt Ol",
     "select": "Change language"
@@ -15,7 +15,13 @@
     "title": "Tekrar Hoşgeldin!",
     "paragraph": "Bizimle bağlantıda kalmak için lütfen kişisel bilgilerinizle giriş yapın",
     "title2": "Merhaba, Arkadaşım!",
-    "paragraph2":"Kişisel bilgilerinizi girin ve bizimle yolculuğa başlayın"
+    "paragraph2": "Kişisel bilgilerinizi girin ve bizimle yolculuğa başlayın",
+    "forget": "Epostanızı giriniz.",
+    "approve": "Onayla",
+    "return": "yada geri dönün.",
+    "returnBut": "Geri Dön",
+    "approved": "Lütfen e-postanızı kontrol edin.",
+    "approveReg": "Lütfen epostanızı onaylayıp giriş yapınız."
   },
 
   "label": {
@@ -94,7 +100,7 @@
   "sidebar" : {
     "dashboard" : "Ana Sayfa",
     "profile" : "Profil",
-    "food" : "Yemekler",
+    "food" : "Besin",
     "activity" : "Aktivite",
     "patients" : "Danışanlar",
     "expert" : "Uzman"

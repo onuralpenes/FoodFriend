@@ -3,7 +3,8 @@ import { MatDialog} from '@angular/material/dialog';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
-import { Activity } from 'src/app/models/table/activity.model';
+import { ActivityInfoDto } from 'src/app/models/data/activity/activity-info-dto.model';
+import { AddActivity } from './add-activity/add-activity.component';
 import { ACTIVITY_DATA } from './data';
 import { EditActivity } from './edit-activity.component';
 
@@ -22,7 +23,7 @@ export interface Transfer {
   styleUrls: ['./activity-table.component.css'],
 })
 export class ActivityTableComponent implements AfterViewInit {
-  activities: Activity[] = ACTIVITY_DATA; //It is getting data from data.ts.
+  activities: ActivityInfoDto[] = ACTIVITY_DATA; //It is getting data from data.ts.
   sortedData = this.activities; //It is getting data from data.ts.
   isNull: boolean = true;
 
@@ -57,6 +58,10 @@ export class ActivityTableComponent implements AfterViewInit {
         activityEndDate: activityEndDate,
       }
     });
+  }
+
+  addActivity(){
+    this.modal.open(AddActivity);
   }
 
   applyFilter(event: Event) {

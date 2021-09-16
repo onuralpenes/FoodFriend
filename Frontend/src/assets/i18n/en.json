@@ -6,7 +6,7 @@
   },
 
   "account": {
-    "creat": "Create Account",
+    "create": "Create Account",
     "signIn": "Sign In",
     "signUp": "Sign Up",
     "select": "Change language"
@@ -16,7 +16,13 @@
     "title": "Welcome Back!",
     "paragraph": "To keep connected with us please login with your personal info",
     "title2": "Hello, Friend!",
-    "paragraph2":"Enter your personal details and start journey with us"
+    "paragraph2": "Enter your personal details and start journey with us",
+    "forget": "Enter your email.",
+    "approve": "Approve",
+    "return": "or return.",
+    "returnBut": "Return",
+    "approved": "Please check your email.",
+    "approveReg": "Please confirm your email and sign in."
   },
 
   "label": {
@@ -96,7 +102,7 @@
   "sidebar" : {
     "dashboard" : "Dashboard",
     "profile" : "Profile",
-    "food" : "Food",
+    "food" : "Nutrition",
     "activity" : "Activity",
     "patients" : "Patients",
     "expert" : "Expert"

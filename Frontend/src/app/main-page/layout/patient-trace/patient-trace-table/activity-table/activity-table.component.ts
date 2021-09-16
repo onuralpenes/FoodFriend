@@ -3,7 +3,7 @@ import { MAT_DIALOG_DATA } from "@angular/material/dialog";
 import { MatPaginator } from "@angular/material/paginator";
 import { MatSort } from "@angular/material/sort";
 import { MatTableDataSource } from "@angular/material/table";
-import { Activity } from "src/app/models/table/patient-activity.model";
+import { ActivityInfo } from "src/app/models/data/activity/activity-info.model";
 import { ACTIVITY_DATA } from "../data";
 import { Transfer } from "../patient-trace-table.component";
 
@@ -13,7 +13,7 @@ import { Transfer } from "../patient-trace-table.component";
     styleUrls: ['../patient-trace-table.component.css'],
 })
 export class ActivityTable implements AfterViewInit {
-    activities: Activity[] = ACTIVITY_DATA;
+    activities: ActivityInfo[] = ACTIVITY_DATA;
     sortedData = this.activities;
     isNull: boolean = true;
 
@@ -28,7 +28,7 @@ export class ActivityTable implements AfterViewInit {
         'activityEndDate',
     ];
     dataSource = new MatTableDataSource(
-        this.activities.filter((activity) => activity.id === this.data.id)
+        this.activities.filter((activity) => activity.userId === this.data.id)
     );
 
     @ViewChild(MatSort) sort!: MatSort;

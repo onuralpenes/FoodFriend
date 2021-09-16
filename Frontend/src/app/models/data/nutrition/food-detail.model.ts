@@ -1,10 +1,10 @@
-export interface Food {
+export interface FoodDetail {
+    id: number;
+    foodDetailId: string;
+    myProperty: string;
     foodName: string;
     calorie: number;
     protein: number;
     oil: number;
     carbohydrate: number;
-    foodCategory: string;
-    meal: string;
-    id: number;
 }

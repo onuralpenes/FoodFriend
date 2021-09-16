@@ -22,10 +22,10 @@
             </a>-->
                 <div>
                     <p class="username">
-                        namenamename
+                        Onuralp Enes
                     </p>
                     <p class="username">
-                        surname
+                        Öz
                     </p>
                 </div>
             <a>
@@ -36,15 +36,15 @@
         <ul class="nav">
             <li><a class="side-item" routerLink="/"><i class="fa fa-home fa-lg" aria-hidden="true"></i>{{'sidebar.dashboard' | translate}}</a></li>
             <li><a class="side-item" routerLink="/profile"><i class="fa fa-user fa-lg" aria-hidden="true"></i>{{'sidebar.profile' | translate}}</a></li>
-            <li><a class="side-item" routerLink="/food"><i class="fa fa-cutlery fa-lg" aria-hidden="true"></i>{{'sidebar.food' | translate}}</a></li> 
+            <li><a class="side-item" routerLink="/nutrition"><i class="fa fa-cutlery fa-lg" aria-hidden="true"></i>{{'sidebar.food' | translate}}</a></li> 
             <li><a class="side-item" routerLink="/activity"><i class="fa fa-bicycle fa-lg" aria-hidden="true"></i>{{'sidebar.activity' | translate}}</a></li> 
             <li><a class="side-item" routerLink="/patients"><i class="fa fa-users fa-lg" aria-hidden="true"></i>{{'sidebar.patients' | translate}}</a></li>
             <li><a class="side-item" routerLink="/experts"><i class="fa fa-address-card fa-lg" aria-hidden="true"></i>{{'sidebar.expert' | translate}}</a></li>
-        </ul>
+        </ul> <!-- for hover look this: https://stackblitz.com/edit/angular-active-on-hover?file=src%2Fstyles.css-->
 
         <div class="language">
-            <button mat-button class="lang-button" (click)="changeLang('tr')">TR</button>
-            <button mat-button class="lang-button" (click)="changeLang('en')">EN</button>
+            <img (click)="changeLang('tr')" class="lang-button" src="../../assets/tr.png">
+            <img (click)="changeLang('en')" class="lang-button" src="../../assets/en.png">
         </div>
 
 
@@ -53,9 +53,9 @@
     <!-- Outside of the sidebar -->
     <mat-sidenav-content>
         <div class="layout">
-            <div class="notscroll" style="height: 100%; width: 100%;">
+            <div class="notscroll">
                 
-                <router-outlet (setPageName)="setPageName($event)"></router-outlet>
+                <router-outlet></router-outlet>
             </div>
         </div>
     </mat-sidenav-content>

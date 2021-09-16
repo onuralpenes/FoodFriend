@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Match } from '../helpers/match.validator';
+import { RegisterService } from '../services/register.service';
 
 @Component({
   selector: 'app-register-form',
@@ -11,15 +12,10 @@ export class RegisterFormComponent implements OnInit {
   color = 'primary';
   registerForm!: FormGroup;
   submitted = false;
+  approved = false;
 
+  constructor(private formBuilder: FormBuilder, private registerService: RegisterService) { }
 
-  // myFilter = (d: Date | null): boolean => {
-  //   const day = (d || new Date()).getDay();
-  //   // Prevent Saturday and Sunday from being selected.
-  //   return day !== 0 && day !== 6;
-  // } 
-
-  constructor(private formBuilder: FormBuilder) { }
   ngOnInit() {
     this.registerForm = this.formBuilder.group({
       firstName: new FormControl('', [Validators.required]),
@@ -41,7 +37,13 @@ export class RegisterFormComponent implements OnInit {
     if (this.registerForm.invalid) {
       return;
     }
-    alert(JSON.stringify(this.registerForm.value));
+    
+    this.approved = true;
+    this.registerService.register(this.registerForm.value);
+  }
+
+  signIn(){
+    location.reload();
   }
 }
 

@@ -3,7 +3,7 @@ import { MAT_DIALOG_DATA } from "@angular/material/dialog";
 import { MatPaginator } from "@angular/material/paginator";
 import { MatSort } from "@angular/material/sort";
 import { MatTableDataSource } from "@angular/material/table";
-import { Food } from "src/app/models/table/patient-food.model";
+import { FoodDetail } from "src/app/models/data/nutrition/food-detail.model";
 import { FOOD_DATA } from "../data";
 import { Transfer } from "../patient-trace-table.component";
 
@@ -13,15 +13,13 @@ import { Transfer } from "../patient-trace-table.component";
     styleUrls: ['../patient-trace-table.component.css'],
 })
 export class NutritionTable implements AfterViewInit {
-    foods: Food[] = FOOD_DATA;
+    foods: FoodDetail[] = FOOD_DATA;
     sortedData = this.foods;
     isNull: boolean = true;
 
     constructor(@Inject(MAT_DIALOG_DATA) public data: Transfer) { }
 
     displayedColumns: string[] = [
-        'meal',
-        'foodCategory',
         'foodName',
         'calorie',
         'protein',
