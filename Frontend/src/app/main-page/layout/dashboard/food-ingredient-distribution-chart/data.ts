@@ -2,19 +2,19 @@
 
 export var single = [
     {
-      "name": "Germany",
-      "value": 8940000
+      "name": "Calorie",
+      "value": 8940
     },
     {
-      "name": "USA",
-      "value": 5000000
+      "name": "Protein",
+      "value": 5000
     },
     {
-      "name": "France",
-      "value": 7200000
+      "name": "Carbohydrate",
+      "value": 7200
     },
       {
-      "name": "UK",
-      "value": 6200000
+      "name": "Oil",
+      "value": 6200
     }
   ]; 

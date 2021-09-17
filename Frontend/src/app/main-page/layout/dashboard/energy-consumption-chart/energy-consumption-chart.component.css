@@ -1,5 +1,6 @@
 .chart{
-    height: 17rem;
-    width: 20rem;
-    margin: 0 auto;
+    position:relative;
+    padding: 0;
+    height: 80%;
+    width: 155%;
 } 

@@ -2,7 +2,7 @@
 
 export var multi = [
     {
-      "name": "Germany",
+      "name": "Swimming",
       "series": [
         {
           "name": "2010",
@@ -16,7 +16,7 @@ export var multi = [
     },
    
     {
-      "name": "USA",
+      "name": "Running",
       "series": [
         {
           "name": "2010",
@@ -30,7 +30,7 @@ export var multi = [
     },
   
     {
-      "name": "France",
+      "name": "Sitting",
       "series": [
         {
           "name": "2010",
@@ -39,6 +39,32 @@ export var multi = [
         {
           "name": "2011",
           "value": 5800000
+        }
+      ]
+    },
+    {
+      "name": "Tennis",
+      "series": [
+        {
+          "name": "2010",
+          "value": 8000000
+        },
+        {
+          "name": "2011",
+          "value": 4000000
+        }
+      ]
+    },
+    {
+      "name": "Football",
+      "series": [
+        {
+          "name": "2010",
+          "value": 2000000
+        },
+        {
+          "name": "2011",
+          "value": 7000000
         }
       ]
     }
