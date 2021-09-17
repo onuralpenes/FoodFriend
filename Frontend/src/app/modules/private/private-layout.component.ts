@@ -10,21 +10,26 @@ import { AuthService } from "src/app/services/auth.service";
 
 export class PrivateLayoutComponent {
 
-  constructor(private translate: TranslateService, loginService: AuthService, private route: Router) {
-    if(!loginService.isLoggedIn){
-        this.route.navigateByUrl('/login');
-      }
-  }
+    constructor(private translate: TranslateService, loginService: AuthService, private route: Router) {
+        if (!loginService.isLoggedIn) {
+            this.route.navigateByUrl('/login');
+        }
+            this.translate.use('tr');
+    }
     sideBar = true;
     pinned = false;
     toggle() {
-        if(this.pinned){
+        if (this.pinned) {
             this.sideBar = this.sideBar;
-        }else{
+        } else {
             this.sideBar = !this.sideBar;
         }
     }
-    pin(){
+    pin() {
         this.pinned = !this.pinned;
+    }
+
+    changeLang(langCode: string) {
+        this.translate.use(langCode);
     }
 }
