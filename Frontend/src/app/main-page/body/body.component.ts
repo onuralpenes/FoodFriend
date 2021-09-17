@@ -1,6 +1,6 @@
 import { Component, Input, OnInit, EventEmitter, Output } from '@angular/core';
 import { Router } from '@angular/router';
-import { TranslateService } from '@ngx-translate/core';
+import { PrivateLayoutComponent } from 'src/app/modules/private/private-layout.component';
 
 @Component({
   selector: 'app-body',
@@ -13,7 +13,7 @@ export class BodyComponent implements OnInit {
   @Output() pName: EventEmitter<any> = new EventEmitter();
   @Input() opened;
   @Input() pinButton = false;
-  constructor(private router: Router, private translate: TranslateService) {}
+  constructor(private router: Router, private priv :PrivateLayoutComponent) {}
   pinSidebar() {
     this.pinButton = !this.pinButton;
     this.pin.emit(this.pinButton);
@@ -22,6 +22,6 @@ export class BodyComponent implements OnInit {
   ngOnInit(): void { }
 
    changeLang(langCode: string){
-    this.translate.use(langCode);
+    this.priv.changeLang(langCode);
     }
 }

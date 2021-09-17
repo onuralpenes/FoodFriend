@@ -2,15 +2,19 @@
 
 export var single = [
     {
-      "name": "Carbohydrate",
-      "value": 25
+      "name": "Calorie",
+      "value": 8940
     },
     {
       "name": "Protein",
-      "value": 52
+      "value": 5000
     },
     {
+      "name": "Carbohydrate",
+      "value": 7200
+    },
+      {
       "name": "Oil",
-      "value": 12
+      "value": 6200
     }
-  ];
+  ]; 

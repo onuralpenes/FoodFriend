@@ -2,44 +2,71 @@
 
 export var multi = [
     {
-      "name": "Carbohydrate",
+      "name": "Swimming",
       "series": [
         {
-          "name": "26/10/2020",
-          "value": 18
+          "name": "2010",
+          "value": 7300000
         },
         {
-          "name": "27/10/2020",
-          "value": 23
+          "name": "2011",
+          "value": 8940000
         }
       ]
     },
-
+   
     {
-      "name": "Protein",
+      "name": "Running",
       "series": [
         {
-          "name": "26/10/2020",
-          "value": 32
+          "name": "2010",
+          "value": 7870000
         },
         {
-          "name": "27/10/2020",
-          "value": 25
+          "name": "2011",
+          "value": 8270000
         }
       ]
     },
-
+  
     {
-      "name": "Oil",
+      "name": "Sitting",
       "series": [
         {
-          "name": "26/10/2020",
-          "value": 15
+          "name": "2010",
+          "value": 5000002
         },
         {
-          "name": "27/10/2020",
-          "value": 11
+          "name": "2011",
+          "value": 5800000
+        }
+      ]
+    },
+    {
+      "name": "Tennis",
+      "series": [
+        {
+          "name": "2010",
+          "value": 8000000
+        },
+        {
+          "name": "2011",
+          "value": 4000000
+        }
+      ]
+    },
+    {
+      "name": "Football",
+      "series": [
+        {
+          "name": "2010",
+          "value": 2000000
+        },
+        {
+          "name": "2011",
+          "value": 7000000
         }
       ]
     }
   ];
+  

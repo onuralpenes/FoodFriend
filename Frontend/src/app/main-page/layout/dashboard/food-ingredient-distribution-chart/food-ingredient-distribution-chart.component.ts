@@ -12,7 +12,7 @@ export class FoodIngredientDistributionChartComponent implements OnInit {
 
   gradient: boolean = false;
   showLegend: boolean = false;
-  showLabels: boolean = false;
+  showLabels: boolean = true;
   isDoughnut: boolean = false;
 
   colorScheme = {
