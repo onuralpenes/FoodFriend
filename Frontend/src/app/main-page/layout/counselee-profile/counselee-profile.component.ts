@@ -46,9 +46,6 @@ export class CounseleeProfileComponent implements OnInit {
       },
     ]
   }
-  constructor() {
-
-  }
 
   ngOnInit(): void {
     if (this.gender == "male") {

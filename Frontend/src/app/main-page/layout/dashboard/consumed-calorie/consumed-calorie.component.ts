@@ -6,7 +6,7 @@ import { CALORIE_DATA } from './data';
   templateUrl: './consumed-calorie.component.html',
   styleUrls: ['./consumed-calorie.component.css']
 })
-export class ConsumedCalorieComponent implements OnInit {
+export class ConsumedCalorieComponent {
 
   tot = CALORIE_DATA.total;
   cal = CALORIE_DATA.calorie;
@@ -16,13 +16,4 @@ export class ConsumedCalorieComponent implements OnInit {
   tit = "You eat " + this.cal.toString() + " calorie"
   unit = "";
   sub = "You can eat " + this.left.toString() + " calorie";
-
-  constructor() {
-
-  }
-
-  ngOnInit() {
-
-  }
-
 }

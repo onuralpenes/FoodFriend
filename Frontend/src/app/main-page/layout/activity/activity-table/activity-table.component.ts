@@ -70,7 +70,6 @@ export class ActivityTableComponent implements AfterViewInit {
 
     if (this.dataSource.filteredData.length == 0) {
       this.isNull = false;
-      console.log(this.dataSource)
     }
     else {
       this.isNull = true;

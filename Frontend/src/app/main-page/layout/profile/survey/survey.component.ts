@@ -10,7 +10,6 @@ import { Blood, BLOOD_DATA, Select, SELECT_DATA } from './data';
 })
 export class SurveyComponent implements OnInit {
 
-
   surveyForm!: FormGroup;
   post: any = '';
 

@@ -1,29 +1,16 @@
-import { Component, OnInit } from '@angular/core';
-
-
-import { HttpHeaders, HttpClient } from '@angular/common/http';
-import {MatFormFieldModule} from '@angular/material/form-field';
-import {MatCheckboxModule} from '@angular/material/checkbox';
-import { TranslateService } from '@ngx-translate/core';
+import { Component } from '@angular/core';
+import { AppComponent } from '../app.component';
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css']
 })
-export class LoginComponent implements OnInit {
-
-
+export class LoginComponent {
   flag: boolean = false;
-  constructor(private translate: TranslateService, private http: HttpClient) { }
+  constructor(private app: AppComponent) { }
 
-  ngOnInit(): void {
-
+  changeLang(langCode: string) {
+    this.app.changeLang(langCode);
   }
-
-
-  changeLang(langCode: string){
-  this.translate.use(langCode);
-  }
-
 }

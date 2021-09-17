@@ -1,4 +1,4 @@
-import { Injectable, Type } from "@angular/core";
+import { Injectable } from "@angular/core";
 import { HttpHeaders, HttpClient, HttpParams } from "@angular/common/http";
 import { Observable } from "rxjs/internal/Observable";
 import { environment } from "src/environments/environment";
@@ -13,8 +13,7 @@ export class HttpEntityRepositoryService<T> {
         })
     };
 
-    constructor(
-        private http: HttpClient) { }
+    constructor(private http: HttpClient) { }
 
     getAll(_url: string): Observable<T> {
         return this.http.get<T>(

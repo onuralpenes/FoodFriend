@@ -5,9 +5,4 @@ import { Component, OnInit, Output,EventEmitter } from '@angular/core';
   templateUrl: './activity.component.html',
   styleUrls: ['./activity.component.css']
 })
-export class ActivityComponent implements OnInit {
-
-  constructor() { }
-
-  ngOnInit(): void { }
-}
+export class ActivityComponent { }

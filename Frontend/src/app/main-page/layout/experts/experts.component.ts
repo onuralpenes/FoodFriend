@@ -9,8 +9,6 @@ import { experts } from './data';
 })
 export class ExpertsComponent {
 
-  constructor() {}
-
   experts: Expert[] = experts;
   searchText: string = "";
 

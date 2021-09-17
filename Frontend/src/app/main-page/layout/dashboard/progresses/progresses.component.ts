@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { ThemePalette } from '@angular/material/core';
 import { ProgressBarMode } from '@angular/material/progress-bar';
 import { PROGRESS_DATA } from './data';
@@ -8,7 +8,7 @@ import { PROGRESS_DATA } from './data';
   templateUrl: './progresses.component.html',
   styleUrls: ['./progresses.component.css']
 })
-export class ProgressesComponent implements OnInit {
+export class ProgressesComponent {
 
   calorie = PROGRESS_DATA.calorie;
   protein = PROGRESS_DATA.protein;
@@ -22,10 +22,4 @@ export class ProgressesComponent implements OnInit {
 
   color: ThemePalette = 'warn';
   mode: ProgressBarMode = 'determinate';
-
-  constructor() { }
-
-  ngOnInit(): void {
-  }
-
 }

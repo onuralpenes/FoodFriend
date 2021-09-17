@@ -23,8 +23,6 @@ export class CalendarComponent implements AfterViewInit{
     timeRangeSelectedHandling: "Enabled",
     onTimeRangeSelected: async (args) => {
       const dp = args.control;
-      
-      console.log(args);
       const modal = await DayPilot.Modal.prompt("Create a new event:", "Event 1");
       dp.clearSelection();
       if (modal.canceled) { return; }
@@ -35,7 +33,6 @@ export class CalendarComponent implements AfterViewInit{
         resource: args.resource,
         text: modal.result
       });
-      console.log(dp.events.all());
     },
     treeEnabled: true,
   };

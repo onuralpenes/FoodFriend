@@ -13,6 +13,5 @@ import { HttpEntityRepositoryService } from "src/app/services/http-entity-reposi
 
       constructor(private entityService: HttpEntityRepositoryService<FoodDetailDto>){
         this.foods = entityService.getAll("/FoodDetail/GetAll")
-        console.log(this.foods);
       }
   }

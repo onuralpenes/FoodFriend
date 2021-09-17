@@ -59,7 +59,7 @@ export class ProfileComponent implements OnInit {
     ]
   }
   //public LOGO = require("../../../modules/images/yesil.jpg");
-  constructor(public modal: MatDialog, private entityService: HttpEntityRepositoryService<UserInfo>, private authService: AuthService){
+  constructor(public modal: MatDialog, entityService: HttpEntityRepositoryService<UserInfo>, authService: AuthService){
     this.user = entityService.get("/User/GetUserInfo?userId=", authService.CurrentUserId);
   }
 
