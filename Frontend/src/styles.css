@@ -22,10 +22,12 @@ mat-dialog-container {
 
 .mat-focused .mat-form-field-label {
     color: #009879 !important;
+    font-size: 1rem;
 }
 
 .mat-form-field {
     color: #009879 !important;
+    font-size: 0.9rem;
 }
   
 .mat-form-field-underline {

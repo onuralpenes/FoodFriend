@@ -37,13 +37,14 @@ th.mat-sort-header-sorted {
   height: 100% !important;
   background-color: #009879;
   color: #ffffff;
-  font-size: 1em;
+  font-size: 1.2rem;
   font-family: sans-serif;
 }
 
 .search{
   transition: all .2s ease-in-out;
   margin-left: 5%;
+  font-size: 1rem;
 }
 
 .search:hover {
@@ -153,8 +154,10 @@ mat-form-field{
 .mat-cell{
   justify-content: center !important;
   text-align: center !important;
+  font-size: 1rem;
 }
 
-::ng-deep .mat-sort-header-container {
+.mat-sort-header-container {
   justify-content: center;
+  font-size: 1.2rem;
 }

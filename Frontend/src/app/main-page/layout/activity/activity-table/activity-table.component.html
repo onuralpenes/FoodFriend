@@ -4,11 +4,12 @@
     <mat-form-field class="searching-filter" appearance="standard">
       <mat-label class="search">{{'table.search' | translate}}</mat-label>
       <input matInput (keyup)="applyFilter($event)" #input />
+      <mat-icon matSuffix><i class="fa fa-search fa-lg" aria-hidden="true"></i></mat-icon>
     </mat-form-field>
   </div>
 
   <div class="col-md-8"></div>
-  
+
   <div class="col-md-1">
     <button class="add-button" (click)="addActivity()" type="button">Add</button>
   </div>

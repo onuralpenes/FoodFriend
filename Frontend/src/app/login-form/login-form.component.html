@@ -1,8 +1,8 @@
 <div class="container" *ngIf="!forget; else login" novalidate>
 
   <div class="alternate-logins">
-    <a href="" class="social-links"><i class="fa fa-facebook" style="font-size:12px;"></i></a>
-    <a href="" class="social-links"><i class="fa fa-google" style="font-size:12px;"></i></a>
+    <a href="" class="social-links"><i class="fa fa-facebook" style="font-size:30px;"></i></a>
+    <a href="" class="social-links"><i class="fa fa-google" style="font-size:30px;"></i></a>
   </div>
 
   <div class="row">
@@ -31,7 +31,7 @@
       </mat-form-field>
     </p>
 
-    <p class="forgetPsw"><a (click)="forgetPassword()" class="forgetPsw">{{'forget.title' | translate}}</a></p>
+    <p class="forgetPsw"><a (click)="forgetPassword()">{{'forget.title' | translate}}</a></p>
 
     <p class="cb">
       <mat-checkbox class="margin" [color]="color" formControlName="remember">{{'forget.title2' | translate}}
@@ -68,7 +68,7 @@
     <div class="container">
       {{'welcome.approved' | translate}}
 
-      <div class="row">
+      <div class="row" >
         <button (click)="forgetPassword()">{{'account.signIn' | translate}}</button>
       </div>
     </div>
