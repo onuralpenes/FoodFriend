@@ -120,7 +120,7 @@ li:hover{
   position: relative;
   /* text-transform: uppercase; */
   cursor: pointer;
-  font-size: 0.9rem;
+  font-size: 1rem;
   font-weight: 300;
   padding: 10px 15px;
   line-height: 1.5 rem;
@@ -128,7 +128,7 @@ li:hover{
 }
 .username{
   text-align: center;
-    font-size: 0.95rem;
+    font-size: 1.15rem;
     text-transform: uppercase;
     font-weight: 400;
     color: white;
@@ -136,9 +136,7 @@ li:hover{
 }
 
 .nav li>a i{
-  width: 2opx;
   margin-right: 10px;
-  font-size: 1.125 rem;
 }
 
 .nav li>a:hover, .nav li>a:hover i{
@@ -163,14 +161,6 @@ li:hover{
 .title-div{
   width: 100%;
   height: 56px;
-}
-
-.page-title{
-  margin-left: 3%;
-  font-family: -webkit-pictograph;
-  font-size: 40px;
-  margin-top: 12px;
-  float: left;
 }
 
 .divider
@@ -228,8 +218,6 @@ li:hover{
     color: #fff;
     border: none;
     border-radius: 100%;
-    font-size: 12px;
-    font-weight: bold;
     background: transparent;
     cursor: pointer;
     transition: all 0.3s ease;

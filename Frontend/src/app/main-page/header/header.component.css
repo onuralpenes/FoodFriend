@@ -1,6 +1,6 @@
 
 img{
-  width: 150px;
+  width: 175px;
 }
 .responsiveImg{
   display: none;
@@ -19,8 +19,8 @@ img{
   width: 100%;
     color: white;
     text-align: center;
-    font-size: 1.5rem;
-    font-weight: 400;
+    font-size: 1.7rem;
+    font-weight: normal;
     margin-top: 10px;
 }
 .header{
@@ -51,3 +51,6 @@ img{
   flex: 1 1 auto;
 }
 
+.profile-opt{
+  font-size: 1rem !important;
+}
