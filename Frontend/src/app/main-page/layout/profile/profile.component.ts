@@ -68,7 +68,7 @@ export class ProfileComponent implements OnInit {
     // this.email
     // this.phone
     // this.birthdate
-    // this.age = Math.floor(((Math.abs(Date.now() - this.birthdate.getTime())) / (1000 * 3600 * 24))/365.25);
+    this.age = Math.floor(((Math.abs(Date.now() - this.birthdate.getTime())) / (1000 * 3600 * 24))/365.25);
     // this.height
     // this.weight
   }
