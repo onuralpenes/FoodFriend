@@ -3,10 +3,11 @@
         <mat-label class="search">{{'table.search' | translate}}</mat-label>
         <input matInput type="text" ngModel name="searchText" autocomplete="off"
             (keyup)="keyup(search.value.searchText)" />
+        <mat-icon matSuffix><i class="fa fa-search fa-lg" aria-hidden="true"></i></mat-icon>
     </mat-form-field>
 </form>
 
-<div class="row"> 
+<div class="row">
     <div *ngFor="let expert of experts | expertfilter : searchText" class="col-md-3">
         <app-expert-short-card [expert]="expert"></app-expert-short-card>
     </div>
