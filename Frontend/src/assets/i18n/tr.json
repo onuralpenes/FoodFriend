@@ -54,8 +54,7 @@
   },
 
   "table" : {
-    "search" : "Aramak istediğiniz..",
-
+    "search" : "Arayınız",
     "name" : "İsim",
     "calorie" : "Kalori",
     "protein" : "Protein",
