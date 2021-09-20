@@ -1,7 +1,6 @@
 import { Component } from "@angular/core";
 import { Router } from "@angular/router";
 import { TranslateService } from "@ngx-translate/core";
-import { AppComponent } from "src/app/app.component";
 import { AuthService } from "src/app/services/auth.service";
 
 @Component({
@@ -11,7 +10,7 @@ import { AuthService } from "src/app/services/auth.service";
 
 export class PrivateLayoutComponent {
 
-    constructor(loginService: AuthService, private route: Router, private app: AppComponent, translate: TranslateService) {
+    constructor(loginService: AuthService, private route: Router, private translate: TranslateService) {
         if (!loginService.isLoggedIn) {
             this.route.navigateByUrl('/login');
         }
@@ -30,8 +29,7 @@ export class PrivateLayoutComponent {
     pin() {
         this.pinned = !this.pinned;
     }
-
     changeLang(langCode: string) {
-        this.app.changeLang(langCode);
-    }
+        this.translate.use(langCode);
+      }
 }
