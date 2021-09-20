@@ -15,10 +15,13 @@ export class ProfileComponent implements OnInit {
 
   user: Observable<UserInfo>;
 
-  weight = 85
-  height = 181
-  age = 21
+  weight = 85;
+  height = 181;
+  age = 21;
+  birthdate = new Date(1999,6,2);
   userName = "Onuralp Enes Öz";
+  email = "oz.onuralp@gmail.com";
+  phone = "555-555-5555";
   dummy = "dummy";
   gender = "male";
   genderless = false;
@@ -58,9 +61,16 @@ export class ProfileComponent implements OnInit {
       },
     ]
   }
-  //public LOGO = require("../../../modules/images/yesil.jpg");
+
   constructor(public modal: MatDialog, entityService: HttpEntityRepositoryService<UserInfo>, authService: AuthService){
     this.user = entityService.get("/User/GetUserInfo?userId=", authService.CurrentUserId);
+    // this.userName
+    // this.email
+    // this.phone
+    // this.birthdate
+    // this.age = Math.floor(((Math.abs(Date.now() - this.birthdate.getTime())) / (1000 * 3600 * 24))/365.25);
+    // this.height
+    // this.weight
   }
 
   editProfile(){
