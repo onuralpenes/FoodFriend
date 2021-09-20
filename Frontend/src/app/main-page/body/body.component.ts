@@ -1,4 +1,4 @@
-import { Component, Input, OnInit, EventEmitter, Output } from '@angular/core';
+import { Component, Input, EventEmitter, Output } from '@angular/core';
 import { PrivateLayoutComponent } from 'src/app/modules/private/private-layout.component';
 
 @Component({
@@ -12,13 +12,13 @@ export class BodyComponent {
   @Output() pName: EventEmitter<any> = new EventEmitter();
   @Input() opened;
   @Input() pinButton = false;
-  constructor(private priv :PrivateLayoutComponent) {}
+  constructor(private priv: PrivateLayoutComponent) { }
   pinSidebar() {
     this.pinButton = !this.pinButton;
     this.pin.emit(this.pinButton);
   }
 
-   changeLang(langCode: string){
+  changeLang(langCode: string) {
     this.priv.changeLang(langCode);
-    }
+  }
 }

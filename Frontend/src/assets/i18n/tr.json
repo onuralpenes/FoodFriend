@@ -93,12 +93,14 @@
     "more" : "Devamı.."
   },
 
-  "sidebar" : {
+  "menu" : {
     "dashboard" : "Ana Sayfa",
     "profile" : "Profil",
     "food" : "Besin",
     "activity" : "Aktivite",
     "patients" : "Danışanlar",
-    "expert" : "Uzman"
+    "expert" : "Uzman",
+    "settings": "Ayarlar",
+    "logout": "Çıkış Yap"
   } 
 }

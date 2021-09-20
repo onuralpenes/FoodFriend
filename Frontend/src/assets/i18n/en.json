@@ -94,12 +94,14 @@
     "more" : "More.."
   },
 
-  "sidebar" : {
+  "menu" : {
     "dashboard" : "Dashboard",
     "profile" : "Profile",
     "food" : "Nutrition",
     "activity" : "Activity",
     "patients" : "Patients",
-    "expert" : "Expert"
+    "expert" : "Expert",
+    "settings": "Settings",
+    "logout": "Logout"
   } 
 }
