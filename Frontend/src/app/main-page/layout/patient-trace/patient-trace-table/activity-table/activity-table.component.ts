@@ -39,7 +39,6 @@ export class ActivityTable implements AfterViewInit {
         this.dataSource.filter = filterValue.trim().toLowerCase();
         if (this.dataSource.filteredData.length == 0) {
             this.isNull = false;
-            console.log(this.dataSource)
         }
         else {
             this.isNull = true;

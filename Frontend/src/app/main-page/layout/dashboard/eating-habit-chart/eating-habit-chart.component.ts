@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { multi } from './data';
 
 @Component({
@@ -6,13 +6,13 @@ import { multi } from './data';
   templateUrl: './eating-habit-chart.component.html',
   styleUrls: ['./eating-habit-chart.component.css']
 })
-export class EatingHabitChartComponent implements OnInit {
+export class EatingHabitChartComponent {
 
   multi!: any[];  //It is getting data from data.ts.
 
   legend: boolean = false;
   showLabels: boolean = false;
-  animations: boolean = false; 
+  animations: boolean = false;
   xAxis: boolean = false;
   yAxis: boolean = false;
   showYAxisLabel: boolean = false;
@@ -28,20 +28,4 @@ export class EatingHabitChartComponent implements OnInit {
   constructor() {
     Object.assign(this, { multi });
   }
-
-  onSelect(data: any): void {
-    console.log('Item clicked', JSON.parse(JSON.stringify(data)));
-  }
-
-  onActivate(data: any): void {
-    console.log('Activate', JSON.parse(JSON.stringify(data)));
-  }
-
-  onDeactivate(data: any): void {
-    console.log('Deactivate', JSON.parse(JSON.stringify(data)));
-  }
-
-  ngOnInit(): void {
-  }
-
 }

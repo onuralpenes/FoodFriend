@@ -1,4 +1,3 @@
-import { HttpClient } from "@angular/common/http";
 import { Injectable } from "@angular/core";
 import { DayPilot } from "daypilot-pro-angular";
 import { Observable } from "rxjs";
@@ -63,10 +62,6 @@ export class CalendarDataService {
       barColor: '#1155cc'
     },
   ];
-
-
-  constructor(private http: HttpClient) {
-  }
 
   getEvents(from: DayPilot.Date, to: DayPilot.Date): Observable<any[]> {
 

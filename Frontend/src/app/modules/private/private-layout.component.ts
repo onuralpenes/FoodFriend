@@ -1,6 +1,7 @@
 import { Component } from "@angular/core";
 import { Router } from "@angular/router";
 import { TranslateService } from "@ngx-translate/core";
+import { AppComponent } from "src/app/app.component";
 import { AuthService } from "src/app/services/auth.service";
 
 @Component({
@@ -10,11 +11,12 @@ import { AuthService } from "src/app/services/auth.service";
 
 export class PrivateLayoutComponent {
 
-    constructor(private translate: TranslateService, loginService: AuthService, private route: Router) {
+    constructor(loginService: AuthService, private route: Router, private app: AppComponent, translate: TranslateService) {
         if (!loginService.isLoggedIn) {
             this.route.navigateByUrl('/login');
         }
-            this.translate.use('tr');
+        const browserLang = translate.getBrowserLang();
+        translate.use(browserLang.match(/en|tr/) ? browserLang : 'en');
     }
     sideBar = true;
     pinned = false;
@@ -30,6 +32,6 @@ export class PrivateLayoutComponent {
     }
 
     changeLang(langCode: string) {
-        this.translate.use(langCode);
+        this.app.changeLang(langCode);
     }
 }

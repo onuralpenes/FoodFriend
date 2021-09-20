@@ -1,5 +1,5 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
+import { Router } from '@angular/router';
 import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
@@ -11,7 +11,7 @@ export class HeaderComponent implements OnInit {
 
   @Output() toggle: EventEmitter<any> = new EventEmitter(); //Required for connection with sidebar.
 
-  constructor(private authService: AuthService, private readonly route: ActivatedRoute, private readonly router: Router) { }
+  constructor(private authService: AuthService, private router: Router) { }
 
   pageName;
 

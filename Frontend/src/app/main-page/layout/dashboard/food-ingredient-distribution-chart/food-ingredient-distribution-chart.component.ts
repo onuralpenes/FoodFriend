@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { single } from './data';
 
 @Component({
@@ -6,7 +6,7 @@ import { single } from './data';
   templateUrl: './food-ingredient-distribution-chart.component.html',
   styleUrls: ['./food-ingredient-distribution-chart.component.css']
 })
-export class FoodIngredientDistributionChartComponent implements OnInit {
+export class FoodIngredientDistributionChartComponent {
 
   single!: any[];  //It is getting data from data.ts.
 
@@ -22,20 +22,4 @@ export class FoodIngredientDistributionChartComponent implements OnInit {
   constructor() { 
     Object.assign(this, { single });
   }
-
-  onSelect(data: any): void {
-    console.log('Item clicked', JSON.parse(JSON.stringify(data)));
-  }
-
-  onActivate(data: any): void {
-    console.log('Activate', JSON.parse(JSON.stringify(data)));
-  }
-
-  onDeactivate(data: any): void {
-    console.log('Deactivate', JSON.parse(JSON.stringify(data)));
-  }
-
-  ngOnInit(): void {
-  }
-
 }

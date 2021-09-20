@@ -9,15 +9,17 @@ import { AuthService } from './services/auth.service';
 })
 
 export class AppComponent {
-  public pageTitle = "";
   title = 'FoodFriend';
   constructor(public translate: TranslateService, loginService: AuthService, private route: Router) {
     translate.addLangs(['en', 'tr']);
     translate.setDefaultLang('en');
     const browserLang = translate.getBrowserLang();
     translate.use(browserLang.match(/en|tr/) ? browserLang : 'en');
-    if(loginService.isLoggedIn && this.route.url == "/login"){
+    if (loginService.isLoggedIn && this.route.url == "/login") {
       this.route.navigateByUrl('/dashboard');
     }
+  }
+  changeLang(langCode: string) {
+    this.translate.use(langCode);
   }
 }
