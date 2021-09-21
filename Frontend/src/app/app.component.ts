@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
-import { Router } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
-import { AuthService } from './services/auth.service';
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -10,14 +9,11 @@ import { AuthService } from './services/auth.service';
 
 export class AppComponent {
   title = 'FoodFriend';
-  constructor(public translate: TranslateService, loginService: AuthService, private route: Router) {
+  constructor(public translate: TranslateService) {
     translate.addLangs(['en', 'tr']);
     translate.setDefaultLang('en');
     const browserLang = translate.getBrowserLang();
     translate.use(browserLang.match(/en|tr/) ? browserLang : 'en');
-    if (loginService.isLoggedIn && this.route.url == "/login") {
-      this.route.navigateByUrl('/dashboard');
-    }
   }
   changeLang(langCode: string) {
     this.translate.use(langCode);
