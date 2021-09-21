@@ -69,12 +69,12 @@ input {
 }
 .all{
 	margin-left: 20%;
-	margin-right: 20%;
+	margin-right: 10%;
 	margin-top: 5%;
 }
 .container.right-panel-active {
 	height: 710px;
-	width: 1050px;
+	width: 935px;
 	-webkit-transition: height 1s, width 1s;
   	transition: height 1s, width 1s;
 }
@@ -125,7 +125,7 @@ input {
 }
 .sign-up-container {
 	left: 0;
-	width: 50%;
+	width: 47%;
 	opacity: 0;
 	z-index: 1;
 }
@@ -231,10 +231,10 @@ input {
 
   @media only screen and (min-width: 880px) {
 	form{
-		margin-top: 20%;
+		margin-top: 15%;
 	}
 	.sign-up-container-enable{
-		margin-left: -75px;
+		margin-left: -30px;
 	}
 	.container.right-panel-active .sign-up-container {
 		transform: translateX(100%);
@@ -251,7 +251,7 @@ input {
 		}
 	}
 	form{
-		margin-top: 10%;
+		margin-top: 5%;
 	}
 	.buttonDiv{
 		margin-top: 15px;
@@ -287,7 +287,7 @@ input {
 		height: 50%;
 	}
 	.container.right-panel-active{
-		height: 900px;
+		height: 800px;
 	}
   }
 
