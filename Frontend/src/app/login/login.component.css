@@ -69,12 +69,12 @@ input {
 }
 .all{
 	margin-left: 20%;
-	margin-right: 20%;
+	margin-right: 10%;
 	margin-top: 5%;
 }
 .container.right-panel-active {
 	height: 710px;
-	width: 1050px;
+	width: 935px;
 	-webkit-transition: height 1s, width 1s;
   	transition: height 1s, width 1s;
 }
@@ -125,7 +125,7 @@ input {
 }
 .sign-up-container {
 	left: 0;
-	width: 50%;
+	width: 47%;
 	opacity: 0;
 	z-index: 1;
 }
@@ -229,72 +229,12 @@ input {
 	transform: translateX(20%);
 }
 
-.social-container {
-	margin: 20px 0;
-}
-
-.social-container a {
-	border: 1px solid #DDDDDD;
-	border-radius: 50%;
-	display: inline-flex;
-	justify-content: center;
-	align-items: center;
-	margin: 0 5px;
-	height: 40px;
-	width: 40px;
-}
-
-  .alternate-logins{
-	margin-top: 20px;
-  }
-
-  .alternate-logins, .sign-up{
-	display: inline-flex;
-	justify-content: center;
-	align-items: center;
-	margin: 0 5px;
-	height: 40px;
-	width: 40px;
-  }
-
-  .social-links{
-	display:flex;
-	flex-direction: row;
-	flex-wrap: no-wrap;
-	padding: 15px 0;
-	justify-content:center;
-  }
-
-  .social-links i{
-	width: 40px;
-	margin: 0 5px;
-	height: 40px;
-	border-radius: 50%;
-	line-height: 40px;
-	background: rgba(248, 248, 248, 0.3);
-	transition: all 0.3s ease;
-	cursor: pointer;
-  }
-
-  .social-links i:hover{
-	background: rgba(9, 220, 128, 0.3);
-	color: rgba(255,255,255,0.8);
-  }
-
-  .fa-facebook {
-	color: rgb(66 103 178);
-  }
-
-  .fa-google {
-	color: rgb(66 133 244);
-  }
-
   @media only screen and (min-width: 880px) {
 	form{
-		margin-top: 20%;
+		margin-top: 15%;
 	}
 	.sign-up-container-enable{
-		margin-left: -75px;
+		margin-left: -30px;
 	}
 	.container.right-panel-active .sign-up-container {
 		transform: translateX(100%);
@@ -304,8 +244,6 @@ input {
 	}
   }
 
-
-
   @media only screen and (max-width: 880px) {
 	@media only screen and (max-height: 611px){
 		.container{
@@ -313,7 +251,7 @@ input {
 		}
 	}
 	form{
-		margin-top: 10%;
+		margin-top: 5%;
 	}
 	.buttonDiv{
 		margin-top: 15px;
@@ -349,7 +287,7 @@ input {
 		height: 50%;
 	}
 	.container.right-panel-active{
-		height: 900px;
+		height: 800px;
 	}
   }
 
