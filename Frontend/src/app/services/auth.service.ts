@@ -24,7 +24,7 @@ export class AuthService {
     constructor(private http: HttpClient, private route: Router, private alertService: AlertService, private deviceService: DeviceDetectorService) { }
 
     getUserInfoHttp() {
-        return this.http.get<Result>(environment.BASE_URL + '/api/auth/GetUserInfo', this.httpOptions);
+        return this.http.get<Result>(environment.BASE_URL + '/GetUserInfo', this.httpOptions);
     }
 
     login(login: LoginDto) {
