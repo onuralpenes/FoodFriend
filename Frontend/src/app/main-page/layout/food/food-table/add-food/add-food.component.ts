@@ -6,7 +6,7 @@ import { HttpEntityRepositoryService } from "src/app/services/http-entity-reposi
 @Component({
     selector: 'app-add-food',
     templateUrl: './add-food.component.html',
-    styleUrls: ['../food-table.component.css'],
+    styleUrls: ['./add-food.component.css'],
   })
   export class AddFood {
     foods: Observable<FoodDetailDto>;
