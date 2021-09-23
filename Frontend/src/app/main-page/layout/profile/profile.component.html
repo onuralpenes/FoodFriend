@@ -45,8 +45,8 @@
 
         <div [hidden]="!illnessInfo.hasIllness" class="row ilnesses">
             <p>Illness: {{dummy}}</p>
-            <div class=" col " *ngFor="let illness of illnessInfo.illnesses; let i = index">
-                <p>{{illness.name}} : {{illness.exp}}</p>
+            <div class=" col " *ngFor="let illness of illnessInfo.illnessList; let i = index">
+                <p>{{illness.illnessName}} : {{illness.illnessType}}</p>
             </div>
         </div>
     </div>
@@ -54,13 +54,13 @@
     <div class="info-allergy">
         <h1>Allergy</h1>
 
-        <div [hidden]="allergy.hasAllergy" class="allergies">
+        <div [hidden]="allergyInfo.hasAllergy" class="allergies">
             <p>This counselee has no allergy that you need to be aware of.</p>
         </div>
-        <div [hidden]="!allergy.hasAllergy" class="row allergies">
+        <div [hidden]="!allergyInfo.hasAllergy" class="row allergies">
             <p>Allergy: {{dummy}}</p>
-            <div class=" col " *ngFor="let allergy of allergy.allergies; let i = index">
-                {{allergy.name}} : {{allergy.exp}}
+            <div class=" col " *ngFor="let allergy of allergyInfo.allergyList; let i = index">
+                {{allergy.allergyName}} : {{allergy.allergyType}}
             </div>
         </div>
     </div>
