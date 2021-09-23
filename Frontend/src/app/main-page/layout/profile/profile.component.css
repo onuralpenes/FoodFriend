@@ -51,11 +51,6 @@ p{
 .info{
     margin-left: 100px;
 }
-.line{
-    border:none;
-    border-top:1px dotted #f00;
-    transform:rotate(90)
-}
 .pragnentEnable{
     display: inline-block;
 }
