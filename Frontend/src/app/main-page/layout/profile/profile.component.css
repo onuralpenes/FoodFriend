@@ -31,11 +31,7 @@ p{
     height: 275px;
     background: linear-gradient(0deg, #15dd9c 0%, #eaeaea 87%);
 }
-.ilnesses{
-    margin: 0px;
-    padding: 20px;
-}
-.allergies{
+.groups{
     margin: 0px;
     padding: 20px;
 }
@@ -55,18 +51,13 @@ p{
 .info{
     margin-left: 100px;
 }
-.line{
-    border:none;
-    border-top:1px dotted #f00;
-    transform:rotate(90)
-}
 .pragnentEnable{
     display: inline-block;
 }
 .pragnentDisable{
     display: none;
 }
-.info-allergy, .info-illness{
+.list-info{
     margin-left: 10px;
     margin-right: 10px;
 }

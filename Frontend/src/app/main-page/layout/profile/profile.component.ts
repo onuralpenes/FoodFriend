@@ -66,12 +66,22 @@ export class ProfileComponent implements OnInit {
 
   pregnantInfo = {
     "isPregnant": false,
-    "pregnantList": []
+    "pregnantList": [
+      {
+        "pregnantStartDate": new Date(),
+        "pregnantEndDate": new Date()
+      }
+    ]
   }
 
   disabledInfo = {
     "isDisabled": false,
-    "disabledList": []
+    "disabledList": [
+      {
+        "disabledType": "Disabled1",
+        "disabledRatio": 0
+      }
+    ]
   }
 
   constructor(public modal: MatDialog, entityService: HttpEntityRepositoryService<UserInfo>, authService: AuthService) {
