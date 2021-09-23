@@ -11,7 +11,7 @@ import { HttpEntityRepositoryService } from "src/app/services/http-entity-reposi
   export class AddFood {
     foods: Observable<FoodDetailDto>;
 
-      constructor(private entityService: HttpEntityRepositoryService<FoodDetailDto>){
+      constructor(entityService: HttpEntityRepositoryService<FoodDetailDto>){
         this.foods = entityService.getAll("/FoodDetail/GetAll")
       }
   }
