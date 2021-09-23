@@ -1,6 +1,9 @@
 import { Component, OnInit} from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { Observable } from 'rxjs';
+import { AllergyDetail } from 'src/app/models/user/user-info/health/allergy-detail.model';
+import { IllnessDetail } from 'src/app/models/user/user-info/health/illness-detail.model';
+import { PregnantDetail } from 'src/app/models/user/user-info/health/pregnant-detail.model';
 import { UserInfo } from 'src/app/models/user/user-info/user-info.model';
 import { AuthService } from 'src/app/services/auth.service';
 import { HttpEntityRepositoryService } from 'src/app/services/http-entity-repository.service';
@@ -22,11 +25,16 @@ export class ProfileComponent implements OnInit {
   userName = "Onuralp Enes Öz";
   email = "oz.onuralp@gmail.com";
   phone = "555-555-5555";
+  //illnessInfo: IllnessDetail;
+  //allergyInfo: AllergyDetail;
+  //pregnantInfo: PregnantDetail
   dummy = "dummy";
   gender = "male";
   genderless = false;
   male = false;
   female = false;
+  
+
   illnessInfo =
     {
       "hasIllness": true,
