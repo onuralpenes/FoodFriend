@@ -1,3 +1,5 @@
+import { Nutrition } from "./nutrition.model";
+
 export interface PersonalEnergyActivity {
     personalEnergyActivityId: number;
     userId: number;
@@ -7,4 +9,5 @@ export interface PersonalEnergyActivity {
     activityEffortUnit: number;
     activityStartDate: Date;
     activityEndDate: Date;
+    nutrition: Nutrition[];
 }
