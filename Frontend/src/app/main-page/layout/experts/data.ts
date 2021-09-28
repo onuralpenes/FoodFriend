@@ -1,5 +1,4 @@
-import { Expert } from "src/app/models/user/expert.model";
-
+import { Expert } from "src/app/models/core/expert.model";
 
 export const experts: Expert[] = [
     {

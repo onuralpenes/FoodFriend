@@ -1,6 +1,6 @@
 export interface FoodDetail {
-    id: number;
-    foodDetailId: string;
+    foodDetailId: number;
+    eatingActivityId: number;
     myProperty: string;
     foodName: string;
     calorie: number;

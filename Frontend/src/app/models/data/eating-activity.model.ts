@@ -1,4 +1,4 @@
-export interface FoodDetailDto {
+export interface EatingActivity {
     eatingActivityId: number;
     userId: number;
     startEatingActivity: Date;

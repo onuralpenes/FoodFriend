@@ -3,7 +3,7 @@ import { MAT_DIALOG_DATA } from "@angular/material/dialog";
 import { MatPaginator } from "@angular/material/paginator";
 import { MatSort } from "@angular/material/sort";
 import { MatTableDataSource } from "@angular/material/table";
-import { FoodDetail } from "src/app/models/data/nutrition/food-detail.model";
+import { FoodDetail } from "src/app/models/data/food-detail.model";
 import { FOOD_DATA } from "../data";
 import { Transfer } from "../patient-trace-table.component";
 
@@ -27,7 +27,7 @@ export class NutritionTable implements AfterViewInit {
         'carbohydrate',
     ];
     dataSource = new MatTableDataSource(
-        this.foods.filter((food) => food.id === this.data.id)
+        this.foods.filter((food) => food.eatingActivityId === this.data.id)
     );
 
     @ViewChild(MatSort) sort!: MatSort;

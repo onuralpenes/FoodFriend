@@ -3,10 +3,9 @@ import { HttpHeaders, HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { environment } from 'src/environments/environment';
 import { JwtHelperService } from '@auth0/angular-jwt';
-import { LoginDto } from '../models/user/login.model';
 import { Result } from '../models/core/result.model';
 import { AlertService } from '../helpers/alert.service';
-import { DeviceDetectorService } from 'ngx-device-detector';
+import { Login } from '../models/user/login.model';
 
 @Injectable({
     providedIn: 'root'
@@ -21,26 +20,13 @@ export class AuthService {
     };
     jwtHelper: JwtHelperService = new JwtHelperService();
 
-    constructor(private http: HttpClient, private route: Router, private alertService: AlertService, private deviceService: DeviceDetectorService) { }
+    constructor(private http: HttpClient, private route: Router, private alertService: AlertService) { }
 
     getUserInfoHttp() {
         return this.http.get<Result>(environment.BASE_URL + '/GetUserInfo', this.httpOptions);
     }
 
-    login(login: LoginDto) {
-
-        const device = this.deviceService.getDeviceInfo();
-
-        let devInfo = {
-            deviceKey: device.userAgent,
-            deviceName: device.device,
-            deviceModel: device.deviceType,
-            osVersion: device.os_version,
-            osType: device.os,
-            deviceId: 0
-        }
-        login.deviceInfo = devInfo;
-
+    login(login: Login) {
         this.http
             .post(environment.BASE_URL + "/auth/login", login, this.httpOptions)
             .subscribe(data => {
@@ -69,7 +55,7 @@ export class AuthService {
                     this.alertService.openSnackBar(false,err.error);
             });
     }
-    userTransition(login: LoginDto) {
+    userTransition(login: Login) {
         this.http
             .post(environment.BASE_URL + "/auth/login", login, this.httpOptions)
             .subscribe(data => {

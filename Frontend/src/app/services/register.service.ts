@@ -1,9 +1,8 @@
 import { HttpClient, HttpHeaders } from "@angular/common/http";
 import { Injectable } from "@angular/core";
-import { DeviceDetectorService } from "ngx-device-detector";
 import { environment } from "src/environments/environment";
 import { AlertService } from "../helpers/alert.service";
-import { RegisterDto } from "../models/user/register.model";
+import { User } from "../models/user/user.model";
 
 @Injectable({
     providedIn: 'root'
@@ -16,20 +15,9 @@ export class RegisterService {
         })
     };
 
-    constructor(private http: HttpClient, private alertService: AlertService, private deviceService: DeviceDetectorService) { }
+    constructor(private http: HttpClient, private alertService: AlertService) { }
 
-    register(register: RegisterDto) {
-
-        const device = this.deviceService.getDeviceInfo();
-
-        let devInfo = {
-            deviceKey: device.userAgent,
-            deviceName: device.device,
-            deviceModel: device.deviceType,
-            osVersion: device.os_version,
-            osType: device.os
-        }
-        register.deviceInfo = devInfo;
+    register(register: User) {
 
         this.http
             .post(environment.BASE_URL + "/auth/register", register, this.httpOptions).subscribe(data => {

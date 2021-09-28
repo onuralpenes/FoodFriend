@@ -1,6 +1,6 @@
 import { Pipe, PipeTransform } from '@angular/core';
 import { experts } from '../main-page/layout/experts/data';
-import { Expert } from '../models/user/expert.model';
+import { Expert } from '../models/core/expert.model';
 const { isArray } = Array;
 
 @Pipe({

@@ -1,6 +1,4 @@
-import { UserInfo } from "../../user/user-info/user-info.model";
-
-export interface ActivityInfo {
+export interface PersonalEnergyActivity {
     personalEnergyActivityId: number;
     userId: number;
     activityType: number;
@@ -9,5 +7,4 @@ export interface ActivityInfo {
     activityEffortUnit: number;
     activityStartDate: Date;
     activityEndDate: Date;
-    user: UserInfo;
 }
