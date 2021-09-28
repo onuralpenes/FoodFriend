@@ -1,6 +1,5 @@
 import { Component } from "@angular/core";
 import { Observable } from "rxjs";
-import { FoodDetailDto } from "src/app/models/data/nutrition/food-detail-dto.model";
 import { HttpEntityRepositoryService } from "src/app/services/http-entity-repository.service";
 
 @Component({
@@ -9,9 +8,9 @@ import { HttpEntityRepositoryService } from "src/app/services/http-entity-reposi
     styleUrls: ['./add-food.component.css'],
   })
   export class AddFood {
-    foods: Observable<FoodDetailDto>;
+    // foods: Observable<FoodDetail>;
 
-      constructor(entityService: HttpEntityRepositoryService<FoodDetailDto>){
-        this.foods = entityService.getAll("/FoodDetail/GetAll")
-      }
+    //   constructor(entityService: HttpEntityRepositoryService<FoodDetail>){
+    //     this.foods = entityService.getAll("/FoodDetail/GetAll")
+    //   }
   }

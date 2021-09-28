@@ -1,6 +1,6 @@
 import { Component } from "@angular/core";
 import { Observable } from "rxjs";
-import { ActivityInfoDto } from "src/app/models/data/activity/activity-info-dto.model";
+import { PersonalEnergyActivity } from "src/app/models/data/energy-activity.model";
 import { HttpEntityRepositoryService } from "src/app/services/http-entity-repository.service";
 
 @Component({
@@ -9,9 +9,9 @@ import { HttpEntityRepositoryService } from "src/app/services/http-entity-reposi
     styleUrls: ['./add-activity.component.css'],
   })
   export class AddActivity {
-    activities: Observable<ActivityInfoDto>;
+    // activities: Observable<PersonalEnergyActivity>;
 
-    constructor(entityService: HttpEntityRepositoryService<ActivityInfoDto>){
-      this.activities = entityService.getAll("/PersonalEnergyActivity/GetAll")
-    }
+    // constructor(entityService: HttpEntityRepositoryService<PersonalEnergyActivity>){
+    //   this.activities = entityService.getAll("/PersonalEnergyActivity/GetAll")
+    // }
   }

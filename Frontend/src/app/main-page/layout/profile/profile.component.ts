@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { Observable } from 'rxjs';
-import { UserInfo } from 'src/app/models/user/user-info/user-info.model';
+import { User } from 'src/app/models/user/user.model';
 import { AuthService } from 'src/app/services/auth.service';
 import { HttpEntityRepositoryService } from 'src/app/services/http-entity-repository.service';
 import { SurveyComponent } from './survey/survey.component';
@@ -13,7 +13,7 @@ import { SurveyComponent } from './survey/survey.component';
 })
 export class ProfileComponent implements OnInit {
 
-  user: Observable<UserInfo>;
+  user: Observable<User>;
 
   weight = 85;
   height = 181;
@@ -84,7 +84,7 @@ export class ProfileComponent implements OnInit {
     ]
   }
 
-  constructor(public modal: MatDialog, entityService: HttpEntityRepositoryService<UserInfo>, authService: AuthService) {
+  constructor(public modal: MatDialog, entityService: HttpEntityRepositoryService<User>, authService: AuthService) {
     this.user = entityService.get("/User/GetUserInfo?userId=", authService.CurrentUserId);
     // this.userName = this.user.firstName + " " + this.user.lastName
     // this.email = this.user.emailAddress
