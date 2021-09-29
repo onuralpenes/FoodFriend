@@ -110,7 +110,7 @@
         <div class="row mt-3">
           <div class="col-md-6">
             <div class="buttons">
-              <button class="tab-button" mat-icon-button>
+              <button class="tab-button" mat-icon-button (click)="addIllness()">
                 <i class="fa fa-medkit" aria-hidden="true"> Illness</i>
               </button>
             </div>
@@ -118,7 +118,7 @@
           <div class="col-md-6">
             <div class="buttons">
               <button class="tab-button" mat-icon-button>
-                <i class="fa fa-plus-square" aria-hidden="true"> Allergy</i>
+                <i class="fa fa-plus-square" aria-hidden="true" (click)="addAllergy()"> Allergy</i>
               </button>
             </div>
           </div>

@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { MatDialog } from '@angular/material/dialog';
+import { AddAllergy } from './add-allergy/add-allergy.component';
+import { AddIllness } from './add-illness/add-illness.component';
 import { Blood, BLOOD_DATA, Select, SELECT_DATA } from './data';
 
 
@@ -16,8 +19,8 @@ export class SurveyComponent implements OnInit {
   bloods: Blood[] = BLOOD_DATA;
   selects: Select[] = SELECT_DATA;
 
-  constructor(private formBuilder: FormBuilder) {
-  }
+  constructor(private formBuilder: FormBuilder, public modal: MatDialog) { }
+  
   ngOnInit() { 
     this.surveyForm = this.formBuilder.group({
       'firstName': new FormControl('', [Validators.required]),
@@ -37,5 +40,13 @@ export class SurveyComponent implements OnInit {
   
   onSubmit(post) {
     this.post = post;
+  }
+
+  addIllness(){
+    this.modal.open(AddIllness);
+  }
+
+  addAllergy(){
+    this.modal.open(AddAllergy);
   }
 }

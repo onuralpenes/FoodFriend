@@ -35,6 +35,8 @@ import { PatientTargetCard } from 'src/app/main-page/layout/patient-trace/patien
 import { PatientTarget } from 'src/app/main-page/layout/patient-trace/patient-trace-table/target/target.component';
 import { PatientTraceComponent } from 'src/app/main-page/layout/patient-trace/patient-trace.component';
 import { ProfileComponent } from 'src/app/main-page/layout/profile/profile.component';
+import { AddAllergy } from 'src/app/main-page/layout/profile/survey/add-allergy/add-allergy.component';
+import { AddIllness } from 'src/app/main-page/layout/profile/survey/add-illness/add-illness.component';
 import { SurveyComponent } from 'src/app/main-page/layout/profile/survey/survey.component';
 import { ExpertFilterPipe } from '../../helpers/expert-filter.pipe';
 import { CustomMaterialModule } from '../material/material.module';
@@ -79,6 +81,8 @@ export function HttpLoaderFactory(http: HttpClient) {
     ExpertFilterPipe,
     AddActivity,
     AddFood,
+    AddIllness,
+    AddAllergy
   ],
   imports: [
     CommonModule,
