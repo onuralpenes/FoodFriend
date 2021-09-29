@@ -30,7 +30,7 @@ import { FoodTableComponent } from 'src/app/main-page/layout/food/food-table/foo
 import { FoodComponent } from 'src/app/main-page/layout/food/food.component';
 import { ActivityTable } from 'src/app/main-page/layout/patient-trace/patient-trace-table/activity-table/activity-table.component';
 import { NutritionTable } from 'src/app/main-page/layout/patient-trace/patient-trace-table/nutrition-table/nutrition-table.component';
-import {  PatientTraceTableComponent } from 'src/app/main-page/layout/patient-trace/patient-trace-table/patient-trace-table.component';
+import { PatientTraceTableComponent } from 'src/app/main-page/layout/patient-trace/patient-trace-table/patient-trace-table.component';
 import { PatientTargetCard } from 'src/app/main-page/layout/patient-trace/patient-trace-table/target-card/target-card.component';
 import { PatientTarget } from 'src/app/main-page/layout/patient-trace/patient-trace-table/target/target.component';
 import { PatientTraceComponent } from 'src/app/main-page/layout/patient-trace/patient-trace.component';
@@ -40,9 +40,11 @@ import { ExpertFilterPipe } from '../../helpers/expert-filter.pipe';
 import { CustomMaterialModule } from '../material/material.module';
 import { PrivateLayoutComponent } from './private-layout.component';
 import { PrivateRoutingModule } from './private-routing.module';
+
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http);
 }
+
 @NgModule({
   declarations: [
     PrivateLayoutComponent,

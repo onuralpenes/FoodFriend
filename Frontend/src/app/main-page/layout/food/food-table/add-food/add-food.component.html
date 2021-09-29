@@ -2,6 +2,6 @@
   <mat-label>{{'label.select' | translate}}</mat-label>
   <select matNativeControl>
     <option [ngValue]="undefined" disabled>{{'label.select' | translate}}</option>
-    <option *ngFor="let food of foods" [value]="food.foodName">{{ food.foodName }}</option>
+    <option *ngFor="let food of foods" [value]="food.foodName" (click) = "addFood(food.foodDetailId)">{{ food.foodName }}</option>
   </select>
 </mat-form-field> -->

@@ -1,3 +1,5 @@
+import { Nutrition } from "./nutrition.model";
+
 export interface EatingActivity {
     eatingActivityId: number;
     userId: number;
@@ -6,4 +8,5 @@ export interface EatingActivity {
     consumptionRatio: number;
     consumptionType: number;
     estimatedCalorie: number;
+    nutrition: Nutrition[];
 }

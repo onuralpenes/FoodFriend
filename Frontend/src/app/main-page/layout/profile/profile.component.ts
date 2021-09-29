@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { Observable } from 'rxjs';
+import { AlertService } from 'src/app/helpers/alert.service';
+import { HealthInfo } from 'src/app/models/user/health-info.model';
+import { PhysicalInfo } from 'src/app/models/user/pysical-info.model';
 import { User } from 'src/app/models/user/user.model';
 import { AuthService } from 'src/app/services/auth.service';
 import { HttpEntityRepositoryService } from 'src/app/services/http-entity-repository.service';
@@ -12,8 +15,7 @@ import { SurveyComponent } from './survey/survey.component';
   styleUrls: ['./profile.component.css']
 })
 export class ProfileComponent implements OnInit {
-
-  user: Observable<User>;
+  user!: User;
 
   weight = 85;
   height = 181;
@@ -22,6 +24,8 @@ export class ProfileComponent implements OnInit {
   userName = "Onuralp Enes Öz";
   email = "oz.onuralp@gmail.com";
   phone = "555-555-5555";
+  healthId!: number;
+  physicalId!: number;
   dummy = "dummy";
   gender = "male";
   genderless = false;
@@ -84,23 +88,41 @@ export class ProfileComponent implements OnInit {
     ]
   }
 
-  constructor(public modal: MatDialog, entityService: HttpEntityRepositoryService<User>, authService: AuthService) {
-    this.user = entityService.get("/User/GetUserInfo?userId=", authService.CurrentUserId);
-    // this.userName = this.user.firstName + " " + this.user.lastName
-    // this.email = this.user.emailAddress
-    // this.phone = this.user.phone
-    // this.birthdate = this.user.birthDate
+  constructor(public modal: MatDialog, authService: AuthService, private alertService: AlertService,
+    entityService: HttpEntityRepositoryService<User>, entityServiceH: HttpEntityRepositoryService<HealthInfo>, entityServiceP: HttpEntityRepositoryService<PhysicalInfo>) {
+    entityService.get("/User/Get?userId=", authService.CurrentUserId).subscribe(data => {
+
+      var Data: any = data;
+      if (!Data.success) {
+        this.alertService.openSnackBar(Data.success, Data.message);
+        return;
+      }
+
+      this.userName = Data.data.firstName + " " + Data.data.lastName;
+      this.email = Data.data.emailAddress;
+      this.phone = Data.data.phone;
+      this.birthdate = Data.data.birthDate;
+      this.healthId = Data.data.healthInfoId;
+      this.physicalId = Data.data.physicalInfoId;
+    });
     this.age = Math.floor(((Math.abs(Date.now() - this.birthdate.getTime())) / (1000 * 3600 * 24)) / 365.25);
-    // this.height = this.user.physicalInfo.height
-    // this.weight = this.user.physicalInfo.weight
-    // this.illnessInfo.hasIllness = this.user.healthInfo.hasHealthProblem
-    // this.illnessInfo.illnessList = this.user.healthInfo.illnessDetailList
-    // this.allergyInfo.hasAllergy = this.user.healthInfo.hasAllergy
-    // this.allergyInfo.allergyList = this.user.healthInfo.allergyDetailList
-    // this.pregnantInfo.isPregnant = this.user.healthInfo.isPregnant
-    // this.pregnantInfo.pregnantList = this.user.healthInfo.pregnantDetailList
-    // this.disabledInfo.isDisabled = this.user.physicalInfo.disabledStatus
-    // this.disabledInfo.disabledList = this.user.physicalInfo.disabledInfo
+
+    // entityServiceH.get("/PhysicalInfo/Get?id=", this.healthId).subscribe(data => {
+
+    //   var Data: any = data;
+    //   if (!Data.success) {
+    //     this.alertService.openSnackBar(Data.success, Data.message);
+    //     return;
+    //   }
+    // });
+    // entityServiceP.get("/HealthInfo/Get?id=", this.physicalId).subscribe(data => {
+
+    //   var Data: any = data;
+    //   if (!Data.success) {
+    //     this.alertService.openSnackBar(Data.success, Data.message);
+    //     return;
+    //   }
+    // });
   }
 
   editProfile() {
