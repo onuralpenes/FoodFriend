@@ -3,7 +3,10 @@ import { MatDialog } from '@angular/material/dialog';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
+import { Observable } from 'rxjs';
+import { EatingActivity } from 'src/app/models/data/eating-activity.model';
 import { FoodDetail } from 'src/app/models/data/food-detail.model';
+import { HttpEntityRepositoryService } from 'src/app/services/http-entity-repository.service';
 import { AddFood } from './add-food/add-food.component';
 import { FOOD_DATA } from './data';
 import { EditFood } from './edit-table.component';
@@ -22,11 +25,15 @@ export interface Transfer {
   styleUrls: ['./food-table.component.css'],
 })
 export class FoodTableComponent implements AfterViewInit {
+  eatact: Observable<EatingActivity>;
+
   foods: FoodDetail[] = FOOD_DATA; //It is getting data from data.ts.
   sortedData = this.foods; //It is getting data from data.ts.
   isNull: boolean = true;
 
-  constructor(public modal: MatDialog) { }
+  constructor(public modal: MatDialog, entityService: HttpEntityRepositoryService<EatingActivity>) {
+    this.eatact = entityService.getAll("​/EatingActivity​/GetAll")
+  }
 
   displayedColumns: string[] = [
     'foodName',
@@ -56,7 +63,7 @@ export class FoodTableComponent implements AfterViewInit {
     });
   }
 
-  addFood(){
+  addFood() {
     this.modal.open(AddFood);
   }
 
