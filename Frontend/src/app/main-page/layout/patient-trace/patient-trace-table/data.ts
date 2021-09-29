@@ -2,18 +2,6 @@ import { PersonalEnergyActivity } from "src/app/models/data/energy-activity.mode
 import { FoodDetail } from "src/app/models/data/food-detail.model"
 import { User } from "src/app/models/user/user.model"
 
-export const user: User = {
-    userId: 0,
-    healthInfoId: 0,
-    firstName: "",
-    lastName: "",
-    password: "",
-    birthDate: new Date(),
-    emailAddress: "",
-    phone: "",
-    physicalInfoId: 0,
-}
-
 export const USER_DATA: User[] = [
     { firstName: 'Ali', lastName: 'Akman', birthDate: new Date(1995, 10, 8), password: "", physicalInfoId: 0, healthInfoId: 0, emailAddress: "", phone: "", userId: 1 },
     { firstName: 'Malaika', lastName: 'Connor', birthDate: new Date(2000, 5, 14), password: "", physicalInfoId: 0, healthInfoId: 0, emailAddress: "", phone: "", userId: 2 },
