@@ -17,13 +17,13 @@ import { SurveyComponent } from './survey/survey.component';
 export class ProfileComponent implements OnInit {
   user!: User;
 
-  weight = 85;
-  height = 181;
-  age = 21;
-  birthdate = new Date(1999, 6, 2);
-  userName = "Onuralp Enes Öz";
-  email = "oz.onuralp@gmail.com";
-  phone = "555-555-5555";
+  weight!: number;
+  height!: number;
+  age: number;
+  birthdate: Date = new Date();
+  userName!: string;
+  email!: string;
+  phone!: string;
   healthId!: number;
   physicalId!: number;
   dummy = "dummy";
@@ -107,21 +107,29 @@ export class ProfileComponent implements OnInit {
     });
     this.age = Math.floor(((Math.abs(Date.now() - this.birthdate.getTime())) / (1000 * 3600 * 24)) / 365.25);
 
-    // entityServiceH.get("/PhysicalInfo/Get?id=", this.healthId).subscribe(data => {
-
+    // entityServiceP.get("/PhysicalInfo/Get?id=", this.physicalId).subscribe(data => {
     //   var Data: any = data;
     //   if (!Data.success) {
     //     this.alertService.openSnackBar(Data.success, Data.message);
     //     return;
     //   }
+
+    //   this.height = Data.data.height;
+    //   this.weight = Data.data.weight;
+    //   this.disabledInfo.isDisabled = Data.data.disabledStatus;
     // });
-    // entityServiceP.get("/HealthInfo/Get?id=", this.physicalId).subscribe(data => {
+
+    // entityServiceH.get("/HealthInfo/Get?id=", this.healthId).subscribe(data => {
 
     //   var Data: any = data;
     //   if (!Data.success) {
     //     this.alertService.openSnackBar(Data.success, Data.message);
     //     return;
     //   }
+
+    // this.illnessInfo.hasIllness = Data.data.hasHealthProblem;
+    // this.allergyInfo.hasAllergy = Data.data.hasAllergy;
+    // this.pregnantInfo.isPregnant = Data.data.isPregnant;
     // });
   }
 
