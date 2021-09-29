@@ -31,7 +31,7 @@ export interface Transfer2 {
   templateUrl: './patient-trace-table.component.html',
   styleUrls: ['./patient-trace-table.component.css'],
 })
-export class PatientTraceTableComponent implements AfterViewInit {
+export class PatientTraceTableComponent {
   users: User[] = [];
   isNull: boolean = true;
 
@@ -51,7 +51,6 @@ export class PatientTraceTableComponent implements AfterViewInit {
       
       this.Begin();
     });
-
 
   }
 
@@ -85,9 +84,6 @@ export class PatientTraceTableComponent implements AfterViewInit {
     else {
       this.isNull = true;
     }
-  }
-
-  ngAfterViewInit() {
   }
 
   open(id: number) {
