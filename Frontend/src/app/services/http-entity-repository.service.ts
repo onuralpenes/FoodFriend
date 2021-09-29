@@ -39,10 +39,8 @@ export class HttpEntityRepositoryService<T> {
     }
 
     get(_url: string, id: number): Observable<T> {
-        return this.http.get<T>(
-            environment.BASE_URL + _url + "/" + id,
-            this.httpOptions
-        );
+        let url: string = environment.BASE_URL + _url + id.toString();
+        return this.http.get<T>(url, this.httpOptions);
     }
 
     insert(_url: string, _content: any): Observable<T> {
@@ -55,7 +53,7 @@ export class HttpEntityRepositoryService<T> {
 
     update(_url: string, _content: any): Observable<T> {
         return this.http.put<T>(
-            environment.BASE_URL + _url + "/"+
+            environment.BASE_URL + _url + "/" +
             _content,
             this.httpOptions
         );
