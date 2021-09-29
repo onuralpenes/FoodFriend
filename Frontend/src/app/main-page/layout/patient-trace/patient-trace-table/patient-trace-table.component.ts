@@ -4,7 +4,9 @@ import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import { Router } from '@angular/router';
+import { AlertService } from 'src/app/helpers/alert.service';
 import { User } from 'src/app/models/user/user.model';
+import { HttpEntityRepositoryService } from 'src/app/services/http-entity-repository.service';
 import { ActivityTable } from './activity-table/activity-table.component';
 import { USER_DATA } from './data';
 import { NutritionTable } from './nutrition-table/nutrition-table.component';
@@ -35,7 +37,18 @@ export class PatientTraceTableComponent implements AfterViewInit {
   sortedData = this.users;
   isNull: boolean = true;
 
-  constructor(public modal: MatDialog, private router: Router) { }
+  constructor(public modal: MatDialog, private router: Router, private alertService: AlertService, entityService: HttpEntityRepositoryService<User>,) {
+    entityService.getAll("/User/GetAll").subscribe(data => {
+
+      var Data: any = data;
+      if (!Data.success) {
+        this.alertService.openSnackBar(Data.success, Data.message);
+        return;
+      }
+
+     //console.log( this.users.concat(Data.data));
+    });
+  }
 
   displayedColumns: string[] = [
     'firstName',
@@ -45,7 +58,7 @@ export class PatientTraceTableComponent implements AfterViewInit {
     'foodData',
     'activityData',
   ];
-  dataSource = new MatTableDataSource(USER_DATA);
+  dataSource = new MatTableDataSource(this.users);
 
   @ViewChild(MatSort) sort!: MatSort;
   @ViewChild(MatPaginator) paginator!: MatPaginator;
