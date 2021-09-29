@@ -8,7 +8,6 @@ import { AlertService } from 'src/app/helpers/alert.service';
 import { User } from 'src/app/models/user/user.model';
 import { HttpEntityRepositoryService } from 'src/app/services/http-entity-repository.service';
 import { ActivityTable } from './activity-table/activity-table.component';
-import { USER_DATA } from './data';
 import { NutritionTable } from './nutrition-table/nutrition-table.component';
 import { PatientTarget } from './target/target.component';
 
@@ -33,11 +32,10 @@ export interface Transfer2 {
   styleUrls: ['./patient-trace-table.component.css'],
 })
 export class PatientTraceTableComponent implements AfterViewInit {
-  users: User[] = USER_DATA;
-  sortedData = this.users;
+  users: User[] = [];
   isNull: boolean = true;
 
-  constructor(public modal: MatDialog, private router: Router, private alertService: AlertService, entityService: HttpEntityRepositoryService<User>,) {
+  constructor(public modal: MatDialog, private router: Router, private alertService: AlertService, entityService: HttpEntityRepositoryService<User>) {
     entityService.getAll("/User/GetAll").subscribe(data => {
 
       var Data: any = data;
@@ -46,8 +44,15 @@ export class PatientTraceTableComponent implements AfterViewInit {
         return;
       }
 
-     //console.log( this.users.concat(Data.data));
+      this.users = Data.data;
+      this.dataSource = new MatTableDataSource(this.users);
+      this.dataSource.sort = this.sort;
+      this.dataSource.paginator = this.paginator;
+      
+      this.Begin();
     });
+
+
   }
 
   displayedColumns: string[] = [
@@ -63,6 +68,14 @@ export class PatientTraceTableComponent implements AfterViewInit {
   @ViewChild(MatSort) sort!: MatSort;
   @ViewChild(MatPaginator) paginator!: MatPaginator;
 
+  Begin() {
+    if (this.dataSource.filteredData.length == 0) {
+      this.isNull = false;
+    }
+    else {
+      this.isNull = true;
+    }
+  }
   applyFilter(event: Event) {
     const filterValue = (event.target as HTMLInputElement).value;
     this.dataSource.filter = filterValue.trim().toLowerCase();
@@ -75,8 +88,6 @@ export class PatientTraceTableComponent implements AfterViewInit {
   }
 
   ngAfterViewInit() {
-    this.dataSource.sort = this.sort;
-    this.dataSource.paginator = this.paginator;
   }
 
   open(id: number) {
