@@ -2,8 +2,7 @@
   <div class="row">
     <div class="col-md-4 border-right">
       <div class="d-flex flex-column align-items-center text-center p-3 py-5">
-        <img class="rounded-circle mt-5 image"
-          src="../../../../../assets/user.jpg" />
+        <img class="rounded-circle mt-5 image" src="../../../../../assets/user.jpg" />
       </div>
     </div>
     <div class="col-md-8 border-right">
@@ -11,6 +10,7 @@
         <div class="d-flex justify-content-between align-items-center mb-3">
           <h2 class="text-right">Edit Profile</h2>
         </div>
+
         <form [formGroup]="surveyForm" (ngSubmit)="onSubmit(surveyForm.value)" class="form">
           <div class="row mt-2">
             <div class="col-md-6">
@@ -19,6 +19,7 @@
                 <input matInput formControlName="firstName" />
               </mat-form-field>
             </div>
+
             <div class="col-md-6">
               <mat-form-field appearance="outline">
                 <mat-label>{{'label.surname' | translate}}</mat-label>
@@ -26,6 +27,7 @@
               </mat-form-field>
             </div>
           </div>
+
           <div class="row mt-3">
             <div class="col-md-6">
               <mat-form-field appearance="outline">
@@ -33,6 +35,7 @@
                 <input matInput formControlName="emailAddress" />
               </mat-form-field>
             </div>
+
             <div class="col-md-6">
               <mat-form-field appearance="outline">
                 <mat-label>{{'label.phoneNumber' | translate}}</mat-label>
@@ -40,6 +43,7 @@
               </mat-form-field>
             </div>
           </div>
+
           <div class="row mt-3">
             <div class="col-md-6">
               <mat-form-field appearance="outline">
@@ -47,6 +51,7 @@
                 <input matInput formControlName="height" />
               </mat-form-field>
             </div>
+
             <div class="col-md-6">
               <mat-form-field appearance="outline">
                 <mat-label>{{'label.weight' | translate}}</mat-label>
@@ -54,6 +59,7 @@
               </mat-form-field>
             </div>
           </div>
+
           <div class="row mt-3">
             <div class="col-md-6">
               <mat-form-field appearance="outline">
@@ -65,19 +71,20 @@
                 </select>
               </mat-form-field>
             </div>
+
             <div class="col-md-6">
               <mat-form-field appearance="outline">
                 <mat-label>{{'label.smoking' | translate}}</mat-label>
                 <select matNativeControl name="smoking" formControlName="smoking">
                   <option [ngValue]="undefined" disabled>{{'label.select' | translate}}</option>
-                  <option *ngFor="let select of selects" [value]="select.value">
-                    {{ select.viewValue }}
-                  </option>
+                  <option *ngFor="let select of selects" [value]="select.value"> {{ select.viewValue }}</option>
                 </select>
               </mat-form-field>
             </div>
           </div>
+
           <div class="row mt-3">
+
             <div class="col-md-6">
               <mat-form-field appearance="outline">
                 <mat-label>{{'label.alcohol' | translate}}</mat-label>
@@ -87,6 +94,7 @@
                 </select>
               </mat-form-field>
             </div>
+
             <div class="col-md-6">
               <mat-form-field appearance="outline">
                 <mat-label>{{'label.exercise' | translate}}</mat-label>
@@ -96,7 +104,9 @@
                 </select>
               </mat-form-field>
             </div>
+
           </div>
+
           <div class="row mt-3">
             <mat-form-field appearance="outline" class="birthdate">
               <mat-label>{{'label.birthdate' | translate}}</mat-label>
@@ -105,24 +115,27 @@
               <mat-datepicker #picker></mat-datepicker>
             </mat-form-field>
           </div>
+
         </form>
 
         <div class="row mt-3">
           <div class="col-md-6">
             <div class="buttons">
-              <button class="tab-button" mat-icon-button>
+              <button class="tab-button" mat-icon-button (click)="addIllness()">
                 <i class="fa fa-medkit" aria-hidden="true"> Illness</i>
               </button>
             </div>
           </div>
+
           <div class="col-md-6">
             <div class="buttons">
-              <button class="tab-button" mat-icon-button>
+              <button class="tab-button" mat-icon-button (click)="addAllergy()">
                 <i class="fa fa-plus-square" aria-hidden="true"> Allergy</i>
               </button>
             </div>
           </div>
         </div>
+
       </div>
     </div>
   </div>
