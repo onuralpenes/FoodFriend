@@ -20,7 +20,7 @@ export class RegisterService {
     register(register: User) {
 
         this.http
-            .post(environment.BASE_URL + "/auth/register", register, this.httpOptions).subscribe(data => {
+            .post(environment.BASE_URL + "/Auth/Register", register, this.httpOptions).subscribe(data => {
 
                 var regData: any = data;
                 if (!regData.success) {
