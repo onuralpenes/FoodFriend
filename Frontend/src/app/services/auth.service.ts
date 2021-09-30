@@ -28,7 +28,7 @@ export class AuthService {
 
     login(login: Login) {
         this.http
-            .post(environment.BASE_URL + "/auth/login", login, this.httpOptions)
+            .post(environment.BASE_URL + "/Auth/Login", login, this.httpOptions)
             .subscribe(data => {
                 var tokenData: any = data;
                 if (!tokenData.success) {
