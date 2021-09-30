@@ -104,33 +104,34 @@ export class ProfileComponent implements OnInit {
       this.birthdate = Data.data.birthDate;
       this.healthId = Data.data.healthInfoId;
       this.physicalId = Data.data.physicalInfoId;
+
+      entityServiceP.get("/PhysicalInfo/Get?id=", this.physicalId).subscribe(data => {
+        var Data: any = data;
+        if (!Data.success) {
+          this.alertService.openSnackBar(Data.success, Data.message);
+          return;
+        }
+
+        this.height = Data.data.height;
+        this.weight = Data.data.weight;
+        this.disabledInfo.isDisabled = Data.data.disabledStatus;
+      });
+
+      entityServiceH.get("/HealthInfo/Get?id=", this.healthId).subscribe(data => {
+
+        var Data: any = data;
+        if (!Data.success) {
+          this.alertService.openSnackBar(Data.success, Data.message);
+          return;
+        }
+
+        this.illnessInfo.hasIllness = Data.data.hasHealthProblem;
+        this.allergyInfo.hasAllergy = Data.data.hasAllergy;
+        this.pregnantInfo.isPregnant = Data.data.isPregnant;
+      });
+
     });
     this.age = Math.floor(((Math.abs(Date.now() - this.birthdate.getTime())) / (1000 * 3600 * 24)) / 365.25);
-
-    // entityServiceP.get("/PhysicalInfo/Get?id=", this.physicalId).subscribe(data => {
-    //   var Data: any = data;
-    //   if (!Data.success) {
-    //     this.alertService.openSnackBar(Data.success, Data.message);
-    //     return;
-    //   }
-
-    //   this.height = Data.data.height;
-    //   this.weight = Data.data.weight;
-    //   this.disabledInfo.isDisabled = Data.data.disabledStatus;
-    // });
-
-    // entityServiceH.get("/HealthInfo/Get?id=", this.healthId).subscribe(data => {
-
-    //   var Data: any = data;
-    //   if (!Data.success) {
-    //     this.alertService.openSnackBar(Data.success, Data.message);
-    //     return;
-    //   }
-
-    // this.illnessInfo.hasIllness = Data.data.hasHealthProblem;
-    // this.allergyInfo.hasAllergy = Data.data.hasAllergy;
-    // this.pregnantInfo.isPregnant = Data.data.isPregnant;
-    // });
   }
 
   editProfile() {
