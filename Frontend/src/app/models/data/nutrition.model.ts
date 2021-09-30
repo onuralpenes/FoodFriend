@@ -3,4 +3,6 @@ export interface Nutrition {
     eatingActivityId: number;
     foodDetailId: number;
     quantity: number;
+    customFoodName: string;
+    consumptionRatio: number;
 }
