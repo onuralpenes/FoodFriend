@@ -31,8 +31,8 @@ export class RegisterService {
                 this.alertService.openSnackBar(regData.success,regData.message);
 
             }, err=>{
-                if(err)
-                this.alertService.openSnackBar(false,err.error);
+                if(!err.success)
+                this.alertService.openSnackBar(false,err.error.message);
             });
     }
 }
