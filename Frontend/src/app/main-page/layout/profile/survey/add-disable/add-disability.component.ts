@@ -12,7 +12,7 @@ import { HttpEntityRepositoryService } from "src/app/services/http-entity-reposi
 })
 export class AddDisability {
   disabilityForm!: FormGroup;
-  newDisability!: DisabledDetail;
+  phId!:number;
   constructor(private formBuilder: FormBuilder, private alertService: AlertService,
     private entityService: HttpEntityRepositoryService<DisabledDetail>, private authService: AuthService) {
     this.disabilityForm = this.formBuilder.group({
@@ -26,9 +26,6 @@ export class AddDisability {
       this.alertService.openSnackBar(false, " ");
       return;
     }
-    
-    this.newDisability.disabledDescription = this.disabilityForm.value.disabledDescription;
-    this.newDisability.disabledRatio = this.disabilityForm.value.disabledRatio;
 
     this.entityService.get("/User/Get?userId=", this.authService.CurrentUserId).subscribe(data => {
       var Data: any = data;
@@ -36,7 +33,22 @@ export class AddDisability {
         this.alertService.openSnackBar(Data.success, Data.message);
         return;
       }
-      this.newDisability.physicalInfoId = Data.data.physicalInfoId;
+      const disPost: DisabledDetail = {
+        physicalInfoId: Data.data.physicalInfoId,
+        disabledDescription: this.disabilityForm.value.disabledDescription,
+        disabledRatio: this.disabilityForm.value.disabledRatio,
+        disabledDetailId: 0
+      }
+      this.entityService.insert("/DisabledDetail/Add", disPost).subscribe(data => {
+        var post: any = data;
+        console.log(post);
+        if (!post.success) {
+          this.alertService.openSnackBar(post.success, post.message);
+          return;
+        }
+        
+      });
     });
+    this.alertService.openSnackBar(true, "Added");
   }
 }
