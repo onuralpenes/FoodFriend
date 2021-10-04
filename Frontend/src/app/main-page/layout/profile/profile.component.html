@@ -20,14 +20,14 @@
 
             <div class="row info-div">
                 <div class="col-6 ">
-                    <p class="info" style="margin-top: 20%;">Weight: {{weight}}</p>
-                    <p class="info">Height: {{height}}</p>
-                    <p class="info">Age: {{age}}</p>
+                    <p class="info" style="margin-top: 20%;">{{'label.height' | translate}}: {{height}}</p>
+                    <p class="info">{{'label.weight' | translate}}: {{weight}}</p>
+                    <p class="info">{{'profile.age' | translate}}: {{age}}</p>
                 </div>
                 <div class="col-6">
-                    <p class="info" style="margin-top: 20%;">Birthdate: {{birthdate | date: "dd/MM/yyyy" }}</p>
-                    <p class="info">Email: {{email}}</p>
-                    <p class="info">Phone: {{phone}}</p>
+                    <p class="info" style="margin-top: 20%;">{{'label.birthdate' | translate}}: {{birthdate | date: "dd/MM/yyyy" }}</p>
+                    <p class="info">{{'label.email' | translate}}: {{email}}</p>
+                    <p class="info">{{'label.phoneNumber' | translate}}: {{phone}}</p>
                 </div>
             </div>
         </div>
@@ -35,10 +35,10 @@
     <div>
     </div>
     <div [hidden]="!female" class="list-info">
-        <h1>Pregnant</h1>
+        <h1>{{'profile.pregnancy' | translate}}</h1>
 
         <div [hidden]="isPregnant" class="groups">
-            <p>This counselee has no any pregnancy history that you need to be aware of.</p>
+            <p>{{'profile.noPreg' | translate}}</p>
         </div>
 
         <div [hidden]="!isPregnant" class="row groups">
@@ -49,10 +49,10 @@
     </div>
 
     <div class="list-info">
-        <h1>Illnesses</h1>
+        <h1>{{'profile.illness' | translate}}</h1>
 
         <div [hidden]="hasIllness" class="groups">
-            <p>This counselee has no any important illnesses that you need to be aware of.</p>
+            <p>{{'profile.noIll' | translate}}</p>
         </div>
 
         <div [hidden]="!hasIllness" class="row groups">
@@ -63,10 +63,10 @@
     </div>
 
     <div class="list-info">
-        <h1>Allergy</h1>
+        <h1>{{'profile.allergy' | translate}}</h1>
 
         <div [hidden]="hasAllergy" class="groups">
-            <p>This counselee has no allergy that you need to be aware of.</p>
+            <p>{{'profile.noAll' | translate}}</p>
         </div>
         <div [hidden]="!hasAllergy" class="row groups">
             <div class=" col " *ngFor="let allergy of allergyList; let i = index">
@@ -76,10 +76,10 @@
     </div>
 
     <div class="list-info">
-        <h1>Disable</h1>
+        <h1>{{'profile.disable' | translate}}</h1>
 
         <div [hidden]="isDisabled" class="groups">
-            <p>This counselee has no disable info that you need to be aware of.</p>
+            <p>{{'profile.noDis' | translate}}</p>
         </div>
         <div [hidden]="!isDisabled" class="row groups">
             <div class=" col " *ngFor="let disable of disabledList; let i = index">
@@ -90,6 +90,6 @@
 
 
     <div class="row aim">
-        <p>Aim: {{dummy}}</p>
+        <p>{{'profile.aim' | translate}}: {{dummy}}</p>
     </div>
 </div>

@@ -1,17 +1,15 @@
 {
   "useAccount": {
     "title": "or use your email for registration",
-    "choose":"or use your account",
+    "choose": "or use your account",
     "select": "Change language"
   },
-
   "account": {
     "create": "Create Account",
     "signIn": "Sign In",
     "signUp": "Sign Up",
     "select": "Change language"
   },
-
   "welcome": {
     "title": "Welcome Back!",
     "paragraph": "To keep connected with us please login with your personal info",
@@ -24,84 +22,88 @@
     "approved": "Please check your email.",
     "approveReg": "Please confirm your email and sign in."
   },
-
   "label": {
     "name": "Name",
     "surname": "Surname",
     "email": "E-mail",
     "phoneNumber": "Phone Number",
-    "password":"Password",
+    "password": "Password",
     "confirmPassword": "Confirm Password",
     "birthdate": "Birthdate",
     "tos": "Terms of Services",
     "pp": "Privacy Policy",
-    "weight" : "Weight",
-    "height" : "Height",
-    "exercise":"Exercise Habit",
-    "blood" : "Blood Group",
-    "select" : "Select Any",
-    "smoking" : "Smoking",
-    "alcohol" : "Alcohol",
-    "submit" : "Submit Form"
-
+    "weight": "Weight",
+    "height": "Height",
+    "exercise": "Exercise Habit",
+    "blood": "Blood Group",
+    "select": "Select Any",
+    "smoking": "Smoking",
+    "alcohol": "Alcohol",
+    "submit": "Submit Form"
   },
-
   "forget": {
     "title": "Forget your Password?",
     "title2": "Remember me"
   },
-
-  "profilHeader" : {
-    "title" : "Welcome to your profile."
+  "profilHeader": {
+    "title": "Welcome to your profile."
   },
-
-  "table" : {
-    "search" : "Search",
-    "name" : "Name",
-    "calorie" : "Calorie",
-    "protein" : "Protein",
-    "oil" : "Oil",
-    "carbohydrate" : "Carbohydrate",
-    "edit" : "Edit",
-    "delete" : "Delete",
-    "type" : "Type",
-    "period" : "Period",
-    "effort" : "Effort (cal)",
-    "unit" : "Unit",
-    "start" : "Start Date",
-    "end" : "End Date",
-    "target" : "Target",
-    "nutriInfo" : "Nutrition Information",
-    "actiInfo" : "Activity Information"
+  "table": {
+    "search": "Search",
+    "name": "Name",
+    "calorie": "Calorie",
+    "protein": "Protein",
+    "oil": "Oil",
+    "carbohydrate": "Carbohydrate",
+    "edit": "Edit",
+    "delete": "Delete",
+    "type": "Type",
+    "period": "Period",
+    "effort": "Effort (cal)",
+    "unit": "Unit",
+    "start": "Start Date",
+    "end": "End Date",
+    "target": "Target",
+    "nutriInfo": "Nutrition Information",
+    "actiInfo": "Activity Information"
   },
-
-  "validator" : {
-    "nameNull" : "Name is required",
-    "surnameNull" : "Surname is required",
-    "emailNull" : "Email is required",
-    "emailValid" : "Email must be valid",
-    "phoneNull" : "Phone number is required",
-    "phoneValid" : "Phone number must be valid",
-    "psdNull" : "Password is required",
-    "psdMin" : "Password must be at least 8 characters",
-    "confNull" : "Confirm Password is required",
-    "confMatch" : "Passwords must match",
-    "bdayNull" : "Birthdate is required"
+  "validator": {
+    "nameNull": "Name is required",
+    "surnameNull": "Surname is required",
+    "emailNull": "Email is required",
+    "emailValid": "Email must be valid",
+    "phoneNull": "Phone number is required",
+    "phoneValid": "Phone number must be valid",
+    "psdNull": "Password is required",
+    "psdMin": "Password must be at least 8 characters",
+    "confNull": "Confirm Password is required",
+    "confMatch": "Passwords must match",
+    "bdayNull": "Birthdate is required"
   },
-
-  "expert" : {
-    "nutritionist" : "Nutritionist",
-    "more" : "More.."
+  "expert": {
+    "nutritionist": "Nutritionist",
+    "more": "More.."
   },
-
-  "menu" : {
-    "dashboard" : "Dashboard",
-    "profile" : "Profile",
-    "food" : "Nutrition",
-    "activity" : "Activity",
-    "patients" : "Patients",
-    "expert" : "Expert",
+  "menu": {
+    "dashboard": "Dashboard",
+    "profile": "Profile",
+    "food": "Nutrition",
+    "activity": "Activity",
+    "patients": "Patients",
+    "expert": "Expert",
     "settings": "Settings",
     "logout": "Logout"
-  } 
+  },
+  "profile": {
+    "age": "Age",
+    "illness": "Illnesses",
+    "allergy": "Allergies",
+    "pregnant": "Pregnancy",
+    "disable": "Disability",
+    "aim": "Aim",
+    "noIll": "This counselee has no any important illnesses that you need to be aware of.",
+    "noAll": "This counselee has no allergy that you need to be aware of.",
+    "noPreg": "This counselee has no any pregnancy history that you need to be aware of.",
+    "noDis": "This counselee has no disable info that you need to be aware of."
+  }
 }

@@ -1,7 +1,7 @@
 {
   "useAccount": {
     "title": "ya da kayıt için formu doldurun.",
-    "choose":"ya da hesabınla giriş yap.",
+    "choose": "ya da hesabınla giriş yap.",
     "select": "Change language"
   },
   "account": {
@@ -10,7 +10,6 @@
     "signUp": "Kayıt Ol",
     "select": "Change language"
   },
-
   "welcome": {
     "title": "Tekrar Hoşgeldin!",
     "paragraph": "Bizimle bağlantıda kalmak için lütfen kişisel bilgilerinizle giriş yapın",
@@ -23,83 +22,88 @@
     "approved": "Lütfen e-postanızı kontrol edin.",
     "approveReg": "Lütfen epostanızı onaylayıp giriş yapınız."
   },
-
   "label": {
     "name": "İsim",
     "surname": "Soy İsim",
     "email": "E-posta",
     "phoneNumber": "Telefon Numarası",
-    "password":"Şifre",
+    "password": "Şifre",
     "confirmPassword": "Şifre Tekrarı",
     "birthdate": "Doğum Tarihi",
     "tos": "Hizmet şartları",
     "pp": "Gizlilik Politikası",
-    "weight" : "Kilo",
-    "height" : "Boy",
-    "exercise":"Egzersiz",
-    "blood" : "Kan Grubu",
-    "select" : "Seçiniz",
-    "smoking" : "Sigara",
-    "alcohol" : "Alkol",
-    "submit" : "Onayla"
+    "weight": "Kilo",
+    "height": "Boy",
+    "exercise": "Egzersiz",
+    "blood": "Kan Grubu",
+    "select": "Seçiniz",
+    "smoking": "Sigara",
+    "alcohol": "Alkol",
+    "submit": "Onayla"
   },
-
   "forget": {
     "title": "Şifreni mi unuttun?",
     "title2": "Beni hatırla"
   },
-
-  "profilHeader" : {
-    "title" : "Profil sayfasına hoş geldiniz."
+  "profilHeader": {
+    "title": "Profil sayfasına hoş geldiniz."
   },
-
-  "table" : {
-    "search" : "Arayınız",
-    "name" : "İsim",
-    "calorie" : "Kalori",
-    "protein" : "Protein",
-    "oil" : "Yağ",
-    "carbohydrate" : "Karbonhidrat",
-    "edit" : "Düzenle",
-    "delete" : "Sil",
-    "type" : "Tipi",
-    "period" : "Set",
-    "effort" : "Yakılan Kalori",
-    "unit" : "Tekrar",
-    "start" : "Başlama Tarihi",
-    "end" : "Bitiş Tarihi",
-    "target" : "Hedefi",
-    "nutriInfo" : "Beslenme Bilgisi",
-    "actiInfo" : "Aktivite Bilgisi"
+  "table": {
+    "search": "Arayınız",
+    "name": "İsim",
+    "calorie": "Kalori",
+    "protein": "Protein",
+    "oil": "Yağ",
+    "carbohydrate": "Karbonhidrat",
+    "edit": "Düzenle",
+    "delete": "Sil",
+    "type": "Tipi",
+    "period": "Set",
+    "effort": "Yakılan Kalori",
+    "unit": "Tekrar",
+    "start": "Başlama Tarihi",
+    "end": "Bitiş Tarihi",
+    "target": "Hedefi",
+    "nutriInfo": "Beslenme Bilgisi",
+    "actiInfo": "Aktivite Bilgisi"
   },
-
-  "validator" : {
-    "nameNull" : "İsim girilmesi zorunludur",
-    "surnameNull" : "Soyisim girilmesi zorunludur",
-    "emailNull" : "E-posta girilmesi zorunludur",
-    "emailValid" : "Geçerli bir e-posta giriniz",
-    "phoneNull" : "Telefon numarası girilmesi zorunludur",
-    "phoneValid" : "Geçerli bir telefon numarası giriniz",
-    "psdNull" : "Şifre girilmesi zorunludur",
-    "psdMin" : "Şifre en az 8 karakterden oluşmalıdır",
-    "confNull" : "Şifre tekrarı girilmesi zorunludur",
-    "confMatch" : "Şifreler eşleşmiyor",
-    "bdayNull" : "Doğum günü girilmesi zorunludur"
+  "validator": {
+    "nameNull": "İsim girilmesi zorunludur",
+    "surnameNull": "Soyisim girilmesi zorunludur",
+    "emailNull": "E-posta girilmesi zorunludur",
+    "emailValid": "Geçerli bir e-posta giriniz",
+    "phoneNull": "Telefon numarası girilmesi zorunludur",
+    "phoneValid": "Geçerli bir telefon numarası giriniz",
+    "psdNull": "Şifre girilmesi zorunludur",
+    "psdMin": "Şifre en az 8 karakterden oluşmalıdır",
+    "confNull": "Şifre tekrarı girilmesi zorunludur",
+    "confMatch": "Şifreler eşleşmiyor",
+    "bdayNull": "Doğum günü girilmesi zorunludur"
   },
-
-  "expert" : {
-    "nutritionist" : "Diyetisyen",
-    "more" : "Devamı.."
+  "expert": {
+    "nutritionist": "Diyetisyen",
+    "more": "Devamı.."
   },
-
-  "menu" : {
-    "dashboard" : "Ana Sayfa",
-    "profile" : "Profil",
-    "food" : "Besin",
-    "activity" : "Aktivite",
-    "patients" : "Danışanlar",
-    "expert" : "Uzman",
+  "menu": {
+    "dashboard": "Ana Sayfa",
+    "profile": "Profil",
+    "food": "Besin",
+    "activity": "Aktivite",
+    "patients": "Danışanlar",
+    "expert": "Uzman",
     "settings": "Ayarlar",
     "logout": "Çıkış Yap"
-  } 
+  },
+  "profile": {
+    "age": "Yaş",
+    "illness": "Hastalıklar",
+    "allergy": "Alerjiler",
+    "pregnant": "Hamilelik",
+    "disable": "Engel",
+    "aim": "Hedef",
+    "noIll": "Bu danışanın bilmeniz gereken önemli bir hastalığı yok.",
+    "noAll": "Bu danışanın bilmeniz gereken bir alerjisi yok.",
+    "noPreg": "Bu danışanın bilmeniz gereken herhangi bir hamilelik öyküsü yok.",
+    "noDis": "Bu danışanın bilmeniz gereken herhangi bir engel bilgisi yok."
+  }
 }
