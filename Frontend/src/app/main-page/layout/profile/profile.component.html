@@ -37,13 +37,12 @@
     <div [hidden]="!female" class="list-info">
         <h1>Pregnant</h1>
 
-        <div [hidden]="pregnantInfo.isPregnant" class="groups">
+        <div [hidden]="isPregnant" class="groups">
             <p>This counselee has no any pregnancy history that you need to be aware of.</p>
         </div>
 
-        <div [hidden]="!pregnantInfo.isPregnant" class="row groups">
-            <p>Illness: {{dummy}}</p>
-            <div class=" col " *ngFor="let pregnant of pregnantInfo.pregnantList; let i = index">
+        <div [hidden]="!isPregnant" class="row groups">
+            <div class=" col " *ngFor="let pregnant of pregnantList; let i = index">
                 <p>{{pregnant.pregnantStartDate}} : {{pregnant.pregnantEndDate}}</p>
             </div>
         </div>
@@ -52,14 +51,13 @@
     <div class="list-info">
         <h1>Illnesses</h1>
 
-        <div [hidden]="illnessInfo.hasIllness" class="groups">
+        <div [hidden]="hasIllness" class="groups">
             <p>This counselee has no any important illnesses that you need to be aware of.</p>
         </div>
 
-        <div [hidden]="!illnessInfo.hasIllness" class="row groups">
-            <p>Illness: {{dummy}}</p>
-            <div class=" col " *ngFor="let illness of illnessInfo.illnessList; let i = index">
-                <p>{{illness.illnessName}} : {{illness.illnessType}}</p>
+        <div [hidden]="!hasIllness" class="row groups">
+            <div class=" col " *ngFor="let illness of illnessList; let i = index">
+                <p>{{illness.illnessName}}</p>
             </div>
         </div>
     </div>
@@ -67,13 +65,12 @@
     <div class="list-info">
         <h1>Allergy</h1>
 
-        <div [hidden]="allergyInfo.hasAllergy" class="groups">
+        <div [hidden]="hasAllergy" class="groups">
             <p>This counselee has no allergy that you need to be aware of.</p>
         </div>
-        <div [hidden]="!allergyInfo.hasAllergy" class="row groups">
-            <p>Allergy: {{dummy}}</p>
-            <div class=" col " *ngFor="let allergy of allergyInfo.allergyList; let i = index">
-                {{allergy.allergyName}} : {{allergy.allergyType}}
+        <div [hidden]="!hasAllergy" class="row groups">
+            <div class=" col " *ngFor="let allergy of allergyList; let i = index">
+                <p>{{allergy.allergyName}}</p>
             </div>
         </div>
     </div>
@@ -81,13 +78,12 @@
     <div class="list-info">
         <h1>Disable</h1>
 
-        <div [hidden]="disabledInfo.isDisabled" class="groups">
+        <div [hidden]="isDisabled" class="groups">
             <p>This counselee has no disable info that you need to be aware of.</p>
         </div>
-        <div [hidden]="!disabledInfo.isDisabled" class="row groups">
-            <p>Disabled: {{dummy}}</p>
-            <div class=" col " *ngFor="let disable of disabledInfo.disabledList; let i = index">
-                {{disable.disabledType}} : {{disable.disabledRatio}}
+        <div [hidden]="!isDisabled" class="row groups">
+            <div class=" col " *ngFor="let disable of disabledList; let i = index">
+                {{disable.disabledDescription}} : {{disable.disabledRatio}}
             </div>
         </div>
     </div>

@@ -60,52 +60,6 @@
             </div>
           </div>
 
-          <div class="row mt-3">
-            <div class="col-md-6">
-              <mat-form-field appearance="outline">
-                <mat-label>{{'label.blood' | translate}}</mat-label>
-                <select matNativeControl name="bloodGroup" formControlName="bloodGroup">
-                  <option [ngValue]="undefined" disabled>{{'label.select' | translate}}</option>
-                  <option class="bloodGroup" *ngFor="let blood of bloods" [value]="blood.value">{{ blood.viewValue }}
-                  </option>
-                </select>
-              </mat-form-field>
-            </div>
-
-            <div class="col-md-6">
-              <mat-form-field appearance="outline">
-                <mat-label>{{'label.smoking' | translate}}</mat-label>
-                <select matNativeControl name="smoking" formControlName="smoking">
-                  <option [ngValue]="undefined" disabled>{{'label.select' | translate}}</option>
-                  <option *ngFor="let select of selects" [value]="select.value"> {{ select.viewValue }}</option>
-                </select>
-              </mat-form-field>
-            </div>
-          </div>
-
-          <div class="row mt-3">
-
-            <div class="col-md-6">
-              <mat-form-field appearance="outline">
-                <mat-label>{{'label.alcohol' | translate}}</mat-label>
-                <select matNativeControl name="alcohol" formControlName="alcohol">
-                  <option [ngValue]="undefined" disabled>{{'label.select' | translate}}</option>
-                  <option *ngFor="let select of selects" [value]="select.value">{{ select.viewValue }}</option>
-                </select>
-              </mat-form-field>
-            </div>
-
-            <div class="col-md-6">
-              <mat-form-field appearance="outline">
-                <mat-label>{{'label.exercise' | translate}}</mat-label>
-                <select matNativeControl name="exercise" formControlName="exercise">
-                  <option [ngValue]="undefined" disabled>{{'label.select' | translate}}</option>
-                  <option *ngFor="let select of selects" [value]="select.value">{{ select.viewValue }}</option>
-                </select>
-              </mat-form-field>
-            </div>
-
-          </div>
 
           <div class="row mt-3">
             <mat-form-field appearance="outline" class="birthdate">
