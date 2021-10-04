@@ -20,14 +20,14 @@
 
             <div class="row info-div">
                 <div class="col-6 ">
-                    <p class="info" style="margin-top: 20%;">Weight: {{weight}}</p>
-                    <p class="info">Height: {{height}}</p>
-                    <p class="info">Age: {{age}}</p>
+                    <p class="info" style="margin-top: 20%;">{{'label.height' | translate}}: {{height}}</p>
+                    <p class="info">{{'label.weight' | translate}}: {{weight}}</p>
+                    <p class="info">{{'profile.age' | translate}}: {{age}}</p>
                 </div>
                 <div class="col-6">
-                    <p class="info" style="margin-top: 20%;">Birthdate: {{birthdate | date: "dd/MM/yyyy" }}</p>
-                    <p class="info">Email: {{email}}</p>
-                    <p class="info">Phone: {{phone}}</p>
+                    <p class="info" style="margin-top: 20%;">{{'label.birthdate' | translate}}: {{birthdate | date: "dd/MM/yyyy" }}</p>
+                    <p class="info">{{'label.email' | translate}}: {{email}}</p>
+                    <p class="info">{{'label.phoneNumber' | translate}}: {{phone}}</p>
                 </div>
             </div>
         </div>
@@ -35,65 +35,61 @@
     <div>
     </div>
     <div [hidden]="!female" class="list-info">
-        <h1>Pregnant</h1>
+        <h1>{{'profile.pregnancy' | translate}}</h1>
 
-        <div [hidden]="pregnantInfo.isPregnant" class="groups">
-            <p>This counselee has no any pregnancy history that you need to be aware of.</p>
+        <div [hidden]="isPregnant" class="groups">
+            <p>{{'profile.noPreg' | translate}}</p>
         </div>
 
-        <div [hidden]="!pregnantInfo.isPregnant" class="row groups">
-            <p>Illness: {{dummy}}</p>
-            <div class=" col " *ngFor="let pregnant of pregnantInfo.pregnantList; let i = index">
+        <div [hidden]="!isPregnant" class="row groups">
+            <div class=" col " *ngFor="let pregnant of pregnantList; let i = index">
                 <p>{{pregnant.pregnantStartDate}} : {{pregnant.pregnantEndDate}}</p>
             </div>
         </div>
     </div>
 
     <div class="list-info">
-        <h1>Illnesses</h1>
+        <h1>{{'profile.illness' | translate}}</h1>
 
-        <div [hidden]="illnessInfo.hasIllness" class="groups">
-            <p>This counselee has no any important illnesses that you need to be aware of.</p>
+        <div [hidden]="hasIllness" class="groups">
+            <p>{{'profile.noIll' | translate}}</p>
         </div>
 
-        <div [hidden]="!illnessInfo.hasIllness" class="row groups">
-            <p>Illness: {{dummy}}</p>
-            <div class=" col " *ngFor="let illness of illnessInfo.illnessList; let i = index">
-                <p>{{illness.illnessName}} : {{illness.illnessType}}</p>
+        <div [hidden]="!hasIllness" class="row groups">
+            <div class=" col " *ngFor="let illness of illnessList; let i = index">
+                <p>{{illness.illnessName}}</p>
             </div>
         </div>
     </div>
 
     <div class="list-info">
-        <h1>Allergy</h1>
+        <h1>{{'profile.allergy' | translate}}</h1>
 
-        <div [hidden]="allergyInfo.hasAllergy" class="groups">
-            <p>This counselee has no allergy that you need to be aware of.</p>
+        <div [hidden]="hasAllergy" class="groups">
+            <p>{{'profile.noAll' | translate}}</p>
         </div>
-        <div [hidden]="!allergyInfo.hasAllergy" class="row groups">
-            <p>Allergy: {{dummy}}</p>
-            <div class=" col " *ngFor="let allergy of allergyInfo.allergyList; let i = index">
-                {{allergy.allergyName}} : {{allergy.allergyType}}
+        <div [hidden]="!hasAllergy" class="row groups">
+            <div class=" col " *ngFor="let allergy of allergyList; let i = index">
+                <p>{{allergy.allergyName}}</p>
             </div>
         </div>
     </div>
 
     <div class="list-info">
-        <h1>Disable</h1>
+        <h1>{{'profile.disable' | translate}}</h1>
 
-        <div [hidden]="disabledInfo.isDisabled" class="groups">
-            <p>This counselee has no disable info that you need to be aware of.</p>
+        <div [hidden]="isDisabled" class="groups">
+            <p>{{'profile.noDis' | translate}}</p>
         </div>
-        <div [hidden]="!disabledInfo.isDisabled" class="row groups">
-            <p>Disabled: {{dummy}}</p>
-            <div class=" col " *ngFor="let disable of disabledInfo.disabledList; let i = index">
-                {{disable.disabledType}} : {{disable.disabledRatio}}
+        <div [hidden]="!isDisabled" class="row groups">
+            <div class=" col " *ngFor="let disable of disabledList; let i = index">
+                {{disable.disabledDescription}} : {{disable.disabledRatio}}
             </div>
         </div>
     </div>
 
 
     <div class="row aim">
-        <p>Aim: {{dummy}}</p>
+        <p>{{'profile.aim' | translate}}: {{dummy}}</p>
     </div>
 </div>
