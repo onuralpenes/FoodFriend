@@ -1,1 +1,16 @@
 <h2>{{'profile.addDis' | translate}}</h2>
+
+<form [formGroup]="disabilityForm" (ngSubmit)="addDisability()" class>
+    <p>
+      <mat-form-field appearance="outline" style="width: 90% !important; align-items: center;">
+        <mat-label>Disability Description</mat-label>
+        <input matInput type="text" formControlName="disabledDescription" required />
+      </mat-form-field>
+
+      <mat-form-field appearance="outline" style="width: 90% !important; align-items: center;">
+        <mat-label>Disability Ratio</mat-label>
+        <input matInput type="number" formControlName="disabledRatio" required />
+      </mat-form-field>
+    </p>
+    <button class="input-group" type="submit">Add</button>
+  </form>
