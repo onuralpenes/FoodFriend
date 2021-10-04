@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
 import { AddAllergy } from './add-allergy/add-allergy.component';
+import { AddDisability } from './add-disable/add-disability.component';
 import { AddIllness } from './add-illness/add-illness.component';
 
 
@@ -39,5 +40,9 @@ export class SurveyComponent implements OnInit {
 
   addAllergy(){
     this.modal.open(AddAllergy);
+  }
+
+  addDisability(){
+    this.modal.open(AddDisability);
   }
 }

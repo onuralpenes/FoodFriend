@@ -105,6 +105,9 @@
     "noAll": "This counselee has no allergy that you need to be aware of.",
     "noPreg": "This counselee has no any pregnancy history that you need to be aware of.",
     "noDis": "This counselee has no disable info that you need to be aware of.",
+    "addIll": "Add Illness",
+    "addAll": "Add Allergy",
+    "addDis": "Add Disable",
     "edit": "Edit Profile"
   }
 }

@@ -73,21 +73,30 @@
         </form>
 
         <div class="row mt-3">
-          <div class="col-md-6">
+          <div class="col-md-4">
             <div class="buttons">
               <button class="tab-button" mat-icon-button (click)="addIllness()">
-                <i class="fa fa-medkit" aria-hidden="true"> Illness</i>
+                <i class="fa fa-medkit" aria-hidden="true"> {{'profile.addIll' | translate}}</i>
               </button>
             </div>
           </div>
 
-          <div class="col-md-6">
+          <div class="col-md-4">
             <div class="buttons">
               <button class="tab-button" mat-icon-button (click)="addAllergy()">
-                <i class="fa fa-plus-square" aria-hidden="true"> Allergy</i>
+                <i class="fa fa-plus-square" aria-hidden="true"> {{'profile.addAll' | translate}}</i>
               </button>
             </div>
           </div>
+
+          <div class="col-md-4">
+            <div class="buttons">
+              <button class="tab-button" mat-icon-button (click)="addDisability()">
+                <i class="fa fa-wheelchair" aria-hidden="true"> {{'profile.addDis' | translate}}</i>
+              </button>
+            </div>
+          </div>
+
         </div>
 
       </div>

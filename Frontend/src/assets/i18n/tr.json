@@ -105,6 +105,9 @@
     "noAll": "Bu danışanın bilmeniz gereken bir alerjisi yok.",
     "noPreg": "Bu danışanın bilmeniz gereken herhangi bir hamilelik öyküsü yok.",
     "noDis": "Bu danışanın bilmeniz gereken herhangi bir engel bilgisi yok.",
+    "addIll": "Hastalık Ekle",
+    "addAll": "Alerji Ekle",
+    "addDis": "Engel Ekle",
     "edit": "Profili Düzenle"
   }
 }
