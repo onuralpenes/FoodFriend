@@ -107,10 +107,10 @@ export class ProfileComponent implements OnInit {
 
         this.hasIllness = DataH.data.hasHealthProblem;
         this.hasAllergy = DataH.data.hasAllergy;
-        this.isPregnant = Data.data.isPregnant;
-        this.illnessList = Data.data.illnessDetails;
-        this.allergyList = Data.data.allergyDetails;
-        this.pregnantList = Data.data.pregnantDetails;
+        this.isPregnant = DataH.data.isPregnant;
+        this.illnessList = DataH.data.illnessDetails;
+        this.allergyList = DataH.data.allergyDetails;
+        this.pregnantList = DataH.data.pregnantDetails;
       });
     });
 
