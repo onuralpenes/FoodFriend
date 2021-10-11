@@ -39,6 +39,7 @@ import { AddAllergy } from 'src/app/main-page/layout/profile/survey/add-allergy/
 import { AddDisability } from 'src/app/main-page/layout/profile/survey/add-disable/add-disability.component';
 import { AddIllness } from 'src/app/main-page/layout/profile/survey/add-illness/add-illness.component';
 import { SurveyComponent } from 'src/app/main-page/layout/profile/survey/survey.component';
+import { SettingsComponent } from 'src/app/main-page/layout/settings/settings.component';
 import { ExpertFilterPipe } from '../../helpers/expert-filter.pipe';
 import { CustomMaterialModule } from '../material/material.module';
 import { PrivateLayoutComponent } from './private-layout.component';
@@ -56,6 +57,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     BodyComponent,
     ProfileComponent,
     DashboardComponent,
+    SettingsComponent,
     EatingHabitChartComponent,
     FoodIngredientDistributionChartComponent,
     EnergyConsumptionChartComponent,

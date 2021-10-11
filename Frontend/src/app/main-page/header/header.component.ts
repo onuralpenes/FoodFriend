@@ -35,4 +35,8 @@ export class HeaderComponent implements OnInit {
     this.router.navigateByUrl('/profile');
   }
 
+  settings() {
+    this.router.navigateByUrl('/settings');
+  }
+
 }
