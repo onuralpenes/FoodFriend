@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { MatDialog } from '@angular/material/dialog';
 import { AlertService } from 'src/app/helpers/alert.service';
 import { HealthInfo } from 'src/app/models/user/health-info/health-info.model';
 import { PhysicalInfo } from 'src/app/models/user/physical-info/pysical-info.model';
@@ -40,8 +39,7 @@ export class CounseleeProfileComponent implements OnInit {
   pregnantList!: PregnantList[];
   disabledList!: DisabledList[];
 
-  constructor(public modal: MatDialog, private alertService: AlertService, entityService: HttpEntityRepositoryService<User>,
-    entityServiceH: HttpEntityRepositoryService<HealthInfo>, entityServiceP: HttpEntityRepositoryService<PhysicalInfo>) {
+  constructor(private alertService: AlertService, entityService: HttpEntityRepositoryService<User>, entityServiceH: HttpEntityRepositoryService<HealthInfo>, entityServiceP: HttpEntityRepositoryService<PhysicalInfo>) {
     entityService.get("/User/Get?userId=", this.userId).subscribe(data => {
 
       var Data: any = data;
