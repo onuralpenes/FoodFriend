@@ -9,6 +9,7 @@ export class HttpEntityRepositoryService<T> {
     httpOptions = {
         headers: new HttpHeaders({
             "Content-Type": "application/json",
+            'Access-Control-Allow-Origin': "*",
             Authorization: "Bearer " + localStorage.getItem(environment.TOKEN_KEY)
         })
     };
