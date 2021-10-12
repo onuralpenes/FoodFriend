@@ -34,6 +34,7 @@ export interface Transfer2 {
 export class PatientTraceTableComponent {
   users: User[] = [];
   isNull: boolean = true;
+  clickedUser!: number;
 
   constructor(public modal: MatDialog, private router: Router, private alertService: AlertService, entityService: HttpEntityRepositoryService<User>) {
     entityService.getAll("/User/GetAll").subscribe(data => {
@@ -87,8 +88,13 @@ export class PatientTraceTableComponent {
   }
 
   open(id: number) {
+    this.clickedUser = id;
     this.router.navigate(['/counselee-profile']);
   }
+
+  public get clicedUserId(): number {
+    return this.clickedUser;
+}
 
   openActivity(firstName: string, lastName: string, id: number) {
     this.modal.open(ActivityTable, {

@@ -1,71 +1,95 @@
-<p></p>
-<div class="row counselee-short-info">
-    <div class="col-3">
-        <div class="counselee-img-div">
+<div style="width: 100%; height: 100%;">
+    <p></p>
+    <div class="row counselee-short-info">
+        <div class="col-3">
+            <div class="counselee-img-div">
 
-            <img class="counselee-profile-img" src="../../../../assets/default-avatar.jpg">
-        </div>
-        <div class="counselee-name">
-            <p>
-                {{userName}}
-            </p>
-
-            <i class="fa fa-genderless" [hidden]="!genderless"></i>
-            <i class="fa fa-mars" [hidden]="!male" aria-hidden="true"></i>
-            <i class="fa fa-venus" [hidden]="!female" aria-hidden="true"></i>
-        </div>
-    </div>
-    <div class="col-9">
-
-        <div class="row info-div">
-            <div class="col-6 ">
-                <p class="info" style="margin-top: 20%;">Weight: {{dummy}}</p>
-                <p class="info">Height: {{dummy}}</p>
-                <p class="info">Age: {{dummy}}</p>
+                <img class="profile-img" src="../../../../assets/user.jpg">
             </div>
-            <div class="col-6">
-                <p class="info" style="margin-top: 20%;">Birthdate: {{dummy}}</p>
-                <p class="info">Email: {{dummy}}</p>
-                <p class="info">Phone: {{dummy}}</p>
+            <div class="counselee-name">
+                <p>
+                    {{userName}}
+                </p>
+
+                <i class="fa fa-genderless" [hidden]="!genderless"></i>
+                <i class="fa fa-mars" [hidden]="!male" aria-hidden="true"></i>
+                <i class="fa fa-venus" [hidden]="!female" aria-hidden="true"></i>
             </div>
         </div>
-    </div>
-</div>
-<div>
-</div>
-<p [hidden]="!female">Pragnent: {{dummy}}</p>
+        <div class="col-9">
 
-<div class="info-illness">
-    <h1>Illnesses</h1>
-
-    <div [hidden]="illnessInfo.hasIllness" class="ilnesses">
-        <p>This counselee has no any important illnesses that you need to be aware of.</p>
-    </div>
-
-    <div [hidden]="!illnessInfo.hasIllness" class="row ilnesses">
-        <p>Illness: {{dummy}}</p>
-        <div class=" col " *ngFor="let illness of illnessInfo.illnesses; let i = index">
-            <p>{{illness.name}} : {{illness.exp}}</p>
+            <div class="row info-div">
+                <div class="col-6 ">
+                    <p class="info" style="margin-top: 20%;">{{'label.height' | translate}}: {{height}}</p>
+                    <p class="info">{{'label.weight' | translate}}: {{weight}}</p>
+                    <p class="info">{{'profile.age' | translate}}: {{age}}</p>
+                </div>
+                <div class="col-6">
+                    <p class="info" style="margin-top: 20%;">{{'label.birthdate' | translate}}: {{birthdate | date: "dd/MM/yyyy" }}</p>
+                    <p class="info">{{'label.email' | translate}}: {{email}}</p>
+                    <p class="info">{{'label.phoneNumber' | translate}}: {{phone}}</p>
+                </div>
+            </div>
         </div>
     </div>
-</div>
-
-<div class="info-allergy">
-    <h1>Allergy</h1>
-
-    <div [hidden]="allergy.hasAllergy" class="allergies">
-        <p>This counselee has no allergy that you need to be aware of.</p>
+    <div>
     </div>
-    <div [hidden]="!allergy.hasAllergy" class="row allergies">
-        <p>Allergy: {{dummy}}</p>
-        <div class=" col " *ngFor="let allergy of allergy.allergies; let i = index">
-            {{allergy.name}} : {{allergy.exp}}
+    <div [hidden]="!female" class="list-info">
+        <h1>{{'profile.pregnancy' | translate}}</h1>
+
+        <div [hidden]="isPregnant" class="groups">
+            <p>{{'profile.noPreg' | translate}}</p>
+        </div>
+
+        <div [hidden]="!isPregnant" class="row groups">
+            <div class=" col " *ngFor="let pregnant of pregnantList; let i = index">
+                <p>{{pregnant.pregnantStartDate}} : {{pregnant.pregnantEndDate}}</p>
+            </div>
         </div>
     </div>
-</div>
+
+    <div class="list-info">
+        <h1>{{'profile.illness' | translate}}</h1>
+
+        <div [hidden]="hasIllness" class="groups">
+            <p>{{'profile.noIll' | translate}}</p>
+        </div>
+
+        <div [hidden]="!hasIllness" class="row groups">
+            <div class=" col " *ngFor="let illness of illnessList; let i = index">
+                <p>{{illness.illnessName}}</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="list-info">
+        <h1>{{'profile.allergy' | translate}}</h1>
+
+        <div [hidden]="hasAllergy" class="groups">
+            <p>{{'profile.noAll' | translate}}</p>
+        </div>
+        <div [hidden]="!hasAllergy" class="row groups">
+            <div class=" col " *ngFor="let allergy of allergyList; let i = index">
+                <p>{{allergy.allergyName}}</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="list-info">
+        <h1>{{'profile.disable' | translate}}</h1>
+
+        <div [hidden]="isDisabled" class="groups">
+            <p>{{'profile.noDis' | translate}}</p>
+        </div>
+        <div [hidden]="!isDisabled" class="row groups">
+            <div class=" col " *ngFor="let disable of disabledList; let i = index">
+                {{disable.disabledDescription}} : {{disable.disabledRatio}}
+            </div>
+        </div>
+    </div>
 
 
-
-<div class="row aim">
-    <p>Aim: {{dummy}}</p>
+    <div class="row aim">
+        <p>{{'profile.aim' | translate}}: {{dummy}}</p>
+    </div>
 </div>

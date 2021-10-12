@@ -8,6 +8,7 @@ import { ProfileComponent } from 'src/app/main-page/layout/profile/profile.compo
 import { PrivateLayoutComponent } from './private-layout.component';
 import { CounseleeProfileComponent } from 'src/app/main-page/layout/counselee-profile/counselee-profile.component';
 import { ExpertsComponent } from 'src/app/main-page/layout/experts/experts.component';
+import { SettingsComponent } from 'src/app/main-page/layout/settings/settings.component';
 
 const routes: Routes = [
     {
@@ -21,6 +22,7 @@ const routes: Routes = [
             { path: 'patients', component: PatientTraceComponent },
             { path: 'experts', component: ExpertsComponent },
             { path: 'counselee-profile', component: CounseleeProfileComponent },
+            { path: 'settings', component: SettingsComponent },
             { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
         ],
     },

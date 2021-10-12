@@ -1,12 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
-import { Observable } from 'rxjs';
 import { AlertService } from 'src/app/helpers/alert.service';
-import { AllergyDetail } from 'src/app/models/user/health-info/allergy-detail.model';
 import { HealthInfo } from 'src/app/models/user/health-info/health-info.model';
-import { IllnessDetail } from 'src/app/models/user/health-info/illness-detail.model';
-import { PregnantDetail } from 'src/app/models/user/health-info/pregnant-detail.model';
-import { DisabledDetail } from 'src/app/models/user/physical-info/disabled-detail.model';
 import { PhysicalInfo } from 'src/app/models/user/physical-info/pysical-info.model';
 import { User } from 'src/app/models/user/user.model';
 import { AuthService } from 'src/app/services/auth.service';
@@ -37,8 +32,6 @@ export interface DisabledList {
   styleUrls: ['./profile.component.css']
 })
 export class ProfileComponent implements OnInit {
-  user!: User;
-
   weight!: number;
   height!: number;
   age!: number;
@@ -64,8 +57,7 @@ export class ProfileComponent implements OnInit {
   disabledList!: DisabledList[];
 
   constructor(public modal: MatDialog, authService: AuthService, private alertService: AlertService, entityService: HttpEntityRepositoryService<User>,
-    entityServiceH: HttpEntityRepositoryService<HealthInfo>, entityServicePh: HttpEntityRepositoryService<PhysicalInfo>, entityServiceD: HttpEntityRepositoryService<DisabledDetail>,
-    entityServiceI: HttpEntityRepositoryService<IllnessDetail>, entityServiceA: HttpEntityRepositoryService<AllergyDetail>, entityServicePr: HttpEntityRepositoryService<PregnantDetail>) {
+    entityServiceH: HttpEntityRepositoryService<HealthInfo>, entityServiceP: HttpEntityRepositoryService<PhysicalInfo>){
     entityService.get("/User/Get?userId=", authService.CurrentUserId).subscribe(data => {
 
       var Data: any = data;
@@ -85,7 +77,7 @@ export class ProfileComponent implements OnInit {
       const timeDiff = Math.abs(Date.now() - convertAge.getTime());
       this.age = Math.floor((timeDiff / (1000 * 3600 * 24)) / 365);
 
-      entityServicePh.get("/PhysicalInfo/Get?id=", this.physicalId).subscribe(data => {
+      entityServiceP.get("/PhysicalInfo/Get?id=", this.physicalId).subscribe(data => {
         var DataPh: any = data;
         if (!DataPh.success) {
           this.alertService.openSnackBar(DataPh.success, DataPh.message);

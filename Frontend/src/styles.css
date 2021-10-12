@@ -1,6 +1,7 @@
 /* You can add global styles to this file, and also import other style files */
 @import '~font-awesome/css/font-awesome.min.css';
 @import '~bootstrap/dist/css/bootstrap.min.css';
+@import url(https://fonts.googleapis.com/css?family=Oswald);
 @import url('https://fonts.googleapis.com/css2?family=Nunito:wght@200;300&display=swap');
 
 html, body { height: 100%; }
