@@ -109,5 +109,13 @@
     "addAll": "Alerji Ekle",
     "addDis": "Engel Ekle",
     "edit": "Profili Düzenle"
+  },
+
+  "paginator": {
+    "item" : "Sütun sayısı",
+    "next" : "bir sonraki sayfa",
+    "previous" : "bir önceki sayfa",
+    "last" : "en son sayfa",
+    "first" : "ilk sayfa"
   }
 }

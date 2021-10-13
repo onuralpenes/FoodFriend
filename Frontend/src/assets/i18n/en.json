@@ -109,5 +109,13 @@
     "addAll": "Add Allergy",
     "addDis": "Add Disable",
     "edit": "Edit Profile"
+  },
+
+  "paginator": {
+    "item" : "items per page",
+    "next" : "next page",
+    "previous" : "previous page",
+    "last" : "last page",
+    "first" : "first page"
   }
 }
