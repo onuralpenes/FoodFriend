@@ -112,10 +112,11 @@
   },
 
   "paginator": {
-    "item" : "Sütun sayısı",
+    "item" : "Sayfa başına veri",
     "next" : "bir sonraki sayfa",
     "previous" : "bir önceki sayfa",
     "last" : "en son sayfa",
-    "first" : "ilk sayfa"
+    "first" : "ilk sayfa",
+    "range" : "de"
   }
 }

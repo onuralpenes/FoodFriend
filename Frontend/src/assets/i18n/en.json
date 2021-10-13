@@ -116,6 +116,7 @@
     "next" : "next page",
     "previous" : "previous page",
     "last" : "last page",
-    "first" : "first page"
+    "first" : "first page",
+    "range" : "of"
   }
 }
