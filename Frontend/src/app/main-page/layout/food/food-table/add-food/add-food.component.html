@@ -1,8 +1,37 @@
-<mat-form-field appearance="outline">
-  <mat-label>{{'label.select' | translate}}</mat-label>
-  <select matNativeControl>
-    <option [ngValue]="undefined" disabled>{{'label.select' | translate}}</option>
-    <option *ngFor="let food of foods" [value]="food.foodName" (click)="addFood(food.foodDetailId)">{{ food.foodName }}
-    </option>
-  </select>
-</mat-form-field>
+<div *ngIf="!cont">
+  <form [formGroup]="addFoodForm" (ngSubmit)="onSubmit('cont')" class="form">
+    <p>
+      <mat-form-field appearance="outline">
+        <mat-label>{{'label.select' | translate}}</mat-label>
+        <select matNativeControl formControlName="foodName">
+          <option [ngValue]="undefined" disabled>{{'label.select' | translate}}</option>
+          <option *ngFor="let food of foods" [value]="food.foodName">{{ food.foodName }}
+          </option>
+        </select>
+      </mat-form-field>
+    </p>
+    <p *ngFor="let fod of addedFoodsName">{{fod}}</p>
+
+    <button type="submit">Cont</button>
+  </form>
+  <button (click)="addFood()">Add Food</button>
+</div>
+
+<div *ngIf="cont">
+  <form [formGroup]="addEatingActivityForm" (ngSubmit)="onSubmit('submit')" class="form">
+    <mat-form-field appearance="outline" class="birthdate">
+      <mat-label>{{'table.start' | translate}}</mat-label>
+      <input matInput [matDatepicker]="picker" formControlName="startEatingActivity">
+      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+      <mat-datepicker #picker></mat-datepicker>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline" class="birthdate">
+      <mat-label>{{'table.end' | translate}}</mat-label>
+      <input matInput [matDatepicker]="picker2" formControlName="endEatingActivity">
+      <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
+      <mat-datepicker #picker2></mat-datepicker>
+    </mat-form-field>
+    <button type="submit">Submit</button>
+  </form>
+</div>

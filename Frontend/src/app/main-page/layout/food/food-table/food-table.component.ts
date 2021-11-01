@@ -28,8 +28,8 @@ export interface Transfer {
 export class FoodTableComponent implements AfterViewInit {
   eatact: Observable<EatingActivity>;
 
-  foods: FoodDetail[] = FOOD_DATA; //It is getting data from data.ts.
-  sortedData = this.foods; //It is getting data from data.ts.
+  foods: FoodDetail[] = FOOD_DATA;
+  sortedData = this.foods;
   isNull: boolean = true;
 
   constructor(public modal: MatDialog, entityService: HttpEntityRepositoryService<EatingActivity>, public translate: TranslateService) {

@@ -7,5 +7,5 @@ export interface EatingActivity {
     endEatingActivity: Date;
     consumptionType: number;
     estimatedCalorie: number;
-    nutrition: Nutrition[];
+    nutritions: Nutrition[];
 }
