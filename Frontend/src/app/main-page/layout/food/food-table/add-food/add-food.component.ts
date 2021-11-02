@@ -69,7 +69,12 @@ export class AddFood {
         estimatedCalorie: 0,
         nutritions: this.newNutrition
       }
-      this.entityServiceE.insert("/EatingActivity/AddWithNutrition", JSON.stringify(newEatAct));
+      this.entityServiceE.insert("/EatingActivity/AddWithNutrition", JSON.stringify(newEatAct))
+        .subscribe(data => {
+          this.alertService.openSnackBar(true, "success");
+        }, err => {
+          this.alertService.openSnackBar(false, "error");
+        });
     }
   }
 
