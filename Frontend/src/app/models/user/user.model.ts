@@ -1,5 +1,6 @@
 export interface User {
     userId: number;
+    userIdKeyR: string;
     healthInfoId: number;
     physicalInfoId: number;
     emailAddress: string;
