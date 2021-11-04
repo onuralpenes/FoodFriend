@@ -93,7 +93,7 @@ export class PatientTraceTableComponent implements AfterViewInit  {
     this.router.navigate(['/counselee-profile']);
   }
 
-  public get clicedUserId(): number {
+  public get clickedUserId(): number {
     return this.clickedUser;
 }
 
