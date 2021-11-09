@@ -37,8 +37,7 @@ export class ActivityTableComponent implements AfterViewInit {
     'activityeffortUnit',
     'activityStartDate',
     'activityEndDate',
-    'edit',
-    'delete',
+    'actions',
   ];
   dataSource = new MatTableDataSource(ACTIVITY_DATA);
 

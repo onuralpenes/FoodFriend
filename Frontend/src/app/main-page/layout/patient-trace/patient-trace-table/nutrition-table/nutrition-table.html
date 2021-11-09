@@ -11,28 +11,28 @@
     <table mat-table [dataSource]="dataSource" matSort class="my-table" *ngIf="isNull">
       <ng-container matColumnDef="foodName">
         <th mat-header-cell *matHeaderCellDef mat-sort-header class="lHead">{{'table.name' | translate}}</th>
-        <td mat-cell *matCellDef="let foods" class="lCol">{{ foods.foodName }}</td>
+        <td mat-cell *matCellDef="let foods" class="lCol" data-label="Name: ">{{ foods.foodName }}</td>
       </ng-container>
 
       <ng-container matColumnDef="calorie">
         <th mat-header-cell *matHeaderCellDef mat-sort-header>{{'table.calorie' | translate}}</th>
-        <td mat-cell *matCellDef="let foods">{{ foods.calorie }}</td>
+        <td mat-cell *matCellDef="let foods" data-label="Calorie: ">{{ foods.calorie }}</td>
       </ng-container>
 
       <ng-container matColumnDef="protein">
         <th mat-header-cell *matHeaderCellDef mat-sort-header>{{'table.protein' | translate}}</th>
-        <td mat-cell *matCellDef="let foods">{{ foods.protein }}</td>
+        <td mat-cell *matCellDef="let foods" data-label="Protein: ">{{ foods.protein }}</td>
       </ng-container>
 
       <ng-container matColumnDef="oil">
         <th mat-header-cell *matHeaderCellDef mat-sort-header>{{'table.oil' | translate}}</th>
-        <td mat-cell *matCellDef="let foods">{{ foods.oil }}</td>
+        <td mat-cell *matCellDef="let foods" data-label="Oil: ">{{ foods.oil }}</td>
       </ng-container>
 
       <ng-container matColumnDef="carbohydrate">
         <th mat-header-cell *matHeaderCellDef mat-sort-header class="rHead">{{'table.carbohydrate'
           | translate}}</th>
-        <td mat-cell *matCellDef="let foods" class="rCol">{{ foods.carbohydrate }}</td>
+        <td mat-cell *matCellDef="let foods" class="rCol" data-label="Carbohydrate: ">{{ foods.carbohydrate }}</td>
       </ng-container>
 
       <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>

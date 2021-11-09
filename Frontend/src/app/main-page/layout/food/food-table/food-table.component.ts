@@ -42,8 +42,7 @@ export class FoodTableComponent implements AfterViewInit {
     'protein',
     'oil',
     'carbohydrate',
-    'edit',
-    'delete',
+    'actions',
   ];
   dataSource = new MatTableDataSource(FOOD_DATA);
 
