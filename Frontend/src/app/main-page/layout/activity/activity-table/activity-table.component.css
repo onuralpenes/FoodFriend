@@ -167,6 +167,10 @@ mat-form-field{
     display: none;
  }
 
+ .tab{
+   overflow: visible;
+ }
+
  .mat-table .mat-cell:before {
   content: attr(data-label);
   text-transform: uppercase
@@ -196,7 +200,16 @@ mat-form-field{
    border-left: 0;
    border-right: 0;
  }
-  .mat-paginator {
-    margin-top: 15px;
- }
+  
+	.mat-paginator {
+	  margin-top: 15px;
+	  border-radius: 25px;
+		border: 2px solid #009879;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .mat-table .mat-cell:before {
+    display: block;
+  }
 }

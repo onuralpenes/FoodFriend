@@ -33,7 +33,6 @@ button {
   
   .row {
 	height: 400px;
-	overflow: hidden;
 	margin-left: 5%;
  	margin-right: 5%;
 	min-height: 64px;
@@ -131,6 +130,10 @@ mat-paginator{
 	.mat-header-row {
 	  display: none;
    }
+
+   .tab{
+	 overflow: visible;
+   }
   
    .mat-table .mat-cell:before {
 	content: attr(data-label);
@@ -164,5 +167,7 @@ mat-paginator{
    }
 	.mat-paginator {
 	  margin-top: 15px;
-   }
+	  border-radius: 25px;
+		border: 2px solid #009879;
   }
+}
