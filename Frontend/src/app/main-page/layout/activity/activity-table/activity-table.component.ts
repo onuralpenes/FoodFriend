@@ -24,8 +24,8 @@ export interface Transfer {
   styleUrls: ['./activity-table.component.css'],
 })
 export class ActivityTableComponent implements AfterViewInit {
-  activities: PersonalEnergyActivity[] = ACTIVITY_DATA; //It is getting data from data.ts.
-  sortedData = this.activities; //It is getting data from data.ts.
+  activities: PersonalEnergyActivity[] = ACTIVITY_DATA;
+  sortedData = this.activities; 
   isNull: boolean = true;
 
   constructor(public modal: MatDialog, public translate: TranslateService) { }

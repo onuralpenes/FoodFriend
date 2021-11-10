@@ -5,11 +5,11 @@ import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import { LangChangeEvent, TranslateService } from '@ngx-translate/core';
 import { Observable } from 'rxjs';
+import { AlertService } from 'src/app/helpers/alert.service';
 import { EatingActivity } from 'src/app/models/data/eating-activity.model';
 import { FoodDetail } from 'src/app/models/data/food-detail.model';
 import { HttpEntityRepositoryService } from 'src/app/services/http-entity-repository.service';
 import { AddFood } from './add-food/add-food.component';
-import { FOOD_DATA } from './data';
 import { EditFood } from './edit-table.component';
 
 export interface Transfer {
@@ -28,23 +28,47 @@ export interface Transfer {
 export class FoodTableComponent implements AfterViewInit {
   eatact: Observable<EatingActivity>;
 
-  foods: FoodDetail[] = FOOD_DATA;
+  foods: FoodDetail[] = [];
   sortedData = this.foods;
   isNull: boolean = true;
 
-  constructor(public modal: MatDialog, entityService: HttpEntityRepositoryService<EatingActivity>, public translate: TranslateService) {
+  constructor(public modal: MatDialog, entityService: HttpEntityRepositoryService<EatingActivity>, public translate: TranslateService, public alertService: AlertService,
+    public dummy: HttpEntityRepositoryService<FoodDetail>) {
     this.eatact = entityService.getAll('​/EatingActivity​/GetAll');
-  }
+    dummy.getAll("/FoodDetail/GetAll").subscribe(data => {
 
+      var Data: any = data;
+      if (!Data.success) {
+        this.alertService.openSnackBar(Data.success, Data.message);
+        return;
+      }
+
+      this.foods = Data.data;
+      this.dataSource = new MatTableDataSource(Data.data);
+      this.dataSource.sort = this.sort;
+      this.dataSource.paginator = this.paginator;
+
+      this.Begin();
+    });
+  }
+  Begin() {
+    if (this.dataSource.filteredData.length == 0) {
+      this.isNull = false;
+    }
+    else {
+      this.isNull = true;
+    }
+  }
   displayedColumns: string[] = [
     'foodName',
+    'weight',
     'calorie',
     'protein',
     'oil',
     'carbohydrate',
     'actions',
   ];
-  dataSource = new MatTableDataSource(FOOD_DATA);
+  dataSource = new MatTableDataSource(this.foods);
 
   @ViewChild(MatSort) sort!: MatSort;
   @ViewChild(MatPaginator) paginator!: MatPaginator;

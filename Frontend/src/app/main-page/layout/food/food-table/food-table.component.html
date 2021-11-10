@@ -22,6 +22,11 @@
       <td mat-cell *matCellDef="let foods" class="lCol" data-label="Name: ">{{ foods.foodName }}</td>
     </ng-container>
 
+    <ng-container matColumnDef="weight">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Weight<!--{{'table.weight' | translate}}--></th>
+      <td mat-cell *matCellDef="let foods" data-label="Weight: ">{{ foods.calorie }}</td>
+    </ng-container>
+
     <ng-container matColumnDef="calorie">
       <th mat-header-cell *matHeaderCellDef mat-sort-header>{{'table.calorie' | translate}}</th>
       <td mat-cell *matCellDef="let foods" data-label="Calorie: ">{{ foods.calorie }}</td>

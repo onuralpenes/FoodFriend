@@ -8,7 +8,7 @@ import { single } from './data';
 })
 export class FoodIngredientDistributionChartComponent {
 
-  single!: any[];  //It is getting data from data.ts.
+  single!: any[];
 
   gradient: boolean = false;
   showLegend: boolean = false;
