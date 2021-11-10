@@ -14,12 +14,20 @@ export class HeaderComponent implements OnInit {
   constructor(private authService: AuthService, private router: Router) { }
 
   pageName;
-
+  
   ngOnInit() {
     this.pageName = this.router.url.substring(1).toUpperCase();
+    if (this.pageName.includes('-')) {
+      this.pageName = this.pageName.substring(0, this.pageName.indexOf('-')) + " " + this.pageName.substring(this.pageName.indexOf('-') + 1, this.pageName.indexOf('/'));
+    }
+ 
 
     this.router.events.subscribe((val) => {
       this.pageName = this.router.url.substring(1).toUpperCase();
+
+   if (this.pageName.includes('-')) {
+      this.pageName = this.pageName.substring(0, this.pageName.indexOf('-')) + " " + this.pageName.substring(this.pageName.indexOf('-') + 1, this.pageName.indexOf('/'));
+    }
     });
   }
 

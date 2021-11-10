@@ -21,7 +21,7 @@ const routes: Routes = [
             { path: 'activity', component: ActivityComponent },
             { path: 'patients', component: PatientTraceComponent },
             { path: 'experts', component: ExpertsComponent },
-            { path: 'counselee-profile', component: CounseleeProfileComponent },
+            { path: 'counselee-profile/:id', component: CounseleeProfileComponent },
             { path: 'settings', component: SettingsComponent },
             { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
         ],

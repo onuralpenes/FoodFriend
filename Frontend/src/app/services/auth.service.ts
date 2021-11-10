@@ -28,14 +28,14 @@ export class AuthService {
 
     login(login: Login) {
         this.http
-            .post(environment.BASE_URL + "/Auth/Login", login, this.httpOptions)
+            .post(environment.BASE_URL + "/Auth2/Login", login, this.httpOptions)
             .subscribe(data => {
                 var tokenData: any = data;
                 if (!tokenData.success) {
                     this.alertService.openSnackBar(tokenData.success,tokenData.message);
                     return;
                 }
-                
+                this.saveId(tokenData.data.userId);
                 this.saveToken(tokenData.data.accessToken.token);
                 this.alertService.openSnackBar(tokenData.success,tokenData.message);
 
@@ -55,34 +55,41 @@ export class AuthService {
                     this.alertService.openSnackBar(false,err.error);
             });
     }
-    userTransition(login: Login) {
-        this.http
-            .post(environment.BASE_URL + "/auth/login", login, this.httpOptions)
-            .subscribe(data => {
+    // userTransition(login: Login) {
+    //     this.http
+    //         .post(environment.BASE_URL + "/auth/login", login, this.httpOptions)
+    //         .subscribe(data => {
 
-                var tokenData: any = data;
-                if (!tokenData.success) {
-                    this.alertService.openSnackBar(tokenData.success,tokenData.message);
-                    return;
-                }
-                this.saveToken(tokenData.data.token);
-                this.alertService.openSnackBar(tokenData.success,tokenData.message);
+    //             var tokenData: any = data;
+    //             if (!tokenData.success) {
+    //                 this.alertService.openSnackBar(tokenData.success,tokenData.message);
+    //                 return;
+    //             }
 
-                this.route.navigateByUrl('/dashboard');
+    //             this.saveToken(tokenData.data.token);
+    //             this.saveId(tokenData.data.UserId);
+    //             this.alertService.openSnackBar(tokenData.success,tokenData.message);
 
-                if (login.remember) {
-                    localStorage.setItem('Email Address', login.emailAddress);
-                    localStorage.setItem('Password', login.password);
-                }
-                else {
-                    localStorage.setItem('Email Address', "");
-                    localStorage.setItem('Password', "");
-                }
-            });
-    }
+    //             this.route.navigateByUrl('/dashboard');
+
+    //             if (login.remember) {
+    //                 localStorage.setItem('Email Address', login.emailAddress);
+    //                 localStorage.setItem('Password', login.password);
+    //             }
+    //             else {
+    //                 localStorage.setItem('Email Address', "");
+    //                 localStorage.setItem('Password', "");
+    //             }
+    //         });
+    // }
 
     saveToken(token: string) {
         localStorage.setItem(environment.TOKEN_KEY, token);
+    }
+
+    saveId(id: number){
+        let idStr: string = id.toString(); 
+        localStorage.setItem(environment.USER_ID, idStr);
     }
 
     getToken() {
@@ -100,8 +107,15 @@ export class AuthService {
     }
 
     public get CurrentUserId(): number {
-        const token = localStorage.getItem(environment.TOKEN_KEY) || '{}';
-        return this.jwtHelper.decodeToken(token).nameid;
+        const id = localStorage.getItem(environment.USER_ID);
+        if(id != null){
+            return +id;
+        }
+        else{
+            return 0;
+        }
+        // const token = localStorage.getItem(environment.TOKEN_KEY) || '{}';
+        // return this.jwtHelper.decodeToken(token).nameid;
     }
 
     public get CurrentRoles() {

@@ -1,9 +1,11 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { AlertService } from 'src/app/helpers/alert.service';
 import { HealthInfo } from 'src/app/models/user/health-info/health-info.model';
 import { PhysicalInfo } from 'src/app/models/user/physical-info/pysical-info.model';
 import { User } from 'src/app/models/user/user.model';
 import { HttpEntityRepositoryService } from 'src/app/services/http-entity-repository.service';
+import { PatientTraceTableComponent } from '../patient-trace/patient-trace-table/patient-trace-table.component';
 import { AllergyList, DisabledList, IllnessList, PregnantList } from '../profile/profile.component';
 
 @Component({
@@ -12,9 +14,6 @@ import { AllergyList, DisabledList, IllnessList, PregnantList } from '../profile
   styleUrls: ['./counselee-profile.component.css']
 })
 export class CounseleeProfileComponent implements OnInit {
-
-  userId:number = 2; //This should be get from patients
-
   weight!: number;
   height!: number;
   age!: number;
@@ -39,8 +38,12 @@ export class CounseleeProfileComponent implements OnInit {
   pregnantList!: PregnantList[];
   disabledList!: DisabledList[];
 
-  constructor(private alertService: AlertService, entityService: HttpEntityRepositoryService<User>, entityServiceH: HttpEntityRepositoryService<HealthInfo>, entityServiceP: HttpEntityRepositoryService<PhysicalInfo>) {
-    entityService.get("/User/Get?userId=", this.userId).subscribe(data => {
+  constructor(private route: ActivatedRoute, private alertService: AlertService, entityService: HttpEntityRepositoryService<User>, entityServiceH: HttpEntityRepositoryService<HealthInfo>, entityServiceP: HttpEntityRepositoryService<PhysicalInfo>) {
+
+   this.route.paramMap.subscribe(param => {
+    let id = Number(param.get('id'));
+
+    entityService.get("/User/Get?userId=", id).subscribe(data => {
 
       var Data: any = data;
       if (!Data.success) {
@@ -87,6 +90,10 @@ export class CounseleeProfileComponent implements OnInit {
         this.pregnantList = DataH.data.pregnantDetails;
       });
     });
+
+})
+
+    
 
   }
 
