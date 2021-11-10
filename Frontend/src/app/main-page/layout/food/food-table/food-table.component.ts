@@ -32,10 +32,9 @@ export class FoodTableComponent implements AfterViewInit {
   sortedData = this.foods;
   isNull: boolean = true;
 
-  constructor(public modal: MatDialog, entityService: HttpEntityRepositoryService<EatingActivity>, public translate: TranslateService, public alertService: AlertService,
-    public dummy: HttpEntityRepositoryService<FoodDetail>) {
+  constructor(public modal: MatDialog, entityService: HttpEntityRepositoryService<EatingActivity>, public translate: TranslateService, public alertService: AlertService) {
     this.eatact = entityService.getAll('​/EatingActivity​/GetAll');
-    dummy.getAll("/FoodDetail/GetAll").subscribe(data => {
+    entityService.getAll("/FoodDetail/GetAll").subscribe(data => {
 
       var Data: any = data;
       if (!Data.success) {

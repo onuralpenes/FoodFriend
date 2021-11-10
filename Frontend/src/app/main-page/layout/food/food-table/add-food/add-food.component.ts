@@ -21,8 +21,8 @@ export class AddFood {
   addEatingActivityForm!: FormGroup;
   cont: boolean = false;
 
-  constructor(private formBuilder: FormBuilder, entityServiceF: HttpEntityRepositoryService<FoodDetail>, private alertService: AlertService, private authService: AuthService, private entityServiceE: HttpEntityRepositoryService<EatingActivity>) {
-    entityServiceF.getAll("/FoodDetail/GetAll").subscribe(data => {
+  constructor(private formBuilder: FormBuilder, private entityService: HttpEntityRepositoryService<FoodDetail>, private alertService: AlertService, private authService: AuthService) {
+    entityService.getAll("/FoodDetail/GetAll").subscribe(data => {
 
       var Data: any = data;
       if (!Data.success) {
@@ -69,7 +69,7 @@ export class AddFood {
         estimatedCalorie: 0,
         nutritions: this.newNutrition
       }
-      this.entityServiceE.insert("/EatingActivity/AddWithNutrition", JSON.stringify(newEatAct))
+      this.entityService.insert("/EatingActivity/AddWithNutrition", JSON.stringify(newEatAct))
         .subscribe(data => {
           this.alertService.openSnackBar(true, "success");
         }, err => {
