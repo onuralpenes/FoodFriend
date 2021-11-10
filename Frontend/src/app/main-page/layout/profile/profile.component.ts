@@ -56,7 +56,7 @@ export class ProfileComponent implements OnInit {
   pregnantList!: PregnantList[];
   disabledList!: DisabledList[];
 
-  constructor(public modal: MatDialog, authService: AuthService, private alertService: AlertService, entityService: HttpEntityRepositoryService<User>){
+  constructor(private modal: MatDialog, authService: AuthService, private alertService: AlertService, entityService: HttpEntityRepositoryService<User>){
     entityService.get("/User/Get?userId=", authService.CurrentUserId).subscribe(data => {
 
       var Data: any = data;

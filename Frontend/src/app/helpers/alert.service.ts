@@ -6,7 +6,7 @@ import { MatSnackBar } from "@angular/material/snack-bar";
 })
 export class AlertService {
 
-  constructor(public myAlert: MatSnackBar) {}
+  constructor(private myAlert: MatSnackBar) {}
 
   openSnackBar(success: boolean,message: string) {
     this.openSnackBarWithAction(success,message, 'OK');

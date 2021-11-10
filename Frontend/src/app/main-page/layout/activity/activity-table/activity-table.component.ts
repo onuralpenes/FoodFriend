@@ -28,7 +28,7 @@ export class ActivityTableComponent implements AfterViewInit {
   sortedData = this.activities; 
   isNull: boolean = true;
 
-  constructor(public modal: MatDialog, public translate: TranslateService) { }
+  constructor(private modal: MatDialog, private translate: TranslateService) { }
 
   displayedColumns: string[] = [
     'activityType',

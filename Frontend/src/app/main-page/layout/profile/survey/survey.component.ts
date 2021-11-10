@@ -16,7 +16,7 @@ export class SurveyComponent implements OnInit {
   surveyForm!: FormGroup;
   post: any = '';
 
-  constructor(private formBuilder: FormBuilder, public modal: MatDialog) { }
+  constructor(private formBuilder: FormBuilder, private modal: MatDialog) { }
   
   ngOnInit() { 
     this.surveyForm = this.formBuilder.group({
