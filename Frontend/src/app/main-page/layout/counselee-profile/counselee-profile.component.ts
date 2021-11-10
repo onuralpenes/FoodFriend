@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { AlertService } from 'src/app/helpers/alert.service';
 import { HealthInfo } from 'src/app/models/user/health-info/health-info.model';
 import { PhysicalInfo } from 'src/app/models/user/physical-info/pysical-info.model';
@@ -37,10 +38,12 @@ export class CounseleeProfileComponent implements OnInit {
   pregnantList!: PregnantList[];
   disabledList!: DisabledList[];
 
-  constructor(private alertService: AlertService, entityService: HttpEntityRepositoryService<User>, entityServiceH: HttpEntityRepositoryService<HealthInfo>, entityServiceP: HttpEntityRepositoryService<PhysicalInfo>, patient: PatientTraceTableComponent) {
-    console.log(patient.clickedUserId)
-    
-    entityService.get("/User/Get?userId=", patient.clickedUser).subscribe(data => {
+  constructor(private route: ActivatedRoute, private alertService: AlertService, entityService: HttpEntityRepositoryService<User>, entityServiceH: HttpEntityRepositoryService<HealthInfo>, entityServiceP: HttpEntityRepositoryService<PhysicalInfo>) {
+
+   this.route.paramMap.subscribe(param => {
+    let id = Number(param.get('id'));
+
+    entityService.get("/User/Get?userId=", id).subscribe(data => {
 
       var Data: any = data;
       if (!Data.success) {
@@ -87,6 +90,10 @@ export class CounseleeProfileComponent implements OnInit {
         this.pregnantList = DataH.data.pregnantDetails;
       });
     });
+
+})
+
+    
 
   }
 

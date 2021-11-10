@@ -32,7 +32,7 @@ export interface Transfer2 {
   templateUrl: './patient-trace-table.component.html',
   styleUrls: ['./patient-trace-table.component.css'],
 })
-export class PatientTraceTableComponent implements AfterViewInit  {
+export class PatientTraceTableComponent implements AfterViewInit {
   users: User[] = [];
   isNull: boolean = true;
   clickedUser!: number;
@@ -50,7 +50,7 @@ export class PatientTraceTableComponent implements AfterViewInit  {
       this.dataSource = new MatTableDataSource(this.users);
       this.dataSource.sort = this.sort;
       this.dataSource.paginator = this.paginator;
-      
+
       this.Begin();
     });
 
@@ -90,12 +90,12 @@ export class PatientTraceTableComponent implements AfterViewInit  {
 
   open(id: number) {
     this.clickedUser = id;
-    this.router.navigate(['/counselee-profile']);
+    this.router.navigate(['/counselee-profile/' + id]);
   }
 
   public get clickedUserId(): number {
     return this.clickedUser;
-}
+  }
 
   openActivity(firstName: string, lastName: string, id: number) {
     this.modal.open(ActivityTable, {
