@@ -27,7 +27,7 @@ export class NutritionTable implements AfterViewInit {
         'carbohydrate',
     ];
     dataSource = new MatTableDataSource(
-        this.foods.filter((food) => food.eatingActivityId === this.data.id)
+        this.foods.filter((food) => food.foodDetailId === this.data.id)
     );
 
     @ViewChild(MatSort) sort!: MatSort;
