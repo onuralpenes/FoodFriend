@@ -83,9 +83,9 @@ export class FoodTableComponent implements AfterViewInit {
       if (result === true) {
         this.foods = this.foods.filter(food => food.foodDetailId != id);
         this.entityService.delete("/FoodDetail?id=", id).subscribe(data => {
-          console.log("sildi?")
+          this.alertService.openSnackBar(true, "success");
         }, err =>{
-          console.log("silmedi?")
+          this.alertService.openSnackBar(true, "unsuccess");
         })
       } 
     });
