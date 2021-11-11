@@ -24,7 +24,7 @@
 
     <ng-container matColumnDef="weight">
       <th mat-header-cell *matHeaderCellDef mat-sort-header>{{'table.weight' | translate}}</th>
-      <td mat-cell *matCellDef="let foods" data-label="Weight: ">{{ foods.calorie }}</td>
+      <td mat-cell *matCellDef="let foods" data-label="Weight: ">{{ foods.weight }}</td>
     </ng-container>
 
     <ng-container matColumnDef="calorie">
@@ -54,7 +54,7 @@
           (click)="openEdit(foods.foodName, foods.calorie, foods.protein, foods.oil, foods.carbohydrate)">
           <i class="fa fa-pencil fa-lg" aria-hidden="true"></i>
         </button>
-        <button class="tab-button" mat-icon-button (click)="delete()">
+        <button class="tab-button" mat-icon-button (click)="delete(foods.foodDetailId, foods.foodName)">
           <i class="fa fa-trash fa-lg" aria-hidden="true"></i>
         </button>
       </td>

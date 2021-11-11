@@ -62,7 +62,7 @@ export class HttpEntityRepositoryService<T> {
 
     delete(_url: string, id: number): Observable<T> {
         return this.http.delete<T>(
-            environment.BASE_URL + _url + "/" + id,
+            environment.BASE_URL + _url + id,
             this.httpOptions
         );
     }
