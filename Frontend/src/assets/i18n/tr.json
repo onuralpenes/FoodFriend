@@ -51,6 +51,7 @@
   "table": {
     "search": "Arayınız",
     "name": "İsim",
+    "weight": "Kütle",
     "calorie": "Kalori",
     "protein": "Protein",
     "oil": "Yağ",
@@ -65,7 +66,8 @@
     "end": "Bitiş Tarihi",
     "target": "Hedefi",
     "nutriInfo": "Beslenme Bilgisi",
-    "actiInfo": "Aktivite Bilgisi"
+    "actiInfo": "Aktivite Bilgisi",
+    "null": "Gösterilecek veri yok"
   },
   "validator": {
     "nameNull": "İsim girilmesi zorunludur",
@@ -110,13 +112,16 @@
     "addDis": "Engel Ekle",
     "edit": "Profili Düzenle"
   },
-
   "paginator": {
-    "item" : "Sayfa başına veri",
-    "next" : "bir sonraki sayfa",
-    "previous" : "bir önceki sayfa",
-    "last" : "en son sayfa",
-    "first" : "ilk sayfa",
-    "range" : "de"
+    "item": "Sayfa başına veri",
+    "next": "bir sonraki sayfa",
+    "previous": "bir önceki sayfa",
+    "last": "en son sayfa",
+    "first": "ilk sayfa",
+    "range": "de"
+  },
+  "conf": {
+    "title": "Emin misiniz?",
+    "index": "Bu işlem geri alınamaz."
   }
 }
