@@ -9,8 +9,7 @@ import { single } from './data';
 export class FoodIngredientDistributionChartComponent {
 
   single!: any[];
-
-  gradient: boolean = false;
+  
   showLegend: boolean = false;
   showLabels: boolean = true;
   isDoughnut: boolean = false;

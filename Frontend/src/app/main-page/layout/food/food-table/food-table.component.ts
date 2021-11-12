@@ -85,7 +85,7 @@ export class FoodTableComponent implements AfterViewInit {
         this.entityService.delete("/FoodDetail?id=", id).subscribe(data => {
           this.alertService.openSnackBar(true, "success");
         }, err =>{
-          this.alertService.openSnackBar(true, "unsuccess");
+          this.alertService.openSnackBar(false, "unsuccess");
         })
       } 
     });

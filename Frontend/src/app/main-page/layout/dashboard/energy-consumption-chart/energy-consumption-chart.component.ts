@@ -12,7 +12,6 @@ export class EnergyConsumptionChartComponent{
   
   showXAxis: boolean = false;
   showYAxis: boolean = false;
-  gradient: boolean = false;
   showLegend: boolean = true;
   showXAxisLabel: boolean = true;
   xAxisLabel: string = 'Calorie';

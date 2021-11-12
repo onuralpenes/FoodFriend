@@ -1,11 +1,13 @@
 import { Component } from "@angular/core";
 import { FormBuilder, FormControl, FormGroup, Validators } from "@angular/forms";
+import { MatDialog } from "@angular/material/dialog";
 import { AlertService } from "src/app/helpers/alert.service";
 import { EatingActivity } from "src/app/models/data/eating-activity.model";
 import { FoodDetail } from "src/app/models/data/food-detail.model";
 import { Nutrition } from "src/app/models/data/nutrition.model";
 import { AuthService } from "src/app/services/auth.service";
 import { HttpEntityRepositoryService } from "src/app/services/http-entity-repository.service";
+import { CustomFoodComponent } from "./custom-food/custom-food.component";
 
 @Component({
   selector: 'app-add-food',
@@ -21,7 +23,7 @@ export class AddFood {
   addEatingActivityForm!: FormGroup;
   cont: boolean = false;
 
-  constructor(private formBuilder: FormBuilder, private entityService: HttpEntityRepositoryService<FoodDetail>, private alertService: AlertService, private authService: AuthService) {
+  constructor(private formBuilder: FormBuilder, private entityService: HttpEntityRepositoryService<FoodDetail>, private alertService: AlertService, private authService: AuthService,private modal: MatDialog) {
     entityService.getAll("/FoodDetail/GetAll").subscribe(data => {
 
       var Data: any = data;
@@ -42,6 +44,10 @@ export class AddFood {
       startEatingActivity: new FormControl('', [Validators.required]),
       endEatingActivity: new FormControl('', [Validators.required]),
     })
+  }
+
+  customFood(){
+    this.modal.open(CustomFoodComponent);
   }
 
   onSubmit(check: string) {

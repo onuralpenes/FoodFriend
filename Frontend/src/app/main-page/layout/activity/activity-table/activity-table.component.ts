@@ -32,7 +32,7 @@ export class ActivityTableComponent implements AfterViewInit {
   isNull: boolean = true;
 
   constructor(private modal: MatDialog, private translate: TranslateService, private entityService: HttpEntityRepositoryService<PersonalEnergyActivity>, private alertService: AlertService) { }
-
+  
   displayedColumns: string[] = [
     'activityType',
     'activityPeriod',
@@ -60,7 +60,7 @@ export class ActivityTableComponent implements AfterViewInit {
         this.entityService.delete("/Activity?id=", id).subscribe(data => {
           this.alertService.openSnackBar(true, "success");
         }, err =>{
-          this.alertService.openSnackBar(true, "unsuccess");
+          this.alertService.openSnackBar(false, "unsuccess");
         })
       } 
     });
