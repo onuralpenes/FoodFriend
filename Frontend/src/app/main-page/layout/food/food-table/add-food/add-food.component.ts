@@ -1,5 +1,5 @@
 import { Component } from "@angular/core";
-import { FormBuilder, FormControl, FormGroup, Validators } from "@angular/forms";
+import { FormArray, FormBuilder, FormControl, FormGroup, Validators } from "@angular/forms";
 import { MatDialog } from "@angular/material/dialog";
 import { AlertService } from "src/app/helpers/alert.service";
 import { EatingActivity } from "src/app/models/data/eating-activity.model";
@@ -23,10 +23,12 @@ export interface AddedFood {
   styleUrls: ['./add-food.component.css'],
 })
 export class AddFood {
+  isEmpty: boolean = true;
   foods: FoodDetail[] = [];
   addedFoods: AddedFood[] = [];
   newNutrition: Nutrition[] = [];
   addFoodForm!: FormGroup;
+  addedFoodForm!: FormGroup;
   addEatingActivityForm!: FormGroup;
   cont: boolean = false;
 
@@ -46,16 +48,33 @@ export class AddFood {
   ngOnInit() {
     this.addFoodForm = this.formBuilder.group({
       foodName: new FormControl(''),
-      quantity: new FormControl(1),
     });
     this.addEatingActivityForm = this.formBuilder.group({
       startEatingActivity: new FormControl('', [Validators.required]),
       endEatingActivity: new FormControl('', [Validators.required]),
     })
+    this.addedFoodForm = new FormGroup({
+      formArray: this.formBuilder.array([])
+    })
+  }
+
+  contArray: any;
+  buildForm(){
+    this.isEmpty = false;
+    this.contArray = this.addedFoodForm.get('formArray') as FormArray;
+
+    Object.keys(this.addedFoods).forEach((i) =>{
+      this.contArray.push(
+        this.formBuilder.group({
+          quantity: new FormControl({ value: 1})
+        })
+      )
+    })
   }
 
   customFood() {
     this.modal.open(CustomFoodComponent);
+    this.buildForm();
   }
 
   onSubmit(check: string) {
@@ -68,12 +87,13 @@ export class AddFood {
           nutritionId: 0,
           eatingActivityId: 0,
           foodDetailId: this.addedFoods[i].addedFoodId,
-          quantity: this.addedFoods[i].quantity,
+          quantity: this.addedFoodForm.value.formArray[i].quantity,
           customFoodName: "",
           consumptionRatio: 0
         }
         this.newNutrition.push(newNut);
       }
+      console.log(this.newNutrition)
       // let newEatAct: EatingActivity = {
       //   eatingActivityId: 0,
       //   userId: +this.authService.CurrentUserId,
@@ -103,5 +123,6 @@ export class AddFood {
       }
       this.addedFoods.push(addFod);
     }
+    this.buildForm();
   }
 }
