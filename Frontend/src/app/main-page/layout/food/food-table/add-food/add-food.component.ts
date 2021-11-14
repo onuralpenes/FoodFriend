@@ -23,7 +23,7 @@ export class AddFood {
   addEatingActivityForm!: FormGroup;
   cont: boolean = false;
 
-  constructor(private formBuilder: FormBuilder, private entityService: HttpEntityRepositoryService<FoodDetail>, private alertService: AlertService, private authService: AuthService,private modal: MatDialog) {
+  constructor(private formBuilder: FormBuilder, private entityService: HttpEntityRepositoryService<FoodDetail>, private alertService: AlertService, private authService: AuthService, private modal: MatDialog) {
     entityService.getAll("/FoodDetail/GetAll").subscribe(data => {
 
       var Data: any = data;
@@ -46,7 +46,7 @@ export class AddFood {
     })
   }
 
-  customFood(){
+  customFood() {
     this.modal.open(CustomFoodComponent);
   }
 

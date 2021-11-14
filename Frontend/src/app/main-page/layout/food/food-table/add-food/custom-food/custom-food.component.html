@@ -1,46 +1,38 @@
 <div class="container">
-    <form [formGroup]="customFoodForm" (ngSubmit)="onSubmit(customFoodForm.value)" class="form">
-        <div class="col-md-6">
+    <form [formGroup]="customFoodForm" (ngSubmit)="onSubmit()" class="form">
+        <p>
             <mat-form-field appearance="outline">
                 <mat-label>{{'table.name' | translate}}</mat-label>
                 <input matInput formControlName="foodName" />
             </mat-form-field>
-        </div>
 
-        <div class="col-md-6">
             <mat-form-field appearance="outline">
                 <mat-label>{{'table.weight' | translate}}</mat-label>
-                <input matInput formControlName="weight" />
+                <input matInput formControlName="weight" type="number" />
             </mat-form-field>
-        </div>
-
-        <div class="col-md-6">
+        </p>
+        <p>
             <mat-form-field appearance="outline">
                 <mat-label>{{'table.calorie' | translate}}</mat-label>
-                <input matInput formControlName="calorie" />
+                <input matInput formControlName="calorie" type="number" />
             </mat-form-field>
-        </div>
 
-        <div class="col-md-6">
             <mat-form-field appearance="outline">
                 <mat-label>{{'table.protein' | translate}}</mat-label>
-                <input matInput formControlName="protein" />
+                <input matInput formControlName="protein" type="number" />
             </mat-form-field>
-        </div>
-
-        <div class="col-md-6">
+        </p>
+        <p>
             <mat-form-field appearance="outline">
                 <mat-label>{{'table.oil' | translate}}</mat-label>
-                <input matInput formControlName="oil" />
+                <input matInput formControlName="oil" type="number" />
             </mat-form-field>
-        </div>
 
-        <div class="col-md-6">
             <mat-form-field appearance="outline">
                 <mat-label>{{'table.carbohydrate' | translate}}</mat-label>
-                <input matInput formControlName="carbohydrate" />
+                <input matInput formControlName="carbohydrate" type="number" />
             </mat-form-field>
-        </div>
-        <button>Submit</button>
+        </p>
+        <button type="submit">{{'label.submit' | translate}}</button>
     </form>
 </div>

@@ -67,7 +67,8 @@
     "target": "Hedefi",
     "nutriInfo": "Beslenme Bilgisi",
     "actiInfo": "Aktivite Bilgisi",
-    "null": "Gösterilecek veri yok"
+    "null": "Gösterilecek veri yok",
+    "add": "Ekle"
   },
   "validator": {
     "nameNull": "İsim girilmesi zorunludur",
@@ -122,6 +123,12 @@
   },
   "conf": {
     "title": "Emin misiniz?",
-    "index": "Bu işlem geri alınamaz."
+    "index": "Bu işlem geri alınamaz.",
+    "cancel": "İptal"
+  },
+  "addF":{
+    "addF": "Yemeği Ekle",
+    "cont": "Devam",
+    "custom": "Farklı Yemek Ekle"
   }
 }

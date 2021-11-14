@@ -67,7 +67,8 @@
     "target": "Target",
     "nutriInfo": "Nutrition Information",
     "actiInfo": "Activity Information",
-    "null": "There is no data"
+    "null": "There is no data",
+    "add": "Add"
   },
   "validator": {
     "nameNull": "Name is required",
@@ -122,6 +123,12 @@
   },
   "conf": {
     "title": "Are you sure?",
-    "index": "This action cannot be undone."
+    "index": "This action cannot be undone.",
+    "cancel": "Cancel"
+  },
+  "addF":{
+    "addF": "Add Food",
+    "cont": "Continue",
+    "custom": "Add Custom Food"
   }
 }
