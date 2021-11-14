@@ -10,7 +10,14 @@
         </select>
       </mat-form-field>
     </p>
-    <p *ngFor="let fod of addedFoodsName">{{fod}}</p>
+    <div *ngFor="let fod of addedFoods">
+      {{fod.addedFoodName}}
+      <mat-form-field appearance="outline">
+        <mat-label>{{'addF.quantity' | translate}}</mat-label>
+        <input matInput formControlName="quantity" type="number">
+      </mat-form-field>
+
+    </div>
 
     <button type="submit">Cont</button>
   </form>

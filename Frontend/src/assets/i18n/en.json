@@ -129,6 +129,7 @@
   "addF":{
     "addF": "Add Food",
     "cont": "Continue",
-    "custom": "Add Custom Food"
+    "custom": "Add Custom Food",
+    "quantity": "Quantity"
   }
 }

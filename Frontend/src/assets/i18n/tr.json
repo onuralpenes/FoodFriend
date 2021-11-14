@@ -129,6 +129,7 @@
   "addF":{
     "addF": "Yemeği Ekle",
     "cont": "Devam",
-    "custom": "Farklı Yemek Ekle"
+    "custom": "Farklı Yemek Ekle",
+    "quantity": "Miktarı"
   }
 }
