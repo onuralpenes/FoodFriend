@@ -46,7 +46,8 @@ import { ExpertFilterPipe } from '../../helpers/expert-filter.pipe';
 import { CustomMaterialModule } from '../material/material.module';
 import { PrivateLayoutComponent } from './private-layout.component';
 import { PrivateRoutingModule } from './private-routing.module';
-
+import { GoogleChartsModule } from 'angular-google-charts';
+import { PieChartThreedComponent } from 'src/app/main-page/layout/dashboard/pie-chart-threed/pie-chart-threed.component';
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http);
 }
@@ -90,13 +91,16 @@ export function HttpLoaderFactory(http: HttpClient) {
     AddAllergy,
     AddDisability,
     CustomFoodComponent,
-    FoodListComponent
+    FoodListComponent,
+    CustomFoodComponent,
+    PieChartThreedComponent
   ],
   imports: [
     CommonModule,
     PrivateRoutingModule,
     CustomMaterialModule,
     ReactiveFormsModule,
+    GoogleChartsModule,
     FormsModule,
     TranslateModule.forRoot({
       loader: {

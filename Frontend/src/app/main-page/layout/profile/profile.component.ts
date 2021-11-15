@@ -7,7 +7,15 @@ import { User } from 'src/app/models/user/user.model';
 import { AuthService } from 'src/app/services/auth.service';
 import { HttpEntityRepositoryService } from 'src/app/services/http-entity-repository.service';
 import { SurveyComponent } from './survey/survey.component';
-
+import {
+  ChartErrorEvent,
+  ChartMouseLeaveEvent,
+  ChartMouseOverEvent,
+  ChartSelectionChangedEvent,
+  ChartType,
+  Column,
+  GoogleChartComponent
+} from 'angular-google-charts';
 export interface IllnessList {
   illnessName: string;
 }
@@ -51,12 +59,17 @@ export class ProfileComponent implements OnInit {
   male = false;
   female = false;
 
+  public chart: any[] = [];
+
   illnessList!: IllnessList[];
   allergyList!: AllergyList[];
   pregnantList!: PregnantList[];
   disabledList!: DisabledList[];
 
   constructor(private modal: MatDialog, authService: AuthService, private alertService: AlertService, entityService: HttpEntityRepositoryService<User>){
+
+    
+
     entityService.get("/User/Get?userId=", authService.CurrentUserId).subscribe(data => {
 
       var Data: any = data;
@@ -64,6 +77,9 @@ export class ProfileComponent implements OnInit {
         this.alertService.openSnackBar(Data.success, Data.message);
         return;
       }
+
+
+
 
       this.userName = Data.data.firstName + " " + Data.data.lastName;
       this.email = Data.data.emailAddress;

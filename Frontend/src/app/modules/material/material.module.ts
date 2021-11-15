@@ -20,6 +20,7 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { NgxChartsModule } from '@swimlane/ngx-charts';
 import { NgCircleProgressModule } from 'ng-circle-progress';
 import { DayPilotModule } from 'daypilot-pro-angular';
+import { GoogleChartsModule } from 'angular-google-charts';
 
 
 @NgModule({
@@ -64,7 +65,7 @@ import { DayPilotModule } from 'daypilot-pro-angular';
     MatDialogModule,
     MatPaginatorModule,
     MatCardModule,
-
+    GoogleChartsModule,
     NgxChartsModule,
 
     NgCircleProgressModule,
