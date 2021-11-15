@@ -8,11 +8,10 @@ import { multi } from './data';
 })
 export class EnergyConsumptionChartComponent{
 
-  multi!: any[];  //It is getting data from data.ts.
+  multi!: any[];
   
   showXAxis: boolean = false;
   showYAxis: boolean = false;
-  gradient: boolean = false;
   showLegend: boolean = true;
   showXAxisLabel: boolean = true;
   xAxisLabel: string = 'Calorie';

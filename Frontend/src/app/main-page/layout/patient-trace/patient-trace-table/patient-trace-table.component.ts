@@ -35,9 +35,8 @@ export interface Transfer2 {
 export class PatientTraceTableComponent implements AfterViewInit {
   users: User[] = [];
   isNull: boolean = true;
-  clickedUser!: number;
 
-  constructor(public modal: MatDialog, private router: Router, private alertService: AlertService, entityService: HttpEntityRepositoryService<User>, public translate: TranslateService) {
+  constructor(private modal: MatDialog, private router: Router, private alertService: AlertService, entityService: HttpEntityRepositoryService<User>, private translate: TranslateService) {
     entityService.getAll("/User/GetAll").subscribe(data => {
 
       var Data: any = data;
@@ -89,12 +88,7 @@ export class PatientTraceTableComponent implements AfterViewInit {
   }
 
   open(id: number) {
-    this.clickedUser = id;
     this.router.navigate(['/counselee-profile/' + id]);
-  }
-
-  public get clickedUserId(): number {
-    return this.clickedUser;
   }
 
   openActivity(firstName: string, lastName: string, id: number) {

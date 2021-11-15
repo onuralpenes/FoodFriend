@@ -51,7 +51,7 @@
     <ng-container matColumnDef="actions">
       <th mat-header-cell *matHeaderCellDef class="rHead"></th>
       <td mat-cell *matCellDef="let activities" class="rCol">
-        <button class="tab-button" mat-icon-button (click)="delete()">
+        <button class="tab-button" mat-icon-button (click)="delete(activities.ersonalEnergyActivityId, activities.activityType)">
           <i class="fa fa-trash fa-lg" aria-hidden="true"></i>
         </button>
         <button class="tab-button" mat-icon-button
@@ -68,5 +68,5 @@
   <mat-paginator *ngIf="isNull" [pageSizeOptions]="[7, 10]" [pageSize]="7" showFirstLastButtons>
   </mat-paginator>
 
-  <div *ngIf="!isNull">There is no data</div>
+  <div *ngIf="!isNull">{{'table.null' | translate}}</div>
 </div>

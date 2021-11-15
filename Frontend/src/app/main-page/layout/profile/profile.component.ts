@@ -56,8 +56,7 @@ export class ProfileComponent implements OnInit {
   pregnantList!: PregnantList[];
   disabledList!: DisabledList[];
 
-  constructor(public modal: MatDialog, authService: AuthService, private alertService: AlertService, entityService: HttpEntityRepositoryService<User>,
-    entityServiceH: HttpEntityRepositoryService<HealthInfo>, entityServiceP: HttpEntityRepositoryService<PhysicalInfo>){ console.log(authService.CurrentUserId);
+  constructor(private modal: MatDialog, authService: AuthService, private alertService: AlertService, entityService: HttpEntityRepositoryService<User>){
     entityService.get("/User/Get?userId=", authService.CurrentUserId).subscribe(data => {
 
       var Data: any = data;
@@ -77,7 +76,7 @@ export class ProfileComponent implements OnInit {
       const timeDiff = Math.abs(Date.now() - convertAge.getTime());
       this.age = Math.floor((timeDiff / (1000 * 3600 * 24)) / 365);
 
-      entityServiceP.get("/PhysicalInfo/Get?id=", this.physicalId).subscribe(data => {
+      entityService.get("/PhysicalInfo/Get?id=", this.physicalId).subscribe(data => {
         var DataPh: any = data;
         if (!DataPh.success) {
           this.alertService.openSnackBar(DataPh.success, DataPh.message);
@@ -89,7 +88,7 @@ export class ProfileComponent implements OnInit {
         this.disabledList = DataPh.data.disabledDetails;
       });
 
-      entityServiceH.get("/HealthInfo/Get?id=", this.healthId).subscribe(data => {
+      entityService.get("/HealthInfo/Get?id=", this.healthId).subscribe(data => {
 
         var DataH: any = data;
         if (!DataH.success) {

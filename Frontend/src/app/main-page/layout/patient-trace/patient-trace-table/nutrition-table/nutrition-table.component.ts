@@ -4,7 +4,6 @@ import { MatPaginator } from "@angular/material/paginator";
 import { MatSort } from "@angular/material/sort";
 import { MatTableDataSource } from "@angular/material/table";
 import { FoodDetail } from "src/app/models/data/food-detail.model";
-import { FOOD_DATA } from "../data";
 import { Transfer } from "../patient-trace-table.component";
 
 @Component({
@@ -13,7 +12,7 @@ import { Transfer } from "../patient-trace-table.component";
     styleUrls: ['../patient-trace-table.component.css'],
 })
 export class NutritionTable implements AfterViewInit {
-    foods: FoodDetail[] = FOOD_DATA;
+    foods: FoodDetail[] = [];
     sortedData = this.foods;
     isNull: boolean = true;
 

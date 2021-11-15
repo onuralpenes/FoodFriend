@@ -1,0 +1,38 @@
+<div class="container">
+    <form [formGroup]="customFoodForm" (ngSubmit)="onSubmit()" class="form">
+        <p>
+            <mat-form-field appearance="outline">
+                <mat-label>{{'table.name' | translate}}</mat-label>
+                <input matInput formControlName="foodName" />
+            </mat-form-field>
+
+            <mat-form-field appearance="outline">
+                <mat-label>{{'table.weight' | translate}}</mat-label>
+                <input matInput formControlName="weight" type="number" />
+            </mat-form-field>
+        </p>
+        <p>
+            <mat-form-field appearance="outline">
+                <mat-label>{{'table.calorie' | translate}}</mat-label>
+                <input matInput formControlName="calorie" type="number" />
+            </mat-form-field>
+
+            <mat-form-field appearance="outline">
+                <mat-label>{{'table.protein' | translate}}</mat-label>
+                <input matInput formControlName="protein" type="number" />
+            </mat-form-field>
+        </p>
+        <p>
+            <mat-form-field appearance="outline">
+                <mat-label>{{'table.oil' | translate}}</mat-label>
+                <input matInput formControlName="oil" type="number" />
+            </mat-form-field>
+
+            <mat-form-field appearance="outline">
+                <mat-label>{{'table.carbohydrate' | translate}}</mat-label>
+                <input matInput formControlName="carbohydrate" type="number" />
+            </mat-form-field>
+        </p>
+        <button type="submit">{{'label.submit' | translate}}</button>
+    </form>
+</div>

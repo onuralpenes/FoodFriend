@@ -1,11 +1,21 @@
 import { Component } from "@angular/core";
-import { FormBuilder, FormControl, FormGroup, Validators } from "@angular/forms";
+import { FormArray, FormBuilder, FormControl, FormGroup, Validators } from "@angular/forms";
+import { MatDialog } from "@angular/material/dialog";
 import { AlertService } from "src/app/helpers/alert.service";
 import { EatingActivity } from "src/app/models/data/eating-activity.model";
 import { FoodDetail } from "src/app/models/data/food-detail.model";
 import { Nutrition } from "src/app/models/data/nutrition.model";
 import { AuthService } from "src/app/services/auth.service";
 import { HttpEntityRepositoryService } from "src/app/services/http-entity-repository.service";
+import { CustomFoodComponent } from "./custom-food/custom-food.component";
+
+
+
+export interface AddedFood {
+  addedFoodName: string;
+  addedFoodId: number;
+  quantity: number;
+}
 
 @Component({
   selector: 'app-add-food',
@@ -13,16 +23,17 @@ import { HttpEntityRepositoryService } from "src/app/services/http-entity-reposi
   styleUrls: ['./add-food.component.css'],
 })
 export class AddFood {
+  isEmpty: boolean = true;
   foods: FoodDetail[] = [];
-  addedFoodsName: string[] = [];
-  addedFoodsId: number[] = [];
+  addedFoods: AddedFood[] = [];
   newNutrition: Nutrition[] = [];
   addFoodForm!: FormGroup;
+  addedFoodForm!: FormGroup;
   addEatingActivityForm!: FormGroup;
   cont: boolean = false;
 
-  constructor(private formBuilder: FormBuilder, entityServiceF: HttpEntityRepositoryService<FoodDetail>, private alertService: AlertService, private authService: AuthService, private entityServiceE: HttpEntityRepositoryService<EatingActivity>) {
-    entityServiceF.getAll("/FoodDetail/GetAll").subscribe(data => {
+  constructor(private formBuilder: FormBuilder, private entityService: HttpEntityRepositoryService<FoodDetail>, private alertService: AlertService, private authService: AuthService, private modal: MatDialog) {
+    entityService.getAll("/FoodDetail/GetAll").subscribe(data => {
 
       var Data: any = data;
       if (!Data.success) {
@@ -42,6 +53,28 @@ export class AddFood {
       startEatingActivity: new FormControl('', [Validators.required]),
       endEatingActivity: new FormControl('', [Validators.required]),
     })
+    this.addedFoodForm = new FormGroup({
+      formArray: this.formBuilder.array([])
+    })
+  }
+
+  contArray: any;
+  buildForm(){
+    this.isEmpty = false;
+    this.contArray = this.addedFoodForm.get('formArray') as FormArray;
+
+    Object.keys(this.addedFoods).forEach((i) =>{
+      this.contArray.push(
+        this.formBuilder.group({
+          quantity: new FormControl({ value: 1})
+        })
+      )
+    })
+  }
+
+  customFood() {
+    this.modal.open(CustomFoodComponent);
+    this.buildForm();
   }
 
   onSubmit(check: string) {
@@ -49,32 +82,33 @@ export class AddFood {
       this.cont = true;
     }
     else if (check == 'submit') {
-      for (let i = 0; i < this.addedFoodsId.length; i++) {
+      for (let i = 0; i < this.addedFoods.length; i++) {
         let newNut: Nutrition = {
           nutritionId: 0,
           eatingActivityId: 0,
-          foodDetailId: this.addedFoodsId[i],
-          quantity: 1,
+          foodDetailId: this.addedFoods[i].addedFoodId,
+          quantity: this.addedFoodForm.value.formArray[i].quantity,
           customFoodName: "",
           consumptionRatio: 0
         }
         this.newNutrition.push(newNut);
       }
-      let newEatAct: EatingActivity = {
-        eatingActivityId: 0,
-        userId: +this.authService.CurrentUserId,
-        startEatingActivity: this.addEatingActivityForm.value.startEatingActivity,
-        endEatingActivity: this.addEatingActivityForm.value.endEatingActivity,
-        consumptionType: 0,
-        estimatedCalorie: 0,
-        nutritions: this.newNutrition
-      }
-      this.entityServiceE.insert("/EatingActivity/AddWithNutrition", JSON.stringify(newEatAct))
-        .subscribe(data => {
-          this.alertService.openSnackBar(true, "success");
-        }, err => {
-          this.alertService.openSnackBar(false, "error");
-        });
+      console.log(this.newNutrition)
+      // let newEatAct: EatingActivity = {
+      //   eatingActivityId: 0,
+      //   userId: +this.authService.CurrentUserId,
+      //   startEatingActivity: this.addEatingActivityForm.value.startEatingActivity,
+      //   endEatingActivity: this.addEatingActivityForm.value.endEatingActivity,
+      //   consumptionType: 0,
+      //   estimatedCalorie: 0,
+      //   nutritions: this.newNutrition
+      // }
+      // this.entityService.insert("/EatingActivity/AddWithNutrition", JSON.stringify(newEatAct))
+      //   .subscribe(data => {
+      //     this.alertService.openSnackBar(true, "success");
+      //   }, err => {
+      //     this.alertService.openSnackBar(false, "error");
+      //   });
     }
   }
 
@@ -82,8 +116,13 @@ export class AddFood {
   addFood() {
     if (this.addFoodForm.value.foodName != "") {
       this.fod = this.foods.filter((food) => food.foodName === this.addFoodForm.value.foodName)
-      this.addedFoodsName.push(this.fod[0].foodName);
-      this.addedFoodsId.push(this.fod[0].foodDetailId);
+      let addFod: AddedFood ={
+        addedFoodName: this.fod[0].foodName,
+        addedFoodId: this.fod[0].foodDetailId,
+        quantity: this.addFoodForm.value.quantity
+      }
+      this.addedFoods.push(addFod);
     }
+    this.buildForm();
   }
 }

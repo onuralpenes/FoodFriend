@@ -10,11 +10,30 @@
         </select>
       </mat-form-field>
     </p>
-    <p *ngFor="let fod of addedFoodsName">{{fod}}</p>
+
+    <div *ngIf="!isEmpty">
+      <form id="myForm" [formGroup]="addedFoodForm">
+        <div [formArrayName]="'formArray'">
+          <div *ngFor="let x of addedFoods; let i = index">
+            <div [formGroupName]="i">
+              <p>
+                {{x.addedFoodName}}
+              <mat-form-field>
+                <mat-label>{{'addF.quantity' | translate}}</mat-label>
+                <input formControlName="quantity" id="{{x.quantity}}" matInput value="{{x.quantity}}" type="number">
+              </mat-form-field>
+              </p>
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
 
     <button type="submit">Cont</button>
   </form>
   <button (click)="addFood()">Add Food</button>
+
+  <button (click)="customFood()">Custom</button>
 </div>
 
 <div *ngIf="cont">
@@ -32,6 +51,6 @@
       <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
       <mat-datepicker #picker2></mat-datepicker>
     </mat-form-field>
-    <button type="submit">Submit</button>
+    <button type="submit">{{'label.submit' | translate}}</button>
   </form>
 </div>

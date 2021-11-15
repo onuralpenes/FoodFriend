@@ -1,0 +1,9 @@
+input{
+    border-radius: 5px;
+    box-shadow: none;
+    color: white;
+}
+
+input:hover{
+    background-color: green;
+}

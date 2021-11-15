@@ -9,7 +9,7 @@ import { TranslateService } from '@ngx-translate/core';
 
 export class AppComponent {
   title = 'FoodFriend';
-  constructor(public translate: TranslateService) {
+  constructor(private translate: TranslateService) {
     translate.addLangs(['en', 'tr']);
     translate.setDefaultLang('en');
     const browserLang = translate.getBrowserLang();

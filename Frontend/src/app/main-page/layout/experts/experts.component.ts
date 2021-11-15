@@ -8,11 +8,10 @@ import { experts } from './data';
   styleUrls: ['./experts.component.css']
 })
 export class ExpertsComponent {
-
   experts: Expert[] = experts;
   searchText: string = "";
 
-  keyup(searchText) { 
+  keyup(searchText) {
     this.searchText = searchText;
   }
 }

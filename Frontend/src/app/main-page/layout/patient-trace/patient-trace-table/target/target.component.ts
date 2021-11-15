@@ -17,7 +17,7 @@ import { PatientTargetCard } from "../target-card/target-card.component";
     startingDate !: Date;
     endDate!: Date;
   
-    constructor(@Inject(MAT_DIALOG_DATA) public data: Transfer2, public modal: MatDialog, private formBuilder: FormBuilder) {
+    constructor(@Inject(MAT_DIALOG_DATA) public data: Transfer2, private modal: MatDialog, private formBuilder: FormBuilder) {
       this.targetForm = this.formBuilder.group({
         'startingDate': new FormControl(''),
         'endDate': new FormControl(''),

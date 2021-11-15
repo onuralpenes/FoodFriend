@@ -57,5 +57,5 @@
   <mat-paginator *ngIf="isNull" [pageSizeOptions]="[7, 10]" [pageSize]="7" showFirstLastButtons>
   </mat-paginator>
 
-  <div *ngIf="!isNull">There is no data</div>
+  <div *ngIf="!isNull">{{'table.null' | translate}}</div>
 </div>

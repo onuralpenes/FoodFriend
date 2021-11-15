@@ -13,7 +13,7 @@ import { Transfer } from "./activity-table.component";
     editForm!: FormGroup;
     post: any = '';
   
-    constructor(@Inject(MAT_DIALOG_DATA) public data: Transfer, private formBuilder: FormBuilder) { }
+    constructor(@Inject(MAT_DIALOG_DATA) private data: Transfer, private formBuilder: FormBuilder) { }
   
     ngOnInit() {
       this.editForm = this.formBuilder.group({

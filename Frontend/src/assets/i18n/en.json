@@ -51,6 +51,7 @@
   "table": {
     "search": "Search",
     "name": "Name",
+    "weight": "Weight",
     "calorie": "Calorie",
     "protein": "Protein",
     "oil": "Oil",
@@ -65,7 +66,9 @@
     "end": "End Date",
     "target": "Target",
     "nutriInfo": "Nutrition Information",
-    "actiInfo": "Activity Information"
+    "actiInfo": "Activity Information",
+    "null": "There is no data",
+    "add": "Add"
   },
   "validator": {
     "nameNull": "Name is required",
@@ -110,13 +113,23 @@
     "addDis": "Add Disable",
     "edit": "Edit Profile"
   },
-
   "paginator": {
-    "item" : "items per page",
-    "next" : "next page",
-    "previous" : "previous page",
-    "last" : "last page",
-    "first" : "first page",
-    "range" : "of"
+    "item": "items per page",
+    "next": "next page",
+    "previous": "previous page",
+    "last": "last page",
+    "first": "first page",
+    "range": "of"
+  },
+  "conf": {
+    "title": "Are you sure?",
+    "index": "This action cannot be undone.",
+    "cancel": "Cancel"
+  },
+  "addF":{
+    "addF": "Add Food",
+    "cont": "Continue",
+    "custom": "Add Custom Food",
+    "quantity": "Quantity"
   }
 }

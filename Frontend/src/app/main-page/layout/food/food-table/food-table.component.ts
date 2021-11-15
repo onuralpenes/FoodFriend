@@ -5,11 +5,12 @@ import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import { LangChangeEvent, TranslateService } from '@ngx-translate/core';
 import { Observable } from 'rxjs';
+import { AlertService } from 'src/app/helpers/alert.service';
+import { ConfirmModalComponent } from 'src/app/helpers/confirmation-modal/confirmation-modal.component';
 import { EatingActivity } from 'src/app/models/data/eating-activity.model';
 import { FoodDetail } from 'src/app/models/data/food-detail.model';
 import { HttpEntityRepositoryService } from 'src/app/services/http-entity-repository.service';
 import { AddFood } from './add-food/add-food.component';
-import { FOOD_DATA } from './data';
 import { EditFood } from './edit-table.component';
 
 export interface Transfer {
@@ -28,28 +29,68 @@ export interface Transfer {
 export class FoodTableComponent implements AfterViewInit {
   eatact: Observable<EatingActivity>;
 
-  foods: FoodDetail[] = FOOD_DATA;
+  foods: FoodDetail[] = [];
   sortedData = this.foods;
   isNull: boolean = true;
 
-  constructor(public modal: MatDialog, entityService: HttpEntityRepositoryService<EatingActivity>, public translate: TranslateService) {
+  constructor(private modal: MatDialog, private entityService: HttpEntityRepositoryService<EatingActivity>, private translate: TranslateService, private alertService: AlertService) {
     this.eatact = entityService.getAll('​/EatingActivity​/GetAll');
-  }
+    entityService.getAll("/FoodDetail/GetAll").subscribe(data => {
 
+      var Data: any = data;
+      if (!Data.success) {
+        this.alertService.openSnackBar(Data.success, Data.message);
+        return;
+      }
+
+      this.foods = Data.data;
+      this.dataSource = new MatTableDataSource(Data.data);
+      this.dataSource.sort = this.sort;
+      this.dataSource.paginator = this.paginator;
+
+      this.Begin();
+    });
+  }
+  Begin() {
+    if (this.dataSource.filteredData.length == 0) {
+      this.isNull = false;
+    }
+    else {
+      this.isNull = true;
+    }
+  }
   displayedColumns: string[] = [
     'foodName',
+    'weight',
     'calorie',
     'protein',
     'oil',
     'carbohydrate',
     'actions',
   ];
-  dataSource = new MatTableDataSource(FOOD_DATA);
+  dataSource = new MatTableDataSource(this.foods);
 
   @ViewChild(MatSort) sort!: MatSort;
   @ViewChild(MatPaginator) paginator!: MatPaginator;
 
-  delete() { }
+  delete(id: number ,name : string) { 
+    const confirmModal = this.modal.open(ConfirmModalComponent, {
+      data: {
+        title: 'Confirm Remove Food',
+        message: 'Are you sure, you want to remove a food: ' + name
+      }
+    }).afterClosed().subscribe(result => {
+      if (result === true) {
+        this.foods = this.foods.filter(food => food.foodDetailId != id);
+        this.entityService.delete("/FoodDetail?id=", id).subscribe(data => {
+          this.alertService.openSnackBar(true, "success");
+        }, err =>{
+          this.alertService.openSnackBar(false, "unsuccess");
+        })
+      } 
+    });
+    
+  }
 
   openEdit(
     foodName: string,
