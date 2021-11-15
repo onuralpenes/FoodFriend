@@ -3,8 +3,7 @@ import { MAT_DIALOG_DATA } from "@angular/material/dialog";
 import { MatPaginator } from "@angular/material/paginator";
 import { MatSort } from "@angular/material/sort";
 import { MatTableDataSource } from "@angular/material/table";
-import { PersonalEnergyActivity } from "src/app/models/data/energy-activity.model";
-import { ACTIVITY_DATA } from "../data";
+import { PersonalEnergyActivity } from "src/app/models/data/energy-activity.model";;
 import { Transfer } from "../patient-trace-table.component";
 
 @Component({
@@ -13,7 +12,7 @@ import { Transfer } from "../patient-trace-table.component";
     styleUrls: ['../patient-trace-table.component.css'],
 })
 export class ActivityTable implements AfterViewInit {
-    activities: PersonalEnergyActivity[] = ACTIVITY_DATA;
+    activities: PersonalEnergyActivity[] = [];
     sortedData = this.activities;
     isNull: boolean = true;
 
@@ -26,6 +25,7 @@ export class ActivityTable implements AfterViewInit {
         'activityeffortUnit',
         'activityStartDate',
         'activityEndDate',
+        'actions'
     ];
     dataSource = new MatTableDataSource(
         this.activities.filter((activity) => activity.userId === this.data.id)

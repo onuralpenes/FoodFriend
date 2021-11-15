@@ -1,7 +1,7 @@
 export interface PersonalEnergyActivity {
     personalEnergyActivityId: number;
     userId: number;
-    activityType: number;
+    activityType: string;
     activityPeriod: number;
     activityEffortSpent: number;
     activityEffortUnit: number;

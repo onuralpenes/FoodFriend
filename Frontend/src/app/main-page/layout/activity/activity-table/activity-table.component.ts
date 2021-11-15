@@ -9,7 +9,6 @@ import { ConfirmModalComponent } from 'src/app/helpers/confirmation-modal/confir
 import { PersonalEnergyActivity } from 'src/app/models/data/energy-activity.model';
 import { HttpEntityRepositoryService } from 'src/app/services/http-entity-repository.service';
 import { AddActivity } from './add-activity/add-activity.component';
-import { ACTIVITY_DATA } from './data';
 import { EditActivity } from './edit-activity.component';
 
 export interface Transfer {
@@ -27,11 +26,24 @@ export interface Transfer {
   styleUrls: ['./activity-table.component.css'],
 })
 export class ActivityTableComponent implements AfterViewInit {
-  activities: PersonalEnergyActivity[] = ACTIVITY_DATA;
+  activities: PersonalEnergyActivity[] = [];
   sortedData = this.activities; 
   isNull: boolean = true;
 
-  constructor(private modal: MatDialog, private translate: TranslateService, private entityService: HttpEntityRepositoryService<PersonalEnergyActivity>, private alertService: AlertService) { }
+  constructor(private modal: MatDialog, private translate: TranslateService, private entityService: HttpEntityRepositoryService<PersonalEnergyActivity>, private alertService: AlertService) {
+    entityService.getAll("/PersonalEnergyActivity/GetAll").subscribe(data => {
+      var Data: any = data;
+      if (!Data.success) {
+        this.alertService.openSnackBar(Data.success, Data.message);
+        return;
+      }
+
+      this.activities = Data.data;
+      this.dataSource = new MatTableDataSource(Data.data);
+      this.dataSource.sort = this.sort;
+      this.dataSource.paginator = this.paginator;
+    });
+   }
   
   displayedColumns: string[] = [
     'activityType',
@@ -42,7 +54,7 @@ export class ActivityTableComponent implements AfterViewInit {
     'activityEndDate',
     'actions',
   ];
-  dataSource = new MatTableDataSource(ACTIVITY_DATA);
+  dataSource = new MatTableDataSource(this.activities);
 
   @ViewChild(MatSort) sort!: MatSort;
   @ViewChild(MatPaginator) paginator!: MatPaginator;
