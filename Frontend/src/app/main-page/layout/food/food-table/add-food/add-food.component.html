@@ -38,18 +38,14 @@
 
 <div *ngIf="cont">
   <form [formGroup]="addEatingActivityForm" (ngSubmit)="onSubmit('submit')" class="form">
-    <mat-form-field appearance="outline" class="birthdate">
+    <mat-form-field appearance="outline">
       <mat-label>{{'table.start' | translate}}</mat-label>
-      <input matInput [matDatepicker]="picker" formControlName="startEatingActivity">
-      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-      <mat-datepicker #picker></mat-datepicker>
+      <input matInput formControlName="startEatingActivity" type="time" placeholder="HH:MM">
     </mat-form-field>
 
-    <mat-form-field appearance="outline" class="birthdate">
+    <mat-form-field appearance="outline">
       <mat-label>{{'table.end' | translate}}</mat-label>
-      <input matInput [matDatepicker]="picker2" formControlName="endEatingActivity">
-      <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
-      <mat-datepicker #picker2></mat-datepicker>
+      <input matInput formControlName="endEatingActivity" type="time" placeholder="HH:MM">
     </mat-form-field>
     <button type="submit">{{'label.submit' | translate}}</button>
   </form>
