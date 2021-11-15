@@ -12,8 +12,19 @@ import { HttpEntityRepositoryService } from "src/app/services/http-entity-reposi
 })
 export class AddAllergy {
   allergyForm!: FormGroup;
+  allergies: AllergyDetail[] = [];
   constructor(private formBuilder: FormBuilder, private alertService: AlertService,
     private entityService: HttpEntityRepositoryService<AllergyDetail>, private authService: AuthService) {
+      entityService.getAll("/AllergyDetail/GetAll").subscribe(data => {
+
+        var Data: any = data;
+        if (!Data.success) {
+          this.alertService.openSnackBar(Data.success, Data.message);
+          return;
+        }
+  
+        this.allergies = Data.data;
+      });
     this.allergyForm = this.formBuilder.group({
       allergyName: new FormControl('', [Validators.required])
     });

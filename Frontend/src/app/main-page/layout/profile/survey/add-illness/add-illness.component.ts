@@ -12,8 +12,19 @@ import { HttpEntityRepositoryService } from "src/app/services/http-entity-reposi
 })
 export class AddIllness {
   illnessForm!: FormGroup;
+  illnesses: IllnessDetail[] = [];
   constructor(private formBuilder: FormBuilder, private alertService: AlertService,
     private entityService: HttpEntityRepositoryService<IllnessDetail>, private authService: AuthService) {
+      entityService.getAll("​/IllnessDetail​/GetAll").subscribe(data => {
+
+        var Data: any = data;
+        if (!Data.success) {
+          this.alertService.openSnackBar(Data.success, Data.message);
+          return;
+        }
+  
+        this.illnesses = Data.data;
+      });
     this.illnessForm = this.formBuilder.group({
       illnessName: new FormControl('', [Validators.required])
     });
