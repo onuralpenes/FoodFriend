@@ -67,6 +67,7 @@
     "target": "Hedefi",
     "nutriInfo": "Beslenme Bilgisi",
     "actiInfo": "Aktivite Bilgisi",
+    "quantity": "Miktarı",
     "null": "Gösterilecek veri yok",
     "add": "Ekle"
   },

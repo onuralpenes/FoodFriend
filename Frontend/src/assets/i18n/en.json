@@ -67,6 +67,7 @@
     "target": "Target",
     "nutriInfo": "Nutrition Information",
     "actiInfo": "Activity Information",
+    "quantity": "Quantity",
     "null": "There is no data",
     "add": "Add"
   },

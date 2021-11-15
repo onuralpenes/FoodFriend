@@ -60,12 +60,10 @@ export class FoodTableComponent implements AfterViewInit {
     }
   }
   displayedColumns: string[] = [
+    'startDate',
+    'endDate',
     'foodName',
-    'weight',
-    'calorie',
-    'protein',
-    'oil',
-    'carbohydrate',
+    'quantity',
     'actions',
   ];
   dataSource = new MatTableDataSource(this.foods);

@@ -29,11 +29,11 @@
       </form>
     </div>
 
-    <button type="submit">Cont</button>
+    <button type="submit">{{'addF.cont' | translate}}</button>
   </form>
-  <button (click)="addFood()">Add Food</button>
+  <button (click)="addFood()">{{'addF.addF' | translate}}</button>
 
-  <button (click)="customFood()">Custom</button>
+  <button (click)="customFood()">{{'addF.custom' | translate}}</button>
 </div>
 
 <div *ngIf="cont">
