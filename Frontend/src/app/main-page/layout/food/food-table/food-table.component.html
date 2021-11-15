@@ -19,32 +19,32 @@
   <table mat-table [dataSource]="dataSource" matSort class="my-table" *ngIf="isNull">
     <ng-container matColumnDef="startDate">
       <th mat-header-cell *matHeaderCellDef mat-sort-header class="lHead">{{'table.start' | translate}}</th>
-      <td mat-cell *matCellDef="let foods" data-label="Start Date: "class="lCol">{{ foods.weight }}</td>
+      <td mat-cell *matCellDef="let eatTable" data-label="Start Date: "class="lCol">{{ eatTable.startDate }}</td>
     </ng-container>
 
     <ng-container matColumnDef="endDate">
       <th mat-header-cell *matHeaderCellDef mat-sort-header>{{'table.end' | translate}}</th>
-      <td mat-cell *matCellDef="let foods" data-label="End Date: ">{{ foods.weight }}</td>
+      <td mat-cell *matCellDef="let eatTable" data-label="End Date: ">{{ eatTable.endDate }}</td>
     </ng-container>
 
     <ng-container matColumnDef="foodName">
       <th mat-header-cell *matHeaderCellDef mat-sort-header >{{'table.name' | translate}}</th>
-      <td mat-cell *matCellDef="let foods" data-label="Name: ">{{ foods.foodName }}</td>
+      <td mat-cell *matCellDef="let eatTable" data-label="Name: ">{{ eatTable.foodName }}</td>
     </ng-container>
 
     <ng-container matColumnDef="quantity">
       <th mat-header-cell *matHeaderCellDef mat-sort-header>{{'table.quantity' | translate}}</th>
-      <td mat-cell *matCellDef="let foods" data-label="QUantity: ">{{ foods.weight }}</td>
+      <td mat-cell *matCellDef="let eatTable" data-label="Quantity: ">{{ eatTable.quantity}}</td>
     </ng-container>
 
     <ng-container matColumnDef="actions">
       <th mat-header-cell *matHeaderCellDef class="rHead"></th>
-      <td mat-cell *matCellDef="let foods" class="rCol">
+      <td mat-cell *matCellDef="let eatTable" class="rCol">
         <button class="tab-button" mat-icon-button
-          (click)="openEdit(foods.foodName, foods.calorie, foods.protein, foods.oil, foods.carbohydrate)">
+          (click)="openEdit()">
           <i class="fa fa-pencil fa-lg" aria-hidden="true"></i>
         </button>
-        <button class="tab-button" mat-icon-button (click)="delete(foods.foodDetailId, foods.foodName)">
+        <button class="tab-button" mat-icon-button (click)="delete(eatTable.nutId, eatTable.foodName)">
           <i class="fa fa-trash fa-lg" aria-hidden="true"></i>
         </button>
       </td>
