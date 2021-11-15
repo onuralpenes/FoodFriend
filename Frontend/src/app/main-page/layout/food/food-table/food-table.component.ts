@@ -60,7 +60,7 @@ export class FoodTableComponent implements AfterViewInit {
               this.alertService.openSnackBar(food.success, food.message);
               return;
             }
-            foodName = foodDet.foodName;
+            foodName = food.data.foodName;
             let newEat: EatTable = {
               nutId: Data.data[i].nutritions[j].nutritionId,
               startDate: time1,
@@ -72,10 +72,8 @@ export class FoodTableComponent implements AfterViewInit {
           })
         }
       }
-      console.log(this.eatTable)
       this.Begin();
     });
-
   }
   Begin() {
     if (this.dataSource.filteredData.length == 0) {
@@ -86,10 +84,10 @@ export class FoodTableComponent implements AfterViewInit {
     }
   }
   displayedColumns: string[] = [
-    'startDate',
-    'endDate',
     'foodName',
     'quantity',
+    'startDate',
+    'endDate',
     'actions',
   ];
   dataSource = new MatTableDataSource(this.eatTable);
@@ -138,7 +136,6 @@ export class FoodTableComponent implements AfterViewInit {
 
   ngAfterViewInit() {
     this.changeLang();
-
     this.translate.onLangChange.subscribe((event: LangChangeEvent) => {
       this.changeLang();
     });

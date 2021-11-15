@@ -93,22 +93,21 @@ export class AddFood {
         }
         this.newNutrition.push(newNut);
       }
-      console.log(this.newNutrition)
-      // let newEatAct: EatingActivity = {
-      //   eatingActivityId: 0,
-      //   userId: +this.authService.CurrentUserId,
-      //   startEatingActivity: this.addEatingActivityForm.value.startEatingActivity,
-      //   endEatingActivity: this.addEatingActivityForm.value.endEatingActivity,
-      //   consumptionType: 0,
-      //   estimatedCalorie: 0,
-      //   nutritions: this.newNutrition
-      // }
-      // this.entityService.insert("/EatingActivity/AddWithNutrition", JSON.stringify(newEatAct))
-      //   .subscribe(data => {
-      //     this.alertService.openSnackBar(true, "success");
-      //   }, err => {
-      //     this.alertService.openSnackBar(false, "error");
-      //   });
+      let newEatAct: EatingActivity = {
+        eatingActivityId: 0,
+        userId: +this.authService.CurrentUserId,
+        startEatingActivity: this.addEatingActivityForm.value.startEatingActivity,
+        endEatingActivity: this.addEatingActivityForm.value.endEatingActivity,
+        consumptionType: 0,
+        estimatedCalorie: 0,
+        nutritions: this.newNutrition
+      }
+      this.entityService.insert("/EatingActivity/AddWithNutrition", JSON.stringify(newEatAct))
+        .subscribe(data => {
+          this.alertService.openSnackBar(true, "success");
+        }, err => {
+          this.alertService.openSnackBar(false, "error");
+        });
     }
   }
 
