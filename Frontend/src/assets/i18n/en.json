@@ -95,6 +95,7 @@
     "activity": "Activity",
     "patients": "Patients",
     "expert": "Expert",
+    "foodList": "Food List",
     "settings": "Settings",
     "logout": "Logout"
   },

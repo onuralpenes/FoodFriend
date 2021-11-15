@@ -16,6 +16,7 @@ import { HttpEntityRepositoryService } from './services/http-entity-repository.s
 import { CanActiveGuard } from './helpers/can-active.guard';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { ConfirmModalComponent } from './helpers/confirmation-modal/confirmation-modal.component';
+import { FoodListComponent } from './main-page/layout/food-list/food-list.component';
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http);
@@ -27,7 +28,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     LoginFormComponent,
     RegisterFormComponent,
     NotFoundComponent,
-    ConfirmModalComponent
+    ConfirmModalComponent,
   ],
   imports: [
     BrowserModule,

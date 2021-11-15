@@ -9,6 +9,7 @@ import { PrivateLayoutComponent } from './private-layout.component';
 import { CounseleeProfileComponent } from 'src/app/main-page/layout/counselee-profile/counselee-profile.component';
 import { ExpertsComponent } from 'src/app/main-page/layout/experts/experts.component';
 import { SettingsComponent } from 'src/app/main-page/layout/settings/settings.component';
+import { FoodListComponent } from 'src/app/main-page/layout/food-list/food-list.component';
 
 const routes: Routes = [
     {
@@ -22,6 +23,7 @@ const routes: Routes = [
             { path: 'patients', component: PatientTraceComponent },
             { path: 'experts', component: ExpertsComponent },
             { path: 'counselee-profile/:id', component: CounseleeProfileComponent },
+            { path: 'food-list', component: FoodListComponent },
             { path: 'settings', component: SettingsComponent },
             { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
         ],

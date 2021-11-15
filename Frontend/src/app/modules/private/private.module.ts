@@ -24,6 +24,7 @@ import { HealthCardComponent } from 'src/app/main-page/layout/dashboard/health-c
 import { ProgressesComponent } from 'src/app/main-page/layout/dashboard/progresses/progresses.component';
 import { ExpertShortCardComponent } from 'src/app/main-page/layout/experts/expert-short-card/expert-short-card.component';
 import { ExpertsComponent } from 'src/app/main-page/layout/experts/experts.component';
+import { FoodListComponent } from 'src/app/main-page/layout/food-list/food-list.component';
 import { AddFood } from 'src/app/main-page/layout/food/food-table/add-food/add-food.component';
 import { CustomFoodComponent } from 'src/app/main-page/layout/food/food-table/add-food/custom-food/custom-food.component';
 import { EditFood } from 'src/app/main-page/layout/food/food-table/edit-table.component';
@@ -88,7 +89,8 @@ export function HttpLoaderFactory(http: HttpClient) {
     AddIllness,
     AddAllergy,
     AddDisability,
-    CustomFoodComponent 
+    CustomFoodComponent,
+    FoodListComponent
   ],
   imports: [
     CommonModule,
