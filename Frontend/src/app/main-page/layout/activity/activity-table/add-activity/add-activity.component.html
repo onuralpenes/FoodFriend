@@ -1,7 +1,0 @@
-<mat-form-field appearance="outline">
-  <mat-label>{{'label.select' | translate}}</mat-label>
-  <select matNativeControl>
-    <option [ngValue]="undefined" disabled>{{'label.select' | translate}}</option>
-    <option *ngFor="let activity of activities" (click) = "addActivity(activity.personalEnergyActivityId)" [value]="activity.activityType">{{ activity.activityType }}</option>
-  </select>
-</mat-form-field>

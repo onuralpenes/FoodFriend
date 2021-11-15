@@ -1,24 +1,11 @@
 import { AfterViewInit, Component, ViewChild } from '@angular/core';
-import { MatDialog } from '@angular/material/dialog';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import { LangChangeEvent, TranslateService } from '@ngx-translate/core';
 import { AlertService } from 'src/app/helpers/alert.service';
-import { ConfirmModalComponent } from 'src/app/helpers/confirmation-modal/confirmation-modal.component';
 import { PersonalEnergyActivity } from 'src/app/models/data/energy-activity.model';
 import { HttpEntityRepositoryService } from 'src/app/services/http-entity-repository.service';
-import { AddActivity } from './add-activity/add-activity.component';
-import { EditActivity } from './edit-activity.component';
-
-export interface Transfer {
-  activityType: string;
-  activityPeriod: number;
-  activityEffortSpent: number;
-  activityeffortUnit: number;
-  activityStartDate: Date;
-  activityEndDate: Date;
-}
 
 @Component({
   selector: 'app-activity-table',
@@ -30,7 +17,7 @@ export class ActivityTableComponent implements AfterViewInit {
   sortedData = this.activities; 
   isNull: boolean = true;
 
-  constructor(private modal: MatDialog, private translate: TranslateService, private entityService: HttpEntityRepositoryService<PersonalEnergyActivity>, private alertService: AlertService) {
+  constructor( private translate: TranslateService, private entityService: HttpEntityRepositoryService<PersonalEnergyActivity>, private alertService: AlertService) {
     entityService.getAll("/PersonalEnergyActivity/GetAll").subscribe(data => {
       var Data: any = data;
       if (!Data.success) {
@@ -52,48 +39,11 @@ export class ActivityTableComponent implements AfterViewInit {
     'activityeffortUnit',
     'activityStartDate',
     'activityEndDate',
-    'actions',
   ];
   dataSource = new MatTableDataSource(this.activities);
 
   @ViewChild(MatSort) sort!: MatSort;
   @ViewChild(MatPaginator) paginator!: MatPaginator;
-
-
-  delete(id: number ,name : string) { 
-    const confirmModal = this.modal.open(ConfirmModalComponent, {
-      data: {
-        title: 'Confirm Remove Activity',
-        message: 'Are you sure, you want to remove a activity: ' + name
-      }
-    }).afterClosed().subscribe(result => {
-      if (result === true) {
-        this.activities = this.activities.filter(act => act.personalEnergyActivityId != id);
-        this.entityService.delete("/Activity?id=", id).subscribe(data => {
-          this.alertService.openSnackBar(true, "success");
-        }, err =>{
-          this.alertService.openSnackBar(false, "unsuccess");
-        })
-      } 
-    });
-  }
-
-  openEdit(activityType: string, activityPeriod: number, activityEffortSpent: number, activityeffortUnit: number, activityStartDate: Date, activityEndDate: Date) {
-    this.modal.open(EditActivity, {
-      data: {
-        activityType: activityType,
-        activityPeriod: activityPeriod,
-        activityEffortSpent: activityEffortSpent,
-        activityeffortUnit: activityeffortUnit,
-        activityStartDate: activityStartDate,
-        activityEndDate: activityEndDate,
-      }
-    });
-  }
-
-  addActivity() {
-    this.modal.open(AddActivity);
-  }
 
   applyFilter(event: Event) {
     const filterValue = (event.target as HTMLInputElement).value;
