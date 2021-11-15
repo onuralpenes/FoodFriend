@@ -2,45 +2,41 @@
     <h2>Edit Nutrition</h2>
 
     <mat-dialog-content>
-        <div class="container" *ngIf="!post; else forminfo" novalidate>
-            <form [formGroup]="editForm" (ngSubmit)="onSubmit(editForm.value)" class="form">
+        <div class="container" novalidate>
+            <form [formGroup]="editForm" (ngSubmit)="onSubmit()" class="form">
                 <p>
-                    {{data.foodName}}: 
+                    {{data.foodName}}:
                     <mat-form-field appearance="outline" class="modal-input">
                         <mat-label>{{'table.name' | translate}}</mat-label>
-                        <input matInput type="string" formControlName="foodName" />
+                        <select matNativeControl formControlName="foodName">
+                            <option [ngValue]="undefined" disabled>{{'label.select' | translate}}</option>
+                            <option *ngFor="let food of foods" [value]="food.foodName">{{ food.foodName }}
+                            </option>
+                        </select>
+                    </mat-form-field>
+                </p>
+                
+                <p>
+                    {{data.quantity}}: 
+                    <mat-form-field appearance="outline" class="modal-input">
+                        <mat-label>{{'table.quantity' | translate}}</mat-label>
+                        <input matInput type="number" formControlName="quantity" />
                     </mat-form-field>
                 </p>
 
                 <p>
-                    {{data.calorie}}: 
+                    {{data.startDate | date: 'HH:mm'}}: 
                     <mat-form-field appearance="outline" class="modal-input">
-                        <mat-label>{{'table.calorie' | translate}}</mat-label>
-                        <input matInput type="number" formControlName="calorie" />
+                        <mat-label>{{'table.start' | translate}}</mat-label>
+                        <input matInput type="number" formControlName="startDate" />
                     </mat-form-field>
                 </p>
 
                 <p>
-                    {{data.protein}}: 
+                    {{data.endDate | date: 'HH:mm'}}: 
                     <mat-form-field appearance="outline" class="modal-input">
-                        <mat-label>{{'table.protein' | translate}}</mat-label>
-                        <input matInput type="number" formControlName="protein" />
-                    </mat-form-field>
-                </p>
-
-                <p>
-                    {{data.oil}}: 
-                    <mat-form-field appearance="outline" class="modal-input">
-                        <mat-label>{{'table.oil' | translate}}</mat-label>
-                        <input matInput type="number" formControlName="oil" />
-                    </mat-form-field>
-                </p>
-
-                <p>
-                    {{data.carbohydrate}}: 
-                    <mat-form-field appearance="outline" class="modal-input">
-                        <mat-label>{{'table.carbohydrate' | translate}}</mat-label>
-                        <input matInput type="number" formControlName="carbohydrate">
+                        <mat-label>{{'table.end' | translate}}</mat-label>
+                        <input matInput type="number" formControlName="endDate" />
                     </mat-form-field>
                 </p>
 
@@ -51,11 +47,5 @@
                 </button>
             </form>
         </div>
-
-        <ng-template #forminfo>
-            <div class="container">
-              {{ post | json }}
-            </div>
-          </ng-template>
     </mat-dialog-content>
 </div>

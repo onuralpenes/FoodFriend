@@ -87,6 +87,7 @@ export class AddFood {
           nutritionId: 0,
           eatingActivityId: 0,
           foodDetailId: this.addedFoods[i].addedFoodId,
+          foodName: this.addedFoods[i].addedFoodName,
           quantity: this.addedFoodForm.value.formArray[i].quantity,
           customFoodName: "",
           consumptionRatio: 0
@@ -96,12 +97,13 @@ export class AddFood {
       let newEatAct: EatingActivity = {
         eatingActivityId: 0,
         userId: +this.authService.CurrentUserId,
-        startEatingActivity: this.addEatingActivityForm.value.startEatingActivity,
-        endEatingActivity: this.addEatingActivityForm.value.endEatingActivity,
+        startEatingActivity: this.addEatingActivityForm.value.startEatingActivity as Date,
+        endEatingActivity: this.addEatingActivityForm.value.endEatingActivity as Date,
         consumptionType: 0,
         estimatedCalorie: 0,
         nutritions: this.newNutrition
       }
+      
       this.entityService.insert("/EatingActivity/AddWithNutrition", JSON.stringify(newEatAct))
         .subscribe(data => {
           this.alertService.openSnackBar(true, "success");

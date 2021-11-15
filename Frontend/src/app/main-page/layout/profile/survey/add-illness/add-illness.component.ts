@@ -38,7 +38,6 @@ export class AddIllness {
       }
       this.entityService.insert("/IllnessDetail/Add", illPost).subscribe(data => {
         var post: any = data;
-        console.log(post);
         if (!post.success) {
           this.alertService.openSnackBar(post.success, post.message);
           return;

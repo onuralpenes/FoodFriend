@@ -7,22 +7,15 @@ import { LangChangeEvent, TranslateService } from '@ngx-translate/core';
 import { AlertService } from 'src/app/helpers/alert.service';
 import { ConfirmModalComponent } from 'src/app/helpers/confirmation-modal/confirmation-modal.component';
 import { EatingActivity } from 'src/app/models/data/eating-activity.model';
-import { FoodDetail } from 'src/app/models/data/food-detail.model';
 import { AuthService } from 'src/app/services/auth.service';
 import { HttpEntityRepositoryService } from 'src/app/services/http-entity-repository.service';
 import { AddFood } from './add-food/add-food.component';
 import { EditFood } from './edit-table.component';
 
-export interface Transfer {
-  foodName: string;
-  calorie: number;
-  protein: number;
-  oil: number;
-  carbohydrate: number;
-}
-
 export interface EatTable {
   nutId: number;
+  foodId: number;
+  eatId: number;
   startDate: Date;
   endDate: Date;
   foodName: string;
@@ -48,12 +41,14 @@ export class FoodTableComponent implements AfterViewInit {
         return;
       }
       for (let i = 0; i < Data.data.length; i++) {
-
+        let eId = Data.data[i].eatingActivityId;
         let time1 = Data.data[i].startEatingActivity;
         let time2 = Data.data[i].endEatingActivity;
         for (let j = 0; j < Data.data[i].nutritions.length; j++) {
           let newEat: EatTable = {
             nutId: Data.data[i].nutritions[j].nutritionId,
+            foodId: Data.data[i].nutritions[j].foodDetailId,
+            eatId: eId,
             startDate: time1,
             endDate: time2,
             foodName: Data.data[i].nutritions[j].foodName,
@@ -107,9 +102,10 @@ export class FoodTableComponent implements AfterViewInit {
 
   }
 
-  openEdit() {
+  openEdit(id: number) {
+    let editEat: EatTable = this.eatTable.filter(eatId => eatId.nutId == id)[0]
     this.modal.open(EditFood, {
-      data: {},
+      data: editEat,
     });
   }
 
