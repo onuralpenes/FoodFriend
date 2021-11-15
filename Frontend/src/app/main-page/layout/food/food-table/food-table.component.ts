@@ -39,7 +39,7 @@ export class FoodTableComponent implements AfterViewInit {
   sortedData = this.eatTable;
   isNull: boolean = true;
 
-  constructor(private modal: MatDialog, authService: AuthService, private entityService: HttpEntityRepositoryService<EatingActivity>, private entityService2: HttpEntityRepositoryService<FoodDetail>, private translate: TranslateService, private alertService: AlertService) {
+  constructor(private modal: MatDialog, authService: AuthService, private entityService: HttpEntityRepositoryService<EatingActivity>, private translate: TranslateService, private alertService: AlertService) {
     entityService.get('/EatingActivity/GetByUserId?userId=', authService.CurrentUserId).subscribe(data => {
 
       var Data: any = data;
@@ -47,29 +47,19 @@ export class FoodTableComponent implements AfterViewInit {
         this.alertService.openSnackBar(Data.success, Data.message);
         return;
       }
-      for(let i = 0; i < Data.data.length ; i++){
-        
+      for (let i = 0; i < Data.data.length; i++) {
+
         let time1 = Data.data[i].startEatingActivity;
         let time2 = Data.data[i].endEatingActivity;
-        for(let j = 0 ; j < Data.data[i].nutritions.length ; j++){
-          let foodId = Data.data[i].nutritions[j].foodDetailId;
-          let foodName = "";
-          entityService2.get('/FoodDetail/Get?id=', foodId).subscribe(foodDet =>{
-            var food: any = foodDet;
-            if (!food.success) {
-              this.alertService.openSnackBar(food.success, food.message);
-              return;
-            }
-            foodName = food.data.foodName;
-            let newEat: EatTable = {
-              nutId: Data.data[i].nutritions[j].nutritionId,
-              startDate: time1,
-              endDate: time2,
-              foodName: foodName,
-              quantity: Data.data[i].nutritions[j].quantity
-            }
-            this.eatTable.push(newEat);
-          })
+        for (let j = 0; j < Data.data[i].nutritions.length; j++) {
+          let newEat: EatTable = {
+            nutId: Data.data[i].nutritions[j].nutritionId,
+            startDate: time1,
+            endDate: time2,
+            foodName: Data.data[i].nutritions[j].foodName,
+            quantity: Data.data[i].nutritions[j].quantity
+          }
+          this.eatTable.push(newEat);
         }
       }
       this.Begin();
@@ -98,7 +88,7 @@ export class FoodTableComponent implements AfterViewInit {
   @ViewChild(MatSort) sort!: MatSort;
   @ViewChild(MatPaginator) paginator!: MatPaginator;
 
-  delete(id: number ,name : string) { 
+  delete(id: number, name: string) {
     this.modal.open(ConfirmModalComponent, {
       data: {
         title: 'Confirm Remove Nutrition',
@@ -109,12 +99,12 @@ export class FoodTableComponent implements AfterViewInit {
         this.eatTable = this.eatTable.filter(nut => nut.nutId != id);
         this.entityService.delete("/Nutrition?id=", id).subscribe(data => {
           this.alertService.openSnackBar(true, "success");
-        }, err =>{
+        }, err => {
           this.alertService.openSnackBar(false, "unsuccess");
         })
-      } 
+      }
     });
-    
+
   }
 
   openEdit() {
