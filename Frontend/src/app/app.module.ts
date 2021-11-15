@@ -16,6 +16,9 @@ import { HttpEntityRepositoryService } from './services/http-entity-repository.s
 import { CanActiveGuard } from './helpers/can-active.guard';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { ConfirmModalComponent } from './helpers/confirmation-modal/confirmation-modal.component';
+import { GoogleChartsModule } from 'angular-google-charts';
+import { LineChartComponent } from './main-page/layout/dashboard/line-chart/line-chart.component';
+
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http);
@@ -27,12 +30,14 @@ export function HttpLoaderFactory(http: HttpClient) {
     LoginFormComponent,
     RegisterFormComponent,
     NotFoundComponent,
-    ConfirmModalComponent
+    ConfirmModalComponent,
+    LineChartComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
+    GoogleChartsModule,
     BrowserAnimationsModule,
     PrivateModule,
     CustomMaterialModule,
