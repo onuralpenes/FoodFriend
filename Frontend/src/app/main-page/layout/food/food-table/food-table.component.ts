@@ -74,6 +74,9 @@ export class FoodTableComponent implements AfterViewInit {
       }
       this.Begin();
     });
+    setTimeout(() => {
+      this.Begin();
+    }, 500);
   }
   Begin() {
     if (this.dataSource.filteredData.length == 0) {
@@ -96,7 +99,7 @@ export class FoodTableComponent implements AfterViewInit {
   @ViewChild(MatPaginator) paginator!: MatPaginator;
 
   delete(id: number ,name : string) { 
-    const confirmModal = this.modal.open(ConfirmModalComponent, {
+    this.modal.open(ConfirmModalComponent, {
       data: {
         title: 'Confirm Remove Nutrition',
         message: 'Are you sure, you want to remove a nutrition: ' + name
