@@ -76,7 +76,7 @@ export class FoodTableComponent implements AfterViewInit {
     });
     setTimeout(() => {
       this.Begin();
-    }, 500);
+    }, 600);
   }
   Begin() {
     if (this.dataSource.filteredData.length == 0) {
