@@ -58,18 +58,38 @@ export class FoodTableComponent implements AfterViewInit {
         let time1 = Data.data[i].startEatingActivity;
         let time2 = Data.data[i].endEatingActivity;
         for (let j = 0; j < Data.data[i].nutritions.length; j++) {
-          let newEat: EatTable = {
-            nutId: Data.data[i].nutritions[j].nutritionId,
-            foodId: Data.data[i].nutritions[j].foodDetailId,
-            eatId: eId,
-            startDate: time1,
-            endDate: time2,
-            foodName: Data.data[i].nutritions[j].foodName,
-            quantity: Data.data[i].nutritions[j].quantity
+          if(Data.data[i].nutritions[j].foodDetailId == 0){
+            let newEat: EatTable = {
+              nutId: Data.data[i].nutritions[j].nutritionId,
+              foodId: Data.data[i].nutritions[j].foodDetailId,
+              eatId: eId,
+              startDate: time1,
+              endDate: time2,
+              foodName: Data.data[i].nutritions[j].customFoodName,
+              quantity: Data.data[i].nutritions[j].quantity
+            }
+            this.eatTable.push(newEat);
           }
-          this.eatTable.push(newEat);
+          else{
+            let newEat: EatTable = {
+              nutId: Data.data[i].nutritions[j].nutritionId,
+              foodId: Data.data[i].nutritions[j].foodDetailId,
+              eatId: eId,
+              startDate: time1,
+              endDate: time2,
+              foodName: Data.data[i].nutritions[j].foodName,
+              quantity: Data.data[i].nutritions[j].quantity
+            }
+            this.eatTable.push(newEat);
+          }
         }
       }
+      let group: Group = {
+        title: "x",
+        isGroup: true,
+        nutId: 0
+      }
+      this.eatTable.push(group);
       this.Begin();
     });
     setTimeout(() => {
@@ -100,7 +120,6 @@ export class FoodTableComponent implements AfterViewInit {
   dataSource = new MatTableDataSource(this.eatTable);
 
   @ViewChild(MatSort) sort!: MatSort;
-  @ViewChild(MatPaginator) paginator!: MatPaginator;
 
   delete(id: number, name: string) {
     this.modal.open(ConfirmModalComponent, {
@@ -142,55 +161,5 @@ export class FoodTableComponent implements AfterViewInit {
     }
   }
 
-  ngAfterViewInit() {
-    this.changeLang();
-    this.translate.onLangChange.subscribe((event: LangChangeEvent) => {
-      this.changeLang();
-    });
-  }
-
-  changeLang() {
-    this.translate.get('paginator.item').subscribe((data: any) => {
-      this.paginator._intl.itemsPerPageLabel = data;
-      this.dataSource.sort = this.sort;
-      this.dataSource.paginator = this.paginator;
-    });
-    this.translate.get('paginator.next').subscribe((data: any) => {
-      this.paginator._intl.nextPageLabel = data;
-      this.dataSource.sort = this.sort;
-      this.dataSource.paginator = this.paginator;
-    });
-    this.translate.get('paginator.previous').subscribe((data: any) => {
-      this.paginator._intl.previousPageLabel = data;
-      this.dataSource.sort = this.sort;
-      this.dataSource.paginator = this.paginator;
-    });
-    this.translate.get('paginator.last').subscribe((data: any) => {
-      this.paginator._intl.lastPageLabel = data;
-      this.dataSource.sort = this.sort;
-      this.dataSource.paginator = this.paginator;
-    });
-    this.translate.get('paginator.first').subscribe((data: any) => {
-      this.paginator._intl.firstPageLabel = data;
-      this.dataSource.sort = this.sort;
-      this.dataSource.paginator = this.paginator;
-    });
-    this.translate.get('paginator.range').subscribe((data: any) => {
-      var range = (page: number, pageSize: number, length: number) => {
-        if (length == 0 || pageSize == 0) { return `0 ${data} ${length}`; }
-
-        length = Math.max(length, 0);
-
-        const startIndex = page * pageSize;
-        const endIndex = startIndex < length ?
-          Math.min(startIndex + pageSize, length) :
-          startIndex + pageSize;
-        if (data == "de") { return `${length} ${data}  ${startIndex + 1} - ${endIndex}`; }
-        else { return `${startIndex + 1} - ${endIndex} ${data} ${length}`; }
-      };
-      this.paginator._intl.getRangeLabel = range;
-      this.dataSource.sort = this.sort;
-      this.dataSource.paginator = this.paginator;
-    });
-  }
+  ngAfterViewInit() {}
 }

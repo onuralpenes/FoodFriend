@@ -92,16 +92,30 @@ export class AddFood {
     }
     else if (check == 'submit') {
       for (let i = 0; i < this.addedFoods.length; i++) {
-        let newNut: Nutrition = {
-          nutritionId: 0,
-          eatingActivityId: 0,
-          foodDetailId: this.addedFoods[i].addedFoodId,
-          foodName: this.addedFoods[i].addedFoodName,
-          quantity: this.addedFoodForm.value.formArray[i].quantity,
-          customFoodName: "",
-          consumptionRatio: 0
+        if(this.addedFoods[i].addedFoodId == 0){
+          let newNut: Nutrition = {
+            nutritionId: 0,
+            eatingActivityId: 0,
+            foodDetailId: this.addedFoods[i].addedFoodId,
+            foodName: "",
+            quantity: this.addedFoodForm.value.formArray[i].quantity,
+            customFoodName: this.addedFoods[i].addedFoodName,
+            consumptionRatio: 0
+          }
+          this.newNutrition.push(newNut)
         }
-        this.newNutrition.push(newNut);
+        else{
+          let newNut: Nutrition = {
+            nutritionId: 0,
+            eatingActivityId: 0,
+            foodDetailId: this.addedFoods[i].addedFoodId,
+            foodName: this.addedFoods[i].addedFoodName,
+            quantity: this.addedFoodForm.value.formArray[i].quantity,
+            customFoodName: "",
+            consumptionRatio: 0
+          }
+          this.newNutrition.push(newNut);
+        }
       }
       let d = this.datePipe.transform(new Date(), 'yyyy-MM-dd');
       let d1 = new Date( d + ' ' +  this.addEatingActivityForm.value.startEatingActivity + ":00");
