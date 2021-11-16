@@ -1,3 +1,4 @@
+import { DatePipe } from "@angular/common";
 import { Component } from "@angular/core";
 import { FormArray, FormBuilder, FormControl, FormGroup, Validators } from "@angular/forms";
 import { MatDialog } from "@angular/material/dialog";
@@ -9,8 +10,6 @@ import { AuthService } from "src/app/services/auth.service";
 import { HttpEntityRepositoryService } from "src/app/services/http-entity-repository.service";
 import { CustomFoodComponent } from "./custom-food/custom-food.component";
 
-
-
 export interface AddedFood {
   addedFoodName: string;
   addedFoodId: number;
@@ -21,6 +20,7 @@ export interface AddedFood {
   selector: 'app-add-food',
   templateUrl: './add-food.component.html',
   styleUrls: ['./add-food.component.css'],
+  providers: [DatePipe]
 })
 export class AddFood {
   isEmpty: boolean = true;
@@ -32,7 +32,7 @@ export class AddFood {
   addEatingActivityForm!: FormGroup;
   cont: boolean = false;
 
-  constructor(private formBuilder: FormBuilder, private entityService: HttpEntityRepositoryService<FoodDetail>, private alertService: AlertService, private authService: AuthService, private modal: MatDialog) {
+  constructor(private formBuilder: FormBuilder, private entityService: HttpEntityRepositoryService<FoodDetail>, private alertService: AlertService, private authService: AuthService, private modal: MatDialog, private datePipe: DatePipe) {
     entityService.getAll("/FoodDetail/GetAll").subscribe(data => {
 
       var Data: any = data;
@@ -94,11 +94,15 @@ export class AddFood {
         }
         this.newNutrition.push(newNut);
       }
+      let d = this.datePipe.transform(new Date(), 'yyyy-MM-dd');
+      let d1 = new Date( d + ' ' +  this.addEatingActivityForm.value.startEatingActivity + ":00");
+      let d2 = new Date( d + ' ' +  this.addEatingActivityForm.value.endEatingActivity + ":00");
+      
       let newEatAct: EatingActivity = {
         eatingActivityId: 0,
         userId: +this.authService.CurrentUserId,
-        startEatingActivity: this.addEatingActivityForm.value.startEatingActivity as Date,
-        endEatingActivity: this.addEatingActivityForm.value.endEatingActivity as Date,
+        startEatingActivity: d1,
+        endEatingActivity: d2,
         consumptionType: 0,
         estimatedCalorie: 0,
         nutritions: this.newNutrition
