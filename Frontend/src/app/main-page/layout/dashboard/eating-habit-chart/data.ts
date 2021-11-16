@@ -2,30 +2,30 @@
 
 export var multi = [
     {
-      "name": "This Week",
+      "name": "Bu Hafta",
       "series": [
         {
-          "name": "Day-1",
+          "name": "Pazartesi",
           "value": 8875
         },
         {
-          "name": "Day-2",
+          "name": "Salı",
           "value": 12364
         },
         {
-          "name": "Day-3",
-          "value": 11248
+          "name": "Çarşamba",
+          "value": 15248
         },{
-          "name": "Day-4",
+          "name": "Perşembe",
+          "value": 10246
+        },{
+          "name": "Cuma",
+          "value": 12246
+        },{
+          "name": "Cumartesi",
           "value": 11246
         },{
-          "name": "Day-5",
-          "value": 11246
-        },{
-          "name": "Day-6",
-          "value": 11246
-        },{
-          "name": "Day-7",
+          "name": "Pazar",
           "value": 11246
         }
 
@@ -33,60 +33,60 @@ export var multi = [
     }
     ,
     {
-      "name": "Week 8.11.2021 - 14.11.2021",
+      "name": "08.11.2021 - 14.11.2021",
       "series": [
         {
-          "name": "Day-1",
+          "name": "Pazartesi",
           "value": 14875
         },
         {
-          "name": "Day-2",
+          "name": "Salı",
           "value": 7500
         },
         {
-          "name": "Day-3",
+          "name": "Çarşamba",
           "value": 11233
         },{
-          "name": "Day-4",
+          "name": "Perşembe",
           "value": 5700
         },{
-          "name": "Day-5",
+          "name": "Cuma",
           "value": 10111
         },{
-          "name": "Day-6",
+          "name": "Cumartesi",
           "value": 13560
         },{
-          "name": "Day-7",
+          "name": "Pazar",
           "value": 12560
         }
 
       ]
     },
     {
-      "name": "Week 1.11.2021 - 7.11.2021",
+      "name": "01.11.2021 - 07.11.2021",
       "series": [
         {
-          "name": "Day-1",
+          "name": "Pazartesi",
           "value": 8875
         },
         {
-          "name": "Day-2",
+          "name": "Salı",
           "value": 12364
         },
         {
-          "name": "Day-3",
+          "name": "Çarşamba",
           "value": 11248
         },{
-          "name": "Day-4",
+          "name": "Perşembe",
           "value": 11246
         },{
-          "name": "Day-5",
+          "name": "Cuma",
           "value": 11246
         },{
-          "name": "Day-6",
+          "name": "Cumartesi",
           "value": 11246
         },{
-          "name": "Day-7",
+          "name": "Pazar",
           "value": 11246
         }
 
