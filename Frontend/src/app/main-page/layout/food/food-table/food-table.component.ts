@@ -58,16 +58,30 @@ export class FoodTableComponent implements AfterViewInit {
         let time1 = Data.data[i].startEatingActivity;
         let time2 = Data.data[i].endEatingActivity;
         for (let j = 0; j < Data.data[i].nutritions.length; j++) {
-          let newEat: EatTable = {
-            nutId: Data.data[i].nutritions[j].nutritionId,
-            foodId: Data.data[i].nutritions[j].foodDetailId,
-            eatId: eId,
-            startDate: time1,
-            endDate: time2,
-            foodName: Data.data[i].nutritions[j].foodName,
-            quantity: Data.data[i].nutritions[j].quantity
+          if(Data.data[i].nutritions[j].foodDetailId == 0){
+            let newEat: EatTable = {
+              nutId: Data.data[i].nutritions[j].nutritionId,
+              foodId: Data.data[i].nutritions[j].foodDetailId,
+              eatId: eId,
+              startDate: time1,
+              endDate: time2,
+              foodName: Data.data[i].nutritions[j].customFoodName,
+              quantity: Data.data[i].nutritions[j].quantity
+            }
+            this.eatTable.push(newEat);
           }
-          this.eatTable.push(newEat);
+          else{
+            let newEat: EatTable = {
+              nutId: Data.data[i].nutritions[j].nutritionId,
+              foodId: Data.data[i].nutritions[j].foodDetailId,
+              eatId: eId,
+              startDate: time1,
+              endDate: time2,
+              foodName: Data.data[i].nutritions[j].foodName,
+              quantity: Data.data[i].nutritions[j].quantity
+            }
+            this.eatTable.push(newEat);
+          }
         }
       }
       let group: Group = {
