@@ -52,6 +52,14 @@
 
     <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
     <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+
+    
+
+    <ng-container matColumnDef="groupHeader">
+      <td colspan="999" mat-cell *matCellDef="let group" class="group"><strong>{{group.title}}</strong></td>
+    </ng-container>
+  
+    <tr mat-row *matRowDef="let row; columns: ['groupHeader']; when: isGroup"> </tr>
   </table>
 
   <mat-paginator *ngIf="isNull" [pageSizeOptions]="[7, 10]" [pageSize]="7" showFirstLastButtons>
