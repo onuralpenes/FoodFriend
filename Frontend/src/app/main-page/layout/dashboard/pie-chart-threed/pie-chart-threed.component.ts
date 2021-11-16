@@ -28,7 +28,7 @@ export class PieChartThreedComponent implements OnInit {
   public chart: any[] = [];
   constructor(private entityService: HttpEntityRepositoryService<EatingActivity>, private authService: AuthService, private alertService: AlertService) {
 
-    entityService.get("/EatingActivity/GetTotalCalorieByUserIdOnDay?date=2021-11-15&userId=", 48).subscribe(data => {
+    entityService.get("/EatingActivity/GetTotalCalorieByUserIdOnDay?date=2021-11-15&userId=", authService.CurrentUserId).subscribe(data => {
       var Data: any = data;
       if (!Data.success) {
         this.alertService.openSnackBar(Data.success, Data.message);
