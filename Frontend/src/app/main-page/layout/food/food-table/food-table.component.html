@@ -52,12 +52,10 @@
     <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
     <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
 
-
-
     <ng-container matColumnDef="groupHeader">
-      <td colspan="999" mat-cell *matCellDef="let group" class="group"><strong>{{group.title}}</strong></td>
+      <td colspan="999" mat-cell *matCellDef="let group; let i = index" class="group" [class.lastRow] = "i+1 === eatTable.length"><strong *ngIf ="group.title != 'x'">{{group.title}}</strong></td>
     </ng-container>
-
+      <!--class="lastRow"-->
     <tr mat-row *matRowDef="let row; columns: ['groupHeader']; when: isGroup"> </tr>
   </table>
   <div *ngIf="!isNull">{{'table.null' | translate}}</div>

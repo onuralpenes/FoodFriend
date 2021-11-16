@@ -25,14 +25,18 @@ th.mat-sort-header-sorted {
 	background-color: #00d6a0;
 }
 .tab{
-  height: 650px;
   overflow: visible;
   margin-left: 5%;
   margin-right: 5%;
+  margin-bottom: 5%;
   min-height: 64px;
   padding: 8px 24px 0;
+}
+.lastRow{
   border-bottom-left-radius: 25px;
   border-bottom-right-radius: 25px;
+  border-right: 2px solid #009879;
+  border-left: 2px solid #009879;
   border-bottom: 2px solid #009879;
 }
 

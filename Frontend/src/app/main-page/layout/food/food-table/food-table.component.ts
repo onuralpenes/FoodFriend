@@ -70,6 +70,12 @@ export class FoodTableComponent implements AfterViewInit {
           this.eatTable.push(newEat);
         }
       }
+      let group: Group = {
+        title: "x",
+        isGroup: true,
+        nutId: 0
+      }
+      this.eatTable.push(group);
       this.Begin();
     });
     setTimeout(() => {
