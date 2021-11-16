@@ -1,7 +1,7 @@
 import { DatePipe } from "@angular/common";
 import { Component } from "@angular/core";
 import { FormArray, FormBuilder, FormControl, FormGroup, Validators } from "@angular/forms";
-import { MatDialog } from "@angular/material/dialog";
+import { MatDialog, MatDialogRef } from "@angular/material/dialog";
 import { AlertService } from "src/app/helpers/alert.service";
 import { EatingActivity } from "src/app/models/data/eating-activity.model";
 import { FoodDetail } from "src/app/models/data/food-detail.model";
@@ -31,6 +31,7 @@ export class AddFood {
   addedFoodForm!: FormGroup;
   addEatingActivityForm!: FormGroup;
   cont: boolean = false;
+  customRef!: MatDialogRef<CustomFoodComponent>;
 
   constructor(private formBuilder: FormBuilder, private entityService: HttpEntityRepositoryService<FoodDetail>, private alertService: AlertService, private authService: AuthService, private modal: MatDialog, private datePipe: DatePipe) {
     entityService.getAll("/FoodDetail/GetAll").subscribe(data => {
@@ -73,8 +74,16 @@ export class AddFood {
   }
 
   customFood() {
-    this.modal.open(CustomFoodComponent);
-    this.buildForm();
+    this.customRef = this.modal.open(CustomFoodComponent)
+    this.customRef.afterClosed().subscribe(name => {
+      let addFod: AddedFood ={
+        addedFoodName: name.toString(),
+        addedFoodId: 0,
+        quantity: this.addFoodForm.value.quantity
+      }
+      this.addedFoods.push(addFod);
+      this.buildForm();
+    })
   }
 
   onSubmit(check: string) {

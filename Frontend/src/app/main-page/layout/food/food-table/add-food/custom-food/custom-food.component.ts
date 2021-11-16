@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { MatDialogRef } from '@angular/material/dialog';
 import { AlertService } from 'src/app/helpers/alert.service';
 import { FoodDetail } from 'src/app/models/data/food-detail.model';
 import { HttpEntityRepositoryService } from 'src/app/services/http-entity-repository.service';
@@ -16,7 +17,7 @@ export class CustomFoodComponent implements OnInit {
   post: any = '';
   customFood!: FoodDetail;
 
-  constructor(private formBuilder: FormBuilder, private entityService: HttpEntityRepositoryService<FoodDetail>, private alertService: AlertService) { }
+  constructor(private formBuilder: FormBuilder, private entityService: HttpEntityRepositoryService<FoodDetail>, private alertService: AlertService, private modalRef: MatDialogRef<CustomFoodComponent>) { }
 
   ngOnInit() {
     this.customFoodForm = this.formBuilder.group({
@@ -44,8 +45,12 @@ export class CustomFoodComponent implements OnInit {
     this.entityService.insert("/FoodDetail/Add", JSON.stringify(this.customFood))
       .subscribe(data => {
         this.alertService.openSnackBar(true, "success");
+        this.modalRef.close(`${this.customFoodForm.value.foodName}`);
       }, err => {
         this.alertService.openSnackBar(false, "error");
+        this.modalRef.close();
       });
+      
+    
   }
 }
