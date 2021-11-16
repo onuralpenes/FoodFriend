@@ -47,8 +47,8 @@ export class FoodTableComponent implements AfterViewInit {
         return;
       }
       for (let i = 0; i < Data.data.length; i++) {
-        let group : Group ={
-          title: "Eating Activity " + (i + 1).toString() ,
+        let group: Group = {
+          title: "Eating Activity " + (i + 1).toString(),
           isGroup: true,
           nutId: 0
         }
@@ -77,6 +77,7 @@ export class FoodTableComponent implements AfterViewInit {
     }, 300);
   }
   Begin() {
+
     if (this.dataSource.filteredData.length == 0) {
       this.isNull = false;
     }
@@ -85,7 +86,7 @@ export class FoodTableComponent implements AfterViewInit {
     }
   }
 
-  isGroup(index, item): boolean{
+  isGroup(index, item): boolean {
     return item.isGroup;
   }
 
