@@ -22,13 +22,19 @@ export interface EatTable {
   quantity: number;
 }
 
+export interface Group {
+  title: string;
+  isGroup: boolean;
+  nutId: number;
+}
+
 @Component({
   selector: 'app-food-table',
   templateUrl: './food-table.component.html',
   styleUrls: ['./food-table.component.css'],
 })
 export class FoodTableComponent implements AfterViewInit {
-  eatTable: EatTable[] = [];
+  eatTable: (EatTable | Group)[] = [];
   sortedData = this.eatTable;
   isNull: boolean = true;
 
@@ -41,6 +47,13 @@ export class FoodTableComponent implements AfterViewInit {
         return;
       }
       for (let i = 0; i < Data.data.length; i++) {
+        let group: Group = {
+          title: "Eating Activity " + (i + 1).toString(),
+          isGroup: true,
+          nutId: 0
+        }
+        this.eatTable.push(group);
+
         let eId = Data.data[i].eatingActivityId;
         let time1 = Data.data[i].startEatingActivity;
         let time2 = Data.data[i].endEatingActivity;
@@ -64,6 +77,7 @@ export class FoodTableComponent implements AfterViewInit {
     }, 300);
   }
   Begin() {
+
     if (this.dataSource.filteredData.length == 0) {
       this.isNull = false;
     }
@@ -71,6 +85,11 @@ export class FoodTableComponent implements AfterViewInit {
       this.isNull = true;
     }
   }
+
+  isGroup(index, item): boolean {
+    return item.isGroup;
+  }
+
   displayedColumns: string[] = [
     'foodName',
     'quantity',
@@ -103,7 +122,7 @@ export class FoodTableComponent implements AfterViewInit {
   }
 
   openEdit(id: number) {
-    let editEat: EatTable = this.eatTable.filter(eatId => eatId.nutId == id)[0]
+    let editEat: EatTable | Group = this.eatTable.filter(eatId => eatId.nutId == id)[0]
     this.modal.open(EditFood, {
       data: editEat,
     });

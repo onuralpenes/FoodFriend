@@ -145,7 +145,10 @@ mat-form-field{
 .rCol{
   border-right: 2px solid  #009879;
 }
-
+.group{
+  border-right: 2px solid  #009879;
+  border-left: 2px solid  #009879;
+}
 
 .mat-table .mat-cell:not(:nth-child(1)), .mat-table .mat-header-cell:not(:nth-child(1)) {
   padding: 0 0;
