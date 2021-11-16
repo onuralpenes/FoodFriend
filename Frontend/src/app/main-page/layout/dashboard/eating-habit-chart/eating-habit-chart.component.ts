@@ -10,11 +10,11 @@ export class EatingHabitChartComponent {
 
   multi!: any[];
 
-  legend: boolean = false;
-  showLabels: boolean = false;
+  legend: boolean = true;
+  showLabels: boolean = true;
   animations: boolean = false;
-  xAxis: boolean = false;
-  yAxis: boolean = false;
+  xAxis: boolean = true;
+  yAxis: boolean = true;
   showYAxisLabel: boolean = false;
   showXAxisLabel: boolean = false;
   xAxisLabel: string = 'Year';
