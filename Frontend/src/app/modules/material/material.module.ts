@@ -22,7 +22,6 @@ import { NgCircleProgressModule } from 'ng-circle-progress';
 import { DayPilotModule } from 'daypilot-pro-angular';
 import { GoogleChartsModule } from 'angular-google-charts';
 
-
 @NgModule({
   imports: [
     MatFormFieldModule,
@@ -67,7 +66,6 @@ import { GoogleChartsModule } from 'angular-google-charts';
     MatCardModule,
     GoogleChartsModule,
     NgxChartsModule,
-
     NgCircleProgressModule,
 
     DayPilotModule,
