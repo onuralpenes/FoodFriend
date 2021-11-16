@@ -5,7 +5,10 @@
   border-radius: 100%;
   margin: 0 auto;
 }
-
+h1{
+  margin-top: 25px;
+  margin-left: 25px;
+}
 .progress{
   height: 100%;
   width: 100%;
@@ -13,7 +16,39 @@
   border-radius: 10px;
   margin: 0 auto;
 }
-
+.divider {
+  
+	position: relative;
+	margin-top: 0px;
+	height: 1px;
+	content: "";
+	top: 0;
+	left: 5%;
+	right: 5%;
+	width: 90%;
+	height: 2px;
+  background-color: transparent;
+	background-image: linear-gradient(to right, transparent, rgb(0, 0, 0), transparent);
+}
+.divider-arrow{
+  position: relative;
+  margin-top: 0;
+  height: 1px
+;
+  content: "";
+  z-index: 1;
+  top: 0;
+  left: calc(50% - 7px);
+  width: 23px;
+  height: 23px;
+  transform: rotate(
+45deg);
+  background-color: #ffffff00;
+  border-bottom: 2px
+solid rgb(0 0 0);
+  border-right: 2px
+solid rgb(0 0 0);
+}
 .health-card{
   height: 100%;
   width: 100%;
