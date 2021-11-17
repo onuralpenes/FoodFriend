@@ -4,7 +4,7 @@ import { AlertService } from 'src/app/helpers/alert.service';
 import { EatingActivity } from 'src/app/models/data/eating-activity.model';
 import { AuthService } from 'src/app/services/auth.service';
 import { HttpEntityRepositoryService } from 'src/app/services/http-entity-repository.service';
-
+import { DatePipe } from '@angular/common';
 export interface MyData {
   oil: number;
   protein: number;
@@ -19,8 +19,9 @@ export interface MyData {
 export class PieChartThreedComponent implements OnInit {
   public chart: any[] = [];
   constructor(private entityService: HttpEntityRepositoryService<EatingActivity>, private authService: AuthService, private alertService: AlertService) {
-
-    entityService.get("/EatingActivity/GetTotalCalorieByUserIdOnDay?date=2021-11-15&userId=", authService.CurrentUserId).subscribe(data => {
+    const datepipe: DatePipe = new DatePipe('en-US');
+    let date = datepipe.transform(new Date(new Date().setDate(new Date().getDate())), 'YYYY-MM-dd'); 
+    entityService.get("/EatingActivity/GetTotalCalorieByUserIdOnDay?date="+date+"&userId=", authService.CurrentUserId).subscribe(data => {
       var Data: any = data;
       if (!Data.success) {
         this.alertService.openSnackBar(Data.success, Data.message);
