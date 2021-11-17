@@ -15,14 +15,13 @@
             <i class="fa fa-bell" aria-hidden="true" style="color: white;"></i>
         </button>
         <mat-menu #notifications="matMenu" [overlapTrigger]="false">
-
-            <button mat-menu-item>
-                <span> Notification</span>
-            </button>
-            <button mat-menu-item>
-                <span> Notification</span>
-            </button>
-
+            <ng-container *ngFor= "let not of notificationList">
+                <button (click)="openNot(not.messageId)">
+                    <b *ngIf="!not.readed">{{not.title}}</b>
+                    <p *ngIf="not.readed">{{not.title}}</p>
+                </button>
+                <br>
+            </ng-container>
         </mat-menu>
     </span>
 
