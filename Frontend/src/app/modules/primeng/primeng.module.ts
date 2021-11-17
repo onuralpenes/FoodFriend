@@ -1,12 +1,14 @@
 import { NgModule } from "@angular/core";
 import {DialogModule} from 'primeng/dialog';
-
+import {  ChartModule } from 'primeng/chart';
 @NgModule({
     imports:[
-        DialogModule
+        DialogModule,
+        ChartModule,
     ],
     exports:[
-        DialogModule
+        DialogModule,
+        ChartModule
     ]
 
 })
