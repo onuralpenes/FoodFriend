@@ -60,17 +60,53 @@ export class EatingHabitChartComponent {
       }
 
       for(let i = 0 ; i<reqNum; i++){
-
         const datepipe: DatePipe = new DatePipe('en-US');
+        console.log("kaç gün öncesii" +(reqNum-1-i) );
         let date = datepipe.transform(new Date(new Date().setDate(new Date().getDate()-(reqNum-1-i))), 'YYYY-MM-dd'); 
-        console.log(date)
-        entityService.get("/EatingActivity/GetTotalCalorieByUserIdOnDay?date="+date+"&userId=", 48).subscribe(data =>{
+        entityService.get("/EatingActivity/GetTotalCalorieByUserIdOnDay?date="+date+"&userId=", authService.CurrentUserId).subscribe(data =>{
         var Data: any = data;
         if (!Data.success) {
           this.alertService.openSnackBar(Data.success, Data.message);
           return;
         }else{
           multi[0].series[i].value = Data.data.totalCalorie;
+          console.log("sadate"+date+"  "+ i +"==="+ "" + Data.data.totalCalorie + " eee "+ multi[0].series[i].value)
+          
+        Object.assign(this, { multi });
+        }
+      })
+      }
+
+      for(let i = 0; i<7; i++){
+        const datepipe: DatePipe = new DatePipe('en-US');
+        let date = datepipe.transform(new Date(new Date().setDate(new Date().getDate()-(reqNum+6-i))), 'YYYY-MM-dd'); 
+        console.log("sadate"+date)
+        entityService.get("/EatingActivity/GetTotalCalorieByUserIdOnDay?date="+date+"&userId=", authService.CurrentUserId).subscribe(data =>{
+        var Data: any = data;
+        if (!Data.success) {
+          this.alertService.openSnackBar(Data.success, Data.message);
+          return;
+        }else{
+          multi[1].series[i].value = Data.data.totalCalorie;
+          
+          console.log("sadate"+date+" ==== " + Data.data.totalCalorie)
+        }
+      })
+      }
+      for(let i = 0; i<7; i++){
+        const datepipe: DatePipe = new DatePipe('en-US');
+        let date = datepipe.transform(new Date(new Date().setDate(new Date().getDate()-(reqNum+6+7-i))), 'YYYY-MM-dd'); 
+        console.log("sadate"+date)
+        entityService.get("/EatingActivity/GetTotalCalorieByUserIdOnDay?date="+date+"&userId=", authService.CurrentUserId).subscribe(data =>{
+        var Data: any = data;
+        if (!Data.success) {
+          this.alertService.openSnackBar(Data.success, Data.message);
+          return;
+        }else{
+          multi[2].series[i].value = Data.data.totalCalorie;
+          console.log("sadate"+date+" ==== " + Data.data.totalCalorie)
+          
+          Object.assign(this, { multi });
         }
       })
       }
