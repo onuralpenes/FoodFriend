@@ -72,7 +72,6 @@ export class EatingHabitChartComponent {
           multi[0].series[i].value = Data.data.totalCalorie;
           console.log("sadate"+date+"  "+ i +"==="+ "" + Data.data.totalCalorie + " eee "+ multi[0].series[i].value)
           
-        Object.assign(this, { multi });
         }
       })
       }
@@ -106,11 +105,13 @@ export class EatingHabitChartComponent {
           multi[2].series[i].value = Data.data.totalCalorie;
           console.log("sadate"+date+" ==== " + Data.data.totalCalorie)
           
-          Object.assign(this, { multi });
         }
       })
       }
     //console.log(new Date())
-    Object.assign(this, { multi });
+    setTimeout(x =>{
+
+      Object.assign(this, { multi });
+    }, 200)
   }
 }
