@@ -62,10 +62,7 @@
                   </div>
 
                   <div [hidden]="!hasIllness" class="row groups">
-                    <div
-                      class="col"
-                      *ngFor="let illness of illnessList; let i = index"
-                    >
+                    <div class="col-md-6" *ngFor="let illness of illnessList">
                       <p>{{ illness.illnessName }}</p>
                     </div>
                   </div>
@@ -82,10 +79,7 @@
                     <p>{{ "profile.noAll" | translate }}</p>
                   </div>
                   <div [hidden]="!hasAllergy" class="row groups">
-                    <div
-                      class="col"
-                      *ngFor="let allergy of allergyList; let i = index"
-                    >
+                    <div class="col-md-6" *ngFor="let allergy of allergyList;">
                       <p>{{ allergy.allergyName }}</p>
                     </div>
                   </div>
@@ -102,12 +96,8 @@
                     <p>{{ "profile.noDis" | translate }}</p>
                   </div>
                   <div [hidden]="!isDisabled" class="row groups">
-                    <div
-                      class="col"
-                      *ngFor="let disable of disabledList; let i = index"
-                    >
-                      {{ disable.disabledDescription }} :
-                      {{ disable.disabledRatio }}
+                    <div class="col-md-6" *ngFor="let disable of disabledList;">
+                      <p> {{disable.disabledDescription}}: {{disable.disabledRatio}}% </p>
                     </div>
                   </div>
                 </div>
@@ -121,6 +111,7 @@
                 </div>
               </mat-card>
             </div>
+
           </div>
         </div>
       </div>
