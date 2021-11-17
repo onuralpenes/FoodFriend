@@ -22,22 +22,28 @@ export class ConsumedCalorieComponent {
   sub = "";
 
   constructor(private entityService: HttpEntityRepositoryService<EatingActivity>, private authService: AuthService, private alertService: AlertService){
-    entityService.get("/EatingActivity/GetTotalCalorieByUserIdOnDay?date=2021-11-15&userId=", 48).subscribe(data => {
+    entityService.get("/EatingActivity/GetTotalCalorieByUserIdOnDay?date=2021-11-15&userId=", authService.CurrentUserId).subscribe(data => {
       var Data: any = data;
       if (!Data.success) {
         this.alertService.openSnackBar(Data.success, Data.message);
         return;
       }
+      if(Data.data.totalCalorie == 0){
+        this.tit = "Henüz besin alınmamış"
+        this.sub = "Verilerini görmek için beslen"
+      }else{
       this.cal = Data.data.totalCalorie;
       this.tit = this.cal.toString() + " calorie";
       this.left = this.tot - this.cal;
       this.per = (100 * this.cal) / this.tot;
       this.sub = "You can eat " + this.left.toString() + " calorie";
+      this.color = '#00db93'
       if(this.left <= 0){
         this.left = 0;
         this.color = '#b10f0f';
         this.tit = this.cal + "cal/" + this.tot +"cal";
         this.sub = "Yeterli kalori alındı";
+      }
       }
       console.log(Data)
     })
