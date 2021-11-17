@@ -37,7 +37,7 @@ export class FoodTableComponent implements AfterViewInit {
   eatTable: (EatTable | Group)[] = [];
   sortedData = this.eatTable;
   isNull: boolean = true;
-  displayBasic:boolean = false;
+  addFod:boolean = false;
 
   constructor(private modal: MatDialog, authService: AuthService, private entityService: HttpEntityRepositoryService<EatingActivity>, private translate: TranslateService, private alertService: AlertService) {
     entityService.get('/EatingActivity/GetByUserId?userId=', authService.CurrentUserId).subscribe(data => {
@@ -98,11 +98,6 @@ export class FoodTableComponent implements AfterViewInit {
     }, 300);
   }
 
-  
-  showBasicDialog() {
-    this.displayBasic = true;
-}
-
   Begin() {
 
     if (this.dataSource.filteredData.length == 0) {
@@ -155,7 +150,7 @@ export class FoodTableComponent implements AfterViewInit {
   }
 
   addFood() {
-    this.modal.open(AddFood);
+    this.addFod = true;
   }
 
   applyFilter(event: Event) {
