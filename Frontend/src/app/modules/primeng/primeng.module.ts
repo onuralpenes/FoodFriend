@@ -1,17 +1,17 @@
 import { NgModule } from "@angular/core";
-import {DialogModule} from 'primeng/dialog';
-import {InputTextModule} from 'primeng/inputtext';
-import {TableModule} from 'primeng/table';
-import {PaginatorModule} from 'primeng/paginator';
+import { DialogModule } from 'primeng/dialog';
+import { InputTextModule } from 'primeng/inputtext';
+import { TableModule } from 'primeng/table';
+import { PaginatorModule } from 'primeng/paginator';
 
 @NgModule({
-    imports:[
+    imports: [
         DialogModule,
         InputTextModule,
         TableModule,
         PaginatorModule
     ],
-    exports:[
+    exports: [
         DialogModule,
         InputTextModule,
         TableModule,
@@ -20,4 +20,4 @@ import {PaginatorModule} from 'primeng/paginator';
 
 })
 
-export class PrimeNgModule {}
+export class PrimeNgModule { }
