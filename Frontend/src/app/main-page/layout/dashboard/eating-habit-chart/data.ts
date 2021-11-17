@@ -6,27 +6,27 @@ export var multi = [
       "series": [
         {
           "name": "Pazartesi",
-          "value": 8875
+          "value": 0
         },
         {
           "name": "Salı",
-          "value": 12364
+          "value": 0
         },
         {
           "name": "Çarşamba",
-          "value": 15248
+          "value": 0
         },{
           "name": "Perşembe",
-          "value": 10246
+          "value": 0
         },{
           "name": "Cuma",
-          "value": 12246
+          "value": 0
         },{
           "name": "Cumartesi",
-          "value": 11246
+          "value": 0
         },{
           "name": "Pazar",
-          "value": 11246
+          "value": 0
         }
 
       ]
@@ -37,27 +37,27 @@ export var multi = [
       "series": [
         {
           "name": "Pazartesi",
-          "value": 14875
+          "value": 0
         },
         {
           "name": "Salı",
-          "value": 7500
+          "value": 0
         },
         {
           "name": "Çarşamba",
-          "value": 11233
+          "value": 0
         },{
           "name": "Perşembe",
-          "value": 5700
+          "value": 0
         },{
           "name": "Cuma",
-          "value": 10111
+          "value": 0
         },{
           "name": "Cumartesi",
-          "value": 13560
+          "value": 0
         },{
           "name": "Pazar",
-          "value": 12560
+          "value": 0
         }
 
       ]
@@ -67,27 +67,27 @@ export var multi = [
       "series": [
         {
           "name": "Pazartesi",
-          "value": 8875
+          "value": 0
         },
         {
           "name": "Salı",
-          "value": 12364
+          "value": 0
         },
         {
           "name": "Çarşamba",
-          "value": 11248
+          "value": 0
         },{
           "name": "Perşembe",
-          "value": 11246
+          "value": 0
         },{
           "name": "Cuma",
-          "value": 11246
+          "value": 0
         },{
           "name": "Cumartesi",
-          "value": 11246
+          "value": 0
         },{
           "name": "Pazar",
-          "value": 11246
+          "value": 0
         }
 
       ]
