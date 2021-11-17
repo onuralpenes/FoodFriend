@@ -110,7 +110,6 @@ export class EatingHabitChartComponent {
       }
     //console.log(new Date())
     setTimeout(x =>{
-
       Object.assign(this, { multi });
     }, 200)
   }
