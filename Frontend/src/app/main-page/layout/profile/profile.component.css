@@ -67,11 +67,10 @@ p{
 
 
  mat-card {
-   width: 400px;
-   margin: 15px;
-   display: flex;
-   flex-flow: column;
-   justify-content: space-between;
+   width: 500px;
+   margin: 20px;
+   background: #e5e5e5;
+   border-radius: 5px;
  }
 
  @media only screen and (max-width: 768px) {
@@ -91,11 +90,5 @@ p{
  }
 
  span {
-   display: inline-block;
    font-size: 13px;
  }
-
- .card{
-  background: #e5e5e5;
-  border-radius: 5px;
-}
