@@ -1,13 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {
-  ChartErrorEvent,
-  ChartMouseLeaveEvent,
-  ChartMouseOverEvent,
-  ChartSelectionChangedEvent,
-  ChartType,
-  Column,
-  GoogleChartComponent
-} from 'angular-google-charts';
+import { ChartType } from 'angular-google-charts';
 import { AlertService } from 'src/app/helpers/alert.service';
 import { EatingActivity } from 'src/app/models/data/eating-activity.model';
 import { AuthService } from 'src/app/services/auth.service';
