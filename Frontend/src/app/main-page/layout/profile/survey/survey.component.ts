@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
-import { MatDialog } from '@angular/material/dialog';
+import { MatDialog, MatDialogRef } from '@angular/material/dialog';
 import { AlertService } from 'src/app/helpers/alert.service';
 import { User } from 'src/app/models/user/user.model';
 import { AuthService } from 'src/app/services/auth.service';
@@ -20,7 +20,7 @@ export class SurveyComponent implements OnInit {
   surveyForm!: FormGroup;
   post: any = '';
 
-  constructor(private formBuilder: FormBuilder, private authService: AuthService, private modal: MatDialog, private entityService: HttpEntityRepositoryService<User>, private alertService: AlertService) { }
+  constructor(private formBuilder: FormBuilder, private authService: AuthService, private modal: MatDialog, private entityService: HttpEntityRepositoryService<User>, private alertService: AlertService, private modalRef: MatDialogRef<SurveyComponent>) { }
 
   ngOnInit() {
     this.surveyForm = this.formBuilder.group({
@@ -91,7 +91,9 @@ export class SurveyComponent implements OnInit {
           this.alertService.openSnackBar(Data.success, Data.message);
           return;
         }
-      })
+        this.alertService.openSnackBar(Data.success, "success");
+      }, err=> { this.alertService.openSnackBar(false, "unsuccess");})
+      this.modalRef.close();
     });
   }
 

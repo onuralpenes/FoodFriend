@@ -33,7 +33,7 @@ export class AddFood {
   cont: boolean = false;
   customRef!: MatDialogRef<CustomFoodComponent>;
 
-  constructor(private formBuilder: FormBuilder, private entityService: HttpEntityRepositoryService<FoodDetail>, private alertService: AlertService, private authService: AuthService, private modal: MatDialog, private datePipe: DatePipe) {
+  constructor(private formBuilder: FormBuilder, private entityService: HttpEntityRepositoryService<FoodDetail>, private alertService: AlertService, private authService: AuthService, private modal: MatDialog, private datePipe: DatePipe, private modalRef: MatDialogRef<AddFood>) {
     entityService.getAll("/FoodDetail/GetAll").subscribe(data => {
 
       var Data: any = data;
@@ -137,6 +137,7 @@ export class AddFood {
         }, err => {
           this.alertService.openSnackBar(false, "error");
         });
+        this.modalRef.close();
     }
   }
 
