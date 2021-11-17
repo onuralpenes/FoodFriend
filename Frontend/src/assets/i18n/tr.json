@@ -137,5 +137,9 @@
     "cont": "Devam",
     "custom": "Farklı Yemek Ekle",
     "quantity": "Miktarı"
+  },
+  "dash": {
+    "daily": "Günlük Aktivitelerin",
+    "weekly": "Haftalık Aktivitelerin"
   }
 }
