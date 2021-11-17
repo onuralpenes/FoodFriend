@@ -68,8 +68,6 @@ export class ProfileComponent implements OnInit {
 
   constructor(private modal: MatDialog, authService: AuthService, private alertService: AlertService, entityService: HttpEntityRepositoryService<User>){
 
-    
-
     entityService.get("/User/Get?userId=", authService.CurrentUserId).subscribe(data => {
 
       var Data: any = data;
@@ -77,10 +75,6 @@ export class ProfileComponent implements OnInit {
         this.alertService.openSnackBar(Data.success, Data.message);
         return;
       }
-
-
-
-
       this.userName = Data.data.firstName + " " + Data.data.lastName;
       this.email = Data.data.emailAddress;
       this.phone = Data.data.phone;

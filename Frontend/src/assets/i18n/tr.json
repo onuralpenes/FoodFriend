@@ -113,7 +113,11 @@
     "addIll": "Hastalık Ekle",
     "addAll": "Alerji Ekle",
     "addDis": "Engel Ekle",
-    "edit": "Profili Düzenle"
+    "edit": "Profili Düzenle",
+    "healthCard": "Sağlık Kartı",
+    "healthP": "Sağlık detaylarını görmek için.\n Görmek için",
+    "click": "Tıklayın",
+    "healthM":"Daha Fazla Detay"
   },
   "paginator": {
     "item": "Sayfa başına veri",
