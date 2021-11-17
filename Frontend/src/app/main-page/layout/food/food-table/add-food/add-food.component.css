@@ -16,3 +16,13 @@ button {
     border: 1px solid #00ecb0;
       background-color: #00d6a0;
   }
+
+.closeButton{
+  background-color: transparent !important;
+  border: transparent !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  /* position: absolute;
+  top: 0;
+  right: 0; */
+}

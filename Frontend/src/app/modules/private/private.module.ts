@@ -47,6 +47,7 @@ import { PrivateRoutingModule } from './private-routing.module';
 import { GoogleChartsModule } from 'angular-google-charts';
 import { PieChartThreedComponent } from 'src/app/main-page/layout/dashboard/pie-chart-threed/pie-chart-threed.component';
 import { NotifyComponent } from 'src/app/main-page/header/notify/notify.component';
+import { PrimeNgModule } from '../primeng/primeng.module';
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http);
 }
@@ -97,6 +98,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     CommonModule,
     PrivateRoutingModule,
     CustomMaterialModule,
+    PrimeNgModule,
     ReactiveFormsModule,
     GoogleChartsModule,
     FormsModule,
