@@ -154,4 +154,8 @@ export class AddFood {
     }
     this.buildForm();
   }
+
+  closeModal(){
+    this.modalRef.close();
+  }
 }

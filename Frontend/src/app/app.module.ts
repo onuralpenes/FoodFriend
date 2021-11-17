@@ -18,6 +18,7 @@ import { NotFoundComponent } from './not-found/not-found.component';
 import { ConfirmModalComponent } from './helpers/confirmation-modal/confirmation-modal.component';
 import { GoogleChartsModule } from 'angular-google-charts';
 import { LineChartComponent } from './main-page/layout/dashboard/line-chart/line-chart.component';
+import { PrimeNgModule } from './modules/primeng/primeng.module';
 
 
 export function HttpLoaderFactory(http: HttpClient) {
@@ -40,6 +41,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     GoogleChartsModule,
     BrowserAnimationsModule,
     PrivateModule,
+    PrimeNgModule,
     CustomMaterialModule,
     ReactiveFormsModule,
     FormsModule,
