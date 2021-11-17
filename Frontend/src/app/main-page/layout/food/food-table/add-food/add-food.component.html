@@ -2,7 +2,7 @@
   <div class="row">
     <div class="col-md-6">
       <div *ngIf="!isEmpty">
-        <form id="myForm" [formGroup]="addedFoodForm">
+        <form id="myForm" [formGroup]="addedFoodForm" (ngSubmit)="onSubmit('cont')">
           <div [formArrayName]="'formArray'">
             <div *ngFor="let x of addedFoods; let i = index">
               <div [formGroupName]="i">
@@ -23,7 +23,7 @@
     </div>
   
     <div class="col-md-6">
-      <form [formGroup]="addFoodForm" (ngSubmit)="onSubmit('cont')" class="form">
+      <form [formGroup]="addFoodForm" class="form">
         <p>
           <mat-form-field appearance="outline">
             <mat-label>{{'label.select' | translate}}</mat-label>
@@ -36,9 +36,10 @@
         </p>
   
       </form>
+      <p>  
       <button (click)="addFood()">{{'addF.addF' | translate}}</button>
-  
       <button (click)="customFood()">{{'addF.custom' | translate}}</button>
+      </p>
     </div>
   </div>
 </div>
