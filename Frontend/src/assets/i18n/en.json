@@ -137,5 +137,9 @@
     "cont": "Continue",
     "custom": "Add Custom Food",
     "quantity": "Quantity"
+  },
+  "dash": {
+    "daily": "Your Daily Activities",
+    "weekly": "Your Weekly Activities"
   }
 }
