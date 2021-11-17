@@ -1,40 +1,62 @@
 <div *ngIf="!cont">
-  <form [formGroup]="addFoodForm" (ngSubmit)="onSubmit('cont')" class="form">
-    <p>
-      <mat-form-field appearance="outline">
-        <mat-label>{{'label.select' | translate}}</mat-label>
-        <select matNativeControl formControlName="foodName">
-          <option [ngValue]="undefined" disabled>{{'label.select' | translate}}</option>
-          <option *ngFor="let food of foods" [value]="food.foodName">{{ food.foodName }}
-          </option>
-        </select>
-      </mat-form-field>
-    </p>
-
-    <div *ngIf="!isEmpty">
-      <form id="myForm" [formGroup]="addedFoodForm">
-        <div [formArrayName]="'formArray'">
-          <div *ngFor="let x of addedFoods; let i = index">
-            <div [formGroupName]="i">
-              <p>
-                {{x.addedFoodName}}
-              <mat-form-field>
-                <mat-label>{{'addF.quantity' | translate}}</mat-label>
-                <input formControlName="quantity" id="{{x.quantity}}" matInput value="{{x.quantity}}" type="number">
-              </mat-form-field>
-              </p>
+  <div class="row">
+    <div class="col-md-6">
+      <div *ngIf="!isEmpty">
+        <form id="myForm" [formGroup]="addedFoodForm">
+          <div [formArrayName]="'formArray'">
+            <div *ngFor="let x of addedFoods; let i = index">
+              <div [formGroupName]="i">
+                <p>
+                  {{x.addedFoodName}}
+                  <mat-form-field>
+                    <mat-label>{{'addF.quantity' | translate}}</mat-label>
+                    <input formControlName="quantity" id="{{x.quantity}}" matInput value="{{x.quantity}}" type="number">
+                  </mat-form-field>
+                </p>
+              </div>
             </div>
           </div>
-        </div>
-      </form>
+  
+          <button type="submit">{{'addF.cont' | translate}}</button>
+        </form>
+      </div>
     </div>
-
-    <button type="submit">{{'addF.cont' | translate}}</button>
-  </form>
-  <button (click)="addFood()">{{'addF.addF' | translate}}</button>
-
-  <button (click)="customFood()">{{'addF.custom' | translate}}</button>
+  
+    <div class="col-md-6">
+      <form [formGroup]="addFoodForm" (ngSubmit)="onSubmit('cont')" class="form">
+        <p>
+          <mat-form-field appearance="outline">
+            <mat-label>{{'label.select' | translate}}</mat-label>
+            <select matNativeControl formControlName="foodName">
+              <option [ngValue]="undefined" disabled>{{'label.select' | translate}}</option>
+              <option *ngFor="let food of foods" [value]="food.foodName">{{ food.foodName }}
+              </option>
+            </select>
+          </mat-form-field>
+        </p>
+  
+      </form>
+      <button (click)="addFood()">{{'addF.addF' | translate}}</button>
+  
+      <button (click)="customFood()">{{'addF.custom' | translate}}</button>
+    </div>
+  </div>
 </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 <div *ngIf="cont">
   <form [formGroup]="addEatingActivityForm" (ngSubmit)="onSubmit('submit')" class="form">
