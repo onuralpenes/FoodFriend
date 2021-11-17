@@ -113,7 +113,11 @@
     "addIll": "Add Illness",
     "addAll": "Add Allergy",
     "addDis": "Add Disable",
-    "edit": "Edit Profile"
+    "edit": "Edit Profile",
+    "healthCard": "Health Card",
+    "healthP": "Your personal information about your health.\n To see your card",
+    "click": "Click",
+    "healthM":"More Details"
   },
   "paginator": {
     "item": "items per page",
