@@ -24,31 +24,74 @@ export class SurveyComponent implements OnInit {
 
   ngOnInit() {
     this.surveyForm = this.formBuilder.group({
-      'firstName': new FormControl('', [Validators.required]),
-      'lastName': new FormControl('', [Validators.required]),
-      'emailAddress': new FormControl('', [Validators.required]),
-      'phoneNumber': new FormControl('', [Validators.required]),
-      'height': new FormControl('', [Validators.required]),
-      'weight': new FormControl('', [Validators.required]),
-      'birthDate': new FormControl('', [Validators.required]),
+      'firstName': new FormControl(''),
+      'lastName': new FormControl(''),
+      'emailAddress': new FormControl(''),
+      'phoneNumber': new FormControl(''),
+      'height': new FormControl(''),
+      'weight': new FormControl(''),
+      'birthDate': new FormControl(''),
     });
   }
 
   onSubmit() {
-    let updateData: any = {
-      userId: this.authService.CurrentUserId,
-      emailAddress: this.surveyForm.value.emailAddress,
-      birthDate: this.surveyForm.value.birthDate,
-      firstName: this.surveyForm.value.firstName,
-      lastName: this.surveyForm.value.lastName,
-      phone: this.surveyForm.value.phoneNumber
-    }
-    this.entityService.update("/User/Update", updateData).subscribe(data => {
-      var Data: any = data;
-      if (!Data.success) {
-        this.alertService.openSnackBar(Data.success, Data.message);
+    this.entityService.get("/User/Get?userId=", this.authService.CurrentUserId).subscribe(dta => {
+      var usr: any = dta;
+      if (!usr.success) {
+        this.alertService.openSnackBar(usr.success, usr.message);
         return;
       }
+      let emailAddress;
+      let birthDate;
+      let firstName;
+      let lastName;
+      let phoneNumber;
+
+      if (this.surveyForm.value.emailAddress == null) {
+        emailAddress = usr.data.emailAddress;
+      }
+      else {
+        emailAddress = this.surveyForm.value.emailAddress;
+      }
+      if (this.surveyForm.value.birthDate == null) {
+        birthDate = usr.data.birthDate;
+      }
+      else {
+        birthDate = this.surveyForm.value.birthDate;
+      }
+      if (this.surveyForm.value.firstName == null) {
+        firstName = usr.data.firstName;
+      }
+      else {
+        firstName = this.surveyForm.value.firstName;
+      }
+      if (this.surveyForm.value.lastName == null) {
+        lastName = usr.data.lastName;
+      }
+      else {
+        lastName = this.surveyForm.value.lastName;
+      }
+      if (this.surveyForm.value.phoneNumber == null) {
+        phoneNumber = usr.data.phoneNumber;
+      }
+      else {
+        phoneNumber = this.surveyForm.value.phoneNumber;
+      }
+      let updateData: any = {
+        userId: this.authService.CurrentUserId,
+        emailAddress: emailAddress,
+        birthDate: birthDate,
+        firstName: firstName,
+        lastName: lastName,
+        phone: phoneNumber
+      }
+      this.entityService.update("/User/Update", updateData).subscribe(data => {
+        var Data: any = data;
+        if (!Data.success) {
+          this.alertService.openSnackBar(Data.success, Data.message);
+          return;
+        }
+      })
     });
   }
 
