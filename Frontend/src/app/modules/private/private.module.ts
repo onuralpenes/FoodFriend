@@ -48,6 +48,7 @@ import { GoogleChartsModule } from 'angular-google-charts';
 import { PieChartThreedComponent } from 'src/app/main-page/layout/dashboard/pie-chart-threed/pie-chart-threed.component';
 import { NotifyComponent } from 'src/app/main-page/header/notify/notify.component';
 import { PrimeNgModule } from '../primeng/primeng.module';
+import { ActivityFilterPipe } from 'src/app/helpers/activity-filter.pipe';
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http);
 }
@@ -84,6 +85,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     EditFood,
     ExpertShortCardComponent,
     ExpertFilterPipe,
+    ActivityFilterPipe,
     AddFood,
     AddIllness,
     AddAllergy,

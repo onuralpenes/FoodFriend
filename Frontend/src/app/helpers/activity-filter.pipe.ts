@@ -1,13 +1,13 @@
 import { Pipe, PipeTransform } from '@angular/core';
-import { Expert } from '../models/core/expert.model';
+import { PersonalEnergyActivity } from '../models/data/energy-activity.model';
 const { isArray } = Array;
 
 @Pipe({
-    name: 'expertfilter'
+    name: 'activityfilter'
 })
-export class ExpertFilterPipe implements PipeTransform {
+export class ActivityFilterPipe implements PipeTransform {
     
-    transform(post: Expert[], find: string): Expert[] {
+    transform(post: PersonalEnergyActivity[], find: string): PersonalEnergyActivity[] {
         if (!post) return [];
         if (!find) return post;
         find = find.toLowerCase();
