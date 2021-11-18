@@ -94,3 +94,10 @@ solid rgb(0 0 0);
   padding: 0;
   margin: 0 auto;
 }
+
+
+@media only screen and (min-width: 1440px){
+  .upper-div{
+    height: 40% !important;
+  }
+}

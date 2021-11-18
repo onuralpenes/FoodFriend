@@ -1,8 +1,10 @@
+
+<div style="width: 450px;">
 <form [formGroup]="illnessForm" (ngSubmit)="addIllness()" class>
-  <p class="select">
-    <mat-form-field class="label" appearance="outline">
+  <p>
+    <mat-form-field style="width: 90% !important; align-items: center;" appearance="outline">
       <mat-label>{{'label.select' | translate}}</mat-label>
-      <select  matNativeControl formControlName="illnessName" required>
+      <select matNativeControl formControlName="illnessName" required>
         <option [ngValue]="undefined" disabled>{{'label.select' | translate}}</option>
         <option *ngFor="let illness of illnesses" [value]="illness.illnessName">{{ illness.illnessName }}
         </option>
@@ -11,3 +13,4 @@
   </p>
   <button class="input-group" type="submit">Add</button>
 </form>
+</div>

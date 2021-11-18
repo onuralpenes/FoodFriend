@@ -99,6 +99,9 @@ export class PieChartThreedComponent implements OnInit {
 }
    getLightTheme() {
     return {
+      
+      borderColor: 'transparent',
+      backgroundColor: 'transparent',
         plugins: {
             legend: {
                 labels: {
@@ -109,7 +112,7 @@ export class PieChartThreedComponent implements OnInit {
         scales: {
             r: {
                 grid: {
-                    color: '#ebedef'
+                    color: '#6a7075b8'
                 }
             }
         }

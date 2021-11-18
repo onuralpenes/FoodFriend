@@ -139,7 +139,7 @@
     "quantity": "Miktarı"
   },
   "dash": {
-    "daily": "Günlük Aktivitelerin",
-    "weekly": "Haftalık Aktivitelerin"
+    "daily": "Günlük Yeme Aktivitelerin",
+    "weekly": "Haftalık Yeme Aktivitelerin"
   }
 }
