@@ -74,16 +74,9 @@
     </p>
 
     <p class="cb">
-      <mat-checkbox class="" [color]="color" formControlName="tos">
-        <label class="invalid" *ngIf="submitted && f.tos.errors "> {{'label.tos' | translate}}*</label>
-        <label *ngIf="!submitted || !f.tos.errors"> {{'label.tos' | translate}}*</label>
-      </mat-checkbox>
-    </p>
-
-    <p class="cb">
       <mat-checkbox class="" [color]="color" formControlName="priv">
-        <label class="invalid" *ngIf="submitted && f.priv.errors " > {{'label.pp' | translate}}*</label>
-        <label *ngIf="!submitted || !f.priv.errors"> {{'label.pp' | translate}}*</label>
+        <label class="invalid" *ngIf="submitted && f.priv.errors " (click) = "priv = true"> {{'label.pp' | translate}}*</label>
+        <label *ngIf="!submitted || !f.priv.errors" (click) = "priv = true"> {{'label.pp' | translate}}*</label>
       </mat-checkbox>
     </p>
 
@@ -103,3 +96,7 @@
     </div>
   </div>
 </ng-template>
+
+<p-dialog header="Privacy Policy" [(visible)]="priv" [dismissableMask]="true" [draggable]="false" [modal]="true" [appendTo]="'body'" [closeOnEscape]="true" [blockScroll]="true" [style]="{width: '50vw'}">
+  BURDA HEP PRİVACY POLICY YAZIYO ASLINDA :)
+</p-dialog>
