@@ -139,7 +139,7 @@
     "quantity": "Quantity"
   },
   "dash": {
-    "daily": "Your Daily Activities",
-    "weekly": "Your Weekly Activities"
+    "daily": "Your Daily Eating Activities",
+    "weekly": "Your Weekly Eating Activities"
   }
 }
