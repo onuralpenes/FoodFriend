@@ -3,7 +3,8 @@ import { DialogModule } from 'primeng/dialog';
 import { InputTextModule } from 'primeng/inputtext';
 import { TableModule } from 'primeng/table';
 import { PaginatorModule } from 'primeng/paginator';
-import {ButtonModule} from 'primeng/button';
+import { ButtonModule } from 'primeng/button';
+import { ChartModule } from 'primeng/chart';
 
 @NgModule({
     imports: [
@@ -12,6 +13,7 @@ import {ButtonModule} from 'primeng/button';
         TableModule,
         PaginatorModule,
         ButtonModule,
+        ChartModule,
     ],
     exports: [
         DialogModule,
@@ -19,6 +21,7 @@ import {ButtonModule} from 'primeng/button';
         TableModule,
         PaginatorModule,
         ButtonModule,
+        ChartModule,
     ]
 
 })
