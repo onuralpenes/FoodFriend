@@ -110,14 +110,14 @@ export class AddFood {
         this.newNutrition.push(newNut);
       }
     }
-    let d = this.datePipe.transform(new Date(), 'yyyy-MM-dd');
-    let d1 = new Date( d + ' ' +  this.startDate + ":00");
-    let d2 = new Date( d + ' ' +  this.endDate + ":00");
+    // let d = this.datePipe.transform(new Date(), 'yyyy-MM-dd');
+    // let d1 = new Date( d + ' ' +  this.startDate + ":00");
+    // let d2 = new Date( d + ' ' +  this.endDate + ":00");
     let newEatAct: EatingActivity = {
       eatingActivityId: 0,
       userId: +this.authService.CurrentUserId,
-      startEatingActivity: d1,
-      endEatingActivity: d2,
+      startEatingActivity: this.startDate,
+      endEatingActivity: this.endDate,
       consumptionType: 0,
       estimatedCalorie: 0,
       nutritions: this.newNutrition
