@@ -1,6 +1,7 @@
+<div style="width: 450px;">
 <form [formGroup]="allergyForm" (ngSubmit)="addAllergy()" class>
   <p>
-    <mat-form-field appearance="outline">
+    <mat-form-field style="width: 90% !important; align-items: center;" appearance="outline">
       <mat-label>{{'label.select' | translate}}</mat-label>
       <select matNativeControl formControlName="allergyName" required>
         <option [ngValue]="undefined" disabled>{{'label.select' | translate}}</option>
@@ -11,3 +12,4 @@
   </p>
   <button class="input-group" type="submit">Add</button>
 </form>
+</div>
