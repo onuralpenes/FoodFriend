@@ -26,17 +26,20 @@ p{
 .counselee-img-div{
     align-items: center;
     margin-left: 5%;
+    margin-top: 5%;
 }
 .counselee-short-info{
     width: 100%;
     margin-left: 0;
     position: inherit;
     height: 275px;
-    background: linear-gradient(0deg, #15dd9c 0%, #eaeaea 87%);
+    /* background: linear-gradient(0deg, #15dd9c 0%, #eaeaea 87%); */
 }
 .groups{
-    margin: 0px;
+    margin: 5px;
     padding: 20px;
+    height: 100%;
+    width: 100%;
 }
 .aim{
     margin: 0px;
@@ -52,7 +55,8 @@ p{
     height: 100%;
 }
 .info{
-    margin-left: 100px;
+    margin-left: 10%;
+    font-size: 130%;
 }
 .pragnentEnable{
     display: inline-block;
@@ -65,8 +69,25 @@ p{
     margin-right: 10px;
 }
 
+.card{
+  height: 100%;
+  width: 100%;
+  margin-top: 10%;
+}
 
- mat-card {
+.cardTop{
+  height: 40%;
+  width: 80%;
+  margin-left: 10%;
+  margin-top: 2%;
+}
+
+.forMargin{
+  margin-left: 10%;
+  margin-top: 3%;
+}
+
+ /* mat-card {
    width: 500px;
    margin: 20px;
    background: #e5e5e5;
@@ -87,7 +108,7 @@ p{
  }
  mat-card-title-group {
    margin: 0;
- }
+ } */
 
  span {
    font-size: 13px;
