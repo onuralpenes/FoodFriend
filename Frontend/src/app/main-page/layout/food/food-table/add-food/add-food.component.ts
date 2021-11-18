@@ -110,9 +110,7 @@ export class AddFood {
         this.newNutrition.push(newNut);
       }
     }
-    // let d = this.datePipe.transform(new Date(), 'yyyy-MM-dd');
-    // let d1 = new Date( d + ' ' +  this.startDate + ":00");
-    // let d2 = new Date( d + ' ' +  this.endDate + ":00");
+    
     let newEatAct: EatingActivity = {
       eatingActivityId: 0,
       userId: +this.authService.CurrentUserId,
@@ -133,16 +131,18 @@ export class AddFood {
   }
   public fod: any;
   addFood() {
-    for (let i = 0; i < this.addedFods.length; i++) {
-      this.fod = this.addedFods[i];
-      let addFod: AddedFood = {
-        addedFoodName: this.fod.foodName,
-        addedFoodId: this.fod.foodDetailId,
-        quantity: 1
+    if(this.addedFods.length != 0){
+      for (let i = 0; i < this.addedFods.length; i++) {
+        this.fod = this.addedFods[i];
+        let addFod: AddedFood = {
+          addedFoodName: this.fod.foodName,
+          addedFoodId: this.fod.foodDetailId,
+          quantity: 1
+        }
+        this.addedFoods.push(addFod);
       }
-      this.addedFoods.push(addFod);
+      this.buildForm();
+      this.activeIndex = 2;
     }
-    this.buildForm();
-    this.activeIndex = 2;
   }
 }
