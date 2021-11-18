@@ -1,4 +1,5 @@
 import { NgModule } from "@angular/core";
+import { ConfirmDialogModule } from 'primeng/confirmdialog';
 import { DialogModule } from 'primeng/dialog';
 import { InputTextModule } from 'primeng/inputtext';
 import { TableModule } from 'primeng/table';
@@ -14,6 +15,7 @@ import { ChartModule } from 'primeng/chart';
         PaginatorModule,
         ButtonModule,
         ChartModule,
+        ConfirmDialogModule,
     ],
     exports: [
         DialogModule,
@@ -22,6 +24,7 @@ import { ChartModule } from 'primeng/chart';
         PaginatorModule,
         ButtonModule,
         ChartModule,
+        ConfirmDialogModule,
     ]
 
 })

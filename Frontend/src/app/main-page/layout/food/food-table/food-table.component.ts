@@ -1,16 +1,13 @@
-import { AfterViewInit, Component, ViewChild } from '@angular/core';
+import { Component } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
-import { MatPaginator } from '@angular/material/paginator';
-import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
-import { LangChangeEvent, TranslateService } from '@ngx-translate/core';
+import { TranslateService } from '@ngx-translate/core';
 import { AlertService } from 'src/app/helpers/alert.service';
-import { ConfirmModalComponent } from 'src/app/helpers/confirmation-modal/confirmation-modal.component';
 import { EatingActivity } from 'src/app/models/data/eating-activity.model';
 import { AuthService } from 'src/app/services/auth.service';
-import { HttpEntityRepositoryService } from 'src/app/services/http-entity-repository.service';
-import { AddFood } from './add-food/add-food.component';
+import { HttpEntityRepositoryService } from 'src/app/services/http-entity-repository.service';;
 import { EditFood } from './edit-table.component';
+import { ConfirmationService } from 'primeng/api';
 
 export interface EatTable {
   nutId: number;
@@ -32,14 +29,14 @@ export interface Group {
   selector: 'app-food-table',
   templateUrl: './food-table.component.html',
   styleUrls: ['./food-table.component.css'],
+  providers: [ConfirmationService]
 })
-export class FoodTableComponent implements AfterViewInit {
+export class FoodTableComponent {
   eatTable: (EatTable | Group)[] = [];
-  sortedData = this.eatTable;
   isNull: boolean = true;
-  addFod:boolean = false;
+  addFod: boolean = false;
 
-  constructor(private modal: MatDialog, authService: AuthService, private entityService: HttpEntityRepositoryService<EatingActivity>, private translate: TranslateService, private alertService: AlertService) {
+  constructor(private modal: MatDialog, authService: AuthService, private entityService: HttpEntityRepositoryService<EatingActivity>, private translate: TranslateService, private alertService: AlertService, private confirmationService: ConfirmationService,) {
     entityService.get('/EatingActivity/GetByUserId?userId=', authService.CurrentUserId).subscribe(data => {
 
       var Data: any = data;
@@ -59,7 +56,7 @@ export class FoodTableComponent implements AfterViewInit {
         let time1 = Data.data[i].startEatingActivity;
         let time2 = Data.data[i].endEatingActivity;
         for (let j = 0; j < Data.data[i].nutritions.length; j++) {
-          if(Data.data[i].nutritions[j].foodDetailId == 0){
+          if (Data.data[i].nutritions[j].foodDetailId == 0) {
             let newEat: EatTable = {
               nutId: Data.data[i].nutritions[j].nutritionId,
               foodId: Data.data[i].nutritions[j].foodDetailId,
@@ -71,7 +68,7 @@ export class FoodTableComponent implements AfterViewInit {
             }
             this.eatTable.push(newEat);
           }
-          else{
+          else {
             let newEat: EatTable = {
               nutId: Data.data[i].nutritions[j].nutritionId,
               foodId: Data.data[i].nutritions[j].foodDetailId,
@@ -121,27 +118,6 @@ export class FoodTableComponent implements AfterViewInit {
   ];
   dataSource = new MatTableDataSource(this.eatTable);
 
-  @ViewChild(MatSort) sort!: MatSort;
-
-  delete(id: number, name: string) {
-    this.modal.open(ConfirmModalComponent, {
-      data: {
-        title: 'Confirm Remove Nutrition',
-        message: 'Are you sure, you want to remove a nutrition: ' + name
-      }
-    }).afterClosed().subscribe(result => {
-      if (result === true) {
-        this.eatTable = this.eatTable.filter(nut => nut.nutId != id);
-        this.entityService.delete("/Nutrition?id=", id).subscribe(data => {
-          this.alertService.openSnackBar(true, "success");
-        }, err => {
-          this.alertService.openSnackBar(false, "unsuccess");
-        })
-      }
-    });
-
-  }
-
   openEdit(id: number) {
     let editEat: EatTable | Group = this.eatTable.filter(eatId => eatId.nutId == id)[0]
     this.modal.open(EditFood, {
@@ -163,5 +139,20 @@ export class FoodTableComponent implements AfterViewInit {
     }
   }
 
-  ngAfterViewInit() {}
+  delete(id: number, name: string) {
+    this.confirmationService.confirm({
+      message: 'Are you sure, you want to remove a nutrition: ' + name,
+      header: 'Confirmation',
+      icon: 'pi pi-exclamation-triangle',
+      accept: () => {
+        this.eatTable = this.eatTable.filter(nut => nut.nutId != id);
+        this.entityService.delete("/Nutrition?id=", id).subscribe(data => {
+          this.alertService.openSnackBar(true, "success");
+        })
+      },
+      reject: () => {
+        this.alertService.openSnackBar(false, "unsuccess");
+      }
+    });
+  }
 }
