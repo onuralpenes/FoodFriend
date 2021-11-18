@@ -18,7 +18,6 @@ import { PickListModule } from 'primeng/picklist';
         PaginatorModule,
         ButtonModule,
         ChartModule,
-        ToastModule,
         ConfirmDialogModule,
         TabViewModule,
         PickListModule
@@ -30,7 +29,6 @@ import { PickListModule } from 'primeng/picklist';
         PaginatorModule,
         ButtonModule,
         ChartModule,
-        ToastModule,
         ConfirmDialogModule,
         TabViewModule,
         PickListModule
