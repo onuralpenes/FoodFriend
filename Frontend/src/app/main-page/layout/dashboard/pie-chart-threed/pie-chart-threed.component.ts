@@ -20,11 +20,36 @@ export interface MyData {
 export class PieChartThreedComponent implements OnInit {
 
   data: any;
-
+  protein:any;
+  carbohydrate:any;
+  oil:any;
   chartOptions: any;
 
 
+  drawGraph(){
+    this.data = {
+      datasets: [{
+          data: [
+              this.protein,
+              this.carbohydrate,
+              this.oil
+          ],
+          backgroundColor: [
+              "#42A5F5",
+              "#66BB6A",
+              "#FFA726"
+          ],
+          label: 'My dataset'
+      }],
+      labels: [
+          "Protein",
+          "Carbohydrate",
+          "Oil"
+      ]
+  };
+  this.updateChartOptions();
 
+  }
   public chart: any[] = [];
   constructor(private entityService: HttpEntityRepositoryService<EatingActivity>, private authService: AuthService, private alertService: AlertService) {
     const datepipe: DatePipe = new DatePipe('en-US');
@@ -41,6 +66,11 @@ export class PieChartThreedComponent implements OnInit {
       }else{
         chartTitle = 'Besin Değerlerin'
       }
+      this.protein = Data.data.totalProtein;
+      this.oil = Data.data.totalOil;
+      this.carbohydrate = Data.data.totalCarbohydrate;
+      this.drawGraph();
+      console.log("++++++++++++")
       console.log(Data)
       this.chart.push({
         title: chartTitle,
@@ -105,33 +135,6 @@ getDarkTheme() {
     }
 }
    ngOnInit() {
-    this.data = {
-      datasets: [{
-          data: [
-              11,
-              16,
-              7,
-              3,
-              14
-          ],
-          backgroundColor: [
-              "#42A5F5",
-              "#66BB6A",
-              "#FFA726",
-              "#26C6DA",
-              "#7E57C2"
-          ],
-          label: 'My dataset'
-      }],
-      labels: [
-          "Red",
-          "Green",
-          "Yellow",
-          "Grey",
-          "Blue"
-      ]
-  };
-  this.updateChartOptions();
   }
 }
 
