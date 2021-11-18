@@ -10,21 +10,20 @@
     currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries" [rowsPerPageOptions]="[10,25,50]">
     <ng-template pTemplate="header">
       <tr>
-        <th pSortableColumn="activityType">{{'table.name' | translate}} <p-sortIcon field="activityType"></p-sortIcon>
+        <th pSortableColumn="foodName">{{'table.name' | translate}} <p-sortIcon field="foodName"></p-sortIcon>
         </th>
-        <th pSortableColumn="activityPeriod">{{'table.weight' | translate}} <p-sortIcon field="activityPeriod">
+        <th pSortableColumn="weight">{{'table.weight' | translate}} <p-sortIcon field="weight">
           </p-sortIcon>
         </th>
-        <th pSortableColumn="activityEffortSpent">{{'table.calorie' | translate}} <p-sortIcon
-            field="activityEffortSpent"></p-sortIcon>
+        <th pSortableColumn="calorie">{{'table.calorie' | translate}} <p-sortIcon field="calorie"></p-sortIcon>
         </th>
-        <th pSortableColumn="activityeffortUnit">{{'table.protein' | translate}} <p-sortIcon field="activityeffortUnit">
+        <th pSortableColumn="protein">{{'table.protein' | translate}} <p-sortIcon field="protein">
           </p-sortIcon>
         </th>
-        <th pSortableColumn="activityStartDate">{{'table.oil' | translate}}<p-sortIcon field="activityStartDate">
+        <th pSortableColumn="oil">{{'table.oil' | translate}}<p-sortIcon field="oil">
           </p-sortIcon>
         </th>
-        <th pSortableColumn="activityEndDate">{{'table.carbohydrate' | translate}}<p-sortIcon field="activityEndDate">
+        <th pSortableColumn="carbohydrate">{{'table.carbohydrate' | translate}}<p-sortIcon field="carbohydrate">
           </p-sortIcon>
         </th>
       </tr>
