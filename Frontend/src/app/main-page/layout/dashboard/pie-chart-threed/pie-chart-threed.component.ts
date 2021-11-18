@@ -18,6 +18,7 @@ export interface MyData {
   styleUrls: ['./pie-chart-threed.component.css']
 })
 export class PieChartThreedComponent implements OnInit {
+
   data: any;
 
   chartOptions: any;
@@ -60,28 +61,77 @@ export class PieChartThreedComponent implements OnInit {
 
     
    }
-
-   ngOnInit() {
-    this.data = {
-        labels: ['A','B','C'],
-        datasets: [
-            {
-                data: [300, 50, 100],
-                backgroundColor: [
-                    "#FF6384",
-                    "#36A2EB",
-                    "#FFCE56"
-                ],
-                hoverBackgroundColor: [
-                    "#FF6384",
-                    "#36A2EB",
-                    "#FFCE56"
-                ]
+   updateChartOptions() {
+    if (false)
+        this.chartOptions = this.getDarkTheme();
+    else
+        this.chartOptions = this.getLightTheme();
+}
+   getLightTheme() {
+    return {
+        plugins: {
+            legend: {
+                labels: {
+                    color: '#495057'
+                }
             }
-        ]
-    };
+        },
+        scales: {
+            r: {
+                grid: {
+                    color: '#ebedef'
+                }
+            }
+        }
+    }
 }
 
-
+getDarkTheme() {
+    return {
+        plugins: {
+            legend: {
+                labels: {
+                    color: '#ebedef'
+                }
+            }
+        },
+        scales: {
+            r: {
+                grid: {
+                    color: 'rgba(255,255,255,0.2)'
+                }
+            }
+        }
+    }
+}
+   ngOnInit() {
+    this.data = {
+      datasets: [{
+          data: [
+              11,
+              16,
+              7,
+              3,
+              14
+          ],
+          backgroundColor: [
+              "#42A5F5",
+              "#66BB6A",
+              "#FFA726",
+              "#26C6DA",
+              "#7E57C2"
+          ],
+          label: 'My dataset'
+      }],
+      labels: [
+          "Red",
+          "Green",
+          "Yellow",
+          "Grey",
+          "Blue"
+      ]
+  };
+  this.updateChartOptions();
+  }
 }
 

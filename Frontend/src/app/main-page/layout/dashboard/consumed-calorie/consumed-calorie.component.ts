@@ -13,6 +13,11 @@ import { DatePipe } from '@angular/common';
 })
 export class ConsumedCalorieComponent {
 
+  data: any;
+
+  chartOptions: any;
+
+  
   color = '#b10f0f';
   tot = CALORIE_DATA.total;
   cal = 0;
@@ -51,4 +56,57 @@ export class ConsumedCalorieComponent {
       console.log(Data)
     })
   }
+getLightTheme() {
+  return {
+      plugins: {
+          legend: {
+              labels: {
+                  color: '#495057'
+              }
+          }
+      }
+  }
+}
+getDarkTheme() {
+  return {
+      plugins: {
+          legend: {
+              labels: {
+                  color: '#ebedef'
+              }
+          }
+      }
+  }
+}
+  updateChartOptions() {
+    
+    if (false)
+    this.chartOptions = this.getDarkTheme();
+    else
+    this.chartOptions= this.getLightTheme();
+}
+
+  ngOnInit() {
+    this.data = {
+        labels: ['A','B','C'],
+        datasets: [
+            {
+                data: [300, 50, 100],
+                backgroundColor: [
+                    "#FF6384",
+                    "#36A2EB",
+                    "#FFCE56"
+                ],
+                hoverBackgroundColor: [
+                    "#FF6384",
+                    "#36A2EB",
+                    "#FFCE56"
+                ]
+            }
+        ]
+    };
+
+    this.updateChartOptions();
+}
+
 }
