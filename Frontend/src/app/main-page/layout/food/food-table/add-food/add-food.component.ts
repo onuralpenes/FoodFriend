@@ -62,7 +62,7 @@ export class AddFood {
     Object.keys(this.addedFoods).forEach((i) => {
       this.contArray.push(
         this.formBuilder.group({
-          quantity: new FormControl({ value: 1 })
+          quantity: new FormControl(1)
         })
       )
     })
@@ -71,7 +71,9 @@ export class AddFood {
   customFood() {
     this.customFod = true;
     this.customFoodService.getCustomFoodInfo().subscribe(data => {
-      this.addedFods.push(data);
+      if(data.foodName != ""){
+        this.addedFods.push(data);
+      }
     })
   }
 
