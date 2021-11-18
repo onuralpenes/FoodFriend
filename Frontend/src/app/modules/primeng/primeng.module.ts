@@ -6,6 +6,8 @@ import { TableModule } from 'primeng/table';
 import { PaginatorModule } from 'primeng/paginator';
 import { ButtonModule } from 'primeng/button';
 import { ChartModule } from 'primeng/chart';
+import { TabViewModule } from 'primeng/tabview';
+import { PickListModule } from 'primeng/picklist';
 
 @NgModule({
     imports: [
@@ -16,6 +18,8 @@ import { ChartModule } from 'primeng/chart';
         ButtonModule,
         ChartModule,
         ConfirmDialogModule,
+        TabViewModule,
+        PickListModule
     ],
     exports: [
         DialogModule,
@@ -25,6 +29,8 @@ import { ChartModule } from 'primeng/chart';
         ButtonModule,
         ChartModule,
         ConfirmDialogModule,
+        TabViewModule,
+        PickListModule
     ]
 
 })
