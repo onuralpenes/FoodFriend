@@ -39,7 +39,8 @@
                 </tr>
               </ng-template>
 
-              <ng-template pTemplate="body" let-nut>
+              <ng-template pTemplate="body" let-nut >
+
                 <tr>
                   <td>{{nut.foodName }}</td>
                   <td>{{nut.quantity}}</td>
@@ -90,7 +91,7 @@
 </p-dialog>
 
 <p-dialog header="Edit Eating Activity" [(visible)]="editFod" [dismissableMask]="true" [draggable]="false"
-  [modal]="true" [appendTo]="'body'" [closeOnEscape]="true" [blockScroll]="true" [style]="{width: '50vw'}">
+  [modal]="true" [appendTo]="'body'" [closeOnEscape]="true" [blockScroll]="true" [style]="{width: '25%'}">
   <app-edit-food></app-edit-food>
 </p-dialog>
 
