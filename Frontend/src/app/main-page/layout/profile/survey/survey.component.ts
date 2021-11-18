@@ -14,7 +14,7 @@ export class SurveyComponent implements OnInit {
 
   surveyForm!: FormGroup;
   post: any = '';
-  illness: boolean = false;s
+  illness: boolean = false;
   allergy: boolean = false;
   disabled: boolean = false;
 
