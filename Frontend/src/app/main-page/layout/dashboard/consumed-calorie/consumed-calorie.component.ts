@@ -33,7 +33,7 @@ export class ConsumedCalorieComponent {
 
     this.data = {
       
-      labels: ['Alınan Kalori','Alınabilecek Kalori'],
+      labels: ['Calories Taken','Calories Available'],
       datasets: [
           {
               data: [this.gainedCalorie, this.left],
