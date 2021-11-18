@@ -64,27 +64,6 @@
   </p-table>
 </div>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-          <div *ngIf="!isNull">{{'table.null' | translate}}</div>
-
-
-
 <p-dialog header="Add Eating Activity" [(visible)]="addFod" [dismissableMask]="true" [draggable]="false" [modal]="true"
   [appendTo]="'body'" [closeOnEscape]="true" [blockScroll]="true" [style]="{width: '50vw'}">
   <app-add-food></app-add-food>

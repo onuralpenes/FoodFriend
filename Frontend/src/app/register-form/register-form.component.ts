@@ -15,6 +15,7 @@ export class RegisterFormComponent implements OnInit {
   hide = true;
   hideConf = true;
   approved = false;
+  priv = false;
 
   constructor(private formBuilder: FormBuilder, private registerService: RegisterService) { }
 
@@ -27,7 +28,6 @@ export class RegisterFormComponent implements OnInit {
       password: new FormControl('', [Validators.required, Validators.minLength(8)]),
       passwordConf: new FormControl('', [Validators.required, Validators.minLength(8)]),
       birthDate: new FormControl('', [Validators.required]),
-      tos: new FormControl('', [Validators.required]),
       priv: new FormControl('', [Validators.required]),
     }, { validator: Match('password', 'passwordConf') });
   }
