@@ -15,14 +15,14 @@ export class AddIllness {
   illnesses: IllnessDetail[] = [];
   constructor(private formBuilder: FormBuilder, private alertService: AlertService,
     private entityService: HttpEntityRepositoryService<IllnessDetail>, private authService: AuthService) {
-      entityService.getAll("​/IllnessDetail​/GetAll").subscribe(data => {
+      entityService.getAll("​/IllnessDetail/GetAll").subscribe(data => {
 
         var Data: any = data;
         if (!Data.success) {
           this.alertService.openSnackBar(Data.success, Data.message);
           return;
         }
-  
+
         this.illnesses = Data.data;
       });
     this.illnessForm = this.formBuilder.group({
