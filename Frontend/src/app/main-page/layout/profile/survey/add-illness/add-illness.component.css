@@ -1,6 +1,6 @@
 button {
 	width: auto;
-  margin: 0 auto;
+    margin: 0 auto;
 	border-radius: 25px;
 	border: 1px solid #53ecbe;
 	background-color: #3ad6a7;
@@ -17,6 +17,9 @@ button:active {
 	transform: scale(0.95);
 }
 
+.p-dialog{
+  width: 25% !important;
+}
 button:focus {
 	outline: none;
 }
@@ -31,10 +34,5 @@ button.ghost {
 }
 
 .label{
-  width: 90% !important;
-}
-
-.select{
-  width: 50% !important;
-  height: 50% !important;
+  width: 80% !important;
 }

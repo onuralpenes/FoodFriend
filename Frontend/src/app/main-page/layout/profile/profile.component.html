@@ -1,9 +1,12 @@
-
 <p-card class="card cardTop">
   <div class="row counselee-short-info">
     <div class="col-4">
       <div class="counselee-img-div">
-        <img (click)="editProfile()" class="profile-img" src="../../../../assets/user.jpg" />
+        <img
+          (click)="editProfile()"
+          class="profile-img"
+          src="../../../../assets/user.jpg"
+        />
       </div>
       <div class="counselee-name">
         <p>
@@ -52,83 +55,93 @@
   </div>
 </p-card>
 
+<div class="container">
+  <div class="row general">
+    <div class="row">
+      <div class="row" style="height: auto">
+        <div class="col-md-4">
+          <p-card class="card">
+            <div class="list-info">
+              <h1 style="font-weight: bold" class="forMargin">
+                {{ "profile.illness" | translate }}
+              </h1>
 
+              <div [hidden]="hasIllness" class="groups">
+                <p>{{ "profile.noIll" | translate }}</p>
+              </div>
 
-
-
-  <div class="container">
-    <div class="row general">
-      <div class="row">
-        <div class="row" style="height: auto">
-
-
-          <div class="col-md-4">
-            <p-card class="card" >
-              <div class="list-info">
-                <h1 style="font-weight: bold;" class="forMargin">{{ "profile.illness" | translate }}</h1>
-
-                <div [hidden]="hasIllness" class="groups">
-                  <p>{{ "profile.noIll" | translate }}</p>
-                </div>
-
-                <div [hidden]="!hasIllness" class="row groups">
-                  <div class="col-md-6" *ngFor="let illness of illnessList">
-                    <p>{{ illness.illnessName }}</p>
-                  </div>
+              <div [hidden]="!hasIllness" class="row groups">
+                <div class="col-md-6" *ngFor="let illness of illnessList">
+                  <p>{{ illness.illnessName }}</p>
                 </div>
               </div>
-            </p-card>
+            </div>
+          </p-card>
+        </div>
 
+        <div class="col-md-4">
+          <p-card class="card">
+            <div class="list-info">
+              <h1 style="font-weight: bold" class="forMargin">
+                {{ "profile.allergy" | translate }}
+              </h1>
 
-          </div>
-
-          <div class="col-md-4">
-            <p-card class="card" >
-              <div class="list-info">
-                <h1 style="font-weight: bold;" class="forMargin">{{ "profile.allergy" | translate }}</h1>
-
-                <div [hidden]="hasAllergy" class="groups">
-                  <p>{{ "profile.noAll" | translate }}</p>
-                </div>
-                <div [hidden]="!hasAllergy" class="row groups">
-                  <div class="col-md-6" *ngFor="let allergy of allergyList;">
-                    <p>{{ allergy.allergyName }}</p>
-                  </div>
+              <div [hidden]="hasAllergy" class="groups">
+                <p>{{ "profile.noAll" | translate }}</p>
+              </div>
+              <div [hidden]="!hasAllergy" class="row groups">
+                <div class="col-md-6" *ngFor="let allergy of allergyList">
+                  <p>{{ allergy.allergyName }}</p>
                 </div>
               </div>
-            </p-card>
-          </div>
+            </div>
+          </p-card>
+        </div>
 
-          <div class="col-md-4">
-            <p-card class="card" >
-              <div class="list-info">
-                <h1 style="font-weight: bold;" class="forMargin">{{ "profile.disable" | translate }}</h1>
+        <div class="col-md-4">
+          <p-card class="card">
+            <div class="list-info">
+              <h1 style="font-weight: bold" class="forMargin">
+                {{ "profile.disable" | translate }}
+              </h1>
 
-                <div [hidden]="isDisabled" class="groups">
-                  <p>{{ "profile.noDis" | translate }}</p>
-                </div>
-                <div [hidden]="!isDisabled" class="row groups">
-                  <div class="col-md-6" *ngFor="let disable of disabledList;">
-                    <p> {{disable.disabledDescription}}: {{disable.disabledRatio}}% </p>
-                  </div>
+              <div [hidden]="isDisabled" class="groups">
+                <p>{{ "profile.noDis" | translate }}</p>
+              </div>
+              <div [hidden]="!isDisabled" class="row groups">
+                <div class="col-md-6" *ngFor="let disable of disabledList">
+                  <p>
+                    {{ disable.disabledDescription }}:
+                    {{ disable.disabledRatio }}%
+                  </p>
                 </div>
               </div>
-            </p-card>
-          </div>
+            </div>
+          </p-card>
+        </div>
 
-          <div class="col-md-6" [hidden] = "true">
-            <p-card class="card" >
-              <div class="row aim">
-                <p>{{ "profile.aim" | translate }}: {{ dummy }}</p>
-              </div>
-            </p-card>
-          </div>
-
+        <div class="col-md-6" [hidden]="true">
+          <p-card class="card">
+            <div class="row aim">
+              <p>{{ "profile.aim" | translate }}: {{ dummy }}</p>
+            </div>
+          </p-card>
         </div>
       </div>
     </div>
   </div>
+</div>
 
-<p-dialog header="{{'profile.edit' | translate}}" [(visible)]="editProf" [dismissableMask]="true" [draggable]="false" [modal]="true" [appendTo]="'body'" [closeOnEscape] = "true" [blockScroll] = "true" [style]="{width: '50vw'}">
+<p-dialog
+  header="{{ 'profile.edit' | translate }}"
+  [(visible)]="editProf"
+  [dismissableMask]="true"
+  [draggable]="false"
+  [modal]="true"
+  [appendTo]="'body'"
+  [closeOnEscape]="true"
+  [blockScroll]="true"
+  [style]="{ width: '50vw' }"
+>
   <app-survey></app-survey>
 </p-dialog>
