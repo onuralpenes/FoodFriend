@@ -69,35 +69,35 @@
               <mat-datepicker #picker></mat-datepicker>
             </mat-form-field>
           </div>
-          <button type="submit" class="submitButton">{{'label.submit' | translate}}</button>
         </form>
 
         <div class="row mt-3">
           <div class="col-md-4">
             <div class="buttons">
-              <button class="tab-button" mat-icon-button (click)="addIllness()">
-                <i class="fa fa-medkit" aria-hidden="true"> {{'profile.addIll' | translate}}</i>
+              <button pButton pRipple type="button" class="p-button-rounded p-button-success" (click)="addIllness()">
+                <a aria-hidden="true"> {{'profile.addIll' | translate}}</a>
               </button>
             </div>
           </div>
 
           <div class="col-md-4">
             <div class="buttons">
-              <button class="tab-button" mat-icon-button (click)="addAllergy()">
-                <i class="fa fa-plus-square" aria-hidden="true"> {{'profile.addAll' | translate}}</i>
+              <button pButton pRipple type="button" class="p-button-rounded p-button-success" (click)="addAllergy()">
+                <a  aria-hidden="true"> {{'profile.addAll' | translate}}</a>
               </button>
             </div>
           </div>
 
           <div class="col-md-4">
             <div class="buttons">
-              <button class="tab-button" mat-icon-button (click)="addDisability()">
-                <i class="fa fa-wheelchair" aria-hidden="true"> {{'profile.addDis' | translate}}</i>
+              <button pButton pRipple type="button" class="p-button-rounded p-button-success" (click)="addDisability()">
+                <a aria-hidden="true"> {{'profile.addDis' | translate}}</a>
               </button>
             </div>
           </div>
 
         </div>
+        <button type="submit" class="submitButton">{{'label.submit' | translate}}</button>
 
       </div>
     </div>

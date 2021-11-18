@@ -1,6 +1,6 @@
 button {
 	width: auto;
-    margin: 0 auto;
+  margin: 0 auto;
 	border-radius: 25px;
 	border: 1px solid #53ecbe;
 	background-color: #3ad6a7;
@@ -24,4 +24,12 @@ button:focus {
 button.ghost {
 	background-color: transparent;
 	border-color: #fff;
+}
+
+.input-group{
+  float: left;
+}
+
+.label{
+  width: 90% !important;
 }

@@ -25,3 +25,7 @@ button.ghost {
 	background-color: transparent;
 	border-color: #fff;
 }
+
+.input-group{
+  float: left;
+}
