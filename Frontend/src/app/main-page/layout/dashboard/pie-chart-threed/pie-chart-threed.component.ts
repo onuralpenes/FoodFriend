@@ -18,12 +18,38 @@ export interface MyData {
   styleUrls: ['./pie-chart-threed.component.css']
 })
 export class PieChartThreedComponent implements OnInit {
-  data: any;
 
+  data: any;
+  protein:any;
+  carbohydrate:any;
+  oil:any;
   chartOptions: any;
 
 
+  drawGraph(){
+    this.data = {
+      datasets: [{
+          data: [
+              this.protein,
+              this.carbohydrate,
+              this.oil
+          ],
+          backgroundColor: [
+              "#42A5F5",
+              "#66BB6A",
+              "#FFA726"
+          ],
+          label: 'My dataset'
+      }],
+      labels: [
+          "Protein",
+          "Carbohydrate",
+          "Oil"
+      ]
+  };
+  this.updateChartOptions();
 
+  }
   public chart: any[] = [];
   constructor(private entityService: HttpEntityRepositoryService<EatingActivity>, private authService: AuthService, private alertService: AlertService) {
     const datepipe: DatePipe = new DatePipe('en-US');
@@ -40,6 +66,11 @@ export class PieChartThreedComponent implements OnInit {
       }else{
         chartTitle = 'Besin Değerlerin'
       }
+      this.protein = Data.data.totalProtein;
+      this.oil = Data.data.totalOil;
+      this.carbohydrate = Data.data.totalCarbohydrate;
+      this.drawGraph();
+      console.log("++++++++++++")
       console.log(Data)
       this.chart.push({
         title: chartTitle,
@@ -60,28 +91,50 @@ export class PieChartThreedComponent implements OnInit {
 
     
    }
-
-   ngOnInit() {
-    this.data = {
-        labels: ['A','B','C'],
-        datasets: [
-            {
-                data: [300, 50, 100],
-                backgroundColor: [
-                    "#FF6384",
-                    "#36A2EB",
-                    "#FFCE56"
-                ],
-                hoverBackgroundColor: [
-                    "#FF6384",
-                    "#36A2EB",
-                    "#FFCE56"
-                ]
+   updateChartOptions() {
+    if (false)
+        this.chartOptions = this.getDarkTheme();
+    else
+        this.chartOptions = this.getLightTheme();
+}
+   getLightTheme() {
+    return {
+        plugins: {
+            legend: {
+                labels: {
+                    color: '#495057'
+                }
             }
-        ]
-    };
+        },
+        scales: {
+            r: {
+                grid: {
+                    color: '#ebedef'
+                }
+            }
+        }
+    }
 }
 
-
+getDarkTheme() {
+    return {
+        plugins: {
+            legend: {
+                labels: {
+                    color: '#ebedef'
+                }
+            }
+        },
+        scales: {
+            r: {
+                grid: {
+                    color: 'rgba(255,255,255,0.2)'
+                }
+            }
+        }
+    }
+}
+   ngOnInit() {
+  }
 }
 
