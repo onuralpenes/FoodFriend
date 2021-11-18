@@ -11,10 +11,11 @@ import { HttpEntityRepositoryService } from 'src/app/services/http-entity-reposi
 })
 export class ActivityTableComponent {
   activities: PersonalEnergyActivity[] = [];
+  activity: PersonalEnergyActivity[] = [];
   isNull: boolean = true;
   first = 0;
   rows = 10;
-  searchText: string = "";
+  searchText = "";
 
 
   constructor(private translate: TranslateService, private entityService: HttpEntityRepositoryService<PersonalEnergyActivity>, private alertService: AlertService) {
@@ -26,6 +27,7 @@ export class ActivityTableComponent {
       }
 
       this.activities = Data.data;
+      this.activity = Data.data;
     });
   }
   keyup(searchText) {

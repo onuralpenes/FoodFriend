@@ -3,10 +3,9 @@
 }
 
 .image{
-  max-height: 300px !important;
-  max-width: 450px !important;
+  max-height: 225px !important;
+  max-width: 337,5px !important;
 }
-
 
 .tab-button{
 	border: none;
@@ -14,7 +13,7 @@
   }
 
 .tab-button:hover{
-  color: #009879;
+  color: #009879 !important;
 }
 
 .buttons{
@@ -49,4 +48,13 @@
 .submitButton:hover{
   border: 1px solid #00ecb0;
 	background-color: #00d6a0;
+}
+
+.p-button-rounded{
+  background-color: #009879;
+  font-weight: bold;
+}
+
+.p-button-rounded:hover{
+  background-color: #00d6a0 !important;
 }

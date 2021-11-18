@@ -1,34 +1,18 @@
 import { Component, OnInit } from '@angular/core';
-import { MatDialog } from '@angular/material/dialog';
 import { AlertService } from 'src/app/helpers/alert.service';
-import { HealthInfo } from 'src/app/models/user/health-info/health-info.model';
-import { PhysicalInfo } from 'src/app/models/user/physical-info/pysical-info.model';
 import { User } from 'src/app/models/user/user.model';
 import { AuthService } from 'src/app/services/auth.service';
 import { HttpEntityRepositoryService } from 'src/app/services/http-entity-repository.service';
-import { SurveyComponent } from './survey/survey.component';
-import {
-  ChartErrorEvent,
-  ChartMouseLeaveEvent,
-  ChartMouseOverEvent,
-  ChartSelectionChangedEvent,
-  ChartType,
-  Column,
-  GoogleChartComponent
-} from 'angular-google-charts';
 export interface IllnessList {
   illnessName: string;
 }
-
 export interface AllergyList {
   allergyName: string;
 }
-
 export interface PregnantList {
   pregnantStartDate: Date;
   pregnantEndDate: Date;
 }
-
 export interface DisabledList {
   disabledDescription: string;
   disabledRatio: number;
@@ -53,6 +37,7 @@ export class ProfileComponent implements OnInit {
   hasAllergy!: boolean;
   isPregnant!: boolean;
   isDisabled!: boolean;
+  editProf: boolean = false;
   dummy = "dummy";
   gender = "male";
   genderless = false;
@@ -66,7 +51,7 @@ export class ProfileComponent implements OnInit {
   pregnantList!: PregnantList[];
   disabledList!: DisabledList[];
 
-  constructor(private modal: MatDialog, authService: AuthService, private alertService: AlertService, entityService: HttpEntityRepositoryService<User>){
+  constructor(authService: AuthService, private alertService: AlertService, entityService: HttpEntityRepositoryService<User>){
 
     entityService.get("/User/Get?userId=", authService.CurrentUserId).subscribe(data => {
 
@@ -118,7 +103,7 @@ export class ProfileComponent implements OnInit {
   }
 
   editProfile() {
-    this.modal.open(SurveyComponent);
+    this.editProf = true;
   }
 
   ngOnInit(): void {

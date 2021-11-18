@@ -1,8 +1,6 @@
-<h2>{{'profile.addIll' | translate}}</h2>
-
 <form [formGroup]="illnessForm" (ngSubmit)="addIllness()" class>
   <p>
-    <mat-form-field appearance="outline">
+    <mat-form-field class="label" appearance="outline">
       <mat-label>{{'label.select' | translate}}</mat-label>
       <select matNativeControl formControlName="illnessName" required>
         <option [ngValue]="undefined" disabled>{{'label.select' | translate}}</option>
