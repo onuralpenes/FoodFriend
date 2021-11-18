@@ -33,3 +33,8 @@ button.ghost {
 .label{
   width: 90% !important;
 }
+
+.select{
+  width: 50% !important;
+  height: 50% !important;
+}

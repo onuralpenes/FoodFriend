@@ -1,4 +1,5 @@
 import { NgModule } from "@angular/core";
+import { ConfirmDialogModule } from 'primeng/confirmdialog';
 import { DialogModule } from 'primeng/dialog';
 import { InputTextModule } from 'primeng/inputtext';
 import { TableModule } from 'primeng/table';
@@ -6,6 +7,7 @@ import { PaginatorModule } from 'primeng/paginator';
 import { ButtonModule } from 'primeng/button';
 import { ChartModule } from 'primeng/chart';
 import { ToastModule } from 'primeng/toast';
+
 @NgModule({
     imports: [
         DialogModule,
@@ -14,7 +16,8 @@ import { ToastModule } from 'primeng/toast';
         PaginatorModule,
         ButtonModule,
         ChartModule,
-        ToastModule
+        ToastModule,
+        ConfirmDialogModule,
     ],
     exports: [
         DialogModule,
@@ -23,7 +26,8 @@ import { ToastModule } from 'primeng/toast';
         PaginatorModule,
         ButtonModule,
         ChartModule,
-        ToastModule
+        ToastModule,
+        ConfirmDialogModule,
     ]
 
 })

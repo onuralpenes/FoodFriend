@@ -103,14 +103,14 @@
   </div>
 </div>
 
-<p-dialog header="{{'profile.addIll' | translate}}" [(visible)]="illness" [dismissableMask]="true" [draggable]="false" [modal]="true" [appendTo]="'body'" [closeOnEscape] = "true" [blockScroll] = "true" [style]="{width: '50vw'}">
+<p-dialog header="{{'profile.addIll' | translate}}" [(visible)]="illness" [dismissableMask]="true" [draggable]="false" [modal]="true" [appendTo]="'body'" [closeOnEscape] = "true" [blockScroll] = "true">
   <app-add-illness></app-add-illness>
 </p-dialog>
 
-<p-dialog header="{{'profile.addAll' | translate}}" [(visible)]="allergy" [dismissableMask]="true" [draggable]="false" [modal]="true" [appendTo]="'body'" [closeOnEscape] = "true" [blockScroll] = "true" [style]="{width: '50vw'}">
+<p-dialog header="{{'profile.addAll' | translate}}" [(visible)]="allergy" [dismissableMask]="true" [draggable]="false" [modal]="true" [appendTo]="'body'" [closeOnEscape] = "true" [blockScroll] = "true">
   <app-add-allergy></app-add-allergy>
 </p-dialog>
 
-<p-dialog header="{{'profile.addDis' | translate}}" [(visible)]="disabled" [dismissableMask]="true" [draggable]="false" [modal]="true" [appendTo]="'body'" [closeOnEscape] = "true" [blockScroll] = "true" [style]="{width: '50vw'}">
+<p-dialog header="{{'profile.addDis' | translate}}" [(visible)]="disabled" [dismissableMask]="true" [draggable]="false" [modal]="true" [appendTo]="'body'" [closeOnEscape] = "true" [blockScroll] = "true">
   <app-add-disability></app-add-disability>
 </p-dialog>
