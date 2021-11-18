@@ -32,6 +32,7 @@ export class ConsumedCalorieComponent {
   drawGraph(){
 
     this.data = {
+      
       labels: ['Alınan Kalori','Alınabilecek Kalori'],
       datasets: [
           {
@@ -82,6 +83,9 @@ export class ConsumedCalorieComponent {
   }
 getLightTheme() {
   return {
+    
+    borderColor: 'transparent',
+    backgroundColor: 'transparent',
       plugins: {
           legend: {
               labels: {

@@ -112,7 +112,7 @@ export class PieChartThreedComponent implements OnInit {
         scales: {
             r: {
                 grid: {
-                    color: '#62686e'
+                    color: '#6a7075b8'
                 }
             }
         }
