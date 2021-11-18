@@ -109,7 +109,12 @@ export class EatingHabitChartComponent {
           return;
         }else{
           this.weeklyEatingActivity[i] = Data.data.totalCalorie;
-          this.weeklyAvailableCalorie[i] = 2000-Data.data.totalCalorie;
+          if(Data.data.totalCalorie > 2000){
+            this.weeklyAvailableCalorie[i] = 0;
+          }else{
+            this.weeklyAvailableCalorie[i] = 2000-Data.data.totalCalorie;
+          }
+          
           console.log( i +"==="+ "" + Data.data.totalCalorie + " eee ")
             
           this.updateChartOptions();
