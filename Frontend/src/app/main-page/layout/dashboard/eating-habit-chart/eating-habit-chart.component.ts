@@ -132,7 +132,7 @@ export class EatingHabitChartComponent {
   }
 
   updateChartOptions() {
-    if (true)
+    if (false)
         this.applyDarkTheme();
     else
         this.applyLightTheme();
@@ -142,14 +142,14 @@ applyDarkTheme() {
       plugins: {
           legend: {
               labels: {
-                  color: '#ebedef'
+                  color: '#1c682d'
               }
           }
       },
       scales: {
           x: {
               ticks: {
-                  color: '#ebedef'
+                  color: '#1c682d'
               },
               grid: {
                   color: 'rgba(255,255,255,0.2)'
@@ -157,7 +157,7 @@ applyDarkTheme() {
           },
           y: {
               ticks: {
-                  color: '#ebedef'
+                  color: '#1c682d'
               },
               grid: {
                   color: 'rgba(255,255,255,0.2)'
@@ -166,6 +166,9 @@ applyDarkTheme() {
       }
   };
 
+
+
+  
   this.horizontalOptions = {
       indexAxis: 'y',
       plugins: {

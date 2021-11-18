@@ -13,6 +13,14 @@ import { DatePipe } from '@angular/common';
 })
 export class ConsumedCalorieComponent {
 
+  data: any;
+
+  chartOptions: any;
+  
+  gainedCalorie :any;
+  
+  totalCalories=2000; //sonradan diyetisyenin vereceği kalori şimdilik biz giriyoruz
+  
   color = '#b10f0f';
   tot = CALORIE_DATA.total;
   cal = 0;
@@ -21,7 +29,27 @@ export class ConsumedCalorieComponent {
   unit = "";
   tit = "";
   sub = "";
+  drawGraph(){
 
+    this.data = {
+      labels: ['Alınan Kalori','Alınabilecek Kalori'],
+      datasets: [
+          {
+              data: [this.gainedCalorie, this.left],
+              backgroundColor: [
+                  "#FF6384",
+                  "#36A2EB"
+              ],
+              hoverBackgroundColor: [
+                  "#FF6384",
+                  "#36A2EB"
+              ]
+          }
+      ]
+  };
+
+  this.updateChartOptions();
+  }
   constructor(private entityService: HttpEntityRepositoryService<EatingActivity>, private authService: AuthService, private alertService: AlertService){
     const datepipe: DatePipe = new DatePipe('en-US');
     let date = datepipe.transform(new Date(new Date().setDate(new Date().getDate())), 'YYYY-MM-dd'); 
@@ -35,9 +63,9 @@ export class ConsumedCalorieComponent {
         this.tit = "Henüz besin alınmamış"
         this.sub = "Verilerini görmek için beslen"
       }else{
-      this.cal = Data.data.totalCalorie;
+      this.gainedCalorie = Data.data.totalCalorie;
       this.tit = this.cal.toString() + " calorie";
-      this.left = this.tot - this.cal;
+      this.left = this.totalCalories - this.gainedCalorie;
       this.per = (100 * this.cal) / this.tot;
       this.sub = "You can eat " + this.left.toString() + " calorie";
       this.color = '#00db93'
@@ -48,7 +76,41 @@ export class ConsumedCalorieComponent {
         this.sub = "Yeterli kalori alındı";
       }
       }
+      this.drawGraph();
       console.log(Data)
     })
   }
+getLightTheme() {
+  return {
+      plugins: {
+          legend: {
+              labels: {
+                  color: '#495057'
+              }
+          }
+      }
+  }
+}
+getDarkTheme() {
+  return {
+      plugins: {
+          legend: {
+              labels: {
+                  color: '#ebedef'
+              }
+          }
+      }
+  }
+}
+  updateChartOptions() {
+    
+    if (false)
+    this.chartOptions = this.getDarkTheme();
+    else
+    this.chartOptions= this.getLightTheme();
+}
+
+  ngOnInit() {
+}
+
 }

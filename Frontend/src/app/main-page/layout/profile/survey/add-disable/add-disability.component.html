@@ -2,11 +2,11 @@
 
 <form [formGroup]="disabilityForm" (ngSubmit)="addDisability()" class>
     <p>
-      <mat-form-field appearance="outline">
-        <mat-label>{{'label.select' | translate}}</mat-label>
+      <mat-form-field style="width: 90% !important; align-items: center;" appearance="outline">
+        <mat-label >{{'label.select' | translate}}</mat-label>
         <select matNativeControl formControlName="disabledDescription" required>
           <option [ngValue]="undefined" disabled>{{'label.select' | translate}}</option>
-          <option *ngFor="let disability of disabilities" [value]="disability.disabledDescription">{{ disability.disabledDescription }}
+          <option class="label" *ngFor="let disability of disabilities" [value]="disability.disabledDescription">{{ disability.disabledDescription }}
           </option>
         </select>
       </mat-form-field>
