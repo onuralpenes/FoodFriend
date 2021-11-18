@@ -65,4 +65,8 @@
   <app-add-food></app-add-food>
 </p-dialog>
 
+<p-dialog header="Edit Eating Activity" [(visible)]="editFod" [dismissableMask]="true" [draggable]="false" [modal]="true" [appendTo]="'body'" [closeOnEscape] = "true" [blockScroll] = "true" [style]="{width: '50vw'}">
+  <app-edit-food></app-edit-food>
+</p-dialog>
+
 <p-confirmDialog [dismissableMask]="true" [draggable]="false" [modal]="true" [appendTo]="'body'" [closeOnEscape] = "true" [blockScroll] = "true" [baseZIndex]="10000"></p-confirmDialog>

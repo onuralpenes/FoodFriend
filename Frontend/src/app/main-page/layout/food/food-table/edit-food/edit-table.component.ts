@@ -1,25 +1,28 @@
-import { Component, Inject } from "@angular/core";
+import { Component } from "@angular/core";
 import { FormBuilder, FormControl, FormGroup } from "@angular/forms";
-import { MAT_DIALOG_DATA } from "@angular/material/dialog";
 import { AlertService } from "src/app/helpers/alert.service";
+import { EditService } from "src/app/helpers/edit.service";
 import { EatingActivity } from "src/app/models/data/eating-activity.model";
 import { FoodDetail } from "src/app/models/data/food-detail.model";
 import { Nutrition } from "src/app/models/data/nutrition.model";
 import { AuthService } from "src/app/services/auth.service";
 import { HttpEntityRepositoryService } from "src/app/services/http-entity-repository.service";
-import { EatTable } from "../food-table.component";
 
 @Component({
     selector: 'app-edit-food',
     templateUrl: './edit-food.html',
-    styleUrls: ['./food-table.component.css'],
+    styleUrls: ['../food-table.component.css'],
   })
   export class EditFood {
     editForm!: FormGroup;
     foods: FoodDetail[] = [];
     post: any = '';
+    editEat: any;
   
-    constructor(@Inject(MAT_DIALOG_DATA) public data: EatTable, private authService: AuthService, private formBuilder: FormBuilder, private entityService1: HttpEntityRepositoryService<Nutrition>, private entityService2: HttpEntityRepositoryService<EatingActivity>, private alertService: AlertService) {
+    constructor( private authService: AuthService, private editService: EditService, private formBuilder: FormBuilder, private entityService1: HttpEntityRepositoryService<Nutrition>, private entityService2: HttpEntityRepositoryService<EatingActivity>, private alertService: AlertService) {
+      editService.getFoodInfo().subscribe(data => {
+        this.editEat = data;
+      })
       entityService1.getAll("/FoodDetail/GetAll").subscribe(data => {
 
         var Data: any = data;
@@ -51,18 +54,18 @@ import { EatTable } from "../food-table.component";
           foodId = this.foods.filter(food => food.foodName == this.editForm.value.foodName)[0].foodDetailId;
         }
         else{
-          foodName = this.data.foodName;
-          foodId = this.data.foodId;
+          foodName = this.editEat.foodName;
+          foodId = this.editEat.foodId;
         }
         if(this.editForm.value.quantity){
           quantity = this.editForm.value.quantity;
         }
         else{
-          quantity = this.data.quantity;
+          quantity = this.editEat.quantity;
         }
         let editedNut: Nutrition = {
-          nutritionId: this.data.nutId,
-          eatingActivityId: this.data.eatId,
+          nutritionId: this.editEat.nutId,
+          eatingActivityId: this.editEat.eatId,
           foodDetailId: foodId,
           foodName: foodName,
           quantity: quantity,
@@ -79,16 +82,16 @@ import { EatTable } from "../food-table.component";
           sDate = this.editForm.value.startDate;
         }
         else{
-            sDate = this.data.startDate;
+            sDate = this.editEat.startDate;
         }
         if(this.editForm.value.endDate!= null){
           eDate = this.editForm.value.endDate;
         }
         else{
-            eDate = this.data.endDate;
+            eDate = this.editEat.endDate;
         }
         let editedAct ={
-          eatingActivityId: this.data.eatId,
+          eatingActivityId: this.editEat.eatId,
           userId: this.authService.CurrentUserId,
           startEatingActivity: sDate,
           endEatingActivity: eDate,

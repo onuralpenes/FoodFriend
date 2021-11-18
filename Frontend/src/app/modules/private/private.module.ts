@@ -49,6 +49,7 @@ import { PieChartThreedComponent } from 'src/app/main-page/layout/dashboard/pie-
 import { NotifyComponent } from 'src/app/main-page/header/notify/notify.component';
 import { PrimeNgModule } from '../primeng/primeng.module';
 import { ActivityFilterPipe } from 'src/app/helpers/activity-filter.pipe';
+import { EditService } from 'src/app/helpers/edit.service';
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http);
 }
@@ -113,6 +114,6 @@ export function HttpLoaderFactory(http: HttpClient) {
     }),
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
-  providers: [CalendarDataService]
+  providers: [CalendarDataService, EditService]
 })
 export class PrivateModule { }

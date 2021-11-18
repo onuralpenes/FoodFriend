@@ -6,8 +6,8 @@ import { AlertService } from 'src/app/helpers/alert.service';
 import { EatingActivity } from 'src/app/models/data/eating-activity.model';
 import { AuthService } from 'src/app/services/auth.service';
 import { HttpEntityRepositoryService } from 'src/app/services/http-entity-repository.service';;
-import { EditFood } from './edit-food/edit-table.component';
 import { ConfirmationService } from 'primeng/api';
+import { EditService } from 'src/app/helpers/edit.service';
 
 export interface EatTable {
   nutId: number;
@@ -35,8 +35,9 @@ export class FoodTableComponent {
   eatTable: (EatTable | Group)[] = [];
   isNull: boolean = true;
   addFod: boolean = false;
+  editFod: boolean = false;
 
-  constructor(private modal: MatDialog, authService: AuthService, private entityService: HttpEntityRepositoryService<EatingActivity>, private translate: TranslateService, private alertService: AlertService, private confirmationService: ConfirmationService,) {
+  constructor(private modal: MatDialog, private editService: EditService, authService: AuthService, private entityService: HttpEntityRepositoryService<EatingActivity>, private translate: TranslateService, private alertService: AlertService, private confirmationService: ConfirmationService,) {
     entityService.get('/EatingActivity/GetByUserId?userId=', authService.CurrentUserId).subscribe(data => {
 
       var Data: any = data;
@@ -120,9 +121,8 @@ export class FoodTableComponent {
 
   openEdit(id: number) {
     let editEat: EatTable | Group = this.eatTable.filter(eatId => eatId.nutId == id)[0]
-    this.modal.open(EditFood, {
-      data: editEat,
-    });
+    this.editService.setFoodInfo(editEat);
+    this.editFod = true;
   }
 
   addFood() {
