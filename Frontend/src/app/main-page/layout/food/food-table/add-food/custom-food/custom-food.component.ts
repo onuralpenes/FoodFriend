@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
-import { MatDialogRef } from '@angular/material/dialog';
 import { AlertService } from 'src/app/helpers/alert.service';
+import { CustomFoodService } from 'src/app/helpers/custom-food.pipe';
 import { FoodDetail } from 'src/app/models/data/food-detail.model';
 import { HttpEntityRepositoryService } from 'src/app/services/http-entity-repository.service';
 
@@ -15,9 +15,8 @@ export class CustomFoodComponent implements OnInit {
 
   customFoodForm!: FormGroup;
   post: any = '';
-  customFood!: FoodDetail;
 
-  constructor(private formBuilder: FormBuilder, private entityService: HttpEntityRepositoryService<FoodDetail>, private alertService: AlertService, private modalRef: MatDialogRef<CustomFoodComponent>) { }
+  constructor(private formBuilder: FormBuilder, private entityService: HttpEntityRepositoryService<FoodDetail>, private alertService: AlertService, private customFoodService: CustomFoodService) { }
 
   ngOnInit() {
     this.customFoodForm = this.formBuilder.group({
@@ -31,7 +30,7 @@ export class CustomFoodComponent implements OnInit {
   }
 
   onSubmit() {
-    this.customFood = {
+    let customFood = {
       foodDetailId: 0,
       foodName: this.customFoodForm.value.foodName,
       weight: this.customFoodForm.value.weight,
@@ -41,16 +40,14 @@ export class CustomFoodComponent implements OnInit {
       carbohydrate: this.customFoodForm.value.carbohydrate,
       myProperty: ""
     }
+    this.customFoodService.setCustomFoodInfo(customFood);
 
-    this.entityService.insert("/FoodDetail/Add", JSON.stringify(this.customFood))
-      .subscribe(data => {
-        this.alertService.openSnackBar(true, "success");
-        this.modalRef.close(`${this.customFoodForm.value.foodName}`);
-      }, err => {
-        this.alertService.openSnackBar(false, "error");
-        this.modalRef.close();
-      });
-      
-    
+    // this.entityService.insert("/FoodDetail/Add", JSON.stringify(this.customFood))
+    //   .subscribe(data => {
+    //     this.alertService.openSnackBar(true, "success");
+    //     this.modalRef.close(`${this.customFoodForm.value.foodName}`);
+    //   }, err => {
+    //     this.alertService.openSnackBar(false, "error");
+    //   });
   }
 }

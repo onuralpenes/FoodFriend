@@ -50,6 +50,7 @@ import { NotifyComponent } from 'src/app/main-page/header/notify/notify.componen
 import { PrimeNgModule } from '../primeng/primeng.module';
 import { ActivityFilterPipe } from 'src/app/helpers/activity-filter.pipe';
 import { EditService } from 'src/app/helpers/edit.service';
+import { CustomFoodService } from 'src/app/helpers/custom-food.pipe';
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http);
 }
@@ -114,6 +115,6 @@ export function HttpLoaderFactory(http: HttpClient) {
     }),
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
-  providers: [CalendarDataService, EditService]
+  providers: [CalendarDataService, EditService, CustomFoodService]
 })
 export class PrivateModule { }

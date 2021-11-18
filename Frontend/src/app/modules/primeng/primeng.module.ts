@@ -6,7 +6,8 @@ import { TableModule } from 'primeng/table';
 import { PaginatorModule } from 'primeng/paginator';
 import { ButtonModule } from 'primeng/button';
 import { ChartModule } from 'primeng/chart';
-import { ToastModule } from 'primeng/toast';
+import { TabViewModule } from 'primeng/tabview';
+import { PickListModule } from 'primeng/picklist';
 
 @NgModule({
     imports: [
@@ -16,8 +17,9 @@ import { ToastModule } from 'primeng/toast';
         PaginatorModule,
         ButtonModule,
         ChartModule,
-        ToastModule,
         ConfirmDialogModule,
+        TabViewModule,
+        PickListModule
     ],
     exports: [
         DialogModule,
@@ -26,8 +28,9 @@ import { ToastModule } from 'primeng/toast';
         PaginatorModule,
         ButtonModule,
         ChartModule,
-        ToastModule,
         ConfirmDialogModule,
+        TabViewModule,
+        PickListModule
     ]
 
 })

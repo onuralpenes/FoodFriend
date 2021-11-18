@@ -1,59 +1,64 @@
-<div *ngIf="!cont">
-  <div class="row">
+<p-tabView [(activeIndex)]="activeIndex">
+  <p-tabPanel header="Date Entry" [disabled]=true>
+    <form #dateForm="ngForm">
+      <mat-form-field appearance="outline">
+        <mat-label>{{'table.start' | translate}}</mat-label>
+        <input matInput name="startEatingActivity" type="time" placeholder="HH:MM" required [(ngModel)]="startDate">
+      </mat-form-field>
 
-    <div [ngClass]="isEmpty ? 'col-md-12' : 'col-md-6'">
-      <form [formGroup]="addFoodForm" class="form">
-        <p>
-          <mat-form-field appearance="outline">
-            <mat-label>{{'label.select' | translate}}</mat-label>
-            <select matNativeControl formControlName="foodName">
-              <option [ngValue]="undefined" disabled>{{'label.select' | translate}}</option>
-              <option *ngFor="let food of foods" [value]="food.foodName">{{ food.foodName }}
-              </option>
-            </select>
-          </mat-form-field>
-        </p>
+      <mat-form-field appearance="outline">
+        <mat-label>{{'table.end' | translate}}</mat-label>
+        <input matInput name="endEatingActivity" type="time" placeholder="HH:MM" required [(ngModel)]="endDate">
+      </mat-form-field>
+      <button (click)="setDate()"
+        style="right: 0; position: absolute;">Next</button>
+    </form>
+  </p-tabPanel>
 
-      </form>
-      <p>
-        <button (click)="addFood()">{{'addF.addF' | translate}}</button>
-        <button (click)="customFood()">{{'addF.custom' | translate}}</button>
-      </p>
-    </div>
+  <p-tabPanel header="Nutrition Entry" [disabled]=true>
 
-    <div class="col-md-6" [hidden]="isEmpty">
-        <form id="myForm" [formGroup]="addedFoodForm" (ngSubmit)="onSubmit('cont')">
-          <div [formArrayName]="'formArray'">
-            <div *ngFor="let x of addedFoods; let i = index">
-              <div [formGroupName]="i">
-                <p>
-                  {{x.addedFoodName}}
-                  <mat-form-field>
-                    <mat-label>{{'addF.quantity' | translate}}</mat-label>
-                    <input formControlName="quantity" id="{{x.quantity}}" matInput value="{{x.quantity}}" type="number">
-                  </mat-form-field>
-                </p>
-              </div>
-            </div>
+    <p-pickList [source]="foods" [target]="addedFods" sourceHeader="Nutrition List" targetHeader="Your Choices"
+      [responsive]="true" [sourceStyle]="{'height':'300px'}" [targetStyle]="{'height':'300px'}" filterBy="name"
+      sourceFilterPlaceholder="Search" targetFilterPlaceholder="Search">
+      <ng-template let-food pTemplate="item">
+        {{food.foodName}}
+      </ng-template>
+    </p-pickList>
+
+    <p style="margin: 0 auto">
+      <button (click)="customFood();">{{'addF.custom' | translate}}</button>
+    </p>
+    <p>
+      <button (click)="activeIndex = 0" style="left: 0; position: absolute;">Prev</button>
+      <button (click)="addFood()" style="right: 0; position: absolute;">Next</button>
+    </p>
+  </p-tabPanel>
+
+
+  <p-tabPanel header="Quantity Entry" [disabled]=true>
+    <form id="myForm" [formGroup]="addedFoodForm" (ngSubmit)="onSubmit()">
+      <div [formArrayName]="'formArray'">
+        <div *ngFor="let x of addedFoods; let i = index">
+          <div [formGroupName]="i">
+            <p>
+              {{x.addedFoodName}}
+              <mat-form-field>
+                <mat-label>{{'addF.quantity' | translate}}</mat-label>
+                <input formControlName="quantity" id="{{x.quantity}}" matInput value="{{x.quantity}}" type="number">
+              </mat-form-field>
+            </p>
           </div>
-
-          <button type="submit">{{'addF.cont' | translate}}</button>
-        </form>
+        </div>
       </div>
-    </div>
-</div>
 
-<div *ngIf="cont">
-  <form [formGroup]="addEatingActivityForm" (ngSubmit)="onSubmit('submit')" class="form">
-    <mat-form-field appearance="outline">
-      <mat-label>{{'table.start' | translate}}</mat-label>
-      <input matInput formControlName="startEatingActivity" type="time" placeholder="HH:MM">
-    </mat-form-field>
+      <button type="submit">{{'addF.cont' | translate}}</button>
+    </form>
 
-    <mat-form-field appearance="outline">
-      <mat-label>{{'table.end' | translate}}</mat-label>
-      <input matInput formControlName="endEatingActivity" type="time" placeholder="HH:MM">
-    </mat-form-field>
-    <button type="submit">{{'label.submit' | translate}}</button>
-  </form>
-</div>
+    <button (click)="activeIndex = 1" style="left: 0; position: absolute;">Prev</button>
+  </p-tabPanel>
+</p-tabView>
+
+<p-dialog header="Add Custom Food" [(visible)]="customFod" [dismissableMask]="true" [draggable]="false"
+  [modal]="true" [appendTo]="'body'" [closeOnEscape]="true" [blockScroll]="true" [style]="{width: '50vw'}">
+  <app-custom-food></app-custom-food>
+</p-dialog>
