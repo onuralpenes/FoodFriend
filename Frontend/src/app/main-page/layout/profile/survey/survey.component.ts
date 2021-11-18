@@ -1,14 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
-import { MatDialog, MatDialogRef } from '@angular/material/dialog';
+import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
 import { AlertService } from 'src/app/helpers/alert.service';
 import { User } from 'src/app/models/user/user.model';
 import { AuthService } from 'src/app/services/auth.service';
 import { HttpEntityRepositoryService } from 'src/app/services/http-entity-repository.service';
-import { AddAllergy } from './add-allergy/add-allergy.component';
-import { AddDisability } from './add-disable/add-disability.component';
-import { AddIllness } from './add-illness/add-illness.component';
-
 
 @Component({
   selector: 'app-survey',
@@ -19,8 +14,11 @@ export class SurveyComponent implements OnInit {
 
   surveyForm!: FormGroup;
   post: any = '';
+  illness: boolean = false;s
+  allergy: boolean = false;
+  disabled: boolean = false;
 
-  constructor(private formBuilder: FormBuilder, private authService: AuthService, private modal: MatDialog, private entityService: HttpEntityRepositoryService<User>, private alertService: AlertService, private modalRef: MatDialogRef<SurveyComponent>) { }
+  constructor(private formBuilder: FormBuilder, private authService: AuthService, private entityService: HttpEntityRepositoryService<User>, private alertService: AlertService) { }
 
   ngOnInit() {
     this.surveyForm = this.formBuilder.group({
@@ -92,20 +90,19 @@ export class SurveyComponent implements OnInit {
           return;
         }
         this.alertService.openSnackBar(Data.success, "success");
-      }, err=> { this.alertService.openSnackBar(false, "unsuccess");})
-      this.modalRef.close();
+      }, err => { this.alertService.openSnackBar(false, "unsuccess"); })
     });
   }
 
   addIllness() {
-    this.modal.open(AddIllness);
+    this.illness = true;
   }
 
   addAllergy() {
-    this.modal.open(AddAllergy);
+    this.allergy = true;
   }
 
   addDisability() {
-    this.modal.open(AddDisability);
+    this.disabled = true;
   }
 }

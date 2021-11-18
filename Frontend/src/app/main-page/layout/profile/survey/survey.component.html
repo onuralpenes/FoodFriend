@@ -8,7 +8,6 @@
     <div class="col-md-8 border-right">
       <div class="p-3 py-5">
         <div class="d-flex justify-content-between align-items-center mb-3">
-          <h2 class="text-right">{{'profile.edit' | translate}}</h2>
         </div>
 
         <form [formGroup]="surveyForm" (ngSubmit)="onSubmit()" class="form">
@@ -103,3 +102,15 @@
     </div>
   </div>
 </div>
+
+<p-dialog header="{{'profile.addIll' | translate}}" [(visible)]="illness" [dismissableMask]="true" [draggable]="false" [modal]="true" [appendTo]="'body'" [closeOnEscape] = "true" [blockScroll] = "true" [style]="{width: '50vw'}">
+  <app-add-illness></app-add-illness>
+</p-dialog>
+
+<p-dialog header="{{'profile.addAll' | translate}}" [(visible)]="allergy" [dismissableMask]="true" [draggable]="false" [modal]="true" [appendTo]="'body'" [closeOnEscape] = "true" [blockScroll] = "true" [style]="{width: '50vw'}">
+  <app-add-allergy></app-add-allergy>
+</p-dialog>
+
+<p-dialog header="{{'profile.addDis' | translate}}" [(visible)]="disabled" [dismissableMask]="true" [draggable]="false" [modal]="true" [appendTo]="'body'" [closeOnEscape] = "true" [blockScroll] = "true" [style]="{width: '50vw'}">
+  <app-add-disability></app-add-disability>
+</p-dialog>
