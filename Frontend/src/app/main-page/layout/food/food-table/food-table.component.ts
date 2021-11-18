@@ -18,13 +18,10 @@ export interface EatTable {
   foodName: string;
   quantity: number;
 }
-
-export interface Group {
-  title: string;
-  isGroup: boolean;
-  nutId: number;
+export interface Tab {
+  tId: number;
+  eatTab: EatTable[];
 }
-
 @Component({
   selector: 'app-food-table',
   templateUrl: './food-table.component.html',
@@ -32,12 +29,12 @@ export interface Group {
   providers: [ConfirmationService]
 })
 export class FoodTableComponent {
-  eatTable: (EatTable | Group)[] = [];
+  eatTab: Tab[] = [];
   isNull: boolean = true;
   addFod: boolean = false;
   editFod: boolean = false;
 
-  constructor(private modal: MatDialog, private editService: EditService, authService: AuthService, private entityService: HttpEntityRepositoryService<EatingActivity>, private translate: TranslateService, private alertService: AlertService, private confirmationService: ConfirmationService,) {
+  constructor(private editService: EditService, authService: AuthService, private entityService: HttpEntityRepositoryService<EatingActivity>, private alertService: AlertService, private confirmationService: ConfirmationService) {
     entityService.get('/EatingActivity/GetByUserId?userId=', authService.CurrentUserId).subscribe(data => {
 
       var Data: any = data;
@@ -46,12 +43,7 @@ export class FoodTableComponent {
         return;
       }
       for (let i = 0; i < Data.data.length; i++) {
-        let group: Group = {
-          title: "Eating Activity " + (i + 1).toString(),
-          isGroup: true,
-          nutId: 0
-        }
-        this.eatTable.push(group);
+        let eatTable: EatTable[] = [];
 
         let eId = Data.data[i].eatingActivityId;
         let time1 = Data.data[i].startEatingActivity;
@@ -67,7 +59,7 @@ export class FoodTableComponent {
               foodName: Data.data[i].nutritions[j].customFoodName,
               quantity: Data.data[i].nutritions[j].quantity
             }
-            this.eatTable.push(newEat);
+            eatTable.push(newEat);
           }
           else {
             let newEat: EatTable = {
@@ -79,48 +71,36 @@ export class FoodTableComponent {
               foodName: Data.data[i].nutritions[j].foodName,
               quantity: Data.data[i].nutritions[j].quantity
             }
-            this.eatTable.push(newEat);
+            eatTable.push(newEat);
           }
         }
+        let newTab: Tab = {
+          tId: i + 1,
+          eatTab: eatTable
+        }
+        this.eatTab.push(newTab);
       }
-      let group: Group = {
-        title: "x",
-        isGroup: true,
-        nutId: 0
-      }
-      this.eatTable.push(group);
-      this.Begin();
     });
-    setTimeout(() => {
-      this.Begin();
-    }, 300);
   }
-
-  Begin() {
-
-    if (this.dataSource.filteredData.length == 0) {
-      this.isNull = false;
-    }
-    else {
-      this.isNull = true;
-    }
-  }
-
-  isGroup(index, item): boolean {
-    return item.isGroup;
-  }
-
-  displayedColumns: string[] = [
-    'foodName',
-    'quantity',
-    'startDate',
-    'endDate',
-    'actions',
-  ];
-  dataSource = new MatTableDataSource(this.eatTable);
+  dataSource = new MatTableDataSource();
 
   openEdit(id: number) {
-    let editEat: EatTable | Group = this.eatTable.filter(eatId => eatId.nutId == id)[0]
+    let editEat: EatTable = {
+      nutId: 0,
+      foodId: 0,
+      eatId: 0,
+      startDate: new Date(),
+      endDate: new Date(),
+      foodName: '',
+      quantity: 0
+    };
+    for(let i = 0 ; i < this.eatTab.length ; i++ ){
+      for(let j = 0 ; j < this.eatTab[i].eatTab.length ; j++){
+        if(this.eatTab[i].eatTab[j].nutId == id){
+          editEat = this.eatTab[i].eatTab[j];
+        }
+      }
+    }
     this.editService.setFoodInfo(editEat);
     this.editFod = true;
   }
@@ -129,23 +109,12 @@ export class FoodTableComponent {
     this.addFod = true;
   }
 
-  applyFilter(event: Event) {
-    const filterValue = (event.target as HTMLInputElement).value;
-    this.dataSource.filter = filterValue.trim().toLowerCase();
-    if (this.dataSource.filteredData.length == 0) {
-      this.isNull = false;
-    } else {
-      this.isNull = true;
-    }
-  }
-
   delete(id: number, name: string) {
     this.confirmationService.confirm({
       message: 'Are you sure, you want to remove a nutrition: ' + name,
       header: 'Confirmation',
       icon: 'pi pi-exclamation-triangle',
       accept: () => {
-        this.eatTable = this.eatTable.filter(nut => nut.nutId != id);
         this.entityService.delete("/Nutrition?id=", id).subscribe(data => {
           this.alertService.openSnackBar(true, "success");
         })
