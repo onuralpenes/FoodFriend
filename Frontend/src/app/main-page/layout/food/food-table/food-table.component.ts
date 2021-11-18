@@ -6,7 +6,7 @@ import { AlertService } from 'src/app/helpers/alert.service';
 import { EatingActivity } from 'src/app/models/data/eating-activity.model';
 import { AuthService } from 'src/app/services/auth.service';
 import { HttpEntityRepositoryService } from 'src/app/services/http-entity-repository.service';;
-import { EditFood } from './edit-table.component';
+import { EditFood } from './edit-food/edit-table.component';
 import { ConfirmationService } from 'primeng/api';
 
 export interface EatTable {

@@ -7,7 +7,7 @@ import { FoodDetail } from "src/app/models/data/food-detail.model";
 import { Nutrition } from "src/app/models/data/nutrition.model";
 import { AuthService } from "src/app/services/auth.service";
 import { HttpEntityRepositoryService } from "src/app/services/http-entity-repository.service";
-import { EatTable } from "./food-table.component";
+import { EatTable } from "../food-table.component";
 
 @Component({
     selector: 'app-edit-food',

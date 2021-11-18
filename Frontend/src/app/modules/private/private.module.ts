@@ -25,7 +25,7 @@ import { ExpertsComponent } from 'src/app/main-page/layout/experts/experts.compo
 import { FoodListComponent } from 'src/app/main-page/layout/food-list/food-list.component';
 import { AddFood } from 'src/app/main-page/layout/food/food-table/add-food/add-food.component';
 import { CustomFoodComponent } from 'src/app/main-page/layout/food/food-table/add-food/custom-food/custom-food.component';
-import { EditFood } from 'src/app/main-page/layout/food/food-table/edit-table.component';
+import { EditFood } from 'src/app/main-page/layout/food/food-table/edit-food/edit-table.component';
 import { FoodTableComponent } from 'src/app/main-page/layout/food/food-table/food-table.component';
 import { FoodComponent } from 'src/app/main-page/layout/food/food.component';
 import { ActivityTable } from 'src/app/main-page/layout/patient-trace/patient-trace-table/activity-table/activity-table.component';
