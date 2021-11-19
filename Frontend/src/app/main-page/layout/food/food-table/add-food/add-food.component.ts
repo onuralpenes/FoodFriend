@@ -51,13 +51,12 @@ export class AddFood {
     })
   }
 
-  contArray: any;
   buildForm() {
     this.isEmpty = true;
-    this.contArray = this.addedFoodForm.get('formArray') as FormArray;
+    let contArray = this.addedFoodForm.get('formArray') as FormArray;
 
     Object.keys(this.addedFoods).forEach((i) => {
-      this.contArray.push(
+      contArray.push(
         this.formBuilder.group({
           quantity: new FormControl(1)
         })
@@ -78,9 +77,9 @@ export class AddFood {
       this.activeIndex = 1;
     }
   }
+  nullForm: any[] = []; 
 
   destroyArray(){
-
     this.activeIndex = 1
   }
 
