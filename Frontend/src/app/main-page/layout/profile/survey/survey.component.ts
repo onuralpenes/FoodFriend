@@ -40,6 +40,7 @@ export class SurveyComponent implements OnInit {
         this.alertService.openSnackBar(usr.success, usr.message);
         return;
       }
+      let phyId = usr.data.physicalInfoId
       if (this.surveyForm.value.emailAddress != "" || this.surveyForm.value.birthDate != "" || this.surveyForm.value.firstName != "" || this.surveyForm.value.lastName != "" || this.surveyForm.value.phoneNumber != "") {
         let updateUsr = {
           "userId": this.authService.CurrentUserId,
@@ -64,19 +65,17 @@ export class SurveyComponent implements OnInit {
         if (this.surveyForm.value.phoneNumber != "") {
           updateUsr.phone = this.surveyForm.value.phoneNumber;
         }
+        console.log(" ")
         this.entityService.update("/User/Update", updateUsr).subscribe(data => {
           var Data: any = data;
-          this.alertService.openSnackBar(Data.success, "success");
+          this.alertService.openSnackBar(true, "success");
         }, err => { this.alertService.openSnackBar(false, "unsuccess"); })
       }
-
-
-
       this.entityService2.get("/PhysicalInfo/Get?id=", usr.data.physicalInfoId).subscribe(phy => {
         var usrPhy: any = phy;
-        if (this.surveyForm.value.height || this.surveyForm.value.weight) {
+        if (this.surveyForm.value.height != "" || this.surveyForm.value.weight != "") { console.log(" ");
           let updatePhy = {
-            "physicalInfoId": usr.data.physicalInfoId,
+            "physicalInfoId": phyId,
             "height": usrPhy.data.height,
             "weight": usrPhy.data.weight
           }
@@ -88,7 +87,7 @@ export class SurveyComponent implements OnInit {
           }
           this.entityService2.update("/PhysicalInfo/Update", updatePhy).subscribe(data => {
             var Data: any = data;
-            this.alertService.openSnackBar(Data.success, "success");
+            this.alertService.openSnackBar(true, "success");
           }, err => { this.alertService.openSnackBar(false, "unsuccess"); })
         }
       })
