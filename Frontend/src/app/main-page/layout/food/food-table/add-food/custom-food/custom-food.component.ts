@@ -41,6 +41,8 @@ export class CustomFoodComponent implements OnInit {
       myProperty: ""
     }
     this.customFoodService.setCustomFoodInfo(customFood);
+    this.alertService.openSnackBar(true, "Added");
+
 
     // this.entityService.insert("/FoodDetail/Add", JSON.stringify(this.customFood))
     //   .subscribe(data => {
