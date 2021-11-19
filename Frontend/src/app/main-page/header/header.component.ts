@@ -1,9 +1,7 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
-import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
 import { AuthService } from 'src/app/services/auth.service';
 import { Notify, NOTIFY_DATA } from './notify-data';
-import { NotifyComponent } from './notify/notify.component';
 
 @Component({
   selector: 'app-header',
@@ -14,7 +12,7 @@ export class HeaderComponent implements OnInit {
 
   @Output() toggle: EventEmitter<any> = new EventEmitter(); //Required for connection with sidebar.
 
-  constructor(private authService: AuthService, private router: Router, private modal: MatDialog) { }
+  constructor(private authService: AuthService, private router: Router ) { }
   notificationList : Notify[] = NOTIFY_DATA;
   pageName;
 
