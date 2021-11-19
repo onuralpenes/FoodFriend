@@ -46,7 +46,6 @@ import { PrivateLayoutComponent } from './private-layout.component';
 import { PrivateRoutingModule } from './private-routing.module';
 import { GoogleChartsModule } from 'angular-google-charts';
 import { PieChartThreedComponent } from 'src/app/main-page/layout/dashboard/pie-chart-threed/pie-chart-threed.component';
-import { NotifyComponent } from 'src/app/main-page/header/notify/notify.component';
 import { PrimeNgModule } from '../primeng/primeng.module';
 import { ActivityFilterPipe } from 'src/app/helpers/activity-filter.pipe';
 import { EditService } from 'src/app/helpers/edit.service';
@@ -96,7 +95,6 @@ export function HttpLoaderFactory(http: HttpClient) {
     FoodListComponent,
     CustomFoodComponent,
     PieChartThreedComponent,
-    NotifyComponent
   ],
   imports: [
     CommonModule,
