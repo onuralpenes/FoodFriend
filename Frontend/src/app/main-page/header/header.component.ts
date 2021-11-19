@@ -24,13 +24,13 @@ export class HeaderComponent implements OnInit {
         this.alertService.openSnackBar(Data.success, Data.message);
         return;
       }
-      this.notificationList[0].title = Data.data.totalCalorie + " kalori alımı yapıldı";
+      this.notificationList[0].title = Data.data.totalCalorie + " calorie intake was made";
       if(Data.data.totalCalorie < 2000){
-        this.notificationList[0].content = Data.data.totalCalorie + " kalori alımı yaptınız hala "+(2000-Data.data.totalCalorie)+" kalori alımı yapabilirsiniz";
+        this.notificationList[0].content = "You took" + Data.data.totalCalorie + " calories. You can still consume "+(2000-Data.data.totalCalorie)+" calories.";
       }else if(Data.data.totalCalorie > 2000){
-        this.notificationList[0].content = Data.data.totalCalorie + " kalori alımı yaptınız. Kalori sınırınızı aşıyorsunuz, diyetisyeniniz önerilerini dinleyin ya da aktivite yapın";
+        this.notificationList[0].content ="You have taken " + Data.data.totalCalorie + " calorie. You're exceeding your calorie limit, listen to your dietitian's recommendations or engage in activity.";
       }else{
-        this.notificationList[0].content = "Günlük kalori sınırına ulaştınız.";
+        this.notificationList[0].content = "You've reached your daily calorie limit.";
       }
 
     })
