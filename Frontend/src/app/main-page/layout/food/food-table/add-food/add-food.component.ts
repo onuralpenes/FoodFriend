@@ -62,7 +62,6 @@ export class AddFood {
 
     this.customFoodService.newCustomFood.subscribe(data => {
       if (data.foodName != "") {
-        alert(data.foodName);
         this.addedFods.push(data);
         this.detect.detectChanges();
       }
