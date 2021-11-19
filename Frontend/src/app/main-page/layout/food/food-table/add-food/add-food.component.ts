@@ -1,7 +1,5 @@
-import { DatePipe } from "@angular/common";
-import { Component } from "@angular/core";
+import { ChangeDetectorRef, Component } from "@angular/core";
 import { FormArray, FormBuilder, FormControl, FormGroup } from "@angular/forms";
-import { MatDialog } from "@angular/material/dialog";
 import { AlertService } from "src/app/helpers/alert.service";
 import { CustomFoodService } from "src/app/helpers/custom-food.pipe";
 import { EatingActivity } from "src/app/models/data/eating-activity.model";
@@ -19,8 +17,7 @@ export interface AddedFood {
 @Component({
   selector: 'app-add-food',
   templateUrl: './add-food.component.html',
-  styleUrls: ['./add-food.component.css'],
-  providers: [DatePipe]
+  styleUrls: ['./add-food.component.css']
 })
 export class AddFood {
   isEmpty: boolean = true;
@@ -37,7 +34,7 @@ export class AddFood {
   endDate!: Date;
   customFod = false;
 
-  constructor(private formBuilder: FormBuilder, private entityService: HttpEntityRepositoryService<FoodDetail>, private alertService: AlertService, private authService: AuthService, private modal: MatDialog, private datePipe: DatePipe, private customFoodService: CustomFoodService) {
+  constructor(private formBuilder: FormBuilder, private entityService: HttpEntityRepositoryService<FoodDetail>, private alertService: AlertService, private authService: AuthService, private customFoodService: CustomFoodService, private detect: ChangeDetectorRef ) {
     entityService.getAll("/FoodDetail/GetAll").subscribe(data => {
       var Data: any = data;
       if (!Data.success) {
@@ -67,11 +64,10 @@ export class AddFood {
       )
     })
   }
-
   customFood() {
     this.customFod = true;
     this.customFoodService.getCustomFoodInfo().subscribe(data => {
-      if(data.foodName != ""){
+      if (data.foodName != "") {
         this.addedFods.push(data);
       }
     })
@@ -110,9 +106,7 @@ export class AddFood {
         this.newNutrition.push(newNut);
       }
     }
-    // let d = this.datePipe.transform(new Date(), 'yyyy-MM-dd');
-    // let d1 = new Date( d + ' ' +  this.startDate + ":00");
-    // let d2 = new Date( d + ' ' +  this.endDate + ":00");
+    
     let newEatAct: EatingActivity = {
       eatingActivityId: 0,
       userId: +this.authService.CurrentUserId,
@@ -122,27 +116,27 @@ export class AddFood {
       estimatedCalorie: 0,
       nutritions: this.newNutrition
     }
-    console.log(newEatAct);
-
-    // this.entityService.insert("/EatingActivity/AddWithNutrition", JSON.stringify(newEatAct))
-    //   .subscribe(data => {
-    //     this.alertService.openSnackBar(true, "success");
-    //   }, err => {
-    //     this.alertService.openSnackBar(false, "error");
-    //   });
+    this.entityService.insert("/EatingActivity/AddWithNutrition", JSON.stringify(newEatAct))
+      .subscribe(data => {
+        this.alertService.openSnackBar(true, "success");
+      }, err => {
+        this.alertService.openSnackBar(false, "error");
+      });
   }
   public fod: any;
   addFood() {
-    for (let i = 0; i < this.addedFods.length; i++) {
-      this.fod = this.addedFods[i];
-      let addFod: AddedFood = {
-        addedFoodName: this.fod.foodName,
-        addedFoodId: this.fod.foodDetailId,
-        quantity: 1
+    if(this.addedFods.length != 0){
+      for (let i = 0; i < this.addedFods.length; i++) {
+        this.fod = this.addedFods[i];
+        let addFod: AddedFood = {
+          addedFoodName: this.fod.foodName,
+          addedFoodId: this.fod.foodDetailId,
+          quantity: 1
+        }
+        this.addedFoods.push(addFod);
       }
-      this.addedFoods.push(addFod);
+      this.buildForm();
+      this.activeIndex = 2;
     }
-    this.buildForm();
-    this.activeIndex = 2;
   }
 }

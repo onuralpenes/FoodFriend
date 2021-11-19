@@ -22,6 +22,12 @@ import { HttpEntityRepositoryService } from "src/app/services/http-entity-reposi
     constructor( private authService: AuthService, private editService: EditService, private formBuilder: FormBuilder, private entityService1: HttpEntityRepositoryService<Nutrition>, private entityService2: HttpEntityRepositoryService<EatingActivity>, private alertService: AlertService) {
       editService.getFoodInfo().subscribe(data => {
         this.editEat = data;
+        this.editForm = this.formBuilder.group({
+          'foodName': new FormControl(this.editEat.foodName),
+          'quantity': new FormControl(this.editEat.quantity),
+          'startDate': new FormControl(this.editEat.startDate),
+          'endDate': new FormControl(this.editEat.endDate),
+        });
       })
       entityService1.getAll("/FoodDetail/GetAll").subscribe(data => {
 
@@ -36,12 +42,7 @@ import { HttpEntityRepositoryService } from "src/app/services/http-entity-reposi
      }
   
     ngOnInit() {
-      this.editForm = this.formBuilder.group({
-        'foodName': new FormControl(''),
-        'quantity': new FormControl(''),
-        'startDate': new FormControl(''),
-        'endDate': new FormControl(''),
-      });
+      
     }
   
     onSubmit() {
