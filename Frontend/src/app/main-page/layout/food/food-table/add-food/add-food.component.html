@@ -6,12 +6,12 @@
         <input matInput name="startEatingActivity" type="datetime-local" required [(ngModel)]="startDate">
       </mat-form-field>
 
-      <mat-form-field appearance="outline">
+      <mat-form-field appearance="outline" style="margin-left: 10px">
         <mat-label>{{'table.end' | translate}}</mat-label>
         <input matInput name="endEatingActivity" type="datetime-local" required [(ngModel)]="endDate">
       </mat-form-field>
       <button (click)="setDate()"
-        style="right: 0; position: absolute;">Next</button>
+        style="right: 0; position: absolute; margin-right: 23px; margin-top: 70px;">Next</button>
     </form>
   </p-tabPanel>
 
