@@ -17,7 +17,7 @@
 
   <p-tabPanel header="Nutrition Entry" [disabled]=true>
 
-    <p-pickList [source]="foods" [target]="addedFods" sourceHeader="Nutrition List" targetHeader="Your Choices"
+    <p-pickList [source]="foods" #pl [target]="getTargets()" sourceHeader="Nutrition List" targetHeader="Your Choices"
       [responsive]="true" [sourceStyle]="{'height':'300px'}" [targetStyle]="{'height':'300px'}" filterBy="name"
       sourceFilterPlaceholder="Search" targetFilterPlaceholder="Search">
       <ng-template let-food pTemplate="item">
@@ -54,7 +54,7 @@
       <!-- <button type="submit">{{'addF.cont' | translate}}</button> -->
     </form>
     <div style="height: 60px;" >
-      <button (click)="activeIndex = 1" style="margin-top: 25px; position: absolute;"><i class="fa fa-lg fa-angle-left" style="margin-right: 5px;"></i>Prev</button>
+      <button (click)="activeIndex = 1" style="margin-top: 25px;"><i class="fa fa-lg fa-angle-left" style="margin-right: 5px;"></i>Prev</button>
     </div>
   </p-tabPanel>
 </p-tabView>

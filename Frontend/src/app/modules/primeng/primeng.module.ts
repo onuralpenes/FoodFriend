@@ -9,6 +9,7 @@ import { ChartModule } from 'primeng/chart';
 import { ToastModule } from 'primeng/toast';
 import { TabViewModule } from 'primeng/tabview';
 import { PickListModule } from 'primeng/picklist';
+import {BadgeModule} from 'primeng/badge';
 
 @NgModule({
     imports: [
@@ -20,7 +21,8 @@ import { PickListModule } from 'primeng/picklist';
         ChartModule,
         ConfirmDialogModule,
         TabViewModule,
-        PickListModule
+        PickListModule,
+        BadgeModule
     ],
     exports: [
         DialogModule,
@@ -31,7 +33,8 @@ import { PickListModule } from 'primeng/picklist';
         ChartModule,
         ConfirmDialogModule,
         TabViewModule,
-        PickListModule
+        PickListModule,
+        BadgeModule
     ]
 
 })
