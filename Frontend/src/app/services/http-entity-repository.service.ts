@@ -53,8 +53,8 @@ export class HttpEntityRepositoryService<T> {
     }
 
     update(_url: string, _content: any): Observable<T> {
-        return this.http.put<T>(
-            environment.BASE_URL + _url + "/" +
+        return this.http.post<T>(
+            environment.BASE_URL + _url,
             _content,
             this.httpOptions
         );

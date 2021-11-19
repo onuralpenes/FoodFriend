@@ -6,7 +6,7 @@ export class CustomFoodService {
 
     constructor() { }
 
-    private newCustomFood = new BehaviorSubject<any>({
+    public newCustomFood = new BehaviorSubject<any>({
         foodName: "",
         weight: 0,
         calorie: 0,

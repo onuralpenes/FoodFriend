@@ -40,49 +40,57 @@ export class SurveyComponent implements OnInit {
         this.alertService.openSnackBar(usr.success, usr.message);
         return;
       }
-      if (this.surveyForm.value.emailAddress != "") {
-        usr.data.emailAddress = this.surveyForm.value.emailAddress;
-      }
-      if (this.surveyForm.value.birthDate != "") {
-        usr.data.birthDate = this.surveyForm.value.birthDate;
-      }
-      if (this.surveyForm.value.firstName != "") {
-        usr.data.firstName = this.surveyForm.value.firstName;
-      }
-      if (this.surveyForm.value.lastName != "") {
-        usr.data.lastName = this.surveyForm.value.lastName;
-      }
-      if (this.surveyForm.value.phoneNumber != "") {
-        usr.data.phone = this.surveyForm.value.phoneNumber;
-      }
-
-      this.entityService.update("/User/Update", usr.data).subscribe(data => {
-        var Data: any = data;
-        if (!Data.success) {
-          this.alertService.openSnackBar(Data.success, Data.message);
-          return;
+      if (this.surveyForm.value.emailAddress != "" || this.surveyForm.value.birthDate != "" || this.surveyForm.value.firstName != "" || this.surveyForm.value.lastName != "" || this.surveyForm.value.phoneNumber != "") {
+        let updateUsr = {
+          "userId": this.authService.CurrentUserId,
+          "emailAddress": usr.data.emailAddress,
+          "birthDate": usr.data.birthDate as Date,
+          "firstName": usr.data.firstName,
+          "lastName": usr.data.lastName,
+          "phone": usr.data.phone
         }
-        this.alertService.openSnackBar(Data.success, "success");
-      }, err => { this.alertService.openSnackBar(false, "unsuccess"); })
+        if (this.surveyForm.value.emailAddress != "") {
+          updateUsr.emailAddress = this.surveyForm.value.emailAddress;
+        }
+        if (this.surveyForm.value.birthDate != "") {
+          updateUsr.birthDate = this.surveyForm.value.birthDate as Date;
+        }
+        if (this.surveyForm.value.firstName != "") {
+          updateUsr.firstName = this.surveyForm.value.firstName;
+        }
+        if (this.surveyForm.value.lastName != "") {
+          updateUsr.lastName = this.surveyForm.value.lastName;
+        }
+        if (this.surveyForm.value.phoneNumber != "") {
+          updateUsr.phone = this.surveyForm.value.phoneNumber;
+        }
+        this.entityService.update("/User/Update", updateUsr).subscribe(data => {
+          var Data: any = data;
+          this.alertService.openSnackBar(Data.success, "success");
+        }, err => { this.alertService.openSnackBar(false, "unsuccess"); })
+      }
 
 
 
       this.entityService2.get("/PhysicalInfo/Get?id=", usr.data.physicalInfoId).subscribe(phy => {
         var usrPhy: any = phy;
-        if (this.surveyForm.value.height != "") {
-          usrPhy.data.height = this.surveyForm.value.height;
-        }
-        if (this.surveyForm.value.weight != "") {
-          usrPhy.data.weight = this.surveyForm.value.weight;
-        }
-        this.entityService.update("/PhysicalInfo/Update", usrPhy.data).subscribe(data => {
-          var Data: any = data;
-          if (!Data.success) {
-            this.alertService.openSnackBar(Data.success, Data.message);
-            return;
+        if (this.surveyForm.value.height || this.surveyForm.value.weight) {
+          let updatePhy = {
+            "physicalInfoId": usr.data.physicalInfoId,
+            "height": usrPhy.data.height,
+            "weight": usrPhy.data.weight
           }
-          this.alertService.openSnackBar(Data.success, "success");
-        }, err => { this.alertService.openSnackBar(false, "unsuccess"); })
+          if (this.surveyForm.value.height != "") {
+            updatePhy.height = +this.surveyForm.value.height;
+          }
+          if (this.surveyForm.value.weight != "") {
+            updatePhy.weight = +this.surveyForm.value.weight;
+          }
+          this.entityService2.update("/PhysicalInfo/Update", updatePhy).subscribe(data => {
+            var Data: any = data;
+            this.alertService.openSnackBar(Data.success, "success");
+          }, err => { this.alertService.openSnackBar(false, "unsuccess"); })
+        }
       })
     });
 
