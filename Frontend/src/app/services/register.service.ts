@@ -18,21 +18,30 @@ export class RegisterService {
     constructor(private http: HttpClient, private alertService: AlertService) { }
 
     register(register: User) {
+        let request = {
+            firstName: register.firstName,
+            lastName: register.lastName,
+            birthDate: register.birthDate,
+            emailAddress: register.emailAddress,
+            phone: register.phone,
+            password: register.password
+        }
 
+        console.log(request)
         this.http
-            .post(environment.BASE_URL + "/Auth2/Register", register, this.httpOptions).subscribe(data => {
-
+            .post(environment.BASE_URL + "/Auth2/Register", request, this.httpOptions).subscribe(data => {
                 var regData: any = data;
                 if (!regData.success) {
-                    this.alertService.openSnackBar(regData.success,regData.message);
+                    this.alertService.openSnackBar(regData.success, regData.message);
                     return;
                 }
 
-                this.alertService.openSnackBar(regData.success,regData.message);
+                this.alertService.openSnackBar(regData.success, regData.message);
 
-            }, err=>{
-                if(!err.success)
-                this.alertService.openSnackBar(false,err.error.message);
+            }, err => {
+                console.log(" ")
+                if (!err.success)
+                    this.alertService.openSnackBar(false, err.error.message);
             });
     }
 }
