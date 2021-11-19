@@ -56,9 +56,14 @@ export class HeaderComponent implements OnInit {
   settings() {
     this.router.navigateByUrl('/settings');
   }
-
-  openNot(id: number){
-    this.modal.open(NotifyComponent, {data: {id: id}});
+  title = ""
+  context = ""
+  notif = false
+  openNot(id: number) {
+    let not = this.notificationList.filter(not => not.messageId === id)[0]
+    this.title = not.title;
+    this.context = not.content;
+    this.notif = true
   }
 
 }
