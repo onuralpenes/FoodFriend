@@ -84,11 +84,12 @@ export class HeaderComponent implements OnInit {
   }
   title = ""
   context = ""
-  notif = false
+  notif = false;
+  titlees = "";
   openNot(id: number) {
-    console.log("geldik" + id);
     let not = this.notificationList.filter(not => not.messageId === id)[0]
     this.title = not.title;
+    this.titlees = not.title
     this.context = not.content;
     this.notif = true
     this.notificationList[0].readed = false;
