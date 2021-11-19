@@ -11,7 +11,7 @@
         <input matInput name="endEatingActivity" type="datetime-local" required [(ngModel)]="endDate">
       </mat-form-field>
       <button (click)="setDate()"
-        style="right: 0; position: absolute; margin-right: 23px; margin-top: 70px;">Next</button>
+        style="right: 0; position: absolute; margin-right: 23px; margin-top: 70px;">Next<i class="fa fa-lg fa-angle-right" style="margin-left: 5px;"></i></button>
     </form>
   </p-tabPanel>
 
@@ -29,8 +29,8 @@
       <button (click)="customFood();">{{'addF.custom' | translate}}</button>
     </p>
     <p>
-      <button (click)="activeIndex = 0" style="left: 0; position: absolute;">Prev</button>
-      <button (click)="addFood()" style="right: 0; position: absolute;">Next</button>
+      <button (click)="activeIndex = 0" style="margin-top: 6px; position: absolute;"><i class="fa fa-lg fa-angle-left" style="margin-right: 5px;"></i>Prev</button>
+      <button (click)="addFood()" style="right: 0; margin-top: 6px; margin-right: 35px; position: absolute;">Next<i class="fa fa-lg fa-angle-right" style="margin-left: 5px;"></i></button>
     </p>
   </p-tabPanel>
 
@@ -50,11 +50,12 @@
           </div>
         </div>
       </div>
-
-      <button type="submit">{{'addF.cont' | translate}}</button>
+      <button type="submit">Ekle</button>
+      <!-- <button type="submit">{{'addF.cont' | translate}}</button> -->
     </form>
-
-    <button (click)="activeIndex = 1" style="left: 0; position: absolute;">Prev</button>
+    <div style="height: 60px;" >
+      <button (click)="activeIndex = 1" style="margin-top: 25px; position: absolute;"><i class="fa fa-lg fa-angle-left" style="margin-right: 5px;"></i>Prev</button>
+    </div>
   </p-tabPanel>
 </p-tabView>
 
