@@ -34,9 +34,14 @@ export class HeaderComponent implements OnInit {
       }
 
     })
-
+    if(this.notificationList[0].readed){
+      this.notificationNum = 0;
+    }else{
+      this.notificationNum = 1;
+    }
    }
   notificationList : Notify[] = NOTIFY_DATA;
+  notificationNum = 1;
   pageName;
 
   ngOnInit() {
@@ -81,10 +86,18 @@ export class HeaderComponent implements OnInit {
   context = ""
   notif = false
   openNot(id: number) {
+    console.log("geldik" + id);
     let not = this.notificationList.filter(not => not.messageId === id)[0]
     this.title = not.title;
     this.context = not.content;
     this.notif = true
+    this.notificationList[0].readed = false;
+    this.notificationNum = 0;
+    if(this.notificationList[0].readed){
+      this.notificationNum = 1;
+    }else{
+      this.notificationNum = 0;
+    }
   }
 
 }

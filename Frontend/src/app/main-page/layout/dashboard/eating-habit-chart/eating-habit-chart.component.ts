@@ -116,7 +116,7 @@ export class EatingHabitChartComponent {
           }
           
           console.log( i +"==="+ "" + Data.data.totalCalorie + " eee ")
-            
+          
           this.updateChartOptions();
         }
       })
