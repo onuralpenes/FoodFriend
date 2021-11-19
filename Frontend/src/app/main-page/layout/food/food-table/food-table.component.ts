@@ -1,11 +1,9 @@
 import { Component } from '@angular/core';
-import { MatDialog } from '@angular/material/dialog';
 import { MatTableDataSource } from '@angular/material/table';
-import { TranslateService } from '@ngx-translate/core';
 import { AlertService } from 'src/app/helpers/alert.service';
 import { EatingActivity } from 'src/app/models/data/eating-activity.model';
 import { AuthService } from 'src/app/services/auth.service';
-import { HttpEntityRepositoryService } from 'src/app/services/http-entity-repository.service';;
+import { HttpEntityRepositoryService } from 'src/app/services/http-entity-repository.service';
 import { ConfirmationService } from 'primeng/api';
 import { EditService } from 'src/app/helpers/edit.service';
 
