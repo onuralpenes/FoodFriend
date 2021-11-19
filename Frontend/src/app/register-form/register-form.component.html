@@ -36,10 +36,10 @@
       <mat-form-field appearance="outline">
         <mat-label>{{'label.phoneNumber' | translate}}</mat-label>
         <input type="tel" id="phone" name="phone" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" matInput
-          placeholder="Format = 507-222-1133" formControlName="phoneNumber"
-          [ngClass]="{ 'is-invalid': submitted && f.phoneNumber.errors }" required>
-        <mat-error *ngIf="f.phoneNumber.errors?.required">{{'validator.phoneNull' | translate}}</mat-error>
-        <mat-error *ngIf="f.phoneNumber.errors?.pattern">{{'validator.phoneValid' | translate}}</mat-error>
+          placeholder="Format = 507-222-1133" formControlName="phone"
+          [ngClass]="{ 'is-invalid': submitted && f.phone.errors }" required>
+        <mat-error *ngIf="f.phone.errors?.required">{{'validator.phoneNull' | translate}}</mat-error>
+        <mat-error *ngIf="f.phone.errors?.pattern">{{'validator.phoneValid' | translate}}</mat-error>
       </mat-form-field>
     </p>
 
