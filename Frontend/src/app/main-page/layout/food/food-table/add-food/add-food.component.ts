@@ -79,6 +79,11 @@ export class AddFood {
     }
   }
 
+  destroyArray(){
+
+    this.activeIndex = 1
+  }
+
   onSubmit() {
     for (let i = 0; i < this.addedFoods.length; i++) {
       if (this.addedFoods[i].addedFoodId == 0) {
