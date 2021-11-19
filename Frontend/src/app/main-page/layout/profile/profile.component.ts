@@ -37,7 +37,7 @@ export class ProfileComponent implements OnInit {
   hasAllergy!: boolean;
   isPregnant!: boolean;
   isDisabled!: boolean;
-  editProf: boolean = false;
+  public editProf: boolean = false;
   dummy = "dummy";
   gender = "male";
   genderless = false;
