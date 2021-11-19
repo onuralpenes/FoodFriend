@@ -17,7 +17,7 @@
 
   <p-tabPanel header="Nutrition Entry" [disabled]=true>
 
-    <p-pickList [source]="foods" [target]="addedFods" sourceHeader="Nutrition List" targetHeader="Your Choices"
+    <p-pickList [source]="foods" #pl [target]="getTargets()" sourceHeader="Nutrition List" targetHeader="Your Choices"
       [responsive]="true" [sourceStyle]="{'height':'300px'}" [targetStyle]="{'height':'300px'}" filterBy="name"
       sourceFilterPlaceholder="Search" targetFilterPlaceholder="Search">
       <ng-template let-food pTemplate="item">

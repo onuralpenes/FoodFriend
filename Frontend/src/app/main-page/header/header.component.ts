@@ -92,6 +92,7 @@ export class HeaderComponent implements OnInit {
     this.context = not.content;
     this.notif = true
     this.notificationList[0].readed = false;
+    not.readed = false;
     this.notificationNum = 0;
     if(this.notificationList[0].readed){
       this.notificationNum = 1;
