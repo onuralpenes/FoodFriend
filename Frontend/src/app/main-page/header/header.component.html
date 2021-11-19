@@ -50,6 +50,6 @@
 
 </mat-toolbar>
 
-<p-dialog header= "Notification" [(visible)]="notif" [dismissableMask]="true" [draggable]="false" [modal]="true" [appendTo]="'body'" [closeOnEscape]="true" [blockScroll]="true" [style]="{width: '50vw'}">
+<p-dialog header= "{{titlees}}" [(visible)]="notif" [dismissableMask]="true" [draggable]="false" [modal]="true" [appendTo]="'body'" [closeOnEscape]="true" [blockScroll]="true" [style]="{width: '50vw'}">
       {{context}}
 </p-dialog>
