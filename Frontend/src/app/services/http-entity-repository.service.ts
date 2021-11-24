@@ -1,8 +1,7 @@
 import { Injectable } from "@angular/core";
-import { HttpHeaders, HttpClient, HttpParams } from "@angular/common/http";
+import { HttpHeaders, HttpClient} from "@angular/common/http";
 import { Observable } from "rxjs/internal/Observable";
 import { environment } from "src/environments/environment";
-//import { IPagingFilter } from 'src/app/models/core/paging-filter';
 
 @Injectable()
 export class HttpEntityRepositoryService<T> {
@@ -21,22 +20,6 @@ export class HttpEntityRepositoryService<T> {
             environment.BASE_URL + _url,
             this.httpOptions
         );
-    }
-
-    // getListForPaging(_url: string, _pagingFilter: IPagingFilter): Observable<T> {
-    //     var p = this.getHttpParam(_pagingFilter);
-    //     return this.http.get<T>(environment.BASE_URL + _url, {
-    //         headers: this.httpOptions.headers,
-    //         params: p
-    //     });
-    // }
-
-    getListForFilter(_url: string, _pagingFilter: any): Observable<T> {
-        var p = this.getHttpParam(_pagingFilter);
-        return this.http.get<T>(environment.BASE_URL + _url, {
-            headers: this.httpOptions.headers,
-            params: p
-        });
     }
 
     get(_url: string, id: number): Observable<T> {
@@ -67,18 +50,32 @@ export class HttpEntityRepositoryService<T> {
         );
     }
 
-    private getHttpParam(_pagingFilter: any) {
-        var httpParams = new HttpParams();
-        Object.keys(_pagingFilter)
-            .filter(key => {
-                let v = _pagingFilter[key];
-                return Array.isArray(v) || typeof v === "string"
-                    ? v.length > 0
-                    : v !== null && v !== undefined;
-            })
-            .forEach(key => {
-                httpParams = httpParams.set(key, _pagingFilter[key]);
-            });
-        return httpParams;
-    }
+    // private getHttpParam(_pagingFilter: any) {
+    //     var httpParams = new HttpParams();
+    //     Object.keys(_pagingFilter)
+    //         .filter(key => {
+    //             let v = _pagingFilter[key];
+    //             return Array.isArray(v) || typeof v === "string"
+    //                 ? v.length > 0
+    //                 : v !== null && v !== undefined;
+    //         })
+    //         .forEach(key => {
+    //             httpParams = httpParams.set(key, _pagingFilter[key]);
+    //         });
+    //     return httpParams;
+    // }
+    // getListForPaging(_url: string, _pagingFilter: IPagingFilter): Observable<T> {
+    //     var p = this.getHttpParam(_pagingFilter);
+    //     return this.http.get<T>(environment.BASE_URL + _url, {
+    //         headers: this.httpOptions.headers,
+    //         params: p
+    //     });
+    // }
+    // getListForFilter(_url: string, _pagingFilter: any): Observable<T> {
+    //     var p = this.getHttpParam(_pagingFilter);
+    //     return this.http.get<T>(environment.BASE_URL + _url, {
+    //         headers: this.httpOptions.headers,
+    //         params: p
+    //     });
+    // }
 }

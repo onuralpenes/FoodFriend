@@ -27,7 +27,6 @@ export class RegisterService {
             password: register.password
         }
 
-        console.log(request)
         this.http
             .post(environment.BASE_URL + "/Auth2/Register", request, this.httpOptions).subscribe(data => {
                 var regData: any = data;
@@ -39,7 +38,6 @@ export class RegisterService {
                 this.alertService.openSnackBar(regData.success, regData.message);
 
             }, err => {
-                console.log(" ")
                 if (!err.success)
                     this.alertService.openSnackBar(false, err.error.message);
             });

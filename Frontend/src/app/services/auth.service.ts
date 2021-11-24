@@ -32,12 +32,12 @@ export class AuthService {
             .subscribe(data => {
                 var tokenData: any = data;
                 if (!tokenData.success) {
-                    this.alertService.openSnackBar(tokenData.success,tokenData.message);
+                    this.alertService.openSnackBar(tokenData.success, tokenData.message);
                     return;
                 }
                 this.saveId(tokenData.data.userId);
                 this.saveToken(tokenData.data.accessToken.token);
-                this.alertService.openSnackBar(tokenData.success,tokenData.message);
+                this.alertService.openSnackBar(tokenData.success, tokenData.message);
 
                 if (login.remember) {
                     localStorage.setItem('Username', login.emailAddress);
@@ -52,44 +52,17 @@ export class AuthService {
 
             }, err => {
                 if (err)
-                    this.alertService.openSnackBar(false,err.error);
+                    this.alertService.openSnackBar(false, err.error);
             });
     }
-    // userTransition(login: Login) {
-    //     this.http
-    //         .post(environment.BASE_URL + "/auth/login", login, this.httpOptions)
-    //         .subscribe(data => {
-
-    //             var tokenData: any = data;
-    //             if (!tokenData.success) {
-    //                 this.alertService.openSnackBar(tokenData.success,tokenData.message);
-    //                 return;
-    //             }
-
-    //             this.saveToken(tokenData.data.token);
-    //             this.saveId(tokenData.data.UserId);
-    //             this.alertService.openSnackBar(tokenData.success,tokenData.message);
-
-    //             this.route.navigateByUrl('/dashboard');
-
-    //             if (login.remember) {
-    //                 localStorage.setItem('Email Address', login.emailAddress);
-    //                 localStorage.setItem('Password', login.password);
-    //             }
-    //             else {
-    //                 localStorage.setItem('Email Address', "");
-    //                 localStorage.setItem('Password', "");
-    //             }
-    //         });
-    // }
 
     saveToken(token: string) {
         localStorage.setItem(environment.TOKEN_KEY, token);
     }
 
-    saveId(id: number){
-        let idStr: string = id.toString(); 
-        localStorage.setItem(environment.USER_ID, idStr);
+    saveId(id: number) {
+        let idString: string = id.toString();
+        localStorage.setItem(environment.USER_ID, idString);
     }
 
     getToken() {
@@ -108,14 +81,12 @@ export class AuthService {
 
     public get CurrentUserId(): number {
         const id = localStorage.getItem(environment.USER_ID);
-        if(id != null){
+        if (id != null) {
             return +id;
         }
-        else{
+        else {
             return 0;
         }
-        // const token = localStorage.getItem(environment.TOKEN_KEY) || '{}';
-        // return this.jwtHelper.decodeToken(token).nameid;
     }
 
     public get CurrentRoles() {
