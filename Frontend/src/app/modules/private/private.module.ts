@@ -17,9 +17,6 @@ import { HealthCardComponent } from 'src/app/main-page/layout/dashboard/health-c
 import { ExpertShortCardComponent } from 'src/app/main-page/layout/experts/expert-short-card/expert-short-card.component';
 import { ExpertsComponent } from 'src/app/main-page/layout/experts/experts.component';
 import { FoodListComponent } from 'src/app/main-page/layout/food-list/food-list.component';
-import { AddFood } from 'src/app/main-page/layout/food/food-table/add-food/add-food.component';
-import { CustomFoodComponent } from 'src/app/main-page/layout/food/food-table/add-food/custom-food/custom-food.component';
-import { EditFood } from 'src/app/main-page/layout/food/food-table/edit-food/edit-table.component';
 import { FoodComponent } from 'src/app/main-page/layout/food/food.component';
 import { ActivityTable } from 'src/app/main-page/layout/patient-trace/patient-trace-table/activity-table/activity-table.component';
 import { NutritionTable } from 'src/app/main-page/layout/patient-trace/patient-trace-table/nutrition-table/nutrition-table.component';
@@ -41,7 +38,9 @@ import { PrimeNgModule } from '../primeng/primeng.module';
 import { ActivityFilterPipe } from 'src/app/helpers/activity-filter.pipe';
 import { EditService } from 'src/app/helpers/edit.service';
 import { CustomFoodService } from 'src/app/helpers/custom-food.pipe';
-import { FoodTableComponent } from 'src/app/main-page/layout/food/food-table/food-table.component';
+import { EditFood } from 'src/app/main-page/layout/food/edit-food/edit-table.component';
+import { CustomFoodComponent } from 'src/app/main-page/layout/food/add-food/custom-food/custom-food.component';
+import { AddFood } from 'src/app/main-page/layout/food/add-food/add-food.component';
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http);
 }
@@ -58,7 +57,6 @@ export function HttpLoaderFactory(http: HttpClient) {
     EatingHabitChartComponent,
     ConsumedCalorieComponent,
     FoodComponent,
-    FoodTableComponent,
     ActivityComponent,
     HealthCardComponent,
     SurveyComponent,
@@ -80,7 +78,6 @@ export function HttpLoaderFactory(http: HttpClient) {
     AddDisability,
     CustomFoodComponent,
     FoodListComponent,
-    CustomFoodComponent,
   ],
   imports: [
     CommonModule,
