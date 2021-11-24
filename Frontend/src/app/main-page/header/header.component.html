@@ -5,15 +5,11 @@
     </button>
     <img class="img" src="../../../assets/logo_white.png">
     <img class="responsiveImg" src="../../../assets/icon_white.png">
-    <p class="page-name">
-        {{pageName}}
-    </p>
-
+    <p class="page-name"> {{pageName}} </p>
 
     <span class="fill-remaining-space">
         <button mat-icon-button [matMenuTriggerFor]="notifications" #menuTrigger="matMenuTrigger"
             style="background-color: transparent; margin-right: 5px;">
-            <!-- <i class="pi pi-bell p-mr-4 p-text-secondary" style="font-size: 2rem" ></i> -->
             <i class="fa fa-bell" aria-hidden="true" pBadge value="{{notificationNum}}" style="color: white;"></i>
         </button>
         <mat-menu #notifications="matMenu" [overlapTrigger]="false">
@@ -51,7 +47,6 @@
 
         </mat-menu>
     </span>
-
 </mat-toolbar>
 
 <p-dialog header="{{titlees}}" [(visible)]="notif" [dismissableMask]="true" [draggable]="false" [modal]="true"

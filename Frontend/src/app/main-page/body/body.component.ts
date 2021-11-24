@@ -12,14 +12,11 @@ import { HttpEntityRepositoryService } from 'src/app/services/http-entity-reposi
 })
 export class BodyComponent {
   @Output() toggle: EventEmitter<any> = new EventEmitter();
-  @Output() pin: EventEmitter<any> = new EventEmitter();
-  @Output() pName: EventEmitter<any> = new EventEmitter();
   @Input() opened;
-  @Input() pinButton = false;
 
   name!: string;
   surname !: string;
-  constructor(private priv: PrivateLayoutComponent, authService: AuthService, private alertService: AlertService, entityService: HttpEntityRepositoryService<User>) { 
+  constructor(private privateLayout: PrivateLayoutComponent, authService: AuthService, private alertService: AlertService, entityService: HttpEntityRepositoryService<User>) {
     entityService.get("/User/Get?userId=", authService.CurrentUserId).subscribe(data => {
       var Data: any = data;
       if (!Data.success) {
@@ -31,14 +28,9 @@ export class BodyComponent {
       this.surname = Data.data.lastName;
     });
   }
-  
-  pinSidebar() {
-    this.pinButton = !this.pinButton;
-    this.pin.emit(this.pinButton);
-  }
 
   changeLang(langCode: string) {
-    this.priv.changeLang(langCode);
+    this.privateLayout.changeLang(langCode);
   }
 
 }

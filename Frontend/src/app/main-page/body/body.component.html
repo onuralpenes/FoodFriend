@@ -4,53 +4,47 @@
     <mat-sidenav class="sidebar" [ngClass]="opened ? 'sideBarOpen' : 'sideBarClose'" #sidenav mode="side"
         [(opened)]="opened" opened>
 
-        
-        <div style="height: 20px; display: none;">
-            <button class="button_pin" (click)="pinSidebar()">
-                <span class="material-icons"
-                    [ngClass]="pinButton ? 'pin_icon_pinned' : 'pin_icon_unpinned'">push_pin</span>
-            </button>
-        </div>
-        
-        
-
         <div class="logo">
-                <div>
-                    <p class="username">
-                        {{name}}
-                    </p>
-                    <p class="username">
-                       {{surname}}
-                    </p>
-                </div>
+            <div>
+                <p class="username">
+                    {{name}}
+                </p>
+                <p class="username">
+                    {{surname}}
+                </p>
+            </div>
             <a>
-    
+
             </a>
         </div>
         <i class="fas fa-dumbbell fa-lg"></i>
         <ul class="nav">
-            <li><a class="side-item" routerLink="/"><i class="fa fa-home fa-lg" aria-hidden="true"></i>{{'menu.dashboard' | translate}}</a></li>
-            <li><a class="side-item" routerLink="/profile"><i class="fa fa-user fa-lg" aria-hidden="true"></i>{{'menu.profile' | translate}}</a></li>
-            <li><a class="side-item" routerLink="/eating-activity"><i class="fa fa-cutlery fa-lg" aria-hidden="true"></i>{{'menu.food' | translate}}</a></li> 
-            <li><a class="side-item" routerLink="/activity"><i class="fa fa-bicycle fa-lg" aria-hidden="true"></i>{{'menu.activity' | translate}}</a></li> 
-            <li><a class="side-item" routerLink="/patients" [hidden] = "true"><i class="fa fa-users fa-lg" aria-hidden="true"></i>{{'menu.patients' | translate}}</a></li>
-            <li><a class="side-item" routerLink="/food-list"><i class="fa fa-book fa-lg" aria-hidden="true"></i>{{'menu.foodList' | translate}}</a></li>
-            <li><a class="side-item" routerLink="/experts" [hidden] = "true"><i class="fa fa-address-card fa-lg" aria-hidden="true"></i>{{'menu.expert' | translate}}</a></li>
+            <li><a class="side-item" routerLink="/"><i class="fa fa-home fa-lg"
+                        aria-hidden="true"></i>{{'menu.dashboard' | translate}}</a></li>
+            <li><a class="side-item" routerLink="/profile"><i class="fa fa-user fa-lg"
+                        aria-hidden="true"></i>{{'menu.profile' | translate}}</a></li>
+            <li><a class="side-item" routerLink="/eating-activity"><i class="fa fa-cutlery fa-lg"
+                        aria-hidden="true"></i>{{'menu.food' | translate}}</a></li>
+            <li><a class="side-item" routerLink="/activity"><i class="fa fa-bicycle fa-lg"
+                        aria-hidden="true"></i>{{'menu.activity' | translate}}</a></li>
+            <li><a class="side-item" routerLink="/patients" [hidden]="true"><i class="fa fa-users fa-lg"
+                        aria-hidden="true"></i>{{'menu.patients' | translate}}</a></li>
+            <li><a class="side-item" routerLink="/food-list"><i class="fa fa-book fa-lg"
+                        aria-hidden="true"></i>{{'menu.foodList' | translate}}</a></li>
+            <li><a class="side-item" routerLink="/experts" [hidden]="true"><i class="fa fa-address-card fa-lg"
+                        aria-hidden="true"></i>{{'menu.expert' | translate}}</a></li>
         </ul>
-
         <div class="language">
             <img (click)="changeLang('tr')" class="lang-button" src="../../assets/tr.png">
             <img (click)="changeLang('en')" class="lang-button" src="../../assets/en.png">
         </div>
-
-
-        <!--<img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu"> -->
     </mat-sidenav>
+
     <!-- Outside of the sidebar -->
     <mat-sidenav-content>
         <div class="layout">
             <div class="notscroll">
-                
+
                 <router-outlet></router-outlet>
             </div>
         </div>

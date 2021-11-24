@@ -17,30 +17,30 @@ export class HeaderComponent implements OnInit {
 
   constructor(private authService: AuthService, private router: Router, private entityService: HttpEntityRepositoryService<EatingActivity>, private alertService: AlertService) {
     const datepipe: DatePipe = new DatePipe('en-US');
-    let date = datepipe.transform(new Date(new Date().setDate(new Date().getDate())), 'YYYY-MM-dd'); 
-    entityService.get("/EatingActivity/GetTotalCalorieByUserIdOnDay?date="+date+"&userId=", authService.CurrentUserId).subscribe(data => {
+    let date = datepipe.transform(new Date(new Date().setDate(new Date().getDate())), 'YYYY-MM-dd');
+    entityService.get("/EatingActivity/GetTotalCalorieByUserIdOnDay?date=" + date + "&userId=", authService.CurrentUserId).subscribe(data => {
       var Data: any = data;
       if (!Data.success) {
         this.alertService.openSnackBar(Data.success, Data.message);
         return;
       }
       this.notificationList[0].title = Data.data.totalCalorie + " calorie intake was made";
-      if(Data.data.totalCalorie < 2000){
-        this.notificationList[0].content = "You took" + Data.data.totalCalorie + " calories. You can still consume "+(2000-Data.data.totalCalorie)+" calories.";
-      }else if(Data.data.totalCalorie > 2000){
-        this.notificationList[0].content ="You have taken " + Data.data.totalCalorie + " calorie. You're exceeding your calorie limit, listen to your dietitian's recommendations or engage in activity.";
-      }else{
+      if (Data.data.totalCalorie < 2000) {
+        this.notificationList[0].content = "You took" + Data.data.totalCalorie + " calories. You can still consume " + (2000 - Data.data.totalCalorie) + " calories.";
+      } else if (Data.data.totalCalorie > 2000) {
+        this.notificationList[0].content = "You have taken " + Data.data.totalCalorie + " calorie. You're exceeding your calorie limit, listen to your dietitian's recommendations or engage in activity.";
+      } else {
         this.notificationList[0].content = "You've reached your daily calorie limit.";
       }
 
     })
-    if(this.notificationList[0].readed){
+    if (this.notificationList[0].readed) {
       this.notificationNum = 0;
-    }else{
+    } else {
       this.notificationNum = 1;
     }
-   }
-  notificationList : Notify[] = NOTIFY_DATA;
+  }
+  notificationList: Notify[] = NOTIFY_DATA;
   notificationNum = 1;
   pageName;
 
@@ -49,8 +49,8 @@ export class HeaderComponent implements OnInit {
     if (this.pageName.includes('/')) {
       this.pageName = this.pageName.substring(0, this.pageName.indexOf('/'));
     }
-    if(this.pageName.includes('-')){
-      this.pageName = this.pageName.substring(0, this.pageName.indexOf('-')) + " " + this.pageName.substring(this.pageName.indexOf('-') + 1, this.pageName.lenght) 
+    if (this.pageName.includes('-')) {
+      this.pageName = this.pageName.substring(0, this.pageName.indexOf('-')) + " " + this.pageName.substring(this.pageName.indexOf('-') + 1, this.pageName.lenght)
     }
 
 
@@ -61,8 +61,8 @@ export class HeaderComponent implements OnInit {
       if (this.pageName.includes('/')) {
         this.pageName = this.pageName.substring(0, this.pageName.indexOf('/'));
       }
-      if(this.pageName.includes('-')){
-        this.pageName = this.pageName.substring(0, this.pageName.indexOf('-')) + " " + this.pageName.substring(this.pageName.indexOf('-') + 1, this.pageName.lenght) 
+      if (this.pageName.includes('-')) {
+        this.pageName = this.pageName.substring(0, this.pageName.indexOf('-')) + " " + this.pageName.substring(this.pageName.indexOf('-') + 1, this.pageName.lenght)
       }
     });
   }
@@ -95,11 +95,10 @@ export class HeaderComponent implements OnInit {
     this.notificationList[0].readed = false;
     not.readed = false;
     this.notificationNum = 0;
-    if(this.notificationList[0].readed){
+    if (this.notificationList[0].readed) {
       this.notificationNum = 1;
-    }else{
+    } else {
       this.notificationNum = 0;
     }
   }
-
 }
