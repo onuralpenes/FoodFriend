@@ -117,22 +117,14 @@
     "healthCard": "Sağlık Kartı",
     "healthP": "Sağlığın hakkında kişisel bilgilerin.\n Görmek için",
     "click": "Tıklayın",
-    "healthM":"Daha Fazla Detay"
-  },
-  "paginator": {
-    "item": "Sayfa başına veri",
-    "next": "bir sonraki sayfa",
-    "previous": "bir önceki sayfa",
-    "last": "en son sayfa",
-    "first": "ilk sayfa",
-    "range": "de"
+    "healthM": "Daha Fazla Detay"
   },
   "conf": {
     "title": "Emin misiniz?",
     "index": "Bu işlem geri alınamaz.",
     "cancel": "İptal"
   },
-  "addF":{
+  "addF": {
     "addF": "Yemeği Ekle",
     "cont": "Devam",
     "custom": "Farklı Yemek Ekle",

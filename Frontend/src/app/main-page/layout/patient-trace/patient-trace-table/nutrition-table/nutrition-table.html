@@ -8,7 +8,7 @@
   </mat-form-field>
 
   <div class="row">
-    <table mat-table [dataSource]="dataSource" matSort class="my-table" *ngIf="isNull">
+    <table mat-table [dataSource]="dataSource" matSort class="my-table">
       <ng-container matColumnDef="foodName">
         <th mat-header-cell *matHeaderCellDef mat-sort-header class="lHead">{{'table.name' | translate}}</th>
         <td mat-cell *matCellDef="let foods" class="lCol" data-label="Name: ">{{ foods.foodName }}</td>
@@ -38,10 +38,5 @@
       <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
       <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
     </table>
-
-    <mat-paginator *ngIf="isNull" [pageSizeOptions]="[3, 5]" [pageSize]="3" showFirstLastButtons>
-    </mat-paginator>
-
-    <div *ngIf="!isNull">{{'table.null' | translate}}</div>
   </div>
 </mat-dialog-content>

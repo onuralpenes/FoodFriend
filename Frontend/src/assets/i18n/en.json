@@ -117,22 +117,14 @@
     "healthCard": "Health Card",
     "healthP": "Your personal information about your health.\n To see your card",
     "click": "Click",
-    "healthM":"More Details"
-  },
-  "paginator": {
-    "item": "items per page",
-    "next": "next page",
-    "previous": "previous page",
-    "last": "last page",
-    "first": "first page",
-    "range": "of"
+    "healthM": "More Details"
   },
   "conf": {
     "title": "Are you sure?",
     "index": "This action cannot be undone.",
     "cancel": "Cancel"
   },
-  "addF":{
+  "addF": {
     "addF": "Add Food",
     "cont": "Continue",
     "custom": "Add Custom Food",

@@ -56,16 +56,6 @@ button {
 	margin-left: 10%;
   }
   
-mat-paginator{
-	height: 60px;
-	margin-right: 10%;
-	border-bottom-left-radius: 25px;
-	border-bottom-right-radius: 25px;
-	border-left: 2px solid #009879;
-	border-right: 2px solid #009879;
-	border-bottom: 2px solid #009879;
-  }
-  
   mat-form-field{
 	margin-left: 5px;
   }
@@ -165,9 +155,4 @@ mat-paginator{
 	 border-left: 0;
 	 border-right: 0;
    }
-	.mat-paginator {
-	  margin-top: 15px;
-	  border-radius: 25px;
-		border: 2px solid #009879;
-  }
 }

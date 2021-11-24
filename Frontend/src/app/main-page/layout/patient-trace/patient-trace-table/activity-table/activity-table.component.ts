@@ -1,6 +1,5 @@
 import { AfterViewInit, Component, Inject, ViewChild } from "@angular/core";
 import { MAT_DIALOG_DATA } from "@angular/material/dialog";
-import { MatPaginator } from "@angular/material/paginator";
 import { MatSort } from "@angular/material/sort";
 import { MatTableDataSource } from "@angular/material/table";
 import { PersonalEnergyActivity } from "src/app/models/data/energy-activity.model";;
@@ -14,7 +13,6 @@ import { Transfer } from "../patient-trace-table.component";
 export class ActivityTable implements AfterViewInit {
     activities: PersonalEnergyActivity[] = [];
     sortedData = this.activities;
-    isNull: boolean = true;
 
     constructor(@Inject(MAT_DIALOG_DATA) public data: Transfer) { }
 
@@ -32,21 +30,13 @@ export class ActivityTable implements AfterViewInit {
     );
 
     @ViewChild(MatSort) sort!: MatSort;
-    @ViewChild(MatPaginator) paginator!: MatPaginator;
 
     applyFilter(event: Event) {
         const filterValue = (event.target as HTMLInputElement).value;
         this.dataSource.filter = filterValue.trim().toLowerCase();
-        if (this.dataSource.filteredData.length == 0) {
-            this.isNull = false;
-        }
-        else {
-            this.isNull = true;
-        }
     }
 
     ngAfterViewInit() {
         this.dataSource.sort = this.sort;
-        this.dataSource.paginator = this.paginator;
     }
 }
