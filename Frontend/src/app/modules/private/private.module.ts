@@ -11,15 +11,10 @@ import { HeaderComponent } from 'src/app/main-page/header/header.component';
 import { ActivityTableComponent } from 'src/app/main-page/layout/activity/activity-table/activity-table.component';
 import { ActivityComponent } from 'src/app/main-page/layout/activity/activity.component';
 import { CounseleeProfileComponent } from 'src/app/main-page/layout/counselee-profile/counselee-profile.component';
-import { CalendarComponent } from 'src/app/main-page/layout/dashboard/calendar/calendar.component';
-import { CalendarDataService } from 'src/app/main-page/layout/dashboard/calendar/data.service';
 import { ConsumedCalorieComponent } from 'src/app/main-page/layout/dashboard/consumed-calorie/consumed-calorie.component';
 import { DashboardComponent } from 'src/app/main-page/layout/dashboard/dashboard.component';
 import { EatingHabitChartComponent } from 'src/app/main-page/layout/dashboard/eating-habit-chart/eating-habit-chart.component';
-import { EnergyConsumptionChartComponent } from 'src/app/main-page/layout/dashboard/energy-consumption-chart/energy-consumption-chart.component';
-import { FoodIngredientDistributionChartComponent } from 'src/app/main-page/layout/dashboard/food-ingredient-distribution-chart/food-ingredient-distribution-chart.component';
 import { HealthCardComponent } from 'src/app/main-page/layout/dashboard/health-card/health-card.component';
-import { ProgressesComponent } from 'src/app/main-page/layout/dashboard/progresses/progresses.component';
 import { ExpertShortCardComponent } from 'src/app/main-page/layout/experts/expert-short-card/expert-short-card.component';
 import { ExpertsComponent } from 'src/app/main-page/layout/experts/experts.component';
 import { FoodListComponent } from 'src/app/main-page/layout/food-list/food-list.component';
@@ -44,8 +39,6 @@ import { ExpertFilterPipe } from '../../helpers/expert-filter.pipe';
 import { CustomMaterialModule } from '../material/material.module';
 import { PrivateLayoutComponent } from './private-layout.component';
 import { PrivateRoutingModule } from './private-routing.module';
-import { GoogleChartsModule } from 'angular-google-charts';
-import { PieChartThreedComponent } from 'src/app/main-page/layout/dashboard/pie-chart-threed/pie-chart-threed.component';
 import { PrimeNgModule } from '../primeng/primeng.module';
 import { ActivityFilterPipe } from 'src/app/helpers/activity-filter.pipe';
 import { EditService } from 'src/app/helpers/edit.service';
@@ -64,8 +57,6 @@ export function HttpLoaderFactory(http: HttpClient) {
     DashboardComponent,
     SettingsComponent,
     EatingHabitChartComponent,
-    FoodIngredientDistributionChartComponent,
-    EnergyConsumptionChartComponent,
     ConsumedCalorieComponent,
     FoodComponent,
     FoodTableComponent,
@@ -79,8 +70,6 @@ export function HttpLoaderFactory(http: HttpClient) {
     ActivityTable,
     PatientTarget,
     PatientTargetCard,
-    ProgressesComponent,
-    CalendarComponent,
     ExpertsComponent,
     CounseleeProfileComponent,
     EditFood,
@@ -94,7 +83,6 @@ export function HttpLoaderFactory(http: HttpClient) {
     CustomFoodComponent,
     FoodListComponent,
     CustomFoodComponent,
-    PieChartThreedComponent,
   ],
   imports: [
     CommonModule,
@@ -102,7 +90,6 @@ export function HttpLoaderFactory(http: HttpClient) {
     CustomMaterialModule,
     PrimeNgModule,
     ReactiveFormsModule,
-    GoogleChartsModule,
     FormsModule,
     TranslateModule.forRoot({
       loader: {
@@ -113,6 +100,6 @@ export function HttpLoaderFactory(http: HttpClient) {
     }),
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
-  providers: [CalendarDataService, EditService, CustomFoodService]
+  providers: [ EditService, CustomFoodService]
 })
 export class PrivateModule { }

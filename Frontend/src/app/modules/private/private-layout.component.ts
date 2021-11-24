@@ -18,18 +18,12 @@ export class PrivateLayoutComponent {
         translate.use(browserLang.match(/en|tr/) ? browserLang : 'en');
     }
     sideBar = true;
-    pinned = false;
+
     toggle() {
-        if (this.pinned) {
-            this.sideBar = this.sideBar;
-        } else {
-            this.sideBar = !this.sideBar;
-        }
+        this.sideBar = !this.sideBar;
     }
-    pin() {
-        this.pinned = !this.pinned;
-    }
+
     changeLang(langCode: string) {
         this.translate.use(langCode);
-      }
+    }
 }

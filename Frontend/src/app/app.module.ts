@@ -16,8 +16,6 @@ import { HttpEntityRepositoryService } from './services/http-entity-repository.s
 import { CanActiveGuard } from './helpers/can-active.guard';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { ConfirmModalComponent } from './helpers/confirmation-modal/confirmation-modal.component';
-import { GoogleChartsModule } from 'angular-google-charts';
-import { LineChartComponent } from './main-page/layout/dashboard/line-chart/line-chart.component';
 import { PrimeNgModule } from './modules/primeng/primeng.module';
 
 
@@ -32,13 +30,11 @@ export function HttpLoaderFactory(http: HttpClient) {
     RegisterFormComponent,
     NotFoundComponent,
     ConfirmModalComponent,
-    LineChartComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    GoogleChartsModule,
     BrowserAnimationsModule,
     PrivateModule,
     PrimeNgModule,

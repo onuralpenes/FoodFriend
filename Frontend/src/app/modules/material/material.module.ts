@@ -17,10 +17,6 @@ import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatCardModule } from '@angular/material/card';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 
-import { NgxChartsModule } from '@swimlane/ngx-charts';
-import { NgCircleProgressModule } from 'ng-circle-progress';
-import { DayPilotModule } from 'daypilot-pro-angular';
-import { GoogleChartsModule } from 'angular-google-charts';
 
 @NgModule({
   imports: [
@@ -41,10 +37,6 @@ import { GoogleChartsModule } from 'angular-google-charts';
     MatPaginatorModule,
     MatCardModule,
     MatSnackBarModule,
-
-    NgxChartsModule,
-
-    NgCircleProgressModule.forRoot({}),
   ],
 
   exports: [
@@ -64,11 +56,6 @@ import { GoogleChartsModule } from 'angular-google-charts';
     MatDialogModule,
     MatPaginatorModule,
     MatCardModule,
-    GoogleChartsModule,
-    NgxChartsModule,
-    NgCircleProgressModule,
-
-    DayPilotModule,
   ],
   providers: [MatDatepickerModule],
 })
