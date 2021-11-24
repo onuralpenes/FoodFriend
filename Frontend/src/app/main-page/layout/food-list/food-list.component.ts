@@ -11,7 +11,6 @@ import { HttpEntityRepositoryService } from 'src/app/services/http-entity-reposi
 })
 export class FoodListComponent {
   foods: FoodDetail[] = [];
-  isNull: boolean = true;
   first = 0;
   rows = 10;
 
@@ -23,19 +22,8 @@ export class FoodListComponent {
         this.alertService.openSnackBar(Data.success, Data.message);
         return;
       }
-
       this.foods = Data.data;
-
-      this.Begin();
     });
-  }
-  Begin() {
-    // if (this.dataSource.filteredData.length == 0) {
-    //   this.isNull = false;
-    // }
-    // else {
-    //   this.isNull = true;
-    // }
   }
   next() {
     this.first = this.first + this.rows;
