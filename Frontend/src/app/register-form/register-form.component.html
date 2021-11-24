@@ -13,12 +13,14 @@
     <p>
       <mat-form-field appearance="outline">
         <mat-label>{{'label.name' | translate}}</mat-label>
-        <input matInput formControlName="firstName" [ngClass]="{ 'is-invalid': submitted && f.firstName.errors }" required>
+        <input matInput formControlName="firstName" [ngClass]="{ 'is-invalid': submitted && f.firstName.errors }"
+          required>
         <mat-error *ngIf="f.firstName.errors?.required">{{'validator.nameNull' | translate}}</mat-error>
       </mat-form-field>
       <mat-form-field appearance="outline">
         <mat-label>{{'label.surname' | translate}}</mat-label>
-        <input matInput formControlName="lastName" [ngClass]="{ 'is-invalid': submitted && f.lastName.errors }" required>
+        <input matInput formControlName="lastName" [ngClass]="{ 'is-invalid': submitted && f.lastName.errors }"
+          required>
         <mat-error *ngIf="f.lastName.errors?.required">{{'validator.surnameNull' | translate}}</mat-error>
 
       </mat-form-field>
@@ -27,8 +29,8 @@
     <p>
       <mat-form-field appearance="outline">
         <mat-label>{{'label.email' | translate}}</mat-label>
-        <input matInput formControlName="emailAddress"
-          [ngClass]="{ 'is-invalid': submitted && f.emailAddress.errors }" required/>
+        <input matInput formControlName="emailAddress" [ngClass]="{ 'is-invalid': submitted && f.emailAddress.errors }"
+          required />
         <mat-error *ngIf="f.emailAddress.errors?.required">{{'validator.emailNull' | translate}}</mat-error>
         <mat-error *ngIf="f.emailAddress.errors?.email">{{'validator.emailValid' | translate}}</mat-error>
       </mat-form-field>
@@ -46,17 +48,17 @@
     <p>
       <mat-form-field appearance="outline" style="width: 44%;">
         <mat-label>{{'label.password' | translate}}</mat-label>
-        <input matInput [type]="hide ? 'password' : 'text'" formControlName="password"
+        <input matInput [type]="hidePassword ? 'password' : 'text'" formControlName="password"
           [ngClass]="{ 'is-invalid': submitted && f.password.errors }" required />
-          <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+        <mat-icon matSuffix (click)="hidePassword = !hidePassword">{{hidePassword ? 'visibility_off' : 'visibility'}}</mat-icon>
         <mat-error *ngIf="f.password.errors?.required">{{'validator.psdNull' | translate}}</mat-error>
         <mat-error *ngIf="f.password.errors?.minlength">{{'validator.psdMin' | translate}}</mat-error>
       </mat-form-field>
       <mat-form-field appearance="outline" style="width: 44%;">
         <mat-label>{{'label.confirmPassword' | translate}}</mat-label>
-        <input matInput [type]="hideConf ? 'password' : 'text'" formControlName="passwordConf"
+        <input matInput [type]="hidePasswordConfirmation ? 'password' : 'text'" formControlName="passwordConf"
           [ngClass]="{ 'is-invalid': submitted && f.passwordConf.errors }" required />
-          <mat-icon matSuffix (click)="hideConf = !hideConf">{{hideConf ? 'visibility_off' : 'visibility'}}</mat-icon>
+        <mat-icon matSuffix (click)="hidePasswordConfirmation = !hidePasswordConfirmation">{{hidePasswordConfirmation ? 'visibility_off' : 'visibility'}}</mat-icon>
         <mat-error *ngIf="f.passwordConf.errors?.required">{{'validator.confNull' | translate}}</mat-error>
         <mat-error *ngIf="f.passwordConf.errors?.match">{{'validator.confMatch' | translate}}</mat-error>
       </mat-form-field>
@@ -74,9 +76,10 @@
     </p>
 
     <p class="cb">
-      <mat-checkbox class="" [color]="color" formControlName="priv">
-        <label class="invalid" *ngIf="submitted && f.priv.errors " (click) = "priv = true"> {{'label.pp' | translate}}*</label>
-        <label *ngIf="!submitted || !f.priv.errors" (click) = "priv = true"> {{'label.pp' | translate}}*</label>
+      <mat-checkbox class="" [color]="color" formControlName="privacyPolicy">
+        <label class="invalid" *ngIf="submitted && f.priv.errors " (click)="privacyPolicy = true"> {{'label.pp' |
+          translate}}*</label>
+        <label *ngIf="!submitted || !f.privacyPolicy.errors" (click)="privacyPolicy = true"> {{'label.pp' | translate}}*</label>
       </mat-checkbox>
     </p>
 
@@ -97,18 +100,33 @@
   </div>
 </ng-template>
 
-<p-dialog header="FOODFRIEND KİŞİSEL VERİLERİN KORUNMASI VE GİZLİLİK POLİTİKASI" [(visible)]="priv" [dismissableMask]="true" [draggable]="false" [modal]="true" [appendTo]="'body'" [closeOnEscape]="true" [blockScroll]="true" [style]="{width: '50vw'}">
+<p-dialog header="FOODFRIEND KİŞİSEL VERİLERİN KORUNMASI VE GİZLİLİK POLİTİKASI" [(visible)]="privacyPolicy"
+  [dismissableMask]="true" [draggable]="false" [modal]="true" [appendTo]="'body'" [closeOnEscape]="true"
+  [blockScroll]="true" [style]="{width: '50vw'}">
   <br>
-Foodfriend adına veri sorumlusu sıfatı ile ARD GRUP BİLİŞİM TEKNOLOJİLERİ A.Ş. (ARD BİLİŞİM) olarak, 6698 sayılı Kişisel Verilerin Korunması Kanunu (“KVKK”) m.10′ dan doğan aydınlatma yükümlülüğümüzü yerine getirmek amacıyla aşağıdaki açıklamaları üyelerimizin ve web-sitemizi ve/veya mobil uygulamalarımızı kullanan 3. kişilerin dikkatine sunarız.
+  Foodfriend adına veri sorumlusu sıfatı ile ARD GRUP BİLİŞİM TEKNOLOJİLERİ A.Ş. (ARD BİLİŞİM) olarak, 6698 sayılı
+  Kişisel Verilerin Korunması Kanunu (“KVKK”) m.10′ dan doğan aydınlatma yükümlülüğümüzü yerine getirmek amacıyla
+  aşağıdaki açıklamaları üyelerimizin ve web-sitemizi ve/veya mobil uygulamalarımızı kullanan 3. kişilerin dikkatine
+  sunarız.
 
-ARD BİLİŞİM olarak kişisel verilerinizin güvenliğine en üst düzeyde önem vererek, sizlere sunduğumuz tüm ürün ve hizmetlerimizde kişisel verilerinizin güvenliğinin ön planda olduğu bilinciyle faaliyetlerimize devam ettiğimizi belirtmek isteriz.
+  ARD BİLİŞİM olarak kişisel verilerinizin güvenliğine en üst düzeyde önem vererek, sizlere sunduğumuz tüm ürün ve
+  hizmetlerimizde kişisel verilerinizin güvenliğinin ön planda olduğu bilinciyle faaliyetlerimize devam ettiğimizi
+  belirtmek isteriz.
 
-ARD BİLİŞİM işbu Kişisel Verilerin Korunması Hakkında Açıklama metnini yürürlükteki mevzuatta yapılabilecek değişiklikler çerçevesinde her zaman güncelleme hakkını saklı tutar.
+  ARD BİLİŞİM işbu Kişisel Verilerin Korunması Hakkında Açıklama metnini yürürlükteki mevzuatta yapılabilecek
+  değişiklikler çerçevesinde her zaman güncelleme hakkını saklı tutar.
 
-07.04.2016 tarihli ve 29677 sayılı Resmi Gazete’de yayımlanan 6698 sayılı Kişisel Verilerin Korunması Kanunu (KVKK) uyarınca, veri sorumlusu sıfatını haiz şirketimizce elde edilmiş/edilecek ya da şirketimizce paylaştığınız/paylaşacağınız şahsınıza ait her türlü bilginin (kişisel veri), aşağıda açıklanan çerçevede ve anılan Kanunda öngörülen şekillerde şirketimizce işleneceğini ve bilgilerinizin otomatik olan ya da olmayan yollarla elde edilmesi, kaydedilmesi, depolanması, muhafaza edilmesi, değiştirilmesi, açıklanması, aktarılması, elde edilebilir hale getirilmesi de dâhil olmak üzere bilgileriniz üzerinde gerçekleştirilen her türlü işlemin “kişisel verilerin işlenmesi” anlamına geldiğini bilgilerinize sunarız.
+  07.04.2016 tarihli ve 29677 sayılı Resmi Gazete’de yayımlanan 6698 sayılı Kişisel Verilerin Korunması Kanunu (KVKK)
+  uyarınca, veri sorumlusu sıfatını haiz şirketimizce elde edilmiş/edilecek ya da şirketimizce
+  paylaştığınız/paylaşacağınız şahsınıza ait her türlü bilginin (kişisel veri), aşağıda açıklanan çerçevede ve anılan
+  Kanunda öngörülen şekillerde şirketimizce işleneceğini ve bilgilerinizin otomatik olan ya da olmayan yollarla elde
+  edilmesi, kaydedilmesi, depolanması, muhafaza edilmesi, değiştirilmesi, açıklanması, aktarılması, elde edilebilir hale
+  getirilmesi de dâhil olmak üzere bilgileriniz üzerinde gerçekleştirilen her türlü işlemin “kişisel verilerin
+  işlenmesi” anlamına geldiğini bilgilerinize sunarız.
 
-Kişisel verilerinizin işlemleriniz için kullanılması, özel hayatınızın gizliliği ve temel hak ve özgürlüklerinizin korunması temel prensibimizdir.
-<br>
-<b>KİŞİSEL VERİLERİNİZİN İŞLENME AMAÇLARI VE HUKUKİ SEBEPLERİ</b>
+  Kişisel verilerinizin işlemleriniz için kullanılması, özel hayatınızın gizliliği ve temel hak ve özgürlüklerinizin
+  korunması temel prensibimizdir.
+  <br>
+  <b>KİŞİSEL VERİLERİNİZİN İŞLENME AMAÇLARI VE HUKUKİ SEBEPLERİ</b>
 
 </p-dialog>

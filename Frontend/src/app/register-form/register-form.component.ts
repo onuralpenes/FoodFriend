@@ -12,10 +12,10 @@ export class RegisterFormComponent implements OnInit {
   color = 'primary';
   registerForm!: FormGroup;
   submitted = false;
-  hide = true;
-  hideConf = true;
+  hidePassword = true;
+  hidePasswordConfirmation = true;
   approved = false;
-  priv = false;
+  privacyPolicy = false;
 
   constructor(private formBuilder: FormBuilder, private registerService: RegisterService) { }
 
@@ -28,7 +28,7 @@ export class RegisterFormComponent implements OnInit {
       password: new FormControl('', [Validators.required, Validators.minLength(8)]),
       passwordConf: new FormControl('', [Validators.required, Validators.minLength(8)]),
       birthDate: new FormControl('', [Validators.required]),
-      priv: new FormControl('', [Validators.required]),
+      privacyPolicy: new FormControl('', [Validators.required]),
     }, { validator: Match('password', 'passwordConf') });
   }
 
@@ -39,12 +39,12 @@ export class RegisterFormComponent implements OnInit {
     if (this.registerForm.invalid) {
       return;
     }
-    
+
     this.approved = true;
     this.registerService.register(this.registerForm.value);
   }
 
-  signIn(){
+  signIn() {
     location.reload();
   }
 }
