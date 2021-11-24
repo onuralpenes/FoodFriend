@@ -1,15 +1,15 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { ActivityComponent } from 'src/app/main-page/layout/activity/activity.component';
 import { DashboardComponent } from 'src/app/main-page/layout/dashboard/dashboard.component';
-import { FoodComponent } from 'src/app/main-page/layout/food/food.component';
-import { PatientTraceComponent } from 'src/app/main-page/layout/patient-trace/patient-trace.component';
 import { ProfileComponent } from 'src/app/main-page/layout/profile/profile.component';
 import { PrivateLayoutComponent } from './private-layout.component';
-import { CounseleeProfileComponent } from 'src/app/main-page/layout/counselee-profile/counselee-profile.component';
 import { ExpertsComponent } from 'src/app/main-page/layout/experts/experts.component';
 import { SettingsComponent } from 'src/app/main-page/layout/settings/settings.component';
 import { FoodListComponent } from 'src/app/main-page/layout/food-list/food-list.component';
+import { ActivityListComponent } from 'src/app/main-page/layout/activity-list/activity-list.component';
+import { PatientListComponent } from 'src/app/main-page/layout/patient-trace/patient-list.component';
+import { PatientProfileComponent } from 'src/app/main-page/layout/patient-profile/patient-profile.component';
+import { EatingActivityComponent } from 'src/app/main-page/layout/food/eating-activity.component';
 
 const routes: Routes = [
     {
@@ -18,11 +18,11 @@ const routes: Routes = [
         children: [
             { path: 'dashboard', component: DashboardComponent },
             { path: 'profile', component: ProfileComponent },
-            { path: 'eating-activity', component: FoodComponent },
-            { path: 'activity', component: ActivityComponent },
-            { path: 'patients', component: PatientTraceComponent },
+            { path: 'eating-activity', component: EatingActivityComponent },
+            { path: 'activity-list', component: ActivityListComponent },
+            { path: 'patient-list', component: PatientListComponent },
             { path: 'experts', component: ExpertsComponent },
-            { path: 'counselee-profile/:id', component: CounseleeProfileComponent },
+            { path: 'patient-profile/:id', component: PatientProfileComponent },
             { path: 'food-list', component: FoodListComponent },
             { path: 'settings', component: SettingsComponent },
             { path: '', redirectTo: 'dashboard', pathMatch: 'full' },

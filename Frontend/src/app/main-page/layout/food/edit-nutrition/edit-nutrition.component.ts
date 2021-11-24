@@ -1,7 +1,7 @@
 import { Component } from "@angular/core";
 import { FormBuilder, FormControl, FormGroup } from "@angular/forms";
 import { AlertService } from "src/app/helpers/alert.service";
-import { EditService } from "src/app/helpers/edit.service";
+import { EditNutritionService } from "src/app/helpers/edit-nutrition.service";
 import { EatingActivity } from "src/app/models/data/eating-activity.model";
 import { FoodDetail } from "src/app/models/data/food-detail.model";
 import { Nutrition } from "src/app/models/data/nutrition.model";
@@ -9,18 +9,18 @@ import { AuthService } from "src/app/services/auth.service";
 import { HttpEntityRepositoryService } from "src/app/services/http-entity-repository.service";
 
 @Component({
-    selector: 'app-edit-food',
-    templateUrl: './edit-food.html',
-    styleUrls: ['./edit-food.component.css'],
+    selector: 'app-edit-nutrition',
+    templateUrl: './edit-nutrition.html',
+    styleUrls: ['./edit-nutrition.component.css'],
   })
-  export class EditFood {
+  export class EditNutrition {
     editFoodForm!: FormGroup;
     foods: FoodDetail[] = [];
     post: any = '';
     editEat: any;
   
-    constructor( private authService: AuthService, private editService: EditService, private formBuilder: FormBuilder, private entityService1: HttpEntityRepositoryService<Nutrition>, private entityService2: HttpEntityRepositoryService<EatingActivity>, private alertService: AlertService) {
-      editService.getFoodInfo().subscribe(data => {
+    constructor( private authService: AuthService, private editNutritionService: EditNutritionService, private formBuilder: FormBuilder, private entityService1: HttpEntityRepositoryService<Nutrition>, private entityService2: HttpEntityRepositoryService<EatingActivity>, private alertService: AlertService) {
+      editNutritionService.getFoodInfo().subscribe(data => {
         this.editEat = data;
         this.editFoodForm = this.formBuilder.group({
           'foodName': new FormControl(this.editEat.foodName),

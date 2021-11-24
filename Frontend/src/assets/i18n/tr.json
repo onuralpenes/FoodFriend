@@ -91,10 +91,10 @@
   "menu": {
     "dashboard": "Ana Sayfa",
     "profile": "Profil",
-    "food": "Yeme Aktivitesi",
-    "activity": "Aktivite",
-    "patients": "Danışanlar",
-    "expert": "Uzman",
+    "food": "Beslenme Bilgisi",
+    "activity": "Aktivite Listesi",
+    "patients": "Danışan Listesi",
+    "expert": "Uzmanlar",
     "foodList": "Yemek Listesi",
     "settings": "Ayarlar",
     "logout": "Çıkış Yap"

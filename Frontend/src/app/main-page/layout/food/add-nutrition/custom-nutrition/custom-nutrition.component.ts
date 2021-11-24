@@ -1,18 +1,18 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { AlertService } from 'src/app/helpers/alert.service';
-import { CustomFoodService } from 'src/app/helpers/custom-food.pipe';
+import { CustomNutritionService } from 'src/app/helpers/custom-nutrition.service';
 
 
 @Component({
-  selector: 'app-custom-food',
-  templateUrl: './custom-food.component.html',
-  styleUrls: ['./custom-food.component.css']
+  selector: 'app-custom-nutrition',
+  templateUrl: './custom-nutrition.component.html',
+  styleUrls: ['./custom-nutrition.component.css']
 })
-export class CustomFoodComponent implements OnInit {
+export class CustomNutritionComponent implements OnInit {
 
   customFoodForm!: FormGroup;
-  constructor(private formBuilder: FormBuilder,  private alertService: AlertService, private customFoodService: CustomFoodService) { }
+  constructor(private formBuilder: FormBuilder,  private alertService: AlertService, private customFoodService: CustomNutritionService) { }
 
   ngOnInit() {
     this.customFoodForm = this.formBuilder.group({

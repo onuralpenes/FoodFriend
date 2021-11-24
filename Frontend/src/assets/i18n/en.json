@@ -92,9 +92,9 @@
     "dashboard": "Dashboard",
     "profile": "Profile",
     "food": "Eating Activity",
-    "activity": "Activity",
-    "patients": "Patients",
-    "expert": "Expert",
+    "activity": "Activity List",
+    "patients": "Patient List",
+    "expert": "Experts",
     "foodList": "Food List",
     "settings": "Settings",
     "logout": "Logout"

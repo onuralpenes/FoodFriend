@@ -6,11 +6,11 @@ import { HttpEntityRepositoryService } from 'src/app/services/http-entity-reposi
 import { AllergyList, DisabledList, IllnessList, PregnantList } from '../profile/profile.component';
 
 @Component({
-  selector: 'app-counselee-profile',
-  templateUrl: './counselee-profile.component.html',
-  styleUrls: ['./counselee-profile.component.css']
+  selector: 'app-patient-profile',
+  templateUrl: './patient-profile.component.html',
+  styleUrls: ['./patient-profile.component.css']
 })
-export class CounseleeProfileComponent implements OnInit {
+export class PatientProfileComponent implements OnInit {
   weight!: number;
   height!: number;
   age!: number;

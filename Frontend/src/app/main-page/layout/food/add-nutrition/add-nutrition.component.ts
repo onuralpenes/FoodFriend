@@ -2,7 +2,7 @@ import { ChangeDetectionStrategy, ChangeDetectorRef, Component, ViewChild } from
 import { FormArray, FormBuilder, FormControl, FormGroup } from "@angular/forms";
 import { PickList } from "primeng/picklist";
 import { AlertService } from "src/app/helpers/alert.service";
-import { CustomFoodService } from "src/app/helpers/custom-food.pipe";
+import { CustomNutritionService } from "src/app/helpers/custom-nutrition.service";
 import { EatingActivity } from "src/app/models/data/eating-activity.model";
 import { FoodDetail } from "src/app/models/data/food-detail.model";
 import { Nutrition } from "src/app/models/data/nutrition.model";
@@ -16,12 +16,12 @@ export interface AddedFood {
 }
 
 @Component({
-  selector: 'app-add-food',
-  templateUrl: './add-food.component.html',
-  styleUrls: ['./add-food.component.css'],
+  selector: 'app-add-nutrition',
+  templateUrl: './add-nutrition.component.html',
+  styleUrls: ['./add-nutrition.component.css'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class AddFood {
+export class AddNutrition {
   activeIndex: number = 0;
   foodsList: FoodDetail[] = [];
   addedFoodsFromTable: FoodDetail[] = [];
@@ -35,9 +35,8 @@ export class AddFood {
   customFoodModal = false;
   @ViewChild('pl') pl: PickList | undefined;
   constructor(private formBuilder: FormBuilder, private entityService: HttpEntityRepositoryService<FoodDetail>, private alertService: AlertService,
-    private authService: AuthService, private customFoodService: CustomFoodService, private detect: ChangeDetectorRef) {
+    private authService: AuthService, private customFoodService: CustomNutritionService, private detect: ChangeDetectorRef) {
   }
-
 
   getFoods() {
 

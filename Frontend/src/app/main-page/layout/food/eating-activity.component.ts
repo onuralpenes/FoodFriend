@@ -5,7 +5,7 @@ import { EatingActivity } from 'src/app/models/data/eating-activity.model';
 import { AuthService } from 'src/app/services/auth.service';
 import { HttpEntityRepositoryService } from 'src/app/services/http-entity-repository.service';
 import { ConfirmationService } from 'primeng/api';
-import { EditService } from 'src/app/helpers/edit.service';
+import { EditNutritionService } from 'src/app/helpers/edit-nutrition.service';
 
 export interface EatTable {
   nutId: number;
@@ -21,17 +21,17 @@ export interface Tab {
   eatTab: EatTable[];
 }
 @Component({
-  selector: 'app-food',
-  templateUrl: './food.component.html',
-  styleUrls: ['./food.component.css'],
+  selector: 'app-eating-activity',
+  templateUrl: './eating-activity.component.html',
+  styleUrls: ['./eating-activity.component.css'],
   providers: [ConfirmationService]
 })
-export class FoodComponent {
+export class EatingActivityComponent {
   eatTab: Tab[] = [];
   addFod: boolean = false;
   editFod: boolean = false;
 
-  constructor(private editService: EditService, authService: AuthService, private entityService: HttpEntityRepositoryService<EatingActivity>, private alertService: AlertService, private confirmationService: ConfirmationService) {
+  constructor(private editNutritionService: EditNutritionService, authService: AuthService, private entityService: HttpEntityRepositoryService<EatingActivity>, private alertService: AlertService, private confirmationService: ConfirmationService) {
     entityService.get('/EatingActivity/GetByUserId?userId=', authService.CurrentUserId).subscribe(data => {
 
       var Data: any = data;
@@ -98,7 +98,7 @@ export class FoodComponent {
         }
       }
     }
-    this.editService.setFoodInfo(editEat);
+    this.editNutritionService.setFoodInfo(editEat);
     this.editFod = true;
   }
 

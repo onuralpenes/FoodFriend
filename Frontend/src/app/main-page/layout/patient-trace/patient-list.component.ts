@@ -25,11 +25,11 @@ import { HttpEntityRepositoryService } from 'src/app/services/http-entity-reposi
 // }
 
 @Component({
-  selector: 'app-patient-trace',
-  templateUrl: './patient-trace.component.html',
-  styleUrls: ['./patient-trace.component.css'],
+  selector: 'app-patient-list',
+  templateUrl: './patient-list.component.html',
+  styleUrls: ['./patient-list.component.css'],
 })
-export class PatientTraceComponent {
+export class PatientListComponent {
   usersWithFilter: User[] = [];
   usersWithoutFilter: User[] = [];
   first = 0;

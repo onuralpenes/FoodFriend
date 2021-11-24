@@ -5,18 +5,18 @@ import { PersonalEnergyActivity } from 'src/app/models/data/energy-activity.mode
 import { HttpEntityRepositoryService } from 'src/app/services/http-entity-repository.service';
 
 @Component({
-  selector: 'app-activity',
-  templateUrl: './activity.component.html',
-  styleUrls: ['./activity.component.css'],
+  selector: 'app-activity-list',
+  templateUrl: './activity-list.component.html',
+  styleUrls: ['./activity-list.component.css'],
 })
-export class ActivityComponent {
+export class ActivityListComponent {
   activityWithFilter: PersonalEnergyActivity[] = [];
   activityWithoutFilter: PersonalEnergyActivity[] = [];
   first = 0;
   rows = 10;
   searchText = "";
 
-  constructor(private translate: TranslateService, private entityService: HttpEntityRepositoryService<PersonalEnergyActivity>, private alertService: AlertService) {
+  constructor( private entityService: HttpEntityRepositoryService<PersonalEnergyActivity>, private alertService: AlertService) {
     entityService.getAll("/PersonalEnergyActivity/GetAll").subscribe(data => {
       var Data: any = data;
       if (!Data.success) {
