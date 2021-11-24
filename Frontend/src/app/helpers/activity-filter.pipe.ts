@@ -6,7 +6,7 @@ const { isArray } = Array;
     name: 'activityFilter'
 })
 export class ActivityFilterPipe implements PipeTransform {
-    
+
     transform(post: PersonalEnergyActivity[], find: string): PersonalEnergyActivity[] {
         if (!post) return [];
         if (!find) return post;

@@ -5,15 +5,11 @@ import { MatSnackBar } from "@angular/material/snack-bar";
   providedIn: 'root'
 })
 export class AlertService {
-
   messageText!: string;
-
   constructor(private myAlert: MatSnackBar) {}
-
-
   openAlert(success: boolean, message: string){
     if(success){
-      this.messageText = "Başarılı";
+      this.messageText = "Success";
     }else{
       this.messageText = message;
     }
