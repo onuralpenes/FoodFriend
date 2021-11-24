@@ -32,13 +32,15 @@
 
       <ng-container matColumnDef="activityStartDate">
         <th mat-header-cell *matHeaderCellDef mat-sort-header>{{'table.start' | translate}}</th>
-        <td mat-cell *matCellDef="let activities" data-label="Start Date: "> {{ activities.activityStartDate | date: 'dd/MM/yyyy' }}</td>
+        <td mat-cell *matCellDef="let activities" data-label="Start Date: "> {{ activities.activityStartDate | date:
+          'dd/MM/yyyy' }}</td>
       </ng-container>
 
       <ng-container matColumnDef="activityEndDate">
         <th mat-header-cell *matHeaderCellDef mat-sort-header class="rHead">{{'table.end' |
           translate}}</th>
-        <td mat-cell *matCellDef="let activities" class="rCol" data-label="End Date: ">{{ activities.activityEndDate | date: 'dd/MM/yyyy'}}</td>
+        <td mat-cell *matCellDef="let activities" class="rCol" data-label="End Date: ">{{ activities.activityEndDate |
+          date: 'dd/MM/yyyy'}}</td>
       </ng-container>
 
       <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
