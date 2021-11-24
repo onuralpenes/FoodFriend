@@ -79,7 +79,6 @@ export class EatingActivityComponent {
       }
     });
   }
-  dataSource = new MatTableDataSource();
 
   openEdit(id: number) {
     let editEat: EatTable = {

@@ -68,7 +68,7 @@
 
 <p-dialog header="Nutrition Information" [(visible)]="nutritionInformation" [dismissableMask]="true" [draggable]="false"
   [modal]="true" [appendTo]="'body'" [closeOnEscape]="true" [blockScroll]="true">
-  <app-patient-nutrition-table></app-patient-nutrition-table>
+  <app-patient-nutrition-table [id]="clickedUserId"></app-patient-nutrition-table>
 </p-dialog>
 
 <p-dialog header="Activity Information" [(visible)]="activityInformation" [dismissableMask]="true" [draggable]="false"

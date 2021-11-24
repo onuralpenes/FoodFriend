@@ -1,33 +1,74 @@
-import { Component  } from "@angular/core";
-// import { MAT_DIALOG_DATA } from "@angular/material/dialog";
-// import { MatTableDataSource } from "@angular/material/table";
-// import { FoodDetail } from "src/app/models/data/food-detail.model";
-// import { Transfer } from "../patient-trace-table.component";
+import { ChangeDetectionStrategy, ChangeDetectorRef, Component, Input } from "@angular/core";
+import { AlertService } from "src/app/helpers/alert.service";
+import { EatingActivity } from "src/app/models/data/eating-activity.model";
+import { HttpEntityRepositoryService } from "src/app/services/http-entity-repository.service";
+import { EatTable, Tab } from "../../food/eating-activity.component";
 
 @Component({
     selector: 'app-patient-nutrition-table',
     templateUrl: './patient-nutrition-table.html',
     styleUrls: ['./patient-nutrition-table.css'],
+    changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class PatientNutritionTable {
-//     foods: FoodDetail[] = [];
-//     sortedData = this.foods;
+    eatTab: Tab[] = [];
+    addFod: boolean = false;
+    editFod: boolean = false;
 
-//     constructor(@Inject(MAT_DIALOG_DATA) public data: Transfer) { }
+    @Input() id = 0;
 
-//     displayedColumns: string[] = [
-//         'foodName',
-//         'calorie',
-//         'protein',
-//         'oil',
-//         'carbohydrate',
-//     ];
-//     dataSource = new MatTableDataSource(
-//         this.foods.filter((food) => food.foodDetailId === this.data.id)
-//     );
+    constructor(private entityService: HttpEntityRepositoryService<EatingActivity>, private alertService: AlertService, private detect: ChangeDetectorRef) {
+        detect.detach();
+        setInterval(() => {
+            if (this.id != 0) {
+                detect.detectChanges();
+                entityService.get('/EatingActivity/GetByUserId?userId=', this.id).subscribe(data => {
 
-//     applyFilter(event: Event) {
-//         const filterValue = (event.target as HTMLInputElement).value;
-//         this.dataSource.filter = filterValue.trim().toLowerCase();
-//     }
+                    var Data: any = data;
+                    if (!Data.success) {
+                        this.alertService.openSnackBar(Data.success, Data.message);
+                        return;
+                    }
+                    for (let i = 0; i < Data.data.length; i++) {
+                        let eatTable: EatTable[] = [];
+
+                        let eId = Data.data[i].eatingActivityId;
+                        let time1 = Data.data[i].startEatingActivity;
+                        let time2 = Data.data[i].endEatingActivity;
+                        for (let j = 0; j < Data.data[i].nutritions.length; j++) {
+                            if (Data.data[i].nutritions[j].foodDetailId == 0) {
+                                let newEat: EatTable = {
+                                    nutId: Data.data[i].nutritions[j].nutritionId,
+                                    foodId: Data.data[i].nutritions[j].foodDetailId,
+                                    eatId: eId,
+                                    startDate: time1,
+                                    endDate: time2,
+                                    foodName: Data.data[i].nutritions[j].customFoodName,
+                                    quantity: Data.data[i].nutritions[j].quantity
+                                }
+                                eatTable.push(newEat);
+                            }
+                            else {
+                                let newEat: EatTable = {
+                                    nutId: Data.data[i].nutritions[j].nutritionId,
+                                    foodId: Data.data[i].nutritions[j].foodDetailId,
+                                    eatId: eId,
+                                    startDate: time1,
+                                    endDate: time2,
+                                    foodName: Data.data[i].nutritions[j].foodName,
+                                    quantity: Data.data[i].nutritions[j].quantity
+                                }
+                                eatTable.push(newEat);
+                            }
+                        }
+                        let newTab: Tab = {
+                            tabId: i + 1,
+                            eatTab: eatTable
+                        }
+                        this.eatTab.push(newTab);
+                    }
+                });
+            }
+        }, 5000)
+    }
 }

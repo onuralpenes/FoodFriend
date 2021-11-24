@@ -39,7 +39,6 @@ export class PatientActivityTable implements AfterViewInit {
         }, 5000)
     }
 
-
     keyup(searchText) {
         this.searchText = searchText;
     }
