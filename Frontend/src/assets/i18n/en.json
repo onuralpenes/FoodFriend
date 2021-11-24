@@ -65,8 +65,8 @@
     "start": "Start Date",
     "end": "End Date",
     "target": "Target",
-    "nutriInfo": "Nutrition Information",
-    "actiInfo": "Activity Information",
+    "nutriInfo": "Nutrition",
+    "actiInfo": "Activity",
     "quantity": "Quantity",
     "null": "There is no data",
     "add": "Add"
