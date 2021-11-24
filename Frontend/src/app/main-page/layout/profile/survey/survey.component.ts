@@ -8,7 +8,6 @@ import { AuthService } from 'src/app/services/auth.service';
 import { HttpEntityRepositoryService } from 'src/app/services/http-entity-repository.service';
 import { ProfileComponent } from '../profile.component';
 
-
 @Component({
   selector: 'app-survey',
   templateUrl: './survey.component.html',
@@ -18,12 +17,11 @@ import { ProfileComponent } from '../profile.component';
 export class SurveyComponent implements OnInit {
 
   surveyForm!: FormGroup;
-  post: any = '';
   illness: boolean = false;
   allergy: boolean = false;
   disabled: boolean = false;
 
-  constructor(private formBuilder: FormBuilder, private authService: AuthService, private prof: ProfileComponent, private entityService: HttpEntityRepositoryService<User>, private entityService2: HttpEntityRepositoryService<PhysicalInfo>, private alertService: AlertService, private confirmationService: ConfirmationService) { }
+  constructor(private formBuilder: FormBuilder, private authService: AuthService, private profile: ProfileComponent, private entityService: HttpEntityRepositoryService<User>, private entityService2: HttpEntityRepositoryService<PhysicalInfo>, private alertService: AlertService, private confirmationService: ConfirmationService) { }
 
   ngOnInit() {
     this.surveyForm = this.formBuilder.group({
@@ -44,64 +42,64 @@ export class SurveyComponent implements OnInit {
       icon: 'pi pi-exclamation-triangle',
       accept: () => {
         this.entityService.get("/User/Get?userId=", this.authService.CurrentUserId).subscribe(dta => {
-          var usr: any = dta;
-          if (!usr.success) {
-            this.alertService.openSnackBar(usr.success, usr.message);
+          var user: any = dta;
+          if (!user.success) {
+            this.alertService.openSnackBar(user.success, user.message);
             return;
           }
-          let phyId = usr.data.physicalInfoId
+          let phyId = user.data.physicalInfoId
           if (this.surveyForm.value.emailAddress != "" || this.surveyForm.value.birthDate != "" || this.surveyForm.value.firstName != "" || this.surveyForm.value.lastName != "" || this.surveyForm.value.phoneNumber != "") {
-            let updateUsr = {
+            let updateUser = {
               "userId": this.authService.CurrentUserId,
-              "emailAddress": usr.data.emailAddress,
-              "birthDate": usr.data.birthDate as Date,
-              "firstName": usr.data.firstName,
-              "lastName": usr.data.lastName,
-              "phone": usr.data.phone
+              "emailAddress": user.data.emailAddress,
+              "birthDate": user.data.birthDate as Date,
+              "firstName": user.data.firstName,
+              "lastName": user.data.lastName,
+              "phone": user.data.phone
             }
             if (this.surveyForm.value.emailAddress != "") {
-              updateUsr.emailAddress = this.surveyForm.value.emailAddress;
+              updateUser.emailAddress = this.surveyForm.value.emailAddress;
             }
             if (this.surveyForm.value.birthDate != "") {
-              updateUsr.birthDate = this.surveyForm.value.birthDate as Date;
+              updateUser.birthDate = this.surveyForm.value.birthDate as Date;
             }
             if (this.surveyForm.value.firstName != "") {
-              updateUsr.firstName = this.surveyForm.value.firstName;
+              updateUser.firstName = this.surveyForm.value.firstName;
             }
             if (this.surveyForm.value.lastName != "") {
-              updateUsr.lastName = this.surveyForm.value.lastName;
+              updateUser.lastName = this.surveyForm.value.lastName;
             }
             if (this.surveyForm.value.phoneNumber != "") {
-              updateUsr.phone = this.surveyForm.value.phoneNumber;
+              updateUser.phone = this.surveyForm.value.phoneNumber;
             }
-            
-            this.entityService.update("/User/Update", updateUsr).subscribe(data => {
+
+            this.entityService.update("/User/Update", updateUser).subscribe(data => {
               var Data: any = data;
               this.alertService.openSnackBar(true, "success");
             }, err => { this.alertService.openSnackBar(false, "unsuccess"); })
           }
-          this.entityService2.get("/PhysicalInfo/Get?id=", usr.data.physicalInfoId).subscribe(phy => {
-            var usrPhy: any = phy;
+          this.entityService2.get("/PhysicalInfo/Get?id=", user.data.physicalInfoId).subscribe(phy => {
+            var userPhysicalInfo: any = phy;
             if (this.surveyForm.value.height != "" || this.surveyForm.value.weight != "") {
-              let updatePhy = {
+              let updatePhysicalInfo = {
                 "physicalInfoId": phyId,
-                "height": usrPhy.data.height,
-                "weight": usrPhy.data.weight
+                "height": userPhysicalInfo.data.height,
+                "weight": userPhysicalInfo.data.weight
               }
               if (this.surveyForm.value.height != "") {
-                updatePhy.height = +this.surveyForm.value.height;
+                updatePhysicalInfo.height = +this.surveyForm.value.height;
               }
               if (this.surveyForm.value.weight != "") {
-                updatePhy.weight = +this.surveyForm.value.weight;
+                updatePhysicalInfo.weight = +this.surveyForm.value.weight;
               }
-              this.entityService2.update("/PhysicalInfo/Update", updatePhy).subscribe(data => {
+              this.entityService2.update("/PhysicalInfo/Update", updatePhysicalInfo).subscribe(data => {
                 var Data: any = data;
                 this.alertService.openSnackBar(true, "success");
               }, err => { this.alertService.openSnackBar(false, "unsuccess"); })
             }
           })
         });
-        this.prof.editProf = false;
+        this.profile.editProfileTemp = false;
       },
       reject: () => {
         this.alertService.openSnackBar(false, "unsuccess");

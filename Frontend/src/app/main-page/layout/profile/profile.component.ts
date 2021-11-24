@@ -3,6 +3,7 @@ import { AlertService } from 'src/app/helpers/alert.service';
 import { User } from 'src/app/models/user/user.model';
 import { AuthService } from 'src/app/services/auth.service';
 import { HttpEntityRepositoryService } from 'src/app/services/http-entity-repository.service';
+
 export interface IllnessList {
   illnessName: string;
 }
@@ -37,21 +38,19 @@ export class ProfileComponent implements OnInit {
   hasAllergy!: boolean;
   isPregnant!: boolean;
   isDisabled!: boolean;
-  public editProf: boolean = false;
+  public editProfileTemp: boolean = false;
   dummy = "dummy";
   gender = "male";
   genderless = false;
   male = false;
   female = false;
 
-  public chart: any[] = [];
-
   illnessList!: IllnessList[];
   allergyList!: AllergyList[];
   pregnantList!: PregnantList[];
   disabledList!: DisabledList[];
 
-  constructor(authService: AuthService, private alertService: AlertService, entityService: HttpEntityRepositoryService<User>){
+  constructor(authService: AuthService, private alertService: AlertService, entityService: HttpEntityRepositoryService<User>) {
 
     entityService.get("/User/Get?userId=", authService.CurrentUserId).subscribe(data => {
 
@@ -99,15 +98,13 @@ export class ProfileComponent implements OnInit {
         this.pregnantList = DataH.data.pregnantDetails;
       });
     });
-
   }
 
   editProfile() {
-    this.editProf = true;
+    this.editProfileTemp = true;
   }
 
   ngOnInit(): void {
-
     if (this.gender == "male") {
       this.male = true;
       this.female = false;
@@ -118,5 +115,4 @@ export class ProfileComponent implements OnInit {
       this.genderless = false;
     }
   }
-
 }

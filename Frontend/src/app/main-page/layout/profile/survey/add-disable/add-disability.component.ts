@@ -12,21 +12,21 @@ import { HttpEntityRepositoryService } from "src/app/services/http-entity-reposi
 })
 export class AddDisability {
   disabilityForm!: FormGroup;
-  disabilities : DisabledDetail[] = [];
-  phId!:number;
+  disabilities: DisabledDetail[] = [];
+  phId!: number;
   constructor(private formBuilder: FormBuilder, private alertService: AlertService,
     private entityService: HttpEntityRepositoryService<DisabledDetail>, private authService: AuthService) {
 
-      entityService.getAll("/DisabledDetail/GetAll").subscribe(data => {
+    entityService.getAll("/DisabledDetail/GetAll").subscribe(data => {
 
-        var Data: any = data;
-        if (!Data.success) {
-          this.alertService.openSnackBar(Data.success, Data.message);
-          return;
-        }
-  
-        this.disabilities = Data.data;
-      });
+      var Data: any = data;
+      if (!Data.success) {
+        this.alertService.openSnackBar(Data.success, Data.message);
+        return;
+      }
+
+      this.disabilities = Data.data;
+    });
     this.disabilityForm = this.formBuilder.group({
       disabledDescription: new FormControl('', [Validators.required]),
       disabledRatio: new FormControl('', [Validators.required])
@@ -57,7 +57,7 @@ export class AddDisability {
           this.alertService.openSnackBar(post.success, post.message);
           return;
         }
-        
+
       });
     });
     this.alertService.openSnackBar(true, "Added");
