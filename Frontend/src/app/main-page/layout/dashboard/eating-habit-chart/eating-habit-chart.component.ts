@@ -93,14 +93,12 @@ export class EatingHabitChartComponent {
         reqNum = 7;
       }
 
-      console.log(reqNum);
       for(let i = reqNum; i< 7; i++){
         multi[0].series[i].value = 0;
       }
 
       for(let i = 0 ; i<reqNum; i++){
         const datepipe: DatePipe = new DatePipe('en-US');
-        console.log("kaç gün öncesii" +(reqNum-1-i) );
         let date = datepipe.transform(new Date(new Date().setDate(new Date().getDate()-(reqNum-1-i))), 'YYYY-MM-dd'); 
         entityService.get("/EatingActivity/GetTotalCalorieByUserIdOnDay?date="+date+"&userId=", authService.CurrentUserId).subscribe(data =>{
         var Data: any = data;
@@ -115,8 +113,6 @@ export class EatingHabitChartComponent {
             this.weeklyAvailableCalorie[i] = 2000-Data.data.totalCalorie;
           }
           
-          console.log( i +"==="+ "" + Data.data.totalCalorie + " eee ")
-          
           this.updateChartOptions();
         }
       })
@@ -125,7 +121,6 @@ export class EatingHabitChartComponent {
       for(let i = 0; i<7; i++){
         const datepipe: DatePipe = new DatePipe('en-US');
         let date = datepipe.transform(new Date(new Date().setDate(new Date().getDate()-(reqNum+6-i))), 'YYYY-MM-dd'); 
-        console.log("sadate"+date)
         entityService.get("/EatingActivity/GetTotalCalorieByUserIdOnDay?date="+date+"&userId=", authService.CurrentUserId).subscribe(data =>{
         var Data: any = data;
         if (!Data.success) {
@@ -133,15 +128,12 @@ export class EatingHabitChartComponent {
           return;
         }else{
           multi[1].series[i].value = Data.data.totalCalorie;
-          
-          //console.log("sadate"+date+" ==== " + Data.data.totalCalorie)
         }
       })
       }
       for(let i = 0; i<7; i++){
         const datepipe: DatePipe = new DatePipe('en-US');
         let date = datepipe.transform(new Date(new Date().setDate(new Date().getDate()-(reqNum+6+7-i))), 'YYYY-MM-dd'); 
-        console.log("sadate"+date)
         entityService.get("/EatingActivity/GetTotalCalorieByUserIdOnDay?date="+date+"&userId=", authService.CurrentUserId).subscribe(data =>{
         var Data: any = data;
         if (!Data.success) {
@@ -149,12 +141,10 @@ export class EatingHabitChartComponent {
           return;
         }else{
           multi[2].series[i].value = Data.data.totalCalorie;
-          //console.log("sadate"+date+" ==== " + Data.data.totalCalorie)
           
         }
       })
       }
-    //console.log(new Date())
     setTimeout(x =>{
       Object.assign(this, { multi });
     }, 200)

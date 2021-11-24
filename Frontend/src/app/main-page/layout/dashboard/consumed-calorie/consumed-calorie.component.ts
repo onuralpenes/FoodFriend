@@ -78,7 +78,6 @@ export class ConsumedCalorieComponent {
       }
       }
       this.drawGraph();
-      console.log(Data)
     })
   }
 getLightTheme() {
