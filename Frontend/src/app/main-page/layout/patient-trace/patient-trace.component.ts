@@ -35,8 +35,10 @@ export class PatientTraceComponent {
   first = 0;
   rows = 10;
   searchText = "";
+  nutritionInformation: boolean = false;
+  activityInformation: boolean = false;
 
-  constructor( private router: Router, private alertService: AlertService, entityService: HttpEntityRepositoryService<User>) {
+  constructor(private router: Router, private alertService: AlertService, entityService: HttpEntityRepositoryService<User>) {
     entityService.getAll("/User/GetAll").subscribe(data => {
 
       var Data: any = data;
@@ -55,25 +57,19 @@ export class PatientTraceComponent {
     this.router.navigate(['/counselee-profile/' + id]);
   }
 
-  openActivity(firstName: string, lastName: string, id: number) {
-    // this.modal.open(ActivityTable, {
-    //   data: {
-    //     name: firstName + ' ' + lastName,
-    //     id: id,
-    //   },
-    // });
+  public clickedUserId: number = 0;
+
+  openActivity(id: number) {
+    this.clickedUserId = id;
+    this.activityInformation = true;
   }
 
-  openFood(firstName: string, lastName: string, id: number) {
-    // this.modal.open(NutritionTable, {
-    //   data: {
-    //     name: firstName + ' ' + lastName,
-    //     id: id,
-    //   },
-    // });
+  openFood(id: number) {
+    this.clickedUserId = id;
+    this.nutritionInformation = true;
   }
 
-  openTarget(firstName: string, lastName: string, id: number) {
+  openTarget(id: number) {
     // this.modal.open(PatientTarget, {
     //   data: {
     //     name: firstName + ' ' + lastName,

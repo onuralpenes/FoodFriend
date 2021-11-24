@@ -1,4 +1,4 @@
- import { AfterViewInit, Component, Inject, ViewChild } from "@angular/core";
+ import { Component } from "@angular/core";
 // import { MAT_DIALOG_DATA } from "@angular/material/dialog";
 // import { MatSort } from "@angular/material/sort";
 // import { MatTableDataSource } from "@angular/material/table";
@@ -6,11 +6,11 @@
 // import { Transfer } from "../patient-trace-table.component";
 
 @Component({
-    selector: 'app-act-table',
-    templateUrl: './activity-table.html',
-//     styleUrls: ['../patient-trace-table.component.css'],
+    selector: 'app-patient-activity-table',
+    templateUrl: './patient-activity-table.html',
+   styleUrls: ['../patient-trace.component.css'],
 })
-export class ActivityTable implements AfterViewInit {
+export class PatientActivityTable {
 //     activities: PersonalEnergyActivity[] = [];
 //     sortedData = this.activities;
 
@@ -35,8 +35,4 @@ export class ActivityTable implements AfterViewInit {
 //         const filterValue = (event.target as HTMLInputElement).value;
 //         this.dataSource.filter = filterValue.trim().toLowerCase();
 //     }
-
-    ngAfterViewInit() {
-//         this.dataSource.sort = this.sort;
-     }
  }

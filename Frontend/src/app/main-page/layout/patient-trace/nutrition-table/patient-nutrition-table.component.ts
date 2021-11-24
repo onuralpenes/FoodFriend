@@ -1,15 +1,15 @@
-import { Component, Inject } from "@angular/core";
+import { Component  } from "@angular/core";
 // import { MAT_DIALOG_DATA } from "@angular/material/dialog";
 // import { MatTableDataSource } from "@angular/material/table";
 // import { FoodDetail } from "src/app/models/data/food-detail.model";
 // import { Transfer } from "../patient-trace-table.component";
 
 @Component({
-    selector: 'app-nut-table',
-    templateUrl: './nutrition-table.html',
-//     styleUrls: ['../patient-trace-table.component.css'],
+    selector: 'app-patient-nutrition-table',
+    templateUrl: './patient-nutrition-table.html',
+    styleUrls: ['../patient-trace.component.css'],
 })
-export class NutritionTable {
+export class PatientNutritionTable {
 //     foods: FoodDetail[] = [];
 //     sortedData = this.foods;
 

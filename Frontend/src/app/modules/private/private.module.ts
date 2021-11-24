@@ -18,8 +18,6 @@ import { ExpertShortCardComponent } from 'src/app/main-page/layout/experts/exper
 import { ExpertsComponent } from 'src/app/main-page/layout/experts/experts.component';
 import { FoodListComponent } from 'src/app/main-page/layout/food-list/food-list.component';
 import { FoodComponent } from 'src/app/main-page/layout/food/food.component';
-import { ActivityTable } from 'src/app/main-page/layout/patient-trace/activity-table/activity-table.component';
-import { NutritionTable } from 'src/app/main-page/layout/patient-trace/nutrition-table/nutrition-table.component';
 import { ProfileComponent } from 'src/app/main-page/layout/profile/profile.component';
 import { AddAllergy } from 'src/app/main-page/layout/profile/survey/add-allergy/add-allergy.component';
 import { AddDisability } from 'src/app/main-page/layout/profile/survey/add-disable/add-disability.component';
@@ -41,6 +39,8 @@ import { PatientTraceComponent } from 'src/app/main-page/layout/patient-trace/pa
 import { UserFilterPipe } from 'src/app/helpers/user-filter.pipe';
 import { PatientTarget } from 'src/app/main-page/layout/patient-trace/target/target.component';
 import { PatientTargetCard } from 'src/app/main-page/layout/patient-trace/target-card/target-card.component';
+import { PatientActivityTable } from 'src/app/main-page/layout/patient-trace/activity-table/patient-activity-table.component';
+import { PatientNutritionTable } from 'src/app/main-page/layout/patient-trace/nutrition-table/patient-nutrition-table.component';
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http);
@@ -62,8 +62,8 @@ export function HttpLoaderFactory(http: HttpClient) {
     HealthCardComponent,
     SurveyComponent,
     PatientTraceComponent,
-    NutritionTable,
-    ActivityTable,
+    PatientNutritionTable,
+    PatientActivityTable,
     PatientTarget,
     PatientTargetCard,
     ExpertsComponent,
