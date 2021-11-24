@@ -43,11 +43,11 @@ export function HttpLoaderFactory(http: HttpClient) {
     FormsModule,
     TranslateModule.forRoot({
       loader: {
-          provide: TranslateLoader,
-          useFactory: HttpLoaderFactory,
-          deps: [HttpClient]
+        provide: TranslateLoader,
+        useFactory: HttpLoaderFactory,
+        deps: [HttpClient]
       }
-  })
+    })
   ],
   bootstrap: [AppComponent],
   providers: [HttpEntityRepositoryService, CanActiveGuard]

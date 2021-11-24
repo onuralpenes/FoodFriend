@@ -5,11 +5,11 @@ import { ProfileComponent } from 'src/app/main-page/layout/profile/profile.compo
 import { PrivateLayoutComponent } from './private-layout.component';
 import { ExpertsComponent } from 'src/app/main-page/layout/experts/experts.component';
 import { SettingsComponent } from 'src/app/main-page/layout/settings/settings.component';
-import { FoodListComponent } from 'src/app/main-page/layout/food-list/food-list.component';
 import { ActivityListComponent } from 'src/app/main-page/layout/activity-list/activity-list.component';
 import { PatientListComponent } from 'src/app/main-page/layout/patient-trace/patient-list.component';
 import { PatientProfileComponent } from 'src/app/main-page/layout/patient-profile/patient-profile.component';
 import { EatingActivityComponent } from 'src/app/main-page/layout/food/eating-activity.component';
+import { FoodListComponent } from 'src/app/main-page/layout/food-list/food-list.component';
 
 const routes: Routes = [
     {

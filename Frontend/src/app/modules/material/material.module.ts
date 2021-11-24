@@ -34,7 +34,6 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
     MatCardModule,
     MatSnackBarModule,
   ],
-
   exports: [
     MatFormFieldModule,
     MatCheckboxModule,
@@ -50,6 +49,7 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
     MatProgressBarModule,
     MatDialogModule,
     MatCardModule,
+    MatSnackBarModule,
   ],
   providers: [MatDatepickerModule],
 })
