@@ -1,12 +1,15 @@
 .mat-form-field {
     margin-bottom: -1em; 
 }
+
 .margin{
     margin-right: 2px;
 }
+
 .cb{
     text-align: left;
 }
+
 .forgetPsw{
     font-size: 9px;
 	cursor: pointer;

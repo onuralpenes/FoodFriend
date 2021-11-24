@@ -1,4 +1,4 @@
-<div class="container" *ngIf="!forget; else login" novalidate>
+<div class="container" *ngIf="!forgetPasswordTemp; else login" novalidate>
 
   <div class="alternate-logins">
     <a href="" class="social-links"><i class="fa fa-facebook" style="font-size:30px;"></i></a>
@@ -13,8 +13,8 @@
     <p>
       <mat-form-field appearance="outline">
         <mat-label>{{'label.email' | translate}}</mat-label>
-        <input matInput formControlName="emailAddress"
-          [ngClass]="{ 'is-invalid': submitted && f.emailAddress.errors }" required/>  
+        <input matInput formControlName="emailAddress" [ngClass]="{ 'is-invalid': submitted && f.emailAddress.errors }"
+          required />
         <mat-error *ngIf="f.emailAddress.errors?.required">{{'validator.emailNull' | translate}}</mat-error>
         <mat-error *ngIf="f.emailAddress.errors?.email">{{'validator.emailValid' | translate}}</mat-error>
       </mat-form-field>
@@ -23,9 +23,9 @@
     <p>
       <mat-form-field appearance="outline" style="width: 90% !important; align-items: center;">
         <mat-label>{{'label.password' | translate}}</mat-label>
-        <input matInput [type]="hide ? 'password' : 'text'"  formControlName="password" 
+        <input matInput [type]="hidePassword ? 'password' : 'text'" formControlName="password"
           [ngClass]="{ 'is-invalid': submitted && f.password.errors }" required />
-          <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+        <mat-icon matSuffix (click)="hidePassword = !hidePassword">{{hidePassword ? 'visibility_off' : 'visibility'}}</mat-icon>
         <mat-error *ngIf="f.password.errors?.required">{{'validator.psdNull' | translate}}</mat-error>
         <mat-error *ngIf="">Password is incorrect (it is actually placeholder. It can be deleted.)</mat-error>
       </mat-form-field>
@@ -59,7 +59,7 @@
     </form>
     <br><br><br>
     {{'welcome.return' | translate}}
-    
+
     <div class="row">
       <button (click)="forgetPassword()">{{'welcome.returnBut' | translate}}</button>
     </div>
@@ -68,7 +68,7 @@
     <div class="container">
       {{'welcome.approved' | translate}}
 
-      <div class="row" >
+      <div class="row">
         <button (click)="forgetPassword()">{{'account.signIn' | translate}}</button>
       </div>
     </div>

@@ -13,8 +13,8 @@ export class LoginFormComponent implements OnInit {
   loginForm!: FormGroup;
   forgetMail!: FormGroup;
   submitted = false;
-  hide = true;
-  forget = false;
+  hidePassword = true;
+  forgetPasswordTemp = false;
   approved = false;
 
   constructor(private formBuilder: FormBuilder, private authService: AuthService, private alertService: AlertService) { }
@@ -34,7 +34,7 @@ export class LoginFormComponent implements OnInit {
   get f() { return this.loginForm.controls; }
 
   forgetPassword() {
-    this.forget = !this.forget;
+    this.forgetPasswordTemp = !this.forgetPasswordTemp;
     this.approved = false;
   }
 
