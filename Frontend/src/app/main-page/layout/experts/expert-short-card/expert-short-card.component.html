@@ -14,8 +14,8 @@
       <div>
         <p class="writings"> {{expert.information}}</p>
       </div>
-      <button [ngClass]="details ? 'button-expert':'button-none'" (click) = "authorize(expert.name)">
-        Authorize <!--{{'expert.more' | translate}}-->
+      <button [ngClass]="details ? 'button-expert':'button-none'" (click)="authorize(expert.name)">
+        Authorize
       </button>
     </mat-card-content>
   </mat-card>
