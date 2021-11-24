@@ -67,11 +67,11 @@
 </div>
 
 <p-dialog header="Nutrition Information" [(visible)]="nutritionInformation" [dismissableMask]="true" [draggable]="false"
-  [modal]="true" [appendTo]="'body'" [closeOnEscape]="true" [blockScroll]="true" [style]="{width: '25%'}">
+  [modal]="true" [appendTo]="'body'" [closeOnEscape]="true" [blockScroll]="true">
   <app-patient-nutrition-table></app-patient-nutrition-table>
 </p-dialog>
 
 <p-dialog header="Activity Information" [(visible)]="activityInformation" [dismissableMask]="true" [draggable]="false"
-  [modal]="true" [appendTo]="'body'" [closeOnEscape]="true" [blockScroll]="true" [style]="{width: '25%'}">
-  <app-patient-activity-table></app-patient-activity-table>
+  [modal]="true" [appendTo]="'body'" [closeOnEscape]="true" [blockScroll]="true">
+  <app-patient-activity-table [id]="clickedUserId"></app-patient-activity-table>
 </p-dialog>

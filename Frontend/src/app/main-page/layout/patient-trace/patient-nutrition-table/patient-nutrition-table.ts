@@ -7,7 +7,7 @@ import { Component  } from "@angular/core";
 @Component({
     selector: 'app-patient-nutrition-table',
     templateUrl: './patient-nutrition-table.html',
-    styleUrls: ['../patient-trace.component.css'],
+    styleUrls: ['./patient-nutrition-table.css'],
 })
 export class PatientNutritionTable {
 //     foods: FoodDetail[] = [];

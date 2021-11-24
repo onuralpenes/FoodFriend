@@ -1,7 +1,5 @@
-import { Component } from '@angular/core';
-import { MatDialog } from '@angular/material/dialog';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { Router } from '@angular/router';
-import { TranslateService } from '@ngx-translate/core';
 import { AlertService } from 'src/app/helpers/alert.service';
 import { User } from 'src/app/models/user/user.model';
 import { HttpEntityRepositoryService } from 'src/app/services/http-entity-repository.service';
@@ -28,6 +26,7 @@ import { HttpEntityRepositoryService } from 'src/app/services/http-entity-reposi
   selector: 'app-patient-list',
   templateUrl: './patient-list.component.html',
   styleUrls: ['./patient-list.component.css'],
+  changeDetection: ChangeDetectionStrategy.Default,
 })
 export class PatientListComponent {
   usersWithFilter: User[] = [];

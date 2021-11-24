@@ -29,8 +29,6 @@ import { ActivityFilterPipe } from 'src/app/helpers/activity-filter.pipe';
 import { UserFilterPipe } from 'src/app/helpers/user-filter.pipe';
 import { PatientTarget } from 'src/app/main-page/layout/patient-trace/target/target.component';
 import { PatientTargetCard } from 'src/app/main-page/layout/patient-trace/target-card/target-card.component';
-import { PatientActivityTable } from 'src/app/main-page/layout/patient-trace/activity-table/patient-activity-table.component';
-import { PatientNutritionTable } from 'src/app/main-page/layout/patient-trace/nutrition-table/patient-nutrition-table.component';
 import { ActivityListComponent } from 'src/app/main-page/layout/activity-list/activity-list.component';
 import { PatientListComponent } from 'src/app/main-page/layout/patient-trace/patient-list.component';
 import { PatientProfileComponent } from 'src/app/main-page/layout/patient-profile/patient-profile.component';
@@ -41,6 +39,8 @@ import { EditNutritionService } from 'src/app/helpers/edit-nutrition.service';
 import { EditNutrition } from 'src/app/main-page/layout/food/edit-nutrition/edit-nutrition.component';
 import { FoodListComponent } from 'src/app/main-page/layout/food-list/food-list.component';
 import { CustomNutritionService } from 'src/app/helpers/custom-nutrition.service';
+import { PatientActivityTable } from 'src/app/main-page/layout/patient-trace/patient-activity-table/patient-activity-table';
+import { PatientNutritionTable } from 'src/app/main-page/layout/patient-trace/patient-nutrition-table/patient-nutrition-table';
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http);
