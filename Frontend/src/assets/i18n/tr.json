@@ -136,7 +136,9 @@
     "addF": "Yemeği Ekle",
     "cont": "Devam",
     "custom": "Farklı Yemek Ekle",
-    "quantity": "Miktarı"
+    "quantity": "Miktarı",
+    "prev": "Önceki",
+    "next": "Sonraki"
   },
   "dash": {
     "daily": "Günlük Yeme Aktivitelerin",

@@ -1,5 +1,5 @@
 <div class="container" novalidate>
-    <form [formGroup]="editForm" (ngSubmit)="onSubmit()" class="form">
+    <form [formGroup]="editFoodForm" (ngSubmit)="onSubmit()" class="form">
         <p>
             <mat-form-field appearance="outline" class="modal-input">
                 <select matNativeControl formControlName="foodName">
@@ -30,7 +30,7 @@
 
         <div class="space-bottom"></div>
 
-        <button mat-button type="submit" class="modal-button" [disabled]="!editForm.valid">
+        <button mat-button type="submit" class="modal-button" [disabled]="!editFoodForm.valid">
             {{'label.submit' | translate}}
         </button>
     </form>

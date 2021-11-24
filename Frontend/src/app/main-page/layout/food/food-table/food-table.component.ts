@@ -17,7 +17,7 @@ export interface EatTable {
   quantity: number;
 }
 export interface Tab {
-  tId: number;
+  tabId: number;
   eatTab: EatTable[];
 }
 @Component({
@@ -28,7 +28,6 @@ export interface Tab {
 })
 export class FoodTableComponent {
   eatTab: Tab[] = [];
-  isNull: boolean = true;
   addFod: boolean = false;
   editFod: boolean = false;
 
@@ -73,7 +72,7 @@ export class FoodTableComponent {
           }
         }
         let newTab: Tab = {
-          tId: i + 1,
+          tabId: i + 1,
           eatTab: eatTable
         }
         this.eatTab.push(newTab);

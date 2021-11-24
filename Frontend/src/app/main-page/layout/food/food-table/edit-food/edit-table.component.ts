@@ -14,7 +14,7 @@ import { HttpEntityRepositoryService } from "src/app/services/http-entity-reposi
     styleUrls: ['./edit-food.component.css'],
   })
   export class EditFood {
-    editForm!: FormGroup;
+    editFoodForm!: FormGroup;
     foods: FoodDetail[] = [];
     post: any = '';
     editEat: any;
@@ -22,7 +22,7 @@ import { HttpEntityRepositoryService } from "src/app/services/http-entity-reposi
     constructor( private authService: AuthService, private editService: EditService, private formBuilder: FormBuilder, private entityService1: HttpEntityRepositoryService<Nutrition>, private entityService2: HttpEntityRepositoryService<EatingActivity>, private alertService: AlertService) {
       editService.getFoodInfo().subscribe(data => {
         this.editEat = data;
-        this.editForm = this.formBuilder.group({
+        this.editFoodForm = this.formBuilder.group({
           'foodName': new FormControl(this.editEat.foodName),
           'quantity': new FormControl(this.editEat.quantity),
           'startDate': new FormControl(this.editEat.startDate),
@@ -46,20 +46,20 @@ import { HttpEntityRepositoryService } from "src/app/services/http-entity-reposi
     }
   
     onSubmit() {
-      if(this.editForm.value.foodName != null || this.editForm.value.quantity != null){
+      if(this.editFoodForm.value.foodName != null || this.editFoodForm.value.quantity != null){
         let foodName;
         let foodId;
         let quantity;
-        if (this.editForm.value.foodName != null){
-          foodName = this.editForm.value.foodName;
-          foodId = this.foods.filter(food => food.foodName == this.editForm.value.foodName)[0].foodDetailId;
+        if (this.editFoodForm.value.foodName != null){
+          foodName = this.editFoodForm.value.foodName;
+          foodId = this.foods.filter(food => food.foodName == this.editFoodForm.value.foodName)[0].foodDetailId;
         }
         else{
           foodName = this.editEat.foodName;
           foodId = this.editEat.foodId;
         }
-        if(this.editForm.value.quantity){
-          quantity = this.editForm.value.quantity;
+        if(this.editFoodForm.value.quantity){
+          quantity = this.editFoodForm.value.quantity;
         }
         else{
           quantity = this.editEat.quantity;
@@ -76,17 +76,17 @@ import { HttpEntityRepositoryService } from "src/app/services/http-entity-reposi
         
         this.entityService1.update("/Nutritions/Update", editedNut);
       }
-      if(this.editForm.value.startDate != null || this.editForm.value.endDate != null){
+      if(this.editFoodForm.value.startDate != null || this.editFoodForm.value.endDate != null){
         let sDate;
         let eDate;
-        if(this.editForm.value.startDate != null ){
-          sDate = this.editForm.value.startDate;
+        if(this.editFoodForm.value.startDate != null ){
+          sDate = this.editFoodForm.value.startDate;
         }
         else{
             sDate = this.editEat.startDate;
         }
-        if(this.editForm.value.endDate!= null){
-          eDate = this.editForm.value.endDate;
+        if(this.editFoodForm.value.endDate!= null){
+          eDate = this.editFoodForm.value.endDate;
         }
         else{
             eDate = this.editEat.endDate;

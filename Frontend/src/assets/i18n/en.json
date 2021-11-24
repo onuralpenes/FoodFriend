@@ -136,7 +136,9 @@
     "addF": "Add Food",
     "cont": "Continue",
     "custom": "Add Custom Food",
-    "quantity": "Quantity"
+    "quantity": "Quantity",
+    "prev": "Previous",
+    "next": "Next"
   },
   "dash": {
     "daily": "Your Daily Eating Activities",

@@ -2,8 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { AlertService } from 'src/app/helpers/alert.service';
 import { CustomFoodService } from 'src/app/helpers/custom-food.pipe';
-import { FoodDetail } from 'src/app/models/data/food-detail.model';
-import { HttpEntityRepositoryService } from 'src/app/services/http-entity-repository.service';
 
 
 @Component({
@@ -14,9 +12,7 @@ import { HttpEntityRepositoryService } from 'src/app/services/http-entity-reposi
 export class CustomFoodComponent implements OnInit {
 
   customFoodForm!: FormGroup;
-  post: any = '';
-
-  constructor(private formBuilder: FormBuilder, private entityService: HttpEntityRepositoryService<FoodDetail>, private alertService: AlertService, private customFoodService: CustomFoodService) { }
+  constructor(private formBuilder: FormBuilder,  private alertService: AlertService, private customFoodService: CustomFoodService) { }
 
   ngOnInit() {
     this.customFoodForm = this.formBuilder.group({
@@ -42,7 +38,6 @@ export class CustomFoodComponent implements OnInit {
     }
     this.customFoodService.setCustomFoodInfo(customFood);
     this.alertService.openSnackBar(true, "Added");
-
 
     // this.entityService.insert("/FoodDetail/Add", JSON.stringify(this.customFood))
     //   .subscribe(data => {

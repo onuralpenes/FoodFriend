@@ -22,34 +22,32 @@ export interface AddedFood {
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class AddFood {
-  isEmpty: boolean = true;
   activeIndex: number = 0;
-  foods: FoodDetail[] = [];
-  addedFods: FoodDetail[] = [];
+  foodsList: FoodDetail[] = [];
+  addedFoodsFromTable: FoodDetail[] = [];
   addedFoods: AddedFood[] = [];
   newNutrition: Nutrition[] = [];
   addFoodForm!: FormGroup;
   addedFoodForm!: FormGroup;
   addEatingActivityForm!: FormGroup;
-  cont: boolean = false;
   startDate!: Date;
   endDate!: Date;
-  customFod = false;
+  customFoodModal = false;
   @ViewChild('pl') pl: PickList | undefined;
   constructor(private formBuilder: FormBuilder, private entityService: HttpEntityRepositoryService<FoodDetail>, private alertService: AlertService,
-     private authService: AuthService, private customFoodService: CustomFoodService, private detect: ChangeDetectorRef ) {
+    private authService: AuthService, private customFoodService: CustomFoodService, private detect: ChangeDetectorRef) {
   }
 
 
-  getFoods(){
-    
-   this.entityService.getAll("/FoodDetail/GetAll").subscribe(data => {
+  getFoods() {
+
+    this.entityService.getAll("/FoodDetail/GetAll").subscribe(data => {
       var Data: any = data;
       if (!Data.success) {
         this.alertService.openSnackBar(Data.success, Data.message);
         return;
       }
-      this.foods = Data.data;
+      this.foodsList = Data.data;
     });
   }
 
@@ -62,18 +60,17 @@ export class AddFood {
 
     this.customFoodService.newCustomFood.subscribe(data => {
       if (data.foodName != "") {
-        this.addedFods.push(data);
+        this.addedFoodsFromTable.push(data);
         this.detect.detectChanges();
       }
     })
   }
 
   buildForm() {
-    this.isEmpty = true;
-    let contArray = this.addedFoodForm.get('formArray') as FormArray;
+    let buildArray = this.addedFoodForm.get('formArray') as FormArray;
 
     Object.keys(this.addedFoods).forEach((i) => {
-      contArray.push(
+      buildArray.push(
         this.formBuilder.group({
           quantity: new FormControl(1)
         })
@@ -81,12 +78,12 @@ export class AddFood {
     })
   }
 
-  getTargets(){
-return this.addedFods;
+  getTargets() {
+    return this.addedFoodsFromTable;
   }
+
   customFood() {
-    this.customFod = true;
-   
+    this.customFoodModal = true;
   }
 
   setDate() {
@@ -94,9 +91,9 @@ return this.addedFods;
       this.activeIndex = 1;
     }
   }
-  nullForm: any[] = []; 
+  nullForm: any[] = [];
 
-  destroyArray(){
+  destroyArray() {
     this.activeIndex = 1
   }
 
@@ -115,7 +112,7 @@ return this.addedFods;
         this.newNutrition.push(newNut)
       }
       else {
-        let newNut: Nutrition = {
+        let tempNutrition: Nutrition = {
           nutritionId: 0,
           eatingActivityId: 0,
           foodDetailId: this.addedFoods[i].addedFoodId,
@@ -124,10 +121,10 @@ return this.addedFods;
           customFoodName: "",
           consumptionRatio: 0
         }
-        this.newNutrition.push(newNut);
+        this.newNutrition.push(tempNutrition);
       }
     }
-    
+
     let newEatAct: EatingActivity = {
       eatingActivityId: 0,
       userId: +this.authService.CurrentUserId,
@@ -144,18 +141,19 @@ return this.addedFods;
         this.alertService.openSnackBar(false, "error");
       });
   }
-  public fod: any;
-  addFood() {
-    if(this.addedFods.length != 0){
-      this.addedFoods =[];
-      for (let i = 0; i < this.addedFods.length; i++) {
-        this.fod = this.addedFods[i];
-        let addFod: AddedFood = {
-          addedFoodName: this.fod.foodName,
-          addedFoodId: this.fod.foodDetailId,
+
+  public tempFood: any;
+  addFoodFunction() {
+    if (this.addedFoodsFromTable.length != 0) {
+      this.addedFoods = [];
+      for (let i = 0; i < this.addedFoodsFromTable.length; i++) {
+        this.tempFood = this.addedFoodsFromTable[i];
+        let addFood: AddedFood = {
+          addedFoodName: this.tempFood.foodName,
+          addedFoodId: this.tempFood.foodDetailId,
           quantity: 1
         }
-        this.addedFoods.push(addFod);
+        this.addedFoods.push(addFood);
       }
       this.buildForm();
       this.activeIndex = 2;

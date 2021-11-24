@@ -10,17 +10,18 @@
         <mat-label>{{'table.end' | translate}}</mat-label>
         <input matInput name="endEatingActivity" type="datetime-local" required [(ngModel)]="endDate">
       </mat-form-field>
-      <button (click)="setDate()" style="right: 0; position: absolute; margin-right: 23px; margin-top: 70px;">Next<i
+      <button (click)="setDate()"
+        style="right: 0; position: absolute; margin-right: 23px; margin-top: 70px;">{{'addF.next' | translate}}<i
           class="fa fa-lg fa-angle-right" style="margin-left: 5px;"></i></button>
     </form>
   </p-tabPanel>
 
   <p-tabPanel header="Nutrition Entry" [disabled]=true>
 
-    <p-pickList [source]="foods" #pl [target]="getTargets()" sourceHeader="Nutrition List" targetHeader="Your Choices"
-      [responsive]="true" [sourceStyle]="{'height':'300px'}" [targetStyle]="{'height':'300px'}" filterBy="name"
-      sourceFilterPlaceholder="Search" targetFilterPlaceholder="Search" [showSourceControls]="false"
-      [showTargetControls]="false">
+    <p-pickList [source]="foodsList" #pl [target]="getTargets()" sourceHeader="Nutrition List"
+      targetHeader="Your Choices" [responsive]="true" [sourceStyle]="{'height':'300px'}"
+      [targetStyle]="{'height':'300px'}" filterBy="name" sourceFilterPlaceholder="Search"
+      targetFilterPlaceholder="Search" [showSourceControls]="false" [showTargetControls]="false">
       <ng-template let-food pTemplate="item">
         {{food.foodName}}
       </ng-template>
@@ -31,39 +32,40 @@
     </p>
     <p>
       <button (click)="activeIndex = 0" style="margin-top: 6px; position: absolute;"><i class="fa fa-lg fa-angle-left"
-          style="margin-right: 5px;"></i>Prev</button>
-      <button (click)="addFood()" style="right: 0; margin-top: 6px; margin-right: 35px; position: absolute;">Next<i
+          style="margin-right: 5px;"></i>{{'addF.prev' | translate}}</button>
+      <button (click)="addFoodFunction()"
+        style="right: 0; margin-top: 6px; margin-right: 35px; position: absolute;">{{'addF.next' | translate}}<i
           class="fa fa-lg fa-angle-right" style="margin-left: 5px;"></i></button>
     </p>
   </p-tabPanel>
 
-
   <p-tabPanel header="Quantity Entry" [disabled]=true>
-    <form id="myForm" [formGroup]="addedFoodForm" (ngSubmit)="onSubmit()">
+    <form [formGroup]="addedFoodForm" (ngSubmit)="onSubmit()">
       <div [formArrayName]="'formArray'">
-        <div *ngFor="let x of addedFoods; let i = index">
+        <div *ngFor="let food of addedFoods; let i = index">
           <div [formGroupName]="i">
             <p>
-              {{x.addedFoodName}}
+              {{food.addedFoodName}}
               <mat-form-field>
                 <mat-label>{{'addF.quantity' | translate}}</mat-label>
-                <input formControlName="quantity" id="{{x.quantity}}" matInput value="{{x.quantity}}" type="number">
+                <input formControlName="quantity" id="{{food.quantity}}" matInput value="{{food.quantity}}"
+                  type="number">
               </mat-form-field>
             </p>
           </div>
         </div>
       </div>
-      <button type="submit">Ekle</button>
-      <!-- <button type="submit">{{'addF.cont' | translate}}</button> -->
+      <button type="submit">{{'table.add' | translate}}</button>
     </form>
+
     <div style="height: 60px;">
       <button (click)="activeIndex = 1" style="margin-top: 25px;"><i class="fa fa-lg fa-angle-left"
-          style="margin-right: 5px;"></i>Prev</button>
+          style="margin-right: 5px;"></i>{{'addF.prev' | translate}}</button>
     </div>
   </p-tabPanel>
 </p-tabView>
 
-<p-dialog header="Add Custom Food" [(visible)]="customFod" [dismissableMask]="true" [draggable]="false" [modal]="true"
+<p-dialog header="Add Custom Food" [(visible)]="customFoodModal" [dismissableMask]="true" [draggable]="false" [modal]="true"
   [appendTo]="'body'" [closeOnEscape]="true" [blockScroll]="true" [style]="{width: '50vw'}">
   <app-custom-food></app-custom-food>
 </p-dialog>
