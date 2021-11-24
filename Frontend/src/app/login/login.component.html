@@ -5,9 +5,7 @@
 		<div>
 			<form action="#" class="">
 				<h1>{{'account.create' | translate}}</h1>
-
 				<app-register-form></app-register-form>
-
 			</form>
 			<div class="buttonDiv">
 				<button (click)="flag = !flag" class="buttonMobile">{{'account.signIn' | translate}}</button>
@@ -19,11 +17,8 @@
 		[ngClass]="flag ? 'sign-in-container-disable' : 'sign-in-container-enable' ">
 		<div>
 			<form action="#">
-
 				<h1>{{'account.signIn' | translate}}</h1>
-
 				<app-login-form></app-login-form>
-
 			</form>
 			<div class="buttonDiv">
 				<button (click)="flag = !flag" class="buttonMobile">{{'account.signUp' | translate}}</button>
@@ -36,13 +31,14 @@
 			<div class="overlay-panel overlay-left">
 				<h1>{{'welcome.title' | translate}}</h1>
 				<p>{{'welcome.paragraph' | translate}}</p>
-				<button (click)="flag = !flag" class="ghost" id="signIn" style="color:#00c686;">{{'account.signIn' | translate}}</button>
+				<button (click)="flag = !flag" class="ghost" id="signIn" style="color:#00c686;">{{'account.signIn' |
+					translate}}</button>
 			</div>
 			<div class="overlay-panel overlay-right">
 				<h1>{{'welcome.title2' | translate}}</h1>
 				<p>{{'welcome.paragraph2' | translate}}</p>
-				<button (click)="flag = !flag" class="ghost" style="color:#00c686;" id="signUp"
-        >{{'account.signUp' | translate}}</button>
+				<button (click)="flag = !flag" class="ghost" style="color:#00c686;" id="signUp">{{'account.signUp' |
+					translate}}</button>
 			</div>
 		</div>
 	</div>
@@ -52,23 +48,3 @@
 	<img (click)="changeLang('tr')" class="lang-button" src="../../assets/tr.png">
 	<img (click)="changeLang('en')" class="lang-button" src="../../assets/en.png">
 </div>
-
-
-<!--
-<p-toast position="bottom-center" key="c" (onClose)="onReject()" [baseZIndex]="5000">
-		<div class="p-flex p-flex-column" style="flex: 1">
-			<div class="p-text-center">
-				<i class="pi pi-exclamation-triangle" style="font-size: 3rem"></i>
-				<h4>sa</h4>
-				<p>as</p>
-			</div>
-			<div class="p-grid p-fluid">
-				<div class="p-col-6">
-					<button type="button" pButton (click)="onConfirm()" label="Yes" class="p-button-success"></button>
-				</div>
-				<div class="p-col-6">
-					<button type="button" pButton (click)="onReject()" label="No" class="p-button-secondary"></button>
-				</div>
-			</div>
-		</div>
-</p-toast>  -->

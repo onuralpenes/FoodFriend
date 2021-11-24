@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { AppComponent } from '../app.component';
 import { AuthService } from '../services/auth.service';
-import { AlertService }from '../helpers/alert.service'
+import { AlertService } from '../helpers/alert.service'
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -10,7 +10,7 @@ import { AlertService }from '../helpers/alert.service'
 })
 export class LoginComponent {
   flag: boolean = false;
-  constructor(private app: AppComponent, loginService: AuthService, private alertService: AlertService ,private route: Router) { 
+  constructor(private app: AppComponent, loginService: AuthService, private alertService: AlertService, private route: Router) {
     if (loginService.isLoggedIn && this.route.url == "/login") {
       this.route.navigateByUrl('/dashboard');
 
@@ -20,10 +20,10 @@ export class LoginComponent {
   changeLang(langCode: string) {
     this.app.changeLang(langCode);
   }
-  onReject(){
-    this.alertService.openAlert(true,"sa");
+  onReject() {
+    this.alertService.openAlert(true, "sa");
   }
-  onConfirm(){
+  onConfirm() {
 
   }
 }
