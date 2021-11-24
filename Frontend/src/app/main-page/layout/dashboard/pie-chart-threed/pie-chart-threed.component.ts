@@ -70,8 +70,7 @@ export class PieChartThreedComponent implements OnInit {
       this.oil = Data.data.totalOil;
       this.carbohydrate = Data.data.totalCarbohydrate;
       this.drawGraph();
-      console.log("++++++++++++")
-      console.log(Data)
+      
       this.chart.push({
         title: chartTitle,
         type: ChartType.PieChart,

@@ -49,7 +49,6 @@ export class AddAllergy {
       }
       this.entityService.insert("/AllergyDetail/Add", allPost).subscribe(data => {
         var post: any = data;
-        console.log(post);
         if (!post.success) {
           this.alertService.openSnackBar(post.success, post.message);
           return;

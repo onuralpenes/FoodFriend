@@ -53,7 +53,6 @@ export class AddDisability {
       }
       this.entityService.insert("/DisabledDetail/Add", disPost).subscribe(data => {
         var post: any = data;
-        console.log(post);
         if (!post.success) {
           this.alertService.openSnackBar(post.success, post.message);
           return;

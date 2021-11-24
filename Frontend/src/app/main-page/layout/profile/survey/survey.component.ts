@@ -74,7 +74,7 @@ export class SurveyComponent implements OnInit {
             if (this.surveyForm.value.phoneNumber != "") {
               updateUsr.phone = this.surveyForm.value.phoneNumber;
             }
-            console.log(" ")
+            
             this.entityService.update("/User/Update", updateUsr).subscribe(data => {
               var Data: any = data;
               this.alertService.openSnackBar(true, "success");
@@ -83,7 +83,6 @@ export class SurveyComponent implements OnInit {
           this.entityService2.get("/PhysicalInfo/Get?id=", usr.data.physicalInfoId).subscribe(phy => {
             var usrPhy: any = phy;
             if (this.surveyForm.value.height != "" || this.surveyForm.value.weight != "") {
-              console.log(" ");
               let updatePhy = {
                 "physicalInfoId": phyId,
                 "height": usrPhy.data.height,
