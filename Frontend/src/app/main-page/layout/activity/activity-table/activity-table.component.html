@@ -1,15 +1,18 @@
 <div class="row">
   <div style="margin-left: 5%">
     <br>
-    <form #search = "ngForm">
+    <form #search="ngForm">
       <span class="p-input-icon-left">
         <i class="pi pi-search"></i>
-        <input type="text" pInputText placeholder="Search" (keyup)="keyup(search.value.searchText)" ngModel name="searchText" />
+        <input type="text" pInputText placeholder="Search" (keyup)="keyup(search.value.searchText)" ngModel
+          name="searchText" />
       </span>
     </form>
   </div>
 </div>
+
 <br>
+
 <div class="row tab">
   <div class="p-mb-3">
     <p-button type="button" icon="pi pi-chevron-left" (click)="prev()" [disabled]="isFirstPage()"
@@ -18,7 +21,8 @@
     <p-button type="button" icon="pi pi-chevron-right" (click)="next()" [disabled]="isLastPage()"
       styleClass="p-button-text"></p-button>
   </div>
-  <p-table [value]="activity | activityFilter : searchText" [paginator]="true" [rows]="rows" [showCurrentPageReport]="true" [(first)]="first"
+  <p-table [value]="activityWithoutFilter | activityFilter : searchText" [paginator]="true" [rows]="rows"
+    [showCurrentPageReport]="true" [(first)]="first"
     currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries" [rowsPerPageOptions]="[10,25,50]">
     <ng-template pTemplate="header">
       <tr>
@@ -27,8 +31,9 @@
         <th pSortableColumn="activityPeriod">{{'table.period' | translate}} <p-sortIcon field="activityPeriod">
           </p-sortIcon>
         </th>
-        <th pSortableColumn="activityEffortSpent">{{'table.effort' | translate}} <p-sortIcon field="activityEffortSpent">
-        </p-sortIcon>
+        <th pSortableColumn="activityEffortSpent">{{'table.effort' | translate}} <p-sortIcon
+            field="activityEffortSpent">
+          </p-sortIcon>
         </th>
         <th pSortableColumn="activityEffortUnit">{{'table.unit' | translate}} <p-sortIcon field="activityeffortUnit">
           </p-sortIcon>
@@ -52,5 +57,4 @@
       </tr>
     </ng-template>
   </p-table>
-  <div *ngIf="!isNull">{{'table.null' | translate}}</div>
 </div>

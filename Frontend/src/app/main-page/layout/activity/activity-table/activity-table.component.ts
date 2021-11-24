@@ -10,13 +10,11 @@ import { HttpEntityRepositoryService } from 'src/app/services/http-entity-reposi
   styleUrls: ['./activity-table.component.css'],
 })
 export class ActivityTableComponent {
-  activities: PersonalEnergyActivity[] = [];
-  activity: PersonalEnergyActivity[] = [];
-  isNull: boolean = true;
+  activityWithFilter: PersonalEnergyActivity[] = [];
+  activityWithoutFilter: PersonalEnergyActivity[] = [];
   first = 0;
   rows = 10;
   searchText = "";
-
 
   constructor(private translate: TranslateService, private entityService: HttpEntityRepositoryService<PersonalEnergyActivity>, private alertService: AlertService) {
     entityService.getAll("/PersonalEnergyActivity/GetAll").subscribe(data => {
@@ -26,8 +24,8 @@ export class ActivityTableComponent {
         return;
       }
 
-      this.activities = Data.data;
-      this.activity = Data.data;
+      this.activityWithFilter = Data.data;
+      this.activityWithoutFilter = Data.data;
     });
   }
   keyup(searchText) {
@@ -46,10 +44,10 @@ export class ActivityTableComponent {
   }
 
   isLastPage(): boolean {
-    return this.activities ? this.first === (this.activities.length - this.rows) : true;
+    return this.activityWithFilter ? this.first === (this.activityWithFilter.length - this.rows) : true;
   }
 
   isFirstPage(): boolean {
-    return this.activities ? this.first === 0 : true;
+    return this.activityWithFilter ? this.first === 0 : true;
   }
 }
