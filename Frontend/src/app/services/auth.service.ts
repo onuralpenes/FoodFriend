@@ -3,7 +3,6 @@ import { HttpHeaders, HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { environment } from 'src/environments/environment';
 import { JwtHelperService } from '@auth0/angular-jwt';
-import { Result } from '../models/core/result.model';
 import { AlertService } from '../helpers/alert.service';
 import { Login } from '../models/user/login.model';
 
@@ -21,10 +20,6 @@ export class AuthService {
     jwtHelper: JwtHelperService = new JwtHelperService();
 
     constructor(private http: HttpClient, private route: Router, private alertService: AlertService) { }
-
-    getUserInfoHttp() {
-        return this.http.get<Result>(environment.BASE_URL + '/GetUserInfo', this.httpOptions);
-    }
 
     login(login: Login) {
         this.http
