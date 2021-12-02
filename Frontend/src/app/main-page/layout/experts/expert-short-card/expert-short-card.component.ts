@@ -1,18 +1,18 @@
 import { Input } from '@angular/core';
-import { Component } from '@angular/core';
-import { MatDialog } from '@angular/material/dialog';
+import { Component } from '@angular/core';;
 import { AlertService } from 'src/app/helpers/alert.service';
-import { ConfirmModalComponent } from 'src/app/helpers/confirmation-modal/confirmation-modal.component';
+import { ConfirmationService } from 'primeng/api';
 
 @Component({
   selector: 'app-expert-short-card',
   templateUrl: './expert-short-card.component.html',
-  styleUrls: ['./expert-short-card.component.css']
+  styleUrls: ['./expert-short-card.component.css'],
+  providers: [ConfirmationService]
 })
 export class ExpertShortCardComponent {
   @Input() expert;
 
-  constructor(private modal: MatDialog, private alertService: AlertService) { }
+  constructor(private alertService: AlertService, private confirmationService: ConfirmationService) { }
 
   details = false;
 
@@ -21,16 +21,14 @@ export class ExpertShortCardComponent {
   }
 
   authorize(name: string) {
-    const confirmModal = this.modal.open(ConfirmModalComponent, {
-      data: {
-        title: 'Confirm the Authorization.',
-        message: 'Are you sure you want to authorize expert: ' + name
-      }
-    }).afterClosed().subscribe(result => {
-      if (result === true) {
-        this.alertService.openSnackBar(true, "success");
-      }
-      else {
+    this.confirmationService.confirm({
+      message: 'Are you sure you want to authorize expert: ' + name,
+      header: 'Confirmation',
+      icon: 'pi pi-exclamation-triangle',
+      accept: () => {
+       this.alertService.openSnackBar(true, "success");
+      },
+      reject: () => {
         this.alertService.openSnackBar(false, "unsuccess");
       }
     });

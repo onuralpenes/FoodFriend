@@ -11,7 +11,6 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { MatTableModule } from '@angular/material/table';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
-import { MatDialogModule } from '@angular/material/dialog';
 import { MatCardModule } from '@angular/material/card';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 
@@ -30,7 +29,6 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
     MatExpansionModule,
     MatTableModule,
     MatProgressBarModule,
-    MatDialogModule,
     MatCardModule,
     MatSnackBarModule,
   ],
@@ -47,7 +45,6 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
     MatExpansionModule,
     MatTableModule,
     MatProgressBarModule,
-    MatDialogModule,
     MatCardModule,
     MatSnackBarModule,
   ],

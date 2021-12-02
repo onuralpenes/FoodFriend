@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { MatTableDataSource } from '@angular/material/table';
 import { AlertService } from 'src/app/helpers/alert.service';
 import { EatingActivity } from 'src/app/models/data/eating-activity.model';
 import { AuthService } from 'src/app/services/auth.service';
