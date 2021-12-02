@@ -7,7 +7,6 @@ import { MatMenuModule } from '@angular/material/menu';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
-import { MatCardModule } from '@angular/material/card';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 
 @NgModule({
@@ -20,7 +19,6 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
     MatMenuModule,
     MatSidenavModule,
     MatProgressBarModule,
-    MatCardModule,
     MatSnackBarModule,
   ],
   exports: [
@@ -32,7 +30,6 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
     MatMenuModule,
     MatSidenavModule,
     MatProgressBarModule,
-    MatCardModule,
     MatSnackBarModule,
   ],
   providers: [],

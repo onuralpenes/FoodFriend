@@ -58,9 +58,6 @@
   .writings{
     color: white;
   }
-  mat-card{
-    border-radius: 25px;
-  }
 
   .content{
     display: none;
