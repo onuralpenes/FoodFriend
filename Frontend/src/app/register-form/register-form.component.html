@@ -67,11 +67,9 @@
     <p>
       <mat-form-field appearance="outline">
         <mat-label>{{'label.birthdate' | translate}}</mat-label>
-        <input matInput [matDatepicker]="picker" formControlName="birthDate"
+        <input matInput formControlName="birthDate" type="date"
           [ngClass]="{ 'is-invalid': submitted && f.birthDate.errors }" required />
         <mat-error *ngIf="f.birthDate.errors?.required">{{'validator.bdayNull' | translate}}</mat-error>
-        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-        <mat-datepicker #picker></mat-datepicker>
       </mat-form-field>
     </p>
 

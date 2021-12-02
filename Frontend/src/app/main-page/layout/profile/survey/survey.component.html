@@ -63,11 +63,10 @@
           <div class="row mt-3">
             <mat-form-field appearance="outline" class="birthdate">
               <mat-label>{{'label.birthdate' | translate}}</mat-label>
-              <input matInput [matDatepicker]="picker" formControlName="birthDate">
-              <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-              <mat-datepicker #picker></mat-datepicker>
+              <input matInput type="date" formControlName="birthDate">
             </mat-form-field>
           </div>
+          
           <div class="row mt-3">
             <div class="col-md-4">
               <div class="buttons">
