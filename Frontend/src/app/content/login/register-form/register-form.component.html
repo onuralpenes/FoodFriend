@@ -74,11 +74,9 @@
     </p>
 
     <p class="cb">
-      <mat-checkbox class="" [color]="color" formControlName="privacyPolicy">
-        <label class="invalid" *ngIf="submitted && f.priv.errors " (click)="privacyPolicy = true"> {{'label.pp' |
-          translate}}*</label>
-        <label *ngIf="!submitted || !f.privacyPolicy.errors" (click)="privacyPolicy = true"> {{'label.pp' | translate}}*</label>
-      </mat-checkbox>
+      <input class="" type="checkbox" formControlName="privacyPolicy">
+      <label class="invalid" *ngIf="submitted && f.priv.errors " (click)="privacyPolicy = true">  {{'label.pp' | translate}}*</label>
+      <label *ngIf="!submitted || !f.privacyPolicy.errors" (click)="privacyPolicy = true">  {{'label.pp' | translate}}*</label>
     </p>
 
     <button class="signUpButton" type="submit">{{'account.signUp' | translate}}</button>
