@@ -6,6 +6,7 @@ import { AlertService } from 'src/app/helpers/alert.service';
 import { EatingActivity } from 'src/app/models/data/eating-activity.model';
 import { HttpEntityRepositoryService } from 'src/app/services/http-entity-repository.service';
 import { DatePipe } from '@angular/common';
+import { MenuItem, PrimeNGConfig } from 'primeng/api';
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
@@ -15,7 +16,7 @@ export class HeaderComponent implements OnInit {
 
   @Output() toggle: EventEmitter<any> = new EventEmitter(); //Required for connection with sidebar.
 
-  constructor(private authService: AuthService, private router: Router, private entityService: HttpEntityRepositoryService<EatingActivity>, private alertService: AlertService) {
+  constructor(private authService: AuthService, private router: Router, private entityService: HttpEntityRepositoryService<EatingActivity>, private alertService: AlertService, private primengConfig: PrimeNGConfig) {
     const datepipe: DatePipe = new DatePipe('en-US');
     let date = datepipe.transform(new Date(new Date().setDate(new Date().getDate())), 'YYYY-MM-dd');
     entityService.get("/EatingActivity/GetTotalCalorieByUserIdOnDay?date=" + date + "&userId=", authService.CurrentUserId).subscribe(data => {
@@ -32,7 +33,7 @@ export class HeaderComponent implements OnInit {
       } else {
         this.notificationList[0].content = "You've reached your daily calorie limit.";
       }
-
+      this.notMenu = this.createNotifMenu(this.notificationList)
     })
     if (this.notificationList[0].readed) {
       this.notificationNum = 0;
@@ -40,9 +41,12 @@ export class HeaderComponent implements OnInit {
       this.notificationNum = 1;
     }
   }
+
   notificationList: Notify[] = NOTIFY_DATA;
   notificationNum = 1;
   pageName;
+  userMenu!: MenuItem[];
+  notMenu!: MenuItem[];
 
   ngOnInit() {
     this.pageName = this.router.url.substring(1).toUpperCase();
@@ -52,8 +56,6 @@ export class HeaderComponent implements OnInit {
     if (this.pageName.includes('-')) {
       this.pageName = this.pageName.substring(0, this.pageName.indexOf('-')) + " " + this.pageName.substring(this.pageName.indexOf('-') + 1, this.pageName.lenght)
     }
-
-
 
     this.router.events.subscribe((val) => {
       this.pageName = this.router.url.substring(1).toUpperCase();
@@ -65,6 +67,43 @@ export class HeaderComponent implements OnInit {
         this.pageName = this.pageName.substring(0, this.pageName.indexOf('-')) + " " + this.pageName.substring(this.pageName.indexOf('-') + 1, this.pageName.lenght)
       }
     });
+
+    this.primengConfig.ripple = true;
+
+    this.userMenu = [{
+      items: [{
+        label: 'Profile',
+        icon: 'fa fa-user',
+        command: () => {
+          this.profile();
+        }
+      },
+      // {
+      //   label: 'Settings',
+      //   icon: 'fa fa-cog',
+      //   command: () => {
+      //     this.settings();
+      //   }
+      // },
+      {
+        label: 'Logout',
+        icon: 'fa fa-sign-out',
+        command: () => {
+          this.logout();
+        }
+      }]
+    }];
+  }
+
+  createNotifMenu(object: Notify[]): MenuItem[] {
+    if (object) {
+      let menu: MenuItem[] = [];
+      for (var i = 0; i < object.length; i++) {
+        menu.push({ label: object[i].title, command: () => { this.openNot(object[i].messageId); }});
+      }
+      return menu;
+    }
+    return [];
   }
 
   emit() {
@@ -82,6 +121,7 @@ export class HeaderComponent implements OnInit {
   settings() {
     this.router.navigateByUrl('/settings');
   }
+
   title = ""
   context = ""
   notif = false;

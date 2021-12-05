@@ -8,44 +8,27 @@
     <p class="page-name"> {{pageName}} </p>
 
     <span class="fill-remaining-space">
-        <button mat-icon-button [matMenuTriggerFor]="notifications" #menuTrigger="matMenuTrigger"
-            style="background-color: transparent; margin-right: 5px;">
+        <button type="button" pRipple (click)="notifications.toggle($event)">
             <i class="fa fa-bell" aria-hidden="true" pBadge value="{{notificationNum}}" style="color: white;"></i>
         </button>
-        <mat-menu #notifications="matMenu" [overlapTrigger]="false">
-            <ng-container *ngFor="let not of notificationList">
+
+        <!-- <p-menu #notifications [overlapTrigger]="false" [popup]="true">
+           <p-menuitem *ngFor="let not of notificationList">
                 <button (click)="openNot(not.messageId)">
                     <b *ngIf="!not.readed">{{not.title}}</b>
                     <p *ngIf="not.readed">{{not.title}}</p>
                 </button>
-                <br>
-            </ng-container>
-        </mat-menu>
+            </p-menuitem>
+        </p-menu> -->
+
+        <p-menu #notifications [popup]="true" [model]="notMenu"></p-menu>
     </span>
 
     <span class="fill-remaining-space">
-        <button mat-icon-button [matMenuTriggerFor]="user" #menuTrigger="matMenuTrigger">
+        <button type="button" pRipple (click)="user.toggle($event)">
             <i class="fa fa-angle-double-down fa-lg" style="color: white;" aria-hidden="true"></i>
         </button>
-
-        <mat-menu #user="matMenu" [overlapTrigger]="false">
-            <button mat-menu-item class="profile-opt" (click)="profile()">
-                <i class="fa fa-user" aria-hidden="true"></i>
-                <span> {{'menu.profile' | translate}}</span>
-            </button>
-
-            <!--
-            <button mat-menu-item class="profile-opt" (click)="settings()">
-                <i class="fa fa-cog" aria-hidden="true"></i>
-                <span> {{'menu.settings' | translate}}</span>
-            </button>
--->
-            <button mat-menu-item class="profile-opt" (click)="logout()">
-                <i class="fa fa-sign-out" aria-hidden="true"></i>
-                <span> {{'menu.logout' | translate}}</span>
-            </button>
-
-        </mat-menu>
+        <p-menu #user [popup]="true" [model]="userMenu"></p-menu>
     </span>
 </mat-toolbar>
 

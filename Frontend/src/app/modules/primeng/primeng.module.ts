@@ -9,7 +9,9 @@ import { ChartModule } from 'primeng/chart';
 import { TabViewModule } from 'primeng/tabview';
 import { PickListModule } from 'primeng/picklist';
 import { BadgeModule } from 'primeng/badge';
-import {CardModule} from 'primeng/card';
+import { CardModule } from 'primeng/card';
+import { MenuModule } from 'primeng/menu';
+import { RippleModule } from 'primeng/ripple';
 
 
 @NgModule({
@@ -24,7 +26,9 @@ import {CardModule} from 'primeng/card';
         TabViewModule,
         PickListModule,
         BadgeModule,
-        CardModule
+        CardModule,
+        MenuModule,
+        RippleModule,
     ],
     exports: [
         DialogModule,
@@ -37,7 +41,9 @@ import {CardModule} from 'primeng/card';
         TabViewModule,
         PickListModule,
         BadgeModule,
-        CardModule
+        CardModule,
+        MenuModule,
+        RippleModule,
     ]
 
 })
