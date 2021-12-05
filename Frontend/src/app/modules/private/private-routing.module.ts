@@ -1,15 +1,15 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { DashboardComponent } from 'src/app/main-page/layout/dashboard/dashboard.component';
-import { ProfileComponent } from 'src/app/main-page/layout/profile/profile.component';
 import { PrivateLayoutComponent } from './private-layout.component';
-import { ExpertsComponent } from 'src/app/main-page/layout/experts/experts.component';
-import { SettingsComponent } from 'src/app/main-page/layout/settings/settings.component';
-import { ActivityListComponent } from 'src/app/main-page/layout/activity-list/activity-list.component';
-import { PatientListComponent } from 'src/app/main-page/layout/patient-trace/patient-list.component';
-import { PatientProfileComponent } from 'src/app/main-page/layout/patient-profile/patient-profile.component';
-import { EatingActivityComponent } from 'src/app/main-page/layout/food/eating-activity.component';
-import { FoodListComponent } from 'src/app/main-page/layout/food-list/food-list.component';
+import { ActivityListComponent } from 'src/app/content/pages/activity-list/activity-list.component';
+import { DashboardComponent } from 'src/app/content/pages/dashboard/dashboard.component';
+import { ProfileComponent } from 'src/app/content/pages/profile/profile.component';
+import { EatingActivityComponent } from 'src/app/content/pages/eating-activity/eating-activity.component';
+import { PatientListComponent } from 'src/app/content/pages/patient-trace/patient-list.component';
+import { ExpertsComponent } from 'src/app/content/pages/experts/experts.component';
+import { PatientProfileComponent } from 'src/app/content/pages/patient-profile/patient-profile.component';
+import { FoodListComponent } from 'src/app/content/pages/food-list/food-list.component';
+import { SettingsComponent } from 'src/app/content/pages/settings/settings.component';
 
 const routes: Routes = [
     {

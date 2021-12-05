@@ -2,7 +2,7 @@ import { ChangeDetectionStrategy, ChangeDetectorRef, Component, Input } from "@a
 import { AlertService } from "src/app/helpers/alert.service";
 import { EatingActivity } from "src/app/models/data/eating-activity.model";
 import { HttpEntityRepositoryService } from "src/app/services/http-entity-repository.service";
-import { EatTable, Tab } from "../../food/eating-activity.component";
+import { EatTable, Tab } from "../../eating-activity/eating-activity.component";
 
 @Component({
     selector: 'app-patient-nutrition-table',

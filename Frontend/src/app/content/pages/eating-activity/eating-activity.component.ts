@@ -4,7 +4,7 @@ import { EatingActivity } from 'src/app/models/data/eating-activity.model';
 import { AuthService } from 'src/app/services/auth.service';
 import { HttpEntityRepositoryService } from 'src/app/services/http-entity-repository.service';
 import { ConfirmationService } from 'primeng/api';
-import { EditNutritionService } from 'src/app/helpers/edit-nutrition.service';
+import { EditEatingActivityService } from 'src/app/helpers/edit-eating-activity.service';
 
 export interface EatTable {
   nutId: number;
@@ -30,7 +30,7 @@ export class EatingActivityComponent {
   addFod: boolean = false;
   editFod: boolean = false;
 
-  constructor(private editNutritionService: EditNutritionService, authService: AuthService, private entityService: HttpEntityRepositoryService<EatingActivity>, private alertService: AlertService, private confirmationService: ConfirmationService) {
+  constructor(private editNutritionService: EditEatingActivityService, authService: AuthService, private entityService: HttpEntityRepositoryService<EatingActivity>, private alertService: AlertService, private confirmationService: ConfirmationService) {
     entityService.get('/EatingActivity/GetByUserId?userId=', authService.CurrentUserId).subscribe(data => {
 
       var Data: any = data;

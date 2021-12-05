@@ -1,8 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
-import { Match } from '../helpers/match.validator';
-import { RegisterService } from '../services/register.service';
-
+import { Match } from 'src/app/helpers/match.validator';
+import { RegisterService } from 'src/app/services/register.service';
 @Component({
   selector: 'app-register-form',
   templateUrl: './register-form.component.html',

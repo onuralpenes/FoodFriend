@@ -5,21 +5,6 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { FormsModule } from '@angular/forms';
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
-import { BodyComponent } from 'src/app/main-page/body/body.component';
-import { FooterComponent } from 'src/app/main-page/footer/footer.component';
-import { HeaderComponent } from 'src/app/main-page/header/header.component';
-import { ConsumedCalorieComponent } from 'src/app/main-page/layout/dashboard/consumed-calorie/consumed-calorie.component';
-import { DashboardComponent } from 'src/app/main-page/layout/dashboard/dashboard.component';
-import { EatingHabitChartComponent } from 'src/app/main-page/layout/dashboard/eating-habit-chart/eating-habit-chart.component';
-import { HealthCardComponent } from 'src/app/main-page/layout/dashboard/health-card/health-card.component';
-import { ExpertShortCardComponent } from 'src/app/main-page/layout/experts/expert-short-card/expert-short-card.component';
-import { ExpertsComponent } from 'src/app/main-page/layout/experts/experts.component';
-import { ProfileComponent } from 'src/app/main-page/layout/profile/profile.component';
-import { AddAllergy } from 'src/app/main-page/layout/profile/survey/add-allergy/add-allergy.component';
-import { AddDisability } from 'src/app/main-page/layout/profile/survey/add-disable/add-disability.component';
-import { AddIllness } from 'src/app/main-page/layout/profile/survey/add-illness/add-illness.component';
-import { SurveyComponent } from 'src/app/main-page/layout/profile/survey/survey.component';
-import { SettingsComponent } from 'src/app/main-page/layout/settings/settings.component';
 import { ExpertFilterPipe } from '../../helpers/expert-filter.pipe';
 import { CustomMaterialModule } from '../material/material.module';
 import { PrivateLayoutComponent } from './private-layout.component';
@@ -27,20 +12,36 @@ import { PrivateRoutingModule } from './private-routing.module';
 import { PrimeNgModule } from '../primeng/primeng.module';
 import { ActivityFilterPipe } from 'src/app/helpers/activity-filter.pipe';
 import { UserFilterPipe } from 'src/app/helpers/user-filter.pipe';
-import { PatientTarget } from 'src/app/main-page/layout/patient-trace/target/target.component';
-import { PatientTargetCard } from 'src/app/main-page/layout/patient-trace/target-card/target-card.component';
-import { ActivityListComponent } from 'src/app/main-page/layout/activity-list/activity-list.component';
-import { PatientListComponent } from 'src/app/main-page/layout/patient-trace/patient-list.component';
-import { PatientProfileComponent } from 'src/app/main-page/layout/patient-profile/patient-profile.component';
-import { EatingActivityComponent } from 'src/app/main-page/layout/food/eating-activity.component';
-import { CustomNutritionComponent } from 'src/app/main-page/layout/food/add-nutrition/custom-nutrition/custom-nutrition.component';
-import { AddNutrition } from 'src/app/main-page/layout/food/add-nutrition/add-nutrition.component';
-import { EditNutritionService } from 'src/app/helpers/edit-nutrition.service';
-import { EditNutrition } from 'src/app/main-page/layout/food/edit-nutrition/edit-nutrition.component';
-import { FoodListComponent } from 'src/app/main-page/layout/food-list/food-list.component';
-import { CustomNutritionService } from 'src/app/helpers/custom-nutrition.service';
-import { PatientActivityTable } from 'src/app/main-page/layout/patient-trace/patient-activity-table/patient-activity-table';
-import { PatientNutritionTable } from 'src/app/main-page/layout/patient-trace/patient-nutrition-table/patient-nutrition-table';
+import { SideBarComponent } from 'src/app/content/layout/side-bar/side-bar.component';
+import { FooterComponent } from 'src/app/content/layout/footer/footer.component';
+import { HeaderComponent } from 'src/app/content/layout/header/header.component';
+import { ActivityListComponent } from 'src/app/content/pages/activity-list/activity-list.component';
+import { ProfileComponent } from 'src/app/content/pages/profile/profile.component';
+import { DashboardComponent } from 'src/app/content/pages/dashboard/dashboard.component';
+import { SettingsComponent } from 'src/app/content/pages/settings/settings.component';
+import { EatingHabitChartComponent } from 'src/app/content/pages/dashboard/eating-habit-chart/eating-habit-chart.component';
+import { ConsumedCalorieComponent } from 'src/app/content/pages/dashboard/consumed-calorie/consumed-calorie.component';
+import { EatingActivityComponent } from 'src/app/content/pages/eating-activity/eating-activity.component';
+import { HealthCardComponent } from 'src/app/content/pages/dashboard/health-card/health-card.component';
+import { SurveyComponent } from 'src/app/content/pages/profile/survey/survey.component';
+import { PatientListComponent } from 'src/app/content/pages/patient-trace/patient-list.component';
+import { PatientNutritionTable } from 'src/app/content/pages/patient-trace/patient-nutrition-table/patient-nutrition-table';
+import { PatientActivityTable } from 'src/app/content/pages/patient-trace/patient-activity-table/patient-activity-table';
+import { PatientTarget } from 'src/app/content/pages/patient-trace/target/target.component';
+import { PatientTargetCard } from 'src/app/content/pages/patient-trace/target-card/target-card.component';
+import { ExpertsComponent } from 'src/app/content/pages/experts/experts.component';
+import { PatientProfileComponent } from 'src/app/content/pages/patient-profile/patient-profile.component';
+import { EditEatingActivity } from 'src/app/content/pages/eating-activity/edit-eating-activity/edit-eating-activity.component';
+import { ExpertShortCardComponent } from 'src/app/content/pages/experts/expert-short-card/expert-short-card.component';
+import { AddIllness } from 'src/app/content/pages/profile/survey/add-illness/add-illness.component';
+import { AddAllergy } from 'src/app/content/pages/profile/survey/add-allergy/add-allergy.component';
+import { AddDisability } from 'src/app/content/pages/profile/survey/add-disable/add-disability.component';
+import { FoodListComponent } from 'src/app/content/pages/food-list/food-list.component';
+import { CustomFoodComponent } from 'src/app/content/pages/eating-activity/add-eating-activity/custom-food/custom-food.component';
+import { AddEatingActivity } from 'src/app/content/pages/eating-activity/add-eating-activity/add-eating-activity.component';
+import { EditEatingActivityService } from 'src/app/helpers/edit-eating-activity.service';
+import { CustomFoodService } from 'src/app/helpers/custom-food.service';
+import { PieChartThreedComponent } from 'src/app/content/pages/dashboard/pie-chart-threed/pie-chart-threed.component';
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http);
@@ -51,7 +52,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     PrivateLayoutComponent,
     HeaderComponent,
     FooterComponent,
-    BodyComponent,
+    SideBarComponent,
     ProfileComponent,
     DashboardComponent,
     SettingsComponent,
@@ -68,17 +69,18 @@ export function HttpLoaderFactory(http: HttpClient) {
     PatientTargetCard,
     ExpertsComponent,
     PatientProfileComponent,
-    EditNutrition,
+    EditEatingActivity,
     ExpertShortCardComponent,
     ExpertFilterPipe,
     ActivityFilterPipe,
     UserFilterPipe,
-    AddNutrition,
+    AddEatingActivity,
     AddIllness,
     AddAllergy,
     AddDisability,
     FoodListComponent,
-    CustomNutritionComponent,
+    CustomFoodComponent,
+    PieChartThreedComponent
   ],
   imports: [
     CommonModule,
@@ -96,6 +98,6 @@ export function HttpLoaderFactory(http: HttpClient) {
     }),
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
-  providers: [ EditNutritionService, CustomNutritionService]
+  providers: [ EditEatingActivityService, CustomFoodService]
 })
 export class PrivateModule { }

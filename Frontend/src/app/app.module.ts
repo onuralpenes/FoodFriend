@@ -3,10 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { LoginComponent } from './login/login.component';
-import { LoginFormComponent } from './login-form/login-form.component';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
-import { RegisterFormComponent } from './register-form/register-form.component';
 import { PrivateModule } from './modules/private/private.module';
 import { CustomMaterialModule } from './modules/material/material.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -16,6 +13,9 @@ import { HttpEntityRepositoryService } from './services/http-entity-repository.s
 import { CanActiveGuard } from './helpers/can-active.guard';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { PrimeNgModule } from './modules/primeng/primeng.module';
+import { LoginComponent } from './content/login/login.component';
+import { LoginFormComponent } from './content/login/login-form/login-form.component';
+import { RegisterFormComponent } from './content/login/register-form/register-form.component';
 
 
 export function HttpLoaderFactory(http: HttpClient) {

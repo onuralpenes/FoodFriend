@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
-import { AppComponent } from '../app.component';
-import { AuthService } from '../services/auth.service';
-import { AlertService } from '../helpers/alert.service'
+import { AppComponent } from 'src/app/app.component';
+import { AlertService } from 'src/app/helpers/alert.service';
+import { AuthService } from 'src/app/services/auth.service';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',

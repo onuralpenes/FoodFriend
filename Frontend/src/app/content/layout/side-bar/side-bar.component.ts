@@ -6,11 +6,11 @@ import { AuthService } from 'src/app/services/auth.service';
 import { HttpEntityRepositoryService } from 'src/app/services/http-entity-repository.service';
 
 @Component({
-  selector: 'app-body',
-  templateUrl: './body.component.html',
-  styleUrls: ['./body.component.css']
+  selector: 'app-side-bar',
+  templateUrl: './side-bar.component.html',
+  styleUrls: ['./side-bar.component.css']
 })
-export class BodyComponent {
+export class SideBarComponent {
   @Output() toggle: EventEmitter<any> = new EventEmitter();
   @Input() opened;
 

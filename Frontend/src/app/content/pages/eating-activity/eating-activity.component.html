@@ -66,12 +66,12 @@
   
   <p-dialog header="Add Eating Activity" [(visible)]="addFod" [dismissableMask]="true" [draggable]="false" [modal]="true" [maximizable]="true"
     [appendTo]="'body'" [closeOnEscape]="true" [blockScroll]="true" [style]="{width: '50vw'}">
-    <app-add-food></app-add-food>
+    <app-add-eating-activity></app-add-eating-activity>
   </p-dialog>
   
   <p-dialog header="Edit Eating Activity" [(visible)]="editFod" [dismissableMask]="true" [draggable]="false"
     [modal]="true" [appendTo]="'body'" [closeOnEscape]="true" [blockScroll]="true" [style]="{width: '25%'}">
-    <app-edit-food></app-edit-food>
+    <app-edit-eating-activity></app-edit-eating-activity>
   </p-dialog>
   
   <p-confirmDialog [dismissableMask]="true" [draggable]="false" [modal]="true" [appendTo]="'body'" [closeOnEscape]="true"
