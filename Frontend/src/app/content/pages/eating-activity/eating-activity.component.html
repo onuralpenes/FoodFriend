@@ -47,10 +47,10 @@
                     <td>{{nut.startDate | date: "dd/MM/yyyy, HH:mm" }}</td>
                     <td>{{nut.endDate | date: "dd/MM/yyyy, HH:mm" }}</td>
                     <td>
-                      <button class="tab-button" mat-icon-button (click)="openEdit(nut.nutId)">
+                      <button class="tab-button" (click)="openEdit(nut.nutId)">
                         <i class="fa fa-pencil fa-lg" aria-hidden="true"></i>
                       </button>
-                      <button class="tab-button" mat-icon-button (click)="delete(nut.nutId, nut.foodName)">
+                      <button class="tab-button" (click)="delete(nut.nutId, nut.foodName)">
                         <i class="fa fa-trash fa-lg" aria-hidden="true"></i>
                       </button>
                     </td>

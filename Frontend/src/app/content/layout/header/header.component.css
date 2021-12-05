@@ -28,9 +28,7 @@ img{
   background: #03ac75;
   height: 4%;
 }
-.mat-icon{
-  color: #feffff;
-}
+
 @media only screen and (max-width: 400px){
 .responsiveImg{
   width: 25px;

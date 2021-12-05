@@ -41,12 +41,12 @@
     </form>
 
     <div class="buttons">
-        <button mat-icon-button type="button" (click)="openLose(data.name,false)" [disabled]="!targetForm.valid">
+        <button type="button" (click)="openLose(data.name,false)" [disabled]="!targetForm.valid">
             <i class="fa fa-floppy-o fa-lg" aria-hidden="true"></i>
             <p>Lose Weight</p>
         </button>
 
-        <button mat-icon-button type="button" (click)="openGain(data.name,true)" [disabled]="!targetForm.valid">
+        <button type="button" (click)="openGain(data.name,true)" [disabled]="!targetForm.valid">
             <i class="fa fa-floppy-o fa-lg" aria-hidden="true"></i>
             <p>Gain Weight</p>
         </button>

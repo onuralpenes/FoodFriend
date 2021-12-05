@@ -45,19 +45,17 @@
         <td>{{ users.lastName }}</td>
         <td>{{ users.birthDate | date: "dd/MM/yyyy" }}</td>
         <td>
-          <button class="tab-button" mat-icon-button
-            (click)="openTarget(users.userId)">
+          <button class="tab-button" (click)="openTarget(users.userId)">
             <i class="fa fa-line-chart fa-lg"></i>
           </button>
         </td>
         <td>
-          <button class="tab-button" mat-icon-button (click)="openFood(users.userId)">
+          <button class="tab-button" (click)="openFood(users.userId)">
             <i class="fa fa-cutlery fa-lg"></i>
           </button>
         </td>
         <td>
-          <button class="tab-button" mat-icon-button
-            (click)="openActivity(users.userId)">
+          <button class="tab-button" (click)="openActivity(users.userId)">
             <i class="fa fa-bicycle fa-lg"></i>
           </button>
         </td>
