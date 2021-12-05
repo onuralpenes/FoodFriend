@@ -11,11 +11,11 @@ import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { HttpEntityRepositoryService } from './services/http-entity-repository.service';
 import { CanActiveGuard } from './helpers/can-active.guard';
-import { NotFoundComponent } from './not-found/not-found.component';
 import { PrimeNgModule } from './modules/primeng/primeng.module';
 import { LoginComponent } from './content/login/login.component';
 import { LoginFormComponent } from './content/login/login-form/login-form.component';
 import { RegisterFormComponent } from './content/login/register-form/register-form.component';
+import { NotFoundComponent } from './content/pages/not-found/not-found.component';
 
 
 export function HttpLoaderFactory(http: HttpClient) {
