@@ -35,11 +35,3 @@ p{
     text-transform: uppercase;
     transition: transform 80ms ease-in;
 }
-
-mat-form-field{
-    margin-left: 5px;
-}
-
-.modal-input{
-    width: 100%;
-}

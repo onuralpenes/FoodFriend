@@ -1,20 +1,20 @@
 <div style="width: 450px;">
   <form [formGroup]="disabilityForm" (ngSubmit)="addDisability()" class>
-    <p>
-      <mat-form-field style="width: 90% !important; align-items: center;" appearance="outline">
-        <mat-label>{{'label.select' | translate}}</mat-label>
-        <select matNativeControl formControlName="disabledDescription" required>
-          <option [ngValue]="undefined" disabled>{{'label.select' | translate}}</option>
-          <option *ngFor="let disability of disabilities" [value]="disability.disabledDescription">{{
-            disability.disabledDescription }}
-          </option>
-        </select>
-      </mat-form-field>
+    <p style="width: 90% !important; align-items: center;">
+      <p-dropdown [options]="disabilities" formControlName="disabledDescription"
+        optionLabel="disabilities.disabledDescription" [filter]="true" filterBy="disabledDescription" [showClear]="true"
+        placeholder="{{'label.select' | translate}}">
+        <ng-template let-disability pTemplate="item">
+          <div>
+            <div>{{disability.disabledDescription }}</div>
+          </div>
+        </ng-template>
+      </p-dropdown>
 
-      <mat-form-field appearance="outline" style="width: 90% !important; align-items: center;">
-        <mat-label>Disability Ratio</mat-label>
-        <input matInput type="number" formControlName="disabledRatio" required />
-      </mat-form-field>
+      <span class="p-float-label">
+        <input type="number" pInputText formControlName="disabledRatio" required>
+        <label for="float-input">Disability Ratio</label>
+      </span>
     </p>
     <button class="input-group" type="submit">Add</button>
   </form>

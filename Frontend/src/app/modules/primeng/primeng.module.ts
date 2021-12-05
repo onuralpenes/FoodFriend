@@ -13,6 +13,7 @@ import { CardModule } from 'primeng/card';
 import { MenuModule } from 'primeng/menu';
 import { RippleModule } from 'primeng/ripple';
 import { CheckboxModule } from 'primeng/checkbox';
+import { DropdownModule } from 'primeng/dropdown';
 
 @NgModule({
     imports: [
@@ -30,6 +31,7 @@ import { CheckboxModule } from 'primeng/checkbox';
         MenuModule,
         RippleModule,
         CheckboxModule,
+        DropdownModule,
     ],
     exports: [
         DialogModule,
@@ -46,6 +48,7 @@ import { CheckboxModule } from 'primeng/checkbox';
         MenuModule,
         RippleModule,
         CheckboxModule,
+        DropdownModule,
     ]
 
 })

@@ -1,32 +1,24 @@
 <div class="container" novalidate>
     <form [formGroup]="editFoodForm" (ngSubmit)="onSubmit()" class="form">
-        <p>
-            <mat-form-field appearance="outline" class="modal-input">
-                <select matNativeControl formControlName="foodName">
-                    <option [ngValue]="undefined" disabled>{{'label.select' | translate}}</option>
-                    <option *ngFor="let food of foods" [value]="food.foodName">{{ food.foodName }}
-                    </option>
-                </select>
-            </mat-form-field>
-        </p>
 
-        <p style="margin-top: 1%;">
-            <mat-form-field appearance="outline" class="modal-input">
-                <input matInput type="number" formControlName="quantity" />
-            </mat-form-field>
-        </p>
+        <p-dropdown [options]="foods" formControlName="foodName" optionLabel="foodName" [filter]="true"
+            filterBy="foodName" [showClear]="true" placeholder="{{'label.select' | translate}}">
+            <ng-template let-food pTemplate="item">
+                <div>
+                    <div>{{food.foodName}}</div>
+                </div>
+            </ng-template>
+        </p-dropdown>
+        <span class="p-float-label" style="margin-top: 2%;">
+            <input type="number" pInputText formControlName="quantity">
+        </span>
+        <span class="p-float-label" style="margin-top: 2%;">
+            <input type="datetime-local" pInputText formControlName="startDate">
+        </span>
+        <span class="p-float-label">
+            <input type="datetime-local" pInputText formControlName="endDate">
+        </span>
 
-        <p style="margin-top: 1%;">
-            <mat-form-field appearance="outline" class="modal-input">
-                <input matInput type="datetime-local" formControlName="startDate" />
-            </mat-form-field>
-        </p>
-
-        <p style="margin-top: 1%;">
-            <mat-form-field appearance="outline" class="modal-input">
-                <input matInput type="datetime-local" formControlName="endDate" />
-            </mat-form-field>
-        </p>
 
         <div class="space-bottom"></div>
 

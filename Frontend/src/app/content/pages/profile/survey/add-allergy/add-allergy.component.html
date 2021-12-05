@@ -1,14 +1,14 @@
 <div style="width: 450px;">
   <form [formGroup]="allergyForm" (ngSubmit)="addAllergy()" class>
-    <p>
-      <mat-form-field style="width: 90% !important; align-items: center;" appearance="outline">
-        <mat-label>{{'label.select' | translate}}</mat-label>
-        <select matNativeControl formControlName="allergyName" required>
-          <option [ngValue]="undefined" disabled>{{'label.select' | translate}}</option>
-          <option *ngFor="let allergy of allergies" [value]="allergy.allergyName">{{ allergy.allergyName }}
-          </option>
-        </select>
-      </mat-form-field>
+    <p style="width: 90% !important; align-items: center;">
+      <p-dropdown [options]="allergies" formControlName="allergyName" optionLabel="allergies.illnessName"
+        [filter]="true" filterBy="allergyName" [showClear]="true" placeholder="{{'label.select' | translate}}">
+        <ng-template let-allergy pTemplate="item">
+          <div>
+            <div>{{ allergy.allergyName }}</div>
+          </div>
+        </ng-template>
+      </p-dropdown>
     </p>
     <button class="input-group" type="submit">Add</button>
   </form>
