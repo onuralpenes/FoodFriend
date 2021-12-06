@@ -14,3 +14,31 @@ export class CanActiveGuard implements CanActivate {
         else return false;
     }
 }
+
+@Injectable({
+  providedIn: 'root'
+})
+export class RoleGuardService {
+
+  constructor(private getUserRoles: UserRolesService) { }
+
+  canActivate(route: ActivatedRouteSnapshot): boolean {
+    return route.data.roles.some( ai => this.getUserRoles.getRoles().includes(ai) );
+  }
+
+}
+
+@Injectable({
+  providedIn: 'root'
+})
+export class UserRolesService {
+  userRoles: string[] = [];
+
+  setRoles(Roles: string[]){
+    this.userRoles = Roles.slice(0);
+  }
+
+  getRoles(){
+    return this.userRoles;
+  }
+}
