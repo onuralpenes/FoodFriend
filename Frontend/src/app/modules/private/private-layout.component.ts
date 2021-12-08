@@ -1,7 +1,5 @@
 import { Component } from "@angular/core";
-import { Router } from "@angular/router";
 import { TranslateService } from "@ngx-translate/core";
-import { AuthService } from "src/app/services/auth.service";
 
 @Component({
     selector: 'app-private-layout',
@@ -10,10 +8,7 @@ import { AuthService } from "src/app/services/auth.service";
 
 export class PrivateLayoutComponent {
 
-    constructor(loginService: AuthService, private route: Router, private translate: TranslateService) {
-        if (!loginService.isLoggedIn) {
-            this.route.navigateByUrl('/login');
-        }
+    constructor(private translate: TranslateService) {
         const browserLang = translate.getBrowserLang();
         translate.use(browserLang.match(/en|tr/) ? browserLang : 'en');
     }

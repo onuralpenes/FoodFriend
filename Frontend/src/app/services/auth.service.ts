@@ -38,14 +38,15 @@ export class AuthService {
                     roles.push(this.CurrentRoles.roles[i].name)
                 }
                 this.userRolesService.setRoles(roles);
+                console.log(this.userRolesService.getRoles());
                 this.alertService.openSnackBar(tokenData.success, tokenData.message);
 
                 if (login.remember) {
-                    localStorage.setItem('Username', login.emailAddress);
+                    localStorage.setItem('Email', login.emailAddress);
                     localStorage.setItem('Password', login.password);
                 }
                 else {
-                    localStorage.setItem('Username', "");
+                    localStorage.setItem('Email', "");
                     localStorage.setItem('Password', "");
                 }
 
