@@ -1,15 +1,20 @@
 <p-tabView [(activeIndex)]="activeIndex">
   <p-tabPanel header="Date Entry" [disabled]=true>
     <form #dateForm="ngForm">
-      <mat-form-field appearance="outline">
-        <mat-label>{{'table.start' | translate}}</mat-label>
-        <input matInput name="startEatingActivity" type="datetime-local" required [(ngModel)]="startDate">
-      </mat-form-field>
-
-      <mat-form-field appearance="outline" style="margin-left: 10px">
-        <mat-label>{{'table.end' | translate}}</mat-label>
-        <input matInput name="endEatingActivity" type="datetime-local" required [(ngModel)]="endDate">
-      </mat-form-field>
+      <div class="row">
+        <div class="col-md-6">
+          <p>{{'table.start' | translate}}</p>
+          <span class="p-float-label">
+            <input type="datetime-local" name="startEatingActivity" pInputText required [(ngModel)]="startDate">
+          </span>
+        </div>
+        <div class="col-md-6">
+          <p>{{'table.end' | translate}}</p>
+          <span class="p-float-label">
+            <input type="datetime-local" name="endEatingActivity" pInputText required [(ngModel)]="endDate">
+          </span>
+        </div>
+      </div>
       <button (click)="setDate()"
         style="right: 0; position: absolute; margin-right: 23px; margin-top: 70px;">{{'addF.next' | translate}}<i
           class="fa fa-lg fa-angle-right" style="margin-left: 5px;"></i></button>
@@ -46,11 +51,10 @@
           <div [formGroupName]="i">
             <p>
               {{food.addedFoodName}}
-              <mat-form-field>
-                <mat-label>{{'addF.quantity' | translate}}</mat-label>
-                <input formControlName="quantity" id="{{food.quantity}}" matInput value="{{food.quantity}}"
-                  type="number">
-              </mat-form-field>
+              <span class="p-float-label" style="margin-left: 10%;">
+                <input type="number" pInputText formControlName="quantity" id="{{food.quantity}}" value="{{food.quantity}}">
+                <label for="float-input">{{'addF.quantity' | translate}}</label>
+              </span>
             </p>
           </div>
         </div>
@@ -65,7 +69,7 @@
   </p-tabPanel>
 </p-tabView>
 
-<p-dialog header="Add Custom Food" [(visible)]="customFoodModal" [dismissableMask]="true" [draggable]="false" [modal]="true"
-  [appendTo]="'body'" [closeOnEscape]="true" [blockScroll]="true">
+<p-dialog header="Add Custom Food" [(visible)]="customFoodModal" [dismissableMask]="true" [draggable]="false"
+  [modal]="true" [appendTo]="'body'" [closeOnEscape]="true" [blockScroll]="true">
   <app-custom-food></app-custom-food>
 </p-dialog>
