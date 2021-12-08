@@ -21,6 +21,7 @@ import { DashboardComponent } from 'src/app/content/pages/dashboard/dashboard.co
 import { SettingsComponent } from 'src/app/content/pages/settings/settings.component';
 import { EatingHabitChartComponent } from 'src/app/content/pages/dashboard/eating-habit-chart/eating-habit-chart.component';
 import { ConsumedCalorieComponent } from 'src/app/content/pages/dashboard/consumed-calorie/consumed-calorie.component';
+import { PieChartThreedComponent } from 'src/app/content/pages/dashboard/pie-chart-threed/pie-chart-threed.component';
 import { EatingActivityComponent } from 'src/app/content/pages/eating-activity/eating-activity.component';
 import { HealthCardComponent } from 'src/app/content/pages/dashboard/health-card/health-card.component';
 import { SurveyComponent } from 'src/app/content/pages/profile/survey/survey.component';
@@ -41,7 +42,6 @@ import { CustomFoodComponent } from 'src/app/content/pages/eating-activity/add-e
 import { AddEatingActivity } from 'src/app/content/pages/eating-activity/add-eating-activity/add-eating-activity.component';
 import { EditEatingActivityService } from 'src/app/helpers/edit-eating-activity.service';
 import { CustomFoodService } from 'src/app/helpers/custom-food.service';
-import { PieChartThreedComponent } from 'src/app/content/pages/dashboard/pie-chart-threed/pie-chart-threed.component';
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http);
