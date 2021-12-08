@@ -17,9 +17,22 @@ export class SideBarComponent {
   role !: string [];
   name!: string;
   surname !: string;
+  includesAdmin : boolean = false;
+  includesPatient : boolean = false;
+  includesProf : boolean = false;
   constructor(private privateLayout: PrivateLayoutComponent,private userRolesService: UserRolesService, authService: AuthService, private alertService: AlertService, entityService: HttpEntityRepositoryService<User>) {
     this.role = this.userRolesService.getRoles();
-    console.log(this.role);
+    for(let i = 0; i<this.role.length;i++){
+      if(this.role[i] == "Patient"){
+        this.includesPatient = true;
+      }
+      if(this.role[i] == "Professionnel"){
+        this.includesProf = true;
+      }
+      if(this.role[i] == "Admin"){
+        this.includesAdmin = true;
+      }
+    }
     entityService.get("/User/Get?userId=", authService.CurrentUserId).subscribe(data => {
       var Data: any = data;
       if (!Data.success) {

@@ -48,7 +48,7 @@ const routes: Routes = [
             {
                 path: 'experts', component: ExpertsComponent,
                 canActivate: [RoleGuardService],
-                data: { roles: [Roles.Patient] }
+                data: { roles: [Roles.Patient ,Roles.Admin] }
             },
             {
                 path: 'patient-profile/:id', component: PatientProfileComponent,
