@@ -67,11 +67,12 @@ export class PieChartThreedComponent {
       this.protein = Data.data.totalProtein;
       this.oil = Data.data.totalOil;
       this.carbohydrate = Data.data.totalCarbohydrate;
+      this.drawGraph();
     })
 
   }
   updateChartOptions() {
-      this.chartOptions = this.getLightTheme();
+    this.chartOptions = this.getLightTheme();
   }
   getLightTheme() {
     return {
