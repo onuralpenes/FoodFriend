@@ -13,59 +13,58 @@
         <form [formGroup]="surveyForm" (ngSubmit)="onSubmit()" class="form">
           <div class="row mt-2">
             <div class="col-md-6">
-              <mat-form-field appearance="outline">
-                <mat-label>{{'label.name' | translate}}</mat-label>
-                <input matInput formControlName="firstName" />
-              </mat-form-field>
+              <span class="p-float-label">
+                <input type="text" pInputText formControlName="firstName">
+                <label for="float-input">{{'label.name' | translate}}</label>
+              </span>
             </div>
 
             <div class="col-md-6">
-              <mat-form-field appearance="outline">
-                <mat-label>{{'label.surname' | translate}}</mat-label>
-                <input matInput formControlName="lastName" />
-              </mat-form-field>
+              <span class="p-float-label">
+                <input type="text" pInputText formControlName="lastName">
+                <label for="float-input">{{'label.surname' | translate}}</label>
+              </span>
             </div>
           </div>
 
           <div class="row mt-3">
             <div class="col-md-6">
-              <mat-form-field appearance="outline">
-                <mat-label>{{'label.email' | translate}}</mat-label>
-                <input matInput formControlName="emailAddress" />
-              </mat-form-field>
+              <span class="p-float-label">
+                <input type="text" pInputText formControlName="emailAddress">
+                <label for="float-input">{{'label.email' | translate}}}</label>
+              </span>
             </div>
 
             <div class="col-md-6">
-              <mat-form-field appearance="outline">
-                <mat-label>{{'label.phoneNumber' | translate}}</mat-label>
-                <input matInput formControlName="phoneNumber" />
-              </mat-form-field>
+              <span class="p-float-label">
+                <input type="text" pInputText formControlName="phoneNumber">
+                <label for="float-input">{{'label.phoneNumber' | translate}}</label>
+              </span>
             </div>
           </div>
 
           <div class="row mt-3">
             <div class="col-md-6">
-              <mat-form-field appearance="outline">
-                <mat-label>{{'label.height' | translate}}</mat-label>
-                <input matInput formControlName="height" />
-              </mat-form-field>
+              <span class="p-float-label">
+                <input type="number" pInputText formControlName="height">
+                <label for="float-input">{{'label.height' | translate}}</label>
+              </span>
             </div>
 
             <div class="col-md-6">
-              <mat-form-field appearance="outline">
-                <mat-label>{{'label.weight' | translate}}</mat-label>
-                <input matInput formControlName="weight" />
-              </mat-form-field>
+              <span class="p-float-label">
+                <input type="number" pInputText formControlName="weight">
+                <label for="float-input">{{'label.weight' | translate}}</label>
+              </span>
             </div>
           </div>
 
           <div class="row mt-3">
-            <mat-form-field appearance="outline" class="birthdate">
-              <mat-label>{{'label.birthdate' | translate}}</mat-label>
-              <input matInput type="date" formControlName="birthDate">
-            </mat-form-field>
+            <span class="p-float-label">
+              <input type="date" pInputText formControlName="birthdate">
+            </span>
           </div>
-          
+
           <div class="row mt-3">
             <div class="col-md-4">
               <div class="buttons">
