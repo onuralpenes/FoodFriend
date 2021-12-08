@@ -1,22 +1,19 @@
 <mat-toolbar class="header">
-
     <button button (click)="emit()">
         <i class="fa fa-bars" aria-hidden="true" style="color: white;"></i>
     </button>
     <img class="img" src="../../../assets/logo_white.png">
     <img class="responsiveImg" src="../../../assets/icon_white.png">
     <p class="page-name"> {{pageName}} </p>
-
     <span class="fill-remaining-space">
         <button type="button" pRipple (click)="notifications.toggle($event)" style="width: 70px;
         height: 40px;
         padding-top: 6px;">
-            <i class="fa fa-bell" aria-hidden="true" pBadge value="{{notificationNum}}"  style="color: white;"></i>
+            <i class="fa fa-bell" aria-hidden="true" pBadge value="{{notificationNum}}" style="color: white;"></i>
         </button>
 
-        <p-menu #notifications [popup]="true" [model]="notMenu"></p-menu>
+        <p-menu #notifications [popup]="true" [model]="notMenu" [style]="{width: 'auto'}"></p-menu>
     </span>
-
     <span class="fill-remaining-space">
         <button type="button" pRipple (click)="user.toggle($event)">
             <i class="fa fa-angle-double-down fa-lg" style="color: white;" aria-hidden="true"></i>
@@ -24,7 +21,6 @@
         <p-menu #user [popup]="true" [model]="userMenu"></p-menu>
     </span>
 </mat-toolbar>
-
 <p-dialog header="{{titlees}}" [(visible)]="notif" [dismissableMask]="true" [draggable]="false" [modal]="true"
     [appendTo]="'body'" [closeOnEscape]="true" [blockScroll]="true" [style]="{width: '50vw'}">
     {{context}}
