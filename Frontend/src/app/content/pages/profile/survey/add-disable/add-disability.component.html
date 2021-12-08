@@ -1,6 +1,5 @@
-<div style="width: 450px;">
+<div style="width: 350px; height: 350px;">
   <form [formGroup]="disabilityForm" (ngSubmit)="addDisability()" class>
-    <p style="width: 90% !important; align-items: center;">
       <p-dropdown [options]="disabilities" formControlName="disabledDescription"
         optionLabel="disabilities.disabledDescription" [filter]="true" filterBy="disabledDescription" [showClear]="true"
         placeholder="{{'label.select' | translate}}">
@@ -11,11 +10,12 @@
         </ng-template>
       </p-dropdown>
 
+      <div style="margin-top: 10%;">
       <span class="p-float-label">
         <input type="number" pInputText formControlName="disabledRatio" required>
         <label for="float-input">Disability Ratio</label>
       </span>
-    </p>
+      </div>
     <button class="input-group" type="submit">Add</button>
   </form>
 </div>
