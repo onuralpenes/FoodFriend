@@ -52,3 +52,9 @@ img{
 .profile-opt{
   font-size: 1rem !important;
 }
+
+.bade-position{
+  width: 70px;
+        height: 40px;
+        padding-top: 6px;
+}

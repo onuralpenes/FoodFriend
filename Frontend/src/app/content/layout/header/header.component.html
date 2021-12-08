@@ -8,18 +8,11 @@
     <p class="page-name"> {{pageName}} </p>
 
     <span class="fill-remaining-space">
-        <button type="button" pRipple (click)="notifications.toggle($event)">
-            <i class="fa fa-bell" aria-hidden="true" pBadge value="{{notificationNum}}" style="color: white;"></i>
+        <button type="button" pRipple (click)="notifications.toggle($event)" style="width: 70px;
+        height: 40px;
+        padding-top: 6px;">
+            <i class="fa fa-bell" aria-hidden="true" pBadge value="{{notificationNum}}"  style="color: white;"></i>
         </button>
-
-        <!-- <p-menu #notifications [overlapTrigger]="false" [popup]="true">
-           <p-menuitem *ngFor="let not of notificationList">
-                <button (click)="openNot(not.messageId)">
-                    <b *ngIf="!not.readed">{{not.title}}</b>
-                    <p *ngIf="not.readed">{{not.title}}</p>
-                </button>
-            </p-menuitem>
-        </p-menu> -->
 
         <p-menu #notifications [popup]="true" [model]="notMenu"></p-menu>
     </span>

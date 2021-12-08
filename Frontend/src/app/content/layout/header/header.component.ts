@@ -99,7 +99,14 @@ export class HeaderComponent implements OnInit {
     if (object) {
       let menu: MenuItem[] = [];
       for (var i = 0; i < object.length; i++) {
-        menu.push({ label: object[i].title, command: () => { this.openNot(object[i].messageId); }});
+        console.log(object[i].messageId);
+       
+         
+          return [
+            { label: object[i].title, command: e => this.openNot(object[i].messageId ) }
+          ]
+        
+         
       }
       return menu;
     }
