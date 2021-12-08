@@ -1,18 +1,23 @@
 import { Injectable } from "@angular/core";
-import { ActivatedRouteSnapshot, CanActivate, RouterStateSnapshot } from "@angular/router";
+import { ActivatedRouteSnapshot, CanActivate, Router, RouterStateSnapshot } from "@angular/router";
 import { AuthService } from "../services/auth.service";
 
 @Injectable()
 export class CanActiveGuard implements CanActivate {
-    constructor(private authService: AuthService) { }
+  constructor(private authService: AuthService, private router: Router, private roleService: UserRolesService) { }
 
-    canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): boolean {
-        let logged = this.authService.isLoggedIn;
-        if (logged) {
-            return true;
-        }
-        else return false;
+  canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): boolean {
+    const currentUser = this.authService.CurrentUserId;
+    if (currentUser != null) {
+      if (route.data.roles && route.data.roles.indexOf(this.roleService.getRoles) === -1) {
+        this.router.navigate(['/']);
+        return false;
+      }
+      return true;
     }
+    this.router.navigate(['/login'], { queryParams: { returnUrl: state.url } });
+    return false;
+  }
 }
 
 @Injectable({

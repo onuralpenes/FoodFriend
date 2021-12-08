@@ -10,14 +10,25 @@ import { ExpertsComponent } from 'src/app/content/pages/experts/experts.componen
 import { PatientProfileComponent } from 'src/app/content/pages/patient-profile/patient-profile.component';
 import { FoodListComponent } from 'src/app/content/pages/food-list/food-list.component';
 import { SettingsComponent } from 'src/app/content/pages/settings/settings.component';
+import { RoleGuardService } from 'src/app/services/can-active.guard';
+import { Roles } from 'src/app/models/core/userRoles.model';
 
 const routes: Routes = [
     {
         path: '',
         component: PrivateLayoutComponent,
         children: [
-            { path: 'dashboard', component: DashboardComponent },
-            { path: 'profile', component: ProfileComponent },
+
+            {
+                path: 'dashboard', component: DashboardComponent,
+                canActivate: [RoleGuardService],
+                data: { roles: [ Roles.Patient, Roles.Professional, Roles.Admin] }
+            },
+            {
+                path: 'profile', component: ProfileComponent,
+                canActivate: [RoleGuardService],
+                data: { roles: [Roles.Professional, Roles.Admin ,Roles.Patient] }
+            },
             { path: 'eating-activity', component: EatingActivityComponent },
             { path: 'activity-list', component: ActivityListComponent },
             { path: 'patient-list', component: PatientListComponent },

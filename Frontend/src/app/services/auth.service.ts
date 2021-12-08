@@ -5,6 +5,7 @@ import { environment } from 'src/environments/environment';
 import { JwtHelperService } from '@auth0/angular-jwt';
 import { AlertService } from '../helpers/alert.service';
 import { Login } from '../models/user/login.model';
+import { UserRolesService } from './can-active.guard';
 
 @Injectable({
     providedIn: 'root'
@@ -19,7 +20,7 @@ export class AuthService {
     };
     jwtHelper: JwtHelperService = new JwtHelperService();
 
-    constructor(private http: HttpClient, private route: Router, private alertService: AlertService) { }
+    constructor(private http: HttpClient, private route: Router, private alertService: AlertService, private userRolesService: UserRolesService) { }
 
     login(login: Login) {
         this.http
@@ -31,7 +32,12 @@ export class AuthService {
                     return;
                 }
                 this.saveId(tokenData.data.userId);
-                this.saveToken(tokenData.data.accessToken.token);
+                this.saveToken(tokenData.data.accessToken);
+                let roles: string[] = [];
+                for (let i = 0; i < this.CurrentRoles.roles.length; i++) {
+                    roles.push(this.CurrentRoles.roles[i].name)
+                }
+                this.userRolesService.setRoles(roles);
                 this.alertService.openSnackBar(tokenData.success, tokenData.message);
 
                 if (login.remember) {
