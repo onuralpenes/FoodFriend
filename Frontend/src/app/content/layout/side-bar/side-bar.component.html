@@ -19,8 +19,12 @@
         </div>
         <i class="fas fa-dumbbell fa-lg"></i>
         <ul class="nav">
-            <li><a class="side-item" routerLink="/"><i class="fa fa-home fa-lg"
-                        aria-hidden="true"></i>{{'menu.dashboard' | translate}}</a></li>
+            <div *ngIf="role[0] == 'Patient';">
+            <li >
+                <a class="side-item" routerLink="/"><i class="fa fa-home fa-lg"
+                        aria-hidden="true"></i>{{'menu.dashboard' | translate}}</a>
+            </li>
+            </div>
             <li><a class="side-item" routerLink="/profile"><i class="fa fa-user fa-lg"
                         aria-hidden="true"></i>{{'menu.profile' | translate}}</a></li>
             <li><a class="side-item" routerLink="/eating-activity"><i class="fa fa-cutlery fa-lg"

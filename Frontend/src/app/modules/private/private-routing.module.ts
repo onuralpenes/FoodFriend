@@ -19,23 +19,52 @@ const routes: Routes = [
         component: PrivateLayoutComponent,
         children: [
 
+            //{ path: '', redirectTo: 'dashboard', pathMatch: 'full' },
             {
                 path: 'dashboard', component: DashboardComponent,
                 canActivate: [RoleGuardService],
-                data: { roles: [ Roles.Patient, Roles.Professional, Roles.Admin] }
+                data: { roles: [Roles.Patient, Roles.Professional, Roles.Admin] }
             },
             {
                 path: 'profile', component: ProfileComponent,
                 canActivate: [RoleGuardService],
-                data: { roles: [Roles.Professional, Roles.Admin ,Roles.Patient] }
+                data: { roles: [Roles.Professional, Roles.Admin, Roles.Patient] }
             },
-            { path: 'eating-activity', component: EatingActivityComponent },
-            { path: 'activity-list', component: ActivityListComponent },
-            { path: 'patient-list', component: PatientListComponent },
-            { path: 'experts', component: ExpertsComponent },
-            { path: 'patient-profile/:id', component: PatientProfileComponent },
-            { path: 'food-list', component: FoodListComponent },
-            { path: 'settings', component: SettingsComponent },
+            {
+                path: 'eating-activity', component: EatingActivityComponent,
+                canActivate: [RoleGuardService],
+                data: { roles: [Roles.Patient] }
+            },
+            {
+                path: 'activity-list', component: ActivityListComponent,
+                canActivate: [RoleGuardService],
+                data: { roles: [Roles.Professional, Roles.Admin, Roles.Patient] }
+            },
+            {
+                path: 'patient-list', component: PatientListComponent,
+                canActivate: [RoleGuardService],
+                data: { roles: [Roles.Professional] }
+            },
+            {
+                path: 'experts', component: ExpertsComponent,
+                canActivate: [RoleGuardService],
+                data: { roles: [Roles.Patient] }
+            },
+            {
+                path: 'patient-profile/:id', component: PatientProfileComponent,
+                canActivate: [RoleGuardService],
+                data: { roles: [Roles.Professional, Roles.Patient, Roles.Admin] }
+            },
+            {
+                path: 'food-list', component: FoodListComponent,
+                canActivate: [RoleGuardService],
+                data: { roles: [Roles.Professional, Roles.Admin, Roles.Patient] }
+            },
+            {
+                path: 'settings', component: SettingsComponent,
+                canActivate: [RoleGuardService],
+                data: { roles: [Roles.Professional, Roles.Admin, Roles.Patient] }
+            },
             { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
         ],
     },
