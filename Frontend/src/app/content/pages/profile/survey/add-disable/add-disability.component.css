@@ -28,4 +28,13 @@ button.ghost {
 
 .input-group{
   float: left;
+  margin-top: 75%;
+}
+
+:host ::ng-deep .p-dropdown {
+  width: 100%;
+}
+
+.p-inputtext{
+  width: 100%;
 }
