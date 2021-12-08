@@ -15,7 +15,7 @@ import { LoginComponent } from './content/login/login.component';
 import { LoginFormComponent } from './content/login/login-form/login-form.component';
 import { RegisterFormComponent } from './content/login/register-form/register-form.component';
 import { NotFoundComponent } from './content/pages/not-found/not-found.component';
-import { CanActiveGuard, RoleGuardService, UserRolesService } from './services/can-active.guard';
+import { RoleGuardService, UserRolesService } from './services/can-active.guard';
 
 
 export function HttpLoaderFactory(http: HttpClient) {
@@ -48,6 +48,6 @@ export function HttpLoaderFactory(http: HttpClient) {
     })
   ],
   bootstrap: [AppComponent],
-  providers: [HttpEntityRepositoryService, CanActiveGuard, RoleGuardService, UserRolesService]
+  providers: [HttpEntityRepositoryService, RoleGuardService, UserRolesService]
 })
 export class AppModule { }
