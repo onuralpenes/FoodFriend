@@ -19,6 +19,7 @@
 .buttons{
   font-size: 150%;
   margin-top: 5%;
+  padding-left: 5%;
 }
 
 .row{
@@ -58,4 +59,8 @@
 
 .p-button-rounded:hover{
   background-color: #00d6a0 !important;
+}
+
+.p-inputtext{
+  width: 100% !important;
 }
