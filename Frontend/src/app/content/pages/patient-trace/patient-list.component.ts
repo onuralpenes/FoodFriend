@@ -3,9 +3,6 @@ import { Router } from '@angular/router';
 import { AlertService } from 'src/app/helpers/alert.service';
 import { User } from 'src/app/models/user/user.model';
 import { HttpEntityRepositoryService } from 'src/app/services/http-entity-repository.service';
-// import { ActivityTable } from './activity-table/activity-table.component';
-// import { NutritionTable } from './nutrition-table/nutrition-table.component';
-// import { PatientTarget } from './target/target.component';
 
 // export interface Transfer {
 //   name: string;
@@ -42,7 +39,7 @@ export class PatientListComponent {
 
       var Data: any = data;
       if (!Data.success) {
-        this.alertService.openSnackBar(Data.success, Data.message);
+        this.alertService.openSnackBar(Data.success, "Yüklenirken bir hata oluştu");
         return;
       }
 

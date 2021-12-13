@@ -1,9 +1,9 @@
 import { Component } from '@angular/core';
-import { AlertService } from 'src/app/helpers/alert.service';
 import { EatingActivity } from 'src/app/models/data/eating-activity.model';
 import { AuthService } from 'src/app/services/auth.service';
 import { HttpEntityRepositoryService } from 'src/app/services/http-entity-repository.service';
 import { DatePipe } from '@angular/common';
+import { MessageService } from 'primeng/api';
 
 export interface MyData {
   oil: number;
@@ -14,7 +14,8 @@ export interface MyData {
 @Component({
   selector: 'app-pie-chart-threed',
   templateUrl: './pie-chart-threed.component.html',
-  styleUrls: ['./pie-chart-threed.component.css']
+  styleUrls: ['./pie-chart-threed.component.css'],
+  providers: [MessageService]
 })
 export class PieChartThreedComponent {
 
@@ -49,13 +50,13 @@ export class PieChartThreedComponent {
 
   }
   public chart: any[] = [];
-  constructor(private entityService: HttpEntityRepositoryService<EatingActivity>, private authService: AuthService, private alertService: AlertService) {
+  constructor(entityService: HttpEntityRepositoryService<EatingActivity>, authService: AuthService, private messageService: MessageService) {
     const datepipe: DatePipe = new DatePipe('en-US');
     let date = datepipe.transform(new Date(new Date().setDate(new Date().getDate())), 'YYYY-MM-dd');
     entityService.get("/EatingActivity/GetTotalCalorieByUserIdOnDay?date=" + date + "&userId=", authService.CurrentUserId).subscribe(data => {
       var Data: any = data;
       if (!Data.success) {
-        this.alertService.openSnackBar(Data.success, Data.message);
+        this.messageService.add({ severity: 'error', summary: 'Error', detail: Data.message });
         return;
       }
       let chartTitle = ' ';
@@ -115,4 +116,3 @@ export class PieChartThreedComponent {
     }
   }
 }
-

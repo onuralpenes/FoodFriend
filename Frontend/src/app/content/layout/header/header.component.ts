@@ -2,11 +2,11 @@ import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from 'src/app/services/auth.service';
 import { Notify, NOTIFY_DATA } from './notify-data';
-import { AlertService } from 'src/app/helpers/alert.service';
 import { EatingActivity } from 'src/app/models/data/eating-activity.model';
 import { HttpEntityRepositoryService } from 'src/app/services/http-entity-repository.service';
 import { DatePipe } from '@angular/common';
 import { MenuItem, PrimeNGConfig } from 'primeng/api';
+
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
@@ -16,13 +16,12 @@ export class HeaderComponent implements OnInit {
 
   @Output() toggle: EventEmitter<any> = new EventEmitter(); //Required for connection with sidebar.
 
-  constructor(private authService: AuthService, private router: Router, private entityService: HttpEntityRepositoryService<EatingActivity>, private alertService: AlertService, private primengConfig: PrimeNGConfig) {
+  constructor(private authService: AuthService, private router: Router, entityService: HttpEntityRepositoryService<EatingActivity>, private primengConfig: PrimeNGConfig) {
     const datepipe: DatePipe = new DatePipe('en-US');
     let date = datepipe.transform(new Date(new Date().setDate(new Date().getDate())), 'YYYY-MM-dd');
     entityService.get("/EatingActivity/GetTotalCalorieByUserIdOnDay?date=" + date + "&userId=", authService.CurrentUserId).subscribe(data => {
       var Data: any = data;
       if (!Data.success) {
-        this.alertService.openSnackBar(Data.success, Data.message);
         return;
       }
       this.notificationList[0].title = Data.data.totalCalorie + " calorie intake was made";

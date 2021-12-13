@@ -1,18 +1,18 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
-import { AlertService } from 'src/app/helpers/alert.service';
+import { MessageService } from 'primeng/api';
 import { CustomFoodService } from 'src/app/helpers/custom-food.service';
-
 
 @Component({
   selector: 'app-custom-food',
   templateUrl: './custom-food.component.html',
-  styleUrls: ['./custom-food.component.css']
+  styleUrls: ['./custom-food.component.css'],
+  providers: [MessageService]
 })
 export class CustomFoodComponent implements OnInit {
 
   customFoodForm!: FormGroup;
-  constructor(private formBuilder: FormBuilder,  private alertService: AlertService, private customFoodService: CustomFoodService) { }
+  constructor(private formBuilder: FormBuilder, private customFoodService: CustomFoodService, private messageService: MessageService) { }
 
   ngOnInit() {
     this.customFoodForm = this.formBuilder.group({
@@ -37,14 +37,13 @@ export class CustomFoodComponent implements OnInit {
       myProperty: ""
     }
     this.customFoodService.setCustomFoodInfo(customFood);
-    this.alertService.openSnackBar(true, "Added");
+    this.messageService.add({ severity: 'success', summary: 'Success', detail: 'The meal has been successfully added.' });
 
     // this.entityService.insert("/FoodDetail/Add", JSON.stringify(this.customFood))
     //   .subscribe(data => {
-    //     this.alertService.openSnackBar(true, "success");
-    //     this.modalRef.close(`${this.customFoodForm.value.foodName}`);
+    //     this.messageService.add({ severity: 'success', summary: 'Success', detail: '' });
     //   }, err => {
-    //     this.alertService.openSnackBar(false, "error");
+    //   this.messageService.add({ severity: 'error', summary: 'Error', detail: '' });
     //   });
   }
 }

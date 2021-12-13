@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { AlertService } from 'src/app/helpers/alert.service';
 import { User } from 'src/app/models/user/user.model';
 import { HttpEntityRepositoryService } from 'src/app/services/http-entity-repository.service';
 import { AllergyList, DisabledList, IllnessList, PregnantList } from '../profile/profile.component';
@@ -34,19 +33,15 @@ export class PatientProfileComponent implements OnInit {
   pregnantList!: PregnantList[];
   disabledList!: DisabledList[];
 
-  constructor(private route: ActivatedRoute, private alertService: AlertService, entityService: HttpEntityRepositoryService<User>) {
-
+  constructor(private route: ActivatedRoute, entityService: HttpEntityRepositoryService<User>) {
     this.route.paramMap.subscribe(param => {
       let id = Number(param.get('id'));
 
       entityService.get("/User/Get?userId=", id).subscribe(data => {
-
         var Data: any = data;
         if (!Data.success) {
-          this.alertService.openSnackBar(Data.success, Data.message);
           return;
         }
-
         this.userName = Data.data.firstName + " " + Data.data.lastName;
         this.email = Data.data.emailAddress;
         this.phone = Data.data.phone;
@@ -61,7 +56,6 @@ export class PatientProfileComponent implements OnInit {
         entityService.get("/PhysicalInfo/Get?id=", this.physicalId).subscribe(data => {
           var DataPh: any = data;
           if (!DataPh.success) {
-            this.alertService.openSnackBar(DataPh.success, DataPh.message);
             return;
           }
           this.height = DataPh.data.height;
@@ -74,7 +68,6 @@ export class PatientProfileComponent implements OnInit {
 
           var DataH: any = data;
           if (!DataH.success) {
-            this.alertService.openSnackBar(DataH.success, DataH.message);
             return;
           }
 

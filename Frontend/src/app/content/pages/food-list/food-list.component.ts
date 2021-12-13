@@ -1,25 +1,24 @@
 import { Component } from '@angular/core';
-import { TranslateService } from '@ngx-translate/core';
-import { AlertService } from 'src/app/helpers/alert.service';
+import { MessageService } from 'primeng/api';
 import { FoodDetail } from 'src/app/models/data/food-detail.model';
 import { HttpEntityRepositoryService } from 'src/app/services/http-entity-repository.service';
 
 @Component({
   selector: 'app-food-list',
   templateUrl: './food-list.component.html',
-  styleUrls: ['./food-list.component.css']
+  styleUrls: ['./food-list.component.css'],
+  providers: [MessageService]
 })
 export class FoodListComponent {
   foods: FoodDetail[] = [];
   first = 0;
   rows = 10;
 
-  constructor(private entityService: HttpEntityRepositoryService<FoodDetail>, private translate: TranslateService, private alertService: AlertService) {
+  constructor(entityService: HttpEntityRepositoryService<FoodDetail>, private messageService: MessageService) {
     entityService.getAll("/FoodDetail/GetAll").subscribe(data => {
-
       var Data: any = data;
       if (!Data.success) {
-        this.alertService.openSnackBar(Data.success, Data.message);
+        this.messageService.add({ severity: 'error', summary: 'Error', detail: Data.message });
         return;
       }
       this.foods = Data.data;

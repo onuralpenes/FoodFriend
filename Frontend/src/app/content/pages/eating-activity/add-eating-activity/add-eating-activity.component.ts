@@ -1,13 +1,13 @@
 import { ChangeDetectionStrategy, ChangeDetectorRef, Component, ViewChild } from "@angular/core";
 import { FormArray, FormBuilder, FormControl, FormGroup } from "@angular/forms";
 import { PickList } from "primeng/picklist";
-import { AlertService } from "src/app/helpers/alert.service";
 import { CustomFoodService } from "src/app/helpers/custom-food.service";
 import { EatingActivity } from "src/app/models/data/eating-activity.model";
 import { FoodDetail } from "src/app/models/data/food-detail.model";
 import { Nutrition } from "src/app/models/data/nutrition.model";
 import { AuthService } from "src/app/services/auth.service";
 import { HttpEntityRepositoryService } from "src/app/services/http-entity-repository.service";
+import { MessageService } from 'primeng/api';
 
 export interface AddedFood {
   addedFoodName: string;
@@ -19,7 +19,8 @@ export interface AddedFood {
   selector: 'app-add-eating-activity',
   templateUrl: './add-eating-activity.component.html',
   styleUrls: ['./add-eating-activity.component.css'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  providers: [MessageService]
 })
 export class AddEatingActivity {
   activeIndex: number = 0;
@@ -34,16 +35,14 @@ export class AddEatingActivity {
   endDate!: Date;
   customFoodModal = false;
   @ViewChild('pl') pl: PickList | undefined;
-  constructor(private formBuilder: FormBuilder, private entityService: HttpEntityRepositoryService<FoodDetail>, private alertService: AlertService,
-    private authService: AuthService, private customFoodService: CustomFoodService, private detect: ChangeDetectorRef) {
-  }
+  constructor(private formBuilder: FormBuilder, private entityService: HttpEntityRepositoryService<FoodDetail>, private authService: AuthService, private customFoodService: CustomFoodService, private detect: ChangeDetectorRef, private messageService: MessageService) { }
 
   getFoods() {
 
     this.entityService.getAll("/FoodDetail/GetAll").subscribe(data => {
       var Data: any = data;
       if (!Data.success) {
-        this.alertService.openSnackBar(Data.success, Data.message);
+        this.messageService.add({ severity: 'error', summary: 'Error', detail: Data.message });
         return;
       }
       this.foodsList = Data.data;
@@ -135,9 +134,9 @@ export class AddEatingActivity {
     }
     this.entityService.insert("/EatingActivity/AddWithNutrition", JSON.stringify(newEatAct))
       .subscribe(data => {
-        this.alertService.openSnackBar(true, "success");
+        this.messageService.add({ severity: 'success', summary: 'Success', detail: 'The eating activity has been successfully added.' });
       }, err => {
-        this.alertService.openSnackBar(false, "error");
+        this.messageService.add({ severity: 'error', summary: 'Error', detail: 'An error occurred during the insertion process.' });
       });
   }
 

@@ -1,15 +1,16 @@
 import { Component } from '@angular/core';
 import { multi } from './data';
-import { AlertService } from 'src/app/helpers/alert.service';
 import { EatingActivity } from 'src/app/models/data/eating-activity.model';
 import { AuthService } from 'src/app/services/auth.service';
 import { HttpEntityRepositoryService } from 'src/app/services/http-entity-repository.service';
 import { DatePipe } from '@angular/common';
+import { MessageService } from 'primeng/api';
 
 @Component({
   selector: 'app-eating-habit-chart',
   templateUrl: './eating-habit-chart.component.html',
-  styleUrls: ['./eating-habit-chart.component.css']
+  styleUrls: ['./eating-habit-chart.component.css'],
+  providers: [MessageService]
 })
 export class EatingHabitChartComponent {
 
@@ -34,9 +35,7 @@ export class EatingHabitChartComponent {
     domain: ['#5AA454', '#E44D25', '#2196f3', '#7aa3e5', '#a8385d', '#aae3f5']
   };
 
-  constructor(private entityService: HttpEntityRepositoryService<EatingActivity>, private authService: AuthService, private alertService: AlertService) {
-
-
+  constructor(entityService: HttpEntityRepositoryService<EatingActivity>, authService: AuthService, private messageService: MessageService) {
     this.basicData = {
       labels: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'],
       datasets: [
@@ -84,7 +83,7 @@ export class EatingHabitChartComponent {
       entityService.get("/EatingActivity/GetTotalCalorieByUserIdOnDay?date=" + date + "&userId=", authService.CurrentUserId).subscribe(data => {
         var Data: any = data;
         if (!Data.success) {
-          this.alertService.openSnackBar(Data.success, Data.message);
+          this.messageService.add({ severity: 'error', summary: 'Error', detail: Data.message });
           return;
         } else {
           this.weeklyEatingActivity[i] = Data.data.totalCalorie;
@@ -104,7 +103,7 @@ export class EatingHabitChartComponent {
       entityService.get("/EatingActivity/GetTotalCalorieByUserIdOnDay?date=" + date + "&userId=", authService.CurrentUserId).subscribe(data => {
         var Data: any = data;
         if (!Data.success) {
-          this.alertService.openSnackBar(Data.success, Data.message);
+          this.messageService.add({ severity: 'error', summary: 'Error', detail: Data.message });
           return;
         } else {
           multi[1].series[i].value = Data.data.totalCalorie;
@@ -117,7 +116,7 @@ export class EatingHabitChartComponent {
       entityService.get("/EatingActivity/GetTotalCalorieByUserIdOnDay?date=" + date + "&userId=", authService.CurrentUserId).subscribe(data => {
         var Data: any = data;
         if (!Data.success) {
-          this.alertService.openSnackBar(Data.success, Data.message);
+          this.messageService.add({ severity: 'error', summary: 'Error', detail: Data.message });
           return;
         } else {
           multi[2].series[i].value = Data.data.totalCalorie;
@@ -135,6 +134,7 @@ export class EatingHabitChartComponent {
     else
       this.applyLightTheme();
   }
+
   applyDarkTheme() {
     this.basicOptions = {
       plugins: {

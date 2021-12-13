@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
-import { AlertService } from 'src/app/helpers/alert.service';
+import { MessageService } from 'primeng/api';
 import { User } from 'src/app/models/user/user.model';
 import { AuthService } from 'src/app/services/auth.service';
 import { HttpEntityRepositoryService } from 'src/app/services/http-entity-repository.service';
@@ -8,19 +8,20 @@ import { HttpEntityRepositoryService } from 'src/app/services/http-entity-reposi
 @Component({
   selector: 'app-health-card',
   templateUrl: './health-card.component.html',
-  styleUrls: ['./health-card.component.css']
+  styleUrls: ['./health-card.component.css'],
+  providers: [MessageService]
 })
 export class HealthCardComponent {
   weight = 85
   height = 181
   age = 21
 
-  constructor(private authService: AuthService, private router: Router, private entityService: HttpEntityRepositoryService<User>, private alertService: AlertService) { 
+  constructor( authService: AuthService, private router: Router,  entityService: HttpEntityRepositoryService<User>, private messageService: MessageService) { 
     entityService.get("/User/Get?userId=", authService.CurrentUserId).subscribe(data => {
 
       var Data: any = data;
       if (!Data.success) {
-        this.alertService.openSnackBar(Data.success, Data.message);
+        this.messageService.add({ severity: 'error', summary: 'Error', detail: Data.message });
         return;
       }
       const convertAge = new Date(Data.data.birthDate);
@@ -29,7 +30,6 @@ export class HealthCardComponent {
       entityService.get("/PhysicalInfo/Get?id=", Data.data.physicalInfoId).subscribe(data => {
         var DataPh: any = data;
         if (!DataPh.success) {
-          this.alertService.openSnackBar(DataPh.success, DataPh.message);
           return;
         }
         this.height = DataPh.data.height;

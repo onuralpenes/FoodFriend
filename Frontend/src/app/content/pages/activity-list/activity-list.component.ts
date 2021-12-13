@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
-import { TranslateService } from '@ngx-translate/core';
-import { AlertService } from 'src/app/helpers/alert.service';
+import { MessageService } from 'primeng/api';
 import { PersonalEnergyActivity } from 'src/app/models/data/energy-activity.model';
 import { HttpEntityRepositoryService } from 'src/app/services/http-entity-repository.service';
 
@@ -8,6 +7,7 @@ import { HttpEntityRepositoryService } from 'src/app/services/http-entity-reposi
   selector: 'app-activity-list',
   templateUrl: './activity-list.component.html',
   styleUrls: ['./activity-list.component.css'],
+  providers: [MessageService]
 })
 export class ActivityListComponent {
   activityWithFilter: PersonalEnergyActivity[] = [];
@@ -16,11 +16,11 @@ export class ActivityListComponent {
   rows = 10;
   searchText = "";
 
-  constructor( private entityService: HttpEntityRepositoryService<PersonalEnergyActivity>, private alertService: AlertService) {
+  constructor(entityService: HttpEntityRepositoryService<PersonalEnergyActivity>, private messageService: MessageService) {
     entityService.getAll("/PersonalEnergyActivity/GetAll").subscribe(data => {
       var Data: any = data;
       if (!Data.success) {
-        this.alertService.openSnackBar(Data.success, Data.message);
+        this.messageService.add({ severity: 'error', summary: 'Error', detail: Data.message });
         return;
       }
 

@@ -14,6 +14,7 @@ import { MenuModule } from 'primeng/menu';
 import { RippleModule } from 'primeng/ripple';
 import { CheckboxModule } from 'primeng/checkbox';
 import { DropdownModule } from 'primeng/dropdown';
+import { ToastModule } from 'primeng/toast';
 
 @NgModule({
     imports: [
@@ -32,6 +33,7 @@ import { DropdownModule } from 'primeng/dropdown';
         RippleModule,
         CheckboxModule,
         DropdownModule,
+        ToastModule,
     ],
     exports: [
         DialogModule,
@@ -49,8 +51,8 @@ import { DropdownModule } from 'primeng/dropdown';
         RippleModule,
         CheckboxModule,
         DropdownModule,
+        ToastModule,
     ]
-
 })
 
 export class PrimeNgModule { }

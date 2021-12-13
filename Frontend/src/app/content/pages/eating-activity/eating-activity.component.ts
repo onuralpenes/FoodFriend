@@ -1,10 +1,10 @@
 import { Component } from '@angular/core';
-import { AlertService } from 'src/app/helpers/alert.service';
 import { EatingActivity } from 'src/app/models/data/eating-activity.model';
 import { AuthService } from 'src/app/services/auth.service';
 import { HttpEntityRepositoryService } from 'src/app/services/http-entity-repository.service';
 import { ConfirmationService } from 'primeng/api';
 import { EditEatingActivityService } from 'src/app/helpers/edit-eating-activity.service';
+import { MessageService } from 'primeng/api';
 
 export interface EatTable {
   nutId: number;
@@ -23,19 +23,19 @@ export interface Tab {
   selector: 'app-eating-activity',
   templateUrl: './eating-activity.component.html',
   styleUrls: ['./eating-activity.component.css'],
-  providers: [ConfirmationService]
+  providers: [ConfirmationService, MessageService]
 })
 export class EatingActivityComponent {
   eatTab: Tab[] = [];
   addFod: boolean = false;
   editFod: boolean = false;
 
-  constructor(private editNutritionService: EditEatingActivityService, authService: AuthService, private entityService: HttpEntityRepositoryService<EatingActivity>, private alertService: AlertService, private confirmationService: ConfirmationService) {
+  constructor(private editNutritionService: EditEatingActivityService, authService: AuthService, private entityService: HttpEntityRepositoryService<EatingActivity>, private messageService: MessageService, private confirmationService: ConfirmationService) {
     entityService.get('/EatingActivity/GetByUserId?userId=', authService.CurrentUserId).subscribe(data => {
 
       var Data: any = data;
       if (!Data.success) {
-        this.alertService.openSnackBar(Data.success, Data.message);
+        this.messageService.add({ severity: 'error', summary: 'Error', detail: Data.message });
         return;
       }
       for (let i = 0; i < Data.data.length; i++) {
@@ -89,9 +89,9 @@ export class EatingActivityComponent {
       foodName: '',
       quantity: 0
     };
-    for(let i = 0 ; i < this.eatTab.length ; i++ ){
-      for(let j = 0 ; j < this.eatTab[i].eatTab.length ; j++){
-        if(this.eatTab[i].eatTab[j].nutId == id){
+    for (let i = 0; i < this.eatTab.length; i++) {
+      for (let j = 0; j < this.eatTab[i].eatTab.length; j++) {
+        if (this.eatTab[i].eatTab[j].nutId == id) {
           editEat = this.eatTab[i].eatTab[j];
         }
       }
@@ -111,11 +111,14 @@ export class EatingActivityComponent {
       icon: 'pi pi-exclamation-triangle',
       accept: () => {
         this.entityService.delete("/Nutrition?id=", id).subscribe(data => {
-          this.alertService.openSnackBar(true, "success");
+          this.messageService.add({ severity: 'success', summary: 'Success', detail: 'The nutrition was deleted successfully.' });
+        }, err => {
+          if (err)
+            this.messageService.add({ severity: 'error', summary: 'Error', detail: 'An error occurred during the deletion process.' });
         })
       },
       reject: () => {
-        this.alertService.openSnackBar(false, "unsuccess");
+        this.messageService.add({ severity: 'warn', summary: 'Unsuccess', detail: 'The nutrition was not deleted.' });
       }
     });
   }
