@@ -9,33 +9,6 @@ body {
     margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; 
     background-color: rgba(64, 180, 145, 1);     
 }
-
-.mat-form-field-appearance-outline .mat-form-field-outline {
-    color: #009879;
-}
-
-.mat-focused .mat-form-field-outline {
-    color: #009879 !important;
-}
-
-.mat-focused .mat-form-field-label {
-    color: #009879 !important;
-    font-size: 1rem;
-}
-
-.mat-form-field {
-    color: #009879 !important;
-    font-size: 0.9rem;
-}
-  
-.mat-form-field-underline {
-    background-color: #009879 !important;
-} 
-  
-.mat-form-field-ripple {
-   background-color: #009879 !important;;
-}
-
 .alertSuccess{
     background-color: #009879 !important;
     color:white !important;
@@ -52,8 +25,4 @@ body {
   }
   .alertNotSuccess button{
     color:white !important;
-  }
-
-  .mat-header-cell{
-    text-align: center !important;
   }
