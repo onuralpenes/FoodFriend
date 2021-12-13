@@ -96,10 +96,11 @@
     </div>
 
     <p>
-      <label>{{'label.birthdate' | translate}}</label>
+      <!-- <label>{{'label.birthdate' | translate}}</label> -->
       <span class="p-float-label">
         <input type="date" pInputText formControlName="birthDate" type="date"
           [ngClass]="{ 'is-invalid': submitted && f.birthDate.errors }" required>
+           <label style="margin-left: 60%;">{{'label.birthdate' | translate}}</label>
       </span>
       <small *ngIf="submitted && f.birthDate.errors?.required" style="color: red;">{{'validator.bdayNull' |
         translate}}</small>
