@@ -5,38 +5,29 @@
     <form [formGroup]="targetForm">
 
         <div>
-            <mat-form-field appearance="outline">
-                <mat-label>Starting Height</mat-label>
-                <input matInput type="number" placeholder="Starting Weight" id="startingWeight" name="startingWeight"
-                    formControlName="startingWeight">
-            </mat-form-field>
+            <span class="p-float-label">
+                <input type="number" pInputText formControlName="startingWeight">
+                <label for="float-input">Starting Weight</label>
+              </span>
 
             <div class="space2"></div>
 
-            <mat-form-field appearance="outline">
-                <mat-label>Target Height</mat-label>
-                <input matInput type="number" placeholder="Target Weight" id="targetWeight" name="targetWeight"
-                    formControlName="targetWeight">
-            </mat-form-field>
+            <span class="p-float-label">
+                <input type="number" pInputText formControlName="targetWeight">
+                <label for="float-input">Target Height</label>
+              </span>
         </div>
 
         <div>
-            <mat-form-field appearance="outline">
-                <mat-label>Starting Date</mat-label>
-                <input matInput [matDatepicker]="picker" name="startingDate" id="startingDate"
-                    formControlName="startingDate">
-                <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-                <mat-datepicker #picker></mat-datepicker>
-            </mat-form-field>
+            <span class="p-float-label">
+              <input type="date" pInputText formControlName="startingDate">
+            </span>
 
             <div class="space2"></div>
 
-            <mat-form-field appearance="outline">
-                <mat-label>End Date</mat-label>
-                <input matInput [matDatepicker]="picker2" name="endDate" id="endDate" formControlName="endDate">
-                <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
-                <mat-datepicker #picker2></mat-datepicker>
-            </mat-form-field>
+            <span class="p-float-label">
+              <input type="date" pInputText formControlName="endDate">
+            </span>
         </div>
     </form>
 
