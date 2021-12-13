@@ -188,10 +188,6 @@ button{
       width: 270px;
       margin: 0 auto;
   }
-  mat-progress-bar {
-      height: 10px;
-      border-radius: 50px;
-  }
   .space{
       height: 20px;
   }
