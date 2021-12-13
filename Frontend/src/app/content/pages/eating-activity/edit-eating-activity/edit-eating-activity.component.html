@@ -9,20 +9,20 @@
                 </div>
             </ng-template>
         </p-dropdown>
-        <span class="p-float-label" style="margin-top: 2%;">
+        <span style="margin-top: 5% !important;" class="p-float-label">
             <input type="number" pInputText formControlName="quantity">
         </span>
-        <span class="p-float-label" style="margin-top: 2%;">
+        <span style="margin-top: 5% !important;" class="p-float-label">
             <input type="datetime-local" pInputText formControlName="startDate">
         </span>
-        <span class="p-float-label">
+        <span style="margin-top: 5% !important;" class="p-float-label">
             <input type="datetime-local" pInputText formControlName="endDate">
         </span>
 
 
         <div class="space-bottom"></div>
 
-        <button mat-button type="submit" class="modal-button" [disabled]="!editFoodForm.valid">
+        <button style="margin-top: 5% !important;" mat-button type="submit" class="modal-button" [disabled]="!editFoodForm.valid">
             {{'label.submit' | translate}}
         </button>
     </form>

@@ -35,3 +35,11 @@ p{
     text-transform: uppercase;
     transition: transform 80ms ease-in;
 }
+
+.p-inputtext{
+  width: 100% !important;
+}
+
+:host ::ng-deep .p-dropdown {
+  width: 100%;
+}

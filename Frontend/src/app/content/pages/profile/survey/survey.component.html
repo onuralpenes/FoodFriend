@@ -1,5 +1,5 @@
 <div class="container rounded bg-white">
-  <div class="row">
+  <div style="height: 100% !important; width: 100% !important;" class="row">
     <div class="col-md-4 border-right">
       <div class="d-flex flex-column align-items-center text-center p-3 py-5">
         <img class="rounded-circle mt-5 image" src="../../../../../assets/user.jpg" />
@@ -11,7 +11,7 @@
         </div>
 
         <form [formGroup]="surveyForm" (ngSubmit)="onSubmit()" class="form">
-          <div class="row mt-2">
+          <div style="padding: 5%;" class="row mt-2">
             <div class="col-md-6">
               <span class="p-float-label">
                 <input type="text" pInputText formControlName="firstName">
@@ -27,11 +27,11 @@
             </div>
           </div>
 
-          <div class="row mt-3">
+          <div style="padding: 5%;" class="row mt-3">
             <div class="col-md-6">
               <span class="p-float-label">
                 <input type="text" pInputText formControlName="emailAddress">
-                <label for="float-input">{{'label.email' | translate}}}</label>
+                <label for="float-input">{{'label.email' | translate}}</label>
               </span>
             </div>
 
@@ -43,7 +43,7 @@
             </div>
           </div>
 
-          <div class="row mt-3">
+          <div style="padding: 5%;" class="row mt-3">
             <div class="col-md-6">
               <span class="p-float-label">
                 <input type="number" pInputText formControlName="height">
@@ -59,7 +59,7 @@
             </div>
           </div>
 
-          <div class="row mt-3">
+          <div style="padding: 5%;" class="row mt-3">
             <span class="p-float-label">
               <input type="date" pInputText formControlName="birthdate">
             </span>
