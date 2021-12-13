@@ -11,34 +11,37 @@
 
   <form [formGroup]="loginForm" (ngSubmit)="onSubmit('submit')" class="form">
     <p>
-      <mat-form-field appearance="outline">
-        <mat-label>{{'label.email' | translate}}</mat-label>
-        <input matInput formControlName="emailAddress" [ngClass]="{ 'is-invalid': submitted && f.emailAddress.errors }"
-          required />
-        <mat-error *ngIf="f.emailAddress.errors?.required">{{'validator.emailNull' | translate}}</mat-error>
-        <mat-error *ngIf="f.emailAddress.errors?.email">{{'validator.emailValid' | translate}}</mat-error>
-      </mat-form-field>
+      <span class="p-float-label">
+        <input type="email" pInputText formControlName="emailAddress"
+          [ngClass]="{ 'is-invalid': submitted && f.emailAddress.errors }" required>
+        <label for="float-input">{{'label.email' | translate}}</label>
+      </span>
+      <br>
+      <small *ngIf="submitted && f.emailAddress.errors?.required" style="color: red;">{{'validator.emailNull' |
+        translate}}</small>
+      <small *ngIf="submitted && f.emailAddress.errors?.email" style="color: red;">{{'validator.emailValid' |
+        translate}}</small>
     </p>
 
     <p>
-      <mat-form-field appearance="outline" style="width: 90% !important; align-items: center;">
-        <mat-label>{{'label.password' | translate}}</mat-label>
-        <input matInput [type]="hidePassword ? 'password' : 'text'" formControlName="password"
-          [ngClass]="{ 'is-invalid': submitted && f.password.errors }" required />
-        <mat-icon matSuffix (click)="hidePassword = !hidePassword">{{hidePassword ? 'visibility_off' : 'visibility'}}
-        </mat-icon>
-        <mat-error *ngIf="f.password.errors?.required">{{'validator.psdNull' | translate}}</mat-error>
-        <mat-error *ngIf="">Password is incorrect (it is actually placeholder. It can be deleted.)</mat-error>
-      </mat-form-field>
+      <span class="p-float-label p-input-icon-right">
+        <input [type]="hidePassword ? 'password' : 'text'" pInputText formControlName="password"
+          [ngClass]="{ 'is-invalid': submitted && f.password.errors }" required>
+        <label for="float-input">{{'label.password' | translate}}</label>
+        <i *ngIf="hidePassword" class="fa fa-eye-slash" (click)="hidePassword = !hidePassword"></i>
+        <i *ngIf="!hidePassword" class="fa fa-eye" (click)="hidePassword = !hidePassword"></i>
+      </span>
+      <br>
+      <small *ngIf="submitted && f.password.errors?.required" style="color: red;">{{'validator.psdNull' |
+        translate}}</small>
+      <small *ngIf="submitted && f.password.errors?.min" style="color: red;">{{'validator.psdMin' | translate}}</small>
     </p>
 
     <p class="forgetPsw"><a (click)="forgetPassword()">{{'forget.title' | translate}}</a></p>
 
     <p class="cb">
-      <!-- <p-checkbox [(ngModel)]="checked" binary="true" inputId="binary"></p-checkbox>
-      <label for="binary"> {{'forget.title2' | translate}}</label> -->
       <input class="margin" type="checkbox" formControlName="remember">
-     <label>  {{'forget.title2' | translate}}</label>
+      <label> {{'forget.title2' | translate}}</label>
     </p>
 
     <button class="input-group" type="submit">{{'account.signIn' | translate}}</button>
@@ -50,13 +53,16 @@
     {{'welcome.forget' | translate}}
     <form [formGroup]="forgetMail" (ngSubmit)="onForget('forget')" class="form">
       <p>
-        <mat-form-field appearance="outline">
-          <mat-label>{{'label.email' | translate}}</mat-label>
-          <input matInput formControlName="emailAddress"
-            [ngClass]="{ 'is-invalid': submitted && f.emailAddress.errors }" />
-          <mat-error *ngIf="f.emailAddress.errors?.required">{{'validator.emailNull' | translate}}</mat-error>
-          <mat-error *ngIf="f.emailAddress.errors?.email">{{'validator.emailValid' | translate}}</mat-error>
-        </mat-form-field>
+        <span class="p-float-label">
+          <input type="email" pInputText formControlName="emailAddress"
+            [ngClass]="{ 'is-invalid': submitted && f.emailAddress.errors }" required>
+          <label for="float-input">{{'label.email' | translate}}</label>
+        </span>
+        <br>
+        <small *ngIf="submitted && f.emailAddress.errors?.required" style="color: red;">{{'validator.emailNull' |
+          translate}}</small>
+        <small *ngIf="submitted && f.emailAddress.errors?.email" style="color: red;">{{'validator.emailValid' |
+          translate}}</small>
       </p>
       <button class="input-group" type="submit">{{'welcome.approve' | translate}}</button>
     </form>
