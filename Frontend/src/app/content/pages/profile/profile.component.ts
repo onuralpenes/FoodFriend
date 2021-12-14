@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { MessageService } from 'primeng/api';
-import { AlertService } from 'src/app/helpers/alert.service';
 import { User } from 'src/app/models/user/user.model';
 import { AuthService } from 'src/app/services/auth.service';
 import { HttpEntityRepositoryService } from 'src/app/services/http-entity-repository.service';
