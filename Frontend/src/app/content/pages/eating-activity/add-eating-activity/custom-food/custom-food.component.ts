@@ -6,8 +6,7 @@ import { CustomFoodService } from 'src/app/helpers/custom-food.service';
 @Component({
   selector: 'app-custom-food',
   templateUrl: './custom-food.component.html',
-  styleUrls: ['./custom-food.component.css'],
-  providers: [MessageService]
+  styleUrls: ['./custom-food.component.css']
 })
 export class CustomFoodComponent implements OnInit {
 

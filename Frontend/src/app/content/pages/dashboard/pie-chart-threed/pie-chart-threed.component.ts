@@ -14,8 +14,7 @@ export interface MyData {
 @Component({
   selector: 'app-pie-chart-threed',
   templateUrl: './pie-chart-threed.component.html',
-  styleUrls: ['./pie-chart-threed.component.css'],
-  providers: [MessageService]
+  styleUrls: ['./pie-chart-threed.component.css']
 })
 export class PieChartThreedComponent {
 

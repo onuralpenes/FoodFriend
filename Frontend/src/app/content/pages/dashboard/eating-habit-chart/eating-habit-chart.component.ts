@@ -9,8 +9,7 @@ import { MessageService } from 'primeng/api';
 @Component({
   selector: 'app-eating-habit-chart',
   templateUrl: './eating-habit-chart.component.html',
-  styleUrls: ['./eating-habit-chart.component.css'],
-  providers: [MessageService]
+  styleUrls: ['./eating-habit-chart.component.css']
 })
 export class EatingHabitChartComponent {
 

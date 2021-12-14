@@ -8,8 +8,7 @@ import { HttpEntityRepositoryService } from 'src/app/services/http-entity-reposi
   selector: 'app-patient-list',
   templateUrl: './patient-list.component.html',
   styleUrls: ['./patient-list.component.css'],
-  changeDetection: ChangeDetectionStrategy.Default,
-  providers: [MessageService]
+  changeDetection: ChangeDetectionStrategy.Default
 })
 export class PatientListComponent {
   usersWithFilter: User[] = [];

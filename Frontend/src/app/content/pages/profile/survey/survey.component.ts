@@ -11,7 +11,7 @@ import { ProfileComponent } from '../profile.component';
   selector: 'app-survey',
   templateUrl: './survey.component.html',
   styleUrls: ['./survey.component.css'],
-  providers: [ConfirmationService, MessageService]
+  providers: [ConfirmationService]
 })
 export class SurveyComponent implements OnInit {
 

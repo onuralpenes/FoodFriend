@@ -19,8 +19,7 @@ export interface AddedFood {
   selector: 'app-add-eating-activity',
   templateUrl: './add-eating-activity.component.html',
   styleUrls: ['./add-eating-activity.component.css'],
-  changeDetection: ChangeDetectionStrategy.OnPush,
-  providers: [MessageService]
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class AddEatingActivity {
   activeIndex: number = 0;

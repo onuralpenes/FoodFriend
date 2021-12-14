@@ -8,8 +8,7 @@ import { EatTable, Tab } from "../../eating-activity/eating-activity.component";
     selector: 'app-patient-nutrition-table',
     templateUrl: './patient-nutrition-table.html',
     styleUrls: ['./patient-nutrition-table.css'],
-    changeDetection: ChangeDetectionStrategy.OnPush,
-    providers: [MessageService]
+    changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class PatientNutritionTable {
     eatTab: Tab[] = [];

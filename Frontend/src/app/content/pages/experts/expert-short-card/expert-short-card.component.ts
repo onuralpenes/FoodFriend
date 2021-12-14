@@ -6,7 +6,7 @@ import { ConfirmationService, MessageService } from 'primeng/api';
   selector: 'app-expert-short-card',
   templateUrl: './expert-short-card.component.html',
   styleUrls: ['./expert-short-card.component.css'],
-  providers: [ConfirmationService, MessageService]
+  providers: [ConfirmationService]
 })
 export class ExpertShortCardComponent {
   @Input() expert;

@@ -8,8 +8,7 @@ import { AllergyList, DisabledList, IllnessList, PregnantList } from '../profile
 @Component({
   selector: 'app-patient-profile',
   templateUrl: './patient-profile.component.html',
-  styleUrls: ['./patient-profile.component.css'],
-  providers: [MessageService]
+  styleUrls: ['./patient-profile.component.css']
 })
 export class PatientProfileComponent implements OnInit {
   weight!: number;

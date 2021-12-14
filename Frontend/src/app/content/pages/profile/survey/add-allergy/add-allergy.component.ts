@@ -8,8 +8,7 @@ import { HttpEntityRepositoryService } from "src/app/services/http-entity-reposi
 @Component({
   selector: 'app-add-allergy',
   templateUrl: './add-allergy.component.html',
-  styleUrls: ['./add-allergy.component.css'],
-  providers: [MessageService]
+  styleUrls: ['./add-allergy.component.css']
 })
 export class AddAllergy {
   allergyForm!: FormGroup;

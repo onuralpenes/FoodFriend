@@ -23,8 +23,7 @@ export interface DisabledList {
 @Component({
   selector: 'app-profile',
   templateUrl: './profile.component.html',
-  styleUrls: ['./profile.component.css'],
-  providers: [MessageService]
+  styleUrls: ['./profile.component.css']
 })
 export class ProfileComponent implements OnInit {
   weight!: number;

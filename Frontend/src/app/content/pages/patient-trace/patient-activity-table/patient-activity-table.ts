@@ -8,8 +8,7 @@ import { HttpEntityRepositoryService } from "src/app/services/http-entity-reposi
     selector: 'app-patient-activity-table',
     templateUrl: './patient-activity-table.html',
     styleUrls: ['./patient-activity-table.css'],
-    changeDetection: ChangeDetectionStrategy.OnPush,
-    providers: [MessageService]
+    changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class PatientActivityTable implements AfterViewInit {
     activityWithFilter: PersonalEnergyActivity[] = [];

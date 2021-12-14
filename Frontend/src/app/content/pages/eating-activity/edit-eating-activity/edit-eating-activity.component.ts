@@ -11,8 +11,7 @@ import { HttpEntityRepositoryService } from "src/app/services/http-entity-reposi
 @Component({
   selector: 'app-edit-eating-activity',
   templateUrl: './edit-eating-activity.component.html',
-  styleUrls: ['./edit-eating-activity.component.css'],
-  providers: [MessageService]
+  styleUrls: ['./edit-eating-activity.component.css']
 })
 export class EditEatingActivity {
   editFoodForm!: FormGroup;

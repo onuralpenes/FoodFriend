@@ -8,8 +8,7 @@ import { HttpEntityRepositoryService } from "src/app/services/http-entity-reposi
 @Component({
   selector: 'app-add-illness',
   templateUrl: './add-illness.component.html',
-  styleUrls: ['./add-illness.component.css'],
-  providers: [MessageService]
+  styleUrls: ['./add-illness.component.css']
 })
 export class AddIllness {
   illnessForm!: FormGroup;
