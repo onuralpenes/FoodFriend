@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
-import { ConfirmationService } from 'primeng/api';
-import { AlertService } from 'src/app/helpers/alert.service';
+import { ConfirmationService, MessageService } from 'primeng/api';
 import { PhysicalInfo } from 'src/app/models/user/physical-info/pysical-info.model';
 import { User } from 'src/app/models/user/user.model';
 import { AuthService } from 'src/app/services/auth.service';
@@ -12,7 +11,7 @@ import { ProfileComponent } from '../profile.component';
   selector: 'app-survey',
   templateUrl: './survey.component.html',
   styleUrls: ['./survey.component.css'],
-  providers: [ConfirmationService]
+  providers: [ConfirmationService, MessageService]
 })
 export class SurveyComponent implements OnInit {
 
@@ -21,7 +20,7 @@ export class SurveyComponent implements OnInit {
   allergy: boolean = false;
   disabled: boolean = false;
 
-  constructor(private formBuilder: FormBuilder, private authService: AuthService, private profile: ProfileComponent, private entityService: HttpEntityRepositoryService<User>, private entityService2: HttpEntityRepositoryService<PhysicalInfo>, private alertService: AlertService, private confirmationService: ConfirmationService) { }
+  constructor(private formBuilder: FormBuilder, private authService: AuthService, private profile: ProfileComponent, private entityService: HttpEntityRepositoryService<User>, private entityService2: HttpEntityRepositoryService<PhysicalInfo>, private messageService: MessageService, private confirmationService: ConfirmationService) { }
 
   ngOnInit() {
     this.surveyForm = this.formBuilder.group({
@@ -44,7 +43,7 @@ export class SurveyComponent implements OnInit {
         this.entityService.get("/User/Get?userId=", this.authService.CurrentUserId).subscribe(dta => {
           var user: any = dta;
           if (!user.success) {
-            this.alertService.openSnackBar(user.success, user.message);
+            this.messageService.add({ severity: 'error', summary: 'Error', detail: user.message });
             return;
           }
           let phyId = user.data.physicalInfoId
@@ -75,8 +74,14 @@ export class SurveyComponent implements OnInit {
 
             this.entityService.update("/User/Update", updateUser).subscribe(data => {
               var Data: any = data;
-              this.alertService.openSnackBar(true, "success");
-            }, err => { this.alertService.openSnackBar(false, "unsuccess"); })
+              if (!Data.success) {
+                this.messageService.add({ severity: 'error', summary: 'Error', detail: Data.message });
+                return;
+              }
+              this.messageService.add({ severity: 'success', summary: 'Success', detail: 'User information has been successfully updated.' });
+            }, err => {
+              this.messageService.add({ severity: 'error', summary: 'Error', detail: 'User information update failed.' });
+            })
           }
           this.entityService2.get("/PhysicalInfo/Get?id=", user.data.physicalInfoId).subscribe(phy => {
             var userPhysicalInfo: any = phy;
@@ -94,15 +99,21 @@ export class SurveyComponent implements OnInit {
               }
               this.entityService2.update("/PhysicalInfo/Update", updatePhysicalInfo).subscribe(data => {
                 var Data: any = data;
-                this.alertService.openSnackBar(true, "success");
-              }, err => { this.alertService.openSnackBar(false, "unsuccess"); })
+                if (!Data.success) {
+                  this.messageService.add({ severity: 'error', summary: 'Error', detail: Data.message });
+                  return;
+                }
+                this.messageService.add({ severity: 'success', summary: 'Success', detail: 'Physical information has been successfully updated.' });
+              }, err => {
+                this.messageService.add({ severity: 'error', summary: 'Error', detail: 'Physical information update failed.' });
+              })
             }
           })
         });
         this.profile.editProfileTemp = false;
       },
       reject: () => {
-        this.alertService.openSnackBar(false, "unsuccess");
+        this.messageService.add({ severity: 'warn', summary: 'Unsuccess', detail: 'Physical information has been successfully updated.' });
         return;
       }
     });

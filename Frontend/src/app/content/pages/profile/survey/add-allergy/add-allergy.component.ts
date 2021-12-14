@@ -1,6 +1,6 @@
 import { Component } from "@angular/core";
 import { FormBuilder, FormControl, FormGroup, Validators } from "@angular/forms";
-import { AlertService } from "src/app/helpers/alert.service";
+import { MessageService } from "primeng/api";
 import { AllergyDetail } from "src/app/models/user/health-info/allergy-detail.model";
 import { AuthService } from "src/app/services/auth.service";
 import { HttpEntityRepositoryService } from "src/app/services/http-entity-repository.service";
@@ -9,17 +9,18 @@ import { HttpEntityRepositoryService } from "src/app/services/http-entity-reposi
   selector: 'app-add-allergy',
   templateUrl: './add-allergy.component.html',
   styleUrls: ['./add-allergy.component.css'],
+  providers: [MessageService]
 })
 export class AddAllergy {
   allergyForm!: FormGroup;
   allergies: AllergyDetail[] = [];
-  constructor(private formBuilder: FormBuilder, private alertService: AlertService,
+  constructor(private formBuilder: FormBuilder, private messageService: MessageService,
     private entityService: HttpEntityRepositoryService<AllergyDetail>, private authService: AuthService) {
     entityService.getAll("/AllergyDetail/GetAll").subscribe(data => {
 
       var Data: any = data;
       if (!Data.success) {
-        this.alertService.openSnackBar(Data.success, Data.message);
+        this.messageService.add({ severity: 'error', summary: 'Error', detail: Data.message });
         return;
       }
 
@@ -32,14 +33,14 @@ export class AddAllergy {
 
   addAllergy() {
     if (this.allergyForm.invalid) {
-      this.alertService.openSnackBar(false, " ");
+      this.messageService.add({ severity: 'error', summary: 'Error', detail: 'Form is invalid.' });
       return;
     }
 
     this.entityService.get("/User/Get?userId=", this.authService.CurrentUserId).subscribe(data => {
       var Data: any = data;
       if (!Data.success) {
-        this.alertService.openSnackBar(Data.success, Data.message);
+        this.messageService.add({ severity: 'error', summary: 'Error', detail: Data.message });
         return;
       }
       const allPost: AllergyDetail = {
@@ -50,12 +51,12 @@ export class AddAllergy {
       this.entityService.insert("/AllergyDetail/Add", allPost).subscribe(data => {
         var post: any = data;
         if (!post.success) {
-          this.alertService.openSnackBar(post.success, post.message);
+          this.messageService.add({ severity: 'error', summary: 'Error', detail: post.message });
           return;
         }
 
       });
     });
-    this.alertService.openSnackBar(true, "Added");
+    this.messageService.add({ severity: 'success', summary: 'Success', detail: "Allergy added." });;
   }
 }

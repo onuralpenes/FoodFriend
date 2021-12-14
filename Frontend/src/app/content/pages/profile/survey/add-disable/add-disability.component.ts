@@ -1,6 +1,6 @@
 import { Component } from "@angular/core";
 import { FormBuilder, FormControl, FormGroup, Validators } from "@angular/forms";
-import { AlertService } from "src/app/helpers/alert.service";
+import { MessageService } from "primeng/api";
 import { DisabledDetail } from "src/app/models/user/physical-info/disabled-detail.model";
 import { AuthService } from "src/app/services/auth.service";
 import { HttpEntityRepositoryService } from "src/app/services/http-entity-repository.service";
@@ -9,19 +9,20 @@ import { HttpEntityRepositoryService } from "src/app/services/http-entity-reposi
   selector: 'app-add-disability',
   templateUrl: './add-disability.component.html',
   styleUrls: ['./add-disability.component.css'],
+  providers: [MessageService]
 })
 export class AddDisability {
   disabilityForm!: FormGroup;
   disabilities: DisabledDetail[] = [];
   phId!: number;
-  constructor(private formBuilder: FormBuilder, private alertService: AlertService,
+  constructor(private formBuilder: FormBuilder, private messageService: MessageService,
     private entityService: HttpEntityRepositoryService<DisabledDetail>, private authService: AuthService) {
 
     entityService.getAll("/DisabledDetail/GetAll").subscribe(data => {
 
       var Data: any = data;
       if (!Data.success) {
-        this.alertService.openSnackBar(Data.success, Data.message);
+        this.messageService.add({ severity: 'error', summary: 'Error', detail: Data.message });
         return;
       }
 
@@ -35,14 +36,14 @@ export class AddDisability {
 
   addDisability() {
     if (this.disabilityForm.invalid) {
-      this.alertService.openSnackBar(false, " ");
+      this.messageService.add({ severity: 'error', summary: 'Error', detail: 'Form is invalid.' });
       return;
     }
 
     this.entityService.get("/User/Get?userId=", this.authService.CurrentUserId).subscribe(data => {
       var Data: any = data;
       if (!Data.success) {
-        this.alertService.openSnackBar(Data.success, Data.message);
+        this.messageService.add({ severity: 'error', summary: 'Error', detail: Data.message });
         return;
       }
       const disPost: DisabledDetail = {
@@ -54,12 +55,12 @@ export class AddDisability {
       this.entityService.insert("/DisabledDetail/Add", disPost).subscribe(data => {
         var post: any = data;
         if (!post.success) {
-          this.alertService.openSnackBar(post.success, post.message);
+          this.messageService.add({ severity: 'error', summary: 'Error', detail: post.message });
           return;
         }
 
       });
     });
-    this.alertService.openSnackBar(true, "Added");
+    this.messageService.add({ severity: 'success', summary: 'Success', detail: "Disability added." });;
   }
 }

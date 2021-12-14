@@ -1,5 +1,5 @@
 import { AfterViewInit, ChangeDetectionStrategy, ChangeDetectorRef, Component, Input } from "@angular/core";
-import { AlertService } from "src/app/helpers/alert.service";
+import { MessageService } from "primeng/api";
 import { PersonalEnergyActivity } from "src/app/models/data/energy-activity.model";
 import { HttpEntityRepositoryService } from "src/app/services/http-entity-repository.service";
 
@@ -9,6 +9,7 @@ import { HttpEntityRepositoryService } from "src/app/services/http-entity-reposi
     templateUrl: './patient-activity-table.html',
     styleUrls: ['./patient-activity-table.css'],
     changeDetection: ChangeDetectionStrategy.OnPush,
+    providers: [MessageService]
 })
 export class PatientActivityTable implements AfterViewInit {
     activityWithFilter: PersonalEnergyActivity[] = [];
@@ -19,7 +20,7 @@ export class PatientActivityTable implements AfterViewInit {
 
     @Input() id = 0;
 
-    constructor(private entityService: HttpEntityRepositoryService<PersonalEnergyActivity>, private alertService: AlertService, private detect: ChangeDetectorRef) { }
+    constructor(private entityService: HttpEntityRepositoryService<PersonalEnergyActivity>, private messageService: MessageService, private detect: ChangeDetectorRef) { }
 
     ngAfterViewInit() {
         this.detect.detach();
@@ -29,7 +30,7 @@ export class PatientActivityTable implements AfterViewInit {
                 this.entityService.get("/PersonalEnergyActivity/GetByUserId?userId=", this.id).subscribe(data => {
                     var Data: any = data;
                     if (!Data.success) {
-                        this.alertService.openSnackBar(Data.success, Data.message);
+                        this.messageService.add({ severity: 'error', summary: 'Error', detail: Data.message });
                         return;
                     }
                     this.activityWithFilter = Data.data;

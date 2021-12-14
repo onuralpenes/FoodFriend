@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { MessageService } from 'primeng/api';
 import { User } from 'src/app/models/user/user.model';
 import { HttpEntityRepositoryService } from 'src/app/services/http-entity-repository.service';
 import { AllergyList, DisabledList, IllnessList, PregnantList } from '../profile/profile.component';
@@ -7,7 +8,8 @@ import { AllergyList, DisabledList, IllnessList, PregnantList } from '../profile
 @Component({
   selector: 'app-patient-profile',
   templateUrl: './patient-profile.component.html',
-  styleUrls: ['./patient-profile.component.css']
+  styleUrls: ['./patient-profile.component.css'],
+  providers: [MessageService]
 })
 export class PatientProfileComponent implements OnInit {
   weight!: number;
@@ -33,13 +35,14 @@ export class PatientProfileComponent implements OnInit {
   pregnantList!: PregnantList[];
   disabledList!: DisabledList[];
 
-  constructor(private route: ActivatedRoute, entityService: HttpEntityRepositoryService<User>) {
+  constructor(private route: ActivatedRoute, entityService: HttpEntityRepositoryService<User>,  private messageService: MessageService) {
     this.route.paramMap.subscribe(param => {
       let id = Number(param.get('id'));
 
       entityService.get("/User/Get?userId=", id).subscribe(data => {
         var Data: any = data;
         if (!Data.success) {
+          this.messageService.add({ severity: 'error', summary: 'Error', detail: Data.message });
           return;
         }
         this.userName = Data.data.firstName + " " + Data.data.lastName;
@@ -56,6 +59,7 @@ export class PatientProfileComponent implements OnInit {
         entityService.get("/PhysicalInfo/Get?id=", this.physicalId).subscribe(data => {
           var DataPh: any = data;
           if (!DataPh.success) {
+            this.messageService.add({ severity: 'error', summary: 'Error', detail: DataPh.message });
             return;
           }
           this.height = DataPh.data.height;
@@ -68,6 +72,7 @@ export class PatientProfileComponent implements OnInit {
 
           var DataH: any = data;
           if (!DataH.success) {
+            this.messageService.add({ severity: 'error', summary: 'Error', detail: DataH.message });
             return;
           }
 
