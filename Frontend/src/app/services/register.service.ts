@@ -1,7 +1,7 @@
 import { HttpClient, HttpHeaders } from "@angular/common/http";
 import { Injectable } from "@angular/core";
+import { MessageService } from "primeng/api";
 import { environment } from "src/environments/environment";
-import { AlertService } from "../helpers/alert.service";
 import { User } from "../models/user/user.model";
 
 @Injectable({
@@ -15,7 +15,7 @@ export class RegisterService {
         })
     };
 
-    constructor(private http: HttpClient, private alertService: AlertService) { }
+    constructor(private http: HttpClient, private messageService: MessageService) { }
 
     register(register: User) {
         let request = {
@@ -31,15 +31,15 @@ export class RegisterService {
             .post(environment.BASE_URL + "/Auth2/Register", request, this.httpOptions).subscribe(data => {
                 var regData: any = data;
                 if (!regData.success) {
-                    this.alertService.openSnackBar(regData.success, regData.message);
+                    this.messageService.add({ severity: 'error', summary: 'Error', detail: regData.message });
                     return;
                 }
 
-                this.alertService.openSnackBar(regData.success, regData.message);
+                this.messageService.add({ severity: 'success', summary: 'Success', detail: 'Registration successful.' });
 
             }, err => {
                 if (!err.success)
-                    this.alertService.openSnackBar(false, err.error.message);
+                    this.messageService.add({ severity: 'error', summary: 'Error', detail: err.error });
             });
     }
 }
