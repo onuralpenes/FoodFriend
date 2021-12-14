@@ -3,9 +3,9 @@ import { HttpHeaders, HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { environment } from 'src/environments/environment';
 import { JwtHelperService } from '@auth0/angular-jwt';
-import { AlertService } from '../helpers/alert.service';
 import { Login } from '../models/user/login.model';
 import { UserRolesService } from './can-active.guard';
+import { MessageService } from 'primeng/api';
 
 @Injectable({
     providedIn: 'root'
@@ -20,7 +20,7 @@ export class AuthService {
     };
     jwtHelper: JwtHelperService = new JwtHelperService();
 
-    constructor(private http: HttpClient, private route: Router, private alertService: AlertService, private userRolesService: UserRolesService) { }
+    constructor(private http: HttpClient, private route: Router, private userRolesService: UserRolesService, private messageService: MessageService) { }
 
     login(login: Login) {
         this.http
@@ -28,7 +28,7 @@ export class AuthService {
             .subscribe(data => {
                 var tokenData: any = data;
                 if (!tokenData.success) {
-                    this.alertService.openSnackBar(tokenData.success, tokenData.message);
+                    this.messageService.add({ severity: 'error', summary: 'Error', detail: tokenData.message });
                     return;
                 }
                 this.saveId(tokenData.data.userId);
@@ -38,8 +38,6 @@ export class AuthService {
                     roles.push(this.CurrentRoles.roles[i].name)
                 }
                 this.userRolesService.setRoles(roles);
-                console.log(this.userRolesService.getRoles());
-                this.alertService.openSnackBar(tokenData.success, tokenData.message);
 
                 if (login.remember) {
                     localStorage.setItem('Email', login.emailAddress);
@@ -50,11 +48,12 @@ export class AuthService {
                     localStorage.setItem('Password', "");
                 }
 
+                this.messageService.add({ severity: 'success', summary: 'Success', detail: 'You have successfully logged in.' });
                 this.route.navigateByUrl('/dashboard');
 
             }, err => {
                 if (err)
-                    this.alertService.openSnackBar(false, err.error);
+                    this.messageService.add({ severity: 'warn', summary: 'Warning', detail: 'Wrong username or password.' });
             });
     }
 
