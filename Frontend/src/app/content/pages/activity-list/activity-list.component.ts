@@ -6,8 +6,7 @@ import { HttpEntityRepositoryService } from 'src/app/services/http-entity-reposi
 @Component({
   selector: 'app-activity-list',
   templateUrl: './activity-list.component.html',
-  styleUrls: ['./activity-list.component.css'],
-  providers: [MessageService]
+  styleUrls: ['./activity-list.component.css']
 })
 export class ActivityListComponent {
   activityWithFilter: PersonalEnergyActivity[] = [];
@@ -30,6 +29,7 @@ export class ActivityListComponent {
   }
   keyup(searchText) {
     this.searchText = searchText;
+    this.messageService.add({ severity: 'error', summary: 'Error', detail: 'test' });
   }
   next() {
     this.first = this.first + this.rows;

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { AlertService } from 'src/app/helpers/alert.service';
+import { MessageService } from 'primeng/api';
 import { User } from 'src/app/models/user/user.model';
 import { AuthService } from 'src/app/services/auth.service';
 import { HttpEntityRepositoryService } from 'src/app/services/http-entity-repository.service';
@@ -50,13 +50,13 @@ export class ProfileComponent implements OnInit {
   pregnantList!: PregnantList[];
   disabledList!: DisabledList[];
 
-  constructor(authService: AuthService, private alertService: AlertService, entityService: HttpEntityRepositoryService<User>) {
+  constructor(authService: AuthService, private messageService: MessageService, entityService: HttpEntityRepositoryService<User>) {
 
     entityService.get("/User/Get?userId=", authService.CurrentUserId).subscribe(data => {
 
       var Data: any = data;
       if (!Data.success) {
-        this.alertService.openSnackBar(Data.success, Data.message);
+        this.messageService.add({ severity: 'error', summary: 'Error', detail: Data.message });
         return;
       }
       this.userName = Data.data.firstName + " " + Data.data.lastName;
@@ -73,7 +73,7 @@ export class ProfileComponent implements OnInit {
       entityService.get("/PhysicalInfo/Get?id=", this.physicalId).subscribe(data => {
         var DataPh: any = data;
         if (!DataPh.success) {
-          this.alertService.openSnackBar(DataPh.success, DataPh.message);
+          this.messageService.add({ severity: 'error', summary: 'Error', detail: DataPh.message });
           return;
         }
         this.height = DataPh.data.height;
@@ -86,7 +86,7 @@ export class ProfileComponent implements OnInit {
 
         var DataH: any = data;
         if (!DataH.success) {
-          this.alertService.openSnackBar(DataH.success, DataH.message);
+          this.messageService.add({ severity: 'error', summary: 'Error', detail: DataH.message });
           return;
         }
 

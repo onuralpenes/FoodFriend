@@ -8,8 +8,7 @@ import { MessageService } from 'primeng/api';
 @Component({
   selector: 'app-consumed-calorie',
   templateUrl: './consumed-calorie.component.html',
-  styleUrls: ['./consumed-calorie.component.css'],
-  providers: [MessageService]
+  styleUrls: ['./consumed-calorie.component.css']
 })
 export class ConsumedCalorieComponent {
 

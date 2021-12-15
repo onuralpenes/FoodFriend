@@ -1,6 +1,6 @@
 import { Component } from "@angular/core";
 import { FormBuilder, FormControl, FormGroup, Validators } from "@angular/forms";
-import { AlertService } from "src/app/helpers/alert.service";
+import { MessageService } from "primeng/api";
 import { IllnessDetail } from "src/app/models/user/health-info/illness-detail.model";
 import { AuthService } from "src/app/services/auth.service";
 import { HttpEntityRepositoryService } from "src/app/services/http-entity-repository.service";
@@ -8,18 +8,17 @@ import { HttpEntityRepositoryService } from "src/app/services/http-entity-reposi
 @Component({
   selector: 'app-add-illness',
   templateUrl: './add-illness.component.html',
-  styleUrls: ['./add-illness.component.css'],
+  styleUrls: ['./add-illness.component.css']
 })
 export class AddIllness {
   illnessForm!: FormGroup;
   illnesses: IllnessDetail[] = [];
-  constructor(private formBuilder: FormBuilder, private alertService: AlertService,
-    private entityService: HttpEntityRepositoryService<IllnessDetail>, private authService: AuthService) {
+  constructor(private formBuilder: FormBuilder, private entityService: HttpEntityRepositoryService<IllnessDetail>, private authService: AuthService, private messageService: MessageService) {
     entityService.getAll("​/IllnessDetail/GetAll").subscribe(data => {
 
       var Data: any = data;
       if (!Data.success) {
-        this.alertService.openSnackBar(Data.success, Data.message);
+        this.messageService.add({ severity: 'error', summary: 'Error', detail: Data.message });
         return;
       }
 
@@ -32,14 +31,14 @@ export class AddIllness {
 
   addIllness() {
     if (this.illnessForm.invalid) {
-      this.alertService.openSnackBar(false, " ");
+      this.messageService.add({ severity: 'error', summary: 'Error', detail: 'Form is invalid.' });
       return;
     }
 
     this.entityService.get("/User/Get?userId=", this.authService.CurrentUserId).subscribe(data => {
       var Data: any = data;
       if (!Data.success) {
-        this.alertService.openSnackBar(Data.success, Data.message);
+        this.messageService.add({ severity: 'error', summary: 'Error', detail: Data.message });
         return;
       }
       const illPost: IllnessDetail = {
@@ -50,12 +49,12 @@ export class AddIllness {
       this.entityService.insert("/IllnessDetail/Add", illPost).subscribe(data => {
         var post: any = data;
         if (!post.success) {
-          this.alertService.openSnackBar(post.success, post.message);
+          this.messageService.add({ severity: 'error', summary: 'Error', detail: post.message });
           return;
         }
 
       });
     });
-    this.alertService.openSnackBar(true, "Added");
+    this.messageService.add({ severity: 'success', summary: 'Success', detail: "Illness added." });;
   }
 }

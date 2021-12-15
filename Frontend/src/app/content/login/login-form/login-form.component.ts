@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
-import { AlertService } from 'src/app/helpers/alert.service';
+import { MessageService } from 'primeng/api';
 import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
@@ -17,7 +17,7 @@ export class LoginFormComponent implements OnInit {
   forgetPasswordTemp = false;
   approved = false;
 
-  constructor(private formBuilder: FormBuilder, private authService: AuthService, private alertService: AlertService) { }
+  constructor(private formBuilder: FormBuilder, private authService: AuthService, private messageService: MessageService) { }
 
   ngOnInit() {
     this.loginForm = this.formBuilder.group({
@@ -55,7 +55,7 @@ export class LoginFormComponent implements OnInit {
       this.submitted = true;
 
       if (this.loginForm.invalid) {
-        this.alertService.openSnackBar(false,"Invalid login attempt");
+        this.messageService.add({ severity: 'warn', summary: 'Unsuccess', detail: 'Invalid login attempt.' });
         return;
       }
 

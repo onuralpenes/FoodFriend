@@ -8,8 +8,7 @@ import { HttpEntityRepositoryService } from 'src/app/services/http-entity-reposi
 @Component({
   selector: 'app-health-card',
   templateUrl: './health-card.component.html',
-  styleUrls: ['./health-card.component.css'],
-  providers: [MessageService]
+  styleUrls: ['./health-card.component.css']
 })
 export class HealthCardComponent {
   weight = 85

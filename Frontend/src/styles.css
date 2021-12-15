@@ -9,20 +9,3 @@ body {
     margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; 
     background-color: rgba(64, 180, 145, 1);     
 }
-.alertSuccess{
-    background-color: #009879 !important;
-    color:white !important;
-    border-radius: 10px;
-  }
-  .alertNotSuccess{
-    background-color: #8b0505 !important;
-    color:white !important;
-    border-radius: 10px;
-  }
-
-  .alertSuccess button{
-    color:white !important;
-  }
-  .alertNotSuccess button{
-    color:white !important;
-  }

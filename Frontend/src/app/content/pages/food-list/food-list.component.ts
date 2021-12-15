@@ -6,8 +6,7 @@ import { HttpEntityRepositoryService } from 'src/app/services/http-entity-reposi
 @Component({
   selector: 'app-food-list',
   templateUrl: './food-list.component.html',
-  styleUrls: ['./food-list.component.css'],
-  providers: [MessageService]
+  styleUrls: ['./food-list.component.css']
 })
 export class FoodListComponent {
   foods: FoodDetail[] = [];

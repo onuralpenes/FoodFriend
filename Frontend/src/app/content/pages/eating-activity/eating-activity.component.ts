@@ -23,7 +23,7 @@ export interface Tab {
   selector: 'app-eating-activity',
   templateUrl: './eating-activity.component.html',
   styleUrls: ['./eating-activity.component.css'],
-  providers: [ConfirmationService, MessageService]
+  providers: [ConfirmationService]
 })
 export class EatingActivityComponent {
   eatTab: Tab[] = [];

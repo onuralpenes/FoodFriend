@@ -1,7 +1,6 @@
 import { Input } from '@angular/core';
-import { Component } from '@angular/core';;
-import { AlertService } from 'src/app/helpers/alert.service';
-import { ConfirmationService } from 'primeng/api';
+import { Component } from '@angular/core';
+import { ConfirmationService, MessageService } from 'primeng/api';
 
 @Component({
   selector: 'app-expert-short-card',
@@ -12,7 +11,7 @@ import { ConfirmationService } from 'primeng/api';
 export class ExpertShortCardComponent {
   @Input() expert;
 
-  constructor(private alertService: AlertService, private confirmationService: ConfirmationService) { }
+  constructor(private confirmationService: ConfirmationService, private messageService: MessageService) { }
 
   details = false;
 
@@ -26,10 +25,10 @@ export class ExpertShortCardComponent {
       header: 'Confirmation',
       icon: 'pi pi-exclamation-triangle',
       accept: () => {
-       this.alertService.openSnackBar(true, "success");
+        this.messageService.add({ severity: 'success', summary: 'Success', detail: 'The expert has been successfully authorized.' });
       },
       reject: () => {
-        this.alertService.openSnackBar(false, "unsuccess");
+        this.messageService.add({ severity: 'warn', summary: 'Unsuccess', detail: 'Expert not authorized.' });
       }
     });
   }

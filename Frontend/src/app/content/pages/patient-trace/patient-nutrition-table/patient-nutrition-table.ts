@@ -1,5 +1,5 @@
 import { ChangeDetectionStrategy, ChangeDetectorRef, Component, Input } from "@angular/core";
-import { AlertService } from "src/app/helpers/alert.service";
+import { MessageService } from "primeng/api";
 import { EatingActivity } from "src/app/models/data/eating-activity.model";
 import { HttpEntityRepositoryService } from "src/app/services/http-entity-repository.service";
 import { EatTable, Tab } from "../../eating-activity/eating-activity.component";
@@ -8,7 +8,7 @@ import { EatTable, Tab } from "../../eating-activity/eating-activity.component";
     selector: 'app-patient-nutrition-table',
     templateUrl: './patient-nutrition-table.html',
     styleUrls: ['./patient-nutrition-table.css'],
-    changeDetection: ChangeDetectionStrategy.OnPush,
+    changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class PatientNutritionTable {
     eatTab: Tab[] = [];
@@ -17,7 +17,7 @@ export class PatientNutritionTable {
 
     @Input() id = 0;
 
-    constructor(private entityService: HttpEntityRepositoryService<EatingActivity>, private alertService: AlertService, private detect: ChangeDetectorRef) {
+    constructor(entityService: HttpEntityRepositoryService<EatingActivity>, detect: ChangeDetectorRef, private messageService: MessageService) {
         detect.detach();
         setInterval(() => {
             if (this.id != 0) {
@@ -26,7 +26,7 @@ export class PatientNutritionTable {
 
                     var Data: any = data;
                     if (!Data.success) {
-                        this.alertService.openSnackBar(Data.success, Data.message);
+                        this.messageService.add({ severity: 'error', summary: 'Error', detail: Data.message });
                         return;
                     }
                     for (let i = 0; i < Data.data.length; i++) {
