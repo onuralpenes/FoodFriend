@@ -12,6 +12,7 @@ import { FoodListComponent } from 'src/app/content/pages/food-list/food-list.com
 import { SettingsComponent } from 'src/app/content/pages/settings/settings.component';
 import { RoleGuardService } from 'src/app/services/can-active.guard';
 import { Roles } from 'src/app/models/core/userRoles.model';
+import { CalendarComponent } from 'src/app/content/pages/calendar/calendar.component';
 
 const routes: Routes = [
     {
@@ -62,6 +63,11 @@ const routes: Routes = [
             },
             {
                 path: 'settings', component: SettingsComponent,
+                canActivate: [RoleGuardService],
+                data: { roles: [Roles.Professional, Roles.Admin, Roles.Patient] }
+            },
+            {
+                path: 'calendar', component: CalendarComponent,
                 canActivate: [RoleGuardService],
                 data: { roles: [Roles.Professional, Roles.Admin, Roles.Patient] }
             },

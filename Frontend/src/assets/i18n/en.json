@@ -97,7 +97,8 @@
     "expert": "Experts",
     "foodList": "Food List",
     "settings": "Settings",
-    "logout": "Logout"
+    "logout": "Logout",
+    "calendar": "Calendar"
   },
   "profile": {
     "age": "Age",
