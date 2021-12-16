@@ -42,7 +42,7 @@
             </div>
             <div *ngIf="includesProf;">
 
-                <li><a class="side-item" routerLink="/patient-list" ><i class="fa fa-users fa-lg"
+                <li><a class="side-item" routerLink="/patient-list"><i class="fa fa-users fa-lg"
                             aria-hidden="true"></i>{{'menu.patients' | translate}}</a></li>
             </div>
             <div *ngIf="includesProf || includesPatient || includesAdmin ;">
@@ -52,13 +52,18 @@
             </div>
             <div *ngIf="includesPatient || includesAdmin ;">
 
-                <li><a class="side-item" routerLink="/experts" ><i class="fa fa-address-card fa-lg"
+                <li><a class="side-item" routerLink="/experts"><i class="fa fa-address-card fa-lg"
                             aria-hidden="true"></i>{{'menu.expert' | translate}}</a></li>
             </div>
             <div *ngIf="includesProf || includesPatient || includesAdmin ;">
 
                 <li><a class="side-item" routerLink="/calendar"><i class="fa fa-calendar fa-lg"
                             aria-hidden="true"></i>{{'menu.calendar' | translate}}</a></li>
+            </div>
+            <div *ngIf="includesPatient">
+
+                <li><a class="side-item" routerLink="/goals"><i class="fa fa-bullseye fa-lg"
+                            aria-hidden="true"></i>{{'menu.goal' | translate}}</a></li>
             </div>
         </ul>
         <div class="language">

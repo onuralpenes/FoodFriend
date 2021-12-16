@@ -41,8 +41,9 @@ import { AddEatingActivity } from 'src/app/content/pages/eating-activity/add-eat
 import { EditEatingActivityService } from 'src/app/helpers/edit-eating-activity.service';
 import { CustomFoodService } from 'src/app/helpers/custom-food.service';
 import { CreateGoalComponent } from 'src/app/content/pages/patient-trace/create-goal/create-goal.component';
-import { GoalCardComponent } from 'src/app/content/pages/patient-trace/goal-card/goal-card.component';
+import { GoalCardComponent } from 'src/app/content/pages/goals/goal-card/goal-card.component';
 import { CalendarComponent } from 'src/app/content/pages/calendar/calendar.component';
+import { GoalsComponent } from 'src/app/content/pages/goals/goals.component';
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http);
@@ -67,6 +68,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     PatientNutritionTable,
     PatientActivityTable,
     CreateGoalComponent,
+    GoalsComponent,
     GoalCardComponent,
     ExpertsComponent,
     PatientProfileComponent,

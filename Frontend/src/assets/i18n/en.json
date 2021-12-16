@@ -64,7 +64,7 @@
     "unit": "Unit",
     "start": "Start Date",
     "end": "End Date",
-    "target": "Target",
+    "goal": "Goal",
     "nutriInfo": "Nutrition",
     "actiInfo": "Activity",
     "quantity": "Quantity",
@@ -98,7 +98,8 @@
     "foodList": "Food List",
     "settings": "Settings",
     "logout": "Logout",
-    "calendar": "Calendar"
+    "calendar": "Calendar",
+    "goal": "Goals"
   },
   "profile": {
     "age": "Age",
@@ -136,5 +137,16 @@
   "dash": {
     "daily": "Your Daily Eating Activities",
     "weekly": "Your Weekly Eating Activities"
+  },
+  "goal": {
+    "goalId": "Goal Id",
+    "calIntake": "Daily Calorie Intake",
+    "carboIntake": "Daily Carbohydrate Intake",
+    "protIntake": "Daily Protein Intake",
+    "oilIntake": "Daily Oil Intake",
+    "targetStep": "Daily Target Step",
+    "targetWeight": "Target Weight",
+    "calEx": "Daily Calorie Expenditure",
+    "targetDate": "Target Date"
   }
 }

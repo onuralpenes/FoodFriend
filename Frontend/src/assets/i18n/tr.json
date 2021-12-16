@@ -64,7 +64,7 @@
     "unit": "Tekrar",
     "start": "Başlama Tarihi",
     "end": "Bitiş Tarihi",
-    "target": "Hedefi",
+    "goal": "Hedef",
     "nutriInfo": "Beslenme",
     "actiInfo": "Aktivite",
     "quantity": "Miktarı",
@@ -98,7 +98,8 @@
     "foodList": "Yemek Listesi",
     "settings": "Ayarlar",
     "logout": "Çıkış Yap",
-    "calendar": "Takvim"
+    "calendar": "Takvim",
+    "goal": "Hedefler"
   },
   "profile": {
     "age": "Yaş",
@@ -136,5 +137,16 @@
   "dash": {
     "daily": "Günlük Yeme Aktivitelerin",
     "weekly": "Haftalık Yeme Aktivitelerin"
+  },
+  "goal": {
+    "goalId": "Hedef Id'si",
+    "calIntake": "Günlük Kalori Alımı",
+    "carboIntake": "Günlük Karbonhidrat Alımı",
+    "protIntake": "Günlük Protein Alımı",
+    "oilIntake": "Günlük Yağ Alımı",
+    "targetStep": "Günlük Adım Hedefi",
+    "targetWeight": "Hedef Kilo",
+    "calEx": "Günlük Kalori Tüketimi",
+    "targetDate": "Hedef Tarihi"
   }
 }
