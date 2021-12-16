@@ -55,6 +55,11 @@
                 <li><a class="side-item" routerLink="/experts" ><i class="fa fa-address-card fa-lg"
                             aria-hidden="true"></i>{{'menu.expert' | translate}}</a></li>
             </div>
+            <div *ngIf="includesProf || includesPatient || includesAdmin ;">
+
+                <li><a class="side-item" routerLink="/calendar"><i class="fa fa-calendar fa-lg"
+                            aria-hidden="true"></i>{{'menu.calendar' | translate}}</a></li>
+            </div>
         </ul>
         <div class="language">
             <img (click)="changeLang('tr')" class="lang-button" src="../../assets/tr.png">
@@ -66,7 +71,6 @@
     <mat-sidenav-content>
         <div class="layout">
             <div class="notscroll">
-
                 <router-outlet></router-outlet>
             </div>
         </div>

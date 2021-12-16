@@ -5,11 +5,11 @@
 // import { Transfer2 } from "../patient-trace-table.component";
 
 @Component({
-  selector: 'app-target-card',
-  templateUrl: './target-card.html',
-//   styleUrls: ['./target-card.css'],
+  selector: 'app-goal-card',
+  templateUrl: './goal-card.component.html',
+  styleUrls: ['./goal-card.component.css'],
  })
-export class PatientTargetCard {
+export class GoalCardComponent {
 
 //   constructor(@Inject(MAT_DIALOG_DATA) public data: Transfer2) {
 //     if (!data.target) {

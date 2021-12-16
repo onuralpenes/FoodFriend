@@ -1,5 +1,9 @@
 export interface Expert {
-    name: string;
-    job: string;
-    information: string;
+    userId: number;
+    professionnelTypeId: number;
+    emailAddress: string;
+    birthDate: Date;
+    firstName: string;
+    lastName: string;
+    phone: string;
 }

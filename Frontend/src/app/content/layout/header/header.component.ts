@@ -77,13 +77,13 @@ export class HeaderComponent implements OnInit {
           this.profile();
         }
       },
-      // {
-      //   label: 'Settings',
-      //   icon: 'fa fa-cog',
-      //   command: () => {
-      //     this.settings();
-      //   }
-      // },
+      {
+        label: 'Settings',
+        icon: 'fa fa-cog',
+        command: () => {
+          this.settings();
+        }
+      },
       {
         label: 'Logout',
         icon: 'fa fa-sign-out',

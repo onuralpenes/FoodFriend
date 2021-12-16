@@ -28,8 +28,6 @@ import { SurveyComponent } from 'src/app/content/pages/profile/survey/survey.com
 import { PatientListComponent } from 'src/app/content/pages/patient-trace/patient-list.component';
 import { PatientNutritionTable } from 'src/app/content/pages/patient-trace/patient-nutrition-table/patient-nutrition-table';
 import { PatientActivityTable } from 'src/app/content/pages/patient-trace/patient-activity-table/patient-activity-table';
-import { PatientTarget } from 'src/app/content/pages/patient-trace/target/target.component';
-import { PatientTargetCard } from 'src/app/content/pages/patient-trace/target-card/target-card.component';
 import { ExpertsComponent } from 'src/app/content/pages/experts/experts.component';
 import { PatientProfileComponent } from 'src/app/content/pages/patient-profile/patient-profile.component';
 import { EditEatingActivity } from 'src/app/content/pages/eating-activity/edit-eating-activity/edit-eating-activity.component';
@@ -42,6 +40,9 @@ import { CustomFoodComponent } from 'src/app/content/pages/eating-activity/add-e
 import { AddEatingActivity } from 'src/app/content/pages/eating-activity/add-eating-activity/add-eating-activity.component';
 import { EditEatingActivityService } from 'src/app/helpers/edit-eating-activity.service';
 import { CustomFoodService } from 'src/app/helpers/custom-food.service';
+import { CreateGoalComponent } from 'src/app/content/pages/patient-trace/create-goal/create-goal.component';
+import { GoalCardComponent } from 'src/app/content/pages/patient-trace/goal-card/goal-card.component';
+import { CalendarComponent } from 'src/app/content/pages/calendar/calendar.component';
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http);
@@ -65,8 +66,8 @@ export function HttpLoaderFactory(http: HttpClient) {
     PatientListComponent,
     PatientNutritionTable,
     PatientActivityTable,
-    PatientTarget,
-    PatientTargetCard,
+    CreateGoalComponent,
+    GoalCardComponent,
     ExpertsComponent,
     PatientProfileComponent,
     EditEatingActivity,
@@ -80,7 +81,8 @@ export function HttpLoaderFactory(http: HttpClient) {
     AddDisability,
     FoodListComponent,
     CustomFoodComponent,
-    PieChartThreedComponent
+    PieChartThreedComponent,
+    CalendarComponent
   ],
   imports: [
     CommonModule,

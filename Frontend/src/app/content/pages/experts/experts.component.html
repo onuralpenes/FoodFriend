@@ -8,7 +8,7 @@
 </form>
 
 <div class="row" style="margin-left: 2%">
-    <div *ngFor="let expert of experts | expertfilter : searchText" class="col-md-4">
+    <div *ngFor="let expert of experts | expertFilter : searchText" class="col-md-4">
         <app-expert-short-card [expert]="expert"></app-expert-short-card>
     </div>
 </div>
