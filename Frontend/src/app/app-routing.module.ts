@@ -9,7 +9,6 @@ const routes: Routes = [
     loadChildren: () => import('./modules/private/private.module').then(m => m.PrivateModule)
   },
 
-
   { path: 'login', component: LoginComponent },
   { path: '', redirectTo: "login", pathMatch: 'full' },
   { path: '404', component: NotFoundComponent },

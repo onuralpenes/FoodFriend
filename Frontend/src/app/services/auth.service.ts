@@ -71,7 +71,7 @@ export class AuthService {
     }
 
     logout() {
-        localStorage.removeItem(environment.TOKEN_KEY);
+        localStorage.clear();
         this.route.navigateByUrl('/login');
     }
 
