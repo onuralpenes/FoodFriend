@@ -3,7 +3,7 @@ import { Expert } from '../models/core/expert.model';
 const { isArray } = Array;
 
 @Pipe({
-    name: 'expertfilter'
+    name: 'expertFilter'
 })
 export class ExpertFilterPipe implements PipeTransform {
 
@@ -25,11 +25,11 @@ function search(entries: any[], search: string) {
             const value = obj[key];
             if (isArray(value)) {
                 return value.some(v => {
-                    return v.toLowerCase().includes(search);
+                    return v.toString().toLowerCase().includes(search);
                 });
             }
             else if (!isArray(value)) {
-                return value.toLowerCase().includes(search);
+                return value.toString().toLowerCase().includes(search);
             }
         })
     });
