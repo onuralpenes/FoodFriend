@@ -9,8 +9,8 @@
         </div>
         <div class="col-md-6">
           <br>
-          <h1 style="font-weight: bold;">{{expert.name}}</h1>
-          <h3>{{'expert.nutritionist' | translate}}</h3>
+          <h1 style="font-weight: bold;">{{expert.firstName}} {{expert.lastName}}</h1>
+          <h3>{{expert.emailAddress}} </h3>
         </div>
         <div class="col-md-1">
           <button [ngClass]="details ? 'button' : 'button'" (click)="detailExpert()">
@@ -21,9 +21,9 @@
         <div class="col-md-1"></div>
       </div>
     </ng-template>
-    <div [ngClass]="details ? 'detail-content' : 'content' ">
+    <!-- <div [ngClass]="details ? 'detail-content' : 'content' ">
       <p> {{expert.information}}</p>
-    </div>
+    </div> -->
     <ng-template pTemplate="footer">
       <p-button [ngClass]="details ? 'button-expert':'button-none'" label="Authorize" icon="pi pi-check"
         (click)="authorize(expert.name)"></p-button>
