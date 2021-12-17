@@ -45,6 +45,7 @@ import { GoalCardComponent } from 'src/app/content/pages/goals/goal-card/goal-ca
 import { CalendarComponent } from 'src/app/content/pages/calendar/calendar.component';
 import { GoalsComponent } from 'src/app/content/pages/goals/goals.component';
 import { LoadingComponent } from '../../helpers/loading/loading.component';
+import { RelatedExpertsComponent } from 'src/app/content/pages/profile/related-experts/related-experts.component';
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http);
@@ -86,8 +87,9 @@ export function HttpLoaderFactory(http: HttpClient) {
     CustomFoodComponent,
     PieChartThreedComponent,
     CalendarComponent,
-    LoadingComponent
-    ],
+    LoadingComponent,
+    RelatedExpertsComponent
+  ],
   imports: [
     CommonModule,
     PrivateRoutingModule,
@@ -104,6 +106,6 @@ export function HttpLoaderFactory(http: HttpClient) {
     }),
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
-  providers: [ EditEatingActivityService, CustomFoodService]
+  providers: [EditEatingActivityService, CustomFoodService]
 })
 export class PrivateModule { }

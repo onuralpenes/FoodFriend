@@ -39,6 +39,7 @@ export class ProfileComponent implements OnInit {
   isPregnant!: boolean;
   isDisabled!: boolean;
   public editProfileTemp: boolean = false;
+  expert: boolean = false;
   dummy = "dummy";
   gender = "male";
   genderless = false;
@@ -53,7 +54,6 @@ export class ProfileComponent implements OnInit {
   constructor(authService: AuthService, private messageService: MessageService, entityService: HttpEntityRepositoryService<User>) {
 
     entityService.get("/User/Get?userId=", authService.CurrentUserId).subscribe(data => {
-      console.log(data)
       var Data: any = data;
       if (!Data.success) {
         this.messageService.add({ severity: 'error', summary: 'Error', detail: Data.message });

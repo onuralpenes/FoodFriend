@@ -31,6 +31,7 @@
           <p class="info">{{ "label.email" | translate }}: {{ email }}</p>
           <p class="info">{{ "label.phoneNumber" | translate }}: {{ phone }}</p>
         </div>
+        <button style="background-color: transparent; border: none; margin: 0 auto" (click)="expert = true">x</button>
       </div>
     </div>
   </div>
@@ -132,4 +133,9 @@
   [draggable]="false" [modal]="true" [appendTo]="'body'" [closeOnEscape]="true" [blockScroll]="true" [baseZIndex]="-100"
   [style]="{ width: '50vw' }">
   <app-survey></app-survey>
+</p-dialog>
+
+<p-dialog header="Expert" [(visible)]="expert" [dismissableMask]="true" [draggable]="false" [modal]="true"
+  [appendTo]="'body'" [closeOnEscape]="true" [blockScroll]="true" [baseZIndex]="-100" [style]="{ width: '50vw' }">
+  <app-related-experts></app-related-experts>
 </p-dialog>
