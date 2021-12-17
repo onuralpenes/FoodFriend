@@ -12,6 +12,9 @@ import { MessageService } from 'primeng/api';
     providedIn: 'root'
 })
 export class AuthService {
+    static CurrentUserId(arg0: string, CurrentUserId: any) {
+      throw new Error('Method not implemented.');
+    }
 
     httpOptions = {
         headers: new HttpHeaders({

@@ -42,7 +42,7 @@ import { CustomFoodComponent } from 'src/app/content/pages/eating-activity/add-e
 import { AddEatingActivity } from 'src/app/content/pages/eating-activity/add-eating-activity/add-eating-activity.component';
 import { EditEatingActivityService } from 'src/app/helpers/edit-eating-activity.service';
 import { CustomFoodService } from 'src/app/helpers/custom-food.service';
-
+import { LoadingComponent } from '../../helpers/loading/loading.component';
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http);
 }
@@ -80,8 +80,9 @@ export function HttpLoaderFactory(http: HttpClient) {
     AddDisability,
     FoodListComponent,
     CustomFoodComponent,
-    PieChartThreedComponent
-  ],
+    PieChartThreedComponent,
+    LoadingComponent
+    ],
   imports: [
     CommonModule,
     PrivateRoutingModule,
