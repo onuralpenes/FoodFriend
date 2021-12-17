@@ -44,6 +44,7 @@ import { CreateGoalComponent } from 'src/app/content/pages/patient-trace/create-
 import { GoalCardComponent } from 'src/app/content/pages/goals/goal-card/goal-card.component';
 import { CalendarComponent } from 'src/app/content/pages/calendar/calendar.component';
 import { GoalsComponent } from 'src/app/content/pages/goals/goals.component';
+import { LoadingComponent } from '../../helpers/loading/loading.component';
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http);
@@ -84,8 +85,9 @@ export function HttpLoaderFactory(http: HttpClient) {
     FoodListComponent,
     CustomFoodComponent,
     PieChartThreedComponent,
-    CalendarComponent
-  ],
+    CalendarComponent,
+    LoadingComponent
+    ],
   imports: [
     CommonModule,
     PrivateRoutingModule,

@@ -15,6 +15,7 @@ import { RippleModule } from 'primeng/ripple';
 import { CheckboxModule } from 'primeng/checkbox';
 import { DropdownModule } from 'primeng/dropdown';
 import { ToastModule } from 'primeng/toast';
+import {ProgressSpinnerModule} from 'primeng/progressspinner';
 
 @NgModule({
     imports: [
@@ -34,6 +35,7 @@ import { ToastModule } from 'primeng/toast';
         CheckboxModule,
         DropdownModule,
         ToastModule,
+        ProgressSpinnerModule
     ],
     exports: [
         DialogModule,
@@ -52,6 +54,7 @@ import { ToastModule } from 'primeng/toast';
         CheckboxModule,
         DropdownModule,
         ToastModule,
+        ProgressSpinnerModule
     ]
 })
 

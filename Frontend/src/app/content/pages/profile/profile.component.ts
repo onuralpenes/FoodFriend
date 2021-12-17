@@ -53,7 +53,7 @@ export class ProfileComponent implements OnInit {
   constructor(authService: AuthService, private messageService: MessageService, entityService: HttpEntityRepositoryService<User>) {
 
     entityService.get("/User/Get?userId=", authService.CurrentUserId).subscribe(data => {
-
+      console.log(data)
       var Data: any = data;
       if (!Data.success) {
         this.messageService.add({ severity: 'error', summary: 'Error', detail: Data.message });
