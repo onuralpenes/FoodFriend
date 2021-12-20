@@ -10,7 +10,7 @@ const routes: Routes = [
   },
 
   { path: 'login', component: LoginComponent },
-  { path: '', redirectTo: "login", pathMatch: 'full' },
+  { path: '', redirectTo: "/login", pathMatch: 'full' },
   { path: '404', component: NotFoundComponent },
   { path: '**', redirectTo: '/404' }
 ];

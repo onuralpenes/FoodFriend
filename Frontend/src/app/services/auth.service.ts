@@ -13,7 +13,7 @@ import { MessageService } from 'primeng/api';
 })
 export class AuthService {
     static CurrentUserId(arg0: string, CurrentUserId: any) {
-      throw new Error('Method not implemented.');
+        throw new Error('Method not implemented.');
     }
 
     httpOptions = {
@@ -31,7 +31,7 @@ export class AuthService {
             .post(environment.BASE_URL + "/Auth2/Login", login, this.httpOptions)
             .subscribe(data => {
                 var tokenData: any = data;
-                let token  = this.jwtHelper.decodeToken(tokenData.data.accessToken);
+                let token = this.jwtHelper.decodeToken(tokenData.data.accessToken);
                 if (!tokenData.success) {
                     this.messageService.add({ severity: 'error', summary: 'Error', detail: tokenData.message });
                     return;
@@ -42,7 +42,6 @@ export class AuthService {
                 for (let i = 0; i < token.roles.length; i++) {
                     roles.push(token.roles[i].name)
                 }
-                console.log(roles);
                 this.userRolesService.setRoles(roles);
 
                 if (login.remember) {
@@ -94,10 +93,5 @@ export class AuthService {
         else {
             return 0;
         }
-    }
-
-    public get CurrentRoles() {
-        const token = localStorage.getItem(environment.TOKEN_KEY) || '{}';
-        return this.jwtHelper.decodeToken(token)
     }
 }
