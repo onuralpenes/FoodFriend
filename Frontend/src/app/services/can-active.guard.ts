@@ -10,7 +10,6 @@ export class RoleGuardService {
   constructor(private getUserRoles: UserRolesService, private authService: AuthService, private router: Router) { }
 
   canActivate(route: ActivatedRouteSnapshot): boolean {
-    return true;
     if (this.authService.isLoggedIn) {
       if (this.router.url == "/login") {
         this.router.navigateByUrl('/dashboard');
@@ -44,7 +43,6 @@ export class UserRolesService {
 
   getRoles() {
     let roles = JSON.parse(localStorage.getItem('USER_ROLES')!)
-    return "Patient";
     return roles.slice(0);
   }
 }
