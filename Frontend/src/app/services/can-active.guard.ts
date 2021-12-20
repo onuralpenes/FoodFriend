@@ -10,25 +10,27 @@ export class RoleGuardService {
   constructor(private getUserRoles: UserRolesService, private authService: AuthService, private router: Router) { }
 
   canActivate(route: ActivatedRouteSnapshot): boolean {
-    // if (this.authService.isLoggedIn) {
-    //   if (this.router.url == "/login") {
-    //     this.router.navigateByUrl('/dashboard');
+    //   if (this.authService.isLoggedIn) {
+    //     if (this.router.url == "/login") {
+    //       this.router.navigateByUrl('/dashboard');
+    //       return false;
+    //     }
+    //     if (route.data.roles.some(ai => this.getUserRoles.getRoles().includes(ai))) {
+    //       return route.data.roles.some(ai => this.getUserRoles.getRoles().includes(ai));
+    //     }
+    //     else {
+    //       this.authService.logout();
+    //       this.router.navigateByUrl('/login');
+    //       return false;
+    //     }
+    //   }
+    //   else {
+    //     this.router.navigateByUrl('/login');
     //     return false;
     //   }
-      //if (route.data.roles.some(ai => this.getUserRoles.getRoles().includes(ai))) {
-        return route.data.roles.some(ai => this.getUserRoles.getRoles().includes(ai));
-  //     }
-  //     else {
-  //       this.authService.logout();
-  //       this.router.navigateByUrl('/login');
-  //       return false;
-  //     }
-  //   }
-  //   else {
-  //     this.router.navigateByUrl('/login');
-  //     return false;
-  //   }
-   }
+
+    return route.data.roles.some(ai => this.getUserRoles.getRoles().includes(ai));
+  }
 }
 
 @Injectable({
