@@ -9,6 +9,7 @@ import { HttpEntityRepositoryService } from 'src/app/services/http-entity-reposi
   styleUrls: ['./experts.component.css']
 })
 export class ExpertsComponent {
+  loaded = false;
   constructor(private entityService: HttpEntityRepositoryService<Expert>, messageService: MessageService,) {
     this.entityService.getAll("/User/GetAllProfessionel").subscribe(data => {
       var Data: any = data;
@@ -17,13 +18,13 @@ export class ExpertsComponent {
         return;
       }
       this.experts = Data.data;
+      this.loaded = true;
       console.log(Data.data);
     });
   }
 
   experts: Expert[] = [];
   searchText: string = "";
-  loaded = false;
 
   keyup(searchText) {
     this.searchText = searchText;
