@@ -75,7 +75,7 @@ const routes: Routes = [
                 canActivate: [RoleGuardService],
                 data: { roles: [Roles.Patient] }
             },
-            { path: '', redirectTo: '/login', pathMatch: 'full' },
+            { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
         ],
     },
 ];
