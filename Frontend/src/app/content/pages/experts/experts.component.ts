@@ -23,6 +23,7 @@ export class ExpertsComponent {
 
   experts: Expert[] = [];
   searchText: string = "";
+  loaded = false;
 
   keyup(searchText) {
     this.searchText = searchText;

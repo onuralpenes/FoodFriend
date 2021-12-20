@@ -12,6 +12,7 @@ export class FoodListComponent {
   foods: FoodDetail[] = [];
   first = 0;
   rows = 10;
+  loaded = false;
 
   constructor(entityService: HttpEntityRepositoryService<FoodDetail>, private messageService: MessageService) {
     entityService.getAll("/FoodDetail/GetAll").subscribe(data => {
@@ -21,6 +22,7 @@ export class FoodListComponent {
         return;
       }
       this.foods = Data.data;
+      this.loaded = true;
     });
   }
   next() {

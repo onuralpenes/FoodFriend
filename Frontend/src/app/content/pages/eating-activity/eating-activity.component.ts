@@ -29,6 +29,7 @@ export class EatingActivityComponent {
   eatTab: Tab[] = [];
   addFod: boolean = false;
   editFod: boolean = false;
+  loaded = false;
 
   constructor(private editNutritionService: EditEatingActivityService, authService: AuthService, private entityService: HttpEntityRepositoryService<EatingActivity>, private messageService: MessageService, private confirmationService: ConfirmationService) {
     entityService.get('/EatingActivity/GetByUserId?userId=', authService.CurrentUserId).subscribe(data => {
@@ -76,6 +77,7 @@ export class EatingActivityComponent {
         }
         this.eatTab.push(newTab);
       }
+      this.loaded = true;
     });
   }
 
