@@ -7,3 +7,15 @@
     background-color: transparent;
     align-items: center;
 }
+.loading-content{
+  display: none;
+}
+.loaded-content{
+  display: contents;
+}
+.display-spinner{
+  display: contents;
+}
+.hidden-spinner{
+  display: none;
+}

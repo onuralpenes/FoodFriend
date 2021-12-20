@@ -25,6 +25,8 @@ export interface DisabledList {
   styleUrls: ['./profile.component.css']
 })
 export class ProfileComponent implements OnInit {
+
+  loaded = false;
   weight!: number;
   height!: number;
   age!: number;
@@ -96,7 +98,9 @@ export class ProfileComponent implements OnInit {
         this.illnessList = DataH.data.illnessDetails;
         this.allergyList = DataH.data.allergyDetails;
         this.pregnantList = DataH.data.pregnantDetails;
+      this.loaded = true;
       });
+
     });
   }
 

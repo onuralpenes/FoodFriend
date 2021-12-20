@@ -3,3 +3,16 @@
   margin-left: 5%;
   margin-right: 5%;
 }
+
+.loading-content{
+  display: none;
+}
+.loaded-content{
+  display: contents;
+}
+.display-spinner{
+  display: contents;
+}
+.hidden-spinner{
+  display: none;
+}

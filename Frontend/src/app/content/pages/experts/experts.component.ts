@@ -10,6 +10,7 @@ import { experts } from './data';
 export class ExpertsComponent {
   experts: Expert[] = experts;
   searchText: string = "";
+  loaded = false;
 
   keyup(searchText) {
     this.searchText = searchText;

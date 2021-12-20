@@ -1,3 +1,9 @@
+
+
+
+
+
+<div [ngClass]="loaded ? 'loaded-content' : 'loading-content'" >
 <br>
 <form #search="ngForm" style="margin-left: 3%;">
     <span class="p-input-icon-left">
@@ -12,3 +18,6 @@
         <app-expert-short-card [expert]="expert"></app-expert-short-card>
     </div>
 </div>
+</div>
+  
+<app-loading [ngClass]="loaded ? 'hidden-spinner' : 'display-spinner'"  ></app-loading>

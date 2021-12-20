@@ -53,11 +53,7 @@ export class ConsumedCalorieComponent {
     this.updateChartOptions();
   }
   ngOnInit(){
-      console.log('ConsumedCalorieComponent ngOnInit')
-      setTimeout(() => {
-      console.log('Loaded ! ')
-        this.loaded.next(true);
-    }, 10_000);
+    
   }
   constructor(entityService: HttpEntityRepositoryService<EatingActivity>, authService: AuthService, private messageService: MessageService) {
     
@@ -87,6 +83,7 @@ export class ConsumedCalorieComponent {
         }
       }
       this.drawGraph();
+      this.loaded.next(true);
     }
     )
   }

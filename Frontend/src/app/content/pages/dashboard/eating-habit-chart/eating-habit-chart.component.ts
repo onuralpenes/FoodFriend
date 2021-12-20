@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 import { multi } from './data';
 import { EatingActivity } from 'src/app/models/data/eating-activity.model';
 import { AuthService } from 'src/app/services/auth.service';
@@ -13,6 +13,12 @@ import { MessageService } from 'primeng/api';
 })
 export class EatingHabitChartComponent {
 
+
+  
+  @Output() loaded = new EventEmitter(false);
+  serviceFinish1 = true;
+  serviceFinish2 = true;
+  serviceFinish3 = true;
   basicData: any;
   basicOptions: any;
   multiAxisData: any;
@@ -33,8 +39,12 @@ export class EatingHabitChartComponent {
   colorScheme = {
     domain: ['#5AA454', '#E44D25', '#2196f3', '#7aa3e5', '#a8385d', '#aae3f5']
   };
-
+  ngOnInit(){
+    this.loaded.next(true);
+  }
+  
   constructor(entityService: HttpEntityRepositoryService<EatingActivity>, authService: AuthService, private messageService: MessageService) {
+  
     this.basicData = {
       labels: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'],
       datasets: [
@@ -75,6 +85,7 @@ export class EatingHabitChartComponent {
     for (let i = reqNum; i < 7; i++) {
       multi[0].series[i].value = 0;
     }
+    
 
     for (let i = 0; i < reqNum; i++) {
       const datepipe: DatePipe = new DatePipe('en-US');
@@ -92,6 +103,7 @@ export class EatingHabitChartComponent {
             this.weeklyAvailableCalorie[i] = 2000 - Data.data.totalCalorie;
           }
           this.updateChartOptions();
+          this.serviceFinish1 = true;
         }
       })
     }
@@ -106,6 +118,7 @@ export class EatingHabitChartComponent {
           return;
         } else {
           multi[1].series[i].value = Data.data.totalCalorie;
+          this.serviceFinish2 = true;
         }
       })
     }
@@ -119,8 +132,15 @@ export class EatingHabitChartComponent {
           return;
         } else {
           multi[2].series[i].value = Data.data.totalCalorie;
+          this.serviceFinish3 = true;
         }
       })
+    }
+    this.loaded.next(true);
+    if(this.serviceFinish1 && this.serviceFinish2 && this.serviceFinish3){
+      console.log("saasasasasas")
+      // this.loaded.next(true);
+      console.log(this.serviceFinish1 , this.serviceFinish2 , this.serviceFinish3)
     }
     setTimeout(x => {
       Object.assign(this, { multi });

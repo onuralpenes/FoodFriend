@@ -28,6 +28,7 @@ export class PatientProfileComponent implements OnInit {
   genderless = false;
   male = false;
   female = false;
+  loaded = false;
 
   illnessList!: IllnessList[];
   allergyList!: AllergyList[];
@@ -82,6 +83,7 @@ export class PatientProfileComponent implements OnInit {
           this.allergyList = DataH.data.allergyDetails;
           this.pregnantList = DataH.data.pregnantDetails;
         });
+        this.loaded = true;
       });
     })
   }

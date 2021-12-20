@@ -1,4 +1,6 @@
-<p-card class="card cardTop">
+
+<div [ngClass]="loaded ? 'loaded-content' : 'loading-content'" >
+  <p-card class="card cardTop">
   <div class="row counselee-short-info">
     <div class="col-4">
       <div class="counselee-img-div">
@@ -133,3 +135,7 @@
   [style]="{ width: '50vw' }">
   <app-survey></app-survey>
 </p-dialog>
+
+</div>
+
+<app-loading [ngClass]="loaded ? 'hidden-spinner' : 'display-spinner'"  ></app-loading>
