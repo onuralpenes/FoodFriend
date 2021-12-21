@@ -12,9 +12,6 @@ import { MessageService } from 'primeng/api';
   styleUrls: ['./eating-habit-chart.component.css']
 })
 export class EatingHabitChartComponent {
-
-
-  
   @Output() loaded = new EventEmitter(false);
   serviceFinish1 = true;
   serviceFinish2 = true;
@@ -81,7 +78,6 @@ export class EatingHabitChartComponent {
     else if (date.toString().substring(0, 3) == "Sun") {
       reqNum = 7;
     }
-
     for (let i = reqNum; i < 7; i++) {
       multi[0].series[i].value = 0;
     }
@@ -138,9 +134,6 @@ export class EatingHabitChartComponent {
     }
     this.loaded.next(true);
     if(this.serviceFinish1 && this.serviceFinish2 && this.serviceFinish3){
-      console.log("saasasasasas")
-      // this.loaded.next(true);
-      console.log(this.serviceFinish1 , this.serviceFinish2 , this.serviceFinish3)
     }
     setTimeout(x => {
       Object.assign(this, { multi });

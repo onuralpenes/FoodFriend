@@ -1,4 +1,4 @@
-import { Component, Input, Output, EventEmitter } from '@angular/core';
+import { Component, Output, EventEmitter } from '@angular/core';
 import { EatingActivity } from 'src/app/models/data/eating-activity.model';
 import { AuthService } from 'src/app/services/auth.service';
 import { HttpEntityRepositoryService } from 'src/app/services/http-entity-repository.service';
@@ -11,18 +11,12 @@ import { MessageService } from 'primeng/api';
 })
 
 export class ConsumedCalorieComponent {
-
+  @Output() loaded = new EventEmitter(false);
   data: any;
   showLoader = true;
-  @Output() loaded = new EventEmitter(false);
-  
   chartOptions: any;
-
   gainedCalorie: any;
-
-
   totalCalories = 2000; //sonradan diyetisyenin vereceği kalori şimdilik biz giriyoruz
-
   color = '#b10f0f';
   cal = 0;
   per = 0;
@@ -31,9 +25,7 @@ export class ConsumedCalorieComponent {
   tit = "";
   sub = "";
   drawGraph() {
-
     this.data = {
-
       labels: ['Calories Taken', 'Calories Available'],
       datasets: [
         {
@@ -49,16 +41,10 @@ export class ConsumedCalorieComponent {
         }
       ]
     };
-
     this.updateChartOptions();
   }
-  ngOnInit(){
-    
-  }
+
   constructor(entityService: HttpEntityRepositoryService<EatingActivity>, authService: AuthService, private messageService: MessageService) {
-    
-    
-    console.log("from child"+this.loaded);
     const datepipe: DatePipe = new DatePipe('en-US');
     let date = datepipe.transform(new Date(new Date().setDate(new Date().getDate())), 'YYYY-MM-dd');
     entityService.get("/EatingActivity/GetTotalCalorieByUserIdOnDay?date=" + date + "&userId=", authService.CurrentUserId).subscribe(data => {
@@ -89,7 +75,6 @@ export class ConsumedCalorieComponent {
   }
   getLightTheme() {
     return {
-
       borderColor: 'transparent',
       backgroundColor: 'transparent',
       plugins: {
@@ -113,7 +98,6 @@ export class ConsumedCalorieComponent {
     }
   }
   updateChartOptions() {
-
     if (false)
       this.chartOptions = this.getDarkTheme();
     else

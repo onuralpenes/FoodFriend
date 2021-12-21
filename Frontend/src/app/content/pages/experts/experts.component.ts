@@ -19,7 +19,6 @@ export class ExpertsComponent {
       }
       this.experts = Data.data;
       this.loaded = true;
-      console.log(Data.data);
     });
   }
 

@@ -20,7 +20,6 @@ export class GoalsComponent {
                 messageService.add({ severity: 'error', summary: 'Error', detail: Data.message });
                 return;
             }
-            console.log(authService.CurrentUserId)
             this.goals = Data.data;
         });
     }
