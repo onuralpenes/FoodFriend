@@ -11,9 +11,6 @@ export class RoleGuardService implements CanActivate {
 
   canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot) {
     if (this.authService.isLoggedIn) {
-      if (this.router.url == "/login") {
-        return this.router.parseUrl('/dashboard');
-      }
       if (route.data.roles.some(ai => this.getUserRoles.getRoles().includes(ai))) {
         return route.data.roles.some(ai => this.getUserRoles.getRoles().includes(ai));
       }
