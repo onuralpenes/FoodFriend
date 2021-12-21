@@ -12,6 +12,7 @@ import { HttpEntityRepositoryService } from 'src/app/services/http-entity-reposi
 export class GoalsComponent {
     goals: Goal[] = [];
     addGoal: boolean = false;
+    loaded = false;
 
     constructor(private entityService: HttpEntityRepositoryService<Goal>, messageService: MessageService, authService: AuthService) {
         this.entityService.get("/api/Goal/GetByUserId?userId=", authService.CurrentUserId).subscribe(data => {
@@ -21,6 +22,7 @@ export class GoalsComponent {
                 return;
             }
             this.goals = Data.data;
+            this.loaded = true;
         });
     }
     createGoal() {

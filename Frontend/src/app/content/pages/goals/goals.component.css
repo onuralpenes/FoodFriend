@@ -18,3 +18,16 @@
     border: 1px solid #00ecb0;
   background-color: #00d6a0;
 }
+
+.loading-content{
+  display: none;
+}
+.loaded-content{
+  display: contents;
+}
+.display-spinner{
+  display: contents;
+}
+.hidden-spinner{
+  display: none;
+}
