@@ -16,7 +16,7 @@ import { LoginFormComponent } from './content/login/login-form/login-form.compon
 import { RegisterFormComponent } from './content/login/register-form/register-form.component';
 import { NotFoundComponent } from './content/pages/not-found/not-found.component';
 import { RoleGuardService, UserRolesService } from './services/can-active.guard';
-import { MessageService } from 'primeng/api';
+import { ConfirmationService, MessageService } from 'primeng/api';
 
 
 export function HttpLoaderFactory(http: HttpClient) {
@@ -49,6 +49,6 @@ export function HttpLoaderFactory(http: HttpClient) {
     })
   ],
   bootstrap: [AppComponent],
-  providers: [HttpEntityRepositoryService, RoleGuardService, UserRolesService, MessageService]
+  providers: [HttpEntityRepositoryService, RoleGuardService, UserRolesService, MessageService, ConfirmationService]
 })
 export class AppModule { }

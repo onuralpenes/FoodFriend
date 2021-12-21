@@ -8,8 +8,7 @@ import { HttpEntityRepositoryService } from 'src/app/services/http-entity-reposi
 @Component({
   selector: 'app-expert-short-card',
   templateUrl: './expert-short-card.component.html',
-  styleUrls: ['./expert-short-card.component.css'],
-  providers: [ConfirmationService]
+  styleUrls: ['./expert-short-card.component.css']
 })
 export class ExpertShortCardComponent {
   @Input() expert;
@@ -24,7 +23,7 @@ export class ExpertShortCardComponent {
 
   authorize(name: string) {
     this.confirmationService.confirm({
-      message: 'Are you sure you want to authorize expert: ' + name,
+      message: 'Are you sure you want to authorize expert: ' + this.expert.firstName + " " + this.expert.lastName,
       header: 'Confirmation',
       icon: 'pi pi-exclamation-triangle',
       accept: () => {

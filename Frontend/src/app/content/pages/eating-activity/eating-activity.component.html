@@ -68,6 +68,8 @@
   </ng-template>
   </p-table>
 </div>
+</div>
+
 
 <p-dialog header="Add Eating Activity" [(visible)]="addFod" [dismissableMask]="true" [draggable]="false" [modal]="true"
   [maximizable]="true" [appendTo]="'body'" [closeOnEscape]="true" [blockScroll]="true" [style]="{width: '50vw'}">
@@ -78,11 +80,5 @@
   [modal]="true" [appendTo]="'body'" [closeOnEscape]="true" [blockScroll]="true" [style]="{width: '25%'}">
   <app-edit-eating-activity></app-edit-eating-activity>
 </p-dialog>
-
-<p-confirmDialog [dismissableMask]="true" [draggable]="false" [modal]="true" [appendTo]="'body'" [closeOnEscape]="true"
-  [blockScroll]="true" [baseZIndex]="10000"></p-confirmDialog>
-
-
-</div>
 
 <app-loading [ngClass]="loaded ? 'hidden-spinner' : 'display-spinner'"></app-loading>

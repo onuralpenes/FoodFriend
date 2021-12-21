@@ -2,9 +2,8 @@ import { Component } from '@angular/core';
 import { EatingActivity } from 'src/app/models/data/eating-activity.model';
 import { AuthService } from 'src/app/services/auth.service';
 import { HttpEntityRepositoryService } from 'src/app/services/http-entity-repository.service';
-import { ConfirmationService } from 'primeng/api';
 import { EditEatingActivityService } from 'src/app/helpers/edit-eating-activity.service';
-import { MessageService } from 'primeng/api';
+import { ConfirmationService, MessageService } from 'primeng/api';
 
 export interface EatTable {
   nutId: number;
@@ -22,8 +21,7 @@ export interface Tab {
 @Component({
   selector: 'app-eating-activity',
   templateUrl: './eating-activity.component.html',
-  styleUrls: ['./eating-activity.component.css'],
-  providers: [ConfirmationService]
+  styleUrls: ['./eating-activity.component.css']
 })
 export class EatingActivityComponent {
   eatTab: Tab[] = [];
@@ -33,7 +31,6 @@ export class EatingActivityComponent {
 
   constructor(private editNutritionService: EditEatingActivityService, authService: AuthService, private entityService: HttpEntityRepositoryService<EatingActivity>, private messageService: MessageService, private confirmationService: ConfirmationService) {
     entityService.get('/EatingActivity/GetByUserId?userId=', authService.CurrentUserId).subscribe(data => {
-
       var Data: any = data;
       if (!Data.success) {
         this.messageService.add({ severity: 'error', summary: 'Error', detail: Data.message });

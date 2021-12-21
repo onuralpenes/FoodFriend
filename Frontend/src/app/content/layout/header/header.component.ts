@@ -5,7 +5,7 @@ import { Notify, NOTIFY_DATA } from './notify-data';
 import { EatingActivity } from 'src/app/models/data/eating-activity.model';
 import { HttpEntityRepositoryService } from 'src/app/services/http-entity-repository.service';
 import { DatePipe } from '@angular/common';
-import { MenuItem, PrimeNGConfig } from 'primeng/api';
+import { ConfirmationService, MenuItem, MessageService, PrimeNGConfig } from 'primeng/api';
 
 @Component({
   selector: 'app-header',
@@ -16,7 +16,7 @@ export class HeaderComponent implements OnInit {
 
   @Output() toggle: EventEmitter<any> = new EventEmitter(); //Required for connection with sidebar.
 
-  constructor(private authService: AuthService, private router: Router, entityService: HttpEntityRepositoryService<EatingActivity>, private primengConfig: PrimeNGConfig) {
+  constructor(private authService: AuthService, private router: Router, entityService: HttpEntityRepositoryService<EatingActivity>, private primengConfig: PrimeNGConfig, private confirmationService: ConfirmationService, private messageService: MessageService) {
     const datepipe: DatePipe = new DatePipe('en-US');
     let date = datepipe.transform(new Date(new Date().setDate(new Date().getDate())), 'YYYY-MM-dd');
     entityService.get("/EatingActivity/GetTotalCalorieByUserIdOnDay?date=" + date + "&userId=", authService.CurrentUserId).subscribe(data => {
@@ -112,7 +112,18 @@ export class HeaderComponent implements OnInit {
   }
 
   logout() {
-    this.authService.logout();
+    this.confirmationService.confirm({
+      message: 'Are you sure you want to log out of the system?',
+      header: 'Confirmation',
+      icon: 'pi pi-exclamation-triangle',
+      accept: () => {
+        this.authService.logout();
+        this.messageService.add({ severity: 'success', summary: 'Success', detail: 'You have successfully logged out of the system.' });
+      },
+      reject: () => {
+        this.messageService.add({ severity: 'warn', summary: 'Unsuccess', detail: 'You are not logged out of the system.' });
+      }
+    });
   }
 
   profile() {

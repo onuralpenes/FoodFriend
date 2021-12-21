@@ -8,8 +8,7 @@ import { HttpEntityRepositoryService } from "src/app/services/http-entity-reposi
 @Component({
   selector: 'app-create-goal',
   templateUrl: './create-goal.component.html',
-  styleUrls: ['./create-goal.component.css'],
-  providers: [ConfirmationService]
+  styleUrls: ['./create-goal.component.css']
 })
 export class CreateGoalComponent {
 

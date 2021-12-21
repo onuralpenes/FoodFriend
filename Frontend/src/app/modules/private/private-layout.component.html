@@ -1,2 +1,5 @@
 <app-header (toggle)="toggle()"></app-header>
 <app-side-bar (toggle)="toggle()" [opened]="sideBar"></app-side-bar>
+
+<p-confirmDialog [dismissableMask]="true" [draggable]="false" [modal]="true" [appendTo]="'body'" [closeOnEscape]="true"
+  [blockScroll]="true" [baseZIndex]="10000"></p-confirmDialog>

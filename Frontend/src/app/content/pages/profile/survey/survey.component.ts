@@ -10,8 +10,7 @@ import { ProfileComponent } from '../profile.component';
 @Component({
   selector: 'app-survey',
   templateUrl: './survey.component.html',
-  styleUrls: ['./survey.component.css'],
-  providers: [ConfirmationService]
+  styleUrls: ['./survey.component.css']
 })
 export class SurveyComponent implements OnInit {
 
@@ -113,7 +112,7 @@ export class SurveyComponent implements OnInit {
         this.profile.editProfileTemp = false;
       },
       reject: () => {
-        this.messageService.add({ severity: 'warn', summary: 'Unsuccess', detail: 'Physical information has been successfully updated.' });
+        this.messageService.add({ severity: 'warn', summary: 'Unsuccess', detail: 'Your information has not been updated.' });
         return;
       }
     });
