@@ -46,6 +46,18 @@ import { CalendarComponent } from 'src/app/content/pages/calendar/calendar.compo
 import { GoalsComponent } from 'src/app/content/pages/goals/goals.component';
 import { LoadingComponent } from '../../helpers/loading/loading.component';
 import { RelatedExpertsComponent } from 'src/app/content/pages/profile/related-experts/related-experts.component';
+import { FullCalendarModule } from '@fullcalendar/angular';
+import dayGridPlugin from '@fullcalendar/daygrid';
+import timeGridPlugin from '@fullcalendar/timegrid';
+import listPlugin from '@fullcalendar/list';
+import interactionPlugin from '@fullcalendar/interaction';
+
+FullCalendarModule.registerPlugins([
+  dayGridPlugin,
+  timeGridPlugin,
+  listPlugin,
+  interactionPlugin,
+]);
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http);
@@ -104,6 +116,7 @@ export function HttpLoaderFactory(http: HttpClient) {
         deps: [HttpClient],
       },
     }),
+    FullCalendarModule
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   providers: [EditEatingActivityService, CustomFoodService]
