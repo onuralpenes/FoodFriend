@@ -46,6 +46,10 @@ ul{
 li:hover{
   background-color: #03ac75;
 }
+
+.active{
+  background-color: #03ac75;  
+}
 .button_pin{
   border: 0px;
   background-color: transparent;
@@ -201,8 +205,8 @@ li:hover{
 }
 
 ::-webkit-scrollbar {
-  width: 0;  /* Remove scrollbar space */
-  background: transparent;  /* Optional: just make scrollbar invisible */
+  width: 0;
+  background: transparent; 
 }
 
 .language{
