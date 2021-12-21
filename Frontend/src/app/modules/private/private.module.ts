@@ -40,7 +40,7 @@ import { CustomFoodComponent } from 'src/app/content/pages/eating-activity/add-e
 import { AddEatingActivity } from 'src/app/content/pages/eating-activity/add-eating-activity/add-eating-activity.component';
 import { EditEatingActivityService } from 'src/app/helpers/edit-eating-activity.service';
 import { CustomFoodService } from 'src/app/helpers/custom-food.service';
-import { CreateGoalComponent } from 'src/app/content/pages/patient-trace/create-goal/create-goal.component';
+import { CreateGoalComponent } from 'src/app/content/pages/goals/create-goal/create-goal.component';
 import { GoalCardComponent } from 'src/app/content/pages/goals/goal-card/goal-card.component';
 import { CalendarComponent } from 'src/app/content/pages/calendar/calendar.component';
 import { GoalsComponent } from 'src/app/content/pages/goals/goals.component';
