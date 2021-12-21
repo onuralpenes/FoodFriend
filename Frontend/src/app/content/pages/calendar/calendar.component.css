@@ -1,13 +1,13 @@
-.demo-app {
+.app {
   display: flex;
   min-height: 100%;
   font-family: Arial, Helvetica Neue, Helvetica, sans-serif;
   font-size: 14px;
 }
 
-.demo-app-main {
-  flex-grow: 1;
-  padding: 3em;
+.app-main {
+  flex-grow: 0.3;
+  padding: 2em;
 }
 
 .fc { /* the calendar root */
@@ -26,5 +26,3 @@
 ::ng-deep full-calendar > .fc-button {
   color: blueviolet;
 }
-
-/* fc-dayGridMonth-button fc-button fc-button-primary */
