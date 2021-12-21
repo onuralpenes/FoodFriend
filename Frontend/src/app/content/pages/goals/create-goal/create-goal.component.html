@@ -1,56 +1,77 @@
-<form [formGroup]="goalForm" (ngSubmit)="onSubmit()" >
-  <div>
-    <span class="p-float-label">
-      <input type="number" pInputText formControlName="dailyCaloriIntake">
-      <label for="float-input">Daily Calorie Intake</label>
-    </span>
-
-    <span class="p-float-label">
-      <input type="number" pInputText formControlName="dailyCarbohydrateIntake">
-      <label for="float-input">Daily Carbohydrate Intake</label>
-    </span>
-  </div>
-
+<form [formGroup]="goalForm" (ngSubmit)="onSubmit()">
   <br>
-
-  <div>
-    <span class="p-float-label">
-      <input type="number" pInputText formControlName="dailyProteinIntake">
-      <label for="float-input">Daily Protein Intake</label>
-    </span>
-
-    <span class="p-float-label">
-      <input type="number" pInputText formControlName="dailyOilIntake">
-      <label for="float-input">Daily Oil Intake</label>
-    </span>
+  <div class="row">
+    <div class="col-md-6">
+      <span class="p-float-label">
+        <input type="number" pInputText formControlName="dailyCaloriIntake">
+        <label for="float-input">Daily Calorie Intake</label>
+      </span>
+    </div>
+    <div class="col-md-6">
+      <span class="p-float-label">
+        <input type="number" pInputText formControlName="dailyCarbohydrateIntake">
+        <label for="float-input">Daily Carbohydrate Intake</label>
+      </span>
+    </div>
   </div>
 
-  <br>
+  <br><br>
 
-  <div>
-    <span class="p-float-label">
-      <input type="number" pInputText formControlName="dailyTargetStep">
-      <label for="float-input">Daily Target Step</label>
-    </span>
-
-    <span class="p-float-label">
-      <input type="number" pInputText formControlName="targetWeight">
-      <label for="float-input">Target Weight</label>
-    </span>
+  <div class="row">
+    <div class="col-md-6">
+      <span class="p-float-label">
+        <input type="number" pInputText formControlName="dailyProteinIntake">
+        <label for="float-input">Daily Protein Intake</label>
+      </span>
+    </div>
+    <div class="col-md-6">
+      <span class="p-float-label">
+        <input type="number" pInputText formControlName="dailyOilIntake">
+        <label for="float-input">Daily Oil Intake</label>
+      </span>
+    </div>
   </div>
 
-  <br>
+  <br><br>
 
-  <div>
-    <span class="p-float-label">
-      <input type="number" pInputText formControlName="dailyCaloriExpenditure">
-      <label for="float-input">Daily Calorie Expenditure</label>
-    </span>
-
-    <span class="p-float-label">
-      <input type="Date" pInputText formControlName="targetDate">
-    </span>
+  <div class="row">
+    <div class="col-md-6">
+      <span class="p-float-label">
+        <input type="number" pInputText formControlName="dailyTargetStep">
+        <label for="float-input">Daily Target Step</label>
+      </span>
+    </div>
+    <div class="col-md-6">
+      <span class="p-float-label">
+        <input type="number" pInputText formControlName="targetWeight">
+        <label for="float-input">Target Weight</label>
+      </span>
+    </div>
   </div>
-<br>
-  <button type="submit"> <i class="fa fa-floppy-o fa-lg" aria-hidden="true"></i>Create Goal</button>
+
+  <br><br>
+
+  <div class="row">
+    <div class="col-md-6">
+      <span class="p-float-label">
+        <input type="number" pInputText formControlName="dailyCaloriExpenditure">
+        <label for="float-input">Daily Calorie Expenditure</label>
+      </span>
+    </div>
+    <div class="col-md-6">
+      <span class="p-float-label">
+        <input type="Date" pInputText formControlName="targetDate">
+      </span>
+    </div>
+  </div>
+  <br><br>
+  <div style="left: 30%; position: absolute">
+    <button type="submit" class="modal-button" [disabled]="!goalForm.valid">
+      <i class="fa fa-floppy-o fa-lg" aria-hidden="true"></i> {{'label.submit' | translate}}
+    </button>
+  </div>
+  <br><br>
 </form>
+
+<p-confirmDialog [dismissableMask]="true" [draggable]="false" [modal]="true" [appendTo]="'body'" [closeOnEscape]="true"
+  [blockScroll]="true" [baseZIndex]="10000"></p-confirmDialog>
