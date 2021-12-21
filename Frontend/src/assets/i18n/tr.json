@@ -119,7 +119,9 @@
     "healthCard": "Sağlık Kartı",
     "healthP": "Sağlığın hakkında kişisel bilgilerin.\n Görmek için",
     "click": "Tıklayın",
-    "healthM": "Daha Fazla Detay"
+    "healthM": "Daha Fazla Detay",
+    "expert": "İlgili Uzman",
+    "noExpert": "Size yetkilendirilmiş bir uzman bulunmamaktadır."
   },
   "conf": {
     "title": "Emin misiniz?",

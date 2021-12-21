@@ -108,9 +108,9 @@
     "pregnant": "Pregnancy",
     "disable": "Disability",
     "aim": "Aim",
-    "noIll": "This counselee has no any important illnesses that you need to be aware of.",
+    "noIll": "This counselee has no illnesses that you need to be aware of.",
     "noAll": "This counselee has no allergy that you need to be aware of.",
-    "noPreg": "This counselee has no any pregnancy history that you need to be aware of.",
+    "noPreg": "This counselee has no pregnancy history that you need to be aware of.",
     "noDis": "This counselee has no disable info that you need to be aware of.",
     "addIll": "Add Illness",
     "addAll": "Add Allergy",
@@ -119,7 +119,9 @@
     "healthCard": "Health Card",
     "healthP": "Your personal information about your health.\n To see your card",
     "click": "Click",
-    "healthM": "More Details"
+    "healthM": "More Details",
+    "expert": "Related Professional",
+    "noExpert": "There is no professional authorized for you."
   },
   "conf": {
     "title": "Are you sure?",
