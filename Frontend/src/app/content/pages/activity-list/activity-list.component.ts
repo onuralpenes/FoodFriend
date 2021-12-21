@@ -14,6 +14,7 @@ export class ActivityListComponent {
   first = 0;
   rows = 10;
   searchText = "";
+  loaded=false;
 
   constructor(entityService: HttpEntityRepositoryService<PersonalEnergyActivity>, private messageService: MessageService) {
     entityService.getAll("/PersonalEnergyActivity/GetAll").subscribe(data => {
@@ -22,7 +23,7 @@ export class ActivityListComponent {
         this.messageService.add({ severity: 'error', summary: 'Error', detail: Data.message });
         return;
       }
-
+      this.loaded = true;
       this.activityWithFilter = Data.data;
       this.activityWithoutFilter = Data.data;
     });

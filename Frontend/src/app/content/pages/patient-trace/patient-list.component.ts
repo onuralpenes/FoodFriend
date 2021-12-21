@@ -18,6 +18,7 @@ export class PatientListComponent {
   searchText = "";
   nutritionInformation: boolean = false;
   activityInformation: boolean = false;
+  loaded = false;
 
   constructor(private router: Router, entityService: HttpEntityRepositoryService<User>, private messageService: MessageService) {
     entityService.getAll("/User/GetAll").subscribe(data => {
@@ -27,7 +28,7 @@ export class PatientListComponent {
         this.messageService.add({ severity: 'error', summary: 'Error', detail: Data.message });
         return;
       }
-
+      this.loaded = true;
       this.usersWithFilter = Data.data;
       this.usersWithoutFilter = Data.data;
     });

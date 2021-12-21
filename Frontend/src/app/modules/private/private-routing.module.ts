@@ -20,8 +20,6 @@ const routes: Routes = [
         path: '',
         component: PrivateLayoutComponent,
         children: [
-
-            //{ path: '', redirectTo: 'dashboard', pathMatch: 'full' },
             {
                 path: 'dashboard', component: DashboardComponent,
                 canActivate: [RoleGuardService],
@@ -50,7 +48,7 @@ const routes: Routes = [
             {
                 path: 'experts', component: ExpertsComponent,
                 canActivate: [RoleGuardService],
-                data: { roles: [Roles.Patient ,Roles.Admin] }
+                data: { roles: [Roles.Patient, Roles.Admin] }
             },
             {
                 path: 'patient-profile/:id', component: PatientProfileComponent,

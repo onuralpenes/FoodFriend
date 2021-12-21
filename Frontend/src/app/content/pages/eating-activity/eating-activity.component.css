@@ -12,6 +12,19 @@
   transition: transform 80ms ease-in;
 }
 
+.loading-content{
+  display: none;
+}
+.loaded-content{
+  display: contents;
+}
+.display-spinner{
+  display: contents;
+}
+.hidden-spinner{
+  display: none;
+}
+
 .add-button:hover{
     border: 1px solid #00ecb0;
   background-color: #00d6a0;

@@ -25,6 +25,8 @@ export interface DisabledList {
   styleUrls: ['./profile.component.css']
 })
 export class ProfileComponent implements OnInit {
+
+  loaded = false;
   weight!: number;
   height!: number;
   age!: number;
@@ -39,6 +41,7 @@ export class ProfileComponent implements OnInit {
   isPregnant!: boolean;
   isDisabled!: boolean;
   public editProfileTemp: boolean = false;
+  expert: boolean = false;
   dummy = "dummy";
   gender = "male";
   genderless = false;
@@ -53,7 +56,6 @@ export class ProfileComponent implements OnInit {
   constructor(authService: AuthService, private messageService: MessageService, entityService: HttpEntityRepositoryService<User>) {
 
     entityService.get("/User/Get?userId=", authService.CurrentUserId).subscribe(data => {
-      console.log(data)
       var Data: any = data;
       if (!Data.success) {
         this.messageService.add({ severity: 'error', summary: 'Error', detail: Data.message });
@@ -96,7 +98,9 @@ export class ProfileComponent implements OnInit {
         this.illnessList = DataH.data.illnessDetails;
         this.allergyList = DataH.data.allergyDetails;
         this.pregnantList = DataH.data.pregnantDetails;
+      this.loaded = true;
       });
+
     });
   }
 

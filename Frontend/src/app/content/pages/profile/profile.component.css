@@ -10,6 +10,20 @@ img{
     margin-right: auto;
     display: block;
 }
+
+.loading-content{
+    display: none;
+  }
+  .loaded-content{
+    display: contents;
+  }
+  .display-spinner{
+    display: contents;
+  }
+  .hidden-spinner{
+    display: none;
+  }
+
 .profile-img:hover{
     width: 190px;
     box-shadow:  0px 0px 10px 2px rgb(0, 0, 0);

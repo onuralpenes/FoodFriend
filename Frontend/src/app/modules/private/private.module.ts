@@ -44,21 +44,12 @@ import { CreateGoalComponent } from 'src/app/content/pages/patient-trace/create-
 import { GoalCardComponent } from 'src/app/content/pages/goals/goal-card/goal-card.component';
 import { CalendarComponent } from 'src/app/content/pages/calendar/calendar.component';
 import { GoalsComponent } from 'src/app/content/pages/goals/goals.component';
-import { FullCalendarModule } from '@fullcalendar/angular';
-import dayGridPlugin from '@fullcalendar/daygrid';
-import timeGridPlugin from '@fullcalendar/timegrid';
-import listPlugin from '@fullcalendar/list';
-import interactionPlugin from '@fullcalendar/interaction';
+import { LoadingComponent } from '../../helpers/loading/loading.component';
+import { RelatedExpertsComponent } from 'src/app/content/pages/profile/related-experts/related-experts.component';
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http);
 }
-FullCalendarModule.registerPlugins([
-  dayGridPlugin,
-  timeGridPlugin,
-  listPlugin,
-  interactionPlugin,
-]);
 
 @NgModule({
   declarations: [
@@ -96,6 +87,8 @@ FullCalendarModule.registerPlugins([
     CustomFoodComponent,
     PieChartThreedComponent,
     CalendarComponent,
+    LoadingComponent,
+    RelatedExpertsComponent
   ],
   imports: [
     CommonModule,
@@ -111,9 +104,8 @@ FullCalendarModule.registerPlugins([
         deps: [HttpClient],
       },
     }),
-    FullCalendarModule,
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
-  providers: [EditEatingActivityService, CustomFoodService],
+  providers: [EditEatingActivityService, CustomFoodService]
 })
-export class PrivateModule {}
+export class PrivateModule { }

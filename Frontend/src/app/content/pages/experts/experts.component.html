@@ -1,14 +1,18 @@
-<br>
-<form #search="ngForm" style="margin-left: 3%;">
-    <span class="p-input-icon-left">
-        <i class="pi pi-search"></i>
-        <input type="text" pInputText placeholder="Search" (keyup)="keyup(search.value.searchText)" ngModel
-            name="searchText" />
-    </span>
-</form>
+<div [ngClass]="loaded ? 'loaded-content' : 'loading-content'">
+    <br>
+    <form #search="ngForm" style="margin-left: 3%;">
+        <span class="p-input-icon-left">
+            <i class="pi pi-search"></i>
+            <input type="text" pInputText placeholder="Search" (keyup)="keyup(search.value.searchText)" ngModel
+                name="searchText" />
+        </span>
+    </form>
 
-<div class="row" style="margin-left: 2%">
-    <div *ngFor="let expert of experts | expertFilter : searchText" class="col-md-4">
-        <app-expert-short-card [expert]="expert"></app-expert-short-card>
+    <div class="row" style="margin-left: 2%">
+        <div *ngFor="let expert of experts | expertFilter : searchText" class="col-md-4">
+            <app-expert-short-card [expert]="expert"></app-expert-short-card>
+        </div>
     </div>
 </div>
+
+<app-loading [ngClass]="loaded ? 'hidden-spinner' : 'display-spinner'"></app-loading>
