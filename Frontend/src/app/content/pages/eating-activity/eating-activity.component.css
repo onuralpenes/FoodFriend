@@ -11,6 +11,10 @@
   text-transform: uppercase;
   transition: transform 80ms ease-in;
 }
+.add-button:hover{
+    border: 1px solid #00ecb0;
+  background-color: #00d6a0;
+}
 
 .loading-content{
   display: none;
@@ -25,10 +29,6 @@
   display: none;
 }
 
-.add-button:hover{
-    border: 1px solid #00ecb0;
-  background-color: #00d6a0;
-}
 .tab{
    overflow: visible;
     margin-left: 5%;

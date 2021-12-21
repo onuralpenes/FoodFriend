@@ -1,0 +1,15 @@
+.modal-button {
+    width: auto;
+    align-items: center;
+    border-radius: 25px;
+    border: 1px solid #53ecbe;
+    background-color: #3ad6a7;
+    color: #fff;
+    font-weight: bold;
+    padding: 12px 45px;
+}
+
+.p-inputtext{
+    width: 100% !important;
+    height: 100% !important;
+}
