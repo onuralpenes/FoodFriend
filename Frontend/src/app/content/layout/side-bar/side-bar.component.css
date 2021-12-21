@@ -50,18 +50,7 @@ li:hover{
 .active{
   background-color: #03ac75;  
 }
-.button_pin{
-  border: 0px;
-  background-color: transparent;
-  float: right;
-  color:black;
-}
-.pin_icon_unpinned{
-  color: white;
-}
-.pin_icon_pinned{
-  color: black;
-}
+
 .logo{
   margin-top: 4px;
   width: 100%;
