@@ -19,13 +19,13 @@
         </div>
         <i class="fas fa-dumbbell fa-lg"></i>
         <ul class="nav">
-            <div *ngIf="includesProf || includesPatient || includesAdmin;">
+            <div *ngIf="includesProfes || includesPatient || includesAdmin;">
                 <li routerLinkActive='active'>
                     <a class="side-item" routerLink="/dashboard"><i class="fa fa-home fa-lg"
                             aria-hidden="true"></i>{{'menu.dashboard' | translate}}</a>
                 </li>
             </div>
-            <div *ngIf="includesProf || includesPatient || includesAdmin;">
+            <div *ngIf="includesProfes || includesPatient || includesAdmin;">
                 <li routerLinkActive='active'><a class="side-item" routerLink="/profile"><i class="fa fa-user fa-lg"
                             aria-hidden="true"></i>{{'menu.profile' | translate}}</a></li>
 
@@ -35,28 +35,28 @@
                 <li routerLinkActive='active'><a class="side-item" routerLink="/eating-activity"><i
                             class="fa fa-cutlery fa-lg" aria-hidden="true"></i>{{'menu.food' | translate}}</a></li>
             </div>
-            <div *ngIf="includesProf || includesPatient || includesAdmin;">
+            <div *ngIf="includesProfes || includesPatient || includesAdmin;">
 
                 <li routerLinkActive='active'><a class="side-item" routerLink="/activity-list"><i
                             class="fa fa-bicycle fa-lg" aria-hidden="true"></i>{{'menu.activity' | translate}}</a></li>
             </div>
-            <div *ngIf="includesProf;">
+            <div *ngIf="includesProfes; ">
 
                 <li routerLinkActive='active'><a class="side-item" routerLink="/patient-list"><i
                             class="fa fa-users fa-lg" aria-hidden="true"></i>{{'menu.patients' | translate}}</a></li>
             </div>
-            <div *ngIf="includesProf || includesPatient || includesAdmin;">
+            <div *ngIf="includesProfes || includesPatient || includesAdmin;">
 
                 <li routerLinkActive='active'><a class="side-item" routerLink="/food-list"><i class="fa fa-book fa-lg"
                             aria-hidden="true"></i>{{'menu.foodList' | translate}}</a></li>
             </div>
-            <div *ngIf="includesPatient || includesAdmin ;">
+            <div *ngIf="includesProfes || includesAdmin ;">
 
                 <li routerLinkActive='active'><a class="side-item" routerLink="/experts"><i
                             class="fa fa-address-card fa-lg" aria-hidden="true"></i>{{'menu.expert' | translate}}</a>
                 </li>
             </div>
-            <div *ngIf="includesProf || includesPatient || includesAdmin;">
+            <div *ngIf="includesProfes || includesPatient || includesAdmin;">
 
                 <li routerLinkActive='active'><a class="side-item" routerLink="/calendar"><i
                             class="fa fa-calendar fa-lg" aria-hidden="true"></i>{{'menu.calendar' | translate}}</a></li>
@@ -66,6 +66,12 @@
                 <li routerLinkActive='active'><a class="side-item" routerLink="/goals"><i class="fa fa-bullseye fa-lg"
                             aria-hidden="true"></i>{{'menu.goal' | translate}}</a></li>
             </div>
+            <div *ngIf="includesProfes">
+
+                <li routerLinkActive='active'><a class="side-item" routerLink="/patie"><i class="fa fa-bullseye fa-lg"
+                            aria-hidden="true"></i>{{'menu.goal' | translate}}</a></li>
+            </div>
+
         </ul>
         <div class="language">
             <img (click)="changeLang('tr')" class="lang-button" src="../../assets/tr.png">

@@ -2,6 +2,7 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { MessageService } from 'primeng/api';
 import { User } from 'src/app/models/user/user.model';
+import { AuthService } from 'src/app/services/auth.service';
 import { HttpEntityRepositoryService } from 'src/app/services/http-entity-repository.service';
 
 @Component({
@@ -20,14 +21,15 @@ export class PatientListComponent {
   activityInformation: boolean = false;
   loaded = false;
 
-  constructor(private router: Router, entityService: HttpEntityRepositoryService<User>, private messageService: MessageService) {
-    entityService.getAll("/User/GetAll").subscribe(data => {
+  constructor(private router: Router, entityService: HttpEntityRepositoryService<User>, private messageService: MessageService, private authService: AuthService) {
+    entityService.get("/User/GetAllAssignmentsPatientForProfessionnel?professionnelId=", this.authService.CurrentUserId).subscribe(data => {
 
       var Data: any = data;
       if (!Data.success) {
         this.messageService.add({ severity: 'error', summary: 'Error', detail: Data.message });
         return;
       }
+      console.log(data);
       this.loaded = true;
       this.usersWithFilter = Data.data;
       this.usersWithoutFilter = Data.data;

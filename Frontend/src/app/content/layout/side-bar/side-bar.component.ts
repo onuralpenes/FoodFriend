@@ -18,20 +18,26 @@ export class SideBarComponent {
   surname !: string;
   includesAdmin: boolean = false;
   includesPatient: boolean = false;
-  includesProf: boolean = false;
+  includesProfes: boolean = false;
   constructor(private privateLayout: PrivateLayoutComponent, private userRolesService: UserRolesService, authService: AuthService, entityService: HttpEntityRepositoryService<User>) {
     this.role = this.userRolesService.getRoles();
     for (let i = 0; i < this.role.length; i++) {
       if (this.role[i] == "Patient") {
+        
+        console.log("patient")
         this.includesPatient = true;
       }
-      if (this.role[i] == "Professionnel") {
-        this.includesProf = true;
+      if (this.role[i] == "Professional") {
+        console.log("prof")
+        this.includesProfes = true;
       }
       if (this.role[i] == "Admin") {
+        
+        console.log("admin")
         this.includesAdmin = true;
       }
     }
+
     entityService.get("/User/Get?userId=", authService.CurrentUserId).subscribe(data => {
       var Data: any = data;
       if (!Data.success) {
