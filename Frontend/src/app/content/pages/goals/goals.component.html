@@ -5,7 +5,6 @@
             <button class="add-button" (click)="createGoal()" type="button">{{'table.add' | translate}}</button>
         </div>
     </div>
-    <br>
     <div class="row" style="margin-left: 2%">
         <div *ngFor="let goal of goals" class="col-md-4">
             <app-goal-card [goal]="goal"></app-goal-card>
