@@ -18,7 +18,15 @@
     border: 1px solid #00ecb0;
   background-color: #00d6a0;
 }
+.icon-button{
+  padding: 5% !important;
+  margin: 2% !important
+}
 
+.icon-button:hover{
+  border: 1px solid #009879;
+  border-radius: 5px;
+}
 .loading-content{
   display: none;
 }

@@ -12,7 +12,9 @@ import { HttpEntityRepositoryService } from 'src/app/services/http-entity-reposi
 export class GoalsComponent {
     goals: Goal[] = [];
     addGoal: boolean = false;
+    collective: boolean = true;
     loaded = false;
+    index: number = 0;
 
     constructor(private entityService: HttpEntityRepositoryService<Goal>, messageService: MessageService, authService: AuthService) {
         this.entityService.get("/api/Goal/GetByUserId?userId=", authService.CurrentUserId).subscribe(data => {
@@ -27,5 +29,18 @@ export class GoalsComponent {
     }
     createGoal() {
         this.addGoal = true;
+    }
+
+    cardSwipe(value) {
+        if(value == "next"){
+            if(this.index + 1 != this.goals.length){
+                this.index++;
+            }
+        }
+        else{
+            if(this.index != 0){
+                this.index--;
+            }
+        }
     }
 }
