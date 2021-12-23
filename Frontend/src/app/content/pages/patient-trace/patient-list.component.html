@@ -42,11 +42,12 @@
         </tr>
       </ng-template>
 
-      <ng-template pTemplate="body" let-users>
+      <ng-template pTemplate="body" let-users let-expanded="expanded">
         <tr>
           <td>
             <button type="button" pButton pRipple [pRowToggler]="users"
-              class="p-button-text p-button-rounded p-button-plain" [icon]="'pi pi-chevron-down'"></button>
+              class="p-button-text p-button-rounded p-button-plain"
+              [icon]="expanded ? 'pi pi-chevron-down' : 'pi pi-chevron-right'"></button>
           </td>
           <td>{{users.firstName }}</td>
           <td>{{ users.lastName }}</td>
@@ -69,22 +70,20 @@
         </tr>
       </ng-template>
       <ng-template pTemplate="rowexpansion" let-users>
-            {{users.firstName }}
+        {{users.firstName }}
       </ng-template>
     </p-table>
   </div>
-
-  <p-dialog header="Nutrition Information" [(visible)]="nutritionInformation" [dismissableMask]="true"
-    [draggable]="false" [modal]="true" [appendTo]="'body'" [closeOnEscape]="true" [blockScroll]="true">
-    <app-patient-nutrition-table [id]="clickedUserId"></app-patient-nutrition-table>
-  </p-dialog>
-
-  <p-dialog header="Activity Information" [(visible)]="activityInformation" [dismissableMask]="true" [draggable]="false"
-    [modal]="true" [appendTo]="'body'" [closeOnEscape]="true" [blockScroll]="true">
-    <app-patient-activity-table [id]="clickedUserId"></app-patient-activity-table>
-  </p-dialog>
-
-
 </div>
+
+<p-dialog header="Nutrition Information" [(visible)]="nutritionInformation" [dismissableMask]="true" [draggable]="false"
+  [modal]="true" [appendTo]="'body'" [closeOnEscape]="true" [blockScroll]="true">
+  <app-patient-nutrition-table [id]="clickedUserId"></app-patient-nutrition-table>
+</p-dialog>
+
+<p-dialog header="Activity Information" [(visible)]="activityInformation" [dismissableMask]="true" [draggable]="false"
+  [modal]="true" [appendTo]="'body'" [closeOnEscape]="true" [blockScroll]="true">
+  <app-patient-activity-table [id]="clickedUserId"></app-patient-activity-table>
+</p-dialog>
 
 <app-loading [ngClass]="loaded ? 'hidden-spinner' : 'display-spinner'"></app-loading>
