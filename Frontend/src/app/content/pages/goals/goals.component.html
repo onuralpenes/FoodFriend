@@ -1,14 +1,38 @@
 <div [ngClass]="loaded ? 'loaded-content' : 'loading-content'">
     <div class="row">
-        <div class="col-md-10"></div>
+        <div class="col-md-1"></div>
+        <div class="col-md-1">
+            <br>
+            <i class="pi pi-table icon-button" (click)="collective = true"></i>
+            <i class="pi pi-ellipsis-h icon-button" (click)="collective = false"></i>
+        </div>
+        <div class="col-md-8"></div>
         <div class="col-md-1">
             <button class="add-button" (click)="createGoal()" type="button">{{'table.add' | translate}}</button>
         </div>
     </div>
-    <br>
-    <div class="row" style="margin-left: 2%">
+    <div class="row" style="margin-left: 2%" *ngIf="collective">
         <div *ngFor="let goal of goals" class="col-md-4">
             <app-goal-card [goal]="goal"></app-goal-card>
+        </div>
+    </div>
+
+    <div *ngIf="!collective">
+        <div class="row">
+            <div class="col-md-1"></div>
+            <div class="col-md-10">
+                <app-goal-card [goal]="goals[index]"></app-goal-card>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-2"></div>
+            <div class="col-md-1">
+                <button (click)='cardSwipe("prev")' class="add-button">PREV</button>
+            </div>
+            <div class="col-md-6"></div>
+            <div class="col-md-1">
+                <button (click)='cardSwipe("next")' class="add-button">NEXT</button>
+            </div>
         </div>
     </div>
 </div>

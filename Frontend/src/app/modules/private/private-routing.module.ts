@@ -33,12 +33,12 @@ const routes: Routes = [
             {
                 path: 'eating-activity', component: EatingActivityComponent,
                 canActivate: [RoleGuardService],
-                data: { roles: [Roles.Patient] }
+                data: { roles: [Roles.Admin, Roles.Patient] }
             },
             {
                 path: 'activity-list', component: ActivityListComponent,
                 canActivate: [RoleGuardService],
-                data: { roles: [Roles.Professional, Roles.Admin, Roles.Patient] }
+                data: { roles: [Roles.Admin, Roles.Patient] }
             },
             {
                 path: 'patient-list', component: PatientListComponent,
@@ -53,7 +53,7 @@ const routes: Routes = [
             {
                 path: 'patient-profile/:id', component: PatientProfileComponent,
                 canActivate: [RoleGuardService],
-                data: { roles: [Roles.Professional, Roles.Patient, Roles.Admin] }
+                data: { roles: [Roles.Professional, Roles.Admin] }
             },
             {
                 path: 'food-list', component: FoodListComponent,

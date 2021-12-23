@@ -1,38 +1,42 @@
-<p-card [style]="{width: '100%',height: 'auto', background: 'linear-gradient(#00db93, #00b97d)'}"
-    styleClass="p-card-shadow">
-    <ng-template pTemplate="header">
-        <h1>{{'goal.goalId' | translate}}: {{goal.goalId}}</h1>
-    </ng-template>
-    <div class="row">
-        <div class="col-md-6">
-            <p>{{'goal.calIntake' | translate}}: {{goal.dailyCaloriIntake}}</p>
+<br>
+<div class="row">
+    <p-card [style]="{width: '100%',height: 'auto', background: 'linear-gradient(#00db93, #00b97d)'}"
+        styleClass="p-card-shadow">
+        <ng-template pTemplate="header">
+            <h1>{{'goal.goalId' | translate}}: {{goal.goalId}}</h1>
+        </ng-template>
+        <div class="row">
+            <div class="col-md-6">
+                <p>{{'goal.calIntake' | translate}}: {{goal.dailyCaloriIntake}}</p>
+            </div>
+            <div class="col-md-6">
+                <p>{{'goal.calEx' | translate}}: {{goal.dailyCaloriExpenditure}}</p>
+            </div>
         </div>
-        <div class="col-md-6">
-            <p>{{'goal.calEx' | translate}}: {{goal.dailyCaloriExpenditure}}</p>
+        <br>
+        <div class="row">
+            <div class="col-md-4">
+                <p>{{'goal.carboIntake' | translate}}: {{goal.dailyCarbohydrateIntake}}
+            </div>
+            <div class="col-md-4">
+                <p>{{'goal.protIntake' | translate}}: {{goal.dailyProteinIntake}}
+            </div>
+            <div class="col-md-4">
+                <p>{{'goal.oilIntake' | translate}}: {{goal.dailyOilIntake}}
+            </div>
         </div>
-    </div>
-    <br>
-    <div class="row">
-        <div class="col-md-4">
-            <p>{{'goal.carboIntake' | translate}}: {{goal.dailyCarbohydrateIntake}}
+        <br>
+        <div class="row">
+            <div class="col-md-6">
+                <p>{{'goal.targetStep' | translate}}: {{goal.dailyTargetStep}}
+            </div>
+            <div class="col-md-6">
+                <p>{{'goal.targetWeight' | translate}}: {{goal.targetWeight}}
+            </div>
         </div>
-        <div class="col-md-4">
-            <p>{{'goal.protIntake' | translate}}: {{goal.dailyProteinIntake}}
-        </div>
-        <div class="col-md-4">
-            <p>{{'goal.oilIntake' | translate}}: {{goal.dailyOilIntake}}
-        </div>
-    </div>
-    <br>
-    <div class="row">
-        <div class="col-md-6">
-            <p>{{'goal.targetStep' | translate}}: {{goal.dailyTargetStep}}
-        </div>
-        <div class="col-md-6">
-            <p>{{'goal.targetWeight' | translate}}: {{goal.targetWeight}}
-        </div>
-    </div>
-    <ng-template pTemplate="footer">
-        <p>Target Date: {{goal.targetDate | date: "dd/MM/yyyy" }}</p>
-    </ng-template>
-</p-card>
+        <ng-template pTemplate="footer">
+            <p>Target Date: {{goal.targetDate | date: "dd/MM/yyyy" }}</p>
+        </ng-template>
+    </p-card>
+    <div class="col-md-1"></div>
+</div>
