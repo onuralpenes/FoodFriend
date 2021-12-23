@@ -1,83 +1,89 @@
-
-
-<div [ngClass]="loaded ? 'loaded-content' : 'loading-content'" >
-<div class="row">
-  <div style="margin-left: 5%">
-    <br>
-    <form #search="ngForm">
-      <span class="p-input-icon-left">
-        <i class="pi pi-search"></i>
-        <input type="text" pInputText placeholder="Search" (keyup)="keyup(search.value.searchText)" ngModel
-          name="searchText" />
-      </span>
-    </form>
+<div [ngClass]="loaded ? 'loaded-content' : 'loading-content'">
+  <div class="row">
+    <div style="margin-left: 5%">
+      <br>
+      <form #search="ngForm">
+        <span class="p-input-icon-left">
+          <i class="pi pi-search"></i>
+          <input type="text" pInputText placeholder="Search" (keyup)="keyup(search.value.searchText)" ngModel
+            name="searchText" />
+        </span>
+      </form>
+    </div>
   </div>
-</div>
 
-<br>
+  <br>
 
-<div class="row tab">
-  <div class="p-mb-3">
-    <p-button type="button" icon="pi pi-chevron-left" (click)="prev()" [disabled]="isFirstPage()"
-      styleClass="p-button-text"></p-button>
-    <p-button type="button" icon="pi pi-refresh" (click)="reset()" styleClass="p-button-text"></p-button>
-    <p-button type="button" icon="pi pi-chevron-right" (click)="next()" [disabled]="isLastPage()"
-      styleClass="p-button-text"></p-button>
+  <div class="row tab">
+    <div class="p-mb-3">
+      <p-button type="button" icon="pi pi-chevron-left" (click)="prev()" [disabled]="isFirstPage()"
+        styleClass="p-button-text"></p-button>
+      <p-button type="button" icon="pi pi-refresh" (click)="reset()" styleClass="p-button-text"></p-button>
+      <p-button type="button" icon="pi pi-chevron-right" (click)="next()" [disabled]="isLastPage()"
+        styleClass="p-button-text"></p-button>
+    </div>
+    <p-table [value]="usersWithoutFilter | userFilter : searchText" [paginator]="true" [rows]="rows"
+      [showCurrentPageReport]="true" [(first)]="first"
+      currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries" [rowsPerPageOptions]="[10,25,50]">
+      <ng-template pTemplate="header">
+        <tr>
+          <th pSortableColumn="firstName">{{'label.name' | translate}} <p-sortIcon field="firstName"></p-sortIcon>
+          </th>
+          <th pSortableColumn="lastName">{{'label.surname' | translate}} <p-sortIcon field="lastName">
+            </p-sortIcon>
+          </th>
+          <th pSortableColumn="birthDate">{{'label.birthdate' | translate}} <p-sortIcon field="birthDate">
+            </p-sortIcon>
+          </th>
+          <th>{{'table.target' | translate}}</th>
+          <th>{{'table.nutriInfo' | translate}}</th>
+          <th>{{'table.actiInfo' | translate}}</th>
+        </tr>
+      </ng-template>
+
+      <ng-template pTemplate="body" let-users>
+        <tr>
+          <td>
+            <button type="button" pButton pRipple [pRowToggler]="users"
+              class="p-button-text p-button-rounded p-button-plain" [icon]="'pi pi-chevron-down'"></button>
+          </td>
+          <td>{{users.firstName }}</td>
+          <td>{{ users.lastName }}</td>
+          <td>{{ users.birthDate | date: "dd/MM/yyyy" }}</td>
+          <td>
+            <button class="tab-button" (click)="openTarget(users.userId)">
+              <i class="fa fa-line-chart fa-lg"></i>
+            </button>
+          </td>
+          <td>
+            <button class="tab-button" (click)="openFood(users.userId)">
+              <i class="fa fa-cutlery fa-lg"></i>
+            </button>
+          </td>
+          <td>
+            <button class="tab-button" (click)="openActivity(users.userId)">
+              <i class="fa fa-bicycle fa-lg"></i>
+            </button>
+          </td>
+        </tr>
+      </ng-template>
+      <ng-template pTemplate="rowexpansion" let-users>
+            {{users.firstName }}
+      </ng-template>
+    </p-table>
   </div>
-  <p-table [value]="usersWithoutFilter | userFilter : searchText" [paginator]="true" [rows]="rows"
-    [showCurrentPageReport]="true" [(first)]="first"
-    currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries" [rowsPerPageOptions]="[10,25,50]">
-    <ng-template pTemplate="header">
-      <tr>
-        <th pSortableColumn="firstName">{{'label.name' | translate}} <p-sortIcon field="firstName"></p-sortIcon>
-        </th>
-        <th pSortableColumn="lastName">{{'label.surname' | translate}} <p-sortIcon field="lastName">
-          </p-sortIcon>
-        </th>
-        <th pSortableColumn="birthDate">{{'label.birthdate' | translate}} <p-sortIcon field="birthDate">
-          </p-sortIcon>
-        </th>
-        <th>{{'table.target' | translate}}</th>
-        <th>{{'table.nutriInfo' | translate}}</th>
-        <th>{{'table.actiInfo' | translate}}</th>
-      </tr>
-    </ng-template>
-    <ng-template pTemplate="body" let-users>
-      <tr>
-        <td>{{users.firstName }}</td>
-        <td>{{ users.lastName }}</td>
-        <td>{{ users.birthDate | date: "dd/MM/yyyy" }}</td>
-        <td>
-          <button class="tab-button" (click)="openTarget(users.userId)">
-            <i class="fa fa-line-chart fa-lg"></i>
-          </button>
-        </td>
-        <td>
-          <button class="tab-button" (click)="openFood(users.userId)">
-            <i class="fa fa-cutlery fa-lg"></i>
-          </button>
-        </td>
-        <td>
-          <button class="tab-button" (click)="openActivity(users.userId)">
-            <i class="fa fa-bicycle fa-lg"></i>
-          </button>
-        </td>
-      </tr>
-    </ng-template>
-  </p-table>
-</div>
 
-<p-dialog header="Nutrition Information" [(visible)]="nutritionInformation" [dismissableMask]="true" [draggable]="false"
-  [modal]="true" [appendTo]="'body'" [closeOnEscape]="true" [blockScroll]="true">
-  <app-patient-nutrition-table [id]="clickedUserId"></app-patient-nutrition-table>
-</p-dialog>
+  <p-dialog header="Nutrition Information" [(visible)]="nutritionInformation" [dismissableMask]="true"
+    [draggable]="false" [modal]="true" [appendTo]="'body'" [closeOnEscape]="true" [blockScroll]="true">
+    <app-patient-nutrition-table [id]="clickedUserId"></app-patient-nutrition-table>
+  </p-dialog>
 
-<p-dialog header="Activity Information" [(visible)]="activityInformation" [dismissableMask]="true" [draggable]="false"
-  [modal]="true" [appendTo]="'body'" [closeOnEscape]="true" [blockScroll]="true">
-  <app-patient-activity-table [id]="clickedUserId"></app-patient-activity-table>
-</p-dialog>
+  <p-dialog header="Activity Information" [(visible)]="activityInformation" [dismissableMask]="true" [draggable]="false"
+    [modal]="true" [appendTo]="'body'" [closeOnEscape]="true" [blockScroll]="true">
+    <app-patient-activity-table [id]="clickedUserId"></app-patient-activity-table>
+  </p-dialog>
 
 
 </div>
-  
-<app-loading [ngClass]="loaded ? 'hidden-spinner' : 'display-spinner'"  ></app-loading>
+
+<app-loading [ngClass]="loaded ? 'hidden-spinner' : 'display-spinner'"></app-loading>
