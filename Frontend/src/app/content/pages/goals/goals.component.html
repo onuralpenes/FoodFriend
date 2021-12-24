@@ -3,8 +3,8 @@
         <div class="col-md-1"></div>
         <div class="col-md-1">
             <br>
-            <i class="pi pi-table icon-button" (click) = "collective = true"></i>
-                <i class="pi pi-ellipsis-h icon-button" (click) = "collective = false"></i>
+            <i class="pi pi-table icon-button" (click)="collective = true"></i>
+            <i class="pi pi-ellipsis-h icon-button" (click)="collective = false"></i>
         </div>
         <div class="col-md-8"></div>
         <div class="col-md-1">
@@ -18,7 +18,12 @@
     </div>
 
     <div *ngIf="!collective">
-        <app-goal-card [goal]="goals[index]"></app-goal-card>
+        <div class="row">
+            <div class="col-md-1"></div>
+            <div class="col-md-10">
+                <app-goal-card [goal]="goals[index]"></app-goal-card>
+            </div>
+        </div>
         <div class="row">
             <div class="col-md-2"></div>
             <div class="col-md-1">

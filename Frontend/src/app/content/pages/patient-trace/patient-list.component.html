@@ -23,10 +23,11 @@
         styleClass="p-button-text"></p-button>
     </div>
     <p-table [value]="usersWithoutFilter | userFilter : searchText" [paginator]="true" [rows]="rows"
-      [showCurrentPageReport]="true" [(first)]="first"
+      [showCurrentPageReport]="true" [(first)]="first" dataKey="userId"
       currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries" [rowsPerPageOptions]="[10,25,50]">
       <ng-template pTemplate="header">
         <tr>
+          <th></th>
           <th pSortableColumn="firstName">{{'label.name' | translate}} <p-sortIcon field="firstName"></p-sortIcon>
           </th>
           <th pSortableColumn="lastName">{{'label.surname' | translate}} <p-sortIcon field="lastName">
@@ -35,17 +36,18 @@
           <th pSortableColumn="birthDate">{{'label.birthdate' | translate}} <p-sortIcon field="birthDate">
             </p-sortIcon>
           </th>
-          <th>{{'table.target' | translate}}</th>
+          <th>{{'table.goal' | translate}}</th>
           <th>{{'table.nutriInfo' | translate}}</th>
           <th>{{'table.actiInfo' | translate}}</th>
         </tr>
       </ng-template>
 
-      <ng-template pTemplate="body" let-users>
+      <ng-template pTemplate="body" let-users let-expanded="expanded">
         <tr>
           <td>
             <button type="button" pButton pRipple [pRowToggler]="users"
-              class="p-button-text p-button-rounded p-button-plain" [icon]="'pi pi-chevron-down'"></button>
+              class="p-button-text p-button-rounded p-button-plain"
+              [icon]="expanded ? 'pi pi-chevron-down' : 'pi pi-chevron-right'"></button>
           </td>
           <td>{{users.firstName }}</td>
           <td>{{ users.lastName }}</td>
@@ -68,22 +70,20 @@
         </tr>
       </ng-template>
       <ng-template pTemplate="rowexpansion" let-users>
-            {{users.firstName }}
+        {{users.firstName }}
       </ng-template>
     </p-table>
   </div>
-
-  <p-dialog header="Nutrition Information" [(visible)]="nutritionInformation" [dismissableMask]="true"
-    [draggable]="false" [modal]="true" [appendTo]="'body'" [closeOnEscape]="true" [blockScroll]="true">
-    <app-patient-nutrition-table [id]="clickedUserId"></app-patient-nutrition-table>
-  </p-dialog>
-
-  <p-dialog header="Activity Information" [(visible)]="activityInformation" [dismissableMask]="true" [draggable]="false"
-    [modal]="true" [appendTo]="'body'" [closeOnEscape]="true" [blockScroll]="true">
-    <app-patient-activity-table [id]="clickedUserId"></app-patient-activity-table>
-  </p-dialog>
-
-
 </div>
+
+<p-dialog header="Nutrition Information" [(visible)]="nutritionInformation" [dismissableMask]="true" [draggable]="false"
+  [modal]="true" [appendTo]="'body'" [closeOnEscape]="true" [blockScroll]="true">
+  <app-patient-nutrition-table [id]="clickedUserId"></app-patient-nutrition-table>
+</p-dialog>
+
+<p-dialog header="Activity Information" [(visible)]="activityInformation" [dismissableMask]="true" [draggable]="false"
+  [modal]="true" [appendTo]="'body'" [closeOnEscape]="true" [blockScroll]="true">
+  <app-patient-activity-table [id]="clickedUserId"></app-patient-activity-table>
+</p-dialog>
 
 <app-loading [ngClass]="loaded ? 'hidden-spinner' : 'display-spinner'"></app-loading>

@@ -32,13 +32,13 @@ export class GoalsComponent {
     }
 
     cardSwipe(value) {
-        if(value == "next"){
-            if(this.index + 1 != this.goals.length){
+        if (value == "next") {
+            if (this.index + 1 != this.goals.length) {
                 this.index++;
             }
         }
-        else{
-            if(this.index != 0){
+        else {
+            if (this.index != 0) {
                 this.index--;
             }
         }
