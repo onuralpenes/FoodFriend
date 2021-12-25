@@ -1,7 +1,7 @@
 import { Component } from "@angular/core";
 import { FormBuilder, FormControl, FormGroup, Validators } from "@angular/forms";
 import { ConfirmationService, MessageService } from "primeng/api";
-import { Goal } from "src/app/models/data/goal.model";
+import { GoalType, AddGoal } from "src/app/models/data/goal.model";
 import { AuthService } from "src/app/services/auth.service";
 import { HttpEntityRepositoryService } from "src/app/services/http-entity-repository.service";
 
@@ -14,16 +14,22 @@ export class CreateGoalComponent {
 
   public goalForm: FormGroup;
 
-  constructor(private formBuilder: FormBuilder, private authService: AuthService, private entityService: HttpEntityRepositoryService<Goal>, private messageService: MessageService, private confirmationService: ConfirmationService) {
+  goals: GoalType[] = [];
+
+  constructor(private formBuilder: FormBuilder, private authService: AuthService, private entityService: HttpEntityRepositoryService<GoalType>, private messageService: MessageService, private confirmationService: ConfirmationService) {
+    entityService.getAll("/api/GoalType/GetAll").subscribe(data => {
+      var Data: any = data;
+      if (!Data.success) {
+        this.messageService.add({ severity: 'error', summary: 'Error', detail: Data.message });
+        return;
+      }
+      console.log(Data.data);
+      this.goals = Data.data;
+    });
+
     this.goalForm = this.formBuilder.group({
-      'dailyCaloriIntake': new FormControl(''),
-      'dailyCarbohydrateIntake': new FormControl(''),
-      'dailyProteinIntake': new FormControl(''),
-      'dailyOilIntake': new FormControl(''),
-      'dailyTargetStep': new FormControl(''),
-      'targetWeight': new FormControl(''),
-      'dailyCaloriExpenditure': new FormControl(''),
-      'targetDate': new FormControl('', [Validators.required])
+      'goalType': new FormControl('', [Validators.required]),
+      'value': new FormControl('', [Validators.required])
     });
   }
 
@@ -33,18 +39,11 @@ export class CreateGoalComponent {
       header: 'Confirmation',
       icon: 'pi pi-exclamation-triangle',
       accept: () => {
-        let goal: Goal = {
-          goalId: 0,
+        let goal: AddGoal = {
+          goalUserId: 0,
+          goalTypeId: this.goalForm.value.goalType.goalTypeId,
           userId: this.authService.CurrentUserId,
-          professionnelId: 0,
-          dailyCaloriIntake: this.goalForm.value.dailyCaloriIntake,
-          dailyCarbohydrateIntake: this.goalForm.value.dailyCarbohydrateIntake,
-          dailyProteinIntake: this.goalForm.value.dailyProteinIntake,
-          dailyOilIntake: this.goalForm.value.dailyOilIntake,
-          dailyTargetStep: this.goalForm.value.dailyTargetStep,
-          targetWeight: this.goalForm.value.targetWeight,
-          dailyCaloriExpenditure: this.goalForm.value.dailyCaloriExpenditure,
-          targetDate: this.goalForm.value.targetDate
+          value: this.goalForm.value.value
         }
         this.entityService.insert("/api/Goal/Add", goal).subscribe(data => {
           this.messageService.add({ severity: 'success', summary: 'Success', detail: 'The goal was added successfully.' });

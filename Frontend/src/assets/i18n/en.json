@@ -39,7 +39,8 @@
     "select": "Select Any",
     "smoking": "Smoking",
     "alcohol": "Alcohol",
-    "submit": "Submit"
+    "submit": "Submit",
+    "value": "Value"
   },
   "forget": {
     "title": "Forget your Password?",
@@ -141,14 +142,7 @@
     "weekly": "Your Weekly Eating Activities"
   },
   "goal": {
-    "goalId": "Goal Id",
-    "calIntake": "Daily Calorie Intake",
-    "carboIntake": "Daily Carbohydrate Intake",
-    "protIntake": "Daily Protein Intake",
-    "oilIntake": "Daily Oil Intake",
-    "targetStep": "Daily Target Step",
-    "targetWeight": "Target Weight",
-    "calEx": "Daily Calorie Expenditure",
-    "targetDate": "Target Date"
+    "goalName": "Goal Name",
+    "goal": "Goal"
   }
 }
