@@ -1,13 +1,21 @@
-export interface Goal {
-    goalId: number;
+export interface AddGoal {
+    goalUserId: number;
+    goalTypeId: number;
     userId: number;
-    professionnelId: number;
-    dailyCaloriIntake: number;
-    dailyCarbohydrateIntake: number;
-    dailyProteinIntake: number;
-    dailyOilIntake: number;
-    dailyTargetStep: number;
-    targetWeight: number;
-    dailyCaloriExpenditure: number;
-    targetDate: Date;
+    value: number;
+}
+
+export interface GetGoal {
+    goalUserId: number;
+    goalTypeId: number;
+    userId: number;
+    value: number;
+    name: string;
+    measurement: string;
+}
+
+export interface GoalType {
+    goalTypeId: number;
+    name: string;
+    measurement: string;
 }

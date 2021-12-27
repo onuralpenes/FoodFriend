@@ -39,7 +39,8 @@
     "select": "Seçiniz",
     "smoking": "Sigara",
     "alcohol": "Alkol",
-    "submit": "Onayla"
+    "submit": "Onayla",
+    "value": "Değer"
   },
   "forget": {
     "title": "Şifreni mi unuttun?",
@@ -141,14 +142,7 @@
     "weekly": "Haftalık Yeme Aktivitelerin"
   },
   "goal": {
-    "goalId": "Hedef Id'si",
-    "calIntake": "Günlük Kalori Alımı",
-    "carboIntake": "Günlük Karbonhidrat Alımı",
-    "protIntake": "Günlük Protein Alımı",
-    "oilIntake": "Günlük Yağ Alımı",
-    "targetStep": "Günlük Adım Hedefi",
-    "targetWeight": "Hedef Kilo",
-    "calEx": "Günlük Kalori Tüketimi",
-    "targetDate": "Hedef Tarihi"
+    "goalName": "Hedef Adı",
+    "goal": "Hedef"
   }
 }
