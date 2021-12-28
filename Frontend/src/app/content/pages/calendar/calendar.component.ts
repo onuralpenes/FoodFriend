@@ -76,6 +76,7 @@ export class CalendarComponent {
       }
       this.loaded = true;
       this.handleCalendarToggle();
+      console.log(initalsEvents);
       return initalsEvents;
     });
     return initalsEvents;

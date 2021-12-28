@@ -14,13 +14,7 @@ import { Schedule } from 'src/app/models/data/schedule.model';
 export class AddEventComponent {
   calendarForm!: FormGroup;
   multiple: boolean = false;
-  constructor(
-    formBuilder: FormBuilder,
-    private calendar: CalendarComponent,
-    private entityService: HttpEntityRepositoryService<Schedule>,
-    private messageService: MessageService,
-    private authService: AuthService
-  ) {
+  constructor(formBuilder: FormBuilder, private calendar: CalendarComponent, private entityService: HttpEntityRepositoryService<Schedule>, private messageService: MessageService, private authService: AuthService) {
 
     this.calendarForm = formBuilder.group({
       title: new FormControl('', [Validators.required]),
@@ -36,7 +30,7 @@ export class AddEventComponent {
         start: this.calendarForm.value.startDate,
         end: this.calendarForm.value.endDate
       });
-      if (this.calendarForm.value.end != null) {
+      if (this.calendarForm.value.endDate != '') {
         let event: Schedule = {
           scheduleId: 0,
           userId: this.authService.CurrentUserId,
@@ -44,15 +38,13 @@ export class AddEventComponent {
           startDate: this.calendarForm.value.startDate,
           endDate: this.calendarForm.value.endDate
         }
+        console.log("123");
         this.entityService.insert("/api/Schedule/Add", event).subscribe(data => {
-          var post: any = data;
-          if (!post.success) {
-            this.messageService.add({ severity: 'error', summary: 'Error', detail: post.message });
-            return;
-          }
-        });
+          this.messageService.add({ severity: 'success', summary: 'Success', detail: "Event Successfuly added." });
+          return;
+        }, err =>
+          this.messageService.add({ severity: 'error', summary: 'Error', detail: "Event cannot added" }));
       }
-
       else {
         let event: Schedule = {
           scheduleId: 0,
@@ -62,12 +54,10 @@ export class AddEventComponent {
           endDate: this.calendarForm.value.startDate
         }
         this.entityService.insert("/api/Schedule/Add", event).subscribe(data => {
-          var post: any = data;
-          if (!post.success) {
-            this.messageService.add({ severity: 'error', summary: 'Error', detail: post.message });
-            return;
-          }
-        });
+          this.messageService.add({ severity: 'success', summary: 'Success', detail: "Event Successfuly added." });
+          return;
+        }, err =>
+          this.messageService.add({ severity: 'error', summary: 'Error', detail: "Event cannot added" }));
       }
     }
   }
