@@ -52,6 +52,8 @@ import timeGridPlugin from '@fullcalendar/timegrid';
 import listPlugin from '@fullcalendar/list';
 import interactionPlugin from '@fullcalendar/interaction';
 import { AddEventComponent } from 'src/app/content/pages/calendar/add-event/add-event.component';
+import { EditEventComponent } from 'src/app/content/pages/calendar/edit-event/edit-event.component';
+import { EditEventService } from 'src/app/helpers/edit-event.service';
 
 FullCalendarModule.registerPlugins([
   dayGridPlugin,
@@ -102,7 +104,8 @@ export function HttpLoaderFactory(http: HttpClient) {
     CalendarComponent,
     LoadingComponent,
     RelatedExpertsComponent,
-    AddEventComponent
+    AddEventComponent,
+    EditEventComponent,
   ],
   imports: [
     CommonModule,
@@ -121,6 +124,6 @@ export function HttpLoaderFactory(http: HttpClient) {
     FullCalendarModule
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
-  providers: [EditEatingActivityService, CustomFoodService]
+  providers: [EditEatingActivityService, CustomFoodService, EditEventService]
 })
 export class PrivateModule { }

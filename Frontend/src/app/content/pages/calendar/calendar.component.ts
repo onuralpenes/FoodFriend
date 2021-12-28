@@ -4,6 +4,8 @@ import { ConfirmationService, MessageService } from 'primeng/api';
 import { HttpEntityRepositoryService } from 'src/app/services/http-entity-repository.service';
 import { AuthService } from 'src/app/services/auth.service';
 import { Schedule } from 'src/app/models/data/schedule.model';
+import { FormBuilder, FormGroup } from '@angular/forms';
+import { EditEventService } from 'src/app/helpers/edit-event.service';
 
 @Component({
   selector: 'app-calendar',
@@ -11,9 +13,12 @@ import { Schedule } from 'src/app/models/data/schedule.model';
   styleUrls: ['./calendar.component.css'],
 })
 export class CalendarComponent {
+  eventForm!: FormGroup;
+  editEventForm!: FormGroup;
   addEvent = false;
   eventDetails = false;
   loaded = false;
+  updateEventBool = false;
   currentEvents: EventApi[] = [];
   calendarVisible = false;
   calendarOptions: CalendarOptions = {
@@ -55,7 +60,7 @@ export class CalendarComponent {
     this.addEvent = true;
   }
 
-  constructor(private confirmationService: ConfirmationService, private entityService: HttpEntityRepositoryService<Schedule>, private messageService: MessageService, private authService: AuthService) { }
+  constructor(private confirmationService: ConfirmationService,  private formBuilder: FormBuilder,  private editEventService: EditEventService, private entityService: HttpEntityRepositoryService<Schedule>, private messageService: MessageService, private authService: AuthService) { }
 
   getInitalsEvents() {
     let initalsEvents: EventInput[] = [];
@@ -88,6 +93,17 @@ export class CalendarComponent {
   }
 
   clickInfo;
+
+  updateEvent() {
+    let editEventTemp = {
+      id: this.clickInfo.event.id,
+      title: this.clickInfo.event.title,
+      start:  this.clickInfo.event.start,
+      end:  this.clickInfo.event.end,
+    };
+    this.editEventService.setEventInfo(editEventTemp);
+    this.updateEventBool = true;
+  }
 
   deleteEvent(){
     this.confirmationService.confirm({

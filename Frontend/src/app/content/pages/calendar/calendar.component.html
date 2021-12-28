@@ -6,6 +6,7 @@
   </div>
 </div>
 
+
 <p-dialog header="Add Event" [(visible)]="addEvent" [dismissableMask]="true" [draggable]="false" [modal]="true"
   [appendTo]="'body'" [closeOnEscape]="true" [blockScroll]="true" [style]="{width: '25%'}">
   <app-add-event></app-add-event>
@@ -13,8 +14,19 @@
 
 <p-dialog header="Event Details" [(visible)]="eventDetails" [dismissableMask]="true" [draggable]="false" [modal]="true"
   [appendTo]="'body'" [closeOnEscape]="true" [blockScroll]="true" [style]="{width: '25%'}">
-  nanananaa desc desc nanananaana desc desc desc
-  <button (click) = deleteEvent()> DELETE</button>
+  Seçtiğiniz event hakkında ne yapmak istersiniz?
+  <br>
+  <button class="submitButton" (click) = deleteEvent()> DELETE</button>
+
+  <button class="submitButton" (click) = updateEvent()> UPDATE</button>
 </p-dialog>
+
+<p-dialog header="Edit Event" [(visible)]="updateEventBool" [dismissableMask]="true"
+    [draggable]="false" [modal]="true" [appendTo]="'body'" [closeOnEscape]="true" [blockScroll]="true"
+    [baseZIndex]="-100" [style]="{ width: '50vw' }">
+    <app-edit-event></app-edit-event>
+  </p-dialog>
+
+
 
 <app-loading [ngClass]="loaded ? 'hidden-spinner' : 'display-spinner'"></app-loading>

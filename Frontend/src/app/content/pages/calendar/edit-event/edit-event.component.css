@@ -1,0 +1,45 @@
+
+.modal-container{
+  width: auto;
+  height: auto;
+}
+
+form{
+  padding-top: 5%;
+}
+
+.space-bottom{
+  height: 10px;
+
+}
+.space-middle{
+  width: 1%;
+}
+
+p{
+  margin-top: -1.00em;
+  margin-bottom: -0.75em;
+}
+
+.modal-button {
+  width: auto;
+  margin: 0 auto;
+  border-radius: 25px;
+  border: 1px solid #53ecbe;
+  background-color: #3ad6a7;
+  color: #fff;
+  font-size: 12px;
+  font-weight: bold;
+  padding: 12px 45px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  transition: transform 80ms ease-in;
+}
+
+.p-inputtext{
+width: 100% !important;
+}
+
+:host ::ng-deep .p-dropdown {
+width: 100%;
+}
