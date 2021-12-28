@@ -51,6 +51,7 @@ import dayGridPlugin from '@fullcalendar/daygrid';
 import timeGridPlugin from '@fullcalendar/timegrid';
 import listPlugin from '@fullcalendar/list';
 import interactionPlugin from '@fullcalendar/interaction';
+import { AddEventComponent } from 'src/app/content/pages/calendar/add-event/add-event.component';
 
 FullCalendarModule.registerPlugins([
   dayGridPlugin,
@@ -100,7 +101,8 @@ export function HttpLoaderFactory(http: HttpClient) {
     PieChartThreedComponent,
     CalendarComponent,
     LoadingComponent,
-    RelatedExpertsComponent
+    RelatedExpertsComponent,
+    AddEventComponent
   ],
   imports: [
     CommonModule,

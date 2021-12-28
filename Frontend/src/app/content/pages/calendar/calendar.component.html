@@ -3,3 +3,8 @@
     <full-calendar *ngIf="calendarVisible" [options]="calendarOptions"></full-calendar>
   </div>
 </div>
+
+<p-dialog header="Add Event" [(visible)]="addEvent" [dismissableMask]="true" [draggable]="false"
+  [modal]="true" [appendTo]="'body'" [closeOnEscape]="true" [blockScroll]="true" [style]="{width: '25%'}">
+  <app-add-event></app-add-event>
+</p-dialog>
