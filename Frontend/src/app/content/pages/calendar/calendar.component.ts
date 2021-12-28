@@ -60,7 +60,7 @@ export class CalendarComponent {
     this.addEvent = true;
   }
 
-  constructor(private confirmationService: ConfirmationService,  private formBuilder: FormBuilder,  private editEventService: EditEventService, private entityService: HttpEntityRepositoryService<Schedule>, private messageService: MessageService, private authService: AuthService) { }
+  constructor(private confirmationService: ConfirmationService, private formBuilder: FormBuilder, private editEventService: EditEventService, private entityService: HttpEntityRepositoryService<Schedule>, private messageService: MessageService, private authService: AuthService) { }
 
   getInitalsEvents() {
     let initalsEvents: EventInput[] = [];
@@ -98,14 +98,14 @@ export class CalendarComponent {
     let editEventTemp = {
       id: this.clickInfo.event.id,
       title: this.clickInfo.event.title,
-      start:  this.clickInfo.event.start,
-      end:  this.clickInfo.event.end,
+      start: this.clickInfo.event.start,
+      end: this.clickInfo.event.end,
     };
     this.editEventService.setEventInfo(editEventTemp);
     this.updateEventBool = true;
   }
 
-  deleteEvent(){
+  deleteEvent() {
     this.confirmationService.confirm({
       message:
         'Are you sure, you want to remove a event: ' + this.clickInfo.event.title,

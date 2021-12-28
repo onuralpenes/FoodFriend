@@ -1,22 +1,22 @@
 <div class="container">
-  <form [formGroup]="editEventForm" (ngSubmit)="onSubmit()" class="form">
+    <form [formGroup]="editEventForm" (ngSubmit)="onSubmit()" class="form">
 
-      <span style="margin-top: 5% !important;" class="p-float-label">
-          <input type="string" pInputText formControlName="title">
-      </span>
+        <span style="margin-top: 5% !important;" class="p-float-label">
+            <input type="string" pInputText formControlName="title">
+        </span>
 
-      <span style="margin-top: 5% !important;" class="p-float-label">
-          <input type="date" pInputText formControlName="startDate">
-      </span>
+        <span style="margin-top: 5% !important;" class="p-float-label">
+            <input type="date" pInputText formControlName="startDate">
+        </span>
 
-      <span style="margin-top: 5% !important;" class="p-float-label">
-          <input type="date" pInputText formControlName="endDate">
-      </span>
+        <span style="margin-top: 5% !important;" class="p-float-label">
+            <input type="date" pInputText formControlName="endDate">
+        </span>
 
-      <div class="space-bottom"></div>
+        <div class="space-bottom"></div>
 
-      <button style="margin-top: 5% !important;" type="submit" class="modal-button">
-          {{'label.submit' | translate}}
-      </button>
-  </form>
+        <button style="margin-top: 5% !important;" type="submit" class="modal-button">
+            {{'label.submit' | translate}}
+        </button>
+    </form>
 </div>
