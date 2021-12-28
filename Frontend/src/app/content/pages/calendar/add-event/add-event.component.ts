@@ -30,7 +30,7 @@ export class AddEventComponent {
         start: this.calendarForm.value.startDate,
         end: this.calendarForm.value.endDate
       });
-      if (this.calendarForm.value.endDate != '') {
+      if (this.calendarForm.value.endDate) {
         let event: Schedule = {
           scheduleId: 0,
           userId: this.authService.CurrentUserId,
@@ -38,7 +38,6 @@ export class AddEventComponent {
           startDate: this.calendarForm.value.startDate,
           endDate: this.calendarForm.value.endDate
         }
-        console.log("123");
         this.entityService.insert("/api/Schedule/Add", event).subscribe(data => {
           this.messageService.add({ severity: 'success', summary: 'Success', detail: "Event Successfuly added." });
           return;
