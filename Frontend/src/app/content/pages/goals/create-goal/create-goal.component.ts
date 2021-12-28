@@ -23,7 +23,6 @@ export class CreateGoalComponent {
         this.messageService.add({ severity: 'error', summary: 'Error', detail: Data.message });
         return;
       }
-      console.log(Data.data);
       this.goals = Data.data;
     });
 

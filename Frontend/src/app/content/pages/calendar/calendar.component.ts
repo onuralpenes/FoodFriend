@@ -1,15 +1,9 @@
 import { Component } from '@angular/core';
-import {
-  CalendarOptions,
-  DateSelectArg,
-  EventClickArg,
-  EventApi,
-  EventInput,
-} from '@fullcalendar/angular';
+import { CalendarOptions, DateSelectArg, EventClickArg, EventApi, EventInput } from '@fullcalendar/angular';
 import { ConfirmationService, MessageService } from 'primeng/api';
 import { HttpEntityRepositoryService } from 'src/app/services/http-entity-repository.service';
-import { CalendarEvent } from 'src/app/models/data/calendar-event.model';
 import { AuthService } from 'src/app/services/auth.service';
+import { Schedule } from 'src/app/models/data/schedule.model';
 
 @Component({
   selector: 'app-calendar',
@@ -18,8 +12,10 @@ import { AuthService } from 'src/app/services/auth.service';
 })
 export class CalendarComponent {
   addEvent = false;
+  eventDetails = false;
+  loaded = false;
   currentEvents: EventApi[] = [];
-  calendarVisible = true;
+  calendarVisible = false;
   calendarOptions: CalendarOptions = {
     headerToolbar: {
       left: 'prev,next today',
@@ -59,63 +55,47 @@ export class CalendarComponent {
     this.addEvent = true;
   }
 
-  constructor(
-    private confirmationService: ConfirmationService,
-    private entityService: HttpEntityRepositoryService<CalendarEvent>,
-    private messageService: MessageService,
-    private authService: AuthService
-  ) {}
+  constructor(private confirmationService: ConfirmationService, private entityService: HttpEntityRepositoryService<Schedule>, private messageService: MessageService, private authService: AuthService) { }
+
   getInitalsEvents() {
     let initalsEvents: EventInput[] = [];
-
     this.entityService.get("​/api/Schedule/GetByUserId?userId=", this.authService.CurrentUserId).subscribe(data => {       // GETALL yapılan yer.........
       var Data: any = data;
       if (!Data.success) {
         this.messageService.add({ severity: 'error', summary: 'Error', detail: Data.message });
-        return;
+        return initalsEvents;
       }
-      initalsEvents = Data.data;
+      for (let i = 0; i < Data.data.length; i++) {
+        var event: EventInput = {
+          id: Data.data[i].scheduleId,
+          title: Data.data[i].title,
+          start: Data.data[i].startDate,
+          end: Data.data[i].endDate
+        }
+        initalsEvents.push(event);
+      }
+      this.loaded = true;
+      this.handleCalendarToggle();
       return initalsEvents;
     });
-
-
-
-
-
-    // initalsEvents = [
-    //   {
-    //     title: 'All-day event',
-    //     start: new Date().toISOString().replace(/T.*$/, ''),
-    //   },
-    //   {
-    //     title: 'Timed event',
-    //     start: new Date().toISOString().replace(/T.*$/, '') + 'T12:00:00',
-    //   },
-    //   {
-    //     title: 'Third Event',
-    //     start: new Date().toISOString().replace(/T.*$/, '') + 'T12::00',
-    //   },
-    // ];
     return initalsEvents;
   }
-  handleEventClick(clickInfo: EventClickArg) {
-    // if (
-    //   confirm(
-    //     `Are you sure you want to delete the event '${clickInfo.event.title}'`
-    //   )
-    // ) {
-    //   clickInfo.event.remove();
-    // }
 
-    // FOR DELETING
-    var id: number = +clickInfo.event.id;
+  handleEventClick(clickInfo: EventClickArg) {
+    this.clickInfo = clickInfo;
+    this.eventDetails = true;
+  }
+
+  clickInfo;
+
+  deleteEvent(){
     this.confirmationService.confirm({
       message:
-        'Are you sure, you want to remove a event: ' + clickInfo.event.title,
+        'Are you sure, you want to remove a event: ' + this.clickInfo.event.title,
       header: 'Confirmation',
       icon: 'pi pi-exclamation-triangle',
       accept: () => {
-        this.entityService.delete('/api/Schedule?id=', id).subscribe(
+        this.entityService.delete('/api/Schedule?id=', +this.clickInfo.event.id).subscribe(
           (data) => {
             this.messageService.add({
               severity: 'success',

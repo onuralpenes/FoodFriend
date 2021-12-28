@@ -1,15 +1,10 @@
 import { Component } from '@angular/core';
-import {
-  FormBuilder,
-  FormControl,
-  FormGroup,
-  Validators,
-} from '@angular/forms';
 import { MessageService } from 'primeng/api';
-import { CalendarEvent } from 'src/app/models/data/calendar-event.model';
 import { AuthService } from 'src/app/services/auth.service';
 import { HttpEntityRepositoryService } from 'src/app/services/http-entity-repository.service';
 import { CalendarComponent } from '../calendar.component';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { Schedule } from 'src/app/models/data/schedule.model';
 
 @Component({
   selector: 'app-add-event',
@@ -22,7 +17,7 @@ export class AddEventComponent {
   constructor(
     formBuilder: FormBuilder,
     private calendar: CalendarComponent,
-    private entityService: HttpEntityRepositoryService<CalendarEvent>,
+    private entityService: HttpEntityRepositoryService<Schedule>,
     private messageService: MessageService,
     private authService: AuthService
   ) {
@@ -35,49 +30,45 @@ export class AddEventComponent {
   }
   onSubmit() {
     if (this.calendarForm.valid) {
-        this.calendar.selectInfo.view.calendar.addEvent({
-          id: 0,
+      this.calendar.selectInfo.view.calendar.addEvent({
+        id: 0,
+        title: this.calendarForm.value.title,
+        start: this.calendarForm.value.startDate,
+        end: this.calendarForm.value.endDate
+      });
+      if (this.calendarForm.value.end != null) {
+        let event: Schedule = {
+          scheduleId: 0,
+          userId: this.authService.CurrentUserId,
           title: this.calendarForm.value.title,
-          start: this.calendarForm.value.startDate,
-          end: this.calendarForm.value.endDate
+          startDate: this.calendarForm.value.startDate,
+          endDate: this.calendarForm.value.endDate
+        }
+        this.entityService.insert("/api/Schedule/Add", event).subscribe(data => {
+          var post: any = data;
+          if (!post.success) {
+            this.messageService.add({ severity: 'error', summary: 'Error', detail: post.message });
+            return;
+          }
         });
+      }
 
-
-        if (this.calendarForm.value.end != null) {
-          let event:CalendarEvent = {
-            scheduleId: 0,
-            userId: this.authService.CurrentUserId,
-            title: this.calendarForm.value.title,
-            startDate: this.calendarForm.value.startDate,
-            endDate: this.calendarForm.value.endDate
-          }
-          this.entityService.insert("/api/Schedule/Add", event).subscribe(data => {
-            var post: any = data;
-            if (!post.success) {
-              this.messageService.add({ severity: 'error', summary: 'Error', detail: post.message });
-              return;
-            }
-          });
+      else {
+        let event: Schedule = {
+          scheduleId: 0,
+          userId: this.authService.CurrentUserId,
+          title: this.calendarForm.value.title,
+          startDate: this.calendarForm.value.startDate,
+          endDate: this.calendarForm.value.startDate
         }
-
-        else {
-          let event:CalendarEvent = {
-            scheduleId: 0,
-            userId: this.authService.CurrentUserId,
-            title: this.calendarForm.value.title,
-            startDate: this.calendarForm.value.startDate,
-            endDate: this.calendarForm.value.startDate
+        this.entityService.insert("/api/Schedule/Add", event).subscribe(data => {
+          var post: any = data;
+          if (!post.success) {
+            this.messageService.add({ severity: 'error', summary: 'Error', detail: post.message });
+            return;
           }
-          this.entityService.insert("/api/Schedule/Add", event).subscribe(data => {
-            var post: any = data;
-            if (!post.success) {
-              this.messageService.add({ severity: 'error', summary: 'Error', detail: post.message });
-              return;
-            }
-          });
-        }
-
-
+        });
+      }
     }
   }
 }

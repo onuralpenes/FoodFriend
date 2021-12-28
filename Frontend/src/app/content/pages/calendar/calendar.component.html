@@ -1,10 +1,20 @@
-<div class="app" >
-  <div class="app-main" style="margin: 0 auto">
-    <full-calendar *ngIf="calendarVisible" [options]="calendarOptions"></full-calendar>
+<div [ngClass]="loaded ? 'loaded-content' : 'loading-content'">
+  <div class="app">
+    <div class="app-main" style="margin: 0 auto">
+      <full-calendar *ngIf="calendarVisible" [options]="calendarOptions"></full-calendar>
+    </div>
   </div>
 </div>
 
-<p-dialog header="Add Event" [(visible)]="addEvent" [dismissableMask]="true" [draggable]="false"
-  [modal]="true" [appendTo]="'body'" [closeOnEscape]="true" [blockScroll]="true" [style]="{width: '25%'}">
+<p-dialog header="Add Event" [(visible)]="addEvent" [dismissableMask]="true" [draggable]="false" [modal]="true"
+  [appendTo]="'body'" [closeOnEscape]="true" [blockScroll]="true" [style]="{width: '25%'}">
   <app-add-event></app-add-event>
 </p-dialog>
+
+<p-dialog header="Event Details" [(visible)]="eventDetails" [dismissableMask]="true" [draggable]="false" [modal]="true"
+  [appendTo]="'body'" [closeOnEscape]="true" [blockScroll]="true" [style]="{width: '25%'}">
+  nanananaa desc desc nanananaana desc desc desc
+  <button (click) = deleteEvent()> DELETE</button>
+</p-dialog>
+
+<app-loading [ngClass]="loaded ? 'hidden-spinner' : 'display-spinner'"></app-loading>

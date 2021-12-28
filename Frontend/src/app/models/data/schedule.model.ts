@@ -1,4 +1,4 @@
-export interface CalendarEvent {
+export interface Schedule {
   scheduleId: number;
   userId: number;
   title: string;
