@@ -41,6 +41,7 @@ export class CreateGoalComponent {
       accept: () => {
         let goal: AddGoal = {
           goalUserId: 0,
+          professionnelUserId: 0,
           goalTypeId: this.goalForm.value.goalType.goalTypeId,
           userId: this.authService.CurrentUserId,
           value: this.goalForm.value.value
