@@ -11,13 +11,12 @@
             <button class="add-button" (click)="createGoal()" type="button">{{'table.add' | translate}}</button>
         </div>
     </div>
-    <div class="row" style="margin-left: 2%" *ngIf="collective">
+    <div class="row collective" style="margin-left: 2%">
         <div *ngFor="let goal of goals" class="col-md-3">
             <app-goal-card [goal]="goal"></app-goal-card>
         </div>
     </div>
-
-    <!-- <div *ngIf="!collective">
+    <div class="grouping">
         <div class="row">
             <div class="col-md-1"></div>
             <div class="col-md-10">
@@ -25,16 +24,10 @@
             </div>
         </div>
         <div class="row">
-            <div class="col-md-2"></div>
-            <div class="col-md-1">
-                <button (click)='cardSwipe("prev")' class="add-button">PREV</button>
-            </div>
-            <div class="col-md-6"></div>
-            <div class="col-md-1">
-                <button (click)='cardSwipe("next")' class="add-button">NEXT</button>
-            </div>
+            <button (click)='cardSwipe("prev")' class="add-button">PREV</button>
+            <button (click)='cardSwipe("next")' class="add-button">NEXT</button>
         </div>
-    </div> -->
+    </div>
 </div>
 
 <p-dialog header="Add Goal" [(visible)]="addGoal" [dismissableMask]="true" [draggable]="false" [modal]="true"

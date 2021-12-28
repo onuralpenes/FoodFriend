@@ -25,6 +25,10 @@
   border-radius: 5px;
 }
 
+.grouping {
+  display: none;
+}
+
 .loading-content{
   display: none;
 }
@@ -36,4 +40,13 @@
 }
 .hidden-spinner{
   display: none;
+}
+
+@media only screen and (max-width: 765px) {
+	.collective{
+    display: none;
+	}
+  .grouping{
+    display: block;
+  }
 }

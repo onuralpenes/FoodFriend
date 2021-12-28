@@ -12,7 +12,6 @@ import { HttpEntityRepositoryService } from 'src/app/services/http-entity-reposi
 export class GoalsComponent {
     goals: GetGoal[] = [];
     addGoal: boolean = false;
-    collective: boolean = true;
     loaded = false;
     index: number = 0;
 
