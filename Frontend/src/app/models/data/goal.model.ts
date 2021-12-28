@@ -2,6 +2,7 @@ export interface AddGoal {
     goalUserId: number;
     goalTypeId: number;
     userId: number;
+    professionnelUserId: number;
     value: number;
 }
 
@@ -9,6 +10,7 @@ export interface GetGoal {
     goalUserId: number;
     goalTypeId: number;
     userId: number;
+    professionnelUserId: number;
     value: number;
     name: string;
     measurement: string;
