@@ -45,7 +45,7 @@
       <ng-template pTemplate="body" let-users let-expanded="expanded">
         <tr>
           <td>
-            <button type="button" pButton pRipple [pRowToggler]="users"
+            <button type="button" pButton pRipple [pRowToggler]="users" (click)="userInfo(users.userId)"
               class="p-button-text p-button-rounded p-button-plain"
               [icon]="expanded ? 'pi pi-chevron-down' : 'pi pi-chevron-right'"></button>
           </td>
@@ -70,7 +70,14 @@
         </tr>
       </ng-template>
       <ng-template pTemplate="rowexpansion" let-users>
-        {{users.firstName }}
+        <tr>
+          <th colspan="7">
+            <div>
+              {{users.firstName }}
+            </div>
+          </th>
+
+        </tr>
       </ng-template>
     </p-table>
   </div>
