@@ -99,8 +99,8 @@
     "foodList": "Food List",
     "settings": "Settings",
     "logout": "Logout",
-    "calendar": "Calendar",
-    "goal": "Schedule"
+    "calendar": "Schedule",
+    "goal": "Goals"
   },
   "profile": {
     "age": "Age",
