@@ -6,7 +6,7 @@ export class EditEatingActivityService {
 
   constructor() { }
 
-  private newFood = new BehaviorSubject<any>({
+  private newNutrition = new BehaviorSubject<any>({
     nutId: 0,
     foodId: 0,
     eatId: 0,
@@ -16,11 +16,11 @@ export class EditEatingActivityService {
     quantity: 0,
   });
 
-  setFoodInfo(food: any) {
-    this.newFood.next(food);
+  setFoodInfo(nutrition: any) {
+    this.newNutrition.next(nutrition);
   }
 
   getFoodInfo() {
-    return this.newFood.asObservable();
+    return this.newNutrition.asObservable();
   }
 }
