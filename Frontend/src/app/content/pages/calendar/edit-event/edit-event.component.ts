@@ -6,7 +6,6 @@ import { EditEventService } from 'src/app/helpers/edit-event.service';
 import { Schedule } from 'src/app/models/data/schedule.model';
 import { AuthService } from 'src/app/services/auth.service';
 import { HttpEntityRepositoryService } from 'src/app/services/http-entity-repository.service';
-import { formatDate } from '@angular/common';
 
 
 @Component({
