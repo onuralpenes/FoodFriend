@@ -31,7 +31,7 @@ export class EditEventComponent {
         this.editEventForm = this.formBuilder.group({
           'title': new FormControl(this.currentEvent.title),
           'start': new FormControl(this.currentEvent.start),
-          'end': new FormControl(this.currentEvent.start)
+          'end': new FormControl('')
         });
       }
       else {
@@ -68,17 +68,17 @@ export class EditEventComponent {
         }
 
         if (this.editEventForm.value.start) {
-          sDate = formatDate(this.editEventForm.value.start, 'dd-MM-yyyy', 'en');
+          sDate = this.editEventForm.value.start;
         }
         else {
-          sDate = formatDate(this.editEvent.start, 'dd-MM-yyyy', 'en');
+          sDate = this.editEvent.start;
         }
 
         if (this.editEventForm.value.end) {
-          eDate = formatDate(this.editEventForm.value.end, 'dd-MM-yyyy', 'en');
+          eDate = this.editEventForm.value.end;
         }
         else {
-          eDate = formatDate(this.editEvent.end,'dd-MM-yyyy', 'en');
+          eDate = this.editEvent.end;
         }
 
         let editedEvent: Schedule = {
