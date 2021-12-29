@@ -6,6 +6,8 @@ import { EditEventService } from 'src/app/helpers/edit-event.service';
 import { Schedule } from 'src/app/models/data/schedule.model';
 import { AuthService } from 'src/app/services/auth.service';
 import { HttpEntityRepositoryService } from 'src/app/services/http-entity-repository.service';
+import { formatDate } from '@angular/common';
+
 
 @Component({
   selector: 'app-edit-event',
@@ -28,18 +30,22 @@ export class EditEventComponent {
       if (this.currentEvent.end == null) {
         this.editEventForm = this.formBuilder.group({
           'title': new FormControl(this.currentEvent.title),
-          'startDate': new FormControl(this.currentEvent.start),
-          'endDate': new FormControl('')
+          'start': new FormControl(this.currentEvent.start),
+          'end': new FormControl(this.currentEvent.start)
         });
       }
       else {
         console.log("d")
         this.editEventForm = this.formBuilder.group({
           'title': new FormControl(this.currentEvent.title),
-          'startDate': new FormControl(this.currentEvent.start),
-          'endDate': new FormControl(this.currentEvent.end)
+          'start': new FormControl(this.currentEvent.start),
+          'end': new FormControl(this.currentEvent.end)
         });
       }
+
+      let abc: Date;
+      abc = new Date(this.currentEvent.start);
+      console.log("selam " + abc.toLocaleDateString())
     });
   }
 
@@ -61,18 +67,18 @@ export class EditEventComponent {
           title = this.editEvent.title;
         }
 
-        if (this.editEventForm.value.startDate) {
-          sDate = this.editEventForm.value.startDate;
+        if (this.editEventForm.value.start) {
+          sDate = formatDate(this.editEventForm.value.start, 'dd-MM-yyyy', 'en');
         }
         else {
-          sDate = this.editEvent.startDate;
+          sDate = formatDate(this.editEvent.start, 'dd-MM-yyyy', 'en');
         }
 
-        if (this.editEventForm.value.endDate) {
-          eDate = this.editEventForm.value.endDate;
+        if (this.editEventForm.value.end) {
+          eDate = formatDate(this.editEventForm.value.end, 'dd-MM-yyyy', 'en');
         }
         else {
-          eDate = this.editEvent.endDate;
+          eDate = formatDate(this.editEvent.end,'dd-MM-yyyy', 'en');
         }
 
         let editedEvent: Schedule = {
