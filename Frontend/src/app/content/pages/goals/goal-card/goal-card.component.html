@@ -4,10 +4,10 @@
         styleClass="p-card-shadow">
         <ng-template pTemplate="header">
             <br>
-            <h1>{{'goal.goalName' | translate}}: {{goal.goalName}}</h1>
+            <h1 *ngIf = "goal">{{'goal.goalName' | translate}}: {{goal.goalName}}</h1>
         </ng-template>
         <div class="row">
-            <p>{{'goal.goal' | translate}}: {{goal.value}} {{goal.goalTypeMeasurement}}</p>
+            <p *ngIf = "goal">{{'goal.goal' | translate}}: {{goal.value}} {{goal.goalTypeMeasurement}}</p>
         </div>
     </p-card>
 </div>
