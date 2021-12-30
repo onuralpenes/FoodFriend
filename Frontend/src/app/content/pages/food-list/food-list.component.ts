@@ -9,10 +9,12 @@ import { HttpEntityRepositoryService } from 'src/app/services/http-entity-reposi
   styleUrls: ['./food-list.component.css']
 })
 export class FoodListComponent {
-  foods: FoodDetail[] = [];
+  foodsWithFilter: FoodDetail[] = [];
+  foodsWithoutFilter: FoodDetail[] = [];
   first = 0;
   rows = 10;
   loaded = false;
+  searchText: string = "";
 
   constructor(entityService: HttpEntityRepositoryService<FoodDetail>, private messageService: MessageService) {
     entityService.getAll("/FoodDetail/GetAll").subscribe(data => {
@@ -21,7 +23,8 @@ export class FoodListComponent {
         this.messageService.add({ severity: 'error', summary: 'Error', detail: Data.message });
         return;
       }
-      this.foods = Data.data;
+      this.foodsWithFilter = Data.data;
+      this.foodsWithoutFilter = Data.data;
       this.loaded = true;
     });
   }
@@ -38,10 +41,14 @@ export class FoodListComponent {
   }
 
   isLastPage(): boolean {
-    return this.foods ? this.first === (this.foods.length - this.rows) : true;
+    return this.foodsWithFilter ? this.first === (this.foodsWithFilter.length - this.rows) : true;
   }
 
   isFirstPage(): boolean {
-    return this.foods ? this.first === 0 : true;
+    return this.foodsWithFilter ? this.first === 0 : true;
+  }
+
+  keyup(searchText) {
+    this.searchText = searchText;
   }
 }

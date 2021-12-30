@@ -54,6 +54,7 @@ import interactionPlugin from '@fullcalendar/interaction';
 import { AddEventComponent } from 'src/app/content/pages/calendar/add-event/add-event.component';
 import { EditEventComponent } from 'src/app/content/pages/calendar/edit-event/edit-event.component';
 import { EditEventService } from 'src/app/helpers/edit-event.service';
+import { FoodFilterPipe } from 'src/app/helpers/food-filter.pipe';
 
 FullCalendarModule.registerPlugins([
   dayGridPlugin,
@@ -93,6 +94,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     ExpertShortCardComponent,
     ExpertFilterPipe,
     ActivityFilterPipe,
+    FoodFilterPipe,
     UserFilterPipe,
     AddEatingActivity,
     AddIllness,
