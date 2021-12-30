@@ -7,6 +7,7 @@ import { Schedule } from 'src/app/models/data/schedule.model';
 import { AuthService } from 'src/app/services/auth.service';
 import { HttpEntityRepositoryService } from 'src/app/services/http-entity-repository.service';
 
+
 @Component({
   selector: 'app-edit-event',
   templateUrl: './edit-event.component.html',
@@ -28,18 +29,22 @@ export class EditEventComponent {
       if (this.currentEvent.end == null) {
         this.editEventForm = this.formBuilder.group({
           'title': new FormControl(this.currentEvent.title),
-          'startDate': new FormControl(this.currentEvent.start),
-          'endDate': new FormControl('')
+          'start': new FormControl(this.currentEvent.start),
+          'end': new FormControl('')
         });
       }
       else {
         console.log("d")
         this.editEventForm = this.formBuilder.group({
           'title': new FormControl(this.currentEvent.title),
-          'startDate': new FormControl(this.currentEvent.start),
-          'endDate': new FormControl(this.currentEvent.end)
+          'start': new FormControl(this.currentEvent.start),
+          'end': new FormControl(this.currentEvent.end)
         });
       }
+
+      let abc: Date;
+      abc = new Date(this.currentEvent.start);
+      console.log("selam " + abc.toLocaleDateString())
     });
   }
 
@@ -61,18 +66,18 @@ export class EditEventComponent {
           title = this.editEvent.title;
         }
 
-        if (this.editEventForm.value.startDate) {
-          sDate = this.editEventForm.value.startDate;
+        if (this.editEventForm.value.start) {
+          sDate = this.editEventForm.value.start;
         }
         else {
-          sDate = this.editEvent.startDate;
+          sDate = this.editEvent.start;
         }
 
-        if (this.editEventForm.value.endDate) {
-          eDate = this.editEventForm.value.endDate;
+        if (this.editEventForm.value.end) {
+          eDate = this.editEventForm.value.end;
         }
         else {
-          eDate = this.editEvent.endDate;
+          eDate = this.editEvent.end;
         }
 
         let editedEvent: Schedule = {
