@@ -30,7 +30,6 @@ export class ActivityListComponent {
   }
   keyup(searchText) {
     this.searchText = searchText;
-    this.messageService.add({ severity: 'error', summary: 'Error', detail: 'test' });
   }
   next() {
     this.first = this.first + this.rows;
