@@ -22,20 +22,14 @@ export class SideBarComponent {
   constructor(private privateLayout: PrivateLayoutComponent, private userRolesService: UserRolesService, authService: AuthService, entityService: HttpEntityRepositoryService<User>) {
     this.role = this.userRolesService.getRoles();
     for (let i = 0; i < this.role.length; i++) {
-      if (this.role[i] == "Patient") {
-        
-        console.log("patient")
+      if (this.role[i] == "Patient")
         this.includesPatient = true;
-      }
-      if (this.role[i] == "Professional") {
-        console.log("prof")
+
+      if (this.role[i] == "Professional")
         this.includesProfes = true;
-      }
-      if (this.role[i] == "Admin") {
         
-        console.log("admin")
+      if (this.role[i] == "Admin")
         this.includesAdmin = true;
-      }
     }
 
     entityService.get("/User/Get?userId=", authService.CurrentUserId).subscribe(data => {

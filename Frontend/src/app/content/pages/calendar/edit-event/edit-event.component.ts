@@ -24,8 +24,6 @@ export class EditEventComponent {
   constructor(private authService: AuthService, private formBuilder: FormBuilder, private confirmationService: ConfirmationService, private editEventService: EditEventService, private entityService: HttpEntityRepositoryService<Schedule>, private messageService: MessageService) {
     this.currentEvent = editEventService.getEventInfo().subscribe(data => {
       this.currentEvent = data;
-      console.log(this.currentEvent);
-
       if (this.currentEvent.end == null) {
         this.editEventForm = this.formBuilder.group({
           'title': new FormControl(this.currentEvent.title),
@@ -34,7 +32,6 @@ export class EditEventComponent {
         });
       }
       else {
-        console.log("d")
         this.editEventForm = this.formBuilder.group({
           'title': new FormControl(this.currentEvent.title),
           'start': new FormControl(this.currentEvent.start),
@@ -44,7 +41,6 @@ export class EditEventComponent {
 
       let abc: Date;
       abc = new Date(this.currentEvent.start);
-      console.log("selam " + abc.toLocaleDateString())
     });
   }
 

@@ -22,7 +22,7 @@ export class PatientListComponent {
   loaded = false;
   loadedInside = false;
   constructor(private router: Router, private entityService: HttpEntityRepositoryService<User>, private messageService: MessageService, private authService: AuthService) {
-    
+
     entityService.get("/User/GetAllAssignmentsPatientForProfessionnel?professionnelId=", this.authService.CurrentUserId).subscribe(data => {
 
       var Data: any = data;
@@ -30,7 +30,6 @@ export class PatientListComponent {
         this.messageService.add({ severity: 'error', summary: 'Error', detail: Data.message });
         return;
       }
-      console.log(data);
       this.loaded = true;
       this.usersWithFilter = Data.data;
       this.usersWithoutFilter = Data.data;
@@ -38,17 +37,16 @@ export class PatientListComponent {
 
   }
 
-  userInfo(id:any){
+  userInfo(id: any) {
 
     this.entityService.get("/api/Goal/GetByUserId?userId=", this.authService.CurrentUserId).subscribe(data => {
       var Data: any = data;
       if (!Data.success) {
-          this.messageService.add({ severity: 'error', summary: 'Error', detail: Data.message });
-          return;
+        this.messageService.add({ severity: 'error', summary: 'Error', detail: Data.message });
+        return;
       }
-      
-  });
-    console.log(id);
+
+    });
   }
 
   open(id: number) {
