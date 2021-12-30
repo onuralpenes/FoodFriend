@@ -1,13 +1,13 @@
 <br>
 <div class="row">
-    <p-card [style]="{width: '100%',height: 'auto', background: 'linear-gradient(#00db93, #00b97d)'}"
+    <p-card [style]="{width: '100%',height: 'auto', background: 'white'}"
         styleClass="p-card-shadow">
         <ng-template pTemplate="header">
+            <br>
             <h1>{{'goal.goalName' | translate}}: {{goal.goalName}}</h1>
         </ng-template>
         <div class="row">
             <p>{{'goal.goal' | translate}}: {{goal.value}} {{goal.goalTypeMeasurement}}</p>
         </div>
     </p-card>
-    <div class="col-md-1"></div>
 </div>

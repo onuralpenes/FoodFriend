@@ -1,17 +1,11 @@
 <div [ngClass]="loaded ? 'loaded-content' : 'loading-content'">
     <div class="row">
-        <div class="col-md-1"></div>
-        <div class="col-md-1">
-            <!-- <br>
-            <i class="pi pi-table icon-button" (click)="collective = true"></i>
-            <i class="pi pi-ellipsis-h icon-button" (click)="collective = false"></i> -->
-        </div>
-        <div class="col-md-8"></div>
+        <div class="col-md-10"></div>
         <div class="col-md-1">
             <button class="add-button" (click)="createGoal()" type="button">{{'table.add' | translate}}</button>
         </div>
     </div>
-    <div class="row collective" style="margin-left: 2%">
+    <div class="row collective" style="margin-left: 1%; margin-right: 1%;">
         <div *ngFor="let goal of goals" class="col-md-3">
             <app-goal-card [goal]="goal"></app-goal-card>
         </div>
