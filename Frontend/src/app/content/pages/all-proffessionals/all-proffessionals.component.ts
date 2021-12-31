@@ -19,7 +19,10 @@ export class AllProffessionalsComponent implements OnInit {
   searchText = "";
   nutritionInformation: boolean = false;
   activityInformation: boolean = false;
+  newConnect = false;
+  newConnectionProfId;
   loaded = false;
+  loadedInside = false;
   constructor(private router: Router, private entityService: HttpEntityRepositoryService<User>, private messageService: MessageService, private authService: AuthService) {
     entityService.getAll("/User/GetAllProfessionel").subscribe(data => {
 
@@ -39,6 +42,7 @@ export class AllProffessionalsComponent implements OnInit {
   }
 
   relatedPatient(id:any){
+    //this.loadedInside = false;
     this.entityService.get("/User/GetAllAssignmentsPatientForProfessionnel?professionnelId=", id).subscribe(data => {
       var Data: any = data;
       if (!Data.success) {
@@ -49,11 +53,17 @@ export class AllProffessionalsComponent implements OnInit {
         
         console.log(Data);
         this.usersRelatedProf = Data.data
+        this.loadedInside = true;
       }
   });
     console.log(id);
   }
+newConnection(id:number){
 
+  this.newConnectionProfId = id;
+  this.newConnect = true;
+
+}
   open(id: number) {
     this.router.navigate(['/counselee-profile/' + id]);
   }

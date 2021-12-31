@@ -62,6 +62,7 @@ import { AllergyTransactionsComponent } from 'src/app/content/pages/control-pane
 import { DisabilityTransactionsComponent } from 'src/app/content/pages/control-panel/disability-transactions/disability-transactions.component';
 import { GoalTypeTransactionsComponent } from 'src/app/content/pages/control-panel/goal-type-transactions/goal-type-transactions.component';
 import { FoodTransactionsComponent } from 'src/app/content/pages/control-panel/food-transactions/food-transactions.component';
+import { NewConnectionComponent } from 'src/app/content/pages/all-proffessionals/new-connection/new-connection.component';
 
 
 FullCalendarModule.registerPlugins([
@@ -123,6 +124,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     DisabilityTransactionsComponent,
     GoalTypeTransactionsComponent,
     FoodTransactionsComponent,
+    NewConnectionComponent
   ],
   imports: [
     CommonModule,
