@@ -157,5 +157,17 @@
     "disabled": "Disability Transactions",
     "goalType": "Goal Type Transactions",
     "food": "Food Transactions"
+  },
+  "calendar": {
+    "start": "Start Date",
+    "end": "End Date",
+    "title": "Title",
+    "multiple": "Multiple",
+    "addEvent": "Add Event",
+    "detailEvent": "Event Details",
+    "selection": "What would you like to do about the event you chose?",
+    "delete": "DELETE",
+    "update": "UPDATE",
+    "editEvent": "Edit Event"
   }
 }

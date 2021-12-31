@@ -91,6 +91,7 @@ export class EditEventComponent {
             return;
           }
           this.messageService.add({ severity: 'success', summary: 'Success', detail: 'Event has been updated.' });
+          location.reload();
         });
       },
       reject: () => {
