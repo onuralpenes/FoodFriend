@@ -1,0 +1,21 @@
+
+.loading-content{
+    display: none;
+  }
+  .loaded-content{
+    display: contents;
+  }
+  .display-spinner{
+    display: contents;
+  }
+  .hidden-spinner{
+    display: none;
+  }
+  .banButton{
+    background-color: transparent; 
+    border: transparent;
+  }
+  .tableDiv{
+      width: 50%;
+      margin-left: 12%;
+  }

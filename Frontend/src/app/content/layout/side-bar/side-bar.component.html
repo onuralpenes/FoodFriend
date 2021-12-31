@@ -12,6 +12,9 @@
                 <p class="username">
                     {{surname}}
                 </p>
+                <p class="username" *ngIf="includesProfes || includesAdmin;">
+                    Admin
+                </p>
             </div>
             <a>
 
@@ -65,6 +68,11 @@
 
                 <li routerLinkActive='active'><a class="side-item" routerLink="/goals"><i class="fa fa-bullseye fa-lg"
                             aria-hidden="true"></i>{{'menu.goal' | translate}}</a></li>
+            </div>
+            <div *ngIf="includesAdmin || includesProfes">
+
+                <li routerLinkActive='active'><a class="side-item" routerLink="/all-experts"><i class="fa fa-bullseye fa-lg"
+                            aria-hidden="true"></i>Tüm Uzmanlar - A</a></li>
             </div>
         </ul>
         <div class="language">

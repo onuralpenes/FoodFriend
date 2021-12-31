@@ -17,6 +17,7 @@ import { RegisterFormComponent } from './content/login/register-form/register-fo
 import { NotFoundComponent } from './content/pages/not-found/not-found.component';
 import { RoleGuardService, UserRolesService } from './services/can-active.guard';
 import { ConfirmationService, MessageService } from 'primeng/api';
+//import { AllProffessionalsComponent } from './content/pages/all-proffessionals/all-proffessionals.component';
 
 
 export function HttpLoaderFactory(http: HttpClient) {
