@@ -151,7 +151,7 @@
     "goalName": "Hedef Adı",
     "goal": "Hedef"
   },
-  "control":{
+  "control": {
     "illness": "Hastalık İşlemleri",
     "allergy": "Alerji İşlemleri",
     "disabled": "Engel İşlemleri",
@@ -169,5 +169,10 @@
     "delete": "SİL",
     "update": "GÜNCELLE",
     "editEvent": "Not Güncelleme"
+  },
+  "allExpert": {
+    "patients": "Bu Uzmanın Danışanları",
+    "closeCon": "Bağlantıyı Kopar",
+    "newCon": "Yeni Bağlantı"
   }
 }

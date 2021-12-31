@@ -151,7 +151,7 @@
     "goalName": "Goal Name",
     "goal": "Goal"
   },
-  "control":{
+  "control": {
     "illness": "Illness Transactions",
     "allergy": "Allergy Transactions",
     "disabled": "Disability Transactions",
@@ -169,5 +169,10 @@
     "delete": "DELETE",
     "update": "UPDATE",
     "editEvent": "Edit Event"
+  },
+  "allExpert": {
+    "patients": "All Patients of This Professional",
+    "closeCon": "Close Connection",
+    "newCon": "New Connection"
   }
 }
