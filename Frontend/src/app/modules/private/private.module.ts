@@ -51,7 +51,18 @@ import dayGridPlugin from '@fullcalendar/daygrid';
 import timeGridPlugin from '@fullcalendar/timegrid';
 import listPlugin from '@fullcalendar/list';
 import interactionPlugin from '@fullcalendar/interaction';
+import { AddEventComponent } from 'src/app/content/pages/calendar/add-event/add-event.component';
+import { EditEventComponent } from 'src/app/content/pages/calendar/edit-event/edit-event.component';
+import { EditEventService } from 'src/app/helpers/edit-event.service';
+import { FoodFilterPipe } from 'src/app/helpers/food-filter.pipe';
 import { AllProffessionalsComponent } from 'src/app/content/pages/all-proffessionals/all-proffessionals.component';
+import { ControlPanelComponent } from 'src/app/content/pages/control-panel/control-panel.component';
+import { IllnessTransactionsComponent } from 'src/app/content/pages/control-panel/illness-tranactions/illness-tranactions.component';
+import { AllergyTransactionsComponent } from 'src/app/content/pages/control-panel/allergy-transactions/allergy-transactions.component';
+import { DisabilityTransactionsComponent } from 'src/app/content/pages/control-panel/disability-transactions/disability-transactions.component';
+import { GoalTypeTransactionsComponent } from 'src/app/content/pages/control-panel/goal-type-transactions/goal-type-transactions.component';
+import { FoodTransactionsComponent } from 'src/app/content/pages/control-panel/food-transactions/food-transactions.component';
+
 
 FullCalendarModule.registerPlugins([
   dayGridPlugin,
@@ -91,6 +102,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     ExpertShortCardComponent,
     ExpertFilterPipe,
     ActivityFilterPipe,
+    FoodFilterPipe,
     UserFilterPipe,
     AddEatingActivity,
     AddIllness,
@@ -102,7 +114,15 @@ export function HttpLoaderFactory(http: HttpClient) {
     CalendarComponent,
     LoadingComponent,
     RelatedExpertsComponent,
-    AllProffessionalsComponent
+    AddEventComponent,
+    EditEventComponent,
+    AllProffessionalsComponent,
+    ControlPanelComponent,
+    IllnessTransactionsComponent,
+    AllergyTransactionsComponent,
+    DisabilityTransactionsComponent,
+    GoalTypeTransactionsComponent,
+    FoodTransactionsComponent,
   ],
   imports: [
     CommonModule,
@@ -121,6 +141,6 @@ export function HttpLoaderFactory(http: HttpClient) {
     FullCalendarModule
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
-  providers: [EditEatingActivityService, CustomFoodService]
+  providers: [EditEatingActivityService, CustomFoodService, EditEventService]
 })
 export class PrivateModule { }
