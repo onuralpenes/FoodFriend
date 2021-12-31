@@ -15,6 +15,7 @@ import { Roles } from 'src/app/models/core/userRoles.model';
 import { CalendarComponent } from 'src/app/content/pages/calendar/calendar.component';
 import { GoalsComponent } from 'src/app/content/pages/goals/goals.component';
 import { AllProffessionalsComponent } from 'src/app/content/pages/all-proffessionals/all-proffessionals.component';
+import { ControlPanelComponent } from 'src/app/content/pages/control-panel/control-panel.component';
 
 const routes: Routes = [
     {
@@ -79,8 +80,14 @@ const routes: Routes = [
             {
                 path: 'all-experts', component: AllProffessionalsComponent,
                 canActivate: [RoleGuardService],
-                data: { roles: [Roles.Admin, Roles.Professional]}
+                data: { roles: [Roles.Admin, Roles.Professional] }
             },
+            {
+                path: 'cont', component: ControlPanelComponent,
+                canActivate: [RoleGuardService],
+                data: { roles: [Roles.Admin, Roles.Patient] } //Role alınınca değişecek.
+            },
+
             { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
         ],
     },

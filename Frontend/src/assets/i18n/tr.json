@@ -144,5 +144,12 @@
   "goal": {
     "goalName": "Hedef Adı",
     "goal": "Hedef"
+  },
+  "control":{
+    "illness": "Hastalık İşlemleri",
+    "allergy": "Alerji İşlemleri",
+    "disabled": "Engel İşlemleri",
+    "goalType": "Hedef Tipi İşlemleri",
+    "food": "Yemek İşlemleri"
   }
 }

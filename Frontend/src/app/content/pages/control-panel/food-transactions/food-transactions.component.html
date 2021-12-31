@@ -1,0 +1,95 @@
+<div [ngClass]="loaded ? 'loaded-content' : 'loading-content'">
+    <button (click) = "add()">ADD</button>
+    <div class="row">
+        <p-table [value]="foodList" [paginator]="true" [rows]="rows" [showCurrentPageReport]="true" [(first)]="first"
+            currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries">
+            <ng-template pTemplate="header">
+                <tr>
+                    <th>{{'table.name' | translate}}</th>
+                    <th>{{'table.weight' | translate}}</th>
+                    <th>{{'table.calorie' | translate}} </th>
+                    <th>{{'table.protein' | translate}}</th>
+                    <th>{{'table.oil' | translate}}</th>
+                    <th>{{'table.carbohydrate' | translate}}</th>
+                    <th>update</th>
+                    <th>delete</th>
+                </tr>
+            </ng-template>
+            <ng-template pTemplate="body" let-food>
+                <tr>
+                    <td>{{ food.foodName }}</td>
+                    <td>{{ food.weight }}</td>
+                    <td>{{ food.calorie }}</td>
+                    <td>{{ food.protein }}</td>
+                    <td>{{ food.oil }}</td>
+                    <td>{{ food.carbohydrate }}</td>
+                    <td>
+                        <button class="tab-button" (click)="update(food)">
+                            <i class="fa fa-pencil fa-lg" aria-hidden="true"></i>
+                        </button>
+                    </td>
+                    <td>
+                        <button class="tab-button" (click)="delete(food.foodDetailId, food.foodName)">
+                            <i class="fa fa-trash fa-lg" aria-hidden="true"></i>
+                        </button>
+                    </td>
+                </tr>
+            </ng-template>
+        </p-table>
+    </div>
+</div>
+
+<p-dialog header="{{state}} Food" [(visible)]="foodBool" [dismissableMask]="true" [draggable]="false" [modal]="true"
+    [appendTo]="'body'" [closeOnEscape]="true" [blockScroll]="true" [style]="{width: '50%'}">
+    <div class="container">
+        <form [formGroup]="foodForm" (ngSubmit)="onSubmit()" class="form">
+            <div class="row">
+                <div class="col">
+                    <span style="margin-bottom: 12%; margin-top: 10%" class="p-float-label">
+                        <input type="text" pInputText formControlName="foodName" />
+                        <label for="float-input">{{ "table.name" | translate }}</label>
+                    </span>
+                </div>
+
+                <div class="col">
+                    <span style="margin-bottom: 12%; margin-top: 10%" class="p-float-label">
+                        <input type="number" pInputText formControlName="weight" />
+                        <label for="float-input">{{ "table.weight" | translate }}</label>
+                    </span>
+                </div>
+                <div class="col">
+                    <span style="margin-bottom: 12%; margin-top: 10%" class="p-float-label">
+                        <input type="number" pInputText formControlName="calorie" />
+                        <label for="float-input">{{ "table.calorie" | translate }}</label>
+                    </span>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <span style="margin-bottom: 12%; margin-top: 10%" class="p-float-label">
+                        <input type="number" pInputText formControlName="protein" />
+                        <label for="float-input">{{ "table.protein" | translate }}</label>
+                    </span>
+                </div>
+                <div class="col">
+                    <span style="margin-bottom: 12%; margin-top: 10%" class="p-float-label">
+                        <input type="number" pInputText formControlName="oil" />
+                        <label for="float-input">{{ "table.oil" | translate }}</label>
+                    </span>
+                </div>
+                <div class="col">
+                    <span style="margin-bottom: 12%; margin-top: 10%" class="p-float-label">
+                        <input type="number" pInputText formControlName="carbohydrate" />
+                        <label for="float-input">{{
+                            "table.carbohydrate" | translate
+                            }}</label>
+                    </span>
+                </div>
+            </div>
+
+            <button type="submit">{{ "label.submit" | translate }}</button>
+        </form>
+    </div>
+</p-dialog>
+
+<app-loading [ngClass]="loaded ? 'hidden-spinner' : 'display-spinner'"></app-loading>

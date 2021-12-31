@@ -144,5 +144,12 @@
   "goal": {
     "goalName": "Goal Name",
     "goal": "Goal"
+  },
+  "control":{
+    "illness": "Illness Transactions",
+    "allergy": "Allergy Transactions",
+    "disabled": "Disability Transactions",
+    "goalType": "Goal Type Transactions",
+    "food": "Food Transactions"
   }
 }

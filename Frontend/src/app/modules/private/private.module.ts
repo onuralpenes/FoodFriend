@@ -56,6 +56,13 @@ import { EditEventComponent } from 'src/app/content/pages/calendar/edit-event/ed
 import { EditEventService } from 'src/app/helpers/edit-event.service';
 import { FoodFilterPipe } from 'src/app/helpers/food-filter.pipe';
 import { AllProffessionalsComponent } from 'src/app/content/pages/all-proffessionals/all-proffessionals.component';
+import { ControlPanelComponent } from 'src/app/content/pages/control-panel/control-panel.component';
+import { IllnessTransactionsComponent } from 'src/app/content/pages/control-panel/illness-tranactions/illness-tranactions.component';
+import { AllergyTransactionsComponent } from 'src/app/content/pages/control-panel/allergy-transactions/allergy-transactions.component';
+import { DisabilityTransactionsComponent } from 'src/app/content/pages/control-panel/disability-transactions/disability-transactions.component';
+import { GoalTypeTransactionsComponent } from 'src/app/content/pages/control-panel/goal-type-transactions/goal-type-transactions.component';
+import { FoodTransactionsComponent } from 'src/app/content/pages/control-panel/food-transactions/food-transactions.component';
+
 
 FullCalendarModule.registerPlugins([
   dayGridPlugin,
@@ -109,7 +116,13 @@ export function HttpLoaderFactory(http: HttpClient) {
     RelatedExpertsComponent,
     AddEventComponent,
     EditEventComponent,
-    AllProffessionalsComponent
+    AllProffessionalsComponent,
+    ControlPanelComponent,
+    IllnessTransactionsComponent,
+    AllergyTransactionsComponent,
+    DisabilityTransactionsComponent,
+    GoalTypeTransactionsComponent,
+    FoodTransactionsComponent,
   ],
   imports: [
     CommonModule,

@@ -1,0 +1,46 @@
+<button (click)="illness = !illness">
+  {{'control.illness' | translate}}
+</button>
+
+<button (click)="allergy = !allergy">
+  {{'control.allergy' | translate}}
+</button>
+
+<button (click)="disabled = !disabled">
+  {{'control.disabled' | translate}}
+</button>
+
+<button (click)="goalType = !goalType">
+  {{'control.goalType' | translate}}
+</button>
+
+<button (click)="food = !food">
+  {{'control.food' | translate}}
+</button>
+
+<p-dialog header="{{'control.illness' | translate}}" [(visible)]="illness" [dismissableMask]="true" [draggable]="false"
+  [modal]="true" [appendTo]="'body'" [closeOnEscape]="true" [blockScroll]="true" [style]="{width: '50%'}">
+  <app-illness-tranactions></app-illness-tranactions>
+</p-dialog>
+
+<p-dialog header="{{'control.allergy' | translate}}" [(visible)]="allergy" [dismissableMask]="true" [draggable]="false"
+  [modal]="true" [appendTo]="'body'" [closeOnEscape]="true" [blockScroll]="true" [style]="{width: '50%'}">
+  <app-allergy-transactions></app-allergy-transactions>
+</p-dialog>
+
+<p-dialog header="{{'control.disabled' | translate}}" [(visible)]="disabled" [dismissableMask]="true"
+  [draggable]="false" [modal]="true" [appendTo]="'body'" [closeOnEscape]="true" [blockScroll]="true"
+  [style]="{width: '50%'}">
+  <app-disability-transactions></app-disability-transactions>
+</p-dialog>
+
+<p-dialog header="{{'control.goalType' | translate}}" [(visible)]="goalType" [dismissableMask]="true"
+  [draggable]="false" [modal]="true" [appendTo]="'body'" [closeOnEscape]="true" [blockScroll]="true"
+  [style]="{width: '50%'}">
+  <app-goal-type-transactions></app-goal-type-transactions>
+</p-dialog>
+
+<p-dialog header="{{'control.food' | translate}}" [(visible)]="food" [dismissableMask]="true" [draggable]="false"
+  [modal]="true" [appendTo]="'body'" [closeOnEscape]="true" [blockScroll]="true" [style]="{width: '50%', height: '70%'}">
+  <app-food-transactions></app-food-transactions>
+</p-dialog>
