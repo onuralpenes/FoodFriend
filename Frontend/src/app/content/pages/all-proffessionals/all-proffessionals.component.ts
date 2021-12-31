@@ -39,7 +39,6 @@ export class AllProffessionalsComponent implements OnInit {
   }
 
   relatedPatient(id:any){
-
     this.entityService.get("/User/GetAllAssignmentsPatientForProfessionnel?professionnelId=", id).subscribe(data => {
       var Data: any = data;
       if (!Data.success) {
