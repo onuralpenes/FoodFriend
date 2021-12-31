@@ -144,5 +144,17 @@
   "goal": {
     "goalName": "Hedef Adı",
     "goal": "Hedef"
+  },
+  "calendar": {
+    "start": "Başlangıç Günü",
+    "end": "Bitiş Günü",
+    "title": "Başlık",
+    "multiple": "Çoklu Gün Seçimi",
+    "addEvent": "Not Ekle",
+    "detailEvent": "Not İçeriği",
+    "selection": "Seçtiğiniz event hakkında ne yapmak istersiniz?",
+    "delete": "SİL",
+    "update": "GÜNCELLE",
+    "editEvent": "Not Güncelleme"
   }
 }

@@ -6,6 +6,9 @@ import { AuthService } from 'src/app/services/auth.service';
 import { Schedule } from 'src/app/models/data/schedule.model';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { EditEventService } from 'src/app/helpers/edit-event.service';
+import trLocale from '@fullcalendar/core/locales/tr';
+import enLocale from '@fullcalendar/core/locales/en-gb';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-calendar',
@@ -21,7 +24,11 @@ export class CalendarComponent {
   updateEventBool = false;
   currentEvents: EventApi[] = [];
   calendarVisible = false;
+  localeTr: any = trLocale;
+  localeEn: any = enLocale;
   calendarOptions: CalendarOptions = {
+
+    locale: this.schedularLanguage(),
     headerToolbar: {
       left: 'prev,next today',
       center: 'title',
@@ -30,7 +37,7 @@ export class CalendarComponent {
     initialView: 'dayGridMonth',
     initialEvents: this.getInitalsEvents(), // alternatively, use the `events` setting to fetch from a feed
     weekends: true,
-    editable: true,
+    editable: false,
     selectable: true,
     selectMirror: true,
     dayMaxEvents: true,
@@ -49,18 +56,30 @@ export class CalendarComponent {
     this.calendarVisible = !this.calendarVisible;
   }
 
+  schedularLanguage() {
+    let browserLang = this.translate.currentLang;
+    if (browserLang = 'en'){
+      return this.localeEn
+    } else {
+      return this.localeTr
+    }
+  }
+
   handleWeekendsToggle() {
     const { calendarOptions } = this;
     calendarOptions.weekends = !calendarOptions.weekends;
   }
 
   public selectInfo;
+  public startingDate;
   handleDateSelect(selectInfo: DateSelectArg) {
     this.selectInfo = selectInfo;
+    this.startingDate = selectInfo.start;
+    console.log("start date =>>>>" + this.startingDate)
     this.addEvent = true;
   }
 
-  constructor(private confirmationService: ConfirmationService, private formBuilder: FormBuilder, private editEventService: EditEventService, private entityService: HttpEntityRepositoryService<Schedule>, private messageService: MessageService, private authService: AuthService) { }
+  constructor(private translate: TranslateService, private confirmationService: ConfirmationService, private formBuilder: FormBuilder, private editEventService: EditEventService, private entityService: HttpEntityRepositoryService<Schedule>, private messageService: MessageService, private authService: AuthService) { }
 
   getInitalsEvents() {
     let initalsEvents: EventInput[] = [];
@@ -81,6 +100,7 @@ export class CalendarComponent {
       }
       this.loaded = true;
       this.handleCalendarToggle();
+      console.log(initalsEvents);
       return initalsEvents;
     });
     return initalsEvents;
@@ -102,6 +122,7 @@ export class CalendarComponent {
     };
     this.editEventService.setEventInfo(editEventTemp);
     this.updateEventBool = true;
+    this.eventDetails = false;
   }
 
   deleteEvent() {
@@ -137,6 +158,7 @@ export class CalendarComponent {
         });
       },
     });
+    this.eventDetails = false;
   }
 
   handleEvents(events: EventApi[]) {

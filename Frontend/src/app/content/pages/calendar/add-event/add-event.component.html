@@ -1,20 +1,20 @@
 <div style="width: 275; height: 275">
   <form [formGroup]="calendarForm" (ngSubmit)="onSubmit()" class="form">
     <input type="checkbox" (change)="multiple = !multiple">
-    <label style="margin-left: 3%;"> Multiple</label>
+    <label style="margin-left: 3%;"> {{'calendar.multiple' | translate}} </label>
 
     <span class="p-float-label">
       <input type="text" pInputText formControlName="title" required />
-      <label for="float-input">title</label>
+      <label for="float-input">{{'calendar.title' | translate}}</label>
     </span>
 
     <span class="p-float-label">
-      <h4>Start Date</h4>
-      <input type="date" pInputText formControlName="startDate" required />
+      <h4>{{'calendar.start' | translate}}</h4>
+      <input type="date" value="{{ this.startToDate | date:'yyyy-MM-dd' }}" pInputText formControlName="startDate" required />
     </span>
 
     <span class="p-float-label" *ngIf="multiple">
-      <h4>End Date</h4>
+      <h4>{{'calendar.end' | translate}}</h4>
       <input type="date" pInputText formControlName="endDate" required />
     </span>
 
