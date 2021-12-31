@@ -12,16 +12,13 @@
                 <p class="username">
                     {{surname}}
                 </p>
-                <p class="username" *ngIf="includesProfes || includesAdmin;">
+                <p class="username" [hidden] = "!includesAdmin">
                     Admin
                 </p>
             </div>
-            <a>
-
-            </a>
         </div>
-        <i class="fas fa-dumbbell fa-lg"></i>
-        <ul class="nav">
+        
+        <ul class="nav" style="margin-top: 25px;">
             <div *ngIf="includesProfes || includesPatient || includesAdmin;">
                 <li routerLinkActive='active'>
                     <a class="side-item" routerLink="/dashboard"><i class="fa fa-home fa-lg"
