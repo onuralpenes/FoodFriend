@@ -1,5 +1,11 @@
 <div [ngClass]="loaded ? 'loaded-content' : 'loading-content'">
-    <button (click) = "add()">ADD</button>
+    <div class="row">
+        <div class="col-md-10"></div>
+        <div class="col-md-1">
+            <button class="add-button" (click)="add()" type="button">{{'table.add' | translate}}</button>
+        </div>
+    </div>
+    <br>
     <div class="row">
         <p-table [value]="foodList" [paginator]="true" [rows]="rows" [showCurrentPageReport]="true" [(first)]="first"
             currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries">
@@ -11,8 +17,7 @@
                     <th>{{'table.protein' | translate}}</th>
                     <th>{{'table.oil' | translate}}</th>
                     <th>{{'table.carbohydrate' | translate}}</th>
-                    <th>update</th>
-                    <th>delete</th>
+                    <th></th>
                 </tr>
             </ng-template>
             <ng-template pTemplate="body" let-food>
@@ -27,8 +32,6 @@
                         <button class="tab-button" (click)="update(food)">
                             <i class="fa fa-pencil fa-lg" aria-hidden="true"></i>
                         </button>
-                    </td>
-                    <td>
                         <button class="tab-button" (click)="delete(food.foodDetailId, food.foodName)">
                             <i class="fa fa-trash fa-lg" aria-hidden="true"></i>
                         </button>
@@ -86,8 +89,13 @@
                     </span>
                 </div>
             </div>
-
-            <button type="submit">{{ "label.submit" | translate }}</button>
+            <br>
+            <div class="row">
+                <div class="col-md-9"></div>
+                <div class="col-md-1">
+                    <button class="add-button" type="submit">{{ "label.submit" | translate }}</button>
+                </div>
+            </div>
         </form>
     </div>
 </p-dialog>
