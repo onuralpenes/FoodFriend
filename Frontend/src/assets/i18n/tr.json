@@ -40,7 +40,9 @@
     "smoking": "Sigara",
     "alcohol": "Alkol",
     "submit": "Onayla",
-    "value": "Değer"
+    "value": "Değer",
+    "disDec": "Disability Description",
+    "disRat": "Disability Ratio"
   },
   "forget": {
     "title": "Şifreni mi unuttun?",
@@ -70,7 +72,9 @@
     "actiInfo": "Aktivite",
     "quantity": "Miktarı",
     "null": "Gösterilecek veri yok",
-    "add": "Ekle"
+    "add": "Ekle",
+    "goalName": "Hedef Adı",
+    "measurement": "Birimi"
   },
   "validator": {
     "nameNull": "İsim girilmesi zorunludur",
@@ -100,7 +104,9 @@
     "settings": "Ayarlar",
     "logout": "Çıkış Yap",
     "calendar": "Ajanda",
-    "goal": "Hedefler"
+    "goal": "Hedefler",
+    "all-experts": "Tüm Uzmanlar",
+    "crud": "CRUD İşlemleri"
   },
   "profile": {
     "age": "Yaş",

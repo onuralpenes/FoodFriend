@@ -40,7 +40,9 @@
     "smoking": "Smoking",
     "alcohol": "Alcohol",
     "submit": "Submit",
-    "value": "Value"
+    "value": "Value",
+    "disDec": "Disability Description",
+    "disRat": "Disability Ratio"
   },
   "forget": {
     "title": "Forget your Password?",
@@ -70,7 +72,9 @@
     "actiInfo": "Activity",
     "quantity": "Quantity",
     "null": "There is no data",
-    "add": "Add"
+    "add": "Add",
+    "goalName": "Goal Name",
+    "measurement": "Measurement"
   },
   "validator": {
     "nameNull": "Name is required",
@@ -95,12 +99,14 @@
     "food": "Eating Activity",
     "activity": "Activity List",
     "patients": "Patient List",
-    "expert": "Experts",
+    "expert": "Professionals",
     "foodList": "Food List",
     "settings": "Settings",
     "logout": "Logout",
     "calendar": "Schedule",
-    "goal": "Goals"
+    "goal": "Goals",
+    "all-experts": "All Professionals",
+    "crud": "CRUD Operations"
   },
   "profile": {
     "age": "Age",

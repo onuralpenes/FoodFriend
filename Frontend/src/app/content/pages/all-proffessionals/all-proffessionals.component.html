@@ -16,7 +16,7 @@
 
     <div class="row tab">
         <p-table [value]="usersWithoutFilter | userFilter : searchText" [paginator]="true" [rows]="rows"
-            [showCurrentPageReport]="true" [(first)]="first" dataKey="userId"
+            [showCurrentPageReport]="true" [(first)]="first" dataKey="userId" rowExpandMode="single" 
             currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries"
             [rowsPerPageOptions]="[10,25,50]">
             <ng-template pTemplate="header">

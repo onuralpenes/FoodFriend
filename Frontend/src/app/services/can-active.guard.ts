@@ -1,5 +1,6 @@
 import { Injectable } from "@angular/core";
 import { ActivatedRouteSnapshot, CanActivate, Router } from "@angular/router";
+import { MessageService } from "primeng/api";
 import { AuthService } from "./auth.service";
 
 @Injectable({
@@ -7,7 +8,7 @@ import { AuthService } from "./auth.service";
 })
 export class RoleGuardService implements CanActivate {
 
-  constructor(private getUserRoles: UserRolesService, private authService: AuthService, private router: Router) { }
+  constructor(private getUserRoles: UserRolesService, private authService: AuthService, private router: Router, private messageService: MessageService) { }
 
   canActivate(route: ActivatedRouteSnapshot) {
     if (this.authService.isLoggedIn) {
@@ -15,6 +16,7 @@ export class RoleGuardService implements CanActivate {
         return route.data.roles.some(ai => this.getUserRoles.getRoles().includes(ai));
       }
       else {
+        this.messageService.add({ severity: 'error', summary: 'Error', detail: 'You were logged out because you tried to enter where you are not authorized.' });
         this.authService.logout();
         return this.router.parseUrl('/login');
       }

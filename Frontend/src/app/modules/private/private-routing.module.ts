@@ -80,12 +80,12 @@ const routes: Routes = [
             {
                 path: 'all-experts', component: AllProffessionalsComponent,
                 canActivate: [RoleGuardService],
-                data: { roles: [Roles.Admin, Roles.Professional] }
+                data: { roles: [Roles.Admin, Roles.Professional] } //Role alınınca değişecek.
             },
             {
-                path: 'cont', component: ControlPanelComponent,
+                path: 'control-panel', component: ControlPanelComponent,
                 canActivate: [RoleGuardService],
-                data: { roles: [Roles.Admin, Roles.Patient] } //Role alınınca değişecek.
+                data: { roles: [Roles.Admin] }
             },
 
             { path: '', redirectTo: 'dashboard', pathMatch: 'full' },

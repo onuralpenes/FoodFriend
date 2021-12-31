@@ -18,7 +18,7 @@ export class FoodTransactionsComponent {
     first = 0;
     rows = 7;
     state: string = "";
-    constructor(private entityService: HttpEntityRepositoryService<FoodDetail>, private messageService: MessageService, private confirmationService: ConfirmationService, private formBuilder: FormBuilder,) {
+    constructor(private entityService: HttpEntityRepositoryService<FoodDetail>, private messageService: MessageService, private confirmationService: ConfirmationService, private formBuilder: FormBuilder) {
         this.entityService.getAll("/FoodDetail/GetAll").subscribe(data => {
             var Data: any = data;
             if (!Data.success) {
@@ -99,7 +99,7 @@ export class FoodTransactionsComponent {
     onSubmit() {
         if (this.state == "Edit" && this.foodForm.valid) {
             this.confirmationService.confirm({
-                message: 'Are you sure you want to update food: ' + this.food.foodName,
+                message: 'Are you sure you want to update food: ' + this.foodForm.value.foodName,
                 header: 'Confirmation',
                 icon: 'pi pi-exclamation-triangle',
                 accept: () => {
