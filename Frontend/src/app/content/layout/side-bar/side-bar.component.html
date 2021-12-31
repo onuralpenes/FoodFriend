@@ -19,7 +19,7 @@
         </div>
         
         <ul class="nav" style="margin-top: 25px;">
-            <div *ngIf="includesAdmin || includesPatient">
+            <div *ngIf="includesAdmin">
 
                 <li routerLinkActive='active'><a class="side-item" routerLink="/control-panel"><i class="fa fa-laptop fa-lg"
                             aria-hidden="true"></i>{{'menu.crud' | translate}}</a></li>

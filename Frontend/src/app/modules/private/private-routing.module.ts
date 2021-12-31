@@ -85,7 +85,7 @@ const routes: Routes = [
             {
                 path: 'control-panel', component: ControlPanelComponent,
                 canActivate: [RoleGuardService],
-                data: { roles: [Roles.Admin, Roles.Patient] } //Role alınınca değişecek.
+                data: { roles: [Roles.Admin] }
             },
 
             { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
