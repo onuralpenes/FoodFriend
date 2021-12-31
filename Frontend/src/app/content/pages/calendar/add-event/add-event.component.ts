@@ -46,6 +46,7 @@ export class AddEventComponent {
         }
         this.entityService.insert("/api/Schedule/Add", event).subscribe(data => {
           this.messageService.add({ severity: 'success', summary: 'Success', detail: "Event Successfuly added." });
+          location.reload();
           return;
         }, err =>
           this.messageService.add({ severity: 'error', summary: 'Error', detail: "Event cannot added" }));
@@ -60,6 +61,7 @@ export class AddEventComponent {
         }
         this.entityService.insert("/api/Schedule/Add", event).subscribe(data => {
           this.messageService.add({ severity: 'success', summary: 'Success', detail: "Event Successfuly added." });
+          location.reload();
           return;
         }, err =>
           this.messageService.add({ severity: 'error', summary: 'Error', detail: "Event cannot added" }));

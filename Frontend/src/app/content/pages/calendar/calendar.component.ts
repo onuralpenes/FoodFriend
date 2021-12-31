@@ -139,6 +139,7 @@ export class CalendarComponent {
               summary: 'Success',
               detail: 'The event was deleted successfully.',
             });
+            location.reload();
           },
           (err) => {
             if (err)
