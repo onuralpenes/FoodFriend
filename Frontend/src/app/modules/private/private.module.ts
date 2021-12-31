@@ -55,6 +55,7 @@ import { AddEventComponent } from 'src/app/content/pages/calendar/add-event/add-
 import { EditEventComponent } from 'src/app/content/pages/calendar/edit-event/edit-event.component';
 import { EditEventService } from 'src/app/helpers/edit-event.service';
 import { FoodFilterPipe } from 'src/app/helpers/food-filter.pipe';
+import { AllProffessionalsComponent } from 'src/app/content/pages/all-proffessionals/all-proffessionals.component';
 
 FullCalendarModule.registerPlugins([
   dayGridPlugin,
@@ -108,6 +109,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     RelatedExpertsComponent,
     AddEventComponent,
     EditEventComponent,
+    AllProffessionalsComponent
   ],
   imports: [
     CommonModule,

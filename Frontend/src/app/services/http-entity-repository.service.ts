@@ -49,7 +49,15 @@ export class HttpEntityRepositoryService<T> {
             this.httpOptions
         );
     }
+    
+    post(_url: string, id:number){
 
+        return this.http.post<T>(
+            environment.BASE_URL + _url + id,
+            this.httpOptions
+        );
+
+    }
     // private getHttpParam(_pagingFilter: any) {
     //     var httpParams = new HttpParams();
     //     Object.keys(_pagingFilter)
