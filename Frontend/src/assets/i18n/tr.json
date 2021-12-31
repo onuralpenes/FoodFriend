@@ -100,7 +100,9 @@
     "settings": "Ayarlar",
     "logout": "Çıkış Yap",
     "calendar": "Ajanda",
-    "goal": "Hedefler"
+    "goal": "Hedefler",
+    "all-experts": "Tüm Uzmanlar",
+    "crud": "CRUD İşlemleri"
   },
   "profile": {
     "age": "Yaş",

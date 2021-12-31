@@ -19,6 +19,16 @@
         </div>
         
         <ul class="nav" style="margin-top: 25px;">
+            <div *ngIf="includesAdmin || includesPatient">
+
+                <li routerLinkActive='active'><a class="side-item" routerLink="/control-panel"><i class="fa fa-laptop fa-lg"
+                            aria-hidden="true"></i>{{'menu.crud' | translate}}</a></li>
+            </div>
+            <div *ngIf="includesAdmin || includesProfes">
+
+                <li routerLinkActive='active'><a class="side-item" routerLink="/all-experts"><i class="fa fa-address-book fa-lg"
+                            aria-hidden="true"></i>{{'menu.all-experts' | translate}}</a></li>
+            </div>
             <div *ngIf="includesProfes || includesPatient || includesAdmin;">
                 <li routerLinkActive='active'>
                     <a class="side-item" routerLink="/dashboard"><i class="fa fa-home fa-lg"
@@ -65,11 +75,6 @@
 
                 <li routerLinkActive='active'><a class="side-item" routerLink="/goals"><i class="fa fa-bullseye fa-lg"
                             aria-hidden="true"></i>{{'menu.goal' | translate}}</a></li>
-            </div>
-            <div *ngIf="includesAdmin || includesProfes">
-
-                <li routerLinkActive='active'><a class="side-item" routerLink="/all-experts"><i class="fa fa-bullseye fa-lg"
-                            aria-hidden="true"></i>Tüm Uzmanlar - A</a></li>
             </div>
         </ul>
         <div class="language">

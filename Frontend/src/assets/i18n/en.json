@@ -95,12 +95,14 @@
     "food": "Eating Activity",
     "activity": "Activity List",
     "patients": "Patient List",
-    "expert": "Experts",
+    "expert": "Professionals",
     "foodList": "Food List",
     "settings": "Settings",
     "logout": "Logout",
     "calendar": "Schedule",
-    "goal": "Goals"
+    "goal": "Goals",
+    "all-experts": "All Professionals",
+    "crud": "CRUD Operations"
   },
   "profile": {
     "age": "Age",
