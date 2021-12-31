@@ -14,6 +14,8 @@ import { Schedule } from 'src/app/models/data/schedule.model';
 export class AddEventComponent {
   calendarForm!: FormGroup;
   multiple: boolean = false;
+  startToDate: any;
+
   constructor(formBuilder: FormBuilder, private calendar: CalendarComponent, private entityService: HttpEntityRepositoryService<Schedule>, private messageService: MessageService, private authService: AuthService) {
 
     this.calendarForm = formBuilder.group({
@@ -22,7 +24,11 @@ export class AddEventComponent {
       endDate: new FormControl('')
     });
   }
+
+
+
   onSubmit() {
+
     if (this.calendarForm.valid) {
       this.calendar.selectInfo.view.calendar.addEvent({
         id: 0,
