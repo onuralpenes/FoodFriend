@@ -1,20 +1,20 @@
-<button (click)="illness = !illness">
+<button class="opt-button" (click)="illness = !illness">
   {{'control.illness' | translate}}
 </button>
 
-<button (click)="allergy = !allergy">
+<button class="opt-button" (click)="allergy = !allergy">
   {{'control.allergy' | translate}}
 </button>
 
-<button (click)="disabled = !disabled">
+<button class="opt-button" (click)="disabled = !disabled">
   {{'control.disabled' | translate}}
 </button>
 
-<button (click)="goalType = !goalType">
+<button class="opt-button" (click)="goalType = !goalType">
   {{'control.goalType' | translate}}
 </button>
 
-<button (click)="food = !food">
+<button class="opt-button" (click)="food = !food">
   {{'control.food' | translate}}
 </button>
 
@@ -41,6 +41,7 @@
 </p-dialog>
 
 <p-dialog header="{{'control.food' | translate}}" [(visible)]="food" [dismissableMask]="true" [draggable]="false"
-  [modal]="true" [appendTo]="'body'" [closeOnEscape]="true" [blockScroll]="true" [style]="{width: '50%', height: '70%'}">
+  [modal]="true" [appendTo]="'body'" [closeOnEscape]="true" [blockScroll]="true"
+  [style]="{width: '50%', height: '70%'}">
   <app-food-transactions></app-food-transactions>
 </p-dialog>
