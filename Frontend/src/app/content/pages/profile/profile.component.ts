@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { MessageService } from 'primeng/api';
 import { User } from 'src/app/models/user/user.model';
 import { AuthService } from 'src/app/services/auth.service';
@@ -24,7 +24,7 @@ export interface DisabledList {
   templateUrl: './profile.component.html',
   styleUrls: ['./profile.component.css']
 })
-export class ProfileComponent implements OnInit {
+export class ProfileComponent {
 
   loaded = false;
   weight!: number;
@@ -42,8 +42,6 @@ export class ProfileComponent implements OnInit {
   isDisabled!: boolean;
   public editProfileTemp: boolean = false;
   expert: boolean = false;
-  dummy = "dummy";
-  gender = "male";
   genderless = false;
   male = false;
   female = false;
@@ -67,6 +65,21 @@ export class ProfileComponent implements OnInit {
       this.birthdate = Data.data.birthDate;
       this.healthId = Data.data.healthInfoId;
       this.physicalId = Data.data.physicalInfoId;
+      if (Data.data.genderId == 0) {
+        this.genderless = true;
+        this.female = false;
+        this.male = false;
+      }
+      else if (Data.data.genderId == 1) {
+        this.male = true;
+        this.female = false;
+        this.genderless = false;
+      }
+      if (Data.data.genderId == 2) {
+        this.female = true;
+        this.male = false;
+        this.genderless = false;
+      }
 
       const convertAge = new Date(this.birthdate);
       const timeDiff = Math.abs(Date.now() - convertAge.getTime());
@@ -98,7 +111,7 @@ export class ProfileComponent implements OnInit {
         this.illnessList = DataH.data.illnessDetails;
         this.allergyList = DataH.data.allergyDetails;
         this.pregnantList = DataH.data.pregnantDetails;
-      this.loaded = true;
+        this.loaded = true;
       });
 
     });
@@ -106,17 +119,5 @@ export class ProfileComponent implements OnInit {
 
   editProfile() {
     this.editProfileTemp = true;
-  }
-
-  ngOnInit(): void {
-    if (this.gender == "male") {
-      this.male = true;
-      this.female = false;
-      this.genderless = false;
-    } else {
-      this.male = false;
-      this.female = true;
-      this.genderless = false;
-    }
   }
 }
