@@ -156,7 +156,8 @@
     "allergy": "Alerji İşlemleri",
     "disabled": "Engel İşlemleri",
     "goalType": "Hedef Tipi İşlemleri",
-    "food": "Yemek İşlemleri"
+    "food": "Yemek İşlemleri",
+    "act": "Enerji Aktivitesi İşlemleri"
   },
   "calendar": {
     "start": "Başlangıç Günü",

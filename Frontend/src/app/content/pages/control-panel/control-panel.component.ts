@@ -11,5 +11,5 @@ export class ControlPanelComponent {
     disabled: boolean = false;
     goalType: boolean = false;
     food: boolean = false;
-    constructor() { }
+    activity: boolean = false;
 }

@@ -1,0 +1,99 @@
+<!-- This page is currently unavailable due to business rules.  -->
+
+<div [ngClass]="loaded ? 'loaded-content' : 'loading-content'">
+    <div class="row">
+        <div class="col-md-10"></div>
+        <div class="col-md-1">
+            <button class="add-button" (click)="add()" type="button">{{'table.add' | translate}}</button>
+        </div>
+    </div>
+    <br>
+    <div class="row">
+        <p-table [value]="energyActivityList" [paginator]="true" [rows]="rows" [showCurrentPageReport]="true"
+            [(first)]="first" currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries">
+            <ng-template pTemplate="header">
+                <tr>
+                    <th>{{'table.type' | translate}}</th>
+                    <th>{{'table.period' | translate}}</th>
+                    <th>{{'table.effort' | translate}}</th>
+                    <th>{{'table.unit' | translate}}</th>
+                    <th>{{'table.start' | translate}}</th>
+                    <th>{{'table.end' | translate}}</th>
+                    <th></th>
+                </tr>
+            </ng-template>
+            <ng-template pTemplate="body" let-activity>
+                <tr>
+                    <td>{{ activity.activityType }}</td>
+                    <td>{{ activity.activityPeriod }}</td>
+                    <td>{{ activity.activityEffortSpent }}</td>
+                    <td>{{ activity.activityEffortUnit }}</td>
+                    <td>{{ activity.activityStartDate | date: "dd/MM/yyyy, HH:mm" }}</td>
+                    <td>{{ activity.activityEndDate | date: "dd/MM/yyyy, HH:mm" }}</td>
+                    <td>
+                        <button class="tab-button" (click)="update(energyActivity)">
+                            <i class="fa fa-pencil fa-lg" aria-hidden="true"></i>
+                        </button>
+                        <button class="tab-button"
+                            (click)="delete(energyActivity.personalEnergyActivityId, energyActivity.activityType)">
+                            <i class="fa fa-trash fa-lg" aria-hidden="true"></i>
+                        </button>
+                    </td>
+                </tr>
+            </ng-template>
+        </p-table>
+    </div>
+</div>
+
+<p-dialog header="{{state}} Disability" [(visible)]="energyActivityBool" [dismissableMask]="true" [draggable]="false"
+    [modal]="true" [appendTo]="'body'" [closeOnEscape]="true" [blockScroll]="true" [style]="{width: '50%'}">
+    <div class="container">
+        <form [formGroup]="energyActivityForm" (ngSubmit)="onSubmit()" class="form">
+            <div class="row">
+                <div class="col">
+                    <span style="margin-bottom: 12%; margin-top: 10%" class="p-float-label">
+                        <input type="text" pInputText formControlName="activityType" />
+                        <label for="float-input">{{ "table.type" | translate }}</label>
+                    </span>
+                </div>
+                <div class="col">
+                    <span style="margin-bottom: 12%; margin-top: 10%" class="p-float-label">
+                        <input type="number" pInputText formControlName="activityPeriod" />
+                        <label for="float-input">{{ "table.period" | translate }}</label>
+                    </span>
+                </div>
+                <div class="col">
+                    <span style="margin-bottom: 12%; margin-top: 10%" class="p-float-label">
+                        <input type="number" pInputText formControlName="activityEffortSpent" />
+                        <label for="float-input">{{ "label.effort" | translate }}</label>
+                    </span>
+                </div>
+                <div class="col">
+                    <span style="margin-bottom: 12%; margin-top: 10%" class="p-float-label">
+                        <input type="number" pInputText formControlName="activityEffortUnit" />
+                        <label for="float-input">{{ "label.unit" | translate }}</label>
+                    </span>
+                </div>
+                <div class="col">
+                    <span style="margin-bottom: 12%; margin-top: 10%" class="p-float-label">
+                        <input type="text" pInputText formControlName="activityStartDate" />
+                    </span>
+                </div>
+                <div class="col">
+                    <span style="margin-bottom: 12%; margin-top: 10%" class="p-float-label">
+                        <input type="number" pInputText formControlName="activityEndDate" />
+                    </span>
+                </div>
+            </div>
+            <br>
+            <div class="row">
+                <div class="col-md-9"></div>
+                <div class="col-md-1">
+                    <button class="add-button" type="submit">{{ "label.submit" | translate }}</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</p-dialog>
+
+<app-loading [ngClass]="loaded ? 'hidden-spinner' : 'display-spinner'"></app-loading>

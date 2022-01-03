@@ -156,7 +156,8 @@
     "allergy": "Allergy Transactions",
     "disabled": "Disability Transactions",
     "goalType": "Goal Type Transactions",
-    "food": "Food Transactions"
+    "food": "Food Transactions",
+    "act": "Energy Activity Transactions"
   },
   "calendar": {
     "start": "Start Date",
