@@ -44,7 +44,7 @@ export class AddIllness {
       const illPost: IllnessDetail = {
         illnessDetailId: 0,
         healthInfoId: Data.data.healthInfoId,
-        illnessName: this.illnessForm.value.illnessName
+        illnessName: this.illnessForm.value.illnessName.illnessName
       }
       this.entityService.insert("/IllnessDetail/Add", illPost).subscribe(data => {
         var post: any = data;

@@ -47,7 +47,7 @@ export class AddDisability {
       }
       const disPost: DisabledDetail = {
         physicalInfoId: Data.data.physicalInfoId,
-        disabledDescription: this.disabilityForm.value.disabledDescription,
+        disabledDescription: this.disabilityForm.value.disabledDescription.disabledDescription,
         disabledRatio: this.disabilityForm.value.disabledRatio,
         disabledDetailId: 0
       }
