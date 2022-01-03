@@ -16,7 +16,7 @@
 
     <div class="row tab">
         <p-table [value]="usersWithoutFilter | userFilter : searchText" [paginator]="true" [rows]="rows"
-            [showCurrentPageReport]="true" [(first)]="first" dataKey="userId" rowExpandMode="single" 
+            [showCurrentPageReport]="true" [(first)]="first" dataKey="userId" rowExpandMode="single"
             currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries"
             [rowsPerPageOptions]="[10,25,50]">
             <ng-template pTemplate="header">
@@ -48,19 +48,21 @@
             </ng-template>
             <ng-template pTemplate="rowexpansion" let-users>
                 <tr>
-                    <th style="background-color:#55cda66e ;"colspan="7">
-
+                    <th style="background-color:#55cda647; padding-top: 15px; padding-bottom: 15px;" colspan="7">
+                        <button (click)="newConnection(users.userId)"
+                            style="float: right; margin-right: 19%; margin-top: 3%;">{{'allExpert.newCon' |
+                            translate}}</button>
                         <div class="tableDiv">
+
                             <p-table [value]="usersRelatedProf" [paginator]="false" [rows]="rows"
                                 [showCurrentPageReport]="false" [(first)]="first" dataKey="userId"
                                 currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries">
                                 <ng-template pTemplate="header">
                 <tr>
-                    <th colspan="2" pSortableColumn="firstName">Bu Uzmanın Danışanları<p-sortIcon field="firstName">
-                        </p-sortIcon>
+                    <th colspan="2" pSortableColumn="patientCol">{{'allExpert.patients' | translate}}<p-sortIcon
+                            field="patientCol"></p-sortIcon>
                     </th>
-                    <th pSortableColumn="lastName">Bağlantıyı Kopar 
-                    </th>
+                    <th>{{'allExpert.closeCon' | translate}}</th>
                 </tr>
             </ng-template>
 
@@ -68,20 +70,21 @@
                 <tr>
                     <td>{{userss.firstName }}</td>
                     <td>{{userss.lastName }}</td>
-                    <td><button class="banButton" (click)="deleteUserFromProf(userss.userId, users.userId)"><i class="fa fa-ban"></i></button></td>
+                    <td>
+                        <button class="banButton" (click)="deleteUserFromProf(userss.userId, users.userId)"><i
+                                class="fa fa-ban"></i>
+                        </button>
+                    </td>
                 </tr>
             </ng-template>
         </p-table>
     </div>
-    </th>
-
-    </tr>
     </ng-template>
     </p-table>
 </div>
-</div>
-
-
-
+<p-dialog header="Yeni Bağlantı Kur" [(visible)]="newConnect" [dismissableMask]="true" [draggable]="false"
+    [modal]="true" [appendTo]="'body'" [closeOnEscape]="true" [blockScroll]="true" [style]="{width: '25%'}">
+    <app-new-connection [id]="newConnectionProfId"></app-new-connection>
+</p-dialog>
 
 <app-loading [ngClass]="loaded ? 'hidden-spinner' : 'display-spinner'"></app-loading>

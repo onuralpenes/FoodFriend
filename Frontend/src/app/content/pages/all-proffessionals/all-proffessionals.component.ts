@@ -19,7 +19,10 @@ export class AllProffessionalsComponent implements OnInit {
   searchText = "";
   nutritionInformation: boolean = false;
   activityInformation: boolean = false;
+  newConnect = false;
+  newConnectionProfId;
   loaded = false;
+  loadedInside = false;
   constructor(private router: Router, private entityService: HttpEntityRepositoryService<User>, private messageService: MessageService, private authService: AuthService) {
     entityService.getAll("/User/GetAllProfessionel").subscribe(data => {
 
@@ -33,44 +36,51 @@ export class AllProffessionalsComponent implements OnInit {
       this.usersWithFilter = Data.data;
       this.usersWithoutFilter = Data.data;
     });
-   }
+  }
 
   ngOnInit(): void {
   }
 
-  relatedPatient(id:any){
+  relatedPatient(id: any) {
+    //this.loadedInside = false;
     this.entityService.get("/User/GetAllAssignmentsPatientForProfessionnel?professionnelId=", id).subscribe(data => {
       var Data: any = data;
       if (!Data.success) {
-          this.messageService.add({ severity: 'error', summary: 'Error', detail: Data.message });
-          return;
+        this.messageService.add({ severity: 'error', summary: 'Error', detail: Data.message });
+        return;
       }
-      else{
-        
+      else {
+
         console.log(Data);
         this.usersRelatedProf = Data.data
+        this.loadedInside = true;
       }
-  });
+    });
     console.log(id);
   }
+  newConnection(id: number) {
 
+    this.newConnectionProfId = id;
+    this.newConnect = true;
+
+  }
   open(id: number) {
     this.router.navigate(['/counselee-profile/' + id]);
   }
 
   public clickedUserId: number = 0;
 
-  deleteUserFromProf(id: number, idProf: number){
+  deleteUserFromProf(id: number, idProf: number) {
 
-    console.log(id +" patient id");
-    console.log(idProf +" prof id");
-    this.entityService.post("/User/AssignmentProfessionnelDelete?professionnelId="+idProf+"&patientId=",id).subscribe(data=>{
+    console.log(id + " patient id");
+    console.log(idProf + " prof id");
+    this.entityService.post("/User/AssignmentProfessionnelDelete?professionnelId=" + idProf + "&patientId=", id).subscribe(data => {
       var Data: any = data;
       if (!Data.success) {
-          this.messageService.add({ severity: 'error', summary: 'Error', detail: Data.message });
-          return;
+        this.messageService.add({ severity: 'error', summary: 'Error', detail: Data.message });
+        return;
       }
-      else{
+      else {
         location.reload();
       }
     });

@@ -11,11 +11,24 @@
   .hidden-spinner{
     display: none;
   }
+  .displayInside-spinner{
+    display: contents;
+  }
+  .hiddenInside-spinner{
+    display: none;
+  }
+  .loadingInside-content{
+    display: none;
+  }
+  .loadedInside-content{
+    display: contents;
+  }
+
   .banButton{
     background-color: transparent; 
     border: transparent;
   }
   .tableDiv{
       width: 50%;
-      margin-left: 12%;
+      margin-left: 8%;
   }
