@@ -1,7 +1,7 @@
 <div style="width: 350px; height: 350px;">
   <form [formGroup]="disabilityForm" (ngSubmit)="addDisability()" class>
     <p-dropdown [options]="disabilities" formControlName="disabledDescription"
-      optionLabel="disabilities.disabledDescription" [filter]="true" filterBy="disabledDescription" [showClear]="true"
+      optionLabel="disabledDescription" [filter]="true" filterBy="disabledDescription" [showClear]="true"
       placeholder="{{'label.select' | translate}}">
       <ng-template let-disability pTemplate="item">
         <div>

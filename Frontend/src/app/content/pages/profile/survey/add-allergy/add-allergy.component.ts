@@ -35,7 +35,7 @@ export class AddAllergy {
       this.messageService.add({ severity: 'error', summary: 'Error', detail: 'Form is invalid.' });
       return;
     }
-
+console.log(this.allergyForm.value)
     this.entityService.get("/User/Get?userId=", this.authService.CurrentUserId).subscribe(data => {
       var Data: any = data;
       if (!Data.success) {
@@ -45,7 +45,7 @@ export class AddAllergy {
       const allPost: AllergyDetail = {
         allergyDetailId: 0,
         healthInfoId: Data.data.healthInfoId,
-        allergyName: this.allergyForm.value.allergyName
+        allergyName: this.allergyForm.value.allergyName.allergyName
       }
       this.entityService.insert("/AllergyDetail/Add", allPost).subscribe(data => {
         var post: any = data;
