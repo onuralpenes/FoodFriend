@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { MessageService } from 'primeng/api';
 import { User } from 'src/app/models/user/user.model';
@@ -10,7 +10,7 @@ import { AllergyList, DisabledList, IllnessList, PregnantList } from '../profile
   templateUrl: './patient-profile.component.html',
   styleUrls: ['./patient-profile.component.css']
 })
-export class PatientProfileComponent implements OnInit {
+export class PatientProfileComponent {
   weight!: number;
   height!: number;
   age!: number;
@@ -24,7 +24,6 @@ export class PatientProfileComponent implements OnInit {
   hasAllergy!: boolean;
   isPregnant!: boolean;
   isDisabled!: boolean;
-  gender = "male";
   genderless = false;
   male = false;
   female = false;
@@ -35,7 +34,7 @@ export class PatientProfileComponent implements OnInit {
   pregnantList!: PregnantList[];
   disabledList!: DisabledList[];
 
-  constructor(private route: ActivatedRoute, entityService: HttpEntityRepositoryService<User>,  private messageService: MessageService) {
+  constructor(private route: ActivatedRoute, entityService: HttpEntityRepositoryService<User>, private messageService: MessageService) {
     this.route.paramMap.subscribe(param => {
       let id = Number(param.get('id'));
 
@@ -51,6 +50,21 @@ export class PatientProfileComponent implements OnInit {
         this.birthdate = Data.data.birthDate;
         this.healthId = Data.data.healthInfoId;
         this.physicalId = Data.data.physicalInfoId;
+        if (Data.data.genderId == 0) {
+          this.genderless = true;
+          this.female = false;
+          this.male = false;
+        }
+        else if (Data.data.genderId == 1) {
+          this.male = true;
+          this.female = false;
+          this.genderless = false;
+        }
+        if (Data.data.genderId == 2) {
+          this.female = true;
+          this.male = false;
+          this.genderless = false;
+        }
 
         const convertAge = new Date(this.birthdate);
         const timeDiff = Math.abs(Date.now() - convertAge.getTime());
@@ -86,18 +100,5 @@ export class PatientProfileComponent implements OnInit {
         this.loaded = true;
       });
     })
-  }
-
-  ngOnInit(): void {
-
-    if (this.gender == "male") {
-      this.male = true;
-      this.female = false;
-      this.genderless = false;
-    } else {
-      this.male = false;
-      this.female = true;
-      this.genderless = false;
-    }
   }
 }

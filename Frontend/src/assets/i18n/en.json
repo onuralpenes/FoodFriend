@@ -175,5 +175,11 @@
     "patients": "All Patients of This Professional",
     "closeCon": "Close Connection",
     "newCon": "New Connection"
+  },
+  "settings": {
+    "freeze": "Freeze Account",
+    "delete": "Delete Account",
+    "priv": "Privacy Policy",
+    "logout": "Log Out"
   }
 }

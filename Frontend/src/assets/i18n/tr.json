@@ -175,5 +175,11 @@
     "patients": "Bu Uzmanın Danışanları",
     "closeCon": "Bağlantıyı Kopar",
     "newCon": "Yeni Bağlantı"
+  },
+  "settings": {
+    "freeze": "Hesabı Dondur",
+    "delete": "Hesabı Sil",
+    "priv": "Gizlilik Sözleşmesi",
+    "logout": "Çıkış Yap"
   }
 }
