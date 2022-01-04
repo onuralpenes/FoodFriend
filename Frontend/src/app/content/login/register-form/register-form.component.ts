@@ -15,6 +15,11 @@ export class RegisterFormComponent implements OnInit {
   hidePasswordConfirmation = true;
   approved = false;
   privacyPolicy = false;
+  genders =[
+    {id: 1, name : "Male"},
+    {id: 2, name : "Female"},
+    {id: 0, name: "Genderless"},
+  ]
 
   constructor(private formBuilder: FormBuilder, private registerService: RegisterService) { }
 
@@ -27,6 +32,7 @@ export class RegisterFormComponent implements OnInit {
       password: new FormControl('', [Validators.required, Validators.minLength(8)]),
       passwordConf: new FormControl('', [Validators.required, Validators.minLength(8)]),
       birthDate: new FormControl('', [Validators.required]),
+      genderId: new FormControl('', [Validators.required]),
       privacyPolicy: new FormControl('', [Validators.required]),
     }, { validator: Match('password', 'passwordConf') });
   }
@@ -40,6 +46,8 @@ export class RegisterFormComponent implements OnInit {
     }
 
     this.approved = true;
+    this.registerForm.value.genderId = this.registerForm.value.genderId.id;
+    console.log(this.registerForm.value)
     this.registerService.register(this.registerForm.value);
   }
 

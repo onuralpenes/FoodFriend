@@ -24,7 +24,8 @@ export class RegisterService {
             birthDate: register.birthDate,
             emailAddress: register.emailAddress,
             phone: register.phone,
-            password: register.password
+            password: register.password,
+            genderId: register.genderId
         }
 
         this.http

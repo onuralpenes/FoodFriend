@@ -87,7 +87,8 @@
     "psdMin": "Şifre en az 8 karakterden oluşmalıdır",
     "confNull": "Şifre tekrarı girilmesi zorunludur",
     "confMatch": "Şifreler eşleşmiyor",
-    "bdayNull": "Doğum günü girilmesi zorunludur"
+    "bdayNull": "Doğum günü girilmesi zorunludur",
+    "genderNull": "Cinsiyet girilmesi zorunludur"
   },
   "expert": {
     "nutritionist": "Diyetisyen",
