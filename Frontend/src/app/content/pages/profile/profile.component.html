@@ -35,24 +35,172 @@
         </div>
       </div>
     </div>
+  </p-card>
 
-    <div></div>
-    <div [hidden]="!female" class="list-info">
-      <h1>{{ "profile.pregnancy" | translate }}</h1>
+  <div class="container" *ngIf="female == true">
+    <div class="row general">
+      <div class="row">
+        <div class="row" style="height: auto">
+          <div class="col-md-4">
+            <p-card class="card">
+              <div class="list-info">
+                <h1 style="font-weight: bold" class="forMargin">
+                  {{ "profile.illness" | translate }}
+                </h1>
 
-      <div [hidden]="isPregnant" class="groups">
-        <p>{{ "profile.noPreg" | translate }}</p>
-      </div>
+                <div [hidden]="hasIllness" class="groups">
+                  <p>{{ "profile.noIll" | translate }}</p>
+                </div>
 
-      <div [hidden]="!isPregnant" class="row groups">
-        <div class="col" *ngFor="let pregnant of pregnantList; let i = index">
-          <p>{{ pregnant.pregnantStartDate }} : {{ pregnant.pregnantEndDate }}</p>
+                <div [hidden]="!hasIllness" class="row groups">
+                  <div class="col-md-6" *ngFor="let illness of illnessList">
+                    <p>{{ illness.illnessName }}</p>
+                  </div>
+                </div>
+              </div>
+            </p-card>
+          </div>
+
+          <div class="col-md-4">
+            <p-card class="card">
+              <div class="list-info">
+                <h1 style="font-weight: bold" class="forMargin">
+                  {{ "profile.allergy" | translate }}
+                </h1>
+
+                <div [hidden]="hasAllergy" class="groups">
+                  <p>{{ "profile.noAll" | translate }}</p>
+                </div>
+                <div [hidden]="!hasAllergy" class="row groups">
+                  <div class="col-md-6" *ngFor="let allergy of allergyList">
+                    <p>{{ allergy.allergyName }}</p>
+                  </div>
+                </div>
+              </div>
+            </p-card>
+          </div>
+
+          <div class="col-md-4">
+            <p-card class="card">
+              <div class="list-info">
+                <h1 style="font-weight: bold" class="forMargin">
+                  {{ "profile.disable" | translate }}
+                </h1>
+
+                <div [hidden]="isDisabled" class="groups">
+                  <p>{{ "profile.noDis" | translate }}</p>
+                </div>
+                <div [hidden]="!isDisabled" class="row groups">
+                  <div class="col-md-6" *ngFor="let disable of disabledList">
+                    <p>
+                      {{ disable.disabledDescription }}:
+                      {{ disable.disabledRatio }}%
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </p-card>
+          </div>
         </div>
       </div>
     </div>
-  </p-card>
+  </div>
 
-  <div class="container">
+  <div class="container" *ngIf="female == true">
+    <div class="row general">
+      <div class="row">
+        <div class="row" style="height: auto">
+          <div class="col-md-6">
+            <p-card class="card">
+              <div class="list-info">
+                <h1 style="font-weight: bold" class="forMargin">
+                  {{ "profile.illness" | translate }}
+                </h1>
+
+                <div [hidden]="hasIllness" class="groups">
+                  <p>{{ "profile.noIll" | translate }}</p>
+                </div>
+
+                <div [hidden]="!hasIllness" class="row groups">
+                  <div class="col-md-6" *ngFor="let illness of illnessList">
+                    <p>{{ illness.illnessName }}</p>
+                  </div>
+                </div>
+              </div>
+            </p-card>
+          </div>
+
+          <div class="col-md-6">
+            <p-card class="card">
+              <div class="list-info">
+                <h1 style="font-weight: bold" class="forMargin">
+                  {{ "profile.allergy" | translate }}
+                </h1>
+
+                <div [hidden]="hasAllergy" class="groups">
+                  <p>{{ "profile.noAll" | translate }}</p>
+                </div>
+                <div [hidden]="!hasAllergy" class="row groups">
+                  <div class="col-md-6" *ngFor="let allergy of allergyList">
+                    <p>{{ allergy.allergyName }}</p>
+                  </div>
+                </div>
+              </div>
+            </p-card>
+          </div>
+
+          <div class="col-md-6">
+            <p-card class="card">
+              <div class="list-info">
+                <h1 style="font-weight: bold" class="forMargin">
+                  {{ "profile.disable" | translate }}
+                </h1>
+
+                <div [hidden]="isDisabled" class="groups">
+                  <p>{{ "profile.noDis" | translate }}</p>
+                </div>
+                <div [hidden]="!isDisabled" class="row groups">
+                  <div class="col-md-6" *ngFor="let disable of disabledList">
+                    <p>
+                      {{ disable.disabledDescription }}:
+                      {{ disable.disabledRatio }}%
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </p-card>
+          </div>
+
+          <div class="col-md-6">
+            <p-card class="card">
+              <div class="list-info">
+                <!--  [hidden]="!female"  -->
+                <h1>{{ "profile.pregnant" | translate }}</h1>
+
+                <div [hidden]="isPregnant" class="groups">
+                  <p>{{ "profile.noPreg" | translate }}</p>
+                </div>
+
+                <div [hidden]="!isPregnant" class="row groups">
+                  <div
+                    class="col"
+                    *ngFor="let pregnant of pregnantList; let i = index"
+                  >
+                    <p>
+                      {{ pregnant.pregnantStartDate }} :
+                      {{ pregnant.pregnantEndDate }}
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </p-card>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="container" *ngIf="genderless== true">
     <div class="row general">
       <div class="row">
         <div class="row" style="height: auto">

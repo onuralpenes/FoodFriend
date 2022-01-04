@@ -80,7 +80,8 @@ p{
 }
 .card{
   width: 100%;
-  margin-top: 10%;
+  margin-top: 2%;
+  margin-bottom: 2%;
 }
 
 .cardTop{
@@ -96,7 +97,7 @@ p{
 }
 
 .ex-button{
-    background: linear-gradient(#00db93, #00b97d); 
+    background: linear-gradient(#00db93, #00b97d);
     border-radius: 25px;
     width: 40%;
     height: 20%;
