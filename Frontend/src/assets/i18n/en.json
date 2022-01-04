@@ -182,5 +182,10 @@
     "delete": "Delete Account",
     "priv": "Privacy Policy",
     "logout": "Log Out"
+  },
+  "gender": {
+    "male": "Male",
+    "female": "Female",
+    "genderless": "Genderless"
   }
 }

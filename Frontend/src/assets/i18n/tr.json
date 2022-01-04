@@ -182,5 +182,10 @@
     "delete": "Hesabı Sil",
     "priv": "Gizlilik Sözleşmesi",
     "logout": "Çıkış Yap"
+  },
+  "gender": {
+    "male": "Erkek",
+    "female": "Kadın",
+    "genderless": "Cinsiyetimi belirtmek istemiyoru."
   }
 }

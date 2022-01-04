@@ -1,5 +1,5 @@
 .cb{
-    margin-top: 0em;
+    margin-top: 5%;
     margin-bottom: 5%;
 }
 
@@ -99,4 +99,23 @@ span {
   float: left;
   margin-bottom: 5%;
 
+}
+
+:host ::ng-deep .p-dropdown {
+  width: 100%;
+  float: left !important;
+}
+
+.gender{
+  float: left;
+}
+
+.label{
+  width: 100% !important;
+  float: left !important;
+  margin-top: 7%;
+}
+
+:host ::ng-deep .p-placeholder{
+  margin-right: 33%;
 }
