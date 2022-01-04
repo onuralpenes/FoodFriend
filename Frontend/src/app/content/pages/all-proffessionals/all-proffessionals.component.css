@@ -32,3 +32,17 @@
       width: 50%;
       margin-left: 8%;
   }
+
+  .new-button{
+    background: linear-gradient(#00db93, #00b97d);
+    border-radius: 25px;
+    width: 10%;
+    height: 20%;
+    margin: 0 auto;
+    border: 0;
+}
+
+.new-button:hover{
+	background: rgba(9, 220, 128, 0.3);
+	color: rgba(255,255,255,0.8);
+  }

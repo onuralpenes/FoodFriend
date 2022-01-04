@@ -1,5 +1,6 @@
-import { AfterViewInit, ChangeDetectionStrategy, ChangeDetectorRef, Component, Input } from "@angular/core";
+import { Component, Input, SimpleChanges } from "@angular/core";
 import { MessageService } from "primeng/api";
+import { EditEventService } from "src/app/helpers/edit-event.service";
 import { PersonalEnergyActivity } from "src/app/models/data/energy-activity.model";
 import { HttpEntityRepositoryService } from "src/app/services/http-entity-repository.service";
 
@@ -7,37 +8,34 @@ import { HttpEntityRepositoryService } from "src/app/services/http-entity-reposi
 @Component({
     selector: 'app-patient-activity-table',
     templateUrl: './patient-activity-table.html',
-    styleUrls: ['./patient-activity-table.css'],
-    changeDetection: ChangeDetectionStrategy.OnPush
+    styleUrls: ['./patient-activity-table.css']
 })
-export class PatientActivityTable implements AfterViewInit {
+export class PatientActivityTable {
     activityWithFilter: PersonalEnergyActivity[] = [];
     activityWithoutFilter: PersonalEnergyActivity[] = [];
     first = 0;
     rows = 10;
     searchText = "";
+    loaded = false;
 
     @Input() id = 0;
 
-    constructor(private entityService: HttpEntityRepositoryService<PersonalEnergyActivity>, private messageService: MessageService, private detect: ChangeDetectorRef) { }
-
-    ngAfterViewInit() {
-        this.detect.detach();
-        setInterval(() => {
-            if (this.id != 0) {
-                this.detect.detectChanges();
-                this.entityService.get("/PersonalEnergyActivity/GetByUserId?userId=", this.id).subscribe(data => {
-                    var Data: any = data;
-                    if (!Data.success) {
-                        this.messageService.add({ severity: 'error', summary: 'Error', detail: Data.message });
-                        return;
-                    }
-                    this.activityWithFilter = Data.data;
-                    this.activityWithoutFilter = Data.data;
-                });
-            }
-        }, 5000)
+    ngOnChanges(changes: SimpleChanges) {
+        if (this.id != 0) {
+            this.entityService.get("/PersonalEnergyActivity/GetByUserId?userId=", this.id).subscribe(data => {
+                var Data: any = data;
+                if (!Data.success) {
+                    this.messageService.add({ severity: 'error', summary: 'Error', detail: Data.message });
+                    return;
+                }
+                this.activityWithFilter = Data.data;
+                this.activityWithoutFilter = Data.data;
+                this.loaded = true;
+            });
+        }
     }
+
+    constructor(private entityService: HttpEntityRepositoryService<PersonalEnergyActivity>, private messageService: MessageService, private editEventService: EditEventService) { }
 
     keyup(searchText) {
         this.searchText = searchText;

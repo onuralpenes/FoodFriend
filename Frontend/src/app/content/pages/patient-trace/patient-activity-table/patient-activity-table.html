@@ -1,3 +1,5 @@
+
+<div [ngClass]="loaded ? 'loaded-content' : 'loading-content'">
 <div class="row tab">
   <div class="p-mb-3">
     <p-button type="button" icon="pi pi-chevron-left" (click)="prev()" [disabled]="isFirstPage()"

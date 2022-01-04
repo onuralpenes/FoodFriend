@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { MessageService } from 'primeng/api';
+import { ConfirmationService, MessageService } from 'primeng/api';
 import { User } from 'src/app/models/user/user.model';
 import { AuthService } from 'src/app/services/auth.service';
 import { HttpEntityRepositoryService } from 'src/app/services/http-entity-repository.service';
@@ -23,7 +23,7 @@ export class AllProffessionalsComponent implements OnInit {
   newConnectionProfId;
   loaded = false;
   loadedInside = false;
-  constructor(private router: Router, private entityService: HttpEntityRepositoryService<User>, private messageService: MessageService, private authService: AuthService) {
+  constructor(private router: Router, private confirmationService: ConfirmationService, private entityService: HttpEntityRepositoryService<User>, private messageService: MessageService, private authService: AuthService) {
     entityService.getAll("/User/GetAllProfessionel").subscribe(data => {
 
       var Data: any = data;
@@ -72,18 +72,30 @@ export class AllProffessionalsComponent implements OnInit {
 
   deleteUserFromProf(id: number, idProf: number) {
 
-    console.log(id + " patient id");
-    console.log(idProf + " prof id");
-    this.entityService.post("/User/AssignmentProfessionnelDelete?professionnelId=" + idProf + "&patientId=", id).subscribe(data => {
-      var Data: any = data;
-      if (!Data.success) {
-        this.messageService.add({ severity: 'error', summary: 'Error', detail: Data.message });
-        return;
+    this.confirmationService.confirm({
+      message: 'Are you sure you want to close connectiom? ',
+      header: 'Confirmation',
+      icon: 'pi pi-exclamation-triangle',
+      accept: () => {
+        this.entityService.post("/User/AssignmentProfessionnelDelete?professionnelId=" + idProf + "&patientId=", id).subscribe(data => {
+          var Data: any = data;
+          if (!Data.success) {
+            this.messageService.add({ severity: 'error', summary: 'Error', detail: Data.message });
+            return;
+          }
+          else {
+            this.messageService.add({ severity: 'success', summary: 'Success', detail: 'The connection has been successfully closed.' });
+            location.reload();
+          }
+        }, err => {
+          this.messageService.add({ severity: 'error', summary: 'Error', detail: 'An error occurred during the closing connection.' });
+        });
+      },
+      reject: () => {
+        this.messageService.add({ severity: 'warn', summary: 'Unsuccess', detail: 'You did not close connection.' });
       }
-      else {
-        location.reload();
-      }
-    });
+  });
+    
   }
   openActivity(id: number) {
     this.clickedUserId = id;

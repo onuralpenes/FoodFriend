@@ -1,7 +1,7 @@
 import { DatePipe } from '@angular/common';
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { Router } from '@angular/router';
-import { MessageService } from 'primeng/api';
+import { ConfirmationService, MessageService } from 'primeng/api';
 import { EatingActivity } from 'src/app/models/data/eating-activity.model';
 import { User } from 'src/app/models/user/user.model';
 import { AuthService } from 'src/app/services/auth.service';
@@ -81,7 +81,7 @@ export class PatientListComponent {
   }
   entityServiceEatingAct: any;
 
-  constructor(private entityServiceEatingActv: HttpEntityRepositoryService<EatingActivity>, private router: Router, private entityService: HttpEntityRepositoryService<User>, private messageService: MessageService, private authService: AuthService) {
+  constructor(private entityServiceEatingActv: HttpEntityRepositoryService<EatingActivity>, private confirmationService: ConfirmationService, private router: Router, private entityService: HttpEntityRepositoryService<User>, private messageService: MessageService, private authService: AuthService) {
     
     this.entityServiceEatingAct = entityServiceEatingActv;
     entityService.get("/User/GetAllAssignmentsPatientForProfessionnel?professionnelId=", this.authService.CurrentUserId).subscribe(data => {
@@ -95,10 +95,10 @@ export class PatientListComponent {
       this.usersWithFilter = Data.data;
       this.usersWithoutFilter = Data.data;
     });
-
   }
 
   userInfo(id: any) {
+    this.clickedUserId = id;
     const datepipe: DatePipe = new DatePipe('en-US');
     let date = datepipe.transform(new Date(new Date().setDate(new Date().getDate())), 'YYYY-MM-dd');
     this.gainedCalorie = 0;
@@ -147,24 +147,12 @@ export class PatientListComponent {
 
   public clickedUserId: number = 0;
 
-  openActivity(id: number) {
-    this.clickedUserId = id;
+  openActivity() {
     this.activityInformation = true;
   }
 
-  openFood(id: number) {
-    this.clickedUserId = id;
+  openFood() {
     this.nutritionInformation = true;
-  }
-
-  openTarget(id: number) {
-    // this.modal.open(PatientTarget, {
-    //   data: {
-    //     name: firstName + ' ' + lastName,
-    //     id: id,
-    //     //currentWeight: this.users[id - 1].weight,
-    //   },
-    // });
   }
 
   keyup(searchText) {
@@ -223,5 +211,36 @@ export class PatientListComponent {
       this.chartOptionsCalorieTracking = this.getLightTheme();
       this.chartOptionsNutritionalValue = this.getLightTheme();
     }
+  }
+  recommendation: string = "";
+  rec(recommendation: string){
+    this.recommendation = recommendation;
+  }
+  makeRecommendation(){
+    if(this.recommendation == ""){
+      return;
+    }
+    this.confirmationService.confirm({
+      message: 'Are you sure you want to make this reccomendation?',
+      header: 'Confirmation',
+      icon: 'pi pi-exclamation-triangle',
+      accept: () => {
+        let recom = {
+          professionalRecommendationId: 0,
+          userId: this.clickedUserId,
+          professionelUserId: this.authService.CurrentUserId,
+          recommendation: this.recommendation
+        }
+        this.entityService.insert("/api/ProfessionalRecommendation/Add", recom)
+          .subscribe(data => {
+            this.messageService.add({ severity: 'success', summary: 'Success', detail: 'Recommendation sent successfully.' });
+          }, err => {
+            this.messageService.add({ severity: 'unsuccess', summary: 'Unsuccess', detail: 'An error occurred while recommendation.' });
+          });
+      },
+      reject: () => {
+        this.messageService.add({ severity: 'warn', summary: 'Unsuccess', detail: 'Recommendation not sent.' });
+      }
+    });
   }
 }
