@@ -5,7 +5,7 @@
       <div class="row">
         <div class="col-md-1"></div>
         <div class="expert-img-div col-md-3">
-          <img class="profile-img" src="assets/nutritionist_pp.jpg" />
+          <img class="header-image" src="assets/nutritionist_pp.jpg" />
         </div>
         <div class="col-md-6">
           <br>
@@ -25,7 +25,7 @@
     <!-- <div [ngClass]="details ? 'detail-content' : 'content' ">
       <p> {{expert.information}}</p>
     </div> -->
-    <ng-template pTemplate="footer"> 
+    <ng-template pTemplate="footer">
       <p-button [ngClass]="details ? 'button-expert':'button-none'" label="Authorize" icon="pi pi-check"
         (click)="authorize(expert.name)"></p-button>
     </ng-template>
