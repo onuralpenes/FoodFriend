@@ -23,7 +23,7 @@
         styleClass="p-button-text"></p-button>
     </div>
     <p-table [value]="usersWithoutFilter | userFilter : searchText" [paginator]="true" [rows]="rows"
-      [showCurrentPageReport]="true" [(first)]="first" dataKey="userId"
+      [showCurrentPageReport]="true" [(first)]="first" dataKey="userId" rowExpandMode="single" 
       currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries" [rowsPerPageOptions]="[10,25,50]">
       <ng-template pTemplate="header">
         <tr>
@@ -56,24 +56,33 @@
           <th style="background-color: rgb(236, 255, 226);" colspan="4">
             <div>
               <p class="userTitle">{{ users.firstName }} {{users.lastName}}</p>
-              <p style="margin-left: 41%;"> {{ users.firstName }} bugün ne yaptı </p>
+              <p style="margin-left: 41%;"> {{ users.firstName }}{{'expert.sum' | translate}} </p>
               <div class="row upper-div" style="width: 100%;">
                 <div style="width: 50%; height: 350px; margin-left: 10px;">
-                    <h3 style="margin:0 auto ; text-align: center;">Calorie Tracking</h3>
-                    <p-chart type="doughnut" [width]="'250'" [data]="dataCalorieTracking" [options]="chartOptionsNutritionalValue" ></p-chart>
+                  <h3 style="margin:0 auto ; text-align: center;">Calorie Tracking</h3>
+                  <p-chart type="doughnut" [width]="'250'" [data]="dataCalorieTracking"
+                    [options]="chartOptionsNutritionalValue"></p-chart>
                 </div>
                 <div style="width: 50%; height: 400px; margin-left: -55px;">
-                    <h3 style="margin:0 auto ; text-align: center;">Nutritional Value</h3>
-                    <p-chart type="polarArea" [data]="dataNutritionalValue" [height] = "'250'" [options]="chartOptionsCalorieTracking" [style]="{'width': '40%'}"></p-chart>
+                  <h3 style="margin:0 auto ; text-align: center;">Nutritional Value</h3>
+                  <p-chart type="polarArea" [data]="dataNutritionalValue" [height]="'250'"
+                    [options]="chartOptionsCalorieTracking" [style]="{'width': '40%'}"></p-chart>
                 </div>
               </div>
+              <button (click) = "openActivity()">Activity</button>
+              <button (click) = "openFood()">Food</button>
               <div style="margin-left: 60px;">
-                <span class="p-float-label">
-                  <textarea rows="5" cols="70" pInputTextarea ></textarea>
-                  <label for="float-input">{{ users.firstName }} için yapacağın öneriyi buraya gir</label>
-                </span>
+                <form #recommendation="ngForm">
+                  <span class="p-float-label">
+                    <textarea rows="5" cols="70" pInputTextarea (keyup)="rec(recommendation.value.recommendation)"
+                      ngModel name="recommendation"></textarea>
+                    <label for="float-input">{{'label.sum' | translate}} {{ users.firstName }}</label>
+                  </span>
+                  <button (click) = "makeRecommendation()">
+                    {{'label.submit' | translate}}
+                  </button>
+                </form>
               </div>
-
             </div>
           </th>
         </tr>

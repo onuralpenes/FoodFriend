@@ -41,8 +41,9 @@
     "alcohol": "Alkol",
     "submit": "Onayla",
     "value": "Değer",
-    "disDec": "Disability Description",
-    "disRat": "Disability Ratio"
+    "disDec": "Engel Tanımı",
+    "disRat": "Engel durumu",
+    "sum": "Şu kullanıcı için yapacağın öneriyi gir:"
   },
   "forget": {
     "title": "Şifreni mi unuttun?",
@@ -92,7 +93,8 @@
   },
   "expert": {
     "nutritionist": "Diyetisyen",
-    "more": "Devamı.."
+    "more": "Devamı..",
+    "sum": "'in bugün için özeti."
   },
   "menu": {
     "dashboard": "Ana Sayfa",

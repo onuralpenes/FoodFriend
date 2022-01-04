@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, ChangeDetectorRef, Component, Input } from "@angular/core";
+import { Component, Input, SimpleChanges } from "@angular/core";
 import { MessageService } from "primeng/api";
 import { EatingActivity } from "src/app/models/data/eating-activity.model";
 import { HttpEntityRepositoryService } from "src/app/services/http-entity-repository.service";
@@ -7,8 +7,7 @@ import { EatTable, Tab } from "../../eating-activity/eating-activity.component";
 @Component({
     selector: 'app-patient-nutrition-table',
     templateUrl: './patient-nutrition-table.html',
-    styleUrls: ['./patient-nutrition-table.css'],
-    changeDetection: ChangeDetectionStrategy.OnPush
+    styleUrls: ['./patient-nutrition-table.css']
 })
 export class PatientNutritionTable {
     eatTab: Tab[] = [];
@@ -17,12 +16,10 @@ export class PatientNutritionTable {
 
     @Input() id = 0;
 
-    constructor(entityService: HttpEntityRepositoryService<EatingActivity>, detect: ChangeDetectorRef, private messageService: MessageService) {
-        detect.detach();
-        setInterval(() => {
+    ngOnChanges(changes: SimpleChanges) {
+        if (this.id != 0) {
             if (this.id != 0) {
-                detect.detectChanges();
-                entityService.get('/EatingActivity/GetByUserId?userId=', this.id).subscribe(data => {
+                this.entityService.get('/EatingActivity/GetByUserId?userId=', this.id).subscribe(data => {
 
                     var Data: any = data;
                     if (!Data.success) {
@@ -69,6 +66,8 @@ export class PatientNutritionTable {
                     }
                 });
             }
-        }, 5000)
+        }
     }
+
+    constructor(private entityService: HttpEntityRepositoryService<EatingActivity>, private messageService: MessageService) { }
 }

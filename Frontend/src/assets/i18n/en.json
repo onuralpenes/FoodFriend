@@ -42,7 +42,8 @@
     "submit": "Submit",
     "value": "Value",
     "disDec": "Disability Description",
-    "disRat": "Disability Ratio"
+    "disRat": "Disability Ratio",
+    "sum": "Enter your suggestion for:"
   },
   "forget": {
     "title": "Forget your Password?",
@@ -92,7 +93,8 @@
   },
   "expert": {
     "nutritionist": "Nutritionist",
-    "more": "More.."
+    "more": "More..",
+    "sum": "'s today's summary."
   },
   "menu": {
     "dashboard": "Dashboard",
