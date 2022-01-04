@@ -65,7 +65,6 @@ import { FoodTransactionsComponent } from 'src/app/content/pages/control-panel/f
 import { NewConnectionComponent } from 'src/app/content/pages/all-proffessionals/new-connection/new-connection.component';
 import { EnergyActivityTransactionsComponent } from 'src/app/content/pages/control-panel/energy-activity-transactions/energy-activity-transactions.component';
 
-
 FullCalendarModule.registerPlugins([
   dayGridPlugin,
   timeGridPlugin,
