@@ -17,6 +17,7 @@ import { DropdownModule } from 'primeng/dropdown';
 import { ToastModule } from 'primeng/toast';
 import { ProgressSpinnerModule } from 'primeng/progressspinner';
 import { DeferModule } from 'primeng/defer';
+import {InputTextareaModule} from 'primeng/inputtextarea';
 
 @NgModule({
     imports: [
@@ -38,6 +39,7 @@ import { DeferModule } from 'primeng/defer';
         ToastModule,
         ProgressSpinnerModule,
         DeferModule,
+        InputTextareaModule
     ],
     exports: [
         DialogModule,
@@ -58,6 +60,7 @@ import { DeferModule } from 'primeng/defer';
         ToastModule,
         ProgressSpinnerModule,
         DeferModule,
+        InputTextareaModule
     ]
 })
 
