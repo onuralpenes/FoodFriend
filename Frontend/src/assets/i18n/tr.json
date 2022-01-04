@@ -94,7 +94,8 @@
   "expert": {
     "nutritionist": "Diyetisyen",
     "more": "Devamı..",
-    "sum": "'in bugün için özeti."
+    "sum": "'in bugün için özeti.",
+    "subRec": "Öneriyi Yolla"
   },
   "menu": {
     "dashboard": "Ana Sayfa",

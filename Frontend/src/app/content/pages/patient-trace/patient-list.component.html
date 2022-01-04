@@ -23,7 +23,7 @@
         styleClass="p-button-text"></p-button>
     </div>
     <p-table [value]="usersWithoutFilter | userFilter : searchText" [paginator]="true" [rows]="rows"
-      [showCurrentPageReport]="true" [(first)]="first" dataKey="userId" rowExpandMode="single" 
+      [showCurrentPageReport]="true" [(first)]="first" dataKey="userId" rowExpandMode="single"
       currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries" [rowsPerPageOptions]="[10,25,50]">
       <ng-template pTemplate="header">
         <tr>
@@ -69,17 +69,27 @@
                     [options]="chartOptionsCalorieTracking" [style]="{'width': '40%'}"></p-chart>
                 </div>
               </div>
-              <button (click) = "openActivity()">Activity</button>
-              <button (click) = "openFood()">Food</button>
+              <div class="row">
+                <div class="col-md-2"></div>
+                <div class="col-md-3">
+                  <button class="tab-button" (click)="openActivity()"> {{ users.firstName }}'s Energy Activities</button>
+                </div>
+                <div class="col-md-2"></div>
+                <div class="col-md-3">
+                  <button class="tab-button" (click)="openFood()">{{ users.firstName }}'s Eating Activities</button>
+                </div>
+                <div class="col-md-2"></div>
+              </div>
+              <br>
               <div style="margin-left: 60px;">
                 <form #recommendation="ngForm">
-                  <span class="p-float-label">
+                  <span class="p-float-label" style="margin: 0 auto">
                     <textarea rows="5" cols="70" pInputTextarea (keyup)="rec(recommendation.value.recommendation)"
                       ngModel name="recommendation"></textarea>
                     <label for="float-input">{{'label.sum' | translate}} {{ users.firstName }}</label>
                   </span>
-                  <button (click) = "makeRecommendation()">
-                    {{'label.submit' | translate}}
+                  <button class="tab-button" (click)="makeRecommendation()">
+                    {{'expert.subRec' | translate}}
                   </button>
                 </form>
               </div>

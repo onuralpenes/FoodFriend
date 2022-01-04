@@ -94,7 +94,8 @@
   "expert": {
     "nutritionist": "Nutritionist",
     "more": "More..",
-    "sum": "'s today's summary."
+    "sum": "'s today's summary.",
+    "subRec": "Submit Recommendation"
   },
   "menu": {
     "dashboard": "Dashboard",

@@ -19,9 +19,21 @@
 .hidden-spinner{
   display: none;
 }
-
 .userTitle{
   margin-left: 35px;
   margin-top: 20px;
-  
+}
+.tab-button{
+  background: linear-gradient(#00db93, #00b97d);
+  border-radius: 25px;
+  width: auto;
+  height: 20%;
+  margin: 0 auto;
+  border: 0;
+  padding: 1%;
+}
+
+.tab-button:hover{
+background: rgba(9, 220, 128, 0.3);
+color: rgba(255,255,255,0.8);
 }
