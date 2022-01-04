@@ -5,4 +5,5 @@ export interface Register {
     emailAddress: string;
     phone: string;
     password: string;
+    genderId: number;
 }

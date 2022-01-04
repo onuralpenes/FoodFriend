@@ -94,23 +94,35 @@
           translate}}</small>
       </div>
     </div>
-
-    <p>
-      <!-- <label>{{'label.birthdate' | translate}}</label> -->
-      <span class="p-float-label">
-        <input type="date" pInputText formControlName="birthDate" type="date"
-          [ngClass]="{ 'is-invalid': submitted && f.birthDate.errors }" required>
-           <label style="margin-left: 60%;">{{'label.birthdate' | translate}}</label>
-      </span>
-      <small *ngIf="submitted && f.birthDate.errors?.required" style="color: red;">{{'validator.bdayNull' |
-        translate}}</small>
-
-    </p>
-
+    <div class="row">
+      <div class="col-md-6">
+        <p-dropdown class="label" [options]="genders" formControlName="genderId" optionLabel="name" [filter]="false"
+          [showClear]="false" placeholder="Select Any"> <!-- Mert bunların css'i ve yandaki placeholder'a bak-->
+          <ng-template let-gender pTemplate="item">
+            <div>
+              <div>{{ gender.name }}</div>
+            </div>
+          </ng-template>
+        </p-dropdown>
+        <small *ngIf="submitted && f.genderId.errors?.required" style="color: red;">{{'validator.genderNull' |
+          translate}}</small>
+      </div>
+      <div class="col-md-6">
+        <span class="p-float-label">
+          <input type="date" pInputText formControlName="birthDate" type="date"
+            [ngClass]="{ 'is-invalid': submitted && f.birthDate.errors }" required>
+          <label style="margin-left: 60%;">{{'label.birthdate' | translate}}</label>
+        </span>
+        <small *ngIf="submitted && f.birthDate.errors?.required" style="color: red;">{{'validator.bdayNull' |
+          translate}}</small>
+      </div>
+    </div>
     <p class="cb">
       <input type="checkbox" formControlName="privacyPolicy" required>
-      <label style="color: red" *ngIf="submitted && f.privacyPolicy.errors?.required" (click)="privacyPolicy = true">  {{'label.pp' | translate}}*</label>
-      <label *ngIf="!submitted || !f.privacyPolicy.errors?.required" (click)="privacyPolicy = true">  {{'label.pp' | translate}}*</label>
+      <label style="color: red" *ngIf="submitted && f.privacyPolicy.errors?.required" (click)="privacyPolicy = true">
+        {{'label.pp' | translate}}*</label>
+      <label *ngIf="!submitted || !f.privacyPolicy.errors?.required" (click)="privacyPolicy = true"> {{'label.pp' |
+        translate}}*</label>
     </p>
 
     <button class="signUpButton" type="submit">{{'account.signUp' | translate}}</button>
