@@ -1,5 +1,57 @@
 
 
-<p>
-    {{patients[0].firstName}}
-</p>
+<div>
+
+<div class="row">
+    <div style="margin-left: 5%">
+      <br>
+      <form #search="ngForm">
+        <span class="p-input-icon-left">
+          <i class="pi pi-search"></i>
+          <input type="text" pInputText placeholder="Search" (keyup)="keyup(search.value.searchText)" ngModel
+            name="searchText" />
+        </span>
+      </form>
+    </div>
+  </div>
+  
+  <br>
+  
+  <div class="row tab">
+    <div class="p-mb-3">
+      <p-button type="button" icon="pi pi-chevron-left" (click)="prev()" [disabled]="isFirstPage()"
+        styleClass="p-button-text"></p-button>
+      <p-button type="button" icon="pi pi-refresh" (click)="reset()" styleClass="p-button-text"></p-button>
+      <p-button type="button" icon="pi pi-chevron-right" (click)="next()" [disabled]="isLastPage()"
+        styleClass="p-button-text"></p-button>
+    </div>
+    <p-table [value]="patientsWithoutFilter | userFilter : searchText" [paginator]="true" [rows]="rows"
+      [showCurrentPageReport]="true" [(first)]="first"
+      currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries" [rowsPerPageOptions]="[10,25,50]">
+      <ng-template pTemplate="header">
+        <tr>
+          <th pSortableColumn="firstName">Ad <p-sortIcon field="firstName"></p-sortIcon>
+          </th>
+          <th pSortableColumn="lastName">Soyad <p-sortIcon field="lastName"></p-sortIcon>
+          </th>
+          <th pSortableColumn="email">E-mail <p-sortIcon field="email"></p-sortIcon>
+          </th>
+          <th pSortableColumn="newConnection">Bağlantı Kur <p-sortIcon field="newConnection"></p-sortIcon>
+          </th>
+        </tr>
+      </ng-template>
+      <ng-template pTemplate="body" let-user>
+        <tr>
+          <td>{{ user.firstName }}</td>
+          <td>{{ user.lastName }}</td>
+          <td>{{ user.emailAddress }}</td>
+          <td><button (click)="connectUserToProf(user.userId)" ><i class="fa fa-plus"></i></button></td>
+        </tr>
+      </ng-template>
+    </p-table>
+  </div>
+</div>
+  
+  
+  
+  
