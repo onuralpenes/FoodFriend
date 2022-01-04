@@ -36,9 +36,6 @@
           <th pSortableColumn="birthDate">{{'label.birthdate' | translate}} <p-sortIcon field="birthDate">
             </p-sortIcon>
           </th>
-          <th>{{'table.goal' | translate}}</th>
-          <th>{{'table.nutriInfo' | translate}}</th>
-          <th>{{'table.actiInfo' | translate}}</th>
         </tr>
       </ng-template>
 
@@ -51,32 +48,34 @@
           </td>
           <td>{{users.firstName }}</td>
           <td>{{ users.lastName }}</td>
-          <td>{{ users.birthDate | date: "dd/MM/yyyy" }}</td>
-          <td>
-            <button class="tab-button" (click)="openTarget(users.userId)">
-              <i class="fa fa-line-chart fa-lg"></i>
-            </button>
-          </td>
-          <td>
-            <button class="tab-button" (click)="openFood(users.userId)">
-              <i class="fa fa-cutlery fa-lg"></i>
-            </button>
-          </td>
-          <td>
-            <button class="tab-button" (click)="openActivity(users.userId)">
-              <i class="fa fa-bicycle fa-lg"></i>
-            </button>
-          </td>
+          <td>{{ users.emailAddress }}</td>
         </tr>
       </ng-template>
       <ng-template pTemplate="rowexpansion" let-users>
         <tr>
-          <th colspan="7">
+          <th style="background-color: rgb(236, 255, 226);" colspan="4">
             <div>
-              {{users.firstName }}
+              <p class="userTitle">{{ users.firstName }} {{users.lastName}}</p>
+              <p style="margin-left: 41%;"> {{ users.firstName }} bugün ne yaptı </p>
+              <div class="row upper-div" style="width: 100%;">
+                <div style="width: 50%; height: 350px; margin-left: 10px;">
+                    <h3 style="margin:0 auto ; text-align: center;">Calorie Tracking</h3>
+                    <p-chart type="doughnut" [width]="'250'" [data]="dataCalorieTracking" [options]="chartOptionsNutritionalValue" ></p-chart>
+                </div>
+                <div style="width: 50%; height: 400px; margin-left: -55px;">
+                    <h3 style="margin:0 auto ; text-align: center;">Nutritional Value</h3>
+                    <p-chart type="polarArea" [data]="dataNutritionalValue" [height] = "'250'" [options]="chartOptionsCalorieTracking" [style]="{'width': '40%'}"></p-chart>
+                </div>
+              </div>
+              <div style="margin-left: 60px;">
+                <span class="p-float-label">
+                  <textarea rows="5" cols="70" pInputTextarea ></textarea>
+                  <label for="float-input">{{ users.firstName }} için yapacağın öneriyi buraya gir</label>
+                </span>
+              </div>
+
             </div>
           </th>
-
         </tr>
       </ng-template>
     </p-table>
