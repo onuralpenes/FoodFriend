@@ -72,27 +72,37 @@
               <div class="row">
                 <div class="col-md-2"></div>
                 <div class="col-md-3">
-                  <button style="height: 100% !important;" class="tab-button" (click)="openActivity()"> {{ users.firstName }}'s Energy Activities</button>
+                  <button style="height: 100% !important;" class="tab-button" (click)="openActivity()"> {{
+                    users.firstName }}'s Energy Activities</button>
                 </div>
                 <div class="col-md-2"></div>
                 <div class="col-md-3">
-                  <button style="height: 100% !important;"class="tab-button" (click)="openFood()">{{ users.firstName }}'s Eating Activities</button>
+                  <button style="height: 100% !important;" class="tab-button" (click)="openFood()">{{ users.firstName
+                    }}'s Eating Activities</button>
                 </div>
                 <div class="col-md-2"></div>
               </div>
               <br>
-              <div style="margin-left: 60px;">
-                <form #recommendation="ngForm">
-                  <span class="p-float-label" style="margin: 0 auto">
-                    <textarea rows="5" cols="70" pInputTextarea (keyup)="rec(recommendation.value.recommendation)"
-                      ngModel name="recommendation"></textarea>
-                    <label for="float-input">{{'label.sum' | translate}} {{ users.firstName }}</label>
-                  </span>
-                  <button class="tab-button" (click)="makeRecommendation()">
-                    {{'expert.subRec' | translate}}
-                  </button>
-                </form>
+              <div class="row">
+                <div class="col-md-6" style="margin-left: 60px;">
+                  <form #recommendation="ngForm">
+                    <span class="p-float-label" style="margin: 0 auto">
+                      <textarea rows="5" cols="70" pInputTextarea (keyup)="rec(recommendation.value.recommendation)"
+                        ngModel name="recommendation"></textarea>
+                      <label for="float-input">{{'label.sum' | translate}} {{ users.firstName }}</label>
+                    </span>
+                    <button class="tab-button" (click)="makeRecommendation()">
+                      {{'expert.subRec' | translate}}
+                    </button>
+                  </form>
+                </div>
+                <div class="col-md-5">
+                  <p>
+                    {{users.firstName}} için günlük hedefler
+                  </p>
+                </div>
               </div>
+
             </div>
           </th>
         </tr>
