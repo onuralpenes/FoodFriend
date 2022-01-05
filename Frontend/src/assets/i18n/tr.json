@@ -157,7 +157,9 @@
   "goal": {
     "goalName": "Hedef Adı",
     "goal": "Hedef",
-    "date": "Hedef Tarih"
+    "date": "Hedef Tarih",
+    "goals": "Hedefler",
+    "purposes": "Amaçlar"
   },
   "control": {
     "illness": "Hastalık İşlemleri",

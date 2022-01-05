@@ -15,7 +15,10 @@ export class GoalsAndPurposesComponent {
     purposes: Purpose[] = [];
     addGoal: boolean = false;
     loaded = false;
+    first = true;
+    last = false;
     index: number = 0;
+    state: string = "goal";
 
     constructor(private entityService: HttpEntityRepositoryService<GetGoal>, messageService: MessageService, authService: AuthService) {
         this.entityService.get("/api/Goal/GetByUserIdWithGoalName?userId=", authService.CurrentUserId).subscribe(data => {
@@ -44,8 +47,12 @@ export class GoalsAndPurposesComponent {
 
     cardSwipe(value) {
         if (value == "next") {
-            if (this.index + 1 != this.goals.length) {
+            this.first = false;
+            if (this.index + 1 != this.goals.length && this.state == "goal") {
                 this.index++;
+            }
+            else{
+                // if()
             }
         }
         else {

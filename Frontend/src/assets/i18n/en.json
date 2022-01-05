@@ -157,7 +157,9 @@
   "goal": {
     "goalName": "Goal Name",
     "goal": "Goal",
-    "date": "Target Date"
+    "date": "Target Date",
+    "goals": "Goals",
+    "purposes": "Purposes"
   },
   "control": {
     "illness": "Illness Transactions",
