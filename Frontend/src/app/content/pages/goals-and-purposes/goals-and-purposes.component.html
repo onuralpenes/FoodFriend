@@ -26,8 +26,8 @@
             </div>
         </div>
         <div class="row">
-            <button (click)='cardSwipeGoal("prev")' class="add-button" [hidden] = "gFirst">PREV</button>
-            <button (click)='cardSwipeGoal("next")' class="add-button" [hidden] = "gLast">NEXT</button>
+            <button (click)='cardSwipeGoal("prev")' class="add-button" [hidden]="gFirst">PREV</button>
+            <button (click)='cardSwipeGoal("next")' class="add-button" [hidden]="gLast">NEXT</button>
         </div>
         <hr class="divider">
         <div class="row">
@@ -39,8 +39,8 @@
             </div>
         </div>
         <div class="row">
-            <button (click)='cardSwipePurpose("prev")' class="add-button" [hidden] = "pFirst">PREV</button>
-            <button (click)='cardSwipePurpose("next")' class="add-button" [hidden] = "pLast">NEXT</button>
+            <button (click)='cardSwipePurpose("prev")' class="add-button" [hidden]="pFirst">PREV</button>
+            <button (click)='cardSwipePurpose("next")' class="add-button" [hidden]="pLast">NEXT</button>
         </div>
     </div>
 </div>

@@ -46,7 +46,7 @@ export class GoalsAndPurposesComponent {
     pFirst = true;
     pLast = false;
     gIndex: number = 0;
-     pIndex: number = 0;
+    pIndex: number = 0;
     cardSwipeGoal(value) {
         if (value == "next") {
             this.gFirst = false;
