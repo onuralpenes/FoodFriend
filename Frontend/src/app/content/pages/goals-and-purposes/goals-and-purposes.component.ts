@@ -5,11 +5,11 @@ import { AuthService } from 'src/app/services/auth.service';
 import { HttpEntityRepositoryService } from 'src/app/services/http-entity-repository.service';
 
 @Component({
-    selector: 'app-goals',
-    templateUrl: './goals.component.html',
-    styleUrls: ['./goals.component.css']
+    selector: 'app-goals-and-purposes',
+    templateUrl: './goals-and-purposes.component.html',
+    styleUrls: ['./goals-and-purposes.component.css']
 })
-export class GoalsComponent {
+export class GoalsAndPurposesComponent {
     goals: GetGoal[] = [];
     addGoal: boolean = false;
     loaded = false;

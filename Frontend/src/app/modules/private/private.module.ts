@@ -40,10 +40,7 @@ import { CustomFoodComponent } from 'src/app/content/pages/eating-activity/add-e
 import { AddEatingActivity } from 'src/app/content/pages/eating-activity/add-eating-activity/add-eating-activity.component';
 import { EditEatingActivityService } from 'src/app/helpers/edit-eating-activity.service';
 import { CustomFoodService } from 'src/app/helpers/custom-food.service';
-import { CreateGoalComponent } from 'src/app/content/pages/goals/create-goal/create-goal.component';
-import { GoalCardComponent } from 'src/app/content/pages/goals/goal-card/goal-card.component';
 import { CalendarComponent } from 'src/app/content/pages/calendar/calendar.component';
-import { GoalsComponent } from 'src/app/content/pages/goals/goals.component';
 import { LoadingComponent } from '../../helpers/loading/loading.component';
 import { RelatedExpertsComponent } from 'src/app/content/pages/profile/related-experts/related-experts.component';
 import { FullCalendarModule } from '@fullcalendar/angular';
@@ -64,6 +61,10 @@ import { GoalTypeTransactionsComponent } from 'src/app/content/pages/control-pan
 import { FoodTransactionsComponent } from 'src/app/content/pages/control-panel/food-transactions/food-transactions.component';
 import { NewConnectionComponent } from 'src/app/content/pages/all-proffessionals/new-connection/new-connection.component';
 import { EnergyActivityTransactionsComponent } from 'src/app/content/pages/control-panel/energy-activity-transactions/energy-activity-transactions.component';
+import { RecommendationPatientComponent } from 'src/app/content/pages/recomendation-patient/recommendation-patient.component';
+import { GoalsAndPurposesComponent } from 'src/app/content/pages/goals-and-purposes/goals-and-purposes.component';
+import { GoalCardComponent } from 'src/app/content/pages/goals-and-purposes/goal-card/goal-card.component';
+import { CreateGoalOrPurposeComponent } from 'src/app/content/pages/goals-and-purposes/create-goal-or-purpose/create-goal-or-purpose.component';
 
 FullCalendarModule.registerPlugins([
   dayGridPlugin,
@@ -94,8 +95,8 @@ export function HttpLoaderFactory(http: HttpClient) {
     PatientListComponent,
     PatientNutritionTable,
     PatientActivityTable,
-    CreateGoalComponent,
-    GoalsComponent,
+    CreateGoalOrPurposeComponent,
+    GoalsAndPurposesComponent,
     GoalCardComponent,
     ExpertsComponent,
     PatientProfileComponent,
@@ -125,7 +126,8 @@ export function HttpLoaderFactory(http: HttpClient) {
     GoalTypeTransactionsComponent,
     FoodTransactionsComponent,
     EnergyActivityTransactionsComponent,
-    NewConnectionComponent
+    NewConnectionComponent,
+    RecommendationPatientComponent
   ],
   imports: [
     CommonModule,

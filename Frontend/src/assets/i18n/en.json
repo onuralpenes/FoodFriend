@@ -41,6 +41,8 @@
     "alcohol": "Alcohol",
     "submit": "Submit",
     "value": "Value",
+    "title": "Title",
+    "desc": "Description",
     "disDec": "Disability Description",
     "disRat": "Disability Ratio",
     "sum": "Enter your suggestion for:"
@@ -108,9 +110,10 @@
     "settings": "Settings",
     "logout": "Logout",
     "calendar": "Schedule",
-    "goal": "Goals",
+    "goal": "Goals And Purposes",
     "all-experts": "All Professionals",
-    "crud": "CRUD Operations"
+    "crud": "CRUD Operations",
+    "recom": "Recommendations"
   },
   "profile": {
     "age": "Age",

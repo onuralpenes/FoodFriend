@@ -21,3 +21,17 @@ export interface GoalType {
     name: string;
     measurement: string;
 }
+
+export interface DailyGoal {
+    goalId: number;
+    userId: number;
+    professionnelUserId: number;
+    dailyCaloriIntake: number;
+    dailyCarbohydrateIntake: number;
+    dailyProteinIntake: number;
+    dailyOilIntake: number;
+    dailyTargetStep: number;
+    targetWeight: number;
+    dailyCaloriExpenditure: number;
+    targetDate: Date;
+}
