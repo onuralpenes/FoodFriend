@@ -19,20 +19,28 @@
     <div class="grouping">
         <div class="row">
             <div class="col-md-1"></div>
-            <div class="col-md-10" *ngIf="state == 'goal'">
+            <div class="col-md-10">
                 <br>
                 <h1>{{'goal.goals' | translate}}</h1>
-                <app-goal-card [goal]="goals[index]"></app-goal-card>
-            </div>
-            <div class="col-md-10" *ngIf="state == 'purpose'">
-                <br>
-                <h1>{{'goal.purposes' | translate}}</h1>
-                <app-goal-card [goal]="goals[index]"></app-goal-card>
+                <app-goal-card [goal]="goals[gIndex]"></app-goal-card>
             </div>
         </div>
         <div class="row">
-            <button (click)='cardSwipe("prev")' class="add-button" [hidden] = "first">PREV</button>
-            <button (click)='cardSwipe("next")' class="add-button" [hidden] = "last">NEXT</button>
+            <button (click)='cardSwipeGoal("prev")' class="add-button" [hidden] = "gFirst">PREV</button>
+            <button (click)='cardSwipeGoal("next")' class="add-button" [hidden] = "gLast">NEXT</button>
+        </div>
+        <hr class="divider">
+        <div class="row">
+            <div class="col-md-1"></div>
+            <div class="col-md-10">
+                <br>
+                <h1>{{'goal.purposes' | translate}}</h1>
+                <app-purpose-card [purpose]="purposes[pIndex]"></app-purpose-card>
+            </div>
+        </div>
+        <div class="row">
+            <button (click)='cardSwipePurpose("prev")' class="add-button" [hidden] = "pFirst">PREV</button>
+            <button (click)='cardSwipePurpose("next")' class="add-button" [hidden] = "pLast">NEXT</button>
         </div>
     </div>
 </div>
