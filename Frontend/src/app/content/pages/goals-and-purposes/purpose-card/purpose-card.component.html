@@ -1,0 +1,13 @@
+<br>
+<div class="row">
+    <p-card [style]="{width: '100%',height: 'auto', background: 'white'}" styleClass="p-card-shadow">
+        <ng-template pTemplate="header">
+            <br>
+            <h1 *ngIf="purpose">{{purpose.title}}</h1>
+        </ng-template>
+        <div class="row">
+            <p *ngIf="purpose">{{purpose.description}}</p>
+            <p *ngIf="purpose">{{'goal.date' | translate}}: {{purpose.targetDate | date: "dd/MM/yyyy" }}</p>
+        </div>
+    </p-card>
+</div>

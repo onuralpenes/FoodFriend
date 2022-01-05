@@ -13,9 +13,10 @@ import { SettingsComponent } from 'src/app/content/pages/settings/settings.compo
 import { RoleGuardService } from 'src/app/services/can-active.guard';
 import { Roles } from 'src/app/models/core/userRoles.model';
 import { CalendarComponent } from 'src/app/content/pages/calendar/calendar.component';
-import { GoalsComponent } from 'src/app/content/pages/goals/goals.component';
 import { AllProffessionalsComponent } from 'src/app/content/pages/all-proffessionals/all-proffessionals.component';
 import { ControlPanelComponent } from 'src/app/content/pages/control-panel/control-panel.component';
+import { RecommendationPatientComponent } from 'src/app/content/pages/recomendation-patient/recommendation-patient.component';
+import { GoalsAndPurposesComponent } from 'src/app/content/pages/goals-and-purposes/goals-and-purposes.component';
 
 const routes: Routes = [
     {
@@ -73,7 +74,12 @@ const routes: Routes = [
                 data: { roles: [Roles.Professional, Roles.Admin, Roles.Patient] }
             },
             {
-                path: 'goals', component: GoalsComponent,
+                path: 'goals-and-purposes', component: GoalsAndPurposesComponent,
+                canActivate: [RoleGuardService],
+                data: { roles: [Roles.Patient] }
+            },
+            {
+                path: 'recommendations', component: RecommendationPatientComponent,
                 canActivate: [RoleGuardService],
                 data: { roles: [Roles.Patient] }
             },

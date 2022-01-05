@@ -1,0 +1,53 @@
+<div [ngClass]="loaded ? 'loaded-content' : 'loading-content'">
+    <div class="row">
+        <div class="col-md-10"></div>
+        <div class="col-md-1">
+            <button class="add-button" (click)="createGoal()" type="button">{{'table.add' | translate}}</button>
+        </div>
+    </div>
+    <div class="row collective" style="margin-left: 1%; margin-right: 1%;">
+        <h1>{{'goal.goals' | translate}}</h1>
+        <div *ngFor="let goal of goals" class="col-md-3">
+            <app-goal-card [goal]="goal"></app-goal-card>
+        </div>
+        <hr class="divider">
+        <h1>{{'goal.purposes' | translate}}</h1>
+        <div *ngFor="let purpose of purposes" class="col-md-4">
+            <app-purpose-card [purpose]="purpose"></app-purpose-card>
+        </div>
+    </div>
+    <div class="grouping">
+        <div class="row">
+            <div class="col-md-1"></div>
+            <div class="col-md-10">
+                <br>
+                <h1>{{'goal.goals' | translate}}</h1>
+                <app-goal-card [goal]="goals[gIndex]"></app-goal-card>
+            </div>
+        </div>
+        <div class="row">
+            <button (click)='cardSwipeGoal("prev")' class="add-button" [hidden]="gFirst">PREV</button>
+            <button (click)='cardSwipeGoal("next")' class="add-button" [hidden]="gLast">NEXT</button>
+        </div>
+        <hr class="divider">
+        <div class="row">
+            <div class="col-md-1"></div>
+            <div class="col-md-10">
+                <br>
+                <h1>{{'goal.purposes' | translate}}</h1>
+                <app-purpose-card [purpose]="purposes[pIndex]"></app-purpose-card>
+            </div>
+        </div>
+        <div class="row">
+            <button (click)='cardSwipePurpose("prev")' class="add-button" [hidden]="pFirst">PREV</button>
+            <button (click)='cardSwipePurpose("next")' class="add-button" [hidden]="pLast">NEXT</button>
+        </div>
+    </div>
+</div>
+
+<p-dialog header="Add Goal" [(visible)]="addGoal" [dismissableMask]="true" [draggable]="false" [modal]="true"
+    [appendTo]="'body'" [closeOnEscape]="true" [blockScroll]="true" [style]="{width: 'auto'}">
+    <app-create-goal-or-purpose></app-create-goal-or-purpose>
+</p-dialog>
+
+<app-loading [ngClass]="loaded ? 'hidden-spinner' : 'display-spinner'"></app-loading>

@@ -41,6 +41,8 @@
     "alcohol": "Alkol",
     "submit": "Onayla",
     "value": "Değer",
+    "title": "Başlık",
+    "desc": "Açıklama",
     "disDec": "Engel Tanımı",
     "disRat": "Engel durumu",
     "sum": "Şu kullanıcı için yapacağın öneriyi gir:"
@@ -108,9 +110,10 @@
     "settings": "Ayarlar",
     "logout": "Çıkış Yap",
     "calendar": "Ajanda",
-    "goal": "Hedefler",
+    "goal": "Hedefler  ve Amaçlar",
     "all-experts": "Tüm Uzmanlar",
-    "crud": "CRUD İşlemleri"
+    "crud": "CRUD İşlemleri",
+    "recom": "Öneriler"
   },
   "profile": {
     "age": "Yaş",
@@ -153,7 +156,10 @@
   },
   "goal": {
     "goalName": "Hedef Adı",
-    "goal": "Hedef"
+    "goal": "Hedef",
+    "date": "Hedef Tarih",
+    "goals": "Hedefler",
+    "purposes": "Amaçlar"
   },
   "control": {
     "illness": "Hastalık İşlemleri",

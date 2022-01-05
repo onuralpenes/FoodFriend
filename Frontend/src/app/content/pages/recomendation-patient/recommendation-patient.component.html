@@ -1,0 +1,17 @@
+<div [ngClass]="loaded ? 'loaded-content' : 'loading-content'">
+    <div style="margin-left: 1%; margin-right: 1%;">
+        <br>
+        <div *ngFor="let recommendation of recommendations">
+            <p-card [style]="{width: '100%',height: 'auto', background: 'white'}" styleClass="p-card-shadow">
+                <ng-template pTemplate="header">
+                    <br>
+                    <h1>Uzman ismi gelecek özgü abiden bura için</h1>
+                </ng-template>
+                <div class="row">
+                    <p>{{recommendation.recommendation}}</p>
+                </div>
+            </p-card>
+            <hr class="divider">
+        </div>
+    </div>
+</div>

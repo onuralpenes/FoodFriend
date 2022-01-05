@@ -6,15 +6,16 @@ import { AuthService } from "src/app/services/auth.service";
 import { HttpEntityRepositoryService } from "src/app/services/http-entity-repository.service";
 
 @Component({
-  selector: 'app-create-goal',
-  templateUrl: './create-goal.component.html',
-  styleUrls: ['./create-goal.component.css']
+  selector: 'app-create-goal-or-purpose',
+  templateUrl: './create-goal-or-purpose.component.html',
+  styleUrls: ['./create-goal-or-purpose.component.css']
 })
-export class CreateGoalComponent {
+export class CreateGoalOrPurposeComponent {
 
   public goalForm: FormGroup;
-
+  public purposeForm: FormGroup;
   goals: GoalType[] = [];
+  state = "Purpose"
 
   constructor(private formBuilder: FormBuilder, private authService: AuthService, private entityService: HttpEntityRepositoryService<GoalType>, private messageService: MessageService, private confirmationService: ConfirmationService) {
     entityService.getAll("/api/GoalType/GetAll").subscribe(data => {
@@ -30,9 +31,27 @@ export class CreateGoalComponent {
       'goalType': new FormControl('', [Validators.required]),
       'value': new FormControl('', [Validators.required])
     });
+    this.purposeForm = this.formBuilder.group({
+      "title": new FormControl('', [Validators.required]),
+      'description': new FormControl('', [Validators.required]),
+      'targetDate': new FormControl('', [Validators.required])
+    });
   }
 
-  onSubmit() {
+  changeState(){
+    if(this.state == "Goal"){
+      this.state = "Purpose";
+    }
+    else if(this.state = "Purpose"){
+      this.state = "Goal";
+    }
+  }
+
+  onSubmit(name:string) {
+   if(name == "Goal"){
+     if(!this.goalForm.valid){
+       return;
+     }
     this.confirmationService.confirm({
       message: 'Are you sure, you want to add a goal?',
       header: 'Confirmation',
@@ -56,5 +75,12 @@ export class CreateGoalComponent {
         this.messageService.add({ severity: 'warn', summary: 'Unsuccess', detail: 'The goal was not added.' });
       }
     });
+   }
+   else if(name == "Purpose"){
+    if(!this.purposeForm.valid){
+      return;
+    }
+    console.log(this.purposeForm.value)
+   }
   }
 }
