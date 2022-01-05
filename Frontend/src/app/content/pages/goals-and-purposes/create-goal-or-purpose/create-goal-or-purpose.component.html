@@ -30,20 +30,20 @@
   <form [formGroup]="purposeForm" (ngSubmit)="onSubmit('Purpose')">
     <br>
     <div class="row">
-      <span style="margin-top: 5% !important;" class="p-float-label">
+      <span style="margin-top: 5% !important; margin-bottom: 5% !important;" class="p-float-label">
         <input type="text" pInputText formControlName="title" required>
-        <label style="margin-left: 3%;" for="float-input">{{'label.title' | translate}}</label>
+        <label style="margin-left: 2%;" for="float-input">{{'label.title' | translate}}</label>
       </span>
-      <span class="p-float-label">
-        <textarea rows="5" cols="50" pInputTextarea formControlName="description"></textarea>
-        <label for="float-input">{{'label.desc' | translate}}</label>
+      <span style="margin-bottom: 5% !important;" class="p-float-label">
+        <textarea rows="3" cols="10" pInputTextarea formControlName="description"></textarea>
+        <label style="margin-left: 2%;" for="float-input">{{'label.desc' | translate}}</label>
       </span>
-      <span style="margin-top: 5% !important;" class="p-float-label">
+      <span style="margin-top: 1% !important;" class="p-float-label">
         <input type="date" pInputText formControlName="targetDate" required>
       </span>
     </div>
     <br><br>
-    <div style="left: 30%; position: absolute">
+    <div style="position: absolute">
       <button type="submit" class="modal-button" [disabled]="!purposeForm.valid">
         <i class="fa fa-floppy-o fa-lg" aria-hidden="true"></i> {{'label.submit' | translate}}
       </button>
