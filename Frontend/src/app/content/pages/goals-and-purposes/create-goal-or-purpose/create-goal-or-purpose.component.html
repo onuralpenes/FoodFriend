@@ -1,0 +1,53 @@
+<button class="modal-button" (click) = "changeState()">{{state}}</button>
+<br>
+<div *ngIf="state == 'Purpose'">
+  <form [formGroup]="goalForm" (ngSubmit)="onSubmit('Goal')">
+    <br>
+    <div class="row">
+      <p-dropdown [options]="goals" formControlName="goalType" optionLabel="name" [filter]="true" filterBy="name"
+        [showClear]="true" placeholder="{{'label.select' | translate}}">
+        <ng-template let-goal pTemplate="item">
+          <div>
+            <div>{{goal.name}}</div>
+          </div>
+        </ng-template>
+      </p-dropdown>
+      <span style="margin-top: 5% !important;" class="p-float-label">
+        <input type="number" pInputText formControlName="value" required>
+        <label style="margin-left: 3%;" for="float-input">{{'label.value' | translate}}</label>
+      </span>
+    </div>
+    <br><br>
+    <div style="left: 30%; position: absolute">
+      <button type="submit" class="modal-button" [disabled]="!goalForm.valid">
+        <i class="fa fa-floppy-o fa-lg" aria-hidden="true"></i> {{'label.submit' | translate}}
+      </button>
+    </div>
+    <br><br>
+  </form>
+</div>
+<div *ngIf="state == 'Goal'">
+  <form [formGroup]="purposeForm" (ngSubmit)="onSubmit('Purpose')">
+    <br>
+    <div class="row">
+      <span style="margin-top: 5% !important;" class="p-float-label">
+        <input type="text" pInputText formControlName="title" required>
+        <label style="margin-left: 3%;" for="float-input">{{'label.title' | translate}}</label>
+      </span>
+      <span class="p-float-label">
+        <textarea rows="5" cols="50" pInputTextarea formControlName="description"></textarea>
+        <label for="float-input">{{'label.desc' | translate}}</label>
+      </span>
+      <span style="margin-top: 5% !important;" class="p-float-label">
+        <input type="date" pInputText formControlName="targetDate" required>
+      </span>
+    </div>
+    <br><br>
+    <div style="left: 30%; position: absolute">
+      <button type="submit" class="modal-button" [disabled]="!purposeForm.valid">
+        <i class="fa fa-floppy-o fa-lg" aria-hidden="true"></i> {{'label.submit' | translate}}
+      </button>
+    </div>
+    <br><br>
+  </form>
+</div>

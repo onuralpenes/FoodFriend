@@ -26,7 +26,7 @@
 
 <p-dialog header="Add Goal" [(visible)]="addGoal" [dismissableMask]="true" [draggable]="false" [modal]="true"
     [appendTo]="'body'" [closeOnEscape]="true" [blockScroll]="true" [style]="{width: 'auto'}">
-    <app-create-goal></app-create-goal>
+    <app-create-goal-or-purpose></app-create-goal-or-purpose>
 </p-dialog>
 
 <app-loading [ngClass]="loaded ? 'hidden-spinner' : 'display-spinner'"></app-loading>
