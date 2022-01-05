@@ -53,7 +53,7 @@
       </ng-template>
       <ng-template pTemplate="rowexpansion" let-users>
         <tr>
-          <th style="background-color: rgb(236, 255, 226);" colspan="4">
+          <th style="background-color: #f5fff08c;" colspan="4">
             <div>
               <p class="userTitle">{{ users.firstName }} {{users.lastName}}</p>
               <p style="margin-left: 41%;"> {{ users.firstName }}{{'expert.sum' | translate}} </p>
@@ -72,11 +72,11 @@
               <div class="row">
                 <div class="col-md-2"></div>
                 <div class="col-md-3">
-                  <button class="tab-button" (click)="openActivity()"> {{ users.firstName }}'s Energy Activities</button>
+                  <button style="height: 100% !important;" class="tab-button" (click)="openActivity()"> {{ users.firstName }}'s Energy Activities</button>
                 </div>
                 <div class="col-md-2"></div>
                 <div class="col-md-3">
-                  <button class="tab-button" (click)="openFood()">{{ users.firstName }}'s Eating Activities</button>
+                  <button style="height: 100% !important;"class="tab-button" (click)="openFood()">{{ users.firstName }}'s Eating Activities</button>
                 </div>
                 <div class="col-md-2"></div>
               </div>

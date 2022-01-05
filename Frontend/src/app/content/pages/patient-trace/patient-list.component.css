@@ -24,16 +24,19 @@
   margin-top: 20px;
 }
 .tab-button{
-  background: linear-gradient(#00db93, #00b97d);
-  border-radius: 25px;
+  background: linear-gradient(#25d59b78, #15c38ad9);
+  border-radius: 10px;
   width: auto;
   height: 20%;
   margin: 0 auto;
   border: 0;
   padding: 1%;
+  box-shadow: grey;
+  box-shadow: rgb(0 0 0 / 28%) 0px 4px 4px;
+  margin-bottom: 15px;
 }
 
 .tab-button:hover{
-background: rgba(9, 220, 128, 0.3);
-color: rgba(255,255,255,0.8);
+  background: linear-gradient(#15c38ad9,#25d59bbf); 
+color: rgba(0, 0, 0, 0.8);
 }
