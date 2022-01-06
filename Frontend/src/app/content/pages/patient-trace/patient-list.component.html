@@ -83,8 +83,9 @@
                 <div class="col-md-2"></div>
               </div>
               <br>
+              <hr class="divider">
               <div class="row">
-                <div class="col-md-6" style="margin-left: 60px;">
+                <div class="col-md-6" style="margin-left: 60px; margin-top: 25px">
                   <form #recommendation="ngForm">
                     <span class="p-float-label" style="margin: 0 auto">
                       <textarea rows="5" cols="70" pInputTextarea (keyup)="rec(recommendation.value.recommendation)"
@@ -97,9 +98,9 @@
                   </form>
                 </div>
                 <div class="col-md-5">
-                  <p>
+                  <h1>
                     {{users.firstName}} için günlük hedefler
-                  </p>
+                  </h1>
                   <div [ngClass]="isDailyGoalActive ? 'hidden':'display'" >
                     <p> Kullanıcıya günlük hedef verilmemiş </p>
                     <button class="tab-button" (click)="newDailyGoal(users.userId)" >
@@ -107,7 +108,7 @@
                     </button>
 
                   </div>
-                  <div [ngClass]="!isDailyGoalActive ? 'hidden':'display'">
+                  <div [ngClass]="!isDailyGoalActive ? 'hidden':'display'" class="dailyGoalInfo">
                     <p> Alınabilecek Kalori: {{patientDailyGoal[0].dailyCaloriIntake}}</p>
                     <p> Alınabilecek Karbonhidrat: {{patientDailyGoal[0].dailyCarbohydrateIntake}} </p>
                     <p> Alınabilecek Protein: {{patientDailyGoal[0].dailyProteinIntake}}</p>
@@ -115,6 +116,9 @@
                     <p> Hedeflenen Adım: {{patientDailyGoal[0].dailyTargetStep}}</p>
                     <p> Hedef Kilo: {{patientDailyGoal[0].targetWeight}}</p>
                     <p> Kalori Yakımı: {{patientDailyGoal[0].dailyCaloriExpenditure}}</p>
+                    <button class="tab-button" (click)="newDailyGoal(users.userId)">
+                      Güncelle
+                    </button>
                   </div>
                 </div>
               </div>
