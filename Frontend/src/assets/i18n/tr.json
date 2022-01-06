@@ -113,7 +113,8 @@
     "goal": "Hedefler  ve Amaçlar",
     "all-experts": "Tüm Uzmanlar",
     "crud": "CRUD İşlemleri",
-    "recom": "Öneriler"
+    "recom": "Öneriler",
+    "all-users": "Tüm Kullanıcılar"
   },
   "profile": {
     "age": "Yaş",
@@ -230,5 +231,11 @@
   },
   "recom": {
     "recom": " uzmanının size vermiş olduğu öneriler:"
+  },
+  "allUsersTable": {
+    "name": "İsim",
+    "surname": "Soyisim",
+    "mail": "Mail Adresi",
+    "birthDate": "Doğum Günü"
   }
 }

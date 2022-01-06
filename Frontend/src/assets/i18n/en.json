@@ -113,7 +113,8 @@
     "goal": "Goals And Purposes",
     "all-experts": "All Professionals",
     "crud": "CRUD Operations",
-    "recom": "Recommendations"
+    "recom": "Recommendations",
+    "all-users": "All Users"
   },
   "profile": {
     "age": "Age",
@@ -230,5 +231,11 @@
   },
   "recom": {
     "recom": " expert gives the recommendations to you:"
+  },
+  "allUsersTable": {
+    "name": "Name",
+    "surname": "Surname",
+    "mail": "Mail",
+    "birthDate": "Birth Date"
   }
 }
