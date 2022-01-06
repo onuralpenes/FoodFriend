@@ -39,3 +39,8 @@
   .hidden-spinner{
     display: none;
   }
+
+  :host ::ng-deep .p-card{
+    border:  2px solid #03ac75;
+    padding-right: 2%;
+  }
