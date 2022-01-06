@@ -35,7 +35,12 @@
   box-shadow: rgb(0 0 0 / 28%) 0px 4px 4px;
   margin-bottom: 15px;
 }
-
+.hidden{
+  display: none;
+}
+.display{
+  display: block;
+}
 .tab-button:hover{
   background: linear-gradient(#15c38ad9,#25d59bbf); 
 color: rgba(0, 0, 0, 0.8);
