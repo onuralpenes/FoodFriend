@@ -17,6 +17,7 @@ import { AllProffessionalsComponent } from 'src/app/content/pages/all-proffessio
 import { ControlPanelComponent } from 'src/app/content/pages/control-panel/control-panel.component';
 import { RecommendationPatientComponent } from 'src/app/content/pages/recomendation-patient/recommendation-patient.component';
 import { GoalsAndPurposesComponent } from 'src/app/content/pages/goals-and-purposes/goals-and-purposes.component';
+import { AllUsersComponent } from 'src/app/content/pages/all-users/all-users.component';
 
 const routes: Routes = [
     {
@@ -90,6 +91,11 @@ const routes: Routes = [
             },
             {
                 path: 'control-panel', component: ControlPanelComponent,
+                canActivate: [RoleGuardService],
+                data: { roles: [Roles.Admin] }
+            },
+            {
+                path: 'all-users', component: AllUsersComponent,
                 canActivate: [RoleGuardService],
                 data: { roles: [Roles.Admin] }
             },

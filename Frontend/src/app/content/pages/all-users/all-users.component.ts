@@ -9,8 +9,11 @@ import { HttpEntityRepositoryService } from 'src/app/services/http-entity-reposi
     styleUrls: ['./all-users.component.css']
 })
 export class AllUsersComponent {
-    professionals: User[] = [];
-    patients: User[] = [];
+    professionalsWithoutFilter: User[] = [];
+    professionalsWithFilter: User[] = [];
+    patientsWithFilter: User[] = [];
+    patientsWithoutFilter: User[] = [];
+    first = 0;
     rows = 10;
     searchText = "";
     loaded = false;
@@ -23,7 +26,8 @@ export class AllUsersComponent {
                 return;
             }
             this.loaded = true;
-            this.professionals = Data.data;
+            this.professionalsWithoutFilter = Data.data;
+            this.professionalsWithFilter = Data.data;
         });
         entityService.getAll("/User/GetAllPatient").subscribe(data => {
             var Data: any = data;
@@ -32,7 +36,8 @@ export class AllUsersComponent {
                 return;
             }
             this.loaded = true;
-            this.patients = Data.data;
+            this.patientsWithoutFilter = Data.data;
+            this.patientsWithFilter = Data.data;
         });
     }
     keyup(searchText) {

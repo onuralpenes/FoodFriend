@@ -30,6 +30,11 @@
                             class="fa fa-address-book fa-lg" aria-hidden="true"></i>{{'menu.all-experts' |
                         translate}}</a></li>
             </div>
+            <div *ngIf="includesAdmin ">
+
+                <li routerLinkActive='active'><a class="side-item" routerLink="/all-users"><i
+                            class="fa fa-id-badge fa-lg" aria-hidden="true"></i>{{'menu.all-users' | translate}}</a></li>
+            </div>
             <div *ngIf="includesProfes || includesPatient || includesAdmin;">
                 <li routerLinkActive='active'>
                     <a class="side-item" routerLink="/dashboard"><i class="fa fa-home fa-lg"
