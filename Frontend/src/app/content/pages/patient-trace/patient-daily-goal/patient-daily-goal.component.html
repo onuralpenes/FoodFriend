@@ -1,33 +1,33 @@
-<form [formGroup]="goalForm" (ngSubmit)="onSubmit()" class="form">
+<form style="width: 100%;" [formGroup]="goalForm" (ngSubmit)="onSubmit()" class="form">
     <span class="p-float-label">
-        <input type="number" pInputText formControlName="dailyCaloriIntake" />
-        <label for="float-input"> dailyCaloriIntake </label>
+        <input class="labels" type="number" pInputText formControlName="dailyCaloriIntake" />
+        <label for="float-input"> {{'daily.calorie' | translate}} </label>
     </span>
     <span class="p-float-label">
-        <input type="number" pInputText formControlName="dailyCarbohydrateIntake" />
-        <label for="float-input"> dailyCarbohydrateIntake </label>
+        <input class="labels" type="number" pInputText formControlName="dailyCarbohydrateIntake" />
+        <label for="float-input"> {{'daily.chad' | translate}} </label>
     </span>
     <span class="p-float-label">
-        <input type="number" pInputText formControlName="dailyProteinIntake" />
-        <label for="float-input"> dailyProteinIntake </label>
+        <input class="labels" type="number" pInputText formControlName="dailyProteinIntake" />
+        <label for="float-input"> {{'daily.protein' | translate}} </label>
     </span>
     <span class="p-float-label">
-        <input type="number" pInputText formControlName="dailyOilIntake" />
-        <label for="float-input"> dailyOilIntake </label>
+        <input class="labels" type="number" pInputText formControlName="dailyOilIntake" />
+        <label for="float-input"> {{'daily.oil' | translate}} </label>
     </span>
     <span class="p-float-label">
-        <input type="number" pInputText formControlName="dailyTargetStep" />
-        <label for="float-input"> dailyTargetStep </label>
+        <input class="labels" type="number" pInputText formControlName="dailyTargetStep" />
+        <label for="float-input"> {{'daily.targetStep' | translate}} </label>
     </span>
     <span class="p-float-label">
-        <input type="number" pInputText formControlName="targetWeight" />
-        <label for="float-input"> targetWeight </label>
+        <input class="labels" type="number" pInputText formControlName="targetWeight" />
+        <label for="float-input"> {{'daily.weight' | translate}} </label>
     </span>
     <span class="p-float-label">
-        <input type="number" pInputText formControlName="dailyCaloriExpenditure" />
-        <label for="float-input"> dailyCaloriExpenditure </label>
+        <input class="labels" type="number" pInputText formControlName="dailyCaloriExpenditure" />
+        <label for="float-input"> {{'daily.calorieExp' | translate}} </label>
     </span>
     <span class="p-float-label">
-        <input type="date" pInputText formControlName="targetDate" />
+        <input class="labels" type="date" pInputText formControlName="targetDate" />
     </span>
 </form>

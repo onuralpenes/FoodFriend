@@ -198,5 +198,34 @@
     "male": "Erkek",
     "female": "Kadın",
     "genderless": "Cinsiyetimi belirtmek istemiyoru."
+  },
+  "patientList": {
+    "for": "için günlük hedefler",
+    "dailyGoal": "Kullanıcıya günlük hedef verilmemiş",
+    "add": "Günlük Hedef Ekle",
+    "calorie": "Alınabilecek Kalori: ",
+    "chad": "Alınabilecek Karbonhidrat: ",
+    "protein": "Alınabilecek Protein: ",
+    "oil": "Alınabilecek Yağ: ",
+    "steps": "Hedeflenen Adım: ",
+    "weight": "Hedef Kilo: ",
+    "burn": "Kalori Yakımı: ",
+    "update": "Güncelle"
+  },
+  "daily": {
+    "calorie": "Günlük Kalori Alımı",
+    "chad": "Günlük Karbonhidrat Alımı",
+    "protein": "Günlük Protein Alımı",
+    "oil": "Günlük Yağ Alımı",
+    "targetStep": "Günlük Adım Sayısı",
+    "weight": "Hedef Kilo",
+    "calorieExp": "Günlük Kalori Harcaması",
+    "for": " Yemek Aktivitesi",
+    "forEnergy": " Enerji Aktivitesi"
+  },
+  "patientNutrition": {
+    "eating": "Eating Activity",
+    "calorie": "Kalori Takibi",
+    "value": "Besin Değeri"
   }
 }
