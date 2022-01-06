@@ -1,0 +1,22 @@
+.tabPat{
+    margin-left: 5%;
+    margin-right: 2%;
+  }
+  .tabPro{
+    margin-left: 3%;
+    margin-right: 5%;
+  }
+
+  .loading-content{
+    display: none;
+  }
+  .loaded-content{
+    display: contents;
+  }
+  .display-spinner{
+    display: contents;
+  }
+  .hidden-spinner{
+    display: none;
+  }
+  

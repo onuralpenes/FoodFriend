@@ -3,5 +3,6 @@ export interface ProfessionalRecommendation {
     userId: number;
     professionelUserId: number;
     recommendation: string;
-    name: string;
+    professionelUserFirstName: string;
+    professionelUserLastName: string;
 }
