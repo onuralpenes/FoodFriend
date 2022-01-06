@@ -17,13 +17,14 @@ import { HttpEntityRepositoryService } from 'src/app/services/http-entity-reposi
 export class PatientListComponent {
   usersWithFilter: User[] = [];
   usersWithoutFilter: User[] = [];
-  patientDailyGoal!: DailyGoal;
+  patientDailyGoal: DailyGoal[] = [];
   first = 0;
   isDailyGoalActive = false;
   rows = 10;
   searchText = "";
   nutritionInformation: boolean = false;
   activityInformation: boolean = false;
+  dailyGoalModal: boolean = false;
   chartOptionsNutritionalValue: any;
   chartOptionsCalorieTracking: any;
   loaded = false;
@@ -44,7 +45,7 @@ export class PatientListComponent {
   carbohydrate: any;
   oil: any;
   drawGraph() {
-    this.dataNutritionalValue= {
+    this.dataNutritionalValue = {
       datasets: [{
         data: [
           this.protein,
@@ -85,7 +86,7 @@ export class PatientListComponent {
   entityServiceEatingAct: any;
 
   constructor(private entityServiceEatingActv: HttpEntityRepositoryService<EatingActivity>, private entityServiceDailyGoal: HttpEntityRepositoryService<DailyGoal>, private confirmationService: ConfirmationService, private router: Router, private entityService: HttpEntityRepositoryService<User>, private messageService: MessageService, private authService: AuthService) {
-    
+
     this.entityServiceEatingAct = entityServiceEatingActv;
     entityService.get("/User/GetAllAssignmentsPatientForProfessionnel?professionnelId=", this.authService.CurrentUserId).subscribe(data => {
 
@@ -106,7 +107,7 @@ export class PatientListComponent {
     let date = datepipe.transform(new Date(new Date().setDate(new Date().getDate())), 'YYYY-MM-dd');
     this.gainedCalorie = 0;
     this.left = 0;
-    
+
     this.protein = 0;
     this.carbohydrate = 0;
     this.oil = 0;
@@ -122,7 +123,7 @@ export class PatientListComponent {
         this.sub = "Verilerini görmek için beslen"
         chartTitle = 'Henüz besin alınmamış'
       } else {
-        
+
         chartTitle = 'Besin Değerlerin'
         this.gainedCalorie = Data.data.totalCalorie;
         this.tit = this.cal.toString() + " calorie";
@@ -134,32 +135,54 @@ export class PatientListComponent {
           this.color = '#b10f0f';
           this.sub = "Yeterli kalori alındı";
         }
-        
-      this.protein = Data.data.totalProtein;
-      this.oil = Data.data.totalOil;
-      this.carbohydrate = Data.data.totalCarbohydrate;                  
+
+        this.protein = Data.data.totalProtein;
+        this.oil = Data.data.totalOil;
+        this.carbohydrate = Data.data.totalCarbohydrate;
       }
-      
+
       this.drawGraph();
-      this.entityServiceDailyGoal.get("/api/DailyGoal/GetByUserId?userId=",id).subscribe(data=>{
+      this.entityServiceDailyGoal.get("/api/DailyGoal/GetByUserId?userId=", id).subscribe(data => {
         var Data: any = data;
         if (!Data.success) {
-        this.messageService.add({ severity: 'error', summary: 'Error', detail: Data.message });
-        return;
+          this.messageService.add({ severity: 'error', summary: 'Error', detail: Data.message });
+          return;
         }
-        if(Data.data.length == 0){
+        if (Data.data.length == 0) {
           this.isDailyGoalActive = false;
-        }else{
+        } else {
           this.isDailyGoalActive = true;
           this.patientDailyGoal = Data.data;
           console.log(this.patientDailyGoal);
         }
-      
+
       })
     })
   }
-  newDailyGoal(id: number){
-     
+  isNewGoal: string = "";
+  sendedGoal: DailyGoal = {
+    goalId: 0,
+    userId: 0,
+    professionnelUserId: 0,
+    dailyCaloriIntake: 0,
+    dailyCarbohydrateIntake: 0,
+    dailyProteinIntake: 0,
+    dailyOilIntake: 0,
+    dailyTargetStep: 0,
+    targetWeight: 0,
+    dailyCaloriExpenditure: 0,
+    targetDate: new Date()
+  };
+  newDailyGoal(id: number) {
+    if (this.isDailyGoalActive) {
+      this.isNewGoal = "update";
+      this.sendedGoal = this.patientDailyGoal[0];
+      this.dailyGoalModal = true;
+    }
+    else {
+      this.isNewGoal = "update";
+      this.dailyGoalModal = true;
+    }
   }
   open(id: number) {
     this.router.navigate(['/counselee-profile/' + id]);
@@ -222,22 +245,22 @@ export class PatientListComponent {
     }
   }
   updateChartOptions() {
-    if (false){
-      
+    if (false) {
+
       this.chartOptionsCalorieTracking = this.getDarkTheme();
       this.chartOptionsNutritionalValue = this.getDarkTheme;
     }
-    else{
+    else {
       this.chartOptionsCalorieTracking = this.getLightTheme();
       this.chartOptionsNutritionalValue = this.getLightTheme();
     }
   }
   recommendation: string = "";
-  rec(recommendation: string){
+  rec(recommendation: string) {
     this.recommendation = recommendation;
   }
-  makeRecommendation(){
-    if(this.recommendation == ""){
+  makeRecommendation() {
+    if (this.recommendation == "") {
       return;
     }
     this.confirmationService.confirm({

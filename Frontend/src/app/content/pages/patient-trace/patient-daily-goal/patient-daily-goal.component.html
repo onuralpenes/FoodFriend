@@ -1,0 +1,33 @@
+<form [formGroup]="goalForm" (ngSubmit)="onSubmit()" class="form">
+    <span class="p-float-label">
+        <input type="number" pInputText formControlName="dailyCaloriIntake" />
+        <label for="float-input"> dailyCaloriIntake </label>
+    </span>
+    <span class="p-float-label">
+        <input type="number" pInputText formControlName="dailyCarbohydrateIntake" />
+        <label for="float-input"> dailyCarbohydrateIntake </label>
+    </span>
+    <span class="p-float-label">
+        <input type="number" pInputText formControlName="dailyProteinIntake" />
+        <label for="float-input"> dailyProteinIntake </label>
+    </span>
+    <span class="p-float-label">
+        <input type="number" pInputText formControlName="dailyOilIntake" />
+        <label for="float-input"> dailyOilIntake </label>
+    </span>
+    <span class="p-float-label">
+        <input type="number" pInputText formControlName="dailyTargetStep" />
+        <label for="float-input"> dailyTargetStep </label>
+    </span>
+    <span class="p-float-label">
+        <input type="number" pInputText formControlName="targetWeight" />
+        <label for="float-input"> targetWeight </label>
+    </span>
+    <span class="p-float-label">
+        <input type="number" pInputText formControlName="dailyCaloriExpenditure" />
+        <label for="float-input"> dailyCaloriExpenditure </label>
+    </span>
+    <span class="p-float-label">
+        <input type="date" pInputText formControlName="targetDate" />
+    </span>
+</form>

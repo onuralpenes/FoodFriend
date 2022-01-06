@@ -101,9 +101,9 @@
                   <h1>
                     {{users.firstName}} için günlük hedefler
                   </h1>
-                  <div [ngClass]="isDailyGoalActive ? 'hidden':'display'" >
+                  <div [ngClass]="isDailyGoalActive ? 'hidden':'display'">
                     <p> Kullanıcıya günlük hedef verilmemiş </p>
-                    <button class="tab-button" (click)="newDailyGoal(users.userId)" >
+                    <button class="tab-button" (click)="newDailyGoal(users.userId)">
                       Günlük Hedef Ekle
                     </button>
 
@@ -122,7 +122,6 @@
                   </div>
                 </div>
               </div>
-
             </div>
           </th>
         </tr>
@@ -139,6 +138,11 @@
 <p-dialog header="Activity Information" [(visible)]="activityInformation" [dismissableMask]="true" [draggable]="false"
   [modal]="true" [appendTo]="'body'" [closeOnEscape]="true" [blockScroll]="true">
   <app-patient-activity-table [id]="clickedUserId"></app-patient-activity-table>
+</p-dialog>
+
+<p-dialog header="Daily Goal" [(visible)]="dailyGoalModal" [dismissableMask]="true" [draggable]="false" [modal]="true"
+  [appendTo]="'body'" [closeOnEscape]="true" [blockScroll]="true">
+  <app-patient-daily-goal [id]="clickedUserId" [goal]="sendedGoal" [state]="isNewGoal"></app-patient-daily-goal>
 </p-dialog>
 
 <app-loading [ngClass]="loaded ? 'hidden-spinner' : 'display-spinner'"></app-loading>
