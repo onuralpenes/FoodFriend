@@ -3,6 +3,7 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { ConfirmationService, MessageService } from 'primeng/api';
 import { EatingActivity } from 'src/app/models/data/eating-activity.model';
+import { DailyGoal } from 'src/app/models/data/goal.model';
 import { User } from 'src/app/models/user/user.model';
 import { AuthService } from 'src/app/services/auth.service';
 import { HttpEntityRepositoryService } from 'src/app/services/http-entity-repository.service';
@@ -16,7 +17,9 @@ import { HttpEntityRepositoryService } from 'src/app/services/http-entity-reposi
 export class PatientListComponent {
   usersWithFilter: User[] = [];
   usersWithoutFilter: User[] = [];
+  patientDailyGoal!: DailyGoal;
   first = 0;
+  isDailyGoalActive = false;
   rows = 10;
   searchText = "";
   nutritionInformation: boolean = false;
@@ -81,7 +84,7 @@ export class PatientListComponent {
   }
   entityServiceEatingAct: any;
 
-  constructor(private entityServiceEatingActv: HttpEntityRepositoryService<EatingActivity>, private confirmationService: ConfirmationService, private router: Router, private entityService: HttpEntityRepositoryService<User>, private messageService: MessageService, private authService: AuthService) {
+  constructor(private entityServiceEatingActv: HttpEntityRepositoryService<EatingActivity>, private entityServiceDailyGoal: HttpEntityRepositoryService<DailyGoal>, private confirmationService: ConfirmationService, private router: Router, private entityService: HttpEntityRepositoryService<User>, private messageService: MessageService, private authService: AuthService) {
     
     this.entityServiceEatingAct = entityServiceEatingActv;
     entityService.get("/User/GetAllAssignmentsPatientForProfessionnel?professionnelId=", this.authService.CurrentUserId).subscribe(data => {
@@ -138,9 +141,26 @@ export class PatientListComponent {
       }
       
       this.drawGraph();
+      this.entityServiceDailyGoal.get("/api/DailyGoal/GetByUserId?userId=",id).subscribe(data=>{
+        var Data: any = data;
+        if (!Data.success) {
+        this.messageService.add({ severity: 'error', summary: 'Error', detail: Data.message });
+        return;
+        }
+        if(Data.data.length == 0){
+          this.isDailyGoalActive = false;
+        }else{
+          this.isDailyGoalActive = true;
+          this.patientDailyGoal = Data.data;
+          console.log(this.patientDailyGoal);
+        }
+      
+      })
     })
   }
-
+  newDailyGoal(id: number){
+     
+  }
   open(id: number) {
     this.router.navigate(['/counselee-profile/' + id]);
   }

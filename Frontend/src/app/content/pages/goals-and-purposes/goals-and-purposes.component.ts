@@ -15,10 +15,6 @@ export class GoalsAndPurposesComponent {
     purposes: Purpose[] = [];
     addGoal: boolean = false;
     loaded = false;
-    first = true;
-    last = false;
-    index: number = 0;
-    state: string = "goal";
 
     constructor(private entityService: HttpEntityRepositoryService<GetGoal>, messageService: MessageService, authService: AuthService) {
         this.entityService.get("/api/Goal/GetByUserIdWithGoalName?userId=", authService.CurrentUserId).subscribe(data => {
@@ -45,19 +41,49 @@ export class GoalsAndPurposesComponent {
         this.addGoal = true;
     }
 
-    cardSwipe(value) {
+    gFirst = true;
+    gLast = false;
+    pFirst = true;
+    pLast = false;
+    gIndex: number = 0;
+    pIndex: number = 0;
+    cardSwipeGoal(value) {
         if (value == "next") {
-            this.first = false;
-            if (this.index + 1 != this.goals.length && this.state == "goal") {
-                this.index++;
+            this.gFirst = false;
+            if (this.gIndex + 1 != this.goals.length) {
+                this.gIndex++;
             }
-            else{
-                // if()
+            else {
+                this.gLast = true;
             }
         }
         else {
-            if (this.index != 0) {
-                this.index--;
+            this.gFirst = false;
+            if (this.gIndex != 0) {
+                this.gIndex--;
+            }
+            else {
+                this.gFirst = true;
+            }
+        }
+    }
+    cardSwipePurpose(value) {
+        if (value == "next") {
+            this.pFirst = false;
+            if (this.pIndex + 1 != this.purposes.length) {
+                this.pIndex++;
+            }
+            else {
+                this.pLast = true;
+            }
+        }
+        else {
+            this.pLast = false;
+            if (this.pIndex != 0) {
+                this.pIndex--;
+            }
+            else {
+                this.pFirst = true;
             }
         }
     }
