@@ -24,7 +24,7 @@
                 <li routerLinkActive='active'><a class="side-item" routerLink="/control-panel"><i
                             class="fa fa-laptop fa-lg" aria-hidden="true"></i>{{'menu.crud' | translate}}</a></li>
             </div>
-            <div *ngIf="includesAdmin || includesProfes">
+            <div *ngIf="includesAdmin">
 
                 <li routerLinkActive='active'><a class="side-item" routerLink="/all-experts"><i
                             class="fa fa-address-book fa-lg" aria-hidden="true"></i>{{'menu.all-experts' |
@@ -33,7 +33,8 @@
             <div *ngIf="includesAdmin ">
 
                 <li routerLinkActive='active'><a class="side-item" routerLink="/all-users"><i
-                            class="fa fa-id-badge fa-lg" aria-hidden="true"></i>{{'menu.all-users' | translate}}</a></li>
+                            class="fa fa-id-badge fa-lg" aria-hidden="true"></i>{{'menu.all-users' | translate}}</a>
+                </li>
             </div>
             <div *ngIf="includesProfes || includesPatient || includesAdmin;">
                 <li routerLinkActive='active'>
@@ -61,7 +62,7 @@
                 <li routerLinkActive='active'><a class="side-item" routerLink="/patient-list"><i
                             class="fa fa-users fa-lg" aria-hidden="true"></i>{{'menu.patients' | translate}}</a></li>
             </div>
-            <div *ngIf="includesProfes || includesPatient || includesAdmin;">
+            <div *ngIf="includesProfes || includesPatient;">
 
                 <li routerLinkActive='active'><a class="side-item" routerLink="/food-list"><i class="fa fa-book fa-lg"
                             aria-hidden="true"></i>{{'menu.foodList' | translate}}</a></li>
@@ -84,8 +85,8 @@
             </div>
             <div *ngIf="includesPatient">
 
-                <li routerLinkActive='active'><a class="side-item" routerLink="/goals-and-purposes"><i class="fa fa-bullseye fa-lg"
-                            aria-hidden="true"></i>{{'menu.goal' | translate}}</a></li>
+                <li routerLinkActive='active'><a class="side-item" routerLink="/goals-and-purposes"><i
+                            class="fa fa-bullseye fa-lg" aria-hidden="true"></i>{{'menu.goal' | translate}}</a></li>
             </div>
         </ul>
         <div class="language">

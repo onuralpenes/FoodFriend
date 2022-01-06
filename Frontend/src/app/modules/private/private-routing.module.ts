@@ -62,7 +62,7 @@ const routes: Routes = [
             {
                 path: 'food-list', component: FoodListComponent,
                 canActivate: [RoleGuardService],
-                data: { roles: [Roles.Professional, Roles.Admin, Roles.Patient] }
+                data: { roles: [Roles.Professional, Roles.Patient] }
             },
             {
                 path: 'settings', component: SettingsComponent,
@@ -87,7 +87,7 @@ const routes: Routes = [
             {
                 path: 'all-experts', component: AllProffessionalsComponent,
                 canActivate: [RoleGuardService],
-                data: { roles: [Roles.Admin, Roles.Professional] } //Role alınınca değişecek.
+                data: { roles: [Roles.Admin] }
             },
             {
                 path: 'control-panel', component: ControlPanelComponent,
