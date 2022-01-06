@@ -227,5 +227,8 @@
     "eating": "Eating Activity",
     "calorie": "Calorie Tracking",
     "value": "Nutritional Value"
+  },
+  "recom": {
+    "recom": " expert gives the recommendations to you:"
   }
 }

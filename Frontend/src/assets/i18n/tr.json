@@ -227,5 +227,8 @@
     "eating": "Eating Activity",
     "calorie": "Kalori Takibi",
     "value": "Besin Değeri"
+  },
+  "recom": {
+    "recom": " uzmanının size vermiş olduğu öneriler:"
   }
 }
