@@ -59,12 +59,12 @@
               <p style="margin-left: 41%;"> {{ users.firstName }}{{'expert.sum' | translate}} </p>
               <div class="row upper-div" style="width: 100%;">
                 <div style="width: 50%; height: 350px; margin-left: 10px;">
-                  <h3 style="margin:0 auto ; text-align: center;">Calorie Tracking</h3>
+                  <h3 style="margin:0 auto ; text-align: center;">{{'patientNutrition.calorie' | translate}}</h3>
                   <p-chart type="doughnut" [width]="'250'" [data]="dataCalorieTracking"
                     [options]="chartOptionsNutritionalValue"></p-chart>
                 </div>
                 <div style="width: 50%; height: 400px; margin-left: -55px;">
-                  <h3 style="margin:0 auto ; text-align: center;">Nutritional Value</h3>
+                  <h3 style="margin:0 auto ; text-align: center;">{{'patientNutrition.value' | translate}}</h3>
                   <p-chart type="polarArea" [data]="dataNutritionalValue" [height]="'250'"
                     [options]="chartOptionsCalorieTracking" [style]="{'width': '40%'}"></p-chart>
                 </div>
@@ -73,12 +73,12 @@
                 <div class="col-md-2"></div>
                 <div class="col-md-3">
                   <button style="height: 100% !important;" class="tab-button" (click)="openActivity()"> {{
-                    users.firstName }}'s Energy Activities</button>
+                    users.firstName }}{{'daily.forEnergy' | translate}}</button>
                 </div>
                 <div class="col-md-2"></div>
                 <div class="col-md-3">
                   <button style="height: 100% !important;" class="tab-button" (click)="openFood()">{{ users.firstName
-                    }}'s Eating Activities</button>
+                    }}{{'daily.for' | translate}}</button>
                 </div>
                 <div class="col-md-2"></div>
               </div>
@@ -99,25 +99,25 @@
                 </div>
                 <div class="col-md-5">
                   <h1>
-                    {{users.firstName}} için günlük hedefler
+                    {{users.firstName}} {{'patientList.for' | translate}}
                   </h1>
                   <div [ngClass]="isDailyGoalActive ? 'hidden':'display'">
-                    <p> Kullanıcıya günlük hedef verilmemiş </p>
+                    <p> {{'patientList.dailyGoal' | translate}} </p>
                     <button class="tab-button" (click)="newDailyGoal(users.userId)">
-                      Günlük Hedef Ekle
+                      {{'patientList.add' | translate}}
                     </button>
 
                   </div>
                   <div [ngClass]="!isDailyGoalActive ? 'hidden':'display'" class="dailyGoalInfo">
-                    <p> Alınabilecek Kalori: {{patientDailyGoal[0].dailyCaloriIntake}}</p>
-                    <p> Alınabilecek Karbonhidrat: {{patientDailyGoal[0].dailyCarbohydrateIntake}} </p>
-                    <p> Alınabilecek Protein: {{patientDailyGoal[0].dailyProteinIntake}}</p>
-                    <p> Alınabilecek Yağ: {{patientDailyGoal[0].dailyOilIntake}}</p>
-                    <p> Hedeflenen Adım: {{patientDailyGoal[0].dailyTargetStep}}</p>
-                    <p> Hedef Kilo: {{patientDailyGoal[0].targetWeight}}</p>
-                    <p> Kalori Yakımı: {{patientDailyGoal[0].dailyCaloriExpenditure}}</p>
+                    <p> {{'patientList.calorie' | translate}} {{patientDailyGoal[0].dailyCaloriIntake}}</p>
+                    <p> {{'patientList.chad' | translate}} {{patientDailyGoal[0].dailyCarbohydrateIntake}} </p>
+                    <p> {{'patientList.protein' | translate}} {{patientDailyGoal[0].dailyProteinIntake}}</p>
+                    <p> {{'patientList.oil' | translate}} {{patientDailyGoal[0].dailyOilIntake}}</p>
+                    <p> {{'patientList.steps' | translate}} {{patientDailyGoal[0].dailyTargetStep}}</p>
+                    <p> {{'patientList.weight' | translate}} {{patientDailyGoal[0].targetWeight}}</p>
+                    <p> {{'patientList.burn' | translate}} {{patientDailyGoal[0].dailyCaloriExpenditure}}</p>
                     <button class="tab-button" (click)="newDailyGoal(users.userId)">
-                      Güncelle
+                      {{'patientList.update' | translate}}
                     </button>
                   </div>
                 </div>
@@ -131,7 +131,7 @@
 </div>
 
 <p-dialog header="Nutrition Information" [(visible)]="nutritionInformation" [dismissableMask]="true" [draggable]="false"
-  [modal]="true" [appendTo]="'body'" [closeOnEscape]="true" [blockScroll]="true">
+  [modal]="true" [appendTo]="'body'" [closeOnEscape]="true" [blockScroll]="true" [style]="{width: '40%'}">
   <app-patient-nutrition-table [id]="clickedUserId"></app-patient-nutrition-table>
 </p-dialog>
 

@@ -1,0 +1,10 @@
+:host ::ng-deep .p-inputtext{
+  width: 100%;
+}
+
+/* p-inputtext p-component p-element ng-untouched ng-pristine ng-valid p-filled */
+
+.labels{
+  margin-bottom: 15%;
+  width: 100%;
+}

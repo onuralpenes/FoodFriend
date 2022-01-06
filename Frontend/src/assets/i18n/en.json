@@ -198,5 +198,37 @@
     "male": "Male",
     "female": "Female",
     "genderless": "Genderless"
+  },
+  "patientList": {
+    "for": " for daily goals",
+    "dailyGoal": "No daily goal given to user",
+    "add": "Add Daily Goal",
+    "calorie": "Possible Calories: ",
+    "chad": "Possible Carbs: ",
+    "protein": "Possible Protein: ",
+    "oil": "Possible Oil: ",
+    "steps": "Targeted Step: ",
+    "weight": "Target Weight: ",
+    "burn": "Calorie Burn: ",
+    "update": "Update"
+  },
+  "daily": {
+    "calorie": "Daily Calori Intake",
+    "chad": "Daily Carbohydrate Intake",
+    "protein": "Daily Protein Intake",
+    "oil": "Daily Oil Intake",
+    "targetStep": "Daily Target Step",
+    "weight": "Target Weight",
+    "calorieExp": "Daily Calori Expenditure",
+    "for": "'s Eating Activities",
+    "forEnergy": "'s Energy Activities"
+  },
+  "patientNutrition": {
+    "eating": "Eating Activity",
+    "calorie": "Calorie Tracking",
+    "value": "Nutritional Value"
+  },
+  "recom": {
+    "recom": " expert gives the recommendations to you:"
   }
 }
