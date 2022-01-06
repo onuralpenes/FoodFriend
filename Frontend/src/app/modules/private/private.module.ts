@@ -67,6 +67,7 @@ import { GoalCardComponent } from 'src/app/content/pages/goals-and-purposes/goal
 import { CreateGoalOrPurposeComponent } from 'src/app/content/pages/goals-and-purposes/create-goal-or-purpose/create-goal-or-purpose.component';
 import { PurposeCardComponent } from 'src/app/content/pages/goals-and-purposes/purpose-card/purpose-card.component';
 import { PatientDailyGoalComponent } from 'src/app/content/pages/patient-trace/patient-daily-goal/patient-daily-goal.component';
+import { AllUsersComponent } from 'src/app/content/pages/all-users/all-users.component';
 
 FullCalendarModule.registerPlugins([
   dayGridPlugin,
@@ -131,7 +132,8 @@ export function HttpLoaderFactory(http: HttpClient) {
     NewConnectionComponent,
     RecommendationPatientComponent,
     PurposeCardComponent,
-    PatientDailyGoalComponent
+    PatientDailyGoalComponent,
+    AllUsersComponent
   ],
   imports: [
     CommonModule,
