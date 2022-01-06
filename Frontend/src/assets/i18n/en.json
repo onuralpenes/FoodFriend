@@ -152,7 +152,9 @@
   },
   "dash": {
     "daily": "Your Daily Eating Activities",
-    "weekly": "Your Weekly Eating Activities"
+    "weekly": "Your Weekly Eating Activities",
+    "calorieTracking": "Calorie Tracking",
+    "nutritionalValue": "Nutritional Value"
   },
   "goal": {
     "goalName": "Goal Name",

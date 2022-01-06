@@ -2,11 +2,11 @@
     <h1>{{'dash.daily' | translate}}</h1>
     <div class="row upper-div" style="width: 100%;">
         <div style="width: 350px; height: 350px; margin-left: 10px;">
-            <h3 style="margin:0 auto ; text-align: center;">Calorie Tracking</h3>
+            <h3 style="margin:0 auto ; text-align: center;">{{'dash.calorieTracking' | translate}}</h3>
             <app-consumed-calorie (loaded)="getConsumedCalorieLoaded($event)"></app-consumed-calorie>
         </div>
         <div style="width: 500px; height: 400px; margin-left: -55px;">
-            <h3 style="margin:0 auto ; text-align: center;">Nutritional Value</h3>
+            <h3 style="margin:0 auto ; text-align: center;">{{'dash.nutritionalValue' | translate}}</h3>
             <app-pie-chart-threed (loaded)="getPieChartLoaded($event)" ></app-pie-chart-threed>
         </div>
         <div style="width: 200px;height: 400px; margin-left: 2%;">
@@ -21,7 +21,7 @@
             <app-eating-habit-chart (loaded)="getEatingHabitLoaded($event)"></app-eating-habit-chart>
         </div>
     </div>
-</div> 
+</div>
 
 <app-loading [ngClass]="loaded ? 'hidden-spinner' : 'display-spinner'"  ></app-loading>
 

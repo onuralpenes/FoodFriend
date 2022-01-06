@@ -36,26 +36,26 @@
 </div>
 
 <p-dialog header="{{state}} Disability" [(visible)]="disabilityBool" [dismissableMask]="true" [draggable]="false"
-    [modal]="true" [appendTo]="'body'" [closeOnEscape]="true" [blockScroll]="true" [style]="{width: '50%'}">
+    [modal]="true" [appendTo]="'body'" [closeOnEscape]="true" [blockScroll]="true" [style]="{width: '30%'}">
     <div class="container">
         <form [formGroup]="disabilityForm" (ngSubmit)="onSubmit()" class="form">
             <div class="row">
                 <div class="col">
                     <span style="margin-bottom: 12%; margin-top: 10%" class="p-float-label">
-                        <input type="text" pInputText formControlName="disabledDescription" />
+                        <input style="width: 100% !important;" type="text" pInputText formControlName="disabledDescription" />
                         <label for="float-input">{{ "label.disDec" | translate }}</label>
                     </span>
                 </div>
                 <div class="col">
                     <span style="margin-bottom: 12%; margin-top: 10%" class="p-float-label">
-                        <input type="number" pInputText formControlName="disabledRatio" />
+                        <input style="width: 100% !important;" type="number" pInputText formControlName="disabledRatio" />
                         <label for="float-input">{{ "label.disRat" | translate }}</label>
                     </span>
                 </div>
             </div>
             <br>
             <div class="row">
-                <div class="col-md-9"></div>
+                <!-- <div class="col-md-9"></div> -->
                 <div class="col-md-1">
                     <button class="add-button" type="submit">{{ "label.submit" | translate }}</button>
                 </div>

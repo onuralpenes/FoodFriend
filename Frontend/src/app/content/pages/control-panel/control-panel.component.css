@@ -48,3 +48,8 @@ background-color: #00d6a0;
     border: 1px solid #00ecb0;
     background-color: #00d6a0;
   }
+
+  :host ::ng-deep .p-component {
+    width: 100%;
+  }
+

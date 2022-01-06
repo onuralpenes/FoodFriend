@@ -152,7 +152,9 @@
   },
   "dash": {
     "daily": "Günlük Yeme Aktivitelerin",
-    "weekly": "Haftalık Yeme Aktivitelerin"
+    "weekly": "Haftalık Yeme Aktivitelerin",
+    "calorieTracking": "Kalori Takibi",
+    "nutritionalValue": "Besin Değeri"
   },
   "goal": {
     "goalName": "Hedef Adı",

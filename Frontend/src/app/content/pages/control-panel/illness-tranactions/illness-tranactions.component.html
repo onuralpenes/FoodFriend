@@ -1,6 +1,6 @@
 <div [ngClass]="loaded ? 'loaded-content' : 'loading-content'">
     <div class="row">
-        <div class="col-md-10"></div>
+        <div class="col-md-9"></div>
         <div class="col-md-1">
             <button class="add-button" (click)="add()" type="button">{{'table.add' | translate}}</button>
         </div>
@@ -33,21 +33,21 @@
 </div>
 
 <p-dialog header="{{state}} Illness" [(visible)]="illnessBool" [dismissableMask]="true" [draggable]="false" [modal]="true"
-    [appendTo]="'body'" [closeOnEscape]="true" [blockScroll]="true" [style]="{width: '50%'}">
+    [appendTo]="'body'" [closeOnEscape]="true" [blockScroll]="true" [style]="{width: '30%'}">
     <div class="container">
         <form [formGroup]="illnessForm" (ngSubmit)="onSubmit()" class="form">
             <div class="row">
                 <div class="col">
                     <span style="margin-bottom: 12%; margin-top: 10%" class="p-float-label">
-                        <input type="text" pInputText formControlName="illnessName" />
+                        <input style="width: 100% !important;" type="text" pInputText formControlName="illnessName" />
                         <label for="float-input">{{ "table.name" | translate }}</label>
                     </span>
                 </div>
             </div>
             <br>
             <div class="row">
-                <div class="col-md-9"></div>
-                <div class="col-md-1">
+                <!-- <div class="col-md-9"></div> -->
+                <div class="col-md-1" style="margin-right: 1%;">
                     <button class="add-button" type="submit">{{ "label.submit" | translate }}</button>
                 </div>
             </div>

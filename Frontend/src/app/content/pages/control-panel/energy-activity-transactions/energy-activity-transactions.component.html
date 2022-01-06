@@ -46,48 +46,48 @@
 </div>
 
 <p-dialog header="{{state}} Disability" [(visible)]="energyActivityBool" [dismissableMask]="true" [draggable]="false"
-    [modal]="true" [appendTo]="'body'" [closeOnEscape]="true" [blockScroll]="true" [style]="{width: '50%'}">
+    [modal]="true" [appendTo]="'body'" [closeOnEscape]="true" [blockScroll]="true" [style]="{width: '30%'}">
     <div class="container">
         <form [formGroup]="energyActivityForm" (ngSubmit)="onSubmit()" class="form">
             <div class="row">
                 <div class="col">
                     <span style="margin-bottom: 12%; margin-top: 10%" class="p-float-label">
-                        <input type="text" pInputText formControlName="activityType" />
+                        <input style="width: 100% !important;" type="text" pInputText formControlName="activityType" />
                         <label for="float-input">{{ "table.type" | translate }}</label>
                     </span>
                 </div>
                 <div class="col">
                     <span style="margin-bottom: 12%; margin-top: 10%" class="p-float-label">
-                        <input type="number" pInputText formControlName="activityPeriod" />
+                        <input style="width: 100% !important;" type="number" pInputText formControlName="activityPeriod" />
                         <label for="float-input">{{ "table.period" | translate }}</label>
                     </span>
                 </div>
                 <div class="col">
                     <span style="margin-bottom: 12%; margin-top: 10%" class="p-float-label">
-                        <input type="number" pInputText formControlName="activityEffortSpent" />
+                        <input style="width: 100% !important;" type="number" pInputText formControlName="activityEffortSpent" />
                         <label for="float-input">{{ "label.effort" | translate }}</label>
                     </span>
                 </div>
                 <div class="col">
                     <span style="margin-bottom: 12%; margin-top: 10%" class="p-float-label">
-                        <input type="number" pInputText formControlName="activityEffortUnit" />
+                        <input style="width: 100% !important;" type="number" pInputText formControlName="activityEffortUnit" />
                         <label for="float-input">{{ "label.unit" | translate }}</label>
                     </span>
                 </div>
                 <div class="col">
                     <span style="margin-bottom: 12%; margin-top: 10%" class="p-float-label">
-                        <input type="text" pInputText formControlName="activityStartDate" />
+                        <input style="width: 100% !important;" type="text" pInputText formControlName="activityStartDate" />
                     </span>
                 </div>
                 <div class="col">
                     <span style="margin-bottom: 12%; margin-top: 10%" class="p-float-label">
-                        <input type="number" pInputText formControlName="activityEndDate" />
+                        <input style="width: 100% !important;" type="number" pInputText formControlName="activityEndDate" />
                     </span>
                 </div>
             </div>
             <br>
             <div class="row">
-                <div class="col-md-9"></div>
+                <!-- <div class="col-md-9"></div> -->
                 <div class="col-md-1">
                     <button class="add-button" type="submit">{{ "label.submit" | translate }}</button>
                 </div>
