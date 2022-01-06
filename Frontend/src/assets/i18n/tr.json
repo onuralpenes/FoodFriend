@@ -231,11 +231,5 @@
   },
   "recom": {
     "recom": " uzmanının size vermiş olduğu öneriler:"
-  },
-  "allUsersTable": {
-    "name": "İsim",
-    "surname": "Soyisim",
-    "mail": "Mail Adresi",
-    "birthDate": "Doğum Günü"
   }
 }
